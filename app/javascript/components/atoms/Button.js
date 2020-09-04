@@ -2,12 +2,26 @@ import React from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 
-const Button = ({ type, text, small, tiny, tertiary, classes, ...rest }) => {
-  const btnClassNames = classNames('button', classes, {
-    'small': small,
-    'tertiary': tertiary,
-    'tiny': tiny
-  })
+const Button = ({
+  type,
+  text,
+  small,
+  tiny,
+  tertiary,
+  noBottomMargin,
+  classes,
+  ...rest
+}) => {
+  const btnClassNames = classNames(
+    classes,
+    'button',
+    {
+      'small': small,
+      'tertiary': tertiary,
+      'tiny': tiny,
+      'margin-bottom-none': noBottomMargin
+    }
+  )
   return (
     <button
       className={btnClassNames}
@@ -20,11 +34,13 @@ const Button = ({ type, text, small, tiny, tertiary, classes, ...rest }) => {
 }
 
 Button.propTypes = {
-  type: PropTypes.oneOf(['button', 'submit'])
+  type: PropTypes.oneOf(['button', 'submit']),
+  noBottomMargin: PropTypes.bool
 }
 
 Button.defaultProps = {
-  type: 'button'
+  type: 'button',
+  noBottomMargin: false
 }
 
 export default Button

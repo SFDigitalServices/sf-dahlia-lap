@@ -1,6 +1,5 @@
 import React from 'react'
 import { isEmpty, findIndex } from 'lodash'
-import classNames from 'classnames'
 
 import TableWrapper from '~/components/atoms/TableWrapper'
 import ExpandableTable from '~/components/molecules/ExpandableTable'
@@ -169,98 +168,91 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
   const getField = (assistanceField) => `rental_assistances.${index}.${assistanceField}`
 
   return (
-    <>
-      <div className={classNames(
-        // Convert these to IDs, they are only being used for tests.
-        {
-          'rental-assistance-new-form': isNew,
-          'rental-assistance-edit-form': !isNew
-        }
-      )}>
-        <InlineModal whiteBackground marginBottom={isNew} >
-          <FormGrid.Row>
-            <FormGrid.Item>
-              <SelectField
-                label='Recipient'
-                fieldName={getField('recipient')}
-                options={applicationMembersOptions}
-                className='rental-assistance-recipient'
-              />
-            </FormGrid.Item>
-          </FormGrid.Row>
-          <FormGrid.Row>
-            <FormGrid.Item>
-              <SelectField
-                label='Type of Assistance'
-                fieldName={getField('type_of_assistance')}
-                options={typeOfAssistanceOptions}
-                className='rental-assistance-type'
-                validation={validate.isPresent('Please select a type of assistance.')}
-              />
-            </FormGrid.Item>
-          </FormGrid.Row>
-          <FormGrid.Row>
-            <FormGrid.Item>
-              <CurrencyField
-                label='Assistance Amount'
-                fieldName={getField('assistance_amount')}
-                validation={validateAssistanceAmount}
-                id='assistance_amount'
-                isDirty={visited && visited[getField('assistance_amount')]}
-              />
-            </FormGrid.Item>
-          </FormGrid.Row>
-          <FormGrid.Row>
-            <FormGrid.Item>
-              <YesNoRadioGroup
-                label='Recurring Assistance'
-                fieldName={getField('recurring_assistance')}
-                uniqId={(values?.id) || 'new'}
-                trueValue='Yes'
-                falseValue='No'
-                className='rental-assistance-recurring'
-              />
-            </FormGrid.Item>
-          </FormGrid.Row>
-          {isOther(form.getState().values.rental_assistances[index]) && (
-            <FormGrid.Row>
-              <FormGrid.Item>
-                <InputField
-                  label='Other Assistance Name'
-                  fieldName={getField('other_assistance_name')} />
-              </FormGrid.Item>
-            </FormGrid.Row>
+    <InlineModal whiteBackground marginBottom={isNew} >
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <SelectField
+            label='Recipient'
+            fieldName={getField('recipient')}
+            options={applicationMembersOptions}
+            className='rental-assistance-recipient'
+          />
+        </FormGrid.Item>
+      </FormGrid.Row>
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <SelectField
+            label='Type of Assistance'
+            fieldName={getField('type_of_assistance')}
+            options={typeOfAssistanceOptions}
+            className='rental-assistance-type'
+            validation={validate.isPresent('Please select a type of assistance.')}
+          />
+        </FormGrid.Item>
+      </FormGrid.Row>
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <CurrencyField
+            label='Assistance Amount'
+            fieldName={getField('assistance_amount')}
+            validation={validateAssistanceAmount}
+            id='assistance_amount'
+            isDirty={visited && visited[getField('assistance_amount')]}
+          />
+        </FormGrid.Item>
+      </FormGrid.Row>
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <YesNoRadioGroup
+            label='Recurring Assistance'
+            fieldName={getField('recurring_assistance')}
+            uniqId={(values?.id) || 'new'}
+            trueValue='Yes'
+            falseValue='No'
+            className='rental-assistance-recurring'
+          />
+        </FormGrid.Item>
+      </FormGrid.Row>
+      {isOther(form.getState().values.rental_assistances[index]) && (
+        <FormGrid.Row>
+          <FormGrid.Item>
+            <InputField
+              label='Other Assistance Name'
+              fieldName={getField('other_assistance_name')} />
+          </FormGrid.Item>
+        </FormGrid.Row>
+      )}
+      <FormGrid.Row>
+        <div className='form-grid_item column'>
+          <Button
+            classes='primary margin-right'
+            tiny
+            onClick={onSaveWithIndex}
+            disabled={loading}
+            noBottomMargin
+            text='Save'
+          />
+          <Button
+            classes='secondary'
+            tiny
+            onClick={onClose}
+            disabled={loading}
+            noBottomMargin
+            text='Cancel'
+          />
+          {!isNew && (
+            <Button
+              classes='alert-fill right'
+              tiny
+              onClick={onDelete}
+              disabled={loading}
+              noBottomMargin
+              text='Delete'
+            />
           )}
-          <FormGrid.Row>
-            <div className='form-grid_item column'>
-              <Button
-                classes='primary margin-right'
-                tiny
-                onClick={onSaveWithIndex}
-                disabled={loading}
-                text='Save'
-              />
-              <Button
-                classes='secondary'
-                tiny
-                onClick={onClose}
-                disabled={loading}
-                text='Cancel'
-              />
-              {!isNew && (
-                <Button
-                  classes='alert-fill right'
-                  tiny
-                  onClick={onDelete}
-                  disabled={loading}
-                  text='Delete'
-                />
-              )}
-            </div>
-          </FormGrid.Row>
-        </InlineModal>
-      </div>
-    </>
+        </div>
+      </FormGrid.Row>
+    </InlineModal>
   )
 }
 
@@ -299,23 +291,27 @@ const RentalAssistance = ({ store, form, submitting, visited }) => {
       )}
 
       {showNewRentalAssistancePanel && (
-        <RentalAssistanceForm
-          onSave={onSave}
-          onClose={onClose}
-          applicationMembers={applicationMembers}
-          loading={rentalAssistanceLoading}
-          values={{ type_of_assistance: null }}
-          index={application.rental_assistances.length}
-          form={form}
-          visited={visited}
-          isNew
-        />
+        <FormGrid.Row expand={false}>
+          <RentalAssistanceForm
+            onSave={onSave}
+            onClose={onClose}
+            applicationMembers={applicationMembers}
+            loading={rentalAssistanceLoading}
+            values={{ type_of_assistance: null }}
+            index={application.rental_assistances.length}
+            form={form}
+            visited={visited}
+            isNew
+          />
+        </FormGrid.Row>
       )}
       {showAddRentalAssistanceBtn && (
-        <FormGrid.Item>
-          <Button id='add-rental-assistance' text='Add Rental Assistance' small onClick={handleOpenRentalAssistancePanel} />
-          <HelpText note='Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.' />
-        </FormGrid.Item>
+        <FormGrid.Row>
+          <FormGrid.Item>
+            <Button id='add-rental-assistance' text='Add Rental Assistance' small onClick={handleOpenRentalAssistancePanel} />
+            <HelpText note='Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.' />
+          </FormGrid.Item>
+        </FormGrid.Row>
       )}
     </>
   )

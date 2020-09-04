@@ -30,6 +30,7 @@ const LeaseActions = ({ onSave, onCancelLeaseClick, onDelete, isNew, loading }) 
       small
       onClick={onSave}
       disabled={loading}
+      noBottomMargin
       text='Save Lease'
     />
     <Button
@@ -37,6 +38,7 @@ const LeaseActions = ({ onSave, onCancelLeaseClick, onDelete, isNew, loading }) 
       small
       onClick={onCancelLeaseClick}
       disabled={loading}
+      noBottomMargin
       text='Cancel'
     />
     {!isNew && (
@@ -45,6 +47,7 @@ const LeaseActions = ({ onSave, onCancelLeaseClick, onDelete, isNew, loading }) 
         small
         onClick={onDelete}
         disabled={loading}
+        noBottomMargin
         text='Delete'
       />
     )}
@@ -114,9 +117,7 @@ const Lease = ({ form, submitting, values, store }) => {
             <Label label='Rental Assistance' />
           </FormGrid.Item>
         </FormGrid.Row>
-        <FormGrid.Row>
-          <RentalAssistance form={form} submitting={submitting} />
-        </FormGrid.Row>
+        <RentalAssistance form={form} submitting={submitting} />
         <FormGrid.Row>
           <FormGrid.Item>
             <CurrencyField

@@ -102,276 +102,272 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                 colSpan={5}
               >
                 <div
-                  className="rental-assistance-edit-form"
+                  className="inline-modal padding-left--2x padding-right--2x white-background"
                 >
                   <div
-                    className="inline-modal padding-left--2x padding-right--2x white-background"
+                    className="form-grid row expand"
                   >
                     <div
-                      className="form-grid row expand"
+                      className="form-grid_item small-6 medium-6 large-6 column"
                     >
                       <div
-                        className="form-grid_item small-6 medium-6 large-6 column"
+                        className="form-group"
                       >
-                        <div
-                          className="form-group"
+                        <label
+                          className="form-label"
+                          htmlFor="form-rental_assistances.0.recipient"
+                          id="label-rental_assistances-0.recipient"
                         >
-                          <label
-                            className="form-label"
-                            htmlFor="form-rental_assistances.0.recipient"
-                            id="label-rental_assistances-0.recipient"
+                          Recipient
+                        </label>
+                        <select
+                          className="rental-assistance-recipient"
+                          id="form-rental_assistances.0.recipient"
+                          name="rental_assistances.0.recipient"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          value="123"
+                        >
+                          <option
+                            value=""
                           >
-                            Recipient
-                          </label>
-                          <select
-                            className="rental-assistance-recipient"
-                            id="form-rental_assistances.0.recipient"
-                            name="rental_assistances.0.recipient"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
+                            Select One...
+                          </option>
+                          <option
                             value="123"
                           >
-                            <option
-                              value=""
-                            >
-                              Select One...
-                            </option>
-                            <option
-                              value="123"
-                            >
-                              Test Tester
-                            </option>
-                          </select>
-                        </div>
+                            Test Tester
+                          </option>
+                        </select>
                       </div>
                     </div>
+                  </div>
+                  <div
+                    className="form-grid row expand"
+                  >
                     <div
-                      className="form-grid row expand"
+                      className="form-grid_item small-6 medium-6 large-6 column"
                     >
                       <div
-                        className="form-grid_item small-6 medium-6 large-6 column"
+                        className="form-group"
                       >
-                        <div
-                          className="form-group"
+                        <label
+                          className="form-label"
+                          htmlFor="form-rental_assistances.0.type_of_assistance"
+                          id="label-rental_assistances-0.type_of_assistance"
                         >
-                          <label
-                            className="form-label"
-                            htmlFor="form-rental_assistances.0.type_of_assistance"
-                            id="label-rental_assistances-0.type_of_assistance"
+                          Type of Assistance
+                        </label>
+                        <select
+                          className="rental-assistance-type"
+                          id="form-rental_assistances.0.type_of_assistance"
+                          name="rental_assistances.0.type_of_assistance"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          value="Compass Family"
+                        >
+                          <option
+                            value=""
                           >
-                            Type of Assistance
-                          </label>
-                          <select
-                            className="rental-assistance-type"
-                            id="form-rental_assistances.0.type_of_assistance"
-                            name="rental_assistances.0.type_of_assistance"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
+                            Select One...
+                          </option>
+                          <option
+                            value="Catholic Charities"
+                          >
+                            Catholic Charities
+                          </option>
+                          <option
                             value="Compass Family"
                           >
-                            <option
-                              value=""
-                            >
-                              Select One...
-                            </option>
-                            <option
-                              value="Catholic Charities"
-                            >
-                              Catholic Charities
-                            </option>
-                            <option
-                              value="Compass Family"
-                            >
-                              Compass Family
-                            </option>
-                            <option
-                              value="Glide"
-                            >
-                              Glide
-                            </option>
-                            <option
-                              value="Hamilton Family"
-                            >
-                              Hamilton Family
-                            </option>
-                            <option
-                              value="Homeless Prenatal"
-                            >
-                              Homeless Prenatal
-                            </option>
-                            <option
-                              value="HOPWA"
-                            >
-                              HOPWA
-                            </option>
-                            <option
-                              value="Q Foundation: First Month’s Rent"
-                            >
-                              Q Foundation: First Month’s Rent
-                            </option>
-                            <option
-                              value="Q Foundation: Move-in Deposit"
-                            >
-                              Q Foundation: Move-in Deposit
-                            </option>
-                            <option
-                              value="Q Foundation: Person with Disability Rent Subsidy"
-                            >
-                              Q Foundation: Person with Disability Rent Subsidy
-                            </option>
-                            <option
-                              value="Q Foundation: Senior Rent Subsidy"
-                            >
-                              Q Foundation: Senior Rent Subsidy
-                            </option>
-                            <option
-                              value="San Francisco AIDS Foundation"
-                            >
-                              San Francisco AIDS Foundation
-                            </option>
-                            <option
-                              value="Section 8 HCV (tenant) voucher"
-                            >
-                              Section 8 HCV (tenant) voucher
-                            </option>
-                            <option
-                              value="Self-Help for the Elderly"
-                            >
-                              Self-Help for the Elderly
-                            </option>
-                            <option
-                              value="VASH voucher"
-                            >
-                              VASH voucher
-                            </option>
-                            <option
-                              value="Other"
-                            >
-                              Other
-                            </option>
-                          </select>
-                        </div>
+                            Compass Family
+                          </option>
+                          <option
+                            value="Glide"
+                          >
+                            Glide
+                          </option>
+                          <option
+                            value="Hamilton Family"
+                          >
+                            Hamilton Family
+                          </option>
+                          <option
+                            value="Homeless Prenatal"
+                          >
+                            Homeless Prenatal
+                          </option>
+                          <option
+                            value="HOPWA"
+                          >
+                            HOPWA
+                          </option>
+                          <option
+                            value="Q Foundation: First Month’s Rent"
+                          >
+                            Q Foundation: First Month’s Rent
+                          </option>
+                          <option
+                            value="Q Foundation: Move-in Deposit"
+                          >
+                            Q Foundation: Move-in Deposit
+                          </option>
+                          <option
+                            value="Q Foundation: Person with Disability Rent Subsidy"
+                          >
+                            Q Foundation: Person with Disability Rent Subsidy
+                          </option>
+                          <option
+                            value="Q Foundation: Senior Rent Subsidy"
+                          >
+                            Q Foundation: Senior Rent Subsidy
+                          </option>
+                          <option
+                            value="San Francisco AIDS Foundation"
+                          >
+                            San Francisco AIDS Foundation
+                          </option>
+                          <option
+                            value="Section 8 HCV (tenant) voucher"
+                          >
+                            Section 8 HCV (tenant) voucher
+                          </option>
+                          <option
+                            value="Self-Help for the Elderly"
+                          >
+                            Self-Help for the Elderly
+                          </option>
+                          <option
+                            value="VASH voucher"
+                          >
+                            VASH voucher
+                          </option>
+                          <option
+                            value="Other"
+                          >
+                            Other
+                          </option>
+                        </select>
                       </div>
                     </div>
+                  </div>
+                  <div
+                    className="form-grid row expand"
+                  >
                     <div
-                      className="form-grid row expand"
+                      className="form-grid_item small-6 medium-6 large-6 column"
                     >
                       <div
-                        className="form-grid_item small-6 medium-6 large-6 column"
+                        className="form-group"
                       >
-                        <div
-                          className="form-group"
+                        <label
+                          className="form-label"
+                          htmlFor="assistance_amount"
+                          id="label-rental_assistances-0.assistance_amount"
                         >
-                          <label
-                            className="form-label"
-                            htmlFor="assistance_amount"
-                            id="label-rental_assistances-0.assistance_amount"
-                          >
-                            Assistance Amount
-                          </label>
+                          Assistance Amount
+                        </label>
+                        <input
+                          className=""
+                          id="assistance_amount"
+                          name="rental_assistances.0.assistance_amount"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder="Enter Amount"
+                          type="text"
+                          value="100"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="form-grid row expand"
+                  >
+                    <div
+                      className="form-grid_item small-6 medium-6 large-6 column"
+                    >
+                      <div
+                        className="rental-assistance-recurring radio-group-inline"
+                      >
+                        <label
+                          className="form-label"
+                          htmlFor="form-rental_assistances.0.recurring_assistance"
+                          id="label-rental_assistances-0.recurring_assistance"
+                        >
+                          Recurring Assistance
+                        </label>
+                        <p
+                          className="radio-inline"
+                        >
                           <input
-                            className=""
-                            id="assistance_amount"
-                            name="rental_assistances.0.assistance_amount"
+                            checked={true}
+                            id="rental_assistances.0.recurring_assistance-new-yes"
+                            name="rental_assistances.0.recurring_assistance"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
-                            placeholder="Enter Amount"
-                            type="text"
-                            value="100"
+                            type="radio"
+                            value="Yes"
                           />
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="form-grid row expand"
-                    >
-                      <div
-                        className="form-grid_item small-6 medium-6 large-6 column"
-                      >
-                        <div
-                          className="rental-assistance-recurring radio-group-inline"
-                        >
                           <label
-                            className="form-label"
-                            htmlFor="form-rental_assistances.0.recurring_assistance"
-                            id="label-rental_assistances-0.recurring_assistance"
+                            className="radio-inline_label"
+                            htmlFor="rental_assistances.0.recurring_assistance-new-yes"
                           >
-                            Recurring Assistance
+                            Yes
                           </label>
-                          <p
-                            className="radio-inline"
+                        </p>
+                        <p
+                          className="radio-inline"
+                        >
+                          <input
+                            checked={false}
+                            id="rental_assistances.0.recurring_assistance-new-no"
+                            name="rental_assistances.0.recurring_assistance"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="radio"
+                            value="No"
+                          />
+                          <label
+                            className="radio-inline_label"
+                            htmlFor="rental_assistances.0.recurring_assistance-new-no"
                           >
-                            <input
-                              checked={true}
-                              id="rental_assistances.0.recurring_assistance-new-yes"
-                              name="rental_assistances.0.recurring_assistance"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              onFocus={[Function]}
-                              type="radio"
-                              value="Yes"
-                            />
-                            <label
-                              className="radio-inline_label"
-                              htmlFor="rental_assistances.0.recurring_assistance-new-yes"
-                            >
-                              Yes
-                            </label>
-                          </p>
-                          <p
-                            className="radio-inline"
-                          >
-                            <input
-                              checked={false}
-                              id="rental_assistances.0.recurring_assistance-new-no"
-                              name="rental_assistances.0.recurring_assistance"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              onFocus={[Function]}
-                              type="radio"
-                              value="No"
-                            />
-                            <label
-                              className="radio-inline_label"
-                              htmlFor="rental_assistances.0.recurring_assistance-new-no"
-                            >
-                              No
-                            </label>
-                          </p>
-                        </div>
+                            No
+                          </label>
+                        </p>
                       </div>
                     </div>
+                  </div>
+                  <div
+                    className="form-grid row expand"
+                  >
                     <div
-                      className="form-grid row expand"
+                      className="form-grid_item column"
                     >
-                      <div
-                        className="form-grid_item column"
+                      <button
+                        className="primary margin-right button tiny margin-bottom-none"
+                        onClick={[Function]}
+                        type="button"
                       >
-                        <button
-                          className="button primary margin-right tiny"
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Save
-                        </button>
-                        <button
-                          className="button secondary tiny"
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          className="button alert-fill right tiny"
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Delete
-                        </button>
-                      </div>
+                        Save
+                      </button>
+                      <button
+                        className="secondary button tiny margin-bottom-none"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        className="alert-fill right button tiny margin-bottom-none"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Delete
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -383,7 +379,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
     </div>
   </div>
   <div
-    className="rental-assistance-new-form"
+    className="form-grid row margin-left-none margin-right-none"
   >
     <div
       className="inline-modal padding-left--2x padding-right--2x white-background margin-bottom"
@@ -629,14 +625,14 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
           className="form-grid_item column"
         >
           <button
-            className="button primary margin-right tiny"
+            className="primary margin-right button tiny margin-bottom-none"
             onClick={[Function]}
             type="button"
           >
             Save
           </button>
           <button
-            className="button secondary tiny"
+            className="secondary button tiny margin-bottom-none"
             onClick={[Function]}
             type="button"
           >
@@ -647,21 +643,25 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
     </div>
   </div>
   <div
-    className="form-grid_item small-6 medium-6 large-6 column"
+    className="form-grid row expand"
   >
-    <button
-      className="button small"
-      id="add-rental-assistance"
-      onClick={[Function]}
-      type="button"
+    <div
+      className="form-grid_item small-6 medium-6 large-6 column"
     >
-      Add Rental Assistance
-    </button>
-    <span
-      className="form-note shift-up"
-    >
-      Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
-    </span>
+      <button
+        className="button small"
+        id="add-rental-assistance"
+        onClick={[Function]}
+        type="button"
+      >
+        Add Rental Assistance
+      </button>
+      <span
+        className="form-note shift-up"
+      >
+        Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
+      </span>
+    </div>
   </div>
 </form>
 `;
@@ -671,21 +671,25 @@ exports[`RentalAssistance should not render a table if rental assistances is emp
   noValidate={true}
 >
   <div
-    className="form-grid_item small-6 medium-6 large-6 column"
+    className="form-grid row expand"
   >
-    <button
-      className="button small"
-      id="add-rental-assistance"
-      onClick={[Function]}
-      type="button"
+    <div
+      className="form-grid_item small-6 medium-6 large-6 column"
     >
-      Add Rental Assistance
-    </button>
-    <span
-      className="form-note shift-up"
-    >
-      Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
-    </span>
+      <button
+        className="button small"
+        id="add-rental-assistance"
+        onClick={[Function]}
+        type="button"
+      >
+        Add Rental Assistance
+      </button>
+      <span
+        className="form-note shift-up"
+      >
+        Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
+      </span>
+    </div>
   </div>
 </form>
 `;
@@ -792,276 +796,272 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                 colSpan={5}
               >
                 <div
-                  className="rental-assistance-edit-form"
+                  className="inline-modal padding-left--2x padding-right--2x white-background"
                 >
                   <div
-                    className="inline-modal padding-left--2x padding-right--2x white-background"
+                    className="form-grid row expand"
                   >
                     <div
-                      className="form-grid row expand"
+                      className="form-grid_item small-6 medium-6 large-6 column"
                     >
                       <div
-                        className="form-grid_item small-6 medium-6 large-6 column"
+                        className="form-group"
                       >
-                        <div
-                          className="form-group"
+                        <label
+                          className="form-label"
+                          htmlFor="form-rental_assistances.0.recipient"
+                          id="label-rental_assistances-0.recipient"
                         >
-                          <label
-                            className="form-label"
-                            htmlFor="form-rental_assistances.0.recipient"
-                            id="label-rental_assistances-0.recipient"
+                          Recipient
+                        </label>
+                        <select
+                          className="rental-assistance-recipient"
+                          id="form-rental_assistances.0.recipient"
+                          name="rental_assistances.0.recipient"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          value="123"
+                        >
+                          <option
+                            value=""
                           >
-                            Recipient
-                          </label>
-                          <select
-                            className="rental-assistance-recipient"
-                            id="form-rental_assistances.0.recipient"
-                            name="rental_assistances.0.recipient"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
+                            Select One...
+                          </option>
+                          <option
                             value="123"
                           >
-                            <option
-                              value=""
-                            >
-                              Select One...
-                            </option>
-                            <option
-                              value="123"
-                            >
-                              Test Tester
-                            </option>
-                          </select>
-                        </div>
+                            Test Tester
+                          </option>
+                        </select>
                       </div>
                     </div>
+                  </div>
+                  <div
+                    className="form-grid row expand"
+                  >
                     <div
-                      className="form-grid row expand"
+                      className="form-grid_item small-6 medium-6 large-6 column"
                     >
                       <div
-                        className="form-grid_item small-6 medium-6 large-6 column"
+                        className="form-group"
                       >
-                        <div
-                          className="form-group"
+                        <label
+                          className="form-label"
+                          htmlFor="form-rental_assistances.0.type_of_assistance"
+                          id="label-rental_assistances-0.type_of_assistance"
                         >
-                          <label
-                            className="form-label"
-                            htmlFor="form-rental_assistances.0.type_of_assistance"
-                            id="label-rental_assistances-0.type_of_assistance"
+                          Type of Assistance
+                        </label>
+                        <select
+                          className="rental-assistance-type"
+                          id="form-rental_assistances.0.type_of_assistance"
+                          name="rental_assistances.0.type_of_assistance"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          value="Compass Family"
+                        >
+                          <option
+                            value=""
                           >
-                            Type of Assistance
-                          </label>
-                          <select
-                            className="rental-assistance-type"
-                            id="form-rental_assistances.0.type_of_assistance"
-                            name="rental_assistances.0.type_of_assistance"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
+                            Select One...
+                          </option>
+                          <option
+                            value="Catholic Charities"
+                          >
+                            Catholic Charities
+                          </option>
+                          <option
                             value="Compass Family"
                           >
-                            <option
-                              value=""
-                            >
-                              Select One...
-                            </option>
-                            <option
-                              value="Catholic Charities"
-                            >
-                              Catholic Charities
-                            </option>
-                            <option
-                              value="Compass Family"
-                            >
-                              Compass Family
-                            </option>
-                            <option
-                              value="Glide"
-                            >
-                              Glide
-                            </option>
-                            <option
-                              value="Hamilton Family"
-                            >
-                              Hamilton Family
-                            </option>
-                            <option
-                              value="Homeless Prenatal"
-                            >
-                              Homeless Prenatal
-                            </option>
-                            <option
-                              value="HOPWA"
-                            >
-                              HOPWA
-                            </option>
-                            <option
-                              value="Q Foundation: First Month’s Rent"
-                            >
-                              Q Foundation: First Month’s Rent
-                            </option>
-                            <option
-                              value="Q Foundation: Move-in Deposit"
-                            >
-                              Q Foundation: Move-in Deposit
-                            </option>
-                            <option
-                              value="Q Foundation: Person with Disability Rent Subsidy"
-                            >
-                              Q Foundation: Person with Disability Rent Subsidy
-                            </option>
-                            <option
-                              value="Q Foundation: Senior Rent Subsidy"
-                            >
-                              Q Foundation: Senior Rent Subsidy
-                            </option>
-                            <option
-                              value="San Francisco AIDS Foundation"
-                            >
-                              San Francisco AIDS Foundation
-                            </option>
-                            <option
-                              value="Section 8 HCV (tenant) voucher"
-                            >
-                              Section 8 HCV (tenant) voucher
-                            </option>
-                            <option
-                              value="Self-Help for the Elderly"
-                            >
-                              Self-Help for the Elderly
-                            </option>
-                            <option
-                              value="VASH voucher"
-                            >
-                              VASH voucher
-                            </option>
-                            <option
-                              value="Other"
-                            >
-                              Other
-                            </option>
-                          </select>
-                        </div>
+                            Compass Family
+                          </option>
+                          <option
+                            value="Glide"
+                          >
+                            Glide
+                          </option>
+                          <option
+                            value="Hamilton Family"
+                          >
+                            Hamilton Family
+                          </option>
+                          <option
+                            value="Homeless Prenatal"
+                          >
+                            Homeless Prenatal
+                          </option>
+                          <option
+                            value="HOPWA"
+                          >
+                            HOPWA
+                          </option>
+                          <option
+                            value="Q Foundation: First Month’s Rent"
+                          >
+                            Q Foundation: First Month’s Rent
+                          </option>
+                          <option
+                            value="Q Foundation: Move-in Deposit"
+                          >
+                            Q Foundation: Move-in Deposit
+                          </option>
+                          <option
+                            value="Q Foundation: Person with Disability Rent Subsidy"
+                          >
+                            Q Foundation: Person with Disability Rent Subsidy
+                          </option>
+                          <option
+                            value="Q Foundation: Senior Rent Subsidy"
+                          >
+                            Q Foundation: Senior Rent Subsidy
+                          </option>
+                          <option
+                            value="San Francisco AIDS Foundation"
+                          >
+                            San Francisco AIDS Foundation
+                          </option>
+                          <option
+                            value="Section 8 HCV (tenant) voucher"
+                          >
+                            Section 8 HCV (tenant) voucher
+                          </option>
+                          <option
+                            value="Self-Help for the Elderly"
+                          >
+                            Self-Help for the Elderly
+                          </option>
+                          <option
+                            value="VASH voucher"
+                          >
+                            VASH voucher
+                          </option>
+                          <option
+                            value="Other"
+                          >
+                            Other
+                          </option>
+                        </select>
                       </div>
                     </div>
+                  </div>
+                  <div
+                    className="form-grid row expand"
+                  >
                     <div
-                      className="form-grid row expand"
+                      className="form-grid_item small-6 medium-6 large-6 column"
                     >
                       <div
-                        className="form-grid_item small-6 medium-6 large-6 column"
+                        className="form-group"
                       >
-                        <div
-                          className="form-group"
+                        <label
+                          className="form-label"
+                          htmlFor="assistance_amount"
+                          id="label-rental_assistances-0.assistance_amount"
                         >
-                          <label
-                            className="form-label"
-                            htmlFor="assistance_amount"
-                            id="label-rental_assistances-0.assistance_amount"
-                          >
-                            Assistance Amount
-                          </label>
+                          Assistance Amount
+                        </label>
+                        <input
+                          className=""
+                          id="assistance_amount"
+                          name="rental_assistances.0.assistance_amount"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder="Enter Amount"
+                          type="text"
+                          value="100"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="form-grid row expand"
+                  >
+                    <div
+                      className="form-grid_item small-6 medium-6 large-6 column"
+                    >
+                      <div
+                        className="rental-assistance-recurring radio-group-inline"
+                      >
+                        <label
+                          className="form-label"
+                          htmlFor="form-rental_assistances.0.recurring_assistance"
+                          id="label-rental_assistances-0.recurring_assistance"
+                        >
+                          Recurring Assistance
+                        </label>
+                        <p
+                          className="radio-inline"
+                        >
                           <input
-                            className=""
-                            id="assistance_amount"
-                            name="rental_assistances.0.assistance_amount"
+                            checked={true}
+                            id="rental_assistances.0.recurring_assistance-new-yes"
+                            name="rental_assistances.0.recurring_assistance"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
-                            placeholder="Enter Amount"
-                            type="text"
-                            value="100"
+                            type="radio"
+                            value="Yes"
                           />
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="form-grid row expand"
-                    >
-                      <div
-                        className="form-grid_item small-6 medium-6 large-6 column"
-                      >
-                        <div
-                          className="rental-assistance-recurring radio-group-inline"
-                        >
                           <label
-                            className="form-label"
-                            htmlFor="form-rental_assistances.0.recurring_assistance"
-                            id="label-rental_assistances-0.recurring_assistance"
+                            className="radio-inline_label"
+                            htmlFor="rental_assistances.0.recurring_assistance-new-yes"
                           >
-                            Recurring Assistance
+                            Yes
                           </label>
-                          <p
-                            className="radio-inline"
+                        </p>
+                        <p
+                          className="radio-inline"
+                        >
+                          <input
+                            checked={false}
+                            id="rental_assistances.0.recurring_assistance-new-no"
+                            name="rental_assistances.0.recurring_assistance"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            type="radio"
+                            value="No"
+                          />
+                          <label
+                            className="radio-inline_label"
+                            htmlFor="rental_assistances.0.recurring_assistance-new-no"
                           >
-                            <input
-                              checked={true}
-                              id="rental_assistances.0.recurring_assistance-new-yes"
-                              name="rental_assistances.0.recurring_assistance"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              onFocus={[Function]}
-                              type="radio"
-                              value="Yes"
-                            />
-                            <label
-                              className="radio-inline_label"
-                              htmlFor="rental_assistances.0.recurring_assistance-new-yes"
-                            >
-                              Yes
-                            </label>
-                          </p>
-                          <p
-                            className="radio-inline"
-                          >
-                            <input
-                              checked={false}
-                              id="rental_assistances.0.recurring_assistance-new-no"
-                              name="rental_assistances.0.recurring_assistance"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              onFocus={[Function]}
-                              type="radio"
-                              value="No"
-                            />
-                            <label
-                              className="radio-inline_label"
-                              htmlFor="rental_assistances.0.recurring_assistance-new-no"
-                            >
-                              No
-                            </label>
-                          </p>
-                        </div>
+                            No
+                          </label>
+                        </p>
                       </div>
                     </div>
+                  </div>
+                  <div
+                    className="form-grid row expand"
+                  >
                     <div
-                      className="form-grid row expand"
+                      className="form-grid_item column"
                     >
-                      <div
-                        className="form-grid_item column"
+                      <button
+                        className="primary margin-right button tiny margin-bottom-none"
+                        onClick={[Function]}
+                        type="button"
                       >
-                        <button
-                          className="button primary margin-right tiny"
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Save
-                        </button>
-                        <button
-                          className="button secondary tiny"
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          className="button alert-fill right tiny"
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Delete
-                        </button>
-                      </div>
+                        Save
+                      </button>
+                      <button
+                        className="secondary button tiny margin-bottom-none"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        className="alert-fill right button tiny margin-bottom-none"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Delete
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -1073,21 +1073,25 @@ exports[`RentalAssistance should render a table when rental assistances are pres
     </div>
   </div>
   <div
-    className="form-grid_item small-6 medium-6 large-6 column"
+    className="form-grid row expand"
   >
-    <button
-      className="button small"
-      id="add-rental-assistance"
-      onClick={[Function]}
-      type="button"
+    <div
+      className="form-grid_item small-6 medium-6 large-6 column"
     >
-      Add Rental Assistance
-    </button>
-    <span
-      className="form-note shift-up"
-    >
-      Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
-    </span>
+      <button
+        className="button small"
+        id="add-rental-assistance"
+        onClick={[Function]}
+        type="button"
+      >
+        Add Rental Assistance
+      </button>
+      <span
+        className="form-note shift-up"
+      >
+        Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
+      </span>
+    </div>
   </div>
 </form>
 `;
@@ -1194,305 +1198,301 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                 colSpan={5}
               >
                 <div
-                  className="rental-assistance-edit-form"
+                  className="inline-modal padding-left--2x padding-right--2x white-background"
                 >
                   <div
-                    className="inline-modal padding-left--2x padding-right--2x white-background"
+                    className="form-grid row expand"
                   >
                     <div
-                      className="form-grid row expand"
+                      className="form-grid_item small-6 medium-6 large-6 column"
                     >
                       <div
-                        className="form-grid_item small-6 medium-6 large-6 column"
+                        className="form-group"
                       >
-                        <div
-                          className="form-group"
+                        <label
+                          className="form-label"
+                          htmlFor="form-rental_assistances.0.recipient"
+                          id="label-rental_assistances-0.recipient"
                         >
-                          <label
-                            className="form-label"
-                            htmlFor="form-rental_assistances.0.recipient"
-                            id="label-rental_assistances-0.recipient"
+                          Recipient
+                        </label>
+                        <select
+                          className="rental-assistance-recipient"
+                          id="form-rental_assistances.0.recipient"
+                          name="rental_assistances.0.recipient"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          value="123"
+                        >
+                          <option
+                            value=""
                           >
-                            Recipient
-                          </label>
-                          <select
-                            className="rental-assistance-recipient"
-                            id="form-rental_assistances.0.recipient"
-                            name="rental_assistances.0.recipient"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
+                            Select One...
+                          </option>
+                          <option
                             value="123"
                           >
-                            <option
-                              value=""
-                            >
-                              Select One...
-                            </option>
-                            <option
-                              value="123"
-                            >
-                              Test Tester
-                            </option>
-                          </select>
-                        </div>
+                            Test Tester
+                          </option>
+                        </select>
                       </div>
                     </div>
+                  </div>
+                  <div
+                    className="form-grid row expand"
+                  >
                     <div
-                      className="form-grid row expand"
+                      className="form-grid_item small-6 medium-6 large-6 column"
                     >
                       <div
-                        className="form-grid_item small-6 medium-6 large-6 column"
+                        className="form-group"
                       >
-                        <div
-                          className="form-group"
+                        <label
+                          className="form-label"
+                          htmlFor="form-rental_assistances.0.type_of_assistance"
+                          id="label-rental_assistances-0.type_of_assistance"
                         >
-                          <label
-                            className="form-label"
-                            htmlFor="form-rental_assistances.0.type_of_assistance"
-                            id="label-rental_assistances-0.type_of_assistance"
+                          Type of Assistance
+                        </label>
+                        <select
+                          className="rental-assistance-type"
+                          id="form-rental_assistances.0.type_of_assistance"
+                          name="rental_assistances.0.type_of_assistance"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          value="Other"
+                        >
+                          <option
+                            value=""
                           >
-                            Type of Assistance
-                          </label>
-                          <select
-                            className="rental-assistance-type"
-                            id="form-rental_assistances.0.type_of_assistance"
-                            name="rental_assistances.0.type_of_assistance"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
+                            Select One...
+                          </option>
+                          <option
+                            value="Catholic Charities"
+                          >
+                            Catholic Charities
+                          </option>
+                          <option
+                            value="Compass Family"
+                          >
+                            Compass Family
+                          </option>
+                          <option
+                            value="Glide"
+                          >
+                            Glide
+                          </option>
+                          <option
+                            value="Hamilton Family"
+                          >
+                            Hamilton Family
+                          </option>
+                          <option
+                            value="Homeless Prenatal"
+                          >
+                            Homeless Prenatal
+                          </option>
+                          <option
+                            value="HOPWA"
+                          >
+                            HOPWA
+                          </option>
+                          <option
+                            value="Q Foundation: First Month’s Rent"
+                          >
+                            Q Foundation: First Month’s Rent
+                          </option>
+                          <option
+                            value="Q Foundation: Move-in Deposit"
+                          >
+                            Q Foundation: Move-in Deposit
+                          </option>
+                          <option
+                            value="Q Foundation: Person with Disability Rent Subsidy"
+                          >
+                            Q Foundation: Person with Disability Rent Subsidy
+                          </option>
+                          <option
+                            value="Q Foundation: Senior Rent Subsidy"
+                          >
+                            Q Foundation: Senior Rent Subsidy
+                          </option>
+                          <option
+                            value="San Francisco AIDS Foundation"
+                          >
+                            San Francisco AIDS Foundation
+                          </option>
+                          <option
+                            value="Section 8 HCV (tenant) voucher"
+                          >
+                            Section 8 HCV (tenant) voucher
+                          </option>
+                          <option
+                            value="Self-Help for the Elderly"
+                          >
+                            Self-Help for the Elderly
+                          </option>
+                          <option
+                            value="VASH voucher"
+                          >
+                            VASH voucher
+                          </option>
+                          <option
                             value="Other"
                           >
-                            <option
-                              value=""
-                            >
-                              Select One...
-                            </option>
-                            <option
-                              value="Catholic Charities"
-                            >
-                              Catholic Charities
-                            </option>
-                            <option
-                              value="Compass Family"
-                            >
-                              Compass Family
-                            </option>
-                            <option
-                              value="Glide"
-                            >
-                              Glide
-                            </option>
-                            <option
-                              value="Hamilton Family"
-                            >
-                              Hamilton Family
-                            </option>
-                            <option
-                              value="Homeless Prenatal"
-                            >
-                              Homeless Prenatal
-                            </option>
-                            <option
-                              value="HOPWA"
-                            >
-                              HOPWA
-                            </option>
-                            <option
-                              value="Q Foundation: First Month’s Rent"
-                            >
-                              Q Foundation: First Month’s Rent
-                            </option>
-                            <option
-                              value="Q Foundation: Move-in Deposit"
-                            >
-                              Q Foundation: Move-in Deposit
-                            </option>
-                            <option
-                              value="Q Foundation: Person with Disability Rent Subsidy"
-                            >
-                              Q Foundation: Person with Disability Rent Subsidy
-                            </option>
-                            <option
-                              value="Q Foundation: Senior Rent Subsidy"
-                            >
-                              Q Foundation: Senior Rent Subsidy
-                            </option>
-                            <option
-                              value="San Francisco AIDS Foundation"
-                            >
-                              San Francisco AIDS Foundation
-                            </option>
-                            <option
-                              value="Section 8 HCV (tenant) voucher"
-                            >
-                              Section 8 HCV (tenant) voucher
-                            </option>
-                            <option
-                              value="Self-Help for the Elderly"
-                            >
-                              Self-Help for the Elderly
-                            </option>
-                            <option
-                              value="VASH voucher"
-                            >
-                              VASH voucher
-                            </option>
-                            <option
-                              value="Other"
-                            >
-                              Other
-                            </option>
-                          </select>
-                        </div>
+                            Other
+                          </option>
+                        </select>
                       </div>
                     </div>
+                  </div>
+                  <div
+                    className="form-grid row expand"
+                  >
                     <div
-                      className="form-grid row expand"
+                      className="form-grid_item small-6 medium-6 large-6 column"
                     >
                       <div
-                        className="form-grid_item small-6 medium-6 large-6 column"
+                        className="form-group"
                       >
-                        <div
-                          className="form-group"
+                        <label
+                          className="form-label"
+                          htmlFor="assistance_amount"
+                          id="label-rental_assistances-0.assistance_amount"
                         >
-                          <label
-                            className="form-label"
-                            htmlFor="assistance_amount"
-                            id="label-rental_assistances-0.assistance_amount"
-                          >
-                            Assistance Amount
-                          </label>
+                          Assistance Amount
+                        </label>
+                        <input
+                          className=""
+                          id="assistance_amount"
+                          name="rental_assistances.0.assistance_amount"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder="Enter Amount"
+                          type="text"
+                          value="100"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="form-grid row expand"
+                  >
+                    <div
+                      className="form-grid_item small-6 medium-6 large-6 column"
+                    >
+                      <div
+                        className="rental-assistance-recurring radio-group-inline"
+                      >
+                        <label
+                          className="form-label"
+                          htmlFor="form-rental_assistances.0.recurring_assistance"
+                          id="label-rental_assistances-0.recurring_assistance"
+                        >
+                          Recurring Assistance
+                        </label>
+                        <p
+                          className="radio-inline"
+                        >
                           <input
-                            className=""
-                            id="assistance_amount"
-                            name="rental_assistances.0.assistance_amount"
+                            checked={true}
+                            id="rental_assistances.0.recurring_assistance-new-yes"
+                            name="rental_assistances.0.recurring_assistance"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
-                            placeholder="Enter Amount"
-                            type="text"
-                            value="100"
+                            type="radio"
+                            value="Yes"
                           />
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="form-grid row expand"
-                    >
-                      <div
-                        className="form-grid_item small-6 medium-6 large-6 column"
-                      >
-                        <div
-                          className="rental-assistance-recurring radio-group-inline"
-                        >
                           <label
-                            className="form-label"
-                            htmlFor="form-rental_assistances.0.recurring_assistance"
-                            id="label-rental_assistances-0.recurring_assistance"
+                            className="radio-inline_label"
+                            htmlFor="rental_assistances.0.recurring_assistance-new-yes"
                           >
-                            Recurring Assistance
+                            Yes
                           </label>
-                          <p
-                            className="radio-inline"
-                          >
-                            <input
-                              checked={true}
-                              id="rental_assistances.0.recurring_assistance-new-yes"
-                              name="rental_assistances.0.recurring_assistance"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              onFocus={[Function]}
-                              type="radio"
-                              value="Yes"
-                            />
-                            <label
-                              className="radio-inline_label"
-                              htmlFor="rental_assistances.0.recurring_assistance-new-yes"
-                            >
-                              Yes
-                            </label>
-                          </p>
-                          <p
-                            className="radio-inline"
-                          >
-                            <input
-                              checked={false}
-                              id="rental_assistances.0.recurring_assistance-new-no"
-                              name="rental_assistances.0.recurring_assistance"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              onFocus={[Function]}
-                              type="radio"
-                              value="No"
-                            />
-                            <label
-                              className="radio-inline_label"
-                              htmlFor="rental_assistances.0.recurring_assistance-new-no"
-                            >
-                              No
-                            </label>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="form-grid row expand"
-                    >
-                      <div
-                        className="form-grid_item small-6 medium-6 large-6 column"
-                      >
-                        <div
-                          className="form-group"
+                        </p>
+                        <p
+                          className="radio-inline"
                         >
-                          <label
-                            className="form-label"
-                            htmlFor="form-rental_assistances.0.other_assistance_name"
-                            id="label-rental_assistances-0.other_assistance_name"
-                          >
-                            Other Assistance Name
-                          </label>
                           <input
-                            className=""
-                            id="form-rental_assistances.0.other_assistance_name"
-                            name="rental_assistances.0.other_assistance_name"
+                            checked={false}
+                            id="rental_assistances.0.recurring_assistance-new-no"
+                            name="rental_assistances.0.recurring_assistance"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
-                            type="text"
-                            value="Test Other Assistance Name"
+                            type="radio"
+                            value="No"
                           />
-                        </div>
+                          <label
+                            className="radio-inline_label"
+                            htmlFor="rental_assistances.0.recurring_assistance-new-no"
+                          >
+                            No
+                          </label>
+                        </p>
                       </div>
                     </div>
+                  </div>
+                  <div
+                    className="form-grid row expand"
+                  >
                     <div
-                      className="form-grid row expand"
+                      className="form-grid_item small-6 medium-6 large-6 column"
                     >
                       <div
-                        className="form-grid_item column"
+                        className="form-group"
                       >
-                        <button
-                          className="button primary margin-right tiny"
-                          onClick={[Function]}
-                          type="button"
+                        <label
+                          className="form-label"
+                          htmlFor="form-rental_assistances.0.other_assistance_name"
+                          id="label-rental_assistances-0.other_assistance_name"
                         >
-                          Save
-                        </button>
-                        <button
-                          className="button secondary tiny"
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          className="button alert-fill right tiny"
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Delete
-                        </button>
+                          Other Assistance Name
+                        </label>
+                        <input
+                          className=""
+                          id="form-rental_assistances.0.other_assistance_name"
+                          name="rental_assistances.0.other_assistance_name"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          type="text"
+                          value="Test Other Assistance Name"
+                        />
                       </div>
+                    </div>
+                  </div>
+                  <div
+                    className="form-grid row expand"
+                  >
+                    <div
+                      className="form-grid_item column"
+                    >
+                      <button
+                        className="primary margin-right button tiny margin-bottom-none"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Save
+                      </button>
+                      <button
+                        className="secondary button tiny margin-bottom-none"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        className="alert-fill right button tiny margin-bottom-none"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Delete
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -1504,21 +1504,25 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
     </div>
   </div>
   <div
-    className="form-grid_item small-6 medium-6 large-6 column"
+    className="form-grid row expand"
   >
-    <button
-      className="button small"
-      id="add-rental-assistance"
-      onClick={[Function]}
-      type="button"
+    <div
+      className="form-grid_item small-6 medium-6 large-6 column"
     >
-      Add Rental Assistance
-    </button>
-    <span
-      className="form-note shift-up"
-    >
-      Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
-    </span>
+      <button
+        className="button small"
+        id="add-rental-assistance"
+        onClick={[Function]}
+        type="button"
+      >
+        Add Rental Assistance
+      </button>
+      <span
+        className="form-note shift-up"
+      >
+        Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
+      </span>
+    </div>
   </div>
 </form>
 `;
