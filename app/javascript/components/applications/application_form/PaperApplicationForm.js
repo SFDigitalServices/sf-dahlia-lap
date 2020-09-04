@@ -40,7 +40,7 @@ class PaperApplicationForm extends React.Component {
 
   saveSubmitType = (type, form) => {
     const failed = form.getState().invalid
-    this.setState({submitType: type, failed: failed})
+    this.setState({ submitType: type, failed: failed })
     if (failed) { window.scrollTo(0, 0) }
   }
 
@@ -52,10 +52,10 @@ class PaperApplicationForm extends React.Component {
   }
 
   validateForm = (values) => {
-    const errors = {applicant: {date_of_birth: {}}}
+    const errors = { applicant: { date_of_birth: {} } }
     // applicant needs to be initialized for date validation to run on 'required'
     if (!values.applicant) values.applicant = {}
-    validate.isValidDate(values.applicant.date_of_birth, errors.applicant.date_of_birth, {errorMessage: 'Please enter a Date of Birth', isPrimaryApplicant: true})
+    validate.isValidDate(values.applicant.date_of_birth, errors.applicant.date_of_birth, { errorMessage: 'Please enter a Date of Birth', isPrimaryApplicant: true })
     // Only validate alternate contacts that are present and not-empty
     if (values.alternate_contact && !_values(values.alternate_contact).every(isEmpty)) {
       errors.alternate_contact = {}
@@ -111,7 +111,7 @@ class PaperApplicationForm extends React.Component {
                   { failed && (
                     <AlertBox
                       invert
-                      onCloseClick={() => this.setState({failed: false})}
+                      onCloseClick={() => this.setState({ failed: false })}
                       message='Please resolve any errors before saving the application.' />
                   )}
                   <ApplicationLanguageSection />

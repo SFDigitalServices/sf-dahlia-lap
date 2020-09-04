@@ -6,7 +6,7 @@ import validate, { convertPercentAndCurrency, convertCurrency } from 'utils/form
 const VALIDATION_MSG = 'failed validation'
 const DATE_VALIDATION_MSG = 'Please enter a valid date.'
 const dateErrorObject = (message) => (
-  {all: message, day: message, month: message, year: message}
+  { all: message, day: message, month: message, year: message }
 )
 
 const mockObjectWithValues = (...values) => {
@@ -251,19 +251,19 @@ describe('validate', () => {
         expect(validate.isValidDate(undefined, error)).toEqual(dateErrorObject(DATE_VALIDATION_MSG))
       })
       test('missing values', () => {
-        expect(validate.isValidDate({year: 1950, month: 10}, error)).toEqual(dateErrorObject(DATE_VALIDATION_MSG))
+        expect(validate.isValidDate({ year: 1950, month: 10 }, error)).toEqual(dateErrorObject(DATE_VALIDATION_MSG))
       })
       test('primary applicant to young', () => {
-        expect(validate.isValidDate({year: 2015, month: 10, day: 10}, error, {isPrimaryApplicant: true})).toEqual(dateErrorObject('The primary applicant must be 18 years of age or older'))
+        expect(validate.isValidDate({ year: 2015, month: 10, day: 10 }, error, { isPrimaryApplicant: true })).toEqual(dateErrorObject('The primary applicant must be 18 years of age or older'))
       })
     })
     describe('passes validation on ', () => {
       test('a valid date', () => {
-        expect(validate.isValidDate({year: 1990, month: 10, day: 1}, error)).toEqual(dateErrorObject(undefined))
+        expect(validate.isValidDate({ year: 1990, month: 10, day: 1 }, error)).toEqual(dateErrorObject(undefined))
       })
 
       test('a valid date and primary applicant is old enough', () => {
-        expect(validate.isValidDate({year: 1950, month: 10, day: 1}, error, {isPrimaryApplicant: true})).toEqual(dateErrorObject(undefined))
+        expect(validate.isValidDate({ year: 1950, month: 10, day: 1 }, error, { isPrimaryApplicant: true })).toEqual(dateErrorObject(undefined))
       })
     })
   })

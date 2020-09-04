@@ -11,7 +11,7 @@ describe('IndexTable', () => {
   ]
 
   const emptyResults = [
-    {first_name: undefined, last_name: undefined, lottery_date: undefined}
+    { first_name: undefined, last_name: undefined, lottery_date: undefined }
   ]
 
   const fields = { 'first_name': null, 'last_name': null }

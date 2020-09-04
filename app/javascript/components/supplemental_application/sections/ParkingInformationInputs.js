@@ -18,30 +18,27 @@ const ParkingInformationInputs = ({ form: { change }, values: { lease }, visited
     }
   }
   return (
-    <React.Fragment>
-      <FormGrid.Row paddingBottom>
+    <>
+      <FormGrid.Row>
         <FormGrid.Item>
-          <FormGrid.Group>
-            <SelectField
-              label='BMR Parking Space Assigned?'
-              selectValue={parkingSpaceAssigned}
-              onChange={selectParkingSpaceAssigned}
-              fieldName='lease.bmr_parking_space_assigned'
-              options={[Yes, No]}
-              noPlaceholder />
-          </FormGrid.Group>
+          <SelectField
+            label='BMR Parking Space Assigned?'
+            selectValue={parkingSpaceAssigned}
+            onChange={selectParkingSpaceAssigned}
+            fieldName='lease.bmr_parking_space_assigned'
+            options={[Yes, No]}
+            noPlaceholder />
         </FormGrid.Item>
         <FormGrid.Item>
           <CurrencyField
             label='Monthly Parking Cost'
             fieldName={monthlyRentFieldName}
-            placeholder='Enter Amount'
             validation={validateLeaseCurrency}
             disabled={parkingSpaceAssigned === No}
             isDirty={visited && visited[monthlyRentFieldName]} />
         </FormGrid.Item>
       </FormGrid.Row>
-    </React.Fragment>
+    </>
   )
 }
 

@@ -15,24 +15,24 @@ describe('SupplementalApplicationPage status history', () => {
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
-    // Click on the "Add a Comment" button in the Status History section
-    await page.click('.status-list_footer button')
+    // Click on the "Add a Comment" button in the Status History sidebar
+    await page.click('#add-status-history-comment')
 
     await supplementalApplicationSteps.testStatusModalUpdate(page)
   }, DEFAULT_E2E_TIME_OUT)
 })
 
 describe('SupplementalApplicationPage action buttons', () => {
-  test('should allow status updates via the status dropdown at the bottom of the page', async () => {
+  test('should allow status updates via the status dropdown in the sidebar', async () => {
     let { page } = await SetupBrowserAndPage(testBrowser, true)
 
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
     // Click on the status dropdown button at the bottom of the page
-    await page.click('.button-pager .dropdown')
+    await page.click('.status-history-buttons .dropdown')
 
     // Select a status from the dropdown menu
-    await page.click('.button-pager .dropdown-menu li[aria-selected="false"] a:first-child')
+    await page.click('.status-history-buttons .dropdown-menu li[aria-selected="false"] a:first-child')
 
     await supplementalApplicationSteps.testStatusModalUpdate(page)
 

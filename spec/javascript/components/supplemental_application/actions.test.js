@@ -94,13 +94,13 @@ describe('updateApplication', () => {
         'id': 'listingID'
       },
       'rental_assistances': [
-        {id: 'abc1', assistance_amount: 11, recipient: 'recipient'},
-        {id: 'abc2', assistance_amount: 22, recipient: 'recipient2'}
+        { id: 'abc1', assistance_amount: 11, recipient: 'recipient' },
+        { id: 'abc2', assistance_amount: 22, recipient: 'recipient2' }
       ]
     }
     const application = cloneDeep(baseApplication)
     application.rental_assistances[0].assistance_amount = 22
-    application.rental_assistances[2] = {assistance_amount: 22, recipient: 'recipient3'}
+    application.rental_assistances[2] = { assistance_amount: 22, recipient: 'recipient3' }
 
     const response = await updateApplication(application, baseApplication)
 

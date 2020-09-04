@@ -19,60 +19,77 @@ const toggleNoPreferenceUsed = (form, event) => {
 
 const LeaseInformationInputs = ({ form, store, visited }) => {
   const { availableUnits, application } = store
-  const availableUnitsOptions = formUtils.toOptions(map(availableUnits, pluck('id', 'unit_number')))
+  const availableUnitsOptions = formUtils.toOptions(
+    map(availableUnits, pluck('id', 'unit_number'))
+  )
   const noUnitsOptions = [{ value: '', label: 'No Units Available' }]
-  const confirmedPreferences = filter(application.preferences, { 'post_lottery_validation': 'Confirmed' })
-  const confirmedPreferenceOptions = formUtils.toOptions(map([{'id': null, 'preference_name': 'None'}, ...confirmedPreferences], pluck('id', 'preference_name')))
+  const confirmedPreferences = filter(application.preferences, {
+    post_lottery_validation: 'Confirmed'
+  })
+  const confirmedPreferenceOptions = formUtils.toOptions(
+    map(
+      [{ id: null, preference_name: 'None' }, ...confirmedPreferences],
+      pluck('id', 'preference_name')
+    )
+  )
   return (
-    <React.Fragment>
-      <FormGrid.Row paddingBottom>
+    <>
+      <FormGrid.Row>
         <FormGrid.Item>
-          <FormGrid.Group>
-            <SelectField
-              id='lease_assigned_unit'
-              label='Assigned Unit Number'
-              fieldName='lease.unit'
-              options={availableUnitsOptions}
-              disabled={!availableUnitsOptions.length}
-              disabledOptions={noUnitsOptions} />
-          </FormGrid.Group>
+          <SelectField
+            id='lease_assigned_unit'
+            label='Assigned Unit Number'
+            fieldName='lease.unit'
+            options={availableUnitsOptions}
+            disabled={!availableUnitsOptions.length}
+            disabledOptions={noUnitsOptions}
+          />
         </FormGrid.Item>
+      </FormGrid.Row>
+      <FormGrid.Row>
         <FormGrid.Item>
           <MultiDateField
             id='lease_start_date'
             fieldName='lease.lease_start_date'
             form={form}
-            label='Lease Start Date' />
-        </FormGrid.Item>
-        <FormGrid.Item>
-          <FormGrid.Group>
-            <SelectField
-              label='Preference Used'
-              onChange={(value) => toggleNoPreferenceUsed(form, value)}
-              fieldName='lease.preference_used'
-              options={confirmedPreferenceOptions} />
-          </FormGrid.Group>
+            label='Lease Start Date'
+          />
         </FormGrid.Item>
       </FormGrid.Row>
-      <FormGrid.Row paddingBottom>
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <SelectField
+            label='Preference Used'
+            onChange={value => toggleNoPreferenceUsed(form, value)}
+            fieldName='lease.preference_used'
+            options={confirmedPreferenceOptions}
+          />
+        </FormGrid.Item>
+      </FormGrid.Row>
+      <FormGrid.Row>
         <FormGrid.Item>
           <CurrencyField
             label='Monthly Rent'
             fieldName='lease.total_monthly_rent_without_parking'
-            placeholder='Enter Amount'
             validation={validateLeaseCurrency}
-            isDirty={visited && visited['lease.total_monthly_rent_without_parking']} />
-        </FormGrid.Item>
-        <FormGrid.Item>
-          <CurrencyField
-            label='Monthly Tenant Contribution'
-            fieldName='lease.monthly_tenant_contribution'
-            placeholder='Enter Amount'
-            validation={validateLeaseCurrency}
-            isDirty={visited && visited['lease.monthly_tenant_contribution']} />
+            isDirty={
+              visited && visited['lease.total_monthly_rent_without_parking']
+            }
+          />
         </FormGrid.Item>
       </FormGrid.Row>
-    </React.Fragment>
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <CurrencyField
+            label='Tenant Contribution'
+            fieldName='lease.monthly_tenant_contribution'
+            helpText='Monthly rent minus recurring rental assistance, if any'
+            validation={validateLeaseCurrency}
+            isDirty={visited && visited['lease.monthly_tenant_contribution']}
+          />
+        </FormGrid.Item>
+      </FormGrid.Row>
+    </>
   )
 }
 

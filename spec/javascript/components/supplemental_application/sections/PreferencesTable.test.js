@@ -3,7 +3,7 @@ import React from 'react'
 import PreferencesTable from '~/components/supplemental_application/sections/PreferencesTable'
 import application from '../../../fixtures/application'
 
-const applicationMembers = [{id: 'a0n0x000000AbE6AAK', first_name: 'karen', last_name: 'jones'}]
+const applicationMembers = [{ id: 'a0n0x000000AbE6AAK', first_name: 'karen', last_name: 'jones' }]
 const fileBaseUrl = 'https://test.force.com'
 const onSave = () => {}
 const onDismissError = () => {}

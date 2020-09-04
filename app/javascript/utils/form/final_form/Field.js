@@ -24,20 +24,36 @@ export const BlockNote = ({ value }) => (
   <span className='checkbox-block_note no-margin padding-left--half'>{value}</span>
 )
 
-export const Input = ({ input, id, meta, type, maxLength, placeholder, ariaLabelledby, fieldName }) => (
+export const Input = ({
+  input,
+  id,
+  meta,
+  type,
+  maxLength,
+  placeholder,
+  ariaLabelledby,
+  fieldName,
+  disabled
+}) => (
   <input {...input}
     id={id || `form-${fieldName}`}
     className={(meta.error && meta.touched && 'error') || ''}
     type={type}
     maxLength={maxLength}
     aria-labelledby={ariaLabelledby}
-    placeholder={placeholder} />
+    placeholder={placeholder}
+    disabled={disabled}
+  />
 )
 
-export const Label = ({ label, fieldName, blockNote, id, labelId, className }) => {
+export const Label = ({ label, fieldName, blockNote, id, labelId }) => {
   return (
     label ? (
-      <label htmlFor={id || `form-${fieldName}`} id={(labelId || `label-${fieldName}`).replace('.', '-')} className={className || 'form-label'}>
+      <label
+        htmlFor={id || `form-${fieldName}`}
+        id={(labelId || `label-${fieldName}`).replace('.', '-')}
+        className='form-label'
+      >
         {label}
         {blockNote && <BlockNote value={blockNote} />}
       </label>
@@ -45,14 +61,39 @@ export const Label = ({ label, fieldName, blockNote, id, labelId, className }) =
   )
 }
 
-export const FieldError = ({meta}) => (
+export const HelpText = ({ describeId, note }) => (
+  <span className='form-note shift-up' id={describeId}>{note}</span>
+)
+
+export const FieldError = ({ meta }) => (
   meta.error && meta.touched ? <span className='error'>{meta.error}</span> : null
 )
 
-export const InputField = ({ fieldName, label, blockNote, validation, placeholder, maxLength, id, type }) => (
-  <Field name={fieldName} validate={validation} parse={identity}>
+export const InputField = ({
+  fieldName,
+  label,
+  blockNote,
+  validation,
+  placeholder,
+  maxLength,
+  id,
+  type,
+  helpText,
+  parse,
+  format,
+  disabled,
+  formatOnBlur = false,
+  isDirty = false
+}) => (
+  <Field
+    name={fieldName}
+    validate={validation}
+    parse={parse || identity}
+    format={format}
+    formatOnBlur={formatOnBlur && isDirty}
+  >
     {({ input, meta }) => (
-      <React.Fragment>
+      <>
         <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
           <Label
             label={label}
@@ -65,72 +106,90 @@ export const InputField = ({ fieldName, label, blockNote, validation, placeholde
             id={id || `form-${fieldName}`}
             type={type || 'text'}
             placeholder={placeholder}
-            maxLength={maxLength} />
+            maxLength={maxLength}
+            disabled={disabled}
+          />
           <FieldError meta={meta} />
+          { helpText && <HelpText note={helpText} describeId={`describe-${id || fieldName}`} /> }
         </div>
-      </React.Fragment>
+      </>
     )}
   </Field>
 )
 
-export const CurrencyField = ({ fieldName, validation, id, label, placeholder, maxLength, disabled, isDirty = true }) => (
-  <Field
-    name={fieldName}
-    validate={validation}
-    component='input'
+export const CurrencyField = ({
+  fieldName,
+  validation,
+  id,
+  label,
+  maxLength,
+  disabled,
+  isDirty = true,
+  helpText
+}) => (
+  <InputField
+    fieldName={fieldName}
+    label={label}
+    validation={validation}
+    placeholder='Enter Amount'
+    maxLength={maxLength}
+    id={id}
+    type='text'
+    helpText={helpText}
+    formatOnBlur
+    isDirty={isDirty}
     format={formUtils.formatPrice}
+    disabled={disabled}
     parse={(value, name) => identity(value, name, true)}
-    formatOnBlur={isDirty}
-  >
-    {({ input, meta }) => (
-      <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
-        <Label
-          label={label}
-          id={id || `form-${fieldName}`}
-          fieldName={fieldName} />
-        <input {...input}
-          id={id || `form-${fieldName}`}
-          placeholder={placeholder || '$0.00'}
-          className={(meta.error && meta.touched && 'error') || ''}
-          maxLength={maxLength}
-          disabled={disabled} />
-        <FieldError meta={meta} />
-      </div>
-    )}
-  </Field>
+  />
 )
 
 /**
  * Field that allows only whole integer percent values.
  */
-export const PercentField = ({ fieldName, validation, id, label, placeholder, maxLength, disabled, isDirty = true }) => (
-  <Field
-    name={fieldName}
-    validate={validation}
-    component='input'
+export const PercentField = ({
+  fieldName,
+  validation,
+  id,
+  label,
+  maxLength,
+  disabled,
+  isDirty = true,
+  helpText
+}) => (
+  <InputField
+    fieldName={fieldName}
+    label={label}
+    validation={validation}
+    placeholder='Enter Percentage'
+    maxLength={maxLength}
+    id={id}
+    type='text'
+    helpText={helpText}
+    formatOnBlur
+    isDirty={isDirty}
     format={formUtils.formatPercent}
     parse={(value, name) => identity(value, name, true)}
-    formatOnBlur={isDirty}
-  >
-    {({ input, meta }) => (
-      <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
-        <Label
-          label={label}
-          id={id || `form-${fieldName}`}
-          fieldName={fieldName} />
-        <input {...input}
-          id={id || `form-${fieldName}`}
-          placeholder={placeholder || '$0.00'}
-          className={(meta.error && meta.touched && 'error') || ''}
-          maxLength={maxLength}
-          disabled={disabled} />
-        <FieldError meta={meta} />
-      </div>
-    )}
-  </Field>
+  />
 )
 
-export const SelectField = ({ fieldName, label, blockNote, validation, id, options, onChange, className, disabled = false, disabledOptions, selectValue, noPlaceholder, format, isDirty = true }) => (
+export const SelectField = ({
+  fieldName,
+  label,
+  blockNote,
+  validation,
+  id,
+  options,
+  onChange,
+  className,
+  disabled = false,
+  disabledOptions,
+  selectValue,
+  noPlaceholder,
+  format,
+  isDirty = true,
+  helpText
+}) => (
   <Field
     name={fieldName}
     validate={validation}
@@ -142,7 +201,7 @@ export const SelectField = ({ fieldName, label, blockNote, validation, id, optio
     {({ input, meta }) => {
       const selectOptions = disabled && disabledOptions ? disabledOptions : labelize(options, {}, noPlaceholder)
       return (
-        <React.Fragment>
+        <>
           <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
             <Label
               label={label}
@@ -164,8 +223,9 @@ export const SelectField = ({ fieldName, label, blockNote, validation, id, optio
               )) }
             </select>
             <FieldError meta={meta} />
+            { helpText && <HelpText note={helpText} describeId={`describe-${id || fieldName}`} /> }
           </div>
-        </React.Fragment>
+        </>
       )
     }}
   </Field>
@@ -174,7 +234,7 @@ export const SelectField = ({ fieldName, label, blockNote, validation, id, optio
 export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ariaLabelledby }) => (
   <Field name={fieldName} validate={validation} type='checkbox'>
     {({ input, meta }) => (
-      <React.Fragment>
+      <>
         <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
           <Input
             input={input}
@@ -186,13 +246,52 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
             label={label}
             id={id || `form-${fieldName}`}
             fieldName={fieldName}
-            blockNote={blockNote} />
+            blockNote={blockNote}
+          />
           <FieldError meta={meta} />
         </div>
-      </React.Fragment>
+      </>
     )}
   </Field>
 )
+
+/**
+ * Displays similarly to the CheckboxField but is backed by a string with two possible string
+ * values instead of a boolean. (ex: has_developental_disability: "Yes"/"No").
+ */
+export const TextCheckboxField = ({ fieldName, label, blockNote, validation, id, ariaLabelledby, form, trueValue = 'Yes', falseValue = 'No', initialValue = null }) => {
+  const onChange = (event) => {
+    form.change(fieldName, event.target.checked ? trueValue : falseValue)
+  }
+  return (
+    <Field
+      name={fieldName}
+      validate={validation}
+      type='input'
+      component='input'
+      initialValue={initialValue}
+    >
+      {({ input, meta }) => (
+        <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
+          <Input
+            input={input}
+            type='hidden'
+            meta={meta}
+            aria-labelledby={ariaLabelledby}
+            id={id || `form-base-${fieldName}`} />
+          <input id={id || `form-ctrl-${fieldName}`} type='checkbox' checked={input.value === trueValue} onClick={onChange} />
+          <Label
+            label={label}
+            id={id || `form-ctrl-${fieldName}`}
+            fieldName={fieldName}
+            blockNote={blockNote}
+          />
+          <FieldError meta={meta} />
+        </div>
+      )}
+    </Field>
+  )
+}
 
 const YesNoRadioField = ({ value, label, type, fieldName, className, uniqId }) => (
   <Field name={fieldName} value={value} type='radio'>
@@ -209,7 +308,7 @@ export const YesNoRadioGroup = ({ fieldName, uniqId, trueValue = 'true', trueLab
   const divClassName = classNames(className, 'radio-group-inline')
   return (
     <div className={divClassName}>
-      <React.Fragment>
+      <>
         <Label
           label={label}
           id={`form-${fieldName}`}
@@ -230,7 +329,7 @@ export const YesNoRadioGroup = ({ fieldName, uniqId, trueValue = 'true', trueLab
           className={inputClassName}
           uniqId={uniqId}
         />
-      </React.Fragment>
+      </>
     </div>
   )
 }
@@ -238,7 +337,7 @@ export const YesNoRadioGroup = ({ fieldName, uniqId, trueValue = 'true', trueLab
 export const TextAreaField = ({ fieldName, label, labelId, cols, rows, validation, placeholder, maxLength, id, ariaDescribedby, blockNote, labelClass }) => (
   <Field name={fieldName} validate={validation} component='textarea' parse={identity}>
     {({ input, meta }) => (
-      <React.Fragment>
+      <>
         <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
           <Label
             label={label}
@@ -257,7 +356,7 @@ export const TextAreaField = ({ fieldName, label, labelId, cols, rows, validatio
             aria-describedby={ariaDescribedby} />
           <FieldError meta={meta} />
         </div>
-      </React.Fragment>
+      </>
     )}
   </Field>
 )

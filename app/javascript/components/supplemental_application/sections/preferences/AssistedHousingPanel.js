@@ -10,7 +10,7 @@ const { labelize } = formOptions
 
 export const AssistedHousingPanel = ({ preferenceIndex, preference, applicationMembersOptions }) => {
   return (
-    <React.Fragment>
+    <>
       <FormGrid.Row expand={false}>
         <FormItem label='Preference Name'>
           <div className='text-value'>
@@ -21,13 +21,13 @@ export const AssistedHousingPanel = ({ preferenceIndex, preference, applicationM
           <SelectField
             label='Name on Lease'
             fieldName={buildFieldId(preferenceIndex, 'application_member_id')}
-            options={labelize(applicationMembersOptions, {disableEmpty: true})} />
+            options={labelize(applicationMembersOptions, { disableEmpty: true })} />
         </FormItem>
         <FormItem>
           <SelectField
             label='Status'
             fieldName={buildFieldId(preferenceIndex, 'post_lottery_validation')}
-            options={labelize(statusOptions, {disableEmpty: true})}
+            options={labelize(statusOptions, { disableEmpty: true })}
             className='preference-status-select' />
         </FormItem>
       </FormGrid.Row>
@@ -42,7 +42,7 @@ export const AssistedHousingPanel = ({ preferenceIndex, preference, applicationM
           </div>
         </div>
       </FormGrid.Row>
-    </React.Fragment>
+    </>
   )
 }
 

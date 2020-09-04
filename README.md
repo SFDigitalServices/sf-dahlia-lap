@@ -108,6 +108,28 @@ To run an individual test:
 
 `yarn test:all path/to/test`
 
+## Scripts
+
+### Release scripts
+More documentation for how these scripts are used during a release in the [partners release process doc](https://sfgovdt.jira.com/wiki/spaces/HOUS/pages/1900544029/Partners+Release+processes+template).
+
+#### 1. create_release_branch
+Command: `yarn create_release_branch`
+
+This script will:
+- Create a new branch named `release-<todays-date>`
+- Merge it with the latest main
+- Open a PR in a browser window
+
+#### 2. print_release_info
+Command: `yarn print_release_info -u <github-username> -t <github-access-token>`
+
+Instructions for how to get your github access token are printed by running `yarn print_release_info -h`
+
+This script will:
+- Print release tracker info you can paste into the [Release Tracker doc](https://docs.google.com/spreadsheets/d/1EUvw2ugaFprt8FxlCUa1yWATSn0KKo4FyRfBJWUwE3M/edit#gid=1500049656)
+- Output a URL that will create a draft release with description, title, tags, and base branch filled in
+
 ## Debugging
 
 You can debug all tests and Rails server in VS code.
