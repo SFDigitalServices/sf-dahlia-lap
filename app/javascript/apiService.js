@@ -1,4 +1,5 @@
 import { request } from '~/api/request'
+import { isLeaseAlreadyCreated } from './utils/leaseUtils'
 
 const updateFlaggedApplication = async (data) => {
   let putData = {
@@ -8,31 +9,28 @@ const updateFlaggedApplication = async (data) => {
       comments: data.comments
     }
   }
-  let response = await request.put('/flagged-applications/update', putData)
-  return response.result
+
+  return request.put('/flagged-applications/update', putData)
+    .then(response => response.result)
 }
 
-const submitApplication = async (data, isSupplemental = false) => {
-  const requestData = { application: data }
-  let response
+const submitApplication = async (application, isSupplemental = false) => {
+  const requestData = { application }
 
-  if (isSupplemental) {
-    response = await request.put('/short-form/submit?supplemental=true', requestData)
-  } else {
-    response = await request.post('/short-form/submit', requestData)
-  }
+  const promise = isSupplemental
+    ? request.put('/short-form/submit?supplemental=true', requestData, true)
+    : request.post('/short-form/submit', requestData, true)
 
-  return response.application
+  return promise.then(response => response.application)
 }
 
-const fetchApplications = async ({ page, filters }) => {
-  return request.get('/applications', {
+const fetchApplications = async ({ page, filters }) =>
+  request.get('/applications', {
     params: {
       page,
       ...filters
     }
   })
-}
 
 const fetchLeaseUpApplications = async (listingId, page, { filters }) => {
   // Fetch applications associated with a lease up listing.
@@ -45,82 +43,92 @@ const fetchLeaseUpApplications = async (listingId, page, { filters }) => {
   })
 }
 
-const getAMI = async ({ chartType, chartYear }) => {
-  return request.get('/ami', {
+const getAMI = async ({ chartType, chartYear }) =>
+  request.get('/ami', {
     params: {
       chartType: chartType,
       year: chartYear,
       percent: 100
     }
   })
-}
 
-const createFieldUpdateComment = async (data) => {
-  let postData = {
+const createFieldUpdateComment = async (applicationId, status, comment, substatus) => {
+  const postData = {
     field_update_comment: {
-      status: data.status,
-      comment: data.comment,
-      application: data.applicationId,
-      ...(data.subStatus ? { substatus: data.subStatus } : {})
+      status,
+      comment,
+      application: applicationId,
+      ...(substatus && { substatus })
     }
   }
-  const { result } = await request.post('/field-update-comments/create', postData)
-  return result
+
+  return request.post('/field-update-comments/create', postData, true)
+    .then(response => response.result)
 }
 
-const updatePreference = async (preference) => {
-  const postData = {
-    preference: preference
-  }
-  return request.put(`/preferences/${preference.id}`, postData)
-}
+const updatePreference = async (preference) =>
+  request.put(`/preferences/${preference.id}`, { preference }, true)
 
-const updateApplication = async (application) => {
-  const postData = {
-    application: application
-  }
-  return request.put(`/applications/${application.id}`, postData)
-}
+const updateApplication = async (application) =>
+  request.put(`/applications/${application.id}`, { application }, true)
 
 const createRentalAssistance = async (rentalAssistance, applicationId) => {
   const postData = {
     rental_assistance: rentalAssistance,
     application_id: applicationId
   }
+
   return request.post('/rental-assistances', postData)
 }
 
-const getRentalAssistances = async (applicationId) => {
-  const { rental_assistances: rentalAssistances } = await request.get('/rental-assistances', { params: { application_id: applicationId } })
-  return rentalAssistances
-}
+const getRentalAssistances = async (applicationId) =>
+  request.get('/rental-assistances', { params: { application_id: applicationId } }, true)
+    .then((response) => response.rental_assistances)
 
 const updateRentalAssistance = async (rentalAssistance, applicationId) => {
   const putData = {
     rental_assistance: rentalAssistance,
     application_id: applicationId
   }
+
   return request.put(`/rental-assistances/${rentalAssistance.id}`, putData)
 }
 
-const deleteRentalAssistance = async (rentalAssistanceId) => {
-  return request.destroy(`/rental-assistances/${rentalAssistanceId}`)
+const deleteRentalAssistance = async (rentalAssistanceId) =>
+  request.destroy(`/rental-assistances/${rentalAssistanceId}`)
+
+const getLeaseRequestData = (rawLeaseObject, primaryApplicantContact) => ({
+  lease: {
+    ...rawLeaseObject,
+    // TODO: We should consider setting the Tenant on a Lease more explicitly
+    // either via a non-interactable form element or using Salesforce
+    primary_applicant_contact: primaryApplicantContact,
+    // TODO: Move removing empty lease start dates to the date component.
+    lease_start_date: rawLeaseObject.lease_start_date || {}
+  }
+})
+
+export const updateLease = async (leaseToUpdate, primaryApplicantContact, applicationId) => {
+  if (!isLeaseAlreadyCreated(leaseToUpdate)) {
+    throw new Error('Trying to update a lease that doesn’t yet exist.')
+  }
+
+  const data = getLeaseRequestData(leaseToUpdate, primaryApplicantContact)
+
+  const leaseId = leaseToUpdate['id']
+  return request.put(`/applications/${applicationId}/leases/${leaseId}`, data, true)
+    .then(response => response.lease)
 }
 
-export const createOrUpdateLease = async (leaseToCreateOrUpdate, applicationId) => {
-  const leaseId = leaseToCreateOrUpdate['id']
-  // check if lease_start_date was removed
-  if (!leaseToCreateOrUpdate['lease_start_date']) {
-    leaseToCreateOrUpdate['lease_start_date'] = {}
+export const createLease = async (leaseToCreate, primaryApplicantContact, applicationId) => {
+  if (isLeaseAlreadyCreated(leaseToCreate)) {
+    throw new Error('Trying to create a lease that already exists.')
   }
-  const data = { lease: leaseToCreateOrUpdate }
-  if (leaseId) {
-    const { lease } = await request.put(`/applications/${applicationId}/leases/${leaseId}`, data)
-    return lease
-  } else {
-    const { lease } = await request.post(`/applications/${applicationId}/leases`, data)
-    return lease
-  }
+
+  const data = getLeaseRequestData(leaseToCreate, primaryApplicantContact)
+
+  return request.post(`/applications/${applicationId}/leases`, data, true)
+    .then(response => response.lease)
 }
 
 export default {
@@ -136,5 +144,6 @@ export default {
   createRentalAssistance,
   updateRentalAssistance,
   deleteRentalAssistance,
-  createOrUpdateLease
+  createLease,
+  updateLease
 }

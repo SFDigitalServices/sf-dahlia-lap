@@ -48,7 +48,7 @@ const LeaseUpSidebarButtons = ({ status, withMobileStyling, isLoading, onSaveCli
 }
 
 LeaseUpSidebarButtons.propTypes = {
-  status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES).isRequired,
+  status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
   withMobileStyling: PropTypes.bool,
   isLoading: PropTypes.bool,
   onSaveClicked: PropTypes.func,
@@ -57,6 +57,7 @@ LeaseUpSidebarButtons.propTypes = {
 }
 
 LeaseUpSidebarButtons.defaultProps = {
+  status: null,
   withMobileStyling: false,
   isLoading: false,
   onSaveClicked: null,

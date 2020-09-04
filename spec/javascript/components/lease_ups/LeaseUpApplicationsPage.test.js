@@ -26,6 +26,18 @@ jest.mock('apiService', () => {
   }
 })
 
+/**
+ * Make createFieldUpdateComment succeed the first time and fail the second time.
+ *
+ * If additional tests are added that call createFieldUpdateComment these mocks may
+ * need to be modified.
+ *
+ * Unfortunately, we can't mock the implementation inside of individual tests.
+ * See: https://github.com/facebook/jest/issues/5962 for more info.
+ */
+mockCreateFieldUpdateComment.mockImplementationOnce(() => Promise.resolve('works'))
+mockCreateFieldUpdateComment.mockImplementationOnce(() => Promise.reject(new Error('error thrown')))
+
 const buildMockApplicationWithPreference = (uniqId, prefOrder, prefRank) => {
   return {
     'id': uniqId,
@@ -108,6 +120,9 @@ describe('LeaseUpApplicationsPage', () => {
 
       // Expect the modal to be closed
       expect(wrapper.find(openModalSelector).exists()).toBe(false)
+
+      // if submit wasn't clicked we shouldn't trigger an API request
+      expect(mockCreateFieldUpdateComment.mock.calls.length).toEqual(0)
     })
 
     test('Should display sub status options properly', async () => {
@@ -129,6 +144,9 @@ describe('LeaseUpApplicationsPage', () => {
 
       // Expect the modal to be closed
       expect(wrapper.find(openModalSelector).exists()).toBe(false)
+
+      // if submit wasn't clicked we shouldn't trigger an API request
+      expect(mockCreateFieldUpdateComment.mock.calls.length).toEqual(0)
     })
 
     test('Should call createFieldUpdateComment and close on successful submit', async () => {
@@ -164,7 +182,6 @@ describe('LeaseUpApplicationsPage', () => {
     })
 
     test('Should display errors on required comment', async () => {
-      mockCreateFieldUpdateComment.mockReturnValueOnce(false)
       openStatusModal(wrapper)
 
       const status = await wrapper.find(statusSelector).first().html()
@@ -183,13 +200,14 @@ describe('LeaseUpApplicationsPage', () => {
       await tick()
       wrapper.update()
 
+      expect(mockCreateFieldUpdateComment.mock.calls.length).toEqual(0)
+
       const labelValue = await wrapper.find(commentLabelSelector).html()
       // check if required is present for either condition
       expect(labelValue.toLowerCase().includes('required')).toBe(statusRequiresComments(status.toLowerCase(), substatus.toLowerCase()))
     })
 
     test('Should open closeable alert modal on failed submit', async () => {
-      mockCreateFieldUpdateComment.mockReturnValueOnce(false)
       openStatusModal(wrapper)
 
       const status = await wrapper.find(statusSelector).first().html()
@@ -207,6 +225,8 @@ describe('LeaseUpApplicationsPage', () => {
       })
       await tick()
       wrapper.update()
+
+      expect(mockCreateFieldUpdateComment.mock.calls.length).toEqual(1)
 
       // Expect alert message to be present
       expect(wrapper.find('.alert-body').exists()).toBeTruthy()
