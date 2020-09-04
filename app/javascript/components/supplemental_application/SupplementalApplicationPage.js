@@ -177,11 +177,11 @@ class SupplementalApplicationPage extends React.Component {
     }
   }
 
-  handleClickCreateLease = () => {
+  handleCreateLeaseClick = () => {
     this.setState({ showLeaseSection: true })
   }
 
-  handleClickCancelLease = () => {
+  handleCancelLeaseClick = () => {
     // Need to also clear state, etc.
     this.setState({ showLeaseSection: false })
   }
@@ -335,8 +335,8 @@ class SupplementalApplicationPage extends React.Component {
       assignSupplementalAppTouched: this.assignSupplementalAppTouched,
       availableUnits: availableUnits,
       fileBaseUrl: fileBaseUrl,
-      handleClickCreateLease: this.handleClickCreateLease,
-      handleClickCancelLease: this.handleClickCancelLease,
+      handleCreateLeaseClick: this.handleCreateLeaseClick,
+      handleCancelLeaseClick: this.handleCancelLeaseClick,
       handleSaveLease: () => console.log('clicked save lease'),
       handleDeleteLease: () => console.log('clicked delete lease'),
       handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,

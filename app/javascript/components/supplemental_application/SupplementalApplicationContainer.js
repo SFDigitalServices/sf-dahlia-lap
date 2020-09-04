@@ -69,7 +69,7 @@ const Income = ({ listingAmiCharts, visited, form }) => (
   </ContentSection>
 )
 
-const LeaseSection = ({ form, submitting, values, handleClickCreateLease, showLeaseSection }) => (
+const LeaseSection = ({ form, submitting, values, onCreateLeaseClick, showLeaseSection }) => (
   <ContentSection
     title='Lease'
     description={!showLeaseSection && 'Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.'}
@@ -80,7 +80,7 @@ const LeaseSection = ({ form, submitting, values, handleClickCreateLease, showLe
         values={values}
         submitting={submitting}
       />
-    ) : <Button id='create-lease' text='Create Lease' small onClick={handleClickCreateLease} />
+    ) : <Button id='create-lease' text='Create Lease' small onClick={onCreateLeaseClick} />
     }
   </ContentSection>
 )
@@ -151,7 +151,7 @@ const SupplementalApplicationContainer = ({ store }) => {
     listingAmiCharts,
     onSubmit,
     statusModal,
-    handleClickCreateLease,
+    handleCreateLeaseClick,
     handleStatusModalClose,
     handleStatusModalSubmit,
     assignSupplementalAppTouched,
@@ -219,7 +219,7 @@ const SupplementalApplicationContainer = ({ store }) => {
                     values={values}
                     submitting={submitting}
                     showLeaseSection={showLeaseSection}
-                    handleClickCreateLease={handleClickCreateLease}
+                    onCreateLeaseClick={handleCreateLeaseClick}
                   />
                   <DemographicsSection />
                 </AsymColumnLayout.MainContent>

@@ -23,7 +23,7 @@ const toggleNoPreferenceUsed = (form, event) => {
   form.change('lease.no_preference_used', isEmpty(event.target.value))
 }
 
-const LeaseActions = ({ onSave, onCancel, onDelete, isNew, loading }) => (
+const LeaseActions = ({ onSave, onCancelLeaseClick, onDelete, isNew, loading }) => (
   <div className='form-grid_item column'>
     <Button
       classes='primary margin-right'
@@ -35,7 +35,7 @@ const LeaseActions = ({ onSave, onCancel, onDelete, isNew, loading }) => (
     <Button
       classes='secondary'
       small
-      onClick={onCancel}
+      onClick={onCancelLeaseClick}
       disabled={loading}
       text='Cancel'
     />
@@ -57,7 +57,7 @@ const Lease = ({ form, submitting, values, store }) => {
     application,
     handleSaveLease,
     handleDeleteLease,
-    handleClickCancelLease
+    handleCancelLeaseClick
   } = store
   const availableUnitsOptions = formUtils.toOptions(
     map(availableUnits, pluck('id', 'unit_number'))
@@ -155,7 +155,7 @@ const Lease = ({ form, submitting, values, store }) => {
         {/* TODO: Wire up actions for buttons, set to disabled when loading */}
         <LeaseActions
           onSave={handleSaveLease}
-          onCancel={handleClickCancelLease}
+          onCancelLeaseClick={handleCancelLeaseClick}
           onDelete={handleDeleteLease}
           loading={false}
           isNew={false}

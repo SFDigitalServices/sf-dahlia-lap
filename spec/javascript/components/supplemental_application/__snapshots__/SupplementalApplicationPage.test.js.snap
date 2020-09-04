@@ -1313,9 +1313,9 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                     "availableUnits": undefined,
                     "confirmedPreferencesFailed": false,
                     "fileBaseUrl": undefined,
-                    "handleClickCancelLease": [Function],
-                    "handleClickCreateLease": [Function],
+                    "handleCancelLeaseClick": [Function],
                     "handleCloseRentalAssistancePanel": [Function],
+                    "handleCreateLeaseClick": [Function],
                     "handleDeleteLease": [Function],
                     "handleDeleteRentalAssistance": [Function],
                     "handleOpenRentalAssistancePanel": [Function],
@@ -3361,9 +3361,9 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                 "availableUnits": undefined,
                                                 "confirmedPreferencesFailed": false,
                                                 "fileBaseUrl": undefined,
-                                                "handleClickCancelLease": [Function],
-                                                "handleClickCreateLease": [Function],
+                                                "handleCancelLeaseClick": [Function],
                                                 "handleCloseRentalAssistancePanel": [Function],
+                                                "handleCreateLeaseClick": [Function],
                                                 "handleDeleteLease": [Function],
                                                 "handleDeleteRentalAssistance": [Function],
                                                 "handleOpenRentalAssistancePanel": [Function],
@@ -8417,7 +8417,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                   "subscribe": [Function],
                                 }
                               }
-                              handleClickCreateLease={[Function]}
+                              onCreateLeaseClick={[Function]}
                               showLeaseSection={true}
                               submitting={false}
                               values={
@@ -9523,9 +9523,9 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                           "availableUnits": undefined,
                                           "confirmedPreferencesFailed": false,
                                           "fileBaseUrl": undefined,
-                                          "handleClickCancelLease": [Function],
-                                          "handleClickCreateLease": [Function],
+                                          "handleCancelLeaseClick": [Function],
                                           "handleCloseRentalAssistancePanel": [Function],
+                                          "handleCreateLeaseClick": [Function],
                                           "handleDeleteLease": [Function],
                                           "handleDeleteRentalAssistance": [Function],
                                           "handleOpenRentalAssistancePanel": [Function],
@@ -11238,9 +11238,9 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                                             "availableUnits": undefined,
                                                             "confirmedPreferencesFailed": false,
                                                             "fileBaseUrl": undefined,
-                                                            "handleClickCancelLease": [Function],
-                                                            "handleClickCreateLease": [Function],
+                                                            "handleCancelLeaseClick": [Function],
                                                             "handleCloseRentalAssistancePanel": [Function],
+                                                            "handleCreateLeaseClick": [Function],
                                                             "handleDeleteLease": [Function],
                                                             "handleDeleteRentalAssistance": [Function],
                                                             "handleOpenRentalAssistancePanel": [Function],
@@ -11878,7 +11878,7 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                               <LeaseActions
                                                 isNew={false}
                                                 loading={false}
-                                                onCancel={[Function]}
+                                                onCancelLeaseClick={[Function]}
                                                 onDelete={[Function]}
                                                 onSave={[Function]}
                                               >
@@ -12954,9 +12954,9 @@ exports[`SupplementalApplicationPage Status Sidebar should render the LeaseUpSid
                                     "availableUnits": undefined,
                                     "confirmedPreferencesFailed": false,
                                     "fileBaseUrl": undefined,
-                                    "handleClickCancelLease": [Function],
-                                    "handleClickCreateLease": [Function],
+                                    "handleCancelLeaseClick": [Function],
                                     "handleCloseRentalAssistancePanel": [Function],
+                                    "handleCreateLeaseClick": [Function],
                                     "handleDeleteLease": [Function],
                                     "handleDeleteRentalAssistance": [Function],
                                     "handleOpenRentalAssistancePanel": [Function],
