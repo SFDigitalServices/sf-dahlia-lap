@@ -1,6 +1,10 @@
 import axios from 'axios'
 
 export class Request {
+  /**
+   * TODO: Remove throwOnError param once all request calls are migrated
+   * to throw.
+   */
   async apiCall (method, path, data, throwOnError = false) {
     if (process.env.NODE_ENV === 'test') {
       var err = Error('API should not be called in TEST')

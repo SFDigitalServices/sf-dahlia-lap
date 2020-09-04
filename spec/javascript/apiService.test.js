@@ -38,6 +38,22 @@ describe('apiService', () => {
       expect(mockLeasePostFn.mock.calls.length).toEqual(1)
       expect(mockLeasePostFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases`, expectedData, true])
     })
+
+    test('should fail if the lease already contains a salesforce ID', async () => {
+      var lease = {
+        'id': 'lease_id',
+        'monthly_parking_rent': 100
+      }
+      let throwsError = false
+      await apiService.createLease(lease, fakeContact, fakeAppId)
+        .catch(err => {
+          throwsError = true
+          expect(err.message).toEqual('Trying to create a lease that already exists.')
+        })
+
+      expect(mockLeasePostFn.mock.calls.length).toEqual(0)
+      expect(throwsError).toBeTruthy()
+    })
   })
 
   describe('updateLease', () => {
@@ -59,6 +75,21 @@ describe('apiService', () => {
       expect(result).toEqual(true)
       expect(mockLeasePutFn.mock.calls.length).toEqual(1)
       expect(mockLeasePutFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases/${fakeLeaseId}`, expectedData, true])
+    })
+
+    test('should fail if the lease doesn’t have an id', async () => {
+      var lease = {
+        'monthly_parking_rent': 100
+      }
+      let throwsError = false
+      await apiService.updateLease(lease, fakeContact, fakeAppId)
+        .catch(err => {
+          throwsError = true
+          expect(err.message).toEqual('Trying to update a lease that doesn’t yet exist.')
+        })
+
+      expect(mockLeasePutFn.mock.calls.length).toEqual(0)
+      expect(throwsError).toBeTruthy()
     })
   })
 
