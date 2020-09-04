@@ -151,7 +151,6 @@ class SupplementalApplicationPage extends React.Component {
 
     updateApplicationAndAddComment(fromApplication, application, status, comment, subStatus)
       .then((responses) => {
-        this.setState({ loading: false })
         this.setState({
           application: setApplicationsDefaults(responses.application),
           statusHistory: responses.statusHistory,
@@ -159,6 +158,7 @@ class SupplementalApplicationPage extends React.Component {
           supplementalAppTouched: false
         }, () => this.updateStatusModal({ loading: false, isOpen: false }))
       }).catch((e) => {
+        this.setState({ loading: false })
         this.updateStatusModal({
           loading: false,
           showAlert: true,

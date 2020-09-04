@@ -26,7 +26,7 @@ const transformApplicationResponses = (lease, application, rentalAssistances) =>
  *
  * TODO: Don't create an empty lease in this function.
  */
-export const updateApplication = (application, prevApplication) => {
+export const updateApplication = async (application, prevApplication) => {
   const primaryApplicantContact = application.applicant && application.applicant.id
   const applicationId = application['id']
   const changedFields = filterChanged(prevApplication, application)
@@ -45,10 +45,10 @@ export const updateApplication = (application, prevApplication) => {
     transformApplicationResponses(lease, responseApplication, rentalAssistances))
 }
 
-export const createFieldUpdateComment = (applicationId, status, comment, substatus) =>
+export const createFieldUpdateComment = async (applicationId, status, comment, substatus) =>
   apiService.createFieldUpdateComment(applicationId, status, comment, substatus)
 
-export const updateApplicationAndAddComment = (application, prevApplication, status, comment, substatus) => {
+export const updateApplicationAndAddComment = async (application, prevApplication, status, comment, substatus) => {
   const packageResponseData = (appResponse, statusHistory) => ({
     application: appResponse,
     statusHistory
@@ -60,7 +60,7 @@ export const updateApplicationAndAddComment = (application, prevApplication, sta
   ).then(([appResponse, statusHistory]) => packageResponseData(appResponse, statusHistory))
 }
 
-const updateUnsavedRentalAssistances = (application, prevApplication) => {
+const updateUnsavedRentalAssistances = async (application, prevApplication) => {
   // remove any canceled or non filled out rental assistances. i.e. {}
   const rentalAssistances = reject(application.rental_assistances, isEmpty)
   const promises = []
@@ -80,15 +80,15 @@ const updateUnsavedRentalAssistances = (application, prevApplication) => {
     .then(() => apiService.getRentalAssistances(application.id))
 }
 
-export const createLease = (lease, primaryApplicantContact, applicationId) =>
+export const createLease = async (lease, primaryApplicantContact, applicationId) =>
   apiService.createLease(lease, primaryApplicantContact, applicationId)
 
-export const updateLease = (lease, primaryApplicantContact, applicationId) =>
+export const updateLease = async (lease, primaryApplicantContact, applicationId) =>
   apiService.updateLease(lease, primaryApplicantContact, applicationId)
 
-const updateOrCreateLease = (lease, primaryApplicantContact, applicationId) => {
+const updateOrCreateLease = async (lease, primaryApplicantContact, applicationId) => {
   if (isEmpty(lease)) {
-    return Promise.resolve(lease)
+    return lease
   }
 
   if (isLeaseAlreadyCreated(lease)) {

@@ -1,7 +1,7 @@
 import { request } from '~/api/request'
 import { isLeaseAlreadyCreated } from './utils/leaseUtils'
 
-const updateFlaggedApplication = (data) => {
+const updateFlaggedApplication = async (data) => {
   let putData = {
     flagged_application: {
       id: data.id,
@@ -14,7 +14,7 @@ const updateFlaggedApplication = (data) => {
     .then(response => response.result)
 }
 
-const submitApplication = (application, isSupplemental = false) => {
+const submitApplication = async (application, isSupplemental = false) => {
   const requestData = { application }
 
   const promise = isSupplemental
@@ -24,7 +24,7 @@ const submitApplication = (application, isSupplemental = false) => {
   return promise.then(response => response.application)
 }
 
-const fetchApplications = ({ page, filters }) =>
+const fetchApplications = async ({ page, filters }) =>
   request.get('/applications', {
     params: {
       page,
@@ -32,7 +32,7 @@ const fetchApplications = ({ page, filters }) =>
     }
   })
 
-const fetchLeaseUpApplications = (listingId, page, { filters }) => {
+const fetchLeaseUpApplications = async (listingId, page, { filters }) => {
   // Fetch applications associated with a lease up listing.
   return request.get('/lease-ups/applications', {
     params: {
@@ -43,7 +43,7 @@ const fetchLeaseUpApplications = (listingId, page, { filters }) => {
   })
 }
 
-const getAMI = ({ chartType, chartYear }) =>
+const getAMI = async ({ chartType, chartYear }) =>
   request.get('/ami', {
     params: {
       chartType: chartType,
@@ -52,7 +52,7 @@ const getAMI = ({ chartType, chartYear }) =>
     }
   })
 
-const createFieldUpdateComment = (applicationId, status, comment, substatus) => {
+const createFieldUpdateComment = async (applicationId, status, comment, substatus) => {
   const postData = {
     field_update_comment: {
       status,
@@ -66,13 +66,13 @@ const createFieldUpdateComment = (applicationId, status, comment, substatus) => 
     .then(response => response.result)
 }
 
-const updatePreference = (preference) =>
+const updatePreference = async (preference) =>
   request.put(`/preferences/${preference.id}`, { preference }, true)
 
-const updateApplication = (application) =>
+const updateApplication = async (application) =>
   request.put(`/applications/${application.id}`, { application }, true)
 
-const createRentalAssistance = (rentalAssistance, applicationId) => {
+const createRentalAssistance = async (rentalAssistance, applicationId) => {
   const postData = {
     rental_assistance: rentalAssistance,
     application_id: applicationId
@@ -81,11 +81,11 @@ const createRentalAssistance = (rentalAssistance, applicationId) => {
   return request.post('/rental-assistances', postData)
 }
 
-const getRentalAssistances = (applicationId) =>
+const getRentalAssistances = async (applicationId) =>
   request.get('/rental-assistances', { params: { application_id: applicationId } }, true)
     .then((response) => response.rental_assistances)
 
-const updateRentalAssistance = (rentalAssistance, applicationId) => {
+const updateRentalAssistance = async (rentalAssistance, applicationId) => {
   const putData = {
     rental_assistance: rentalAssistance,
     application_id: applicationId
@@ -94,10 +94,10 @@ const updateRentalAssistance = (rentalAssistance, applicationId) => {
   return request.put(`/rental-assistances/${rentalAssistance.id}`, putData)
 }
 
-const deleteRentalAssistance = (rentalAssistanceId) =>
+const deleteRentalAssistance = async (rentalAssistanceId) =>
   request.destroy(`/rental-assistances/${rentalAssistanceId}`)
 
-const getLeaseRequestData = (rawLeaseObject, primaryApplicantContact) => {
+const getLeaseRequestData = async (rawLeaseObject, primaryApplicantContact) => {
   return {
     lease: {
       ...rawLeaseObject,
@@ -110,7 +110,7 @@ const getLeaseRequestData = (rawLeaseObject, primaryApplicantContact) => {
   }
 }
 
-export const updateLease = (leaseToUpdate, primaryApplicantContact, applicationId) => {
+export const updateLease = async (leaseToUpdate, primaryApplicantContact, applicationId) => {
   if (!isLeaseAlreadyCreated(leaseToUpdate)) {
     throw new Error('Trying to update a lease that doesn’t yet exist.')
   }
@@ -122,7 +122,7 @@ export const updateLease = (leaseToUpdate, primaryApplicantContact, applicationI
     .then(response => response.lease)
 }
 
-export const createLease = (leaseToCreate, primaryApplicantContact, applicationId) => {
+export const createLease = async (leaseToCreate, primaryApplicantContact, applicationId) => {
   if (isLeaseAlreadyCreated(leaseToCreate)) {
     throw new Error('Trying to create a lease that already exists.')
   }
