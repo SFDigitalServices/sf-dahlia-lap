@@ -382,7 +382,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
     className="form-grid row margin-left-none margin-right-none"
   >
     <div
-      className="inline-modal padding-left--2x padding-right--2x white-background margin-bottom"
+      className="inline-modal padding-left--2x padding-right--2x white-background margin-bottom--3halves"
     >
       <div
         className="form-grid row expand"

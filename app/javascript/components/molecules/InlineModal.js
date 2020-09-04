@@ -8,7 +8,7 @@ const InlineModal = ({ whiteBackground = false, children, marginBottom = false }
     'padding-left--2x',
     'padding-right--2x',
     { 'white-background': whiteBackground },
-    { 'margin-bottom': marginBottom }
+    { 'margin-bottom--3halves': marginBottom }
   ]
 
   return (
