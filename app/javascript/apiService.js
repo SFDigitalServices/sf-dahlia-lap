@@ -13,17 +13,20 @@ const updateFlaggedApplication = async (data) => {
   return response.result
 }
 
-const submitApplication = async (data, isSupplemental = false) => {
+const submitApplication = (data, isSupplemental = false) => {
   const requestData = { application: data }
-  let response
 
   if (isSupplemental) {
-    response = await request.put('/short-form/submit?supplemental=true', requestData)
+    return request.put('/short-form/submit?supplemental=true', requestData, true)
+      .then(response => response.application)
+      .catch(err => {
+        console.log('caught error!', err)
+        throw err
+      })
   } else {
-    response = await request.post('/short-form/submit', requestData)
+    return request.post('/short-form/submit', requestData, true)
+      .then(response => response.application)
   }
-
-  return response.application
 }
 
 const fetchApplications = async ({ page, filters }) => {
@@ -56,31 +59,32 @@ const getAMI = async ({ chartType, chartYear }) => {
   })
 }
 
-const createFieldUpdateComment = async (data) => {
+const createFieldUpdateComment = async (applicationId, status, comment, substatus) => {
   let postData = {
     field_update_comment: {
-      status: data.status,
-      comment: data.comment,
-      application: data.applicationId,
-      ...(data.subStatus ? { substatus: data.subStatus } : {})
+      status,
+      comment,
+      application: applicationId,
+      ...(substatus && { substatus })
     }
   }
-  const { result } = await request.post('/field-update-comments/create', postData)
-  return result
+
+  return request.post('/field-update-comments/create', postData, true)
+    .then(response => response.result)
 }
 
 const updatePreference = async (preference) => {
   const postData = {
     preference: preference
   }
-  return request.put(`/preferences/${preference.id}`, postData)
+  return request.put(`/preferences/${preference.id}`, postData, true)
 }
 
 const updateApplication = async (application) => {
   const postData = {
     application: application
   }
-  return request.put(`/applications/${application.id}`, postData)
+  return request.put(`/applications/${application.id}`, postData, true)
 }
 
 const createRentalAssistance = async (rentalAssistance, applicationId) => {
@@ -92,7 +96,7 @@ const createRentalAssistance = async (rentalAssistance, applicationId) => {
 }
 
 const getRentalAssistances = (applicationId) =>
-  request.get('/rental-assistances', { params: { application_id: applicationId } })
+  request.get('/rental-assistances', { params: { application_id: applicationId } }, true)
     .then((response) => response.rental_assistances)
 
 const updateRentalAssistance = async (rentalAssistance, applicationId) => {
@@ -128,7 +132,7 @@ export const updateLease = async (leaseToUpdate, primaryApplicantContact, applic
   const data = getLeaseRequestData(leaseToUpdate, primaryApplicantContact)
 
   const leaseId = leaseToUpdate['id']
-  return request.put(`/applications/${applicationId}/leases/${leaseId}`, data)
+  return request.put(`/applications/${applicationId}/leases/${leaseId}`, data, true)
     .then(response => response.lease)
 }
 
@@ -139,7 +143,7 @@ export const createLease = async (leaseToCreate, primaryApplicantContact, applic
 
   const data = getLeaseRequestData(leaseToCreate, primaryApplicantContact)
 
-  return request.post(`/applications/${applicationId}/leases`, data)
+  return request.post(`/applications/${applicationId}/leases`, data, true)
     .then(response => response.lease)
 }
 

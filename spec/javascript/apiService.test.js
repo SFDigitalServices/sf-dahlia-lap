@@ -36,7 +36,7 @@ describe('apiService', () => {
 
       expect(result).toEqual(true)
       expect(mockLeasePostFn.mock.calls.length).toEqual(1)
-      expect(mockLeasePostFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases`, expectedData])
+      expect(mockLeasePostFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases`, expectedData, true])
     })
   })
 
@@ -58,7 +58,7 @@ describe('apiService', () => {
 
       expect(result).toEqual(true)
       expect(mockLeasePutFn.mock.calls.length).toEqual(1)
-      expect(mockLeasePutFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases/${fakeLeaseId}`, expectedData])
+      expect(mockLeasePutFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases/${fakeLeaseId}`, expectedData, true])
     })
   })
 

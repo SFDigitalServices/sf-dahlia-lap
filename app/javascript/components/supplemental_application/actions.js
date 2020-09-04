@@ -45,9 +45,10 @@ export const updateApplication = (application, prevApplication) => {
     transformApplicationResponses(lease, responseApplication, rentalAssistances))
 }
 
-export const createFieldUpdateComment = (data) => apiService.createFieldUpdateComment(data)
+export const createFieldUpdateComment = (applicationId, status, comment, substatus) =>
+  apiService.createFieldUpdateComment(applicationId, status, comment, substatus)
 
-export const updateApplicationAndAddComment = (application, prevApplication, commentData) => {
+export const updateApplicationAndAddComment = (application, prevApplication, status, comment, substatus) => {
   const packageResponseData = (appResponse, statusHistory) => ({
     application: appResponse,
     statusHistory
@@ -55,7 +56,7 @@ export const updateApplicationAndAddComment = (application, prevApplication, com
 
   return performInSequence(
     () => updateApplication(application, prevApplication),
-    () => createFieldUpdateComment(commentData)
+    () => createFieldUpdateComment(prevApplication.id, status, comment, substatus)
   ).then(([appResponse, statusHistory]) => packageResponseData(appResponse, statusHistory))
 }
 

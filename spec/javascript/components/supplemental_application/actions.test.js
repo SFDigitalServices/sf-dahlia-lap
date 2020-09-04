@@ -1,4 +1,4 @@
-import { updateApplication } from 'components/supplemental_application/actions'
+import { updateApplication, updateApplicationAndAddComment } from 'components/supplemental_application/actions'
 import supplementalApplication from '../../fixtures/supplemental_application'
 import { cloneDeep } from 'lodash'
 
@@ -7,6 +7,7 @@ const mockCreateLeaseFn = jest.fn()
 const mockUpdateLeaseFn = jest.fn()
 const mockCreateRentalFn = jest.fn()
 const mockUpdateRentalFn = jest.fn()
+const mockCreateFieldUpdateCommentFn = jest.fn()
 const mockGetRentalAssistancesFn = jest.fn()
 
 jest.mock('apiService', () => {
@@ -40,13 +41,19 @@ jest.mock('apiService', () => {
     return []
   }
 
+  const mockCreateFieldUpdateComment = async (id, status, comment, substatus) => {
+    mockCreateFieldUpdateCommentFn(id, status, comment, substatus)
+    return ['status_history_item']
+  }
+
   return {
     submitApplication: mockSubmitApplication,
     createLease: mockCreateLease,
     updateLease: mockUpdateLease,
     createRentalAssistance: mockCreateRental,
     updateRentalAssistance: mockUpdateRental,
-    getRentalAssistances: mockGetRentalAssistances
+    getRentalAssistances: mockGetRentalAssistances,
+    createFieldUpdateComment: mockCreateFieldUpdateComment
   }
 })
 
@@ -120,9 +127,34 @@ describe('updateApplication', () => {
     updateApplication(application, baseApplication)
       .then(response => {
         expect(response.id).toEqual(application.id)
-        expect(response.id).toEqual(application.id)
         expect(mockCreateRentalFn.mock.calls.length).toEqual(1)
         expect(mockUpdateRentalFn.mock.calls.length).toEqual(1)
+      })
+  })
+})
+
+describe('updateApplicationAndAddComment', () => {
+  test('it should update the application and add a field update comment', async () => {
+    const application = {
+      'id': 'appID',
+      'name': 'APP-12345',
+      'listing': {
+        'id': 'listingID'
+      },
+      'lease': {}
+    }
+
+    const status = 'Approved'
+
+    updateApplicationAndAddComment(application, application, status)
+      .then(response => {
+        expect(response.application.id).toEqual(application.id)
+        expect(response.statusHistory).toEqual(['status_history_item'])
+        expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
+        expect(mockSubmitAppFn.mock.calls.length).toEqual(0)
+        expect(mockCreateLeaseFn.mock.calls.length).toEqual(1)
+        expect(mockCreateFieldUpdateCommentFn.mock.calls.length).toEqual(1)
+        expect(mockCreateFieldUpdateCommentFn).toHaveBeenCalledWith('appID', 'Approved')
       })
   })
 })

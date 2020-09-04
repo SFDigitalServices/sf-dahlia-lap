@@ -147,15 +147,9 @@ class SupplementalApplicationPage extends React.Component {
     const { status, subStatus, comment } = submittedValues
     this.setState({ loading: true })
     this.updateStatusModal({ loading: true })
-    const data = {
-      status,
-      comment,
-      applicationId: application.id,
-      ...(subStatus ? { subStatus } : {})
-    }
     fromApplication.processing_status = status
 
-    updateApplicationAndAddComment(fromApplication, application, data)
+    updateApplicationAndAddComment(fromApplication, application, status, comment, subStatus)
       .then((responses) => {
         this.setState({ loading: false })
         this.setState({
