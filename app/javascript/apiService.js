@@ -97,18 +97,16 @@ const updateRentalAssistance = async (rentalAssistance, applicationId) => {
 const deleteRentalAssistance = async (rentalAssistanceId) =>
   request.destroy(`/rental-assistances/${rentalAssistanceId}`)
 
-const getLeaseRequestData = async (rawLeaseObject, primaryApplicantContact) => {
-  return {
-    lease: {
-      ...rawLeaseObject,
-      // TODO: We should consider setting the Tenant on a Lease more explicitly
-      // either via a non-interactable form element or using Salesforce
-      primary_applicant_contact: primaryApplicantContact,
-      // TODO: Move removing empty lease start dates to the date component.
-      lease_start_date: rawLeaseObject.lease_start_date || {}
-    }
+const getLeaseRequestData = (rawLeaseObject, primaryApplicantContact) => ({
+  lease: {
+    ...rawLeaseObject,
+    // TODO: We should consider setting the Tenant on a Lease more explicitly
+    // either via a non-interactable form element or using Salesforce
+    primary_applicant_contact: primaryApplicantContact,
+    // TODO: Move removing empty lease start dates to the date component.
+    lease_start_date: rawLeaseObject.lease_start_date || {}
   }
-}
+})
 
 export const updateLease = async (leaseToUpdate, primaryApplicantContact, applicationId) => {
   if (!isLeaseAlreadyCreated(leaseToUpdate)) {
