@@ -4926,27 +4926,6 @@ Array [
                 </div>
               </div>
               <div
-                className="padding-top--3x show-large-up"
-              >
-                <h3
-                  className="app-card_h3 t-sans"
-                >
-                  Status History
-                </h3>
-              </div>
-              <div
-                className="padding-top--half hide-large-up"
-              >
-                <h2
-                  className="app-card_h2"
-                >
-                  Status History
-                </h2>
-              </div>
-              <div
-                className="status-items"
-              />
-              <div
                 className="hide-large-up"
               >
                 <div
