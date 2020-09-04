@@ -74,12 +74,13 @@ const LeaseSection = ({ form, submitting, values, handleClickCreateLease, showLe
     title='Lease'
     description={!showLeaseSection && 'Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.'}
   >
-    { showLeaseSection ? <Lease
-      form={form}
-      values={values}
-      submitting={submitting}
-    />
-      : <Button id='create-lease' text='Create Lease' small onClick={handleClickCreateLease} />
+    { showLeaseSection ? (
+      <Lease
+        form={form}
+        values={values}
+        submitting={submitting}
+      />
+    ) : <Button id='create-lease' text='Create Lease' small onClick={handleClickCreateLease} />
     }
   </ContentSection>
 )

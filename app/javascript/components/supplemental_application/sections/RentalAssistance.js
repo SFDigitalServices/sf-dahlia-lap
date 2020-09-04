@@ -166,6 +166,8 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
     }
   }
 
+  const getField = (assistanceField) => `rental_assistances.${index}.${assistanceField}`
+
   return (
     <>
       <div className={classNames(
@@ -180,7 +182,7 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
             <FormGrid.Item>
               <SelectField
                 label='Recipient'
-                fieldName={`rental_assistances.${index}.recipient`}
+                fieldName={getField('recipient')}
                 options={applicationMembersOptions}
                 className='rental-assistance-recipient'
               />
@@ -190,7 +192,7 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
             <FormGrid.Item>
               <SelectField
                 label='Type of Assistance'
-                fieldName={`rental_assistances.${index}.type_of_assistance`}
+                fieldName={getField('type_of_assistance')}
                 options={typeOfAssistanceOptions}
                 className='rental-assistance-type'
                 validation={validate.isPresent('Please select a type of assistance.')}
@@ -201,10 +203,10 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
             <FormGrid.Item>
               <CurrencyField
                 label='Assistance Amount'
-                fieldName={`rental_assistances.${index}.assistance_amount`}
+                fieldName={getField('assistance_amount')}
                 validation={validateAssistanceAmount}
                 id='assistance_amount'
-                isDirty={visited && visited[`rental_assistances.${index}.assistance_amount`]}
+                isDirty={visited && visited[getField('assistance_amount')]}
               />
             </FormGrid.Item>
           </FormGrid.Row>
@@ -212,8 +214,8 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
             <FormGrid.Item>
               <YesNoRadioGroup
                 label='Recurring Assistance'
-                fieldName={`rental_assistances.${index}.recurring_assistance`}
-                uniqId={(!isEmpty(values) && values.id) || 'new'}
+                fieldName={getField('recurring_assistance')}
+                uniqId={(values?.id) || 'new'}
                 trueValue='Yes'
                 falseValue='No'
                 className='rental-assistance-recurring'
@@ -225,7 +227,7 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
               <FormGrid.Item>
                 <InputField
                   label='Other Assistance Name'
-                  fieldName={`rental_assistances.${index}.other_assistance_name`} />
+                  fieldName={getField('other_assistance_name')} />
               </FormGrid.Item>
             </FormGrid.Row>
           )}

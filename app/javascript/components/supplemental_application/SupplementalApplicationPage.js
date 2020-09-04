@@ -40,6 +40,7 @@ class SupplementalApplicationPage extends React.Component {
     leaveConfirmationModal: {
       isOpen: false
     },
+    // TODO: Only show lease section on load if there's a lease on the application.
     showLeaseSection: true,
     showNewRentalAssistancePanel: false,
     showAddRentalAssistanceBtn: true,
