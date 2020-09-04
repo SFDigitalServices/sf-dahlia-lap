@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { isEmpty } from 'lodash'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
@@ -38,8 +39,10 @@ const LeaseUpSidebar = ({ isLoading, statusItems, onSaveClicked, onChangeStatus,
   const [showingAllStatuses, setShowingAllStatuses] = useState(false)
 
   const currentStatus = getMostRecentStatus(statusItems)
+  const onShowHideStatusesToggled = () => setShowingAllStatuses(!showingAllStatuses)
+  const numberOfStatusesToDisplay = showingAllStatuses ? statusItems.length : MAX_UPDATES_TO_SHOW_DEFAULT
 
-  const sidebarButtons = (withMobileStyling) => (
+  const renderSidebarButtons = (withMobileStyling) => (
     <div className={withMobileStyling ? 'hide-large-up' : 'show-large-up'}>
       <LeaseUpSidebarButtons
         isLoading={isLoading}
@@ -51,24 +54,15 @@ const LeaseUpSidebar = ({ isLoading, statusItems, onSaveClicked, onChangeStatus,
       />
     </div>
   )
-  const onShowHideStatusesToggled = () => setShowingAllStatuses(!showingAllStatuses)
 
-  const numberOfStatusesToDisplay = showingAllStatuses ? statusItems.length : MAX_UPDATES_TO_SHOW_DEFAULT
-
-  const header = (title) => (
+  const renderStatusItemsSection = () => (
     <>
       <div className='padding-top--3x show-large-up'>
-        <ContentSection.SubHeader title={title} />
+        <ContentSection.SubHeader title='Status History' />
       </div>
       <div className='padding-top--half hide-large-up'>
-        <ContentSection.Header title={title} />
+        <ContentSection.Header title='Status History' />
       </div>
-    </>
-  )
-  return (
-    <div className='sidebar-content'>
-      {sidebarButtons(false)}
-      {header('Status History')}
       <StatusItems
         statusItems={statusItems}
         limit={numberOfStatusesToDisplay}
@@ -79,11 +73,17 @@ const LeaseUpSidebar = ({ isLoading, statusItems, onSaveClicked, onChangeStatus,
           onClick={onShowHideStatusesToggled}
         />
       )}
-      {sidebarButtons(true)}
+    </>
+  )
+
+  return (
+    <div className='sidebar-content'>
+      {renderSidebarButtons(false)}
+      {!isEmpty(statusItems) && renderStatusItemsSection()}
+      {renderSidebarButtons(true)}
     </div>
   )
 }
-
 LeaseUpSidebar.propTypes = {
   isLoading: PropTypes.bool,
   statusItems: PropTypes.arrayOf(PropTypes.shape(StatusItemShape)),
