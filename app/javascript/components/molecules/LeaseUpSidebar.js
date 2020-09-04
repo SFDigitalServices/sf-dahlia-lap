@@ -6,6 +6,7 @@ import LeaseUpSidebarButtons from './LeaseUpSidebarButtons'
 import StatusItems from './StatusItems'
 
 import StatusItemShape from '../../utils/shapes/StatusItemShape'
+import ContentSection from './ContentSection'
 
 const MAX_UPDATES_TO_SHOW_DEFAULT = 4
 
@@ -54,10 +55,20 @@ const LeaseUpSidebar = ({ isLoading, statusItems, onSaveClicked, onChangeStatus,
 
   const numberOfStatusesToDisplay = showingAllStatuses ? statusItems.length : MAX_UPDATES_TO_SHOW_DEFAULT
 
+  const header = (title) => (
+    <>
+      <div className='padding-top--3x show-large-up'>
+        <ContentSection.SubHeader title={title} />
+      </div>
+      <div className='padding-top--half hide-large-up'>
+        <ContentSection.Header title={title} />
+      </div>
+    </>
+  )
   return (
     <div className='sidebar-content'>
       {sidebarButtons(false)}
-      <h3 className='status-history-label'>Status History</h3>
+      {header('Status History')}
       <StatusItems
         statusItems={statusItems}
         limit={numberOfStatusesToDisplay}
