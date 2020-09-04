@@ -97,7 +97,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                 colSpan={5}
               >
                 <div
-                  className="app-editable padding-left--2x padding-right--2x"
+                  className="inline-modal padding-left--2x padding-right--2x"
                 >
                   <div
                     className="rental-assistance-edit-form"
@@ -734,7 +734,7 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                 colSpan={5}
               >
                 <div
-                  className="app-editable padding-left--2x padding-right--2x"
+                  className="inline-modal padding-left--2x padding-right--2x"
                 >
                   <div
                     className="rental-assistance-edit-form"
@@ -1109,7 +1109,7 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                 colSpan={5}
               >
                 <div
-                  className="app-editable padding-left--2x padding-right--2x"
+                  className="inline-modal padding-left--2x padding-right--2x"
                 >
                   <div
                     className="rental-assistance-edit-form"

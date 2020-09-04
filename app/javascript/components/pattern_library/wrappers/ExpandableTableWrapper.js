@@ -10,7 +10,7 @@ class ExpandableTableWrapper extends React.Component {
   }
 
   expandedRowRenderer = (row, expandedRowToggler) => (
-    <div className='app-editable'>
+    <div className='inline-modal'>
       <div>Hello</div>
       <br />
       <button className='button' onClick={(e) => (expandedRowToggler())}>Close</button>
