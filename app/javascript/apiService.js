@@ -104,7 +104,7 @@ const getLeaseRequestData = async (rawLeaseObject, primaryApplicantContact) => {
       // TODO: We should consider setting the Tenant on a Lease more explicitly
       // either via a non-interactable form element or using Salesforce
       primary_applicant_contact: primaryApplicantContact,
-      // TODO: determine why lease_start_date gets removed
+      // TODO: Move removing empty lease start dates to the date component.
       lease_start_date: rawLeaseObject.lease_start_date || {}
     }
   }
