@@ -16,17 +16,11 @@ const updateFlaggedApplication = async (data) => {
 const submitApplication = (data, isSupplemental = false) => {
   const requestData = { application: data }
 
-  if (isSupplemental) {
-    return request.put('/short-form/submit?supplemental=true', requestData, true)
-      .then(response => response.application)
-      .catch(err => {
-        console.log('caught error!', err)
-        throw err
-      })
-  } else {
-    return request.post('/short-form/submit', requestData, true)
-      .then(response => response.application)
-  }
+  const promise = isSupplemental
+    ? request.put('/short-form/submit?supplemental=true', requestData, true)
+    : request.post('/short-form/submit', requestData, true)
+
+  return promise.then(response => response.application)
 }
 
 const fetchApplications = async ({ page, filters }) => {
@@ -59,8 +53,8 @@ const getAMI = async ({ chartType, chartYear }) => {
   })
 }
 
-const createFieldUpdateComment = async (applicationId, status, comment, substatus) => {
-  let postData = {
+const createFieldUpdateComment = (applicationId, status, comment, substatus) => {
+  const postData = {
     field_update_comment: {
       status,
       comment,
@@ -73,19 +67,11 @@ const createFieldUpdateComment = async (applicationId, status, comment, substatu
     .then(response => response.result)
 }
 
-const updatePreference = async (preference) => {
-  const postData = {
-    preference: preference
-  }
-  return request.put(`/preferences/${preference.id}`, postData, true)
-}
+const updatePreference = (preference) =>
+  request.put(`/preferences/${preference.id}`, { preference }, true)
 
-const updateApplication = async (application) => {
-  const postData = {
-    application: application
-  }
-  return request.put(`/applications/${application.id}`, postData, true)
-}
+const updateApplication = (application) =>
+  request.put(`/applications/${application.id}`, { application }, true)
 
 const createRentalAssistance = async (rentalAssistance, applicationId) => {
   const postData = {
