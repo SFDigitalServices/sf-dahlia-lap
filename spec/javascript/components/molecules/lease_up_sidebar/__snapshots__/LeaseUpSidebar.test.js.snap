@@ -7,31 +7,23 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
   <div
     className="show-large-up"
   >
-    <LeaseUpSidebarButtons
+    <button
+      className="primary save-button"
+      disabled={false}
+      id="save-supplemental-application"
+      onClick={null}
+      type="submit"
+    >
+      Save
+    </button>
+    <LeaseUpStatusButtons
       isLoading={false}
       onAddCommentClicked={null}
       onChangeStatus={null}
-      onSaveClicked={null}
       status="Approved"
-      withMobileStyling={false}
     />
   </div>
-  <div
-    className="padding-top--3x show-large-up"
-  >
-    <Component
-      title="Status History"
-    />
-  </div>
-  <div
-    className="padding-top--half hide-large-up"
-  >
-    <Component
-      title="Status History"
-    />
-  </div>
-  <StatusItems
-    limit={4}
+  <StatusHistoryContainer
     statusItems={
       Array [
         Object {
@@ -67,21 +59,24 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
       ]
     }
   />
-  <ShowOrHideStatusesButton
-    onClick={[Function]}
-    showingAllStatuses={false}
-  />
   <div
     className="hide-large-up"
   >
-    <LeaseUpSidebarButtons
+    <LeaseUpStatusButtons
       isLoading={false}
       onAddCommentClicked={null}
       onChangeStatus={null}
-      onSaveClicked={null}
       status="Approved"
-      withMobileStyling={true}
     />
+    <button
+      className="primary save-button"
+      disabled={false}
+      id="save-supplemental-application"
+      onClick={null}
+      type="submit"
+    >
+      Save
+    </button>
   </div>
 </div>
 `;
