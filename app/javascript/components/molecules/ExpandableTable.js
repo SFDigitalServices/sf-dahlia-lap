@@ -39,7 +39,11 @@ const ExpandableTableRow = ({ row, rowKeyIndex, numColumns, expanderRenderer, ex
 }
 
 const ExpandableTable = ({ columns, rows, rowKeyIndex, expanderRenderer, expandedRowRenderer, originals, classes, closeAllRows }) => (
-  <table className={classNames('td-light td-plain th-plain', classes)} role='grid'>
+  <table
+    className={classNames('td-light td-plain th-plain', classes)}
+    style={{ background: 'transparent' }}
+    role='grid'
+  >
     <thead>
       <tr>
         {columns.map((column, i) => (

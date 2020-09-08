@@ -50,33 +50,31 @@ const Panel = ({ application, applicationMembers, preferenceIndex, onClose, onSa
 
   return (
     <InlineModal>
-      <>
-        <PreferencePanel
-          preferenceIndex={preferenceIndex}
-          preference={preference}
-          form={form}
-          applicationMembersOptions={applicationMembersOptions}
-          visited={visited}
-        />
-        <FormGrid.Row expand={false}>
-          <div className='form-grid_item column'>
-            <button
-              className='button primary tiny margin-right margin-bottom-none save-panel-btn'
-              type='button'
-              onClick={onSaveWithPreferenceIndex}
-              disabled={loading}>
-              Save
-            </button>
-            <button
-              className='button secondary tiny margin-bottom-none'
-              type='button'
-              onClick={handleOnClose}
-              disabled={loading}>
-              Cancel
-            </button>
-          </div>
-        </FormGrid.Row>
-      </>
+      <PreferencePanel
+        preferenceIndex={preferenceIndex}
+        preference={preference}
+        form={form}
+        applicationMembersOptions={applicationMembersOptions}
+        visited={visited}
+      />
+      <FormGrid.Row expand={false}>
+        <div className='form-grid_item column'>
+          <button
+            className='button primary tiny margin-right margin-bottom-none save-panel-btn'
+            type='button'
+            onClick={onSaveWithPreferenceIndex}
+            disabled={loading}>
+            Save
+          </button>
+          <button
+            className='button secondary tiny margin-bottom-none'
+            type='button'
+            onClick={handleOnClose}
+            disabled={loading}>
+            Cancel
+          </button>
+        </div>
+      </FormGrid.Row>
     </InlineModal>
   )
 }

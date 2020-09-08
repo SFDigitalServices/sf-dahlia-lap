@@ -3,19 +3,18 @@ import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
 import { isEmpty } from 'lodash'
 
+import Button from '~/components/atoms/Button'
 import ContentSection from '../molecules/ContentSection'
 import DemographicsInputs from './sections/DemographicsInputs'
 import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 import AlertBox from '~/components/molecules/AlertBox'
-import LeaseInformationInputs from './sections/LeaseInformationInputs'
-import RentalAssistance from './sections/RentalAssistance'
+import Lease from './sections/Lease'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 
 import validate, { touchAllFields } from '~/utils/form/validations'
-import ParkingInformationInputs from './sections/ParkingInformationInputs'
 import { convertPercentAndCurrency } from '../../utils/form/validations'
 import AsymColumnLayout from '../organisms/AsymColumnLayout'
 import LeaseUpSidebar from '../molecules/LeaseUpSidebar'
@@ -70,26 +69,19 @@ const Income = ({ listingAmiCharts, visited, form }) => (
   </ContentSection>
 )
 
-const LeaseInformationSection = ({ form, submitting, values, visited }) => (
+const LeaseSection = ({ form, submitting, values, onCreateLeaseClick, showLeaseSection }) => (
   <ContentSection
     title='Lease'
-    description='Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.'
+    description={!showLeaseSection && 'Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.'}
   >
-    <ContentSection.Sub title='Unit'>
-      <LeaseInformationInputs form={form} visited={visited} />
-    </ContentSection.Sub>
-    <ContentSection.Sub
-      title='Parking'
-      description='If the applicant will receive a below market rate parking space, indicate the monthly cost.'
-    >
-      <ParkingInformationInputs form={form} values={values} visited={visited} />
-    </ContentSection.Sub>
-    <ContentSection.Sub
-      title='Rental Assistance Information'
-      description='Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.'
-    >
-      <RentalAssistance form={form} submitting={submitting} />
-    </ContentSection.Sub>
+    { showLeaseSection ? (
+      <Lease
+        form={form}
+        values={values}
+        submitting={submitting}
+      />
+    ) : <Button id='create-lease' text='Create Lease' small onClick={onCreateLeaseClick} />
+    }
   </ContentSection>
 )
 
@@ -159,11 +151,13 @@ const SupplementalApplicationContainer = ({ store }) => {
     listingAmiCharts,
     onSubmit,
     statusModal,
+    handleCreateLeaseClick,
     handleStatusModalClose,
     handleStatusModalSubmit,
     assignSupplementalAppTouched,
     openAddStatusCommentModal,
-    openUpdateStatusModal
+    openUpdateStatusModal,
+    showLeaseSection
   } = store
 
   const onAddCommentClicked = (form, touched) =>
@@ -220,11 +214,12 @@ const SupplementalApplicationContainer = ({ store }) => {
                     visited={visited}
                     form={form}
                   />
-                  <LeaseInformationSection
+                  <LeaseSection
                     form={form}
                     values={values}
                     submitting={submitting}
-                    visited={visited}
+                    showLeaseSection={showLeaseSection}
+                    onCreateLeaseClick={handleCreateLeaseClick}
                   />
                   <DemographicsSection />
                 </AsymColumnLayout.MainContent>

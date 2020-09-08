@@ -14,14 +14,12 @@ const getWrapper = (items, isLoading = false) => shallow(
 
 describe('LeaseUpSidebar', () => {
   describe('when not loading', () => {
-    // This is a state that should never really occur.
     test('should render with empty status items correctly', () => {
       const wrapper = getWrapper([])
       // two sidebar buttons components, one for mobile, one for desktop
       expect(wrapper.find(LeaseUpSidebarButtons)).toHaveLength(2)
       expect(wrapper.find(LeaseUpSidebarButtons).first().prop('status')).toEqual(null)
-      expect(wrapper.find(StatusItems)).toHaveLength(1)
-      expect(wrapper.find(StatusItems).prop('statusItems')).toHaveLength(0)
+      expect(wrapper.find(StatusItems)).toHaveLength(0)
     })
 
     test('should render with a single status item correctly', () => {

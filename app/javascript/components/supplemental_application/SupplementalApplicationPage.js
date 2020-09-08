@@ -6,7 +6,7 @@ import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
 import Alerts from '~/components/Alerts'
-import { updateApplication, updatePreference, updateTotalHouseholdRent } from './actions'
+import { updateApplicationAndAddComment, updateApplication, updatePreference, updateTotalHouseholdRent } from './actions'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import LeaveConfirmationModal from '~/components/organisms/LeaveConfirmationModal'
 import Context from './context'
@@ -40,6 +40,8 @@ class SupplementalApplicationPage extends React.Component {
     leaveConfirmationModal: {
       isOpen: false
     },
+    // TODO: Only show lease section on load if there's a lease on the application.
+    showLeaseSection: true,
     showNewRentalAssistancePanel: false,
     showAddRentalAssistanceBtn: true,
     rentalAssistanceLoading: false,
@@ -52,16 +54,18 @@ class SupplementalApplicationPage extends React.Component {
 
   handleSaveApplication = async (application) => {
     this.setLoading(true)
-    const updatedApplication = await updateApplication(application, this.state.application)
-
-    if (updatedApplication) {
-      this.setState({ application: setApplicationsDefaults(updatedApplication), loading: false, supplementalAppTouched: false }, () => {
-        this.handleCloseRentalAssistancePanel()
+    updateApplication(application, this.state.application)
+      .then(updatedApplication => {
+        this.setState({
+          application: setApplicationsDefaults(updatedApplication),
+          loading: false,
+          supplementalAppTouched: false
+        }, this.handleCloseRentalAssistancePanel)
       })
-    } else {
-      Alerts.error()
-      this.setLoading(false)
-    }
+      .catch((e) => {
+        Alerts.error()
+        this.setLoading(false)
+      })
   }
 
   handleSavePreference = async (preferenceIndex, formApplicationValues) => {
@@ -145,34 +149,34 @@ class SupplementalApplicationPage extends React.Component {
     const { status, subStatus, comment } = submittedValues
     this.setState({ loading: true })
     this.updateStatusModal({ loading: true })
-    const data = {
-      status,
-      comment,
-      applicationId: application.id,
-      ...(subStatus ? { subStatus } : {})
-    }
     fromApplication.processing_status = status
 
-    const updatedApplication = await updateApplication(fromApplication, application)
-    const updatedStatusHistory = updatedApplication !== false ? await apiService.createFieldUpdateComment(data) : null
-    this.handleCloseRentalAssistancePanel()
+    updateApplicationAndAddComment(fromApplication, application, status, comment, subStatus)
+      .then((responses) => {
+        this.setState({
+          application: setApplicationsDefaults(responses.application),
+          statusHistory: responses.statusHistory,
+          loading: false,
+          supplementalAppTouched: false
+        }, () => this.updateStatusModal({ loading: false, isOpen: false }))
+      }).catch((e) => {
+        this.setState({ loading: false })
+        this.updateStatusModal({
+          loading: false,
+          showAlert: true,
+          alertMsg: 'We were unable to make the update, please try again.',
+          onAlertCloseClick: () => this.updateStatusModal({ showAlert: false })
+        })
+      }).finally(this.handleCloseRentalAssistancePanel)
+  }
 
-    if (updatedApplication === false || (updatedStatusHistory === false || updatedStatusHistory.length === 0)) {
-      this.updateStatusModal({
-        loading: false,
-        showAlert: true,
-        alertMsg: 'We were unable to make the update, please try again.',
-        onAlertCloseClick: () => this.updateStatusModal({ showAlert: false })
-      })
-      this.setState({ loading: false })
-    } else {
-      this.setState({
-        application: setApplicationsDefaults(updatedApplication),
-        statusHistory: updatedStatusHistory,
-        loading: false,
-        supplementalAppTouched: false
-      }, () => this.updateStatusModal({ loading: false, isOpen: false }))
-    }
+  handleCreateLeaseClick = () => {
+    this.setState({ showLeaseSection: true })
+  }
+
+  handleCancelLeaseClick = () => {
+    // Need to also clear state, etc.
+    this.setState({ showLeaseSection: false })
   }
 
   handleCloseRentalAssistancePanel = (props) => {
@@ -324,6 +328,10 @@ class SupplementalApplicationPage extends React.Component {
       assignSupplementalAppTouched: this.assignSupplementalAppTouched,
       availableUnits: availableUnits,
       fileBaseUrl: fileBaseUrl,
+      handleCreateLeaseClick: this.handleCreateLeaseClick,
+      handleCancelLeaseClick: this.handleCancelLeaseClick,
+      handleSaveLease: () => console.log('clicked save lease'),
+      handleDeleteLease: () => console.log('clicked delete lease'),
       handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,
       handleDeleteRentalAssistance: this.handleDeleteRentalAssistance,
       handleOpenRentalAssistancePanel: this.handleOpenRentalAssistancePanel,
