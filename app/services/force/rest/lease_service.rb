@@ -15,6 +15,8 @@ module Force
       end
 
       def destroy(lease_id)
+        rental_assistance_service = Force::Soql::RentalAssistanceService.new(@user)
+        rental_assistance_service.delete_by('Lease__c', lease_id)
         @client.destroy!('Lease__c', lease_id)
       end
     end

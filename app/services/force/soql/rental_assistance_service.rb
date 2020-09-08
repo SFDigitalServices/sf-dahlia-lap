@@ -23,6 +23,24 @@ module Force
 
         result.map { |r| Force::RentalAssistance.from_salesforce(r).to_domain }
       end
+
+      def delete_by(record, id)
+        byebug
+        result =
+          builder
+          .from(:Rental_Assistance__c)
+          .select(:Id)
+          .where_eq(record, id, :string)
+          .query
+          .records
+
+        byebug
+        result.each do |record|
+          resp = @client.destroy!('Rental_Assistance__c', record.Id)
+          byebug
+          puts resp
+        end
+      end
     end
   end
 end
