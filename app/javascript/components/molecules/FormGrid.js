@@ -10,6 +10,10 @@ FormGrid.Row = ({ children, paddingBottom, expand }) => {
     'row',
     {
       'expand': expand,
+      // Override left and right margin if expand is false.
+      // Otherwise default row styling causes negative margins.
+      'margin-left-none': !expand,
+      'margin-right-none': !expand,
       'padding-bottom': paddingBottom
     }
   )

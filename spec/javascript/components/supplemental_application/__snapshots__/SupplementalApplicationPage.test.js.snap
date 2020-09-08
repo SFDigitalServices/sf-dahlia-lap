@@ -168,6 +168,11 @@ Array [
                       <table
                         className="td-light td-plain th-plain"
                         role="grid"
+                        style={
+                          Object {
+                            "background": "transparent",
+                          }
+                        }
                       >
                         <thead>
                           <tr>
@@ -283,7 +288,7 @@ Array [
                                 className="inline-modal padding-left--2x padding-right--2x"
                               >
                                 <div
-                                  className="form-grid row"
+                                  className="form-grid row margin-left-none margin-right-none"
                                 >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
@@ -395,7 +400,7 @@ Array [
                                   </div>
                                 </div>
                                 <div
-                                  className="form-grid row"
+                                  className="form-grid row margin-left-none margin-right-none"
                                 >
                                   <div
                                     className="form-group"
@@ -412,7 +417,7 @@ Array [
                                   </div>
                                 </div>
                                 <div
-                                  className="form-grid row"
+                                  className="form-grid row margin-left-none margin-right-none"
                                 >
                                   <div
                                     className="form-grid_item column"
@@ -509,7 +514,7 @@ Array [
                                 className="inline-modal padding-left--2x padding-right--2x"
                               >
                                 <div
-                                  className="form-grid row"
+                                  className="form-grid row margin-left-none margin-right-none"
                                 >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
@@ -700,7 +705,7 @@ Array [
                                   </div>
                                 </div>
                                 <div
-                                  className="form-grid row"
+                                  className="form-grid row margin-left-none margin-right-none"
                                 >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
@@ -754,7 +759,7 @@ Array [
                                   </div>
                                 </div>
                                 <div
-                                  className="form-grid row"
+                                  className="form-grid row margin-left-none margin-right-none"
                                 >
                                   <div
                                     className="form-group"
@@ -771,7 +776,7 @@ Array [
                                   </div>
                                 </div>
                                 <div
-                                  className="form-grid row"
+                                  className="form-grid row margin-left-none margin-right-none"
                                 >
                                   <div
                                     className="form-grid_item column"
@@ -1349,437 +1354,329 @@ Array [
             >
               Lease
             </h2>
-            <p
-              className="form-note max-width margin-bottom--3halves"
-            >
-              Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.
-            </p>
-            <h3
-              className="app-card_h3 t-sans"
-            >
-              Unit
-            </h3>
             <div
-              className=""
-              style={
-                Object {
-                  "marginBottom": "1.75rem",
+              className="inline-modal padding-left--2x padding-right--2x"
+            >
+              <p
+                className="form-note max-width margin-bottom--3halves"
+              >
+                If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.
+              </p>
+              <h3
+                className="app-card_h3 t-sans"
+              >
+                Unit and Parking
+              </h3>
+              <div
+                className=""
+                style={
+                  Object {
+                    "marginBottom": "1.75rem",
+                  }
                 }
-              }
-            >
-              <div
-                className="form-grid row expand"
               >
                 <div
-                  className="form-grid_item small-6 medium-6 large-6 column"
+                  className="form-grid row expand"
                 >
                   <div
-                    className="form-group"
+                    className="form-grid_item small-6 medium-6 large-6 column"
                   >
-                    <label
-                      className="form-label"
-                      htmlFor="lease_assigned_unit"
-                      id="label-lease-unit"
-                    >
-                      Assigned Unit Number
-                    </label>
-                    <select
-                      className=""
-                      disabled={true}
-                      id="lease_assigned_unit"
-                      name="lease.unit"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      value="a0b0P00001HIHrnQAH"
-                    >
-                      <option
-                        value=""
-                      >
-                        No Units Available
-                      </option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="form-grid row expand"
-              >
-                <div
-                  className="form-grid_item small-6 medium-6 large-6 column"
-                >
-                  <div
-                    className="form-group"
-                  >
-                    <label
-                      className="form-label"
-                      htmlFor="lease_start_date"
-                    >
-                      Lease Start Date
-                    </label>
                     <div
-                      className="form-group-month"
+                      className="form-group"
                     >
-                      <input
+                      <label
+                        className="form-label"
+                        htmlFor="lease_assigned_unit"
+                        id="label-lease-unit"
+                      >
+                        Assigned Unit Number
+                      </label>
+                      <select
                         className=""
-                        id="lease_start_date_month"
-                        maxLength={2}
-                        name="lease.lease_start_date.month"
+                        disabled={true}
+                        id="lease_assigned_unit"
+                        name="lease.unit"
                         onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
-                        placeholder="MM"
-                        type="text"
-                        value="01"
-                      />
+                        value="a0b0P00001HIHrnQAH"
+                      >
+                        <option
+                          value=""
+                        >
+                          No Units Available
+                        </option>
+                      </select>
                     </div>
+                  </div>
+                </div>
+                <div
+                  className="form-grid row expand"
+                >
+                  <div
+                    className="form-grid_item small-6 medium-6 large-6 column"
+                  >
                     <div
-                      className="form-group-day"
+                      className="form-group"
                     >
-                      <input
+                      <label
+                        className="form-label"
+                        htmlFor="form-lease.bmr_parking_space_assigned"
+                        id="label-lease-bmr_parking_space_assigned"
+                      >
+                        BMR Parking Space Assigned?
+                      </label>
+                      <select
                         className=""
-                        id="lease_start_date_day"
-                        maxLength={2}
-                        name="lease.lease_start_date.day"
+                        id="form-lease.bmr_parking_space_assigned"
+                        name="lease.bmr_parking_space_assigned"
                         onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
-                        placeholder="DD"
-                        type="text"
-                        value="01"
-                      />
-                    </div>
-                    <div
-                      className="form-group-year"
-                    >
-                      <input
-                        className=""
-                        id="lease_start_date_year"
-                        maxLength={4}
-                        name="lease.lease_start_date.year"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        onFocus={[Function]}
-                        placeholder="YYYY"
-                        type="text"
-                        value="2019"
-                      />
-                    </div>
-                    <div
-                      className="d-inline-block"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div
-                className="form-grid row expand"
-              >
-                <div
-                  className="form-grid_item small-6 medium-6 large-6 column"
-                >
-                  <div
-                    className="form-group"
-                  >
-                    <label
-                      className="form-label"
-                      htmlFor="form-lease.preference_used"
-                      id="label-lease-preference_used"
-                    >
-                      Preference Used
-                    </label>
-                    <select
-                      className=""
-                      id="form-lease.preference_used"
-                      name="lease.preference_used"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      value="a0w0P00000MOzyXQAT"
-                    >
-                      <option
-                        value={null}
-                      >
-                        None
-                      </option>
-                      <option
-                        value="a0w0P00000OUJc3QAH"
-                      >
-                        Live or Work in San Francisco Preference
-                      </option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="form-grid row expand"
-              >
-                <div
-                  className="form-grid_item small-6 medium-6 large-6 column"
-                >
-                  <div
-                    className="form-group"
-                  >
-                    <label
-                      className="form-label"
-                      htmlFor="form-lease.total_monthly_rent_without_parking"
-                      id="label-lease-total_monthly_rent_without_parking"
-                    >
-                      Monthly Rent
-                    </label>
-                    <input
-                      className=""
-                      id="form-lease.total_monthly_rent_without_parking"
-                      name="lease.total_monthly_rent_without_parking"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      placeholder="Enter Amount"
-                      type="text"
-                      value="$146.92"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div
-                className="form-grid row expand"
-              >
-                <div
-                  className="form-grid_item small-6 medium-6 large-6 column"
-                >
-                  <div
-                    className="form-group"
-                  >
-                    <label
-                      className="form-label"
-                      htmlFor="form-lease.monthly_tenant_contribution"
-                      id="label-lease-monthly_tenant_contribution"
-                    >
-                      Tenant Contribution
-                    </label>
-                    <input
-                      className=""
-                      id="form-lease.monthly_tenant_contribution"
-                      name="lease.monthly_tenant_contribution"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      placeholder="Enter Amount"
-                      type="text"
-                      value="$259.77"
-                    />
-                    <span
-                      className="form-note shift-up"
-                      id="describe-lease.monthly_tenant_contribution"
-                    >
-                      Monthly rent minus recurring rental assistance, if any
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h3
-              className="app-card_h3 t-sans"
-            >
-              Parking
-            </h3>
-            <p
-              className="form-note max-width margin-bottom--3halves"
-            >
-              If the applicant will receive a below market rate parking space, indicate the monthly cost.
-            </p>
-            <div
-              className=""
-              style={
-                Object {
-                  "marginBottom": "1.75rem",
-                }
-              }
-            >
-              <div
-                className="form-grid row expand"
-              >
-                <div
-                  className="form-grid_item small-6 medium-6 large-6 column"
-                >
-                  <div
-                    className="form-group"
-                  >
-                    <label
-                      className="form-label"
-                      htmlFor="form-lease.bmr_parking_space_assigned"
-                      id="label-lease-bmr_parking_space_assigned"
-                    >
-                      BMR Parking Space Assigned?
-                    </label>
-                    <select
-                      className=""
-                      id="form-lease.bmr_parking_space_assigned"
-                      name="lease.bmr_parking_space_assigned"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      value="Yes"
-                    >
-                      <option
                         value="Yes"
                       >
-                        Yes
-                      </option>
-                      <option
-                        value="No"
-                      >
-                        No
-                      </option>
-                    </select>
+                        <option
+                          value="Yes"
+                        >
+                          Yes
+                        </option>
+                        <option
+                          value="No"
+                        >
+                          No
+                        </option>
+                      </select>
+                    </div>
                   </div>
-                </div>
-                <div
-                  className="form-grid_item small-6 medium-6 large-6 column"
-                >
                   <div
-                    className="form-group"
+                    className="form-grid_item small-6 medium-6 large-6 column"
                   >
-                    <label
-                      className="form-label"
-                      htmlFor="form-lease.monthly_parking_rent"
-                      id="label-lease-monthly_parking_rent"
+                    <div
+                      className="form-group"
                     >
-                      Monthly Parking Cost
-                    </label>
-                    <input
-                      className=""
-                      disabled={false}
-                      id="form-lease.monthly_parking_rent"
-                      name="lease.monthly_parking_rent"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      placeholder="Enter Amount"
-                      type="text"
-                      value="$790.49"
-                    />
+                      <label
+                        className="form-label"
+                        htmlFor="form-lease.monthly_parking_rent"
+                        id="label-lease-monthly_parking_rent"
+                      >
+                        Monthly Parking Cost
+                      </label>
+                      <input
+                        className=""
+                        disabled={false}
+                        id="form-lease.monthly_parking_rent"
+                        name="lease.monthly_parking_rent"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder="Enter Amount"
+                        type="text"
+                        value="$790.49"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <h3
-              className="app-card_h3 t-sans"
-            >
-              Rental Assistance Information
-            </h3>
-            <p
-              className="form-note max-width margin-bottom--3halves"
-            >
-              Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
-            </p>
-            <div
-              className=""
-              style={
-                Object {
-                  "marginBottom": "1.75rem",
-                }
-              }
-            >
+              <h3
+                className="app-card_h3 t-sans"
+              >
+                Rent and Assistance
+              </h3>
               <div
-                className="form-grid row expand"
+                className=""
+                style={
+                  Object {
+                    "marginBottom": "1.75rem",
+                  }
+                }
               >
                 <div
-                  className="small-12 column"
+                  className="form-grid row expand"
                 >
                   <div
-                    className="table-container-overflow-scroll"
+                    className="form-grid_item small-6 medium-6 large-6 column"
                   >
-                    <table
-                      className="td-light td-plain th-plain rental-assistances"
-                      role="grid"
+                    <div
+                      className="form-group"
                     >
-                      <thead>
-                        <tr>
-                          <th
-                            className=""
-                            scope="col"
-                          >
-                            Type of Assistance
-                          </th>
-                          <th
-                            className=""
-                            scope="col"
-                          >
-                            Recurring Assistance
-                          </th>
-                          <th
-                            className=""
-                            scope="col"
-                          >
-                            Assistance Amount
-                          </th>
-                          <th
-                            className=""
-                            scope="col"
-                          >
-                            Recipient
-                          </th>
-                          <th
-                            className=""
-                            scope="col"
-                          >
-                            Edit
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr
-                          aria-expanded={false}
-                          className="tr-expand"
-                          id={null}
-                        >
-                          <td
-                            className=""
-                          >
-                            Catholic Charities
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Yes
-                          </td>
-                          <td
-                            className=""
-                          >
-                            $1,100.00
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Automated Test Lease Up Application (do not modify)
-                          </td>
-                          <td>
-                            <button
-                              className="button button-link action-link"
-                              onClick={[Function]}
-                              type="button"
+                      <label
+                        className="form-label"
+                        htmlFor="form-lease.total_monthly_rent_without_parking"
+                        id="label-lease-total_monthly_rent_without_parking"
+                      >
+                        Monthly Rent
+                      </label>
+                      <input
+                        className=""
+                        id="form-lease.total_monthly_rent_without_parking"
+                        name="lease.total_monthly_rent_without_parking"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder="Enter Amount"
+                        type="text"
+                        value="$146.92"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="form-grid row expand"
+                >
+                  <div
+                    className="form-grid_item small-6 medium-6 large-6 column"
+                  >
+                    <label
+                      className="form-label"
+                      htmlFor="form-undefined"
+                      id="label-undefined"
+                    >
+                      Rental Assistance
+                    </label>
+                  </div>
+                </div>
+                <div
+                  className="form-grid row expand margin-top--half"
+                >
+                  <div
+                    className="small-12 column"
+                  >
+                    <div
+                      className="table-container-overflow-scroll"
+                    >
+                      <table
+                        className="td-light td-plain th-plain rental-assistances"
+                        role="grid"
+                        style={
+                          Object {
+                            "background": "transparent",
+                          }
+                        }
+                      >
+                        <thead>
+                          <tr>
+                            <th
+                              className=""
+                              scope="col"
                             >
-                              Edit
-                            </button>
-                          </td>
-                        </tr>
-                        <tr
-                          aria-hidden={true}
-                          className="tr-expand-content"
-                          id={null}
-                        >
-                          <td
-                            className="td-expand-nested no-padding"
-                            colSpan={5}
+                              Recipient
+                            </th>
+                            <th
+                              className=""
+                              scope="col"
+                            >
+                              Type
+                            </th>
+                            <th
+                              className=""
+                              scope="col"
+                            >
+                              Amount
+                            </th>
+                            <th
+                              className=""
+                              scope="col"
+                            >
+                              Recurring
+                            </th>
+                            <th
+                              className=""
+                              scope="col"
+                            >
+                              
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr
+                            aria-expanded={false}
+                            className="tr-expand"
+                            id={null}
                           >
-                            <div
-                              className="inline-modal padding-left--2x padding-right--2x"
+                            <td
+                              className=""
+                            >
+                              Automated Test Lease Up Application (do not modify)
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Catholic Charities
+                            </td>
+                            <td
+                              className=""
+                            >
+                              $1,100.00
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Yes
+                            </td>
+                            <td>
+                              <button
+                                className="button button-link action-link"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                Edit
+                              </button>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-hidden={true}
+                            className="tr-expand-content"
+                            id={null}
+                          >
+                            <td
+                              className="td-expand-nested no-padding"
+                              colSpan={5}
                             >
                               <div
-                                className="rental-assistance-edit-form"
+                                className="inline-modal padding-left--2x padding-right--2x white-background"
+                                id="rental-assistance-edit-form-0"
                               >
                                 <div
-                                  className="form-grid row"
+                                  className="form-grid row expand"
+                                >
+                                  <div
+                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                  >
+                                    <div
+                                      className="form-group"
+                                    >
+                                      <label
+                                        className="form-label"
+                                        htmlFor="form-rental_assistances.0.recipient"
+                                        id="label-rental_assistances-0.recipient"
+                                      >
+                                        Recipient
+                                      </label>
+                                      <select
+                                        className="rental-assistance-recipient"
+                                        id="form-rental_assistances.0.recipient"
+                                        name="rental_assistances.0.recipient"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        onFocus={[Function]}
+                                        value="a0n0P00000D3qIZQAZ"
+                                      >
+                                        <option
+                                          value=""
+                                        >
+                                          Select One...
+                                        </option>
+                                        <option
+                                          value="a0n0P00000D3qIZQAZ"
+                                        >
+                                          Automated Test Lease Up Application (do not modify)
+                                        </option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
                                 >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
@@ -1886,6 +1783,40 @@ Array [
                                       </select>
                                     </div>
                                   </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
+                                  <div
+                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                  >
+                                    <div
+                                      className="form-group"
+                                    >
+                                      <label
+                                        className="form-label"
+                                        htmlFor="assistance_amount"
+                                        id="label-rental_assistances-0.assistance_amount"
+                                      >
+                                        Assistance Amount
+                                      </label>
+                                      <input
+                                        className=""
+                                        id="assistance_amount"
+                                        name="rental_assistances.0.assistance_amount"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        onFocus={[Function]}
+                                        placeholder="Enter Amount"
+                                        type="text"
+                                        value={1100}
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
                                   >
@@ -1941,32 +1872,96 @@ Array [
                                       </p>
                                     </div>
                                   </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column"
                                   >
-                                    <div
-                                      className="form-group"
+                                    <button
+                                      className="primary margin-right button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-save"
+                                      onClick={[Function]}
+                                      type="button"
                                     >
-                                      <label
-                                        className="form-label"
-                                        htmlFor="assistance_amount"
-                                        id="label-rental_assistances-0.assistance_amount"
-                                      >
-                                        Assistance Amount
-                                      </label>
-                                      <input
-                                        className=""
-                                        id="assistance_amount"
-                                        name="rental_assistances.0.assistance_amount"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        onFocus={[Function]}
-                                        placeholder="Enter Amount"
-                                        type="text"
-                                        value={1100}
-                                      />
-                                    </div>
+                                      Save
+                                    </button>
+                                    <button
+                                      className="secondary button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-cancel"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Cancel
+                                    </button>
+                                    <button
+                                      className="alert-fill right button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-delete"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Delete
+                                    </button>
                                   </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-expanded={false}
+                            className="tr-expand"
+                            id={null}
+                          >
+                            <td
+                              className=""
+                            >
+                              Automated Test Lease Up Application (do not modify)
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Catholic Charities
+                            </td>
+                            <td
+                              className=""
+                            >
+                              $1,100.00
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Yes
+                            </td>
+                            <td>
+                              <button
+                                className="button button-link action-link"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                Edit
+                              </button>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-hidden={true}
+                            className="tr-expand-content"
+                            id={null}
+                          >
+                            <td
+                              className="td-expand-nested no-padding"
+                              colSpan={5}
+                            >
+                              <div
+                                className="inline-modal padding-left--2x padding-right--2x white-background"
+                                id="rental-assistance-edit-form-1"
+                              >
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
                                   >
@@ -1975,15 +1970,15 @@ Array [
                                     >
                                       <label
                                         className="form-label"
-                                        htmlFor="form-rental_assistances.0.recipient"
-                                        id="label-rental_assistances-0.recipient"
+                                        htmlFor="form-rental_assistances.1.recipient"
+                                        id="label-rental_assistances-1.recipient"
                                       >
                                         Recipient
                                       </label>
                                       <select
                                         className="rental-assistance-recipient"
-                                        id="form-rental_assistances.0.recipient"
-                                        name="rental_assistances.0.recipient"
+                                        id="form-rental_assistances.1.recipient"
+                                        name="rental_assistances.1.recipient"
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
@@ -2004,93 +1999,7 @@ Array [
                                   </div>
                                 </div>
                                 <div
-                                  className="form-grid row"
-                                >
-                                  <div
-                                    className="form-grid_item column"
-                                  >
-                                    <button
-                                      className="button primary tiny margin-right margin-bottom-none"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Save
-                                    </button>
-                                    <button
-                                      className="button secondary tiny margin-right margin-bottom-none"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Cancel
-                                    </button>
-                                    <button
-                                      className="button alert-fill tiny margin-bottom-none right"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Delete
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          aria-expanded={false}
-                          className="tr-expand"
-                          id={null}
-                        >
-                          <td
-                            className=""
-                          >
-                            Catholic Charities
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Yes
-                          </td>
-                          <td
-                            className=""
-                          >
-                            $1,100.00
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Automated Test Lease Up Application (do not modify)
-                          </td>
-                          <td>
-                            <button
-                              className="button button-link action-link"
-                              onClick={[Function]}
-                              type="button"
-                            >
-                              Edit
-                            </button>
-                          </td>
-                        </tr>
-                        <tr
-                          aria-hidden={true}
-                          className="tr-expand-content"
-                          id={null}
-                        >
-                          <td
-                            className="td-expand-nested no-padding"
-                            colSpan={5}
-                          >
-                            <div
-                              className="inline-modal padding-left--2x padding-right--2x"
-                            >
-                              <div
-                                className="rental-assistance-edit-form"
-                              >
-                                <div
-                                  className="form-grid row"
+                                  className="form-grid row expand"
                                 >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
@@ -2197,6 +2106,40 @@ Array [
                                       </select>
                                     </div>
                                   </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
+                                  <div
+                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                  >
+                                    <div
+                                      className="form-group"
+                                    >
+                                      <label
+                                        className="form-label"
+                                        htmlFor="assistance_amount"
+                                        id="label-rental_assistances-1.assistance_amount"
+                                      >
+                                        Assistance Amount
+                                      </label>
+                                      <input
+                                        className=""
+                                        id="assistance_amount"
+                                        name="rental_assistances.1.assistance_amount"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        onFocus={[Function]}
+                                        placeholder="Enter Amount"
+                                        type="text"
+                                        value={1100}
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
                                   >
@@ -2252,32 +2195,96 @@ Array [
                                       </p>
                                     </div>
                                   </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column"
                                   >
-                                    <div
-                                      className="form-group"
+                                    <button
+                                      className="primary margin-right button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-save"
+                                      onClick={[Function]}
+                                      type="button"
                                     >
-                                      <label
-                                        className="form-label"
-                                        htmlFor="assistance_amount"
-                                        id="label-rental_assistances-1.assistance_amount"
-                                      >
-                                        Assistance Amount
-                                      </label>
-                                      <input
-                                        className=""
-                                        id="assistance_amount"
-                                        name="rental_assistances.1.assistance_amount"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        onFocus={[Function]}
-                                        placeholder="Enter Amount"
-                                        type="text"
-                                        value={1100}
-                                      />
-                                    </div>
+                                      Save
+                                    </button>
+                                    <button
+                                      className="secondary button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-cancel"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Cancel
+                                    </button>
+                                    <button
+                                      className="alert-fill right button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-delete"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Delete
+                                    </button>
                                   </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-expanded={false}
+                            className="tr-expand"
+                            id={null}
+                          >
+                            <td
+                              className=""
+                            >
+                              Automated Test Lease Up Application (do not modify)
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Catholic Charities
+                            </td>
+                            <td
+                              className=""
+                            >
+                              $1,100.00
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Yes
+                            </td>
+                            <td>
+                              <button
+                                className="button button-link action-link"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                Edit
+                              </button>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-hidden={true}
+                            className="tr-expand-content"
+                            id={null}
+                          >
+                            <td
+                              className="td-expand-nested no-padding"
+                              colSpan={5}
+                            >
+                              <div
+                                className="inline-modal padding-left--2x padding-right--2x white-background"
+                                id="rental-assistance-edit-form-2"
+                              >
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
                                   >
@@ -2286,15 +2293,15 @@ Array [
                                     >
                                       <label
                                         className="form-label"
-                                        htmlFor="form-rental_assistances.1.recipient"
-                                        id="label-rental_assistances-1.recipient"
+                                        htmlFor="form-rental_assistances.2.recipient"
+                                        id="label-rental_assistances-2.recipient"
                                       >
                                         Recipient
                                       </label>
                                       <select
                                         className="rental-assistance-recipient"
-                                        id="form-rental_assistances.1.recipient"
-                                        name="rental_assistances.1.recipient"
+                                        id="form-rental_assistances.2.recipient"
+                                        name="rental_assistances.2.recipient"
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
@@ -2315,93 +2322,7 @@ Array [
                                   </div>
                                 </div>
                                 <div
-                                  className="form-grid row"
-                                >
-                                  <div
-                                    className="form-grid_item column"
-                                  >
-                                    <button
-                                      className="button primary tiny margin-right margin-bottom-none"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Save
-                                    </button>
-                                    <button
-                                      className="button secondary tiny margin-right margin-bottom-none"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Cancel
-                                    </button>
-                                    <button
-                                      className="button alert-fill tiny margin-bottom-none right"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Delete
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          aria-expanded={false}
-                          className="tr-expand"
-                          id={null}
-                        >
-                          <td
-                            className=""
-                          >
-                            Catholic Charities
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Yes
-                          </td>
-                          <td
-                            className=""
-                          >
-                            $1,100.00
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Automated Test Lease Up Application (do not modify)
-                          </td>
-                          <td>
-                            <button
-                              className="button button-link action-link"
-                              onClick={[Function]}
-                              type="button"
-                            >
-                              Edit
-                            </button>
-                          </td>
-                        </tr>
-                        <tr
-                          aria-hidden={true}
-                          className="tr-expand-content"
-                          id={null}
-                        >
-                          <td
-                            className="td-expand-nested no-padding"
-                            colSpan={5}
-                          >
-                            <div
-                              className="inline-modal padding-left--2x padding-right--2x"
-                            >
-                              <div
-                                className="rental-assistance-edit-form"
-                              >
-                                <div
-                                  className="form-grid row"
+                                  className="form-grid row expand"
                                 >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
@@ -2508,6 +2429,40 @@ Array [
                                       </select>
                                     </div>
                                   </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
+                                  <div
+                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                  >
+                                    <div
+                                      className="form-group"
+                                    >
+                                      <label
+                                        className="form-label"
+                                        htmlFor="assistance_amount"
+                                        id="label-rental_assistances-2.assistance_amount"
+                                      >
+                                        Assistance Amount
+                                      </label>
+                                      <input
+                                        className=""
+                                        id="assistance_amount"
+                                        name="rental_assistances.2.assistance_amount"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        onFocus={[Function]}
+                                        placeholder="Enter Amount"
+                                        type="text"
+                                        value={1100}
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
                                   >
@@ -2563,32 +2518,96 @@ Array [
                                       </p>
                                     </div>
                                   </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column"
                                   >
-                                    <div
-                                      className="form-group"
+                                    <button
+                                      className="primary margin-right button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-save"
+                                      onClick={[Function]}
+                                      type="button"
                                     >
-                                      <label
-                                        className="form-label"
-                                        htmlFor="assistance_amount"
-                                        id="label-rental_assistances-2.assistance_amount"
-                                      >
-                                        Assistance Amount
-                                      </label>
-                                      <input
-                                        className=""
-                                        id="assistance_amount"
-                                        name="rental_assistances.2.assistance_amount"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        onFocus={[Function]}
-                                        placeholder="Enter Amount"
-                                        type="text"
-                                        value={1100}
-                                      />
-                                    </div>
+                                      Save
+                                    </button>
+                                    <button
+                                      className="secondary button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-cancel"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Cancel
+                                    </button>
+                                    <button
+                                      className="alert-fill right button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-delete"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Delete
+                                    </button>
                                   </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-expanded={false}
+                            className="tr-expand"
+                            id={null}
+                          >
+                            <td
+                              className=""
+                            >
+                              Automated Test Lease Up Application (do not modify)
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Catholic Charities
+                            </td>
+                            <td
+                              className=""
+                            >
+                              $1,100.00
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Yes
+                            </td>
+                            <td>
+                              <button
+                                className="button button-link action-link"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                Edit
+                              </button>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-hidden={true}
+                            className="tr-expand-content"
+                            id={null}
+                          >
+                            <td
+                              className="td-expand-nested no-padding"
+                              colSpan={5}
+                            >
+                              <div
+                                className="inline-modal padding-left--2x padding-right--2x white-background"
+                                id="rental-assistance-edit-form-3"
+                              >
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
                                   >
@@ -2597,15 +2616,15 @@ Array [
                                     >
                                       <label
                                         className="form-label"
-                                        htmlFor="form-rental_assistances.2.recipient"
-                                        id="label-rental_assistances-2.recipient"
+                                        htmlFor="form-rental_assistances.3.recipient"
+                                        id="label-rental_assistances-3.recipient"
                                       >
                                         Recipient
                                       </label>
                                       <select
                                         className="rental-assistance-recipient"
-                                        id="form-rental_assistances.2.recipient"
-                                        name="rental_assistances.2.recipient"
+                                        id="form-rental_assistances.3.recipient"
+                                        name="rental_assistances.3.recipient"
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
@@ -2626,93 +2645,7 @@ Array [
                                   </div>
                                 </div>
                                 <div
-                                  className="form-grid row"
-                                >
-                                  <div
-                                    className="form-grid_item column"
-                                  >
-                                    <button
-                                      className="button primary tiny margin-right margin-bottom-none"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Save
-                                    </button>
-                                    <button
-                                      className="button secondary tiny margin-right margin-bottom-none"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Cancel
-                                    </button>
-                                    <button
-                                      className="button alert-fill tiny margin-bottom-none right"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Delete
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          aria-expanded={false}
-                          className="tr-expand"
-                          id={null}
-                        >
-                          <td
-                            className=""
-                          >
-                            Catholic Charities
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Yes
-                          </td>
-                          <td
-                            className=""
-                          >
-                            $1,100.00
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Automated Test Lease Up Application (do not modify)
-                          </td>
-                          <td>
-                            <button
-                              className="button button-link action-link"
-                              onClick={[Function]}
-                              type="button"
-                            >
-                              Edit
-                            </button>
-                          </td>
-                        </tr>
-                        <tr
-                          aria-hidden={true}
-                          className="tr-expand-content"
-                          id={null}
-                        >
-                          <td
-                            className="td-expand-nested no-padding"
-                            colSpan={5}
-                          >
-                            <div
-                              className="inline-modal padding-left--2x padding-right--2x"
-                            >
-                              <div
-                                className="rental-assistance-edit-form"
-                              >
-                                <div
-                                  className="form-grid row"
+                                  className="form-grid row expand"
                                 >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
@@ -2819,6 +2752,40 @@ Array [
                                       </select>
                                     </div>
                                   </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
+                                  <div
+                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                  >
+                                    <div
+                                      className="form-group"
+                                    >
+                                      <label
+                                        className="form-label"
+                                        htmlFor="assistance_amount"
+                                        id="label-rental_assistances-3.assistance_amount"
+                                      >
+                                        Assistance Amount
+                                      </label>
+                                      <input
+                                        className=""
+                                        id="assistance_amount"
+                                        name="rental_assistances.3.assistance_amount"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        onFocus={[Function]}
+                                        placeholder="Enter Amount"
+                                        type="text"
+                                        value={1100}
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
                                   >
@@ -2874,32 +2841,96 @@ Array [
                                       </p>
                                     </div>
                                   </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column"
                                   >
-                                    <div
-                                      className="form-group"
+                                    <button
+                                      className="primary margin-right button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-save"
+                                      onClick={[Function]}
+                                      type="button"
                                     >
-                                      <label
-                                        className="form-label"
-                                        htmlFor="assistance_amount"
-                                        id="label-rental_assistances-3.assistance_amount"
-                                      >
-                                        Assistance Amount
-                                      </label>
-                                      <input
-                                        className=""
-                                        id="assistance_amount"
-                                        name="rental_assistances.3.assistance_amount"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        onFocus={[Function]}
-                                        placeholder="Enter Amount"
-                                        type="text"
-                                        value={1100}
-                                      />
-                                    </div>
+                                      Save
+                                    </button>
+                                    <button
+                                      className="secondary button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-cancel"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Cancel
+                                    </button>
+                                    <button
+                                      className="alert-fill right button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-delete"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Delete
+                                    </button>
                                   </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-expanded={false}
+                            className="tr-expand"
+                            id={null}
+                          >
+                            <td
+                              className=""
+                            >
+                              Automated Test Lease Up Application (do not modify)
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Catholic Charities
+                            </td>
+                            <td
+                              className=""
+                            >
+                              $1,100.00
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Yes
+                            </td>
+                            <td>
+                              <button
+                                className="button button-link action-link"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                Edit
+                              </button>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-hidden={true}
+                            className="tr-expand-content"
+                            id={null}
+                          >
+                            <td
+                              className="td-expand-nested no-padding"
+                              colSpan={5}
+                            >
+                              <div
+                                className="inline-modal padding-left--2x padding-right--2x white-background"
+                                id="rental-assistance-edit-form-4"
+                              >
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
                                   >
@@ -2908,15 +2939,15 @@ Array [
                                     >
                                       <label
                                         className="form-label"
-                                        htmlFor="form-rental_assistances.3.recipient"
-                                        id="label-rental_assistances-3.recipient"
+                                        htmlFor="form-rental_assistances.4.recipient"
+                                        id="label-rental_assistances-4.recipient"
                                       >
                                         Recipient
                                       </label>
                                       <select
                                         className="rental-assistance-recipient"
-                                        id="form-rental_assistances.3.recipient"
-                                        name="rental_assistances.3.recipient"
+                                        id="form-rental_assistances.4.recipient"
+                                        name="rental_assistances.4.recipient"
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
@@ -2937,93 +2968,7 @@ Array [
                                   </div>
                                 </div>
                                 <div
-                                  className="form-grid row"
-                                >
-                                  <div
-                                    className="form-grid_item column"
-                                  >
-                                    <button
-                                      className="button primary tiny margin-right margin-bottom-none"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Save
-                                    </button>
-                                    <button
-                                      className="button secondary tiny margin-right margin-bottom-none"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Cancel
-                                    </button>
-                                    <button
-                                      className="button alert-fill tiny margin-bottom-none right"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Delete
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          aria-expanded={false}
-                          className="tr-expand"
-                          id={null}
-                        >
-                          <td
-                            className=""
-                          >
-                            Catholic Charities
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Yes
-                          </td>
-                          <td
-                            className=""
-                          >
-                            $1,100.00
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Automated Test Lease Up Application (do not modify)
-                          </td>
-                          <td>
-                            <button
-                              className="button button-link action-link"
-                              onClick={[Function]}
-                              type="button"
-                            >
-                              Edit
-                            </button>
-                          </td>
-                        </tr>
-                        <tr
-                          aria-hidden={true}
-                          className="tr-expand-content"
-                          id={null}
-                        >
-                          <td
-                            className="td-expand-nested no-padding"
-                            colSpan={5}
-                          >
-                            <div
-                              className="inline-modal padding-left--2x padding-right--2x"
-                            >
-                              <div
-                                className="rental-assistance-edit-form"
-                              >
-                                <div
-                                  className="form-grid row"
+                                  className="form-grid row expand"
                                 >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
@@ -3130,6 +3075,40 @@ Array [
                                       </select>
                                     </div>
                                   </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
+                                  <div
+                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                  >
+                                    <div
+                                      className="form-group"
+                                    >
+                                      <label
+                                        className="form-label"
+                                        htmlFor="assistance_amount"
+                                        id="label-rental_assistances-4.assistance_amount"
+                                      >
+                                        Assistance Amount
+                                      </label>
+                                      <input
+                                        className=""
+                                        id="assistance_amount"
+                                        name="rental_assistances.4.assistance_amount"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        onFocus={[Function]}
+                                        placeholder="Enter Amount"
+                                        type="text"
+                                        value={1100}
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
                                   >
@@ -3185,32 +3164,96 @@ Array [
                                       </p>
                                     </div>
                                   </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column"
                                   >
-                                    <div
-                                      className="form-group"
+                                    <button
+                                      className="primary margin-right button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-save"
+                                      onClick={[Function]}
+                                      type="button"
                                     >
-                                      <label
-                                        className="form-label"
-                                        htmlFor="assistance_amount"
-                                        id="label-rental_assistances-4.assistance_amount"
-                                      >
-                                        Assistance Amount
-                                      </label>
-                                      <input
-                                        className=""
-                                        id="assistance_amount"
-                                        name="rental_assistances.4.assistance_amount"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        onFocus={[Function]}
-                                        placeholder="Enter Amount"
-                                        type="text"
-                                        value={1100}
-                                      />
-                                    </div>
+                                      Save
+                                    </button>
+                                    <button
+                                      className="secondary button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-cancel"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Cancel
+                                    </button>
+                                    <button
+                                      className="alert-fill right button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-delete"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Delete
+                                    </button>
                                   </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-expanded={false}
+                            className="tr-expand"
+                            id={null}
+                          >
+                            <td
+                              className=""
+                            >
+                              Automated Test Lease Up Application (do not modify)
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Catholic Charities
+                            </td>
+                            <td
+                              className=""
+                            >
+                              $1,100.00
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Yes
+                            </td>
+                            <td>
+                              <button
+                                className="button button-link action-link"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                Edit
+                              </button>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-hidden={true}
+                            className="tr-expand-content"
+                            id={null}
+                          >
+                            <td
+                              className="td-expand-nested no-padding"
+                              colSpan={5}
+                            >
+                              <div
+                                className="inline-modal padding-left--2x padding-right--2x white-background"
+                                id="rental-assistance-edit-form-5"
+                              >
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
                                   >
@@ -3219,15 +3262,15 @@ Array [
                                     >
                                       <label
                                         className="form-label"
-                                        htmlFor="form-rental_assistances.4.recipient"
-                                        id="label-rental_assistances-4.recipient"
+                                        htmlFor="form-rental_assistances.5.recipient"
+                                        id="label-rental_assistances-5.recipient"
                                       >
                                         Recipient
                                       </label>
                                       <select
                                         className="rental-assistance-recipient"
-                                        id="form-rental_assistances.4.recipient"
-                                        name="rental_assistances.4.recipient"
+                                        id="form-rental_assistances.5.recipient"
+                                        name="rental_assistances.5.recipient"
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
@@ -3248,93 +3291,7 @@ Array [
                                   </div>
                                 </div>
                                 <div
-                                  className="form-grid row"
-                                >
-                                  <div
-                                    className="form-grid_item column"
-                                  >
-                                    <button
-                                      className="button primary tiny margin-right margin-bottom-none"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Save
-                                    </button>
-                                    <button
-                                      className="button secondary tiny margin-right margin-bottom-none"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Cancel
-                                    </button>
-                                    <button
-                                      className="button alert-fill tiny margin-bottom-none right"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Delete
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          aria-expanded={false}
-                          className="tr-expand"
-                          id={null}
-                        >
-                          <td
-                            className=""
-                          >
-                            Catholic Charities
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Yes
-                          </td>
-                          <td
-                            className=""
-                          >
-                            $1,100.00
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Automated Test Lease Up Application (do not modify)
-                          </td>
-                          <td>
-                            <button
-                              className="button button-link action-link"
-                              onClick={[Function]}
-                              type="button"
-                            >
-                              Edit
-                            </button>
-                          </td>
-                        </tr>
-                        <tr
-                          aria-hidden={true}
-                          className="tr-expand-content"
-                          id={null}
-                        >
-                          <td
-                            className="td-expand-nested no-padding"
-                            colSpan={5}
-                          >
-                            <div
-                              className="inline-modal padding-left--2x padding-right--2x"
-                            >
-                              <div
-                                className="rental-assistance-edit-form"
-                              >
-                                <div
-                                  className="form-grid row"
+                                  className="form-grid row expand"
                                 >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
@@ -3441,6 +3398,40 @@ Array [
                                       </select>
                                     </div>
                                   </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
+                                  <div
+                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                  >
+                                    <div
+                                      className="form-group"
+                                    >
+                                      <label
+                                        className="form-label"
+                                        htmlFor="assistance_amount"
+                                        id="label-rental_assistances-5.assistance_amount"
+                                      >
+                                        Assistance Amount
+                                      </label>
+                                      <input
+                                        className=""
+                                        id="assistance_amount"
+                                        name="rental_assistances.5.assistance_amount"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        onFocus={[Function]}
+                                        placeholder="Enter Amount"
+                                        type="text"
+                                        value={1100}
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
                                   >
@@ -3496,32 +3487,96 @@ Array [
                                       </p>
                                     </div>
                                   </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column"
                                   >
-                                    <div
-                                      className="form-group"
+                                    <button
+                                      className="primary margin-right button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-save"
+                                      onClick={[Function]}
+                                      type="button"
                                     >
-                                      <label
-                                        className="form-label"
-                                        htmlFor="assistance_amount"
-                                        id="label-rental_assistances-5.assistance_amount"
-                                      >
-                                        Assistance Amount
-                                      </label>
-                                      <input
-                                        className=""
-                                        id="assistance_amount"
-                                        name="rental_assistances.5.assistance_amount"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        onFocus={[Function]}
-                                        placeholder="Enter Amount"
-                                        type="text"
-                                        value={1100}
-                                      />
-                                    </div>
+                                      Save
+                                    </button>
+                                    <button
+                                      className="secondary button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-cancel"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Cancel
+                                    </button>
+                                    <button
+                                      className="alert-fill right button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-delete"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Delete
+                                    </button>
                                   </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-expanded={false}
+                            className="tr-expand"
+                            id={null}
+                          >
+                            <td
+                              className=""
+                            >
+                              Automated Test Lease Up Application (do not modify)
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Catholic Charities
+                            </td>
+                            <td
+                              className=""
+                            >
+                              $1,100.00
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Yes
+                            </td>
+                            <td>
+                              <button
+                                className="button button-link action-link"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                Edit
+                              </button>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-hidden={true}
+                            className="tr-expand-content"
+                            id={null}
+                          >
+                            <td
+                              className="td-expand-nested no-padding"
+                              colSpan={5}
+                            >
+                              <div
+                                className="inline-modal padding-left--2x padding-right--2x white-background"
+                                id="rental-assistance-edit-form-6"
+                              >
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
                                   >
@@ -3530,15 +3585,15 @@ Array [
                                     >
                                       <label
                                         className="form-label"
-                                        htmlFor="form-rental_assistances.5.recipient"
-                                        id="label-rental_assistances-5.recipient"
+                                        htmlFor="form-rental_assistances.6.recipient"
+                                        id="label-rental_assistances-6.recipient"
                                       >
                                         Recipient
                                       </label>
                                       <select
                                         className="rental-assistance-recipient"
-                                        id="form-rental_assistances.5.recipient"
-                                        name="rental_assistances.5.recipient"
+                                        id="form-rental_assistances.6.recipient"
+                                        name="rental_assistances.6.recipient"
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
@@ -3559,93 +3614,7 @@ Array [
                                   </div>
                                 </div>
                                 <div
-                                  className="form-grid row"
-                                >
-                                  <div
-                                    className="form-grid_item column"
-                                  >
-                                    <button
-                                      className="button primary tiny margin-right margin-bottom-none"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Save
-                                    </button>
-                                    <button
-                                      className="button secondary tiny margin-right margin-bottom-none"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Cancel
-                                    </button>
-                                    <button
-                                      className="button alert-fill tiny margin-bottom-none right"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Delete
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          aria-expanded={false}
-                          className="tr-expand"
-                          id={null}
-                        >
-                          <td
-                            className=""
-                          >
-                            Catholic Charities
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Yes
-                          </td>
-                          <td
-                            className=""
-                          >
-                            $1,100.00
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Automated Test Lease Up Application (do not modify)
-                          </td>
-                          <td>
-                            <button
-                              className="button button-link action-link"
-                              onClick={[Function]}
-                              type="button"
-                            >
-                              Edit
-                            </button>
-                          </td>
-                        </tr>
-                        <tr
-                          aria-hidden={true}
-                          className="tr-expand-content"
-                          id={null}
-                        >
-                          <td
-                            className="td-expand-nested no-padding"
-                            colSpan={5}
-                          >
-                            <div
-                              className="inline-modal padding-left--2x padding-right--2x"
-                            >
-                              <div
-                                className="rental-assistance-edit-form"
-                              >
-                                <div
-                                  className="form-grid row"
+                                  className="form-grid row expand"
                                 >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
@@ -3752,6 +3721,40 @@ Array [
                                       </select>
                                     </div>
                                   </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
+                                  <div
+                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                  >
+                                    <div
+                                      className="form-group"
+                                    >
+                                      <label
+                                        className="form-label"
+                                        htmlFor="assistance_amount"
+                                        id="label-rental_assistances-6.assistance_amount"
+                                      >
+                                        Assistance Amount
+                                      </label>
+                                      <input
+                                        className=""
+                                        id="assistance_amount"
+                                        name="rental_assistances.6.assistance_amount"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        onFocus={[Function]}
+                                        placeholder="Enter Amount"
+                                        type="text"
+                                        value={1100}
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
                                   >
@@ -3807,32 +3810,96 @@ Array [
                                       </p>
                                     </div>
                                   </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column"
                                   >
-                                    <div
-                                      className="form-group"
+                                    <button
+                                      className="primary margin-right button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-save"
+                                      onClick={[Function]}
+                                      type="button"
                                     >
-                                      <label
-                                        className="form-label"
-                                        htmlFor="assistance_amount"
-                                        id="label-rental_assistances-6.assistance_amount"
-                                      >
-                                        Assistance Amount
-                                      </label>
-                                      <input
-                                        className=""
-                                        id="assistance_amount"
-                                        name="rental_assistances.6.assistance_amount"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        onFocus={[Function]}
-                                        placeholder="Enter Amount"
-                                        type="text"
-                                        value={1100}
-                                      />
-                                    </div>
+                                      Save
+                                    </button>
+                                    <button
+                                      className="secondary button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-cancel"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Cancel
+                                    </button>
+                                    <button
+                                      className="alert-fill right button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-delete"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Delete
+                                    </button>
                                   </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-expanded={false}
+                            className="tr-expand"
+                            id={null}
+                          >
+                            <td
+                              className=""
+                            >
+                              Automated Test Lease Up Application (do not modify)
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Catholic Charities
+                            </td>
+                            <td
+                              className=""
+                            >
+                              $1,100.00
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Yes
+                            </td>
+                            <td>
+                              <button
+                                className="button button-link action-link"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                Edit
+                              </button>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-hidden={true}
+                            className="tr-expand-content"
+                            id={null}
+                          >
+                            <td
+                              className="td-expand-nested no-padding"
+                              colSpan={5}
+                            >
+                              <div
+                                className="inline-modal padding-left--2x padding-right--2x white-background"
+                                id="rental-assistance-edit-form-7"
+                              >
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
                                   >
@@ -3841,15 +3908,15 @@ Array [
                                     >
                                       <label
                                         className="form-label"
-                                        htmlFor="form-rental_assistances.6.recipient"
-                                        id="label-rental_assistances-6.recipient"
+                                        htmlFor="form-rental_assistances.7.recipient"
+                                        id="label-rental_assistances-7.recipient"
                                       >
                                         Recipient
                                       </label>
                                       <select
                                         className="rental-assistance-recipient"
-                                        id="form-rental_assistances.6.recipient"
-                                        name="rental_assistances.6.recipient"
+                                        id="form-rental_assistances.7.recipient"
+                                        name="rental_assistances.7.recipient"
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
@@ -3870,93 +3937,7 @@ Array [
                                   </div>
                                 </div>
                                 <div
-                                  className="form-grid row"
-                                >
-                                  <div
-                                    className="form-grid_item column"
-                                  >
-                                    <button
-                                      className="button primary tiny margin-right margin-bottom-none"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Save
-                                    </button>
-                                    <button
-                                      className="button secondary tiny margin-right margin-bottom-none"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Cancel
-                                    </button>
-                                    <button
-                                      className="button alert-fill tiny margin-bottom-none right"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Delete
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          aria-expanded={false}
-                          className="tr-expand"
-                          id={null}
-                        >
-                          <td
-                            className=""
-                          >
-                            Catholic Charities
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Yes
-                          </td>
-                          <td
-                            className=""
-                          >
-                            $1,100.00
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Automated Test Lease Up Application (do not modify)
-                          </td>
-                          <td>
-                            <button
-                              className="button button-link action-link"
-                              onClick={[Function]}
-                              type="button"
-                            >
-                              Edit
-                            </button>
-                          </td>
-                        </tr>
-                        <tr
-                          aria-hidden={true}
-                          className="tr-expand-content"
-                          id={null}
-                        >
-                          <td
-                            className="td-expand-nested no-padding"
-                            colSpan={5}
-                          >
-                            <div
-                              className="inline-modal padding-left--2x padding-right--2x"
-                            >
-                              <div
-                                className="rental-assistance-edit-form"
-                              >
-                                <div
-                                  className="form-grid row"
+                                  className="form-grid row expand"
                                 >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
@@ -4063,6 +4044,40 @@ Array [
                                       </select>
                                     </div>
                                   </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
+                                  <div
+                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                  >
+                                    <div
+                                      className="form-group"
+                                    >
+                                      <label
+                                        className="form-label"
+                                        htmlFor="assistance_amount"
+                                        id="label-rental_assistances-7.assistance_amount"
+                                      >
+                                        Assistance Amount
+                                      </label>
+                                      <input
+                                        className=""
+                                        id="assistance_amount"
+                                        name="rental_assistances.7.assistance_amount"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        onFocus={[Function]}
+                                        placeholder="Enter Amount"
+                                        type="text"
+                                        value={1100}
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
                                   >
@@ -4118,32 +4133,96 @@ Array [
                                       </p>
                                     </div>
                                   </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column"
                                   >
-                                    <div
-                                      className="form-group"
+                                    <button
+                                      className="primary margin-right button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-save"
+                                      onClick={[Function]}
+                                      type="button"
                                     >
-                                      <label
-                                        className="form-label"
-                                        htmlFor="assistance_amount"
-                                        id="label-rental_assistances-7.assistance_amount"
-                                      >
-                                        Assistance Amount
-                                      </label>
-                                      <input
-                                        className=""
-                                        id="assistance_amount"
-                                        name="rental_assistances.7.assistance_amount"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        onFocus={[Function]}
-                                        placeholder="Enter Amount"
-                                        type="text"
-                                        value={1100}
-                                      />
-                                    </div>
+                                      Save
+                                    </button>
+                                    <button
+                                      className="secondary button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-cancel"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Cancel
+                                    </button>
+                                    <button
+                                      className="alert-fill right button tiny margin-bottom-none"
+                                      disabled={false}
+                                      id="rental-assistance-delete"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Delete
+                                    </button>
                                   </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-expanded={false}
+                            className="tr-expand"
+                            id={null}
+                          >
+                            <td
+                              className=""
+                            >
+                              Automated Test Lease Up Application (do not modify)
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Catholic Charities
+                            </td>
+                            <td
+                              className=""
+                            >
+                              $1,100.00
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Yes
+                            </td>
+                            <td>
+                              <button
+                                className="button button-link action-link"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                Edit
+                              </button>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-hidden={true}
+                            className="tr-expand-content"
+                            id={null}
+                          >
+                            <td
+                              className="td-expand-nested no-padding"
+                              colSpan={5}
+                            >
+                              <div
+                                className="inline-modal padding-left--2x padding-right--2x white-background"
+                                id="rental-assistance-edit-form-8"
+                              >
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
                                   >
@@ -4152,15 +4231,15 @@ Array [
                                     >
                                       <label
                                         className="form-label"
-                                        htmlFor="form-rental_assistances.7.recipient"
-                                        id="label-rental_assistances-7.recipient"
+                                        htmlFor="form-rental_assistances.8.recipient"
+                                        id="label-rental_assistances-8.recipient"
                                       >
                                         Recipient
                                       </label>
                                       <select
                                         className="rental-assistance-recipient"
-                                        id="form-rental_assistances.7.recipient"
-                                        name="rental_assistances.7.recipient"
+                                        id="form-rental_assistances.8.recipient"
+                                        name="rental_assistances.8.recipient"
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
@@ -4181,93 +4260,7 @@ Array [
                                   </div>
                                 </div>
                                 <div
-                                  className="form-grid row"
-                                >
-                                  <div
-                                    className="form-grid_item column"
-                                  >
-                                    <button
-                                      className="button primary tiny margin-right margin-bottom-none"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Save
-                                    </button>
-                                    <button
-                                      className="button secondary tiny margin-right margin-bottom-none"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Cancel
-                                    </button>
-                                    <button
-                                      className="button alert-fill tiny margin-bottom-none right"
-                                      disabled={false}
-                                      onClick={[Function]}
-                                      type="button"
-                                    >
-                                      Delete
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr
-                          aria-expanded={false}
-                          className="tr-expand"
-                          id={null}
-                        >
-                          <td
-                            className=""
-                          >
-                            Catholic Charities
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Yes
-                          </td>
-                          <td
-                            className=""
-                          >
-                            $1,100.00
-                          </td>
-                          <td
-                            className=""
-                          >
-                            Automated Test Lease Up Application (do not modify)
-                          </td>
-                          <td>
-                            <button
-                              className="button button-link action-link"
-                              onClick={[Function]}
-                              type="button"
-                            >
-                              Edit
-                            </button>
-                          </td>
-                        </tr>
-                        <tr
-                          aria-hidden={true}
-                          className="tr-expand-content"
-                          id={null}
-                        >
-                          <td
-                            className="td-expand-nested no-padding"
-                            colSpan={5}
-                          >
-                            <div
-                              className="inline-modal padding-left--2x padding-right--2x"
-                            >
-                              <div
-                                className="rental-assistance-edit-form"
-                              >
-                                <div
-                                  className="form-grid row"
+                                  className="form-grid row expand"
                                 >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
@@ -4374,6 +4367,40 @@ Array [
                                       </select>
                                     </div>
                                   </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
+                                  <div
+                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                  >
+                                    <div
+                                      className="form-group"
+                                    >
+                                      <label
+                                        className="form-label"
+                                        htmlFor="assistance_amount"
+                                        id="label-rental_assistances-8.assistance_amount"
+                                      >
+                                        Assistance Amount
+                                      </label>
+                                      <input
+                                        className=""
+                                        id="assistance_amount"
+                                        name="rental_assistances.8.assistance_amount"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        onFocus={[Function]}
+                                        placeholder="Enter Amount"
+                                        type="text"
+                                        value={1100}
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  className="form-grid row expand"
+                                >
                                   <div
                                     className="form-grid_item small-6 medium-6 large-6 column"
                                   >
@@ -4429,93 +4456,35 @@ Array [
                                       </p>
                                     </div>
                                   </div>
-                                  <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
-                                  >
-                                    <div
-                                      className="form-group"
-                                    >
-                                      <label
-                                        className="form-label"
-                                        htmlFor="assistance_amount"
-                                        id="label-rental_assistances-8.assistance_amount"
-                                      >
-                                        Assistance Amount
-                                      </label>
-                                      <input
-                                        className=""
-                                        id="assistance_amount"
-                                        name="rental_assistances.8.assistance_amount"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        onFocus={[Function]}
-                                        placeholder="Enter Amount"
-                                        type="text"
-                                        value={1100}
-                                      />
-                                    </div>
-                                  </div>
-                                  <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
-                                  >
-                                    <div
-                                      className="form-group"
-                                    >
-                                      <label
-                                        className="form-label"
-                                        htmlFor="form-rental_assistances.8.recipient"
-                                        id="label-rental_assistances-8.recipient"
-                                      >
-                                        Recipient
-                                      </label>
-                                      <select
-                                        className="rental-assistance-recipient"
-                                        id="form-rental_assistances.8.recipient"
-                                        name="rental_assistances.8.recipient"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        onFocus={[Function]}
-                                        value="a0n0P00000D3qIZQAZ"
-                                      >
-                                        <option
-                                          value=""
-                                        >
-                                          Select One...
-                                        </option>
-                                        <option
-                                          value="a0n0P00000D3qIZQAZ"
-                                        >
-                                          Automated Test Lease Up Application (do not modify)
-                                        </option>
-                                      </select>
-                                    </div>
-                                  </div>
                                 </div>
                                 <div
-                                  className="form-grid row"
+                                  className="form-grid row expand"
                                 >
                                   <div
                                     className="form-grid_item column"
                                   >
                                     <button
-                                      className="button primary tiny margin-right margin-bottom-none"
+                                      className="primary margin-right button tiny margin-bottom-none"
                                       disabled={false}
+                                      id="rental-assistance-save"
                                       onClick={[Function]}
                                       type="button"
                                     >
                                       Save
                                     </button>
                                     <button
-                                      className="button secondary tiny margin-right margin-bottom-none"
+                                      className="secondary button tiny margin-bottom-none"
                                       disabled={false}
+                                      id="rental-assistance-cancel"
                                       onClick={[Function]}
                                       type="button"
                                     >
                                       Cancel
                                     </button>
                                     <button
-                                      className="button alert-fill tiny margin-bottom-none right"
+                                      className="alert-fill right button tiny margin-bottom-none"
                                       disabled={false}
+                                      id="rental-assistance-delete"
                                       onClick={[Function]}
                                       type="button"
                                     >
@@ -4524,21 +4493,225 @@ Array [
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="form-grid row expand"
+                >
+                  <div
+                    className="form-grid_item small-6 medium-6 large-6 column"
+                  >
+                    <button
+                      className="button small"
+                      id="add-rental-assistance"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Add Rental Assistance
+                    </button>
+                    <span
+                      className="form-note shift-up"
+                    >
+                      Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
+                    </span>
+                  </div>
+                </div>
+                <div
+                  className="form-grid row expand"
+                >
+                  <div
+                    className="form-grid_item small-6 medium-6 large-6 column"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="form-lease.monthly_tenant_contribution"
+                        id="label-lease-monthly_tenant_contribution"
+                      >
+                        Tenant Contribution
+                      </label>
+                      <input
+                        className=""
+                        id="form-lease.monthly_tenant_contribution"
+                        name="lease.monthly_tenant_contribution"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder="Enter Amount"
+                        type="text"
+                        value="$259.77"
+                      />
+                      <span
+                        className="form-note shift-up"
+                        id="describe-lease.monthly_tenant_contribution"
+                      >
+                        Monthly rent minus recurring rental assistance, if any
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <button
-                className="button small"
-                id="add-rental-assistance"
-                onClick={[Function]}
+              <h3
+                className="app-card_h3 t-sans"
               >
-                Add Rental Assistance
-              </button>
+                Lease Details
+              </h3>
+              <div
+                className=""
+                style={
+                  Object {
+                    "marginBottom": "1.75rem",
+                  }
+                }
+              >
+                <div
+                  className="form-grid row expand"
+                >
+                  <div
+                    className="form-grid_item small-6 medium-6 large-6 column"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="lease_start_date"
+                      >
+                        Lease Start Date
+                      </label>
+                      <div
+                        className="form-group-month"
+                      >
+                        <input
+                          className=""
+                          id="lease_start_date_month"
+                          maxLength={2}
+                          name="lease.lease_start_date.month"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder="MM"
+                          type="text"
+                          value="01"
+                        />
+                      </div>
+                      <div
+                        className="form-group-day"
+                      >
+                        <input
+                          className=""
+                          id="lease_start_date_day"
+                          maxLength={2}
+                          name="lease.lease_start_date.day"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder="DD"
+                          type="text"
+                          value="01"
+                        />
+                      </div>
+                      <div
+                        className="form-group-year"
+                      >
+                        <input
+                          className=""
+                          id="lease_start_date_year"
+                          maxLength={4}
+                          name="lease.lease_start_date.year"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder="YYYY"
+                          type="text"
+                          value="2019"
+                        />
+                      </div>
+                      <div
+                        className="d-inline-block"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="form-grid row expand"
+                >
+                  <div
+                    className="form-grid_item small-6 medium-6 large-6 column"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="form-lease.preference_used"
+                        id="label-lease-preference_used"
+                      >
+                        Preference Used
+                      </label>
+                      <select
+                        className=""
+                        id="form-lease.preference_used"
+                        name="lease.preference_used"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value="a0w0P00000MOzyXQAT"
+                      >
+                        <option
+                          value={null}
+                        >
+                          None
+                        </option>
+                        <option
+                          value="a0w0P00000OUJc3QAH"
+                        >
+                          Live or Work in San Francisco Preference
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="form-grid row expand"
+              >
+                <div
+                  className="form-grid_item column"
+                >
+                  <button
+                    className="primary margin-right button small margin-bottom-none"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Save Lease
+                  </button>
+                  <button
+                    className="secondary button small margin-bottom-none"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    className="alert-fill right button small margin-bottom-none"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
           <div
