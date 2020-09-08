@@ -167,8 +167,10 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
 
   const getField = (assistanceField) => `rental_assistances.${index}.${assistanceField}`
 
+  const modalId = isNew ? 'rental-assistance-new-form' : `rental-assistance-edit-form-${index}`
+
   return (
-    <InlineModal whiteBackground marginBottom={isNew} >
+    <InlineModal whiteBackground marginBottom={isNew} id={modalId} >
       <FormGrid.Row>
         <FormGrid.Item>
           <SelectField
@@ -231,6 +233,7 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
             disabled={loading}
             noBottomMargin
             text='Save'
+            id='rental-assistance-save'
           />
           <Button
             classes='secondary'
@@ -239,6 +242,7 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
             disabled={loading}
             noBottomMargin
             text='Cancel'
+            id='rental-assistance-cancel'
           />
           {!isNew && (
             <Button
@@ -248,6 +252,7 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
               disabled={loading}
               noBottomMargin
               text='Delete'
+              id='rental-assistance-delete'
             />
           )}
         </div>

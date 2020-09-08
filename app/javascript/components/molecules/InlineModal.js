@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-const InlineModal = ({ whiteBackground = false, children, marginBottom = false }) => {
+const InlineModal = ({ whiteBackground = false, children, marginBottom = false, id }) => {
   let classes = [
     'inline-modal',
     'padding-left--2x',
@@ -12,7 +12,7 @@ const InlineModal = ({ whiteBackground = false, children, marginBottom = false }
   ]
 
   return (
-    <div className={classNames(classes)}>
+    <div className={classNames(classes)} id={id}>
       {children}
     </div>
   )
@@ -20,7 +20,8 @@ const InlineModal = ({ whiteBackground = false, children, marginBottom = false }
 
 InlineModal.propTypes = {
   whiteBackground: PropTypes.bool,
-  marginBottom: PropTypes.bool
+  marginBottom: PropTypes.bool,
+  id: PropTypes.string
 }
 
 export default InlineModal

@@ -103,6 +103,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
               >
                 <div
                   className="inline-modal padding-left--2x padding-right--2x white-background"
+                  id="rental-assistance-edit-form-0"
                 >
                   <div
                     className="form-grid row expand"
@@ -349,6 +350,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                     >
                       <button
                         className="primary margin-right button tiny margin-bottom-none"
+                        id="rental-assistance-save"
                         onClick={[Function]}
                         type="button"
                       >
@@ -356,6 +358,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                       </button>
                       <button
                         className="secondary button tiny margin-bottom-none"
+                        id="rental-assistance-cancel"
                         onClick={[Function]}
                         type="button"
                       >
@@ -363,6 +366,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
                       </button>
                       <button
                         className="alert-fill right button tiny margin-bottom-none"
+                        id="rental-assistance-delete"
                         onClick={[Function]}
                         type="button"
                       >
@@ -383,6 +387,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
   >
     <div
       className="inline-modal padding-left--2x padding-right--2x white-background margin-bottom--3halves"
+      id="rental-assistance-new-form"
     >
       <div
         className="form-grid row expand"
@@ -626,6 +631,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
         >
           <button
             className="primary margin-right button tiny margin-bottom-none"
+            id="rental-assistance-save"
             onClick={[Function]}
             type="button"
           >
@@ -633,6 +639,7 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
           </button>
           <button
             className="secondary button tiny margin-bottom-none"
+            id="rental-assistance-cancel"
             onClick={[Function]}
             type="button"
           >
@@ -797,6 +804,7 @@ exports[`RentalAssistance should render a table when rental assistances are pres
               >
                 <div
                   className="inline-modal padding-left--2x padding-right--2x white-background"
+                  id="rental-assistance-edit-form-0"
                 >
                   <div
                     className="form-grid row expand"
@@ -1043,6 +1051,7 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                     >
                       <button
                         className="primary margin-right button tiny margin-bottom-none"
+                        id="rental-assistance-save"
                         onClick={[Function]}
                         type="button"
                       >
@@ -1050,6 +1059,7 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                       </button>
                       <button
                         className="secondary button tiny margin-bottom-none"
+                        id="rental-assistance-cancel"
                         onClick={[Function]}
                         type="button"
                       >
@@ -1057,6 +1067,7 @@ exports[`RentalAssistance should render a table when rental assistances are pres
                       </button>
                       <button
                         className="alert-fill right button tiny margin-bottom-none"
+                        id="rental-assistance-delete"
                         onClick={[Function]}
                         type="button"
                       >
@@ -1199,6 +1210,7 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
               >
                 <div
                   className="inline-modal padding-left--2x padding-right--2x white-background"
+                  id="rental-assistance-edit-form-0"
                 >
                   <div
                     className="form-grid row expand"
@@ -1474,6 +1486,7 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                     >
                       <button
                         className="primary margin-right button tiny margin-bottom-none"
+                        id="rental-assistance-save"
                         onClick={[Function]}
                         type="button"
                       >
@@ -1481,6 +1494,7 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                       </button>
                       <button
                         className="secondary button tiny margin-bottom-none"
+                        id="rental-assistance-cancel"
                         onClick={[Function]}
                         type="button"
                       >
@@ -1488,6 +1502,7 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
                       </button>
                       <button
                         className="alert-fill right button tiny margin-bottom-none"
+                        id="rental-assistance-delete"
                         onClick={[Function]}
                         type="button"
                       >
