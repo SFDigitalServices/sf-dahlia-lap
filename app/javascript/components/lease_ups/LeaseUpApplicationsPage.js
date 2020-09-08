@@ -4,6 +4,7 @@ import React from 'react'
 import { map, each, set, clone } from 'lodash'
 import moment from 'moment'
 
+import { createFieldUpdateComment } from '../supplemental_application/actions'
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
 import TableLayout from '../layouts/TableLayout'
 import { buildLeaseUpAppPrefModel } from './leaseUpAppPrefModel'
@@ -65,33 +66,34 @@ class LeaseUpApplicationsPage extends React.Component {
   }
 
   handleCreateStatusUpdate = async (data) => {
-    const { applicationId, status } = data
+    const { applicationId, comment, status, subStatus } = data
     const { applications } = this.state
-    const response = await apiService.createFieldUpdateComment(data)
 
-    if (response) {
-      each(applications, (app, index) => {
-        if (app.application_id === applicationId) {
-          this.updateResults(`[${index}]['lease_up_status']`, status)
-          this.updateResults(`[${index}]['status_updated']`, moment().format(SALESFORCE_DATE_FORMAT))
-        }
-      })
+    createFieldUpdateComment(applicationId, status, comment, subStatus)
+      .then(response => {
+        each(applications, (app, index) => {
+          if (app.application_id === applicationId) {
+            this.updateResults(`[${index}]['lease_up_status']`, status)
+            this.updateResults(`[${index}]['status_updated']`, moment().format(SALESFORCE_DATE_FORMAT))
+          }
+        })
 
-      this.updateStatusModal({
-        applicationId: null,
-        isOpen: false,
-        loading: false,
-        showAlert: false,
-        status: null
+        this.updateStatusModal({
+          applicationId: null,
+          isOpen: false,
+          loading: false,
+          showAlert: false,
+          status: null
+        })
       })
-    } else {
-      this.updateStatusModal({
-        loading: false,
-        showAlert: true,
-        alertMsg: 'We were unable to make the update, please try again.',
-        onAlertCloseClick: () => this.updateStatusModal({ showAlert: false })
+      .catch(() => {
+        this.updateStatusModal({
+          loading: false,
+          showAlert: true,
+          alertMsg: 'We were unable to make the update, please try again.',
+          onAlertCloseClick: () => this.updateStatusModal({ showAlert: false })
+        })
       })
-    }
   }
 
   updateStatusModal = (values) => {
