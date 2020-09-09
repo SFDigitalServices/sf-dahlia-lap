@@ -5,7 +5,7 @@ import { Input, BlockNote } from '~/utils/form/final_form/Field'
 import { every, last } from 'lodash'
 import classNames from 'classnames'
 
-const InputField = ({ type, fieldName, validation, placeholder, maxLength, id, disabled = false }) => (
+const InputField = ({ type, fieldName, validation, placeholder, maxLength, id, disabled }) => (
   <Field name={fieldName} validate={validation}>
     {({ input, meta }) => (
       <>
@@ -23,7 +23,7 @@ const InputField = ({ type, fieldName, validation, placeholder, maxLength, id, d
   </Field>
 )
 
-export const MultiDateField = ({ form, fieldName, formName, index, label, blockNote, id, disabled = false }) => {
+export const MultiDateField = ({ form, fieldName, formName, index, label, blockNote, id, disabled }) => {
   const touched = every(['.day', '.month', '.year'], type => {
     return form.getState().touched[fieldName + type]
   })

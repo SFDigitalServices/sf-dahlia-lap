@@ -188,6 +188,7 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleCancelLeaseClick = (form) => {
+    // TODO: clear form state
     const { application } = this.state
 
     this.setState({
@@ -198,14 +199,17 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleEditLeaseClick = (form) => {
+    // TODO: actually call editLease action
     this.setState({ leaseSectionState: EDIT_LEASE_STATE })
   }
 
   handleSaveLease = () => {
+    // TODO: actually call updateLease action
     this.setState({ leaseSectionState: SHOW_LEASE_STATE })
   }
 
   handleDeleteLease = () => {
+    // TODO: actually call delete action
     this.setState({ leaseSectionState: NO_LEASE_STATE })
   }
 
