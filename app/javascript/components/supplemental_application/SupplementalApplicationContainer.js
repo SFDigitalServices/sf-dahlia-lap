@@ -17,7 +17,7 @@ import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 import validate, { touchAllFields } from '~/utils/form/validations'
 import { convertPercentAndCurrency } from '../../utils/form/validations'
 import AsymColumnLayout from '../organisms/AsymColumnLayout'
-import LeaseUpSidebar from '../molecules/LeaseUpSidebar'
+import LeaseUpSidebar from '../molecules/lease_up_sidebar/LeaseUpSidebar'
 
 const ConfirmedPreferencesSection = ({
   application,

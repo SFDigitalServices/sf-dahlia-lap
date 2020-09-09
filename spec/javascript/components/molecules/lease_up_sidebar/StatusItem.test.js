@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount, shallow } from 'enzyme'
-import { mockStatusItem } from '../../mocks/statusItemMock'
-import StatusItem from 'components/molecules/StatusItem'
+import { mockStatusItem } from '../../../mocks/statusItemMock'
+import StatusItem from 'components/molecules/lease_up_sidebar/StatusItem'
 
 const getWrapper = (item) => shallow(<StatusItem statusItem={item} />)
 
