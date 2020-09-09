@@ -37,6 +37,7 @@ const LeaseActions = ({
     return (
       <div className='form-grid_item column'>
         <Button
+          id='edit-lease-button'
           classes='secondary'
           small
           onClick={onEditLeaseClick}

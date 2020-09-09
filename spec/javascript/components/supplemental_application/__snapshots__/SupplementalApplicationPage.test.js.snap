@@ -1428,6 +1428,7 @@ Array [
                       </label>
                       <select
                         className=""
+                        disabled={true}
                         id="form-lease.bmr_parking_space_assigned"
                         name="lease.bmr_parking_space_assigned"
                         onBlur={[Function]}
@@ -1463,7 +1464,7 @@ Array [
                       </label>
                       <input
                         className=""
-                        disabled={false}
+                        disabled={true}
                         id="form-lease.monthly_parking_rent"
                         name="lease.monthly_parking_rent"
                         onBlur={[Function]}
@@ -1508,6 +1509,7 @@ Array [
                       </label>
                       <input
                         className=""
+                        disabled={true}
                         id="form-lease.total_monthly_rent_without_parking"
                         name="lease.total_monthly_rent_without_parking"
                         onBlur={[Function]}
@@ -1613,15 +1615,7 @@ Array [
                             >
                               Yes
                             </td>
-                            <td>
-                              <button
-                                className="button button-link action-link"
-                                onClick={[Function]}
-                                type="button"
-                              >
-                                Edit
-                              </button>
-                            </td>
+                            <td />
                           </tr>
                           <tr
                             aria-hidden={true}
@@ -1936,15 +1930,7 @@ Array [
                             >
                               Yes
                             </td>
-                            <td>
-                              <button
-                                className="button button-link action-link"
-                                onClick={[Function]}
-                                type="button"
-                              >
-                                Edit
-                              </button>
-                            </td>
+                            <td />
                           </tr>
                           <tr
                             aria-hidden={true}
@@ -2259,15 +2245,7 @@ Array [
                             >
                               Yes
                             </td>
-                            <td>
-                              <button
-                                className="button button-link action-link"
-                                onClick={[Function]}
-                                type="button"
-                              >
-                                Edit
-                              </button>
-                            </td>
+                            <td />
                           </tr>
                           <tr
                             aria-hidden={true}
@@ -2582,15 +2560,7 @@ Array [
                             >
                               Yes
                             </td>
-                            <td>
-                              <button
-                                className="button button-link action-link"
-                                onClick={[Function]}
-                                type="button"
-                              >
-                                Edit
-                              </button>
-                            </td>
+                            <td />
                           </tr>
                           <tr
                             aria-hidden={true}
@@ -2905,15 +2875,7 @@ Array [
                             >
                               Yes
                             </td>
-                            <td>
-                              <button
-                                className="button button-link action-link"
-                                onClick={[Function]}
-                                type="button"
-                              >
-                                Edit
-                              </button>
-                            </td>
+                            <td />
                           </tr>
                           <tr
                             aria-hidden={true}
@@ -3228,15 +3190,7 @@ Array [
                             >
                               Yes
                             </td>
-                            <td>
-                              <button
-                                className="button button-link action-link"
-                                onClick={[Function]}
-                                type="button"
-                              >
-                                Edit
-                              </button>
-                            </td>
+                            <td />
                           </tr>
                           <tr
                             aria-hidden={true}
@@ -3551,15 +3505,7 @@ Array [
                             >
                               Yes
                             </td>
-                            <td>
-                              <button
-                                className="button button-link action-link"
-                                onClick={[Function]}
-                                type="button"
-                              >
-                                Edit
-                              </button>
-                            </td>
+                            <td />
                           </tr>
                           <tr
                             aria-hidden={true}
@@ -3874,15 +3820,7 @@ Array [
                             >
                               Yes
                             </td>
-                            <td>
-                              <button
-                                className="button button-link action-link"
-                                onClick={[Function]}
-                                type="button"
-                              >
-                                Edit
-                              </button>
-                            </td>
+                            <td />
                           </tr>
                           <tr
                             aria-hidden={true}
@@ -4197,15 +4135,7 @@ Array [
                             >
                               Yes
                             </td>
-                            <td>
-                              <button
-                                className="button button-link action-link"
-                                onClick={[Function]}
-                                type="button"
-                              >
-                                Edit
-                              </button>
-                            </td>
+                            <td />
                           </tr>
                           <tr
                             aria-hidden={true}
@@ -4506,14 +4436,6 @@ Array [
                   <div
                     className="form-grid_item small-6 medium-6 large-6 column"
                   >
-                    <button
-                      className="button small"
-                      id="add-rental-assistance"
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      Add Rental Assistance
-                    </button>
                     <span
                       className="form-note shift-up"
                     >
@@ -4539,6 +4461,7 @@ Array [
                       </label>
                       <input
                         className=""
+                        disabled={true}
                         id="form-lease.monthly_tenant_contribution"
                         name="lease.monthly_tenant_contribution"
                         onBlur={[Function]}
@@ -4591,6 +4514,7 @@ Array [
                       >
                         <input
                           className=""
+                          disabled={true}
                           id="lease_start_date_month"
                           maxLength={2}
                           name="lease.lease_start_date.month"
@@ -4607,6 +4531,7 @@ Array [
                       >
                         <input
                           className=""
+                          disabled={true}
                           id="lease_start_date_day"
                           maxLength={2}
                           name="lease.lease_start_date.day"
@@ -4623,6 +4548,7 @@ Array [
                       >
                         <input
                           className=""
+                          disabled={true}
                           id="lease_start_date_year"
                           maxLength={4}
                           name="lease.lease_start_date.year"
@@ -4658,6 +4584,7 @@ Array [
                       </label>
                       <select
                         className=""
+                        disabled={true}
                         id="form-lease.preference_used"
                         name="lease.preference_used"
                         onBlur={[Function]}
@@ -4687,28 +4614,13 @@ Array [
                   className="form-grid_item column"
                 >
                   <button
-                    className="primary margin-right button small margin-bottom-none"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Save Lease
-                  </button>
-                  <button
                     className="secondary button small margin-bottom-none"
                     disabled={false}
+                    id="edit-lease-button"
                     onClick={[Function]}
                     type="button"
                   >
-                    Cancel
-                  </button>
-                  <button
-                    className="alert-fill right button small margin-bottom-none"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    Delete
+                    Edit Lease
                   </button>
                 </div>
               </div>
