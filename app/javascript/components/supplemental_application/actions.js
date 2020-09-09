@@ -86,7 +86,7 @@ export const createLease = async (lease, primaryApplicantContact, applicationId)
 export const updateLease = async (lease, primaryApplicantContact, applicationId) =>
   apiService.updateLease(lease, primaryApplicantContact, applicationId)
 
-const updateOrCreateLease = async (lease, primaryApplicantContact, applicationId) => {
+export const updateOrCreateLease = async (lease, primaryApplicantContact, applicationId) => {
   if (isEmpty(lease)) {
     return lease
   }
@@ -96,6 +96,10 @@ const updateOrCreateLease = async (lease, primaryApplicantContact, applicationId
   } else {
     return createLease(lease, primaryApplicantContact, applicationId)
   }
+}
+
+export const deleteLease = async (lease) => {
+  console.log('deleting lease')
 }
 
 export const getAMIAction = async ({ chartType, chartYear }) => {
