@@ -60,6 +60,9 @@ exports[`RentalAssistance matches snapshot 1`] = `
         text="Add Rental Assistance"
         type="button"
       />
+      <div
+        className="margin-top--half"
+      />
       <HelpText
         note="Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance."
       />

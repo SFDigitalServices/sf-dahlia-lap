@@ -14,6 +14,8 @@ import { withContext } from '../context'
 import { CurrencyField, Label, SelectField } from '~/utils/form/final_form/Field.js'
 import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
 import { validateLeaseCurrency } from '~/utils/form/validations'
+import { EDIT_LEASE_STATE } from '../SupplementalApplicationPage'
+import { doesApplicationHaveLease } from '~/utils/leaseUtils'
 
 const toggleNoPreferenceUsed = (form, event) => {
   // lease.preference_used need to be reset, otherwise SF validation fails
@@ -22,37 +24,62 @@ const toggleNoPreferenceUsed = (form, event) => {
   }
   form.change('lease.no_preference_used', isEmpty(event.target.value))
 }
+const LeaseActions = ({
+  onEditLeaseClick,
+  onSave,
+  onCancelLeaseClick,
+  onDelete,
+  leaseExists,
+  loading,
+  isEditing
+}) => {
+  if (!isEditing) {
+    return (
+      <div className='form-grid_item column'>
+        <Button
+          id='edit-lease-button'
+          classes='secondary'
+          small
+          onClick={onEditLeaseClick}
+          disabled={loading}
+          noBottomMargin
+          text='Edit Lease'
+        />
+      </div>
+    )
+  }
 
-const LeaseActions = ({ onSave, onCancelLeaseClick, onDelete, isNew, loading }) => (
-  <div className='form-grid_item column'>
-    <Button
-      classes='primary margin-right'
-      small
-      onClick={onSave}
-      disabled={loading}
-      noBottomMargin
-      text='Save Lease'
-    />
-    <Button
-      classes='secondary'
-      small
-      onClick={onCancelLeaseClick}
-      disabled={loading}
-      noBottomMargin
-      text='Cancel'
-    />
-    {!isNew && (
+  return (
+    <div className='form-grid_item column'>
       <Button
-        classes='alert-fill right'
+        classes='primary margin-right'
         small
-        onClick={onDelete}
+        onClick={onSave}
         disabled={loading}
         noBottomMargin
-        text='Delete'
+        text='Save Lease'
       />
-    )}
-  </div>
-)
+      <Button
+        classes='secondary'
+        small
+        onClick={onCancelLeaseClick}
+        disabled={loading}
+        noBottomMargin
+        text='Cancel'
+      />
+      {leaseExists && (
+        <Button
+          classes='alert-fill right'
+          small
+          onClick={onDelete}
+          disabled={loading}
+          noBottomMargin
+          text='Delete'
+        />
+      )}
+    </div>
+  )
+}
 
 const Lease = ({ form, submitting, values, store }) => {
   const {
@@ -60,15 +87,24 @@ const Lease = ({ form, submitting, values, store }) => {
     application,
     handleSaveLease,
     handleDeleteLease,
-    handleCancelLeaseClick
+    handleEditLeaseClick,
+    handleCancelLeaseClick,
+    leaseSectionState,
+    loading
   } = store
+
+  const isEditingMode = leaseSectionState === EDIT_LEASE_STATE
+  const disabled = !isEditingMode
+
   const availableUnitsOptions = formUtils.toOptions(
     map(availableUnits, pluck('id', 'unit_number'))
   )
+
   const noUnitsOptions = [{ value: '', label: 'No Units Available' }]
   const confirmedPreferences = filter(application.preferences, {
     post_lottery_validation: 'Confirmed'
   })
+
   const confirmedPreferenceOptions = formUtils.toOptions(
     map(
       [{ id: null, preference_name: 'None' }, ...confirmedPreferences],
@@ -79,6 +115,9 @@ const Lease = ({ form, submitting, values, store }) => {
   const getVisited = (fieldName) => (
     form.getFieldState(fieldName)?.visited
   )
+
+  const areNoUnitsAvailable = !availableUnitsOptions.length
+
   return (
     <InlineModal>
       <ContentSection.Header description='If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.' />
@@ -90,12 +129,16 @@ const Lease = ({ form, submitting, values, store }) => {
               label='Assigned Unit Number'
               fieldName='lease.unit'
               options={availableUnitsOptions}
-              disabled={!availableUnitsOptions.length}
-              disabledOptions={noUnitsOptions}
+              disabled={disabled || areNoUnitsAvailable}
+              disabledOptions={areNoUnitsAvailable && noUnitsOptions}
             />
           </FormGrid.Item>
         </FormGrid.Row>
-        <ParkingInformationInputs form={form} values={values} />
+        <ParkingInformationInputs
+          form={form}
+          values={values}
+          disabled={disabled}
+        />
       </ContentSection.Sub>
       <ContentSection.Sub
         title='Rent and Assistance'
@@ -109,6 +152,7 @@ const Lease = ({ form, submitting, values, store }) => {
               isDirty={
                 getVisited('lease.total_monthly_rent_without_parking')
               }
+              disabled={disabled}
             />
           </FormGrid.Item>
         </FormGrid.Row>
@@ -117,7 +161,11 @@ const Lease = ({ form, submitting, values, store }) => {
             <Label label='Rental Assistance' />
           </FormGrid.Item>
         </FormGrid.Row>
-        <RentalAssistance form={form} submitting={submitting} />
+        <RentalAssistance
+          form={form}
+          submitting={submitting}
+          disabled={disabled}
+        />
         <FormGrid.Row>
           <FormGrid.Item>
             <CurrencyField
@@ -126,6 +174,7 @@ const Lease = ({ form, submitting, values, store }) => {
               helpText='Monthly rent minus recurring rental assistance, if any'
               validation={validateLeaseCurrency}
               isDirty={getVisited('lease.monthly_tenant_contribution')}
+              disabled={disabled}
             />
           </FormGrid.Item>
         </FormGrid.Row>
@@ -138,6 +187,7 @@ const Lease = ({ form, submitting, values, store }) => {
               fieldName='lease.lease_start_date'
               form={form}
               label='Lease Start Date'
+              disabled={disabled}
             />
           </FormGrid.Item>
         </FormGrid.Row>
@@ -148,6 +198,7 @@ const Lease = ({ form, submitting, values, store }) => {
               onChange={value => toggleNoPreferenceUsed(form, value)}
               fieldName='lease.preference_used'
               options={confirmedPreferenceOptions}
+              disabled={disabled}
             />
           </FormGrid.Item>
         </FormGrid.Row>
@@ -157,9 +208,11 @@ const Lease = ({ form, submitting, values, store }) => {
         <LeaseActions
           onSave={handleSaveLease}
           onCancelLeaseClick={handleCancelLeaseClick}
+          onEditLeaseClick={handleEditLeaseClick}
           onDelete={handleDeleteLease}
-          loading={false}
-          isNew={false}
+          loading={loading}
+          leaseExists={doesApplicationHaveLease(application)}
+          isEditing={isEditingMode}
         />
       </FormGrid.Row>
     </InlineModal>

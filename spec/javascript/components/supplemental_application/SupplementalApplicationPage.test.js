@@ -318,6 +318,7 @@ describe('SupplementalApplicationPage', () => {
     })
 
     test('should save a lease object', async () => {
+      wrapper.find('#edit-lease-button').first().simulate('click')
       // Fill out lease fields
       // Assigned Unit number
       wrapper.find('[name="lease.unit"] select option[value="id1"]').simulate('change')
