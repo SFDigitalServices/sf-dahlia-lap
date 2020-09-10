@@ -119,6 +119,8 @@ For more information on why shallow rendering is simpler than full rendering, ch
 #### Unit testing components with form or context
 Shallow rendering is more complicated when you're using connected components, that are wrapped with useContext or work with [react-final-form](https://final-form.org/docs/react-final-form/getting-started)'s form objects.
 
+The [wrapperUtil.js](spec/javascript/testUtils/wrapperUtil.js) contains utils to help with shallow rendering components that use context or form.
+
 ##### Example: shallow rendering a component that has a form passed in
 Say you want to test a component that looks like this:
 ```
@@ -181,8 +183,8 @@ test('it renders ComponentA', () => {
 ```
 
 #### Example files that follow these best practices
-Non-form component: [StatusHistoryContainer.test.js](spec/javascript/components/molecules/lease_up_sidebar/StatusHistoryContainer.test.js)
-Form-component: [RentalAssistance.test.js](spec/javascript/components/supplemental_application/sections/RentalAssistance.test.js)
+- Non-form component: [StatusHistoryContainer.test.js](spec/javascript/components/molecules/lease_up_sidebar/StatusHistoryContainer.test.js)
+- Form-component: [RentalAssistance.test.js](spec/javascript/components/supplemental_application/sections/RentalAssistance.test.js)
 
 ## Scripts
 
