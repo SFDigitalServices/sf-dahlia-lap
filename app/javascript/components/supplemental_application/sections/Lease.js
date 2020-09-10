@@ -116,6 +116,8 @@ const Lease = ({ form, submitting, values, store }) => {
     form.getFieldState(fieldName)?.visited
   )
 
+  const areNoUnitsAvailable = !availableUnitsOptions.length
+
   return (
     <InlineModal>
       <ContentSection.Header description='If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.' />
@@ -127,8 +129,8 @@ const Lease = ({ form, submitting, values, store }) => {
               label='Assigned Unit Number'
               fieldName='lease.unit'
               options={availableUnitsOptions}
-              disabled={disabled || !availableUnitsOptions.length}
-              disabledOptions={noUnitsOptions}
+              disabled={disabled || areNoUnitsAvailable}
+              disabledOptions={areNoUnitsAvailable && noUnitsOptions}
             />
           </FormGrid.Item>
         </FormGrid.Row>
