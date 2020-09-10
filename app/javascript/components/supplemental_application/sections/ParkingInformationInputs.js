@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import { SelectField, CurrencyField } from '~/utils/form/final_form/Field.js'
@@ -9,23 +9,24 @@ const Yes = 'Yes'
 const No = 'No'
 
 const ParkingInformationInputs = ({ form: { change, getFieldState }, values: { lease }, disabled = false }) => {
-  const [parkingSpaceAssigned, setParkingSpaceAssigned] = useState(lease && lease['monthly_parking_rent'] ? Yes : No)
-  const selectParkingSpaceAssigned = (event) => {
-    const { target: { value } } = event
-    setParkingSpaceAssigned(value)
+  const onChangeHasParkingSpace = ({ target: { value } }) => {
     if (value === No) {
       change(monthlyRentFieldName, '')
     }
   }
+
   const monthlyRentVisited = getFieldState(monthlyRentFieldName)?.visited
+
+  const hasParkingSpace = lease?.bmr_parking_space_assigned === Yes
+
   return (
     <>
       <FormGrid.Row>
         <FormGrid.Item>
           <SelectField
             label='BMR Parking Space Assigned?'
-            selectValue={parkingSpaceAssigned}
-            onChange={selectParkingSpaceAssigned}
+            selectValue={hasParkingSpace ? Yes : No}
+            onChange={onChangeHasParkingSpace}
             fieldName='lease.bmr_parking_space_assigned'
             options={[Yes, No]}
             disabled={disabled}
@@ -36,7 +37,7 @@ const ParkingInformationInputs = ({ form: { change, getFieldState }, values: { l
             label='Monthly Parking Cost'
             fieldName={monthlyRentFieldName}
             validation={validateLeaseCurrency}
-            disabled={disabled || parkingSpaceAssigned === No}
+            disabled={disabled || !hasParkingSpace}
             isDirty={monthlyRentVisited} />
         </FormGrid.Item>
       </FormGrid.Row>
