@@ -346,11 +346,10 @@ const RentalAssistance = ({
                 onClick={handleOpenRentalAssistancePanel}
               />
             )}
-            <div className='margin-top margin-bottom--half'>
-              <HelpText
-                note='Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.'
-              />
-            </div>
+            <div className={disabled ? 'margin-top' : 'margin-top--half'} />
+            <HelpText
+              note='Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.'
+            />
           </FormGrid.Item>
         </FormGrid.Row>
       )}
