@@ -4436,11 +4436,15 @@ Array [
                   <div
                     className="form-grid_item small-6 medium-6 large-6 column"
                   >
-                    <span
-                      className="form-note shift-up"
+                    <div
+                      className="margin-top margin-bottom--half"
                     >
-                      Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
-                    </span>
+                      <span
+                        className="form-note shift-up"
+                      >
+                        Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div

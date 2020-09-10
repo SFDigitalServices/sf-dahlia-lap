@@ -663,11 +663,15 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
       >
         Add Rental Assistance
       </button>
-      <span
-        className="form-note shift-up"
+      <div
+        className="margin-top margin-bottom--half"
       >
-        Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
-      </span>
+        <span
+          className="form-note shift-up"
+        >
+          Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
+        </span>
+      </div>
     </div>
   </div>
 </form>
@@ -691,11 +695,15 @@ exports[`RentalAssistance should not render a table if rental assistances is emp
       >
         Add Rental Assistance
       </button>
-      <span
-        className="form-note shift-up"
+      <div
+        className="margin-top margin-bottom--half"
       >
-        Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
-      </span>
+        <span
+          className="form-note shift-up"
+        >
+          Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
+        </span>
+      </div>
     </div>
   </div>
 </form>
@@ -1097,11 +1105,15 @@ exports[`RentalAssistance should render a table when rental assistances are pres
       >
         Add Rental Assistance
       </button>
-      <span
-        className="form-note shift-up"
+      <div
+        className="margin-top margin-bottom--half"
       >
-        Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
-      </span>
+        <span
+          className="form-note shift-up"
+        >
+          Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
+        </span>
+      </div>
     </div>
   </div>
 </form>
@@ -1532,11 +1544,15 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
       >
         Add Rental Assistance
       </button>
-      <span
-        className="form-note shift-up"
+      <div
+        className="margin-top margin-bottom--half"
       >
-        Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
-      </span>
+        <span
+          className="form-note shift-up"
+        >
+          Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
+        </span>
+      </div>
     </div>
   </div>
 </form>
