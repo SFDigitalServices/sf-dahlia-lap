@@ -41,7 +41,7 @@ const typeOfAssistanceOptions = formUtils.toOptions(typeOfAssistance)
 
 const isOther = (values) => values && values.type_of_assistance === 'Other'
 
-const RentalAssistanceTable = ({ form, submitting, rentalAssistances, onEdit, applicationMembers }) => {
+export const RentalAssistanceTable = ({ form, submitting, rentalAssistances, onEdit, applicationMembers }) => {
   const columns = [
     { content: 'Recipient' },
     { content: 'Type' },
@@ -137,7 +137,7 @@ const Panel = withContext(({ rentalAssistance, toggle, store, row, index, form }
   )
 })
 
-const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew, index, form, visited }) => {
+export const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew, index, form, visited }) => {
   const validateAssistanceAmount = (value) => {
     return validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
       validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(value)
