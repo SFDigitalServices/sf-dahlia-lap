@@ -34,9 +34,9 @@ const mountWithForm = (application, formToChildrenFunc) =>
 /**
  * Return a component wrapper for any component that uses react-final-form
  *
- * @param {} application the application object to seed the form with
- * @param {*} formToChildrenFunc a function that takes a form object and returns a node.
- * @param {*} shouldMount true if component should be rendered with enzyme mount.
+ * @param application the application object to seed the form with
+ * @param formToChildrenFunc a function that takes a form object and returns a node.
+ * @param shouldMount true if component should be rendered with enzyme mount.
  *  Only use shouldMount=true if you know you absolutely need mount functionality.
  */
 export const withForm = (application, formToChildrenFunc, shouldMount = false) =>
@@ -45,11 +45,18 @@ export const withForm = (application, formToChildrenFunc, shouldMount = false) =
     : shallowWithForm(application, formToChildrenFunc)
 
 /**
- * Return a component wrapper for any component that uses react-final-form
+ * When you shallow render a connected component (a component that is wrapped with useContext()),
+ * you have to dive() twice on the wrapper to actually get to the component you're trying to test.
+ * @param {} shallowWrapperWithContext
+ */
+const diveThroughContextWrappers = (shallowWrapperWithContext) => shallowWrapperWithContext.dive().dive()
+
+/**
+ * Return a component wrapper for any component that uses react-final-form and useContext()
  *
- * @param {} application the application object to seed the form with
- * @param {*} formToChildrenFunc a function that takes a form object and returns a node.
- * @param {*} shouldMount true if component should be rendered with enzyme mount.
+ * @param application the application object to seed the form with
+ * @param formToChildrenFunc a function that takes a form object and returns a node.
+ * @param shouldMount true if component should be rendered with enzyme mount.
  *  Only use shouldMount=true if you know you absolutely need mount functionality.
  */
 export const shallowWithFormAndContext = (context, childComponentSelector, formToChildrenFunc) => {
@@ -61,15 +68,8 @@ export const shallowWithFormAndContext = (context, childComponentSelector, formT
     // call dive() here to shallow render the form so we can access the child component
     .dive()
 
-  return diveThroughFormWrappers(formWrapper)
+  return diveThroughContextWrappers(diveThroughFormWrappers(formWrapper))
 }
-
-/**
- * When you shallow render a connected component (a component that is wrapped with useContext()),
- * you have to dive() twice on the wrapper to actually get to the component you're trying to test.
- * @param {} shallowWrapperWithContext
- */
-export const diveThroughContextWrappers = (shallowWrapperWithContext) => shallowWrapperWithContext.dive().dive()
 
 export const findByNameAndProps = (wrapper, name, props) => {
   const predicate = n => n.name() === name && Object.keys(props).every(k => n.prop(k) === props[k])

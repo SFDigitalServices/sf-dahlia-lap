@@ -7,7 +7,6 @@ import RentalAssistance, {
 import {
   withForm,
   shallowWithFormAndContext,
-  diveThroughContextWrappers,
   findByNameAndProps
 } from '../../../testUtils/wrapperUtil'
 import {
@@ -33,12 +32,10 @@ const rentalAssistance = {
 }
 
 describe('RentalAssistance', () => {
-  const getWrapper = (context) => diveThroughContextWrappers(
-    shallowWithFormAndContext(
-      context,
-      RentalAssistance,
-      (form) => <RentalAssistance form={form} />
-    )
+  const getWrapper = (context) => shallowWithFormAndContext(
+    context,
+    RentalAssistance,
+    (form) => <RentalAssistance form={form} />
   )
 
   test('matches snapshot', () => {
