@@ -18,6 +18,7 @@ import validate, { touchAllFields } from '~/utils/form/validations'
 import { convertPercentAndCurrency } from '../../utils/form/validations'
 import AsymColumnLayout from '../organisms/AsymColumnLayout'
 import LeaseUpSidebar from '../molecules/lease_up_sidebar/LeaseUpSidebar'
+import { NO_LEASE_STATE } from './SupplementalApplicationPage'
 
 const ConfirmedPreferencesSection = ({
   application,
@@ -157,7 +158,7 @@ const SupplementalApplicationContainer = ({ store }) => {
     assignSupplementalAppTouched,
     openAddStatusCommentModal,
     openUpdateStatusModal,
-    showLeaseSection
+    leaseSectionState
   } = store
 
   const onAddCommentClicked = (form, touched) =>
@@ -218,7 +219,7 @@ const SupplementalApplicationContainer = ({ store }) => {
                     form={form}
                     values={values}
                     submitting={submitting}
-                    showLeaseSection={showLeaseSection}
+                    showLeaseSection={leaseSectionState !== NO_LEASE_STATE}
                     onCreateLeaseClick={handleCreateLeaseClick}
                   />
                   <DemographicsSection />

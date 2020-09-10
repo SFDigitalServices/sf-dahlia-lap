@@ -41,7 +41,14 @@ const typeOfAssistanceOptions = formUtils.toOptions(typeOfAssistance)
 
 const isOther = (values) => values && values.type_of_assistance === 'Other'
 
-const RentalAssistanceTable = ({ form, submitting, rentalAssistances, onEdit, applicationMembers }) => {
+const RentalAssistanceTable = ({
+  form,
+  submitting,
+  rentalAssistances,
+  onEdit,
+  applicationMembers,
+  disabled
+}) => {
   const columns = [
     { content: 'Recipient' },
     { content: 'Type' },
@@ -56,7 +63,7 @@ const RentalAssistanceTable = ({ form, submitting, rentalAssistances, onEdit, ap
       expandedRowToggler()
     }
 
-    return (!expanded && <ExpanderButton label='Edit' onClick={handleEdit} />)
+    return (!expanded && !disabled && <ExpanderButton label='Edit' onClick={handleEdit} />)
   }
 
   const expandedRowRenderer = (rentalAssistances, form) => (row, toggle, original) => {
@@ -137,7 +144,18 @@ const Panel = withContext(({ rentalAssistance, toggle, store, row, index, form }
   )
 })
 
-const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew, index, form, visited }) => {
+const RentalAssistanceForm = ({
+  values,
+  onSave,
+  loading,
+  onClose,
+  applicationMembers,
+  onDelete,
+  isNew,
+  index,
+  form,
+  visited
+}) => {
   const validateAssistanceAmount = (value) => {
     return validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
       validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(value)
@@ -261,7 +279,13 @@ const RentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMem
   )
 }
 
-const RentalAssistance = ({ store, form, submitting, visited }) => {
+const RentalAssistance = ({
+  store,
+  form,
+  submitting,
+  visited,
+  disabled
+}) => {
   const {
     application,
     applicationMembers,
@@ -292,10 +316,11 @@ const RentalAssistance = ({ store, form, submitting, visited }) => {
           onEdit={hideAddRentalAssistanceBtn}
           form={form}
           submitting={submitting}
+          disabled={disabled}
         />
       )}
 
-      {showNewRentalAssistancePanel && (
+      {!disabled && showNewRentalAssistancePanel && (
         <FormGrid.Row expand={false}>
           <RentalAssistanceForm
             onSave={onSave}
@@ -313,8 +338,18 @@ const RentalAssistance = ({ store, form, submitting, visited }) => {
       {showAddRentalAssistanceBtn && (
         <FormGrid.Row>
           <FormGrid.Item>
-            <Button id='add-rental-assistance' text='Add Rental Assistance' small onClick={handleOpenRentalAssistancePanel} />
-            <HelpText note='Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.' />
+            {!disabled && (
+              <Button
+                id='add-rental-assistance'
+                text='Add Rental Assistance'
+                small
+                onClick={handleOpenRentalAssistancePanel}
+              />
+            )}
+            <div className={disabled ? 'margin-top' : 'margin-top--half'} />
+            <HelpText
+              note='Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.'
+            />
           </FormGrid.Item>
         </FormGrid.Row>
       )}

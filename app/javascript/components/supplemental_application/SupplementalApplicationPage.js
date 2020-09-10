@@ -6,11 +6,24 @@ import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
 import Alerts from '~/components/Alerts'
-import { updateApplicationAndAddComment, updateApplication, updatePreference, updateTotalHouseholdRent } from './actions'
+import {
+  updateApplicationAndAddComment,
+  updateApplication,
+  updatePreference,
+  updateTotalHouseholdRent
+} from './actions'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import LeaveConfirmationModal from '~/components/organisms/LeaveConfirmationModal'
 import Context from './context'
 import formUtils from '~/utils/formUtils'
+import { doesApplicationHaveLease } from '~/utils/leaseUtils'
+
+export const SHOW_LEASE_STATE = 'show_lease'
+export const NO_LEASE_STATE = 'no_lease'
+export const EDIT_LEASE_STATE = 'edit_lease'
+
+const getInitialLeaseState = (application) =>
+  doesApplicationHaveLease(application) ? SHOW_LEASE_STATE : NO_LEASE_STATE
 
 const getListingAmiCharts = (units) => {
   return uniqBy(units, u => [u.ami_chart_type, u.ami_chart_year].join())
@@ -40,8 +53,8 @@ class SupplementalApplicationPage extends React.Component {
     leaveConfirmationModal: {
       isOpen: false
     },
-    // TODO: Only show lease section on load if there's a lease on the application.
-    showLeaseSection: true,
+    // Only show lease section on load if there's a lease on the application.
+    leaseSectionState: getInitialLeaseState(this.props.application),
     showNewRentalAssistancePanel: false,
     showAddRentalAssistanceBtn: true,
     rentalAssistanceLoading: false,
@@ -171,12 +184,33 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleCreateLeaseClick = () => {
-    this.setState({ showLeaseSection: true })
+    this.setState({ leaseSectionState: EDIT_LEASE_STATE })
   }
 
-  handleCancelLeaseClick = () => {
-    // Need to also clear state, etc.
-    this.setState({ showLeaseSection: false })
+  handleCancelLeaseClick = (form) => {
+    // TODO: clear form state
+    const { application } = this.state
+
+    this.setState({
+      leaseSectionState: getInitialLeaseState(application)
+    })
+
+    form.change('lease', application.lease)
+  }
+
+  handleEditLeaseClick = (form) => {
+    // TODO: actually call editLease action
+    this.setState({ leaseSectionState: EDIT_LEASE_STATE })
+  }
+
+  handleSaveLease = () => {
+    // TODO: actually call updateLease action
+    this.setState({ leaseSectionState: SHOW_LEASE_STATE })
+  }
+
+  handleDeleteLease = () => {
+    // TODO: actually call delete action
+    this.setState({ leaseSectionState: NO_LEASE_STATE })
   }
 
   handleCloseRentalAssistancePanel = (props) => {
@@ -330,8 +364,9 @@ class SupplementalApplicationPage extends React.Component {
       fileBaseUrl: fileBaseUrl,
       handleCreateLeaseClick: this.handleCreateLeaseClick,
       handleCancelLeaseClick: this.handleCancelLeaseClick,
-      handleSaveLease: () => console.log('clicked save lease'),
-      handleDeleteLease: () => console.log('clicked delete lease'),
+      handleEditLeaseClick: this.handleEditLeaseClick,
+      handleSaveLease: this.handleSaveLease,
+      handleDeleteLease: this.handleDeleteLease,
       handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,
       handleDeleteRentalAssistance: this.handleDeleteRentalAssistance,
       handleOpenRentalAssistancePanel: this.handleOpenRentalAssistancePanel,

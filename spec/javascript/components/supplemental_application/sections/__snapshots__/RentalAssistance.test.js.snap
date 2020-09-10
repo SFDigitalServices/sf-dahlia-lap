@@ -663,6 +663,9 @@ exports[`RentalAssistance should be able to show the add rental assistance form 
       >
         Add Rental Assistance
       </button>
+      <div
+        className="margin-top--half"
+      />
       <span
         className="form-note shift-up"
       >
@@ -691,6 +694,9 @@ exports[`RentalAssistance should not render a table if rental assistances is emp
       >
         Add Rental Assistance
       </button>
+      <div
+        className="margin-top--half"
+      />
       <span
         className="form-note shift-up"
       >
@@ -1097,6 +1103,9 @@ exports[`RentalAssistance should render a table when rental assistances are pres
       >
         Add Rental Assistance
       </button>
+      <div
+        className="margin-top--half"
+      />
       <span
         className="form-note shift-up"
       >
@@ -1532,6 +1541,9 @@ exports[`RentalAssistance should show the Other Assistance Name in the table whe
       >
         Add Rental Assistance
       </button>
+      <div
+        className="margin-top--half"
+      />
       <span
         className="form-note shift-up"
       >
