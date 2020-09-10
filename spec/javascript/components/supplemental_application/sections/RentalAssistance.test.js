@@ -1,11 +1,15 @@
 import React from 'react'
+import { cloneDeep } from 'lodash'
 import RentalAssistance, {
   RentalAssistanceForm,
   RentalAssistanceTable
 } from '~/components/supplemental_application/sections/RentalAssistance'
-import { cloneDeep } from 'lodash'
-import { withForm, shallowWithFormAndContext, diveThroughContextWrappers } from '../../../factories/formFactories'
-import { findByNameAndProps } from '../../../testUtils/wrapperUtil'
+import {
+  withForm,
+  shallowWithFormAndContext,
+  diveThroughContextWrappers,
+  findByNameAndProps
+} from '../../../testUtils/wrapperUtil'
 import {
   InputField
 } from '~/utils/form/final_form/Field'
