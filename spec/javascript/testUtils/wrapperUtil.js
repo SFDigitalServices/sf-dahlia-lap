@@ -59,7 +59,7 @@ const diveThroughContextWrappers = (shallowWrapperWithContext) => shallowWrapper
  * @param shouldMount true if component should be rendered with enzyme mount.
  *  Only use shouldMount=true if you know you absolutely need mount functionality.
  */
-export const shallowWithFormAndContext = (context, childComponentSelector, formToChildrenFunc) => {
+export const shallowWithFormAndContext = (context, formToChildrenFunc) => {
   const formWrapper = shallow(
     <Context.Provider value={context}>
       {formNode(context.application, formToChildrenFunc)}

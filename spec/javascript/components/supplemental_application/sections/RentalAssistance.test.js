@@ -34,7 +34,6 @@ const rentalAssistance = {
 describe('RentalAssistance', () => {
   const getWrapper = (context) => shallowWithFormAndContext(
     context,
-    RentalAssistance,
     (form) => <RentalAssistance form={form} />
   )
 
