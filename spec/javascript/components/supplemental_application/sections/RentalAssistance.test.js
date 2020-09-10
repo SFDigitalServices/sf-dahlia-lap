@@ -191,7 +191,6 @@ describe('RentalAssistanceForm', () => {
 
       wrapper = getWrapper({
         assistance: rentalAssistance,
-        isNew: false,
         onSave: mockSaveCallback,
         onClose: mockCloseCallback,
         onDelete: mockDeleteCallback
