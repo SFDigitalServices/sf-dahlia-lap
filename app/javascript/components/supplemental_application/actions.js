@@ -19,6 +19,11 @@ const transformApplicationResponses = (lease, application, rentalAssistances) =>
   rental_assistances: rentalAssistances || []
 })
 
+const defaultLeaseResponse = (application) => ({
+  lease: application.lease,
+  rentalAssistances: application.rental_assistances
+})
+
 /**
  * Update any fields on the application that have been changed from
  * prevApplication. This action triggers multiple separate requests:
@@ -40,7 +45,7 @@ export const updateApplication = async (application, prevApplication, alsoSaveLe
   const saveLease = performOrDefault(
     alsoSaveLease,
     () => saveLeaseAndAssistances(application, prevApplication),
-    { lease: application.lease, rentalAssistances: application.rental_assistances }
+    defaultLeaseResponse(application)
   )
 
   return Promise.all([saveLease, updateApplicationIfChanged])
@@ -64,6 +69,10 @@ export const updateApplicationAndAddComment = async (application, prevApplicatio
 }
 
 export const saveLeaseAndAssistances = async (application, prevApplication) => {
+  if (isEmpty(application.lease)) {
+    return defaultLeaseResponse(application)
+  }
+
   return performInSequence(
     () => createOrUpdateLease(
       application.lease,
