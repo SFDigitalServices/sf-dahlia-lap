@@ -41,7 +41,7 @@ const typeOfAssistanceOptions = formUtils.toOptions(typeOfAssistance)
 
 const isOther = (values) => values && values.type_of_assistance === 'Other'
 
-const RentalAssistanceTable = ({
+export const RentalAssistanceTable = ({
   form,
   submitting,
   rentalAssistances,
@@ -144,7 +144,7 @@ const Panel = withContext(({ rentalAssistance, toggle, store, row, index, form }
   )
 })
 
-const RentalAssistanceForm = ({
+export const RentalAssistanceForm = ({
   values,
   onSave,
   loading,
