@@ -10,8 +10,8 @@ const No = 'No'
 
 const ParkingInformationInputs = ({ form: { change, getFieldState }, values: { lease }, disabled = false }) => {
   const onChangeHasParkingSpace = ({ target: { value } }) => {
-    if (value === No) {
-      change(monthlyRentFieldName, '')
+    if (value !== Yes) {
+      change(monthlyRentFieldName, null)
     }
   }
 
@@ -25,12 +25,11 @@ const ParkingInformationInputs = ({ form: { change, getFieldState }, values: { l
         <FormGrid.Item>
           <SelectField
             label='BMR Parking Space Assigned?'
-            selectValue={hasParkingSpace ? Yes : No}
             onChange={onChangeHasParkingSpace}
             fieldName='lease.bmr_parking_space_assigned'
             options={[Yes, No]}
             disabled={disabled}
-            noPlaceholder />
+          />
         </FormGrid.Item>
         <FormGrid.Item>
           <CurrencyField

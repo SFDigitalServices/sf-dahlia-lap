@@ -1434,8 +1434,13 @@ Array [
                         onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
-                        value="No"
+                        value=""
                       >
+                        <option
+                          value=""
+                        >
+                          Select One...
+                        </option>
                         <option
                           value="Yes"
                         >
