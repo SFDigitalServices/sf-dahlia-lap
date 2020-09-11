@@ -30,7 +30,6 @@ describe('isChanged', () => {
   test('should return false when both objects are equal', () => {
     expect(isChanged(undefined, undefined)).toBeFalsy()
     expect(isChanged(null, null)).toBeFalsy()
-    expect(isChanged(null, undefined)).toBeFalsy()
     expect(isChanged({}, {})).toBeFalsy()
     expect(isChanged({ a: 'a' }, { a: 'a' })).toBeFalsy()
     expect(isChanged({ a: { b: 'b' } }, { a: { b: 'b' } })).toBeFalsy()
@@ -38,12 +37,12 @@ describe('isChanged', () => {
   })
 
   test('should return true when both objects are unequal', () => {
+    expect(isChanged(null, undefined)).toBeTruthy()
     expect(isChanged(undefined, {})).toBeTruthy()
     expect(isChanged(null, {})).toBeTruthy()
-    expect(isChanged({}, {})).toBeTruthy()
     expect(isChanged({ a: 'a' }, {})).toBeTruthy()
-    expect(isChanged({ a: 'a' }, { a: 'b' })).toBeFalsy()
-    expect(isChanged({ a: 'a' }, { b: 'a' })).toBeFalsy()
+    expect(isChanged({ a: 'a' }, { a: 'b' })).toBeTruthy()
+    expect(isChanged({ a: 'a' }, { b: 'a' })).toBeTruthy()
     expect(isChanged({ a: { b: 'b' } }, { a: { b: 'a' } })).toBeTruthy()
     expect(isChanged({ a: [{ b: 'b' }] }, { a: [{ b: 'a' }] })).toBeTruthy()
   })
