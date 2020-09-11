@@ -32,3 +32,7 @@ export const performAllInSequence = (promiseFuncs) => {
 
   return promiseFuncs.reduce(reducer, Promise.resolve([]))
 }
+
+export const performOrDefault = async (condition, promiseFunc, defaultValue) => {
+  return condition ? promiseFunc() : defaultValue
+}
