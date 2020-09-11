@@ -37,7 +37,9 @@ const mountWithForm = (application, formToChildrenFunc) =>
  * @param application the application object to seed the form with
  * @param formToChildrenFunc a function that takes a form object and returns a node.
  * @param shouldMount true if component should be rendered with enzyme mount.
- *  Only use shouldMount=true if you know you absolutely need mount functionality.
+ *  Only use shouldMount=true if you know you absolutely need mount functionality,
+ *  like if you're trying to test final form error functionality or want to end-to-end
+ *  test the whole component tree.
  */
 export const withForm = (application, formToChildrenFunc, shouldMount = false) =>
   shouldMount

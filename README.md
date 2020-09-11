@@ -116,6 +116,43 @@ To run an individual test:
 
 For more information on why shallow rendering is simpler than full rendering, check out the comments on [this pr](https://github.com/SFDigitalServices/sf-dahlia-lap/pull/386).
 
+#### Shallow vs. Mount explained
+Say you have two components `<A />` and `<B />`:
+```
+const B = ({ className }) => (
+  <div className={className || 'BClass'} />
+)
+
+const A = ({}) => (
+  <div>
+    <B className='AClass' />
+  </div>
+)
+```
+
+`mount(<A />)` would create a snapshot that looks like this:
+```
+  <div>
+    <div className='AClass' />
+  </div>
+```
+
+`shallow(<A />)` would create a snapshot that looks like this:
+```
+  <div>
+    <B className='AClass' />
+  </div>
+```
+
+Shallow rendering is preferred because the snapshot is simpler, and it ensures you're actually writing a unit test, not a test that will search the whole tree.
+
+##### When do you need to use mount rendering?
+- When you need to test functionality of `componentDidMount`
+- When you actually want to write an end-to-end snapshot test that looks at all of the children
+  - There are usually better tests to write than this if you have the time
+- When it's less confusing than adding a bunch of `.dive().dive()`'s to your tests
+  - For example, if you wanted to check that react-final-form adds the correct error label to an input, it's usually easier to mount render and find the class, rather than traverse the shallow render tree with a whole bunch of dive()s.
+
 #### Unit testing components with form or context
 Shallow rendering is more complicated when you're using connected components, that are wrapped with useContext or work with [react-final-form](https://final-form.org/docs/react-final-form/getting-started)'s form objects.
 
@@ -149,12 +186,12 @@ test('it renders ComponentA', () => {
 ##### Example: shallow rendering a component that uses form and context
 Say you want to test a component that looks like this:
 ```
-const ComponentThatUsesFormAndContext = ({ form }) => {
+const ComponentThatUsesFormAndContext = ({ form, store }) => {
 
   return (
     <div>
-      <ComponentA someProp={form.something} />
-      <ComponentB />
+      <ComponentA somePropA={form.something} />
+      <ComponentB somePropB={store.contextField} />
     <div/>
   )
 }
