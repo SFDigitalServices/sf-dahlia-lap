@@ -6,11 +6,24 @@ import appPaths from '~/utils/appPaths'
 import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
 import Alerts from '~/components/Alerts'
-import { updateApplication, updatePreference, updateTotalHouseholdRent } from './actions'
+import {
+  updateApplicationAndAddComment,
+  updateApplication,
+  updatePreference,
+  updateTotalHouseholdRent
+} from './actions'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 import LeaveConfirmationModal from '~/components/organisms/LeaveConfirmationModal'
 import Context from './context'
 import formUtils from '~/utils/formUtils'
+import { doesApplicationHaveLease } from '~/utils/leaseUtils'
+
+export const SHOW_LEASE_STATE = 'show_lease'
+export const NO_LEASE_STATE = 'no_lease'
+export const EDIT_LEASE_STATE = 'edit_lease'
+
+const getInitialLeaseState = (application) =>
+  doesApplicationHaveLease(application) ? SHOW_LEASE_STATE : NO_LEASE_STATE
 
 const getListingAmiCharts = (units) => {
   return uniqBy(units, u => [u.ami_chart_type, u.ami_chart_year].join())
@@ -40,6 +53,8 @@ class SupplementalApplicationPage extends React.Component {
     leaveConfirmationModal: {
       isOpen: false
     },
+    // Only show lease section on load if there's a lease on the application.
+    leaseSectionState: getInitialLeaseState(this.props.application),
     showNewRentalAssistancePanel: false,
     showAddRentalAssistanceBtn: true,
     rentalAssistanceLoading: false,
@@ -52,16 +67,18 @@ class SupplementalApplicationPage extends React.Component {
 
   handleSaveApplication = async (application) => {
     this.setLoading(true)
-    const updatedApplication = await updateApplication(application, this.state.application)
-
-    if (updatedApplication) {
-      this.setState({ application: setApplicationsDefaults(updatedApplication), loading: false, supplementalAppTouched: false }, () => {
-        this.handleCloseRentalAssistancePanel()
+    updateApplication(application, this.state.application)
+      .then(updatedApplication => {
+        this.setState({
+          application: setApplicationsDefaults(updatedApplication),
+          loading: false,
+          supplementalAppTouched: false
+        }, this.handleCloseRentalAssistancePanel)
       })
-    } else {
-      Alerts.error()
-      this.setLoading(false)
-    }
+      .catch((e) => {
+        Alerts.error()
+        this.setLoading(false)
+      })
   }
 
   handleSavePreference = async (preferenceIndex, formApplicationValues) => {
@@ -145,34 +162,55 @@ class SupplementalApplicationPage extends React.Component {
     const { status, subStatus, comment } = submittedValues
     this.setState({ loading: true })
     this.updateStatusModal({ loading: true })
-    const data = {
-      status,
-      comment,
-      applicationId: application.id,
-      ...(subStatus ? { subStatus } : {})
-    }
     fromApplication.processing_status = status
 
-    const updatedApplication = await updateApplication(fromApplication, application)
-    const updatedStatusHistory = updatedApplication !== false ? await apiService.createFieldUpdateComment(data) : null
-    this.handleCloseRentalAssistancePanel()
+    updateApplicationAndAddComment(fromApplication, application, status, comment, subStatus)
+      .then((responses) => {
+        this.setState({
+          application: setApplicationsDefaults(responses.application),
+          statusHistory: responses.statusHistory,
+          loading: false,
+          supplementalAppTouched: false
+        }, () => this.updateStatusModal({ loading: false, isOpen: false }))
+      }).catch((e) => {
+        this.setState({ loading: false })
+        this.updateStatusModal({
+          loading: false,
+          showAlert: true,
+          alertMsg: 'We were unable to make the update, please try again.',
+          onAlertCloseClick: () => this.updateStatusModal({ showAlert: false })
+        })
+      }).finally(this.handleCloseRentalAssistancePanel)
+  }
 
-    if (updatedApplication === false || (updatedStatusHistory === false || updatedStatusHistory.length === 0)) {
-      this.updateStatusModal({
-        loading: false,
-        showAlert: true,
-        alertMsg: 'We were unable to make the update, please try again.',
-        onAlertCloseClick: () => this.updateStatusModal({ showAlert: false })
-      })
-      this.setState({ loading: false })
-    } else {
-      this.setState({
-        application: setApplicationsDefaults(updatedApplication),
-        statusHistory: updatedStatusHistory,
-        loading: false,
-        supplementalAppTouched: false
-      }, () => this.updateStatusModal({ loading: false, isOpen: false }))
-    }
+  handleCreateLeaseClick = () => {
+    this.setState({ leaseSectionState: EDIT_LEASE_STATE })
+  }
+
+  handleCancelLeaseClick = (form) => {
+    // TODO: clear form state
+    const { application } = this.state
+
+    this.setState({
+      leaseSectionState: getInitialLeaseState(application)
+    })
+
+    form.change('lease', application.lease)
+  }
+
+  handleEditLeaseClick = (form) => {
+    // TODO: actually call editLease action
+    this.setState({ leaseSectionState: EDIT_LEASE_STATE })
+  }
+
+  handleSaveLease = () => {
+    // TODO: actually call updateLease action
+    this.setState({ leaseSectionState: SHOW_LEASE_STATE })
+  }
+
+  handleDeleteLease = () => {
+    // TODO: actually call delete action
+    this.setState({ leaseSectionState: NO_LEASE_STATE })
   }
 
   handleCloseRentalAssistancePanel = (props) => {
@@ -324,6 +362,11 @@ class SupplementalApplicationPage extends React.Component {
       assignSupplementalAppTouched: this.assignSupplementalAppTouched,
       availableUnits: availableUnits,
       fileBaseUrl: fileBaseUrl,
+      handleCreateLeaseClick: this.handleCreateLeaseClick,
+      handleCancelLeaseClick: this.handleCancelLeaseClick,
+      handleEditLeaseClick: this.handleEditLeaseClick,
+      handleSaveLease: this.handleSaveLease,
+      handleDeleteLease: this.handleDeleteLease,
       handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,
       handleDeleteRentalAssistance: this.handleDeleteRentalAssistance,
       handleOpenRentalAssistancePanel: this.handleOpenRentalAssistancePanel,

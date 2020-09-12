@@ -5,7 +5,7 @@ import { Input, BlockNote } from '~/utils/form/final_form/Field'
 import { every, last } from 'lodash'
 import classNames from 'classnames'
 
-const InputField = ({ type, fieldName, validation, placeholder, maxLength, id }) => (
+const InputField = ({ type, fieldName, validation, placeholder, maxLength, id, disabled }) => (
   <Field name={fieldName} validate={validation}>
     {({ input, meta }) => (
       <>
@@ -15,13 +15,15 @@ const InputField = ({ type, fieldName, validation, placeholder, maxLength, id })
           meta={meta}
           id={id || `form-${fieldName}`}
           placeholder={placeholder}
-          maxLength={maxLength} />
+          maxLength={maxLength}
+          disabled={disabled}
+        />
       </>
     )}
   </Field>
 )
 
-export const MultiDateField = ({ form, fieldName, formName, index, label, blockNote, id }) => {
+export const MultiDateField = ({ form, fieldName, formName, index, label, blockNote, id, disabled }) => {
   const touched = every(['.day', '.month', '.year'], type => {
     return form.getState().touched[fieldName + type]
   })
@@ -46,7 +48,9 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
           id={id ? `${id}_month` : `form-${fieldName}_month`}
           placeholder='MM'
           pattern='\d*'
-          maxLength={maxLengthMap['month']} />
+          maxLength={maxLengthMap['month']}
+          disabled={disabled}
+        />
       </div>
       <div className='form-group-day'>
         <InputField
@@ -55,7 +59,9 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
           id={id ? `${id}_day` : `form-${fieldName}_day`}
           placeholder='DD'
           pattern='\d*'
-          maxLength={maxLengthMap['day']} />
+          maxLength={maxLengthMap['day']}
+          disabled={disabled}
+        />
       </div>
       <div className='form-group-year'>
         <InputField
@@ -64,7 +70,9 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
           id={id ? `${id}_year` : `form-${fieldName}_year`}
           placeholder='YYYY'
           pattern='\d*'
-          maxLength={maxLengthMap['year']} />
+          maxLength={maxLengthMap['year']}
+          disabled={disabled}
+        />
       </div>
       <div className='d-inline-block'>
         { error && <span className='small error'>{error}</span> }

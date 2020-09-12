@@ -108,6 +108,121 @@ To run an individual test:
 
 `yarn test:all path/to/test`
 
+### Writing component unit tests
+#### General best practices
+1. Use [Enzyme](https://enzymejs.github.io/enzyme/docs/api/shallow.html)’s shallow rendering instead of react-test-renderer.create or Enzyme mount for all unit tests (snapshot and otherwise).
+   * There are some cases where you’ll need to use mount instead of shallow, like when you need to test componentDidMount functionality or something
+2. Snapshot tests are fine for very simple components, but for anything more complex we should write actual unit tests instead of (or along with) snapshot tests
+
+For more information on why shallow rendering is simpler than full rendering, check out the comments on [this pr](https://github.com/SFDigitalServices/sf-dahlia-lap/pull/386).
+
+#### Shallow vs. Mount explained
+Say you have two components `<A />` and `<B />`:
+```
+const B = ({ className }) => (
+  <div className={className || 'BClass'} />
+)
+
+const A = ({}) => (
+  <div>
+    <B className='AClass' />
+  </div>
+)
+```
+
+`mount(<A />)` would create a snapshot that looks like this:
+```
+  <div>
+    <div className='AClass' />
+  </div>
+```
+
+`shallow(<A />)` would create a snapshot that looks like this:
+```
+  <div>
+    <B className='AClass' />
+  </div>
+```
+
+Shallow rendering is preferred because the snapshot is simpler, and it ensures you're actually writing a unit test, not a test that will search the whole tree.
+
+##### When do you need to use mount rendering?
+- When you need to test functionality of `componentDidMount`
+- When you actually want to write an end-to-end snapshot test that looks at all of the children
+  - There are usually better tests to write than this if you have the time
+- When it's less confusing than adding a bunch of `.dive().dive()`'s to your tests
+  - For example, if you wanted to check that react-final-form adds the correct error label to an input, it's usually easier to mount render and find the class, rather than traverse the shallow render tree with a whole bunch of dive()s.
+
+#### Unit testing components with form or context
+Shallow rendering is more complicated when you're using connected components, that are wrapped with useContext or work with [react-final-form](https://final-form.org/docs/react-final-form/getting-started)'s form objects.
+
+The [wrapperUtil.js](spec/javascript/testUtils/wrapperUtil.js) contains utils to help with shallow rendering components that use context or form.
+
+##### Example: shallow rendering a component that has a form passed in
+Say you want to test a component that looks like this:
+```
+const ComponentThatUsesForm = ({ form }) => (
+  <div>
+    <ComponentA someProp={form.something} />
+    <ComponentB />
+  <div/>
+)
+```
+
+You can test it like:
+```
+import { withForm } from '~/spec/javascript/testUtils/wrapperUtil.js'
+import ComponentA from '...'
+
+test('it renders ComponentA', () => {
+  const application = { id: 'appid', <some other application fields>}
+
+  const wrapper = withForm(application, (form) => <ChildThatNeedsForm form={form} />)
+
+  expect(wrapper.find(ComponentA)).toHaveLength(1)
+})
+```
+
+##### Example: shallow rendering a component that uses form and context
+Say you want to test a component that looks like this:
+```
+const ComponentThatUsesFormAndContext = ({ form, store }) => {
+
+  return (
+    <div>
+      <ComponentA somePropA={form.something} />
+      <ComponentB somePropB={store.contextField} />
+    <div/>
+  )
+}
+
+export withContext(ComponentThatUsesFormAndContext)
+```
+
+You can test it like:
+```
+import { shallowWithFormAndContext } from '~/spec/javascript/testUtils/wrapperUtil.js'
+import ComponentA from '...'
+
+test('it renders ComponentA', () => {
+  // Note that the context object must have an application on it, because form expects an application.
+  const context = {
+    application: { id: 'appid', <some other application fields>}
+  }
+
+  const wrapper = shallowWithFormAndContext(
+    context,
+    (form) => <ComponentThatUsesFormAndContext form={form} />
+  )
+
+  expect(wrapper.find(ComponentA)).toHaveLength(1)
+})
+```
+
+#### Example files that follow these best practices
+- Non-form component: [StatusHistoryContainer.test.js](spec/javascript/components/molecules/lease_up_sidebar/StatusHistoryContainer.test.js)
+- Form-component: [RentalAssistance.test.js](spec/javascript/components/supplemental_application/sections/RentalAssistance.test.js)
+
 ## Scripts
 
 ### Release scripts
