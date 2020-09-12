@@ -8,12 +8,12 @@ module Force
         @client.delete("/services/apexrest/RentalAssistance/#{id}")
       end
 
-      def delete_by(record, id)
+      def delete_by(field_name, id)
         result =
           builder
           .from(:Rental_Assistance__c)
           .select(:Id)
-          .where_eq(record, id, :string)
+          .where_eq(field_name, id, :string)
           .query
           .records
 
