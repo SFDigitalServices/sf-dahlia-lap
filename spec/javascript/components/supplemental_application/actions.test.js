@@ -64,12 +64,10 @@ jest.mock('apiService', () => {
 describe('updateApplication', () => {
   test('it should submit application to shortForm endpoint', async () => {
     const applicationDomain = supplementalApplication
-    updateApplication(applicationDomain)
-      .then(response => {
-        expect(response.id).toEqual(supplementalApplication.id)
-        expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
-        expect(mockSubmitAppFn.mock.calls[0][0]).toEqual(applicationDomain)
-      })
+    const response = await updateApplication(applicationDomain)
+    expect(response.id).toEqual(supplementalApplication.id)
+    expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
+    expect(mockSubmitAppFn.mock.calls[0][0]).toEqual(applicationDomain)
   })
 
   test('it should submit lease to backend if lease is present in application', async () => {
@@ -82,15 +80,41 @@ describe('updateApplication', () => {
       }
     }
 
-    updateApplication(application)
-      .then(response => {
-        expect(response.id).toEqual(application.id)
-        expect(response.listing_id).toEqual(application.listing_id)
-        expect(response.lease.id).toEqual(application.lease.id)
-        expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
-        expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
-        expect(mockUpdateLeaseFn.mock.calls.length).toEqual(1)
-      })
+    const response = await updateApplication(application, null, true)
+    expect(response.id).toEqual(application.id)
+    expect(response.listing_id).toEqual(application.listing_id)
+    expect(response.lease.id).toEqual(application.lease.id)
+    expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
+    expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
+    expect(mockUpdateLeaseFn.mock.calls.length).toEqual(1)
+  })
+
+  test('it should not submit lease to backend if alsoSavelease is false', async () => {
+    const application = {
+      'id': 'appID',
+      'name': 'APP-12345',
+      'listing_id': 'listingID',
+      'lease': {
+        'id': 'leaseID'
+      }
+    }
+
+    const prevApplication = {
+      'id': 'appID',
+      'name': 'APP-123452',
+      'listing_id': 'listingID2',
+      'lease': {
+        'id': 'leaseID2'
+      }
+    }
+
+    const response = await updateApplication(application, prevApplication, false)
+    expect(response.id).toEqual(application.id)
+    expect(response.listing_id).toEqual(application.listing_id)
+    expect(response.lease.id).toEqual(prevApplication.lease.id)
+    expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
+    expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
+    expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
   })
 
   test('it should not submit lease to backend if application has no lease', async () => {
@@ -103,14 +127,12 @@ describe('updateApplication', () => {
       'lease': {}
     }
 
-    updateApplication(application)
-      .then(response => {
-        expect(response.id).toEqual(application.id)
-        expect(response.lease).toEqual({})
-        expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
-        expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
-        expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
-      })
+    const response = await updateApplication(application, null, true)
+    expect(response.id).toEqual(application.id)
+    expect(response.lease).toEqual({})
+    expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
+    expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
+    expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
   })
 
   test('it should not submit lease to backend if lease is unchanged', async () => {
@@ -130,7 +152,7 @@ describe('updateApplication', () => {
       name: 'APP-prev'
     }
 
-    const response = await updateApplication(application, prevApplication)
+    const response = await updateApplication(application, prevApplication, true)
     expect(response.id).toEqual(application.id)
     expect(response.lease.id).toEqual('leaseID')
     expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
@@ -147,16 +169,15 @@ describe('updateApplication', () => {
       },
       'lease': {
         'id': 'leaseID'
-      }
+      },
+      'rental_assistances': []
     }
 
-    updateApplication(application, application)
-      .then(response => {
-        expect(response).toEqual(application)
-        expect(mockSubmitAppFn.mock.calls.length).toEqual(0)
-        expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
-        expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
-      })
+    const response = await updateApplication(application, application, true)
+    expect(response).toEqual(application)
+    expect(mockSubmitAppFn.mock.calls.length).toEqual(0)
+    expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
+    expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
   })
 
   test('it should create and update rental assistances', async () => {
@@ -166,6 +187,7 @@ describe('updateApplication', () => {
       'listing': {
         'id': 'listingID'
       },
+      'lease': { id: 'leaseId' },
       'rental_assistances': [
         { id: 'abc1', assistance_amount: 11, recipient: 'recipient' },
         { id: 'abc2', assistance_amount: 22, recipient: 'recipient2' }
@@ -175,12 +197,10 @@ describe('updateApplication', () => {
     application.rental_assistances[0].assistance_amount = 22
     application.rental_assistances[2] = { assistance_amount: 22, recipient: 'recipient3' }
 
-    updateApplication(application, baseApplication)
-      .then(response => {
-        expect(response.id).toEqual(application.id)
-        expect(mockCreateRentalFn.mock.calls.length).toEqual(1)
-        expect(mockUpdateRentalFn.mock.calls.length).toEqual(1)
-      })
+    const response = await updateApplication(application, baseApplication, true)
+    expect(response.id).toEqual(application.id)
+    expect(mockCreateRentalFn.mock.calls.length).toEqual(1)
+    expect(mockUpdateRentalFn.mock.calls.length).toEqual(1)
   })
 })
 
@@ -195,17 +215,20 @@ describe('updateApplicationAndAddComment', () => {
       'lease': {}
     }
 
+    const prevApp = {
+      ...application,
+      name: 'prev-app'
+    }
+
     const status = 'Approved'
 
-    updateApplicationAndAddComment(application, application, status)
-      .then(response => {
-        expect(response.application.id).toEqual(application.id)
-        expect(response.statusHistory).toEqual(['status_history_item'])
-        expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
-        expect(mockCreateLeaseFn.mock.calls.length).toEqual(1)
-        expect(mockCreateFieldUpdateCommentFn.mock.calls.length).toEqual(1)
-        expect(mockCreateFieldUpdateCommentFn).toHaveBeenCalledWith('appID', 'Approved')
-      })
+    const response = await updateApplicationAndAddComment(application, prevApp, status, null, null, true)
+    expect(response.application.id).toEqual(application.id)
+    expect(response.statusHistory).toEqual(['status_history_item'])
+    expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
+    expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
+    expect(mockCreateFieldUpdateCommentFn.mock.calls.length).toEqual(1)
+    expect(mockCreateFieldUpdateCommentFn).toHaveBeenCalledWith('appID', 'Approved', null, null)
   })
 })
 

@@ -445,12 +445,23 @@ class SupplementalApplicationPage extends React.Component {
   }
 }
 
-const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availableUnits }) => {
+const mapProperties = ({
+  application,
+  availableUnits,
+  fileBaseUrl,
+  leaseSectionState,
+  statusHistory,
+  units
+}) => {
   return {
     application: setApplicationsDefaults(application),
     listing: application.listing,
     statusHistory: statusHistory,
-    onSubmit: (values) => updateApplication(values, application),
+    onSubmit: (values) => updateApplication(
+      values,
+      application,
+      shouldSaveLeaseOnApplicationSave(leaseSectionState)
+    ),
     fileBaseUrl: fileBaseUrl,
     units: units,
     availableUnits: availableUnits

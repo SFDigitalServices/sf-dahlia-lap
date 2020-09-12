@@ -20,8 +20,8 @@ const transformApplicationResponses = (lease, application, rentalAssistances) =>
 })
 
 const defaultLeaseResponse = (application) => ({
-  lease: application.lease,
-  rentalAssistances: application.rental_assistances
+  lease: application?.lease,
+  rentalAssistances: application?.rental_assistances
 })
 
 /**
@@ -45,12 +45,13 @@ export const updateApplication = async (application, prevApplication, alsoSaveLe
   const saveLease = performOrDefault(
     alsoSaveLease,
     () => saveLeaseAndAssistances(application, prevApplication),
-    defaultLeaseResponse(application)
+    defaultLeaseResponse(prevApplication)
   )
 
   return Promise.all([saveLease, updateApplicationIfChanged])
-    .then(([{ lease, rentalAssistances }, responseApplication]) =>
-      transformApplicationResponses(lease, responseApplication, rentalAssistances))
+    .then(([{ lease, rentalAssistances }, responseApplication]) => {
+      return transformApplicationResponses(lease, responseApplication, rentalAssistances)
+    })
 }
 
 export const createFieldUpdateComment = async (applicationId, status, comment, substatus) =>
@@ -63,7 +64,7 @@ export const updateApplicationAndAddComment = async (application, prevApplicatio
   })
 
   return performInSequence(
-    () => updateApplication(application, prevApplication),
+    () => updateApplication(application, prevApplication, alsoSaveLease),
     () => createFieldUpdateComment(prevApplication.id, status, comment, substatus)
   ).then(([appResponse, statusHistory]) => packageResponseData(appResponse, statusHistory))
 }
