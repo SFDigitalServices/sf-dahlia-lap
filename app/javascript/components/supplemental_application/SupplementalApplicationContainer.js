@@ -173,6 +173,9 @@ const SupplementalApplicationContainer = ({ store }) => {
     <Form
       onSubmit={values => onSubmit(convertPercentAndCurrency(values))}
       initialValues={application}
+      // Keep dirty on reinitialize ensures the whole form doesn't refresh
+      // when only a piece of it is saved (eg. when the lease is saved)
+      keepDirtyOnReinitialize
       validate={validateForm}
       mutators={{ ...arrayMutators }}
       render={({
