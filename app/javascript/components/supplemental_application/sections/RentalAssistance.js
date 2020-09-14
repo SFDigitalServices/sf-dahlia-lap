@@ -94,7 +94,7 @@ export const RentalAssistanceTable = ({
         rows={rows}
         expanderRenderer={expanderRenderer}
         expandedRowRenderer={expandedRowRenderer(rentalAssistances, form)}
-        closeAllRows={submitting}
+        closeAllRows={submitting || disabled}
         classes={['rental-assistances']}
       />
     </TableWrapper>
@@ -107,7 +107,7 @@ const Panel = withContext(({ rentalAssistance, toggle, store, row, index, form }
     handleDeleteRentalAssistance,
     applicationMembers,
     handleCloseRentalAssistancePanel,
-    rentalAssistanceLoading
+    loading
   } = store
 
   const onSave = async (index, values) => {
@@ -138,7 +138,7 @@ const Panel = withContext(({ rentalAssistance, toggle, store, row, index, form }
       onDelete={onDelete}
       index={index}
       applicationMembers={applicationMembers}
-      loading={rentalAssistanceLoading}
+      loading={loading}
       form={form}
     />
   )
@@ -295,7 +295,7 @@ const RentalAssistance = ({
     handleSaveRentalAssistance,
     showAddRentalAssistanceBtn,
     hideAddRentalAssistanceBtn,
-    rentalAssistanceLoading
+    loading
   } = store
 
   const onSave = async (_, values) => {
@@ -326,7 +326,7 @@ const RentalAssistance = ({
             onSave={onSave}
             onClose={onClose}
             applicationMembers={applicationMembers}
-            loading={rentalAssistanceLoading}
+            loading={loading}
             values={{ type_of_assistance: null }}
             index={application.rental_assistances.length}
             form={form}
@@ -343,6 +343,7 @@ const RentalAssistance = ({
                 id='add-rental-assistance'
                 text='Add Rental Assistance'
                 small
+                disabled={loading}
                 onClick={handleOpenRentalAssistancePanel}
               />
             )}

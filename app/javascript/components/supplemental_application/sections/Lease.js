@@ -8,6 +8,7 @@ import InlineModal from '~/components/molecules/InlineModal'
 import formUtils from '~/utils/formUtils'
 import ParkingInformationInputs from './ParkingInformationInputs'
 import RentalAssistance from './RentalAssistance'
+import { convertPercentAndCurrency } from '../../../utils/form/validations'
 
 import { pluck } from '~/utils/utils'
 import { withContext } from '../context'
@@ -165,6 +166,7 @@ const Lease = ({ form, submitting, values, store }) => {
           form={form}
           submitting={submitting}
           disabled={disabled}
+          loading={loading}
         />
         <FormGrid.Row>
           <FormGrid.Item>
@@ -206,8 +208,8 @@ const Lease = ({ form, submitting, values, store }) => {
       <FormGrid.Row>
         {/* TODO: Wire up actions for buttons, set to disabled when loading */}
         <LeaseActions
-          onSave={handleSaveLease}
-          onCancelLeaseClick={handleCancelLeaseClick}
+          onSave={() => handleSaveLease(convertPercentAndCurrency(form.getState().values))}
+          onCancelLeaseClick={() => handleCancelLeaseClick(form)}
           onEditLeaseClick={handleEditLeaseClick}
           onDelete={handleDeleteLease}
           loading={loading}

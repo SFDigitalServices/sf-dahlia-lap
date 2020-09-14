@@ -32,3 +32,16 @@ export const performAllInSequence = (promiseFuncs) => {
 
   return promiseFuncs.reduce(reducer, Promise.resolve([]))
 }
+
+/**
+ * If condition is true, kick off the promise returned by promiseFunc and return it.
+ * If condition is false, return the default value wrapped in a promise.
+ * @param {boolean} condition the condition to test on
+ * @param {() => Promise} promiseFunc a function that resolves to a promise that
+ *   should only be fired if condition is true
+ * @param {Any} defaultValue the value that should be wrapped in a promise and returned
+ *   if condition is false.
+ */
+export const performOrDefault = async (condition, promiseFunc, defaultValue) => {
+  return condition ? promiseFunc() : defaultValue
+}

@@ -1,4 +1,8 @@
-import { performInSequence, performAllInSequence } from 'utils/promiseUtils'
+import {
+  performAllInSequence,
+  performInSequence,
+  performOrDefault
+} from 'utils/promiseUtils'
 
 const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -28,6 +32,91 @@ const wereCalledInOrder = (spies) => {
     return wasCalledBefore(lastSpy, spy)
   })
 }
+
+describe('performOrDefault', () => {
+  const defaultValue = 1
+  const promiseValue = 2
+
+  let promiseTriggeredSpy
+  let resultValue
+  let errorCaught
+
+  const runPerformOrDefault = async ({ condition, promiseFails = false }) => {
+    resultValue = await performOrDefault(
+      condition,
+      getPromiseFunc({
+        value: promiseValue,
+        onCompletedSpy: promiseTriggeredSpy,
+        fail: promiseFails
+      }),
+      defaultValue
+    ).catch(() => {
+      errorCaught = true
+    })
+  }
+
+  beforeEach(() => {
+    promiseTriggeredSpy = jest.fn()
+    errorCaught = false
+    resultValue = undefined
+  })
+
+  describe('when the condition is true', () => {
+    beforeEach(async () => {
+      await runPerformOrDefault({ condition: true })
+    })
+
+    test('it returns the promise value', async () => {
+      expect(resultValue).toEqual(promiseValue)
+    })
+
+    test('it triggers the promise', async () => {
+      expect(promiseTriggeredSpy.mock.calls.length).toEqual(1)
+    })
+
+    test('it does not cause an error', async () => {
+      expect(errorCaught).toBeFalsy()
+    })
+
+    describe('when the request fails', () => {
+      beforeEach(async () => {
+        await runPerformOrDefault({ condition: true, promiseFails: true })
+      })
+
+      test('it errors out', async () => {
+        expect(errorCaught).toBeTruthy()
+      })
+    })
+  })
+
+  describe('when the condition is false', () => {
+    beforeEach(async () => {
+      await runPerformOrDefault({ condition: false })
+    })
+
+    test('it returns the default value', async () => {
+      expect(resultValue).toEqual(defaultValue)
+    })
+
+    test('it does not trigger the promise', async () => {
+      expect(promiseTriggeredSpy.mock.calls.length).toEqual(0)
+    })
+
+    test('it does not cause an error', async () => {
+      expect(errorCaught).toBeFalsy()
+    })
+
+    describe('when the request fails', () => {
+      beforeEach(async () => {
+        await runPerformOrDefault({ condition: false, promiseFails: true })
+      })
+
+      test('it does not error out', async () => {
+        expect(errorCaught).toBeFalsy()
+      })
+    })
+  })
+})
 
 describe('performInSequence', () => {
   describe('when all promises are successful', () => {
