@@ -111,12 +111,12 @@ const updateUnsavedRentalAssistances = async (application, prevApplication) => {
   )
 }
 
-const createOrUpdateLease = async (lease, prevLease, applicantId, applicationId) => {
+const createOrUpdateLease = async (lease, prevLease, primaryApplicantContactId, applicationId) => {
   const isLeaseChanged = isChanged(prevLease, lease)
 
   const saveLeasePromise = isLeaseAlreadyCreated(lease)
-    ? () => apiService.updateLease(lease, applicantId, applicationId)
-    : () => apiService.createLease(lease, applicantId, applicationId)
+    ? () => apiService.updateLease(lease, primaryApplicantContactId, applicationId)
+    : () => apiService.createLease(lease, primaryApplicantContactId, applicationId)
 
   return performOrDefault(
     isLeaseChanged && !isEmpty(lease),

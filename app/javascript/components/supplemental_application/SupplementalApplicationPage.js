@@ -60,7 +60,6 @@ class SupplementalApplicationPage extends React.Component {
     leaseSectionState: getInitialLeaseState(this.props.application),
     showNewRentalAssistancePanel: false,
     showAddRentalAssistanceBtn: true,
-    rentalAssistanceLoading: false,
     rentalAssistances: this.props.rentalAssistances
   }
 
@@ -247,7 +246,7 @@ class SupplementalApplicationPage extends React.Component {
           application: {
             ...prevState.application,
             lease: response.lease,
-            rental_assistances: response.rental_assistances
+            rental_assistances: response.rentalAssistances
           },
           leaseSectionState: SHOW_LEASE_STATE
         }))
@@ -265,7 +264,7 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleRentalAssistanceAction = (action) => {
-    this.setState({ rentalAssistanceLoading: true })
+    this.setState({ loading: true })
 
     return (...args) => {
       return action(...args).then(response => {
@@ -273,10 +272,9 @@ class SupplementalApplicationPage extends React.Component {
           return response
         } else {
           Alerts.error()
-          this.setState({ rentalAssistanceLoading: false })
           return false
         }
-      })
+      }).finally(() => this.setState({ loading: false }))
     }
   }
 
@@ -321,8 +319,7 @@ class SupplementalApplicationPage extends React.Component {
             rental_assistances: rentalAssistances
           },
           showNewRentalAssistancePanel: false,
-          showAddRentalAssistanceBtn: true,
-          rentalAssistanceLoading: false
+          showAddRentalAssistanceBtn: true
         }
       })
     }
@@ -346,8 +343,7 @@ class SupplementalApplicationPage extends React.Component {
             rental_assistances: rentalAssistances
           },
           showNewRentalAssistancePanel: false,
-          showAddRentalAssistanceBtn: true,
-          rentalAssistanceLoading: false
+          showAddRentalAssistanceBtn: true
         }
       })
     }

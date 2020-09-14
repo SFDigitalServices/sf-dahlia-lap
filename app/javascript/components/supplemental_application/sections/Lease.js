@@ -166,6 +166,7 @@ const Lease = ({ form, submitting, values, store }) => {
           form={form}
           submitting={submitting}
           disabled={disabled}
+          loading={loading}
         />
         <FormGrid.Row>
           <FormGrid.Item>
