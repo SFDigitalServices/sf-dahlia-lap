@@ -208,7 +208,7 @@ const Lease = ({ form, submitting, values, store }) => {
         {/* TODO: Wire up actions for buttons, set to disabled when loading */}
         <LeaseActions
           onSave={() => handleSaveLease(convertPercentAndCurrency(form.getState().values))}
-          onCancelLeaseClick={handleCancelLeaseClick}
+          onCancelLeaseClick={() => handleCancelLeaseClick(form)}
           onEditLeaseClick={handleEditLeaseClick}
           onDelete={handleDeleteLease}
           loading={loading}
