@@ -94,7 +94,7 @@ export const RentalAssistanceTable = ({
         rows={rows}
         expanderRenderer={expanderRenderer}
         expandedRowRenderer={expandedRowRenderer(rentalAssistances, form)}
-        closeAllRows={submitting}
+        closeAllRows={submitting || disabled}
         classes={['rental-assistances']}
       />
     </TableWrapper>

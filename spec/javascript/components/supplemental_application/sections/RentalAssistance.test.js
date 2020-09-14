@@ -12,6 +12,7 @@ import {
 import {
   InputField
 } from '~/utils/form/final_form/Field'
+import ExpandableTable from '~/components/molecules/ExpandableTable'
 
 const baseContext = {
   application: { rental_assistances: [] },
@@ -64,6 +65,51 @@ describe('RentalAssistance', () => {
     const wrapper = getWrapper(context)
     expect(wrapper.find(RentalAssistanceTable)).toHaveLength(1)
     expect(wrapper.find(RentalAssistanceForm)).toHaveLength(1)
+  })
+})
+
+describe('RentalAssistanceTable', () => {
+  const getWrapper = ({ submitting = false, disabled = false }) => {
+    const context = cloneDeep(baseContext)
+    context.application.rental_assistances = [rentalAssistance]
+
+    return withForm(
+      context,
+      (form) => (
+        <RentalAssistanceTable
+          form={form}
+          rentalAssistances={[rentalAssistance]}
+          applicationMembers={[]}
+          submitting={submitting}
+          disabled={disabled}
+        />
+      )
+    )
+  }
+
+  test('should render an ExpanderTable', () => {
+    const wrapper = getWrapper({})
+    expect(wrapper.find(ExpandableTable)).toHaveLength(1)
+  })
+
+  test('should not close all panels if not submitting or disabled', () => {
+    const wrapper = getWrapper({})
+    expect(wrapper.find(ExpandableTable).prop('closeAllRows')).toBeFalsy()
+  })
+
+  test('should close all panels when submitting', () => {
+    const wrapper = getWrapper({ submitting: true })
+    expect(wrapper.find(ExpandableTable).prop('closeAllRows')).toBeTruthy()
+  })
+
+  test('should close all panels when disabled', () => {
+    const wrapper = getWrapper({ disabled: true })
+    expect(wrapper.find(ExpandableTable).prop('closeAllRows')).toBeTruthy()
+  })
+
+  test('should close all panels when submitting and disabled', () => {
+    const wrapper = getWrapper({ disabled: true, submitting: true })
+    expect(wrapper.find(ExpandableTable).prop('closeAllRows')).toBeTruthy()
   })
 })
 
