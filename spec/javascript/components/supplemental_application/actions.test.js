@@ -1,4 +1,5 @@
 import {
+  deleteLease,
   saveLeaseAndAssistances,
   updateApplication,
   updateApplicationAndAddComment
@@ -8,6 +9,7 @@ import { cloneDeep } from 'lodash'
 
 const mockSubmitAppFn = jest.fn()
 const mockCreateLeaseFn = jest.fn()
+const mockDeleteLeaseFn = jest.fn()
 const mockUpdateLeaseFn = jest.fn()
 const mockCreateRentalFn = jest.fn()
 const mockUpdateRentalFn = jest.fn()
@@ -23,6 +25,11 @@ jest.mock('apiService', () => {
   const mockCreateLease = async (lease) => {
     mockCreateLeaseFn(lease)
     return lease
+  }
+
+  const mockDeleteLease = async (applicationId, leaseId) => {
+    mockDeleteLeaseFn(applicationId, leaseId)
+    return true
   }
 
   const mockUpdateLease = async (lease) => {
@@ -53,6 +60,7 @@ jest.mock('apiService', () => {
   return {
     submitApplication: mockSubmitApplication,
     createLease: mockCreateLease,
+    deleteLease: mockDeleteLease,
     updateLease: mockUpdateLease,
     createRentalAssistance: mockCreateRental,
     updateRentalAssistance: mockUpdateRental,
@@ -548,5 +556,32 @@ describe('saveLeaseAndAssistances', () => {
     it('returns the correct lease response', () => {
       expect(response.lease).toEqual(leaseWithId)
     })
+  })
+})
+
+describe('deleteLease', () => {
+  const app = {
+    id: 'applicationId',
+    lease: {
+      id: 'leaseId'
+    }
+  }
+
+  let response
+
+  beforeEach(async () => {
+    response = await deleteLease(app)
+  })
+
+  test('returns true on success', async () => {
+    expect(response).toBeTruthy()
+  })
+
+  test('calls apiService.deleteLease', async () => {
+    expect(mockDeleteLeaseFn.mock.calls.length).toEqual(1)
+  })
+
+  test('calls apiService.deleteLease with the correct parameters', async () => {
+    expect(mockDeleteLeaseFn.mock.calls[0]).toEqual(['applicationId', 'leaseId'])
   })
 })

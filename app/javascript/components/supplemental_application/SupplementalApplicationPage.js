@@ -7,6 +7,7 @@ import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
 import Alerts from '~/components/Alerts'
 import {
+  deleteLease,
   saveLeaseAndAssistances,
   updateApplicationAndAddComment,
   updateApplication,
@@ -27,6 +28,8 @@ const getInitialLeaseState = (application) =>
   doesApplicationHaveLease(application) ? SHOW_LEASE_STATE : NO_LEASE_STATE
 
 const shouldSaveLeaseOnApplicationSave = (leaseState) => leaseState === EDIT_LEASE_STATE
+
+const getApplicationWithEmptyLease = (application) => ({ ...application, lease: {} })
 
 const getListingAmiCharts = (units) => {
   return uniqBy(units, u => [u.ami_chart_type, u.ami_chart_year].join())
@@ -222,7 +225,6 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleCancelLeaseClick = (form) => {
-    // TODO: clear form state
     const { application } = this.state
 
     this.setState({
@@ -255,8 +257,18 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleDeleteLease = () => {
-    // TODO: actually call delete action
-    this.setState({ leaseSectionState: NO_LEASE_STATE })
+    const { application } = this.state
+
+    this.setState({ loading: true })
+
+    deleteLease(application)
+      .then(response => {
+        this.setState(prevState => ({
+          application: getApplicationWithEmptyLease(prevState.application),
+          leaseSectionState: NO_LEASE_STATE
+        }))
+      }).finally(() => this.setState({ loading: false }))
+    // TODO: catch and handle errors
   }
 
   handleCloseRentalAssistancePanel = (props) => {
