@@ -64,9 +64,7 @@ export const RentalAssistanceTable = ({
   ]
 
   const expanderRenderer = (row, expanded, expandedRowToggler) => {
-    const handleEdit = () => expandedRowToggler()
-
-    return (!expanded && !disabled && <ExpanderButton label='Edit' onClick={handleEdit} />)
+    return (!expanded && !disabled && <ExpanderButton label='Edit' onClick={expandedRowToggler} />)
   }
 
   const expandedRowRenderer = (rentalAssistances, form) => (row, toggle, original) => {
@@ -282,23 +280,23 @@ const RentalAssistance = ({
     loading
   } = store
 
-  const [showNewAssistancePanel, setShowNewAssistancePanel] = useState(false)
+  const [isEditingNewAssistance, setIsEditingNewAssistance] = useState(false)
 
   /**
    * When the disabled prop changes to false, hide the new assistance panel.
    */
   useEffect(() => {
     if (disabled) {
-      setShowNewAssistancePanel(false)
+      setIsEditingNewAssistance(false)
     }
   }, [disabled])
 
   const handleOpenNewPanel = () => {
-    setShowNewAssistancePanel(true)
+    setIsEditingNewAssistance(true)
   }
 
   const handleCloseNewPanel = () => {
-    setShowNewAssistancePanel(false)
+    setIsEditingNewAssistance(false)
     handleCancelEdit(application.rental_assistances.length)
   }
 
@@ -316,7 +314,7 @@ const RentalAssistance = ({
 
   const handleSaveNewAssistance = async (index) =>
     handleSave(index, 'create')
-      .then(() => setShowNewAssistancePanel(false))
+      .then(() => setIsEditingNewAssistance(false))
 
   const handleDelete = async (rentalAssistance) =>
     handleDeleteRentalAssistance(rentalAssistance, form.getState().values)
@@ -337,7 +335,7 @@ const RentalAssistance = ({
         />
       )}
 
-      {!disabled && showNewAssistancePanel && (
+      {!disabled && isEditingNewAssistance && (
         <FormGrid.Row expand={false}>
           <RentalAssistanceForm
             onSave={handleSaveNewAssistance}
@@ -352,7 +350,7 @@ const RentalAssistance = ({
           />
         </FormGrid.Row>
       )}
-      {!showNewAssistancePanel && (
+      {!isEditingNewAssistance && (
         <FormGrid.Row>
           <FormGrid.Item>
             {!disabled && (
