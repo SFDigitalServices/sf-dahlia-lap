@@ -9,6 +9,7 @@ import FormGrid from '~/components/molecules/FormGrid'
 import InlineModal from '~/components/molecules/InlineModal'
 import formUtils from '~/utils/formUtils'
 import validate, { convertCurrency } from '~/utils/form/validations'
+import { isSingleRentalAssistanceValid } from '~/utils/form/formSectionValidations'
 import {
   CurrencyField,
   HelpText,
@@ -162,7 +163,7 @@ export const RentalAssistanceForm = ({
   }
 
   const isFormValid = () => {
-    const isValid = isEmpty(form.getState().errors.rental_assistances) || isEmpty(form.getState().errors.rental_assistances[index])
+    const isValid = isSingleRentalAssistanceValid(form, index)
     if (!isValid) {
       // Force submit to show errors on forms
       form.submit()
