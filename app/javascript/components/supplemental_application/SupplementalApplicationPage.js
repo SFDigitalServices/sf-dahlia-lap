@@ -29,7 +29,7 @@ const getInitialLeaseState = (application) =>
 
 const shouldSaveLeaseOnApplicationSave = (leaseState) => leaseState === EDIT_LEASE_STATE
 
-const getApplicationWithEmptyLease = (application) => ({ ...application, lease: {} })
+const getApplicationWithEmptyLease = (application) => ({ ...application, lease: {}, rental_assistances: [] })
 
 const getListingAmiCharts = (units) => {
   return uniqBy(units, u => [u.ami_chart_type, u.ami_chart_year].join())
@@ -61,8 +61,6 @@ class SupplementalApplicationPage extends React.Component {
     },
     // Only show lease section on load if there's a lease on the application.
     leaseSectionState: getInitialLeaseState(this.props.application),
-    showNewRentalAssistancePanel: false,
-    showAddRentalAssistanceBtn: true,
     rentalAssistances: this.props.rentalAssistances
   }
 
@@ -167,10 +165,6 @@ class SupplementalApplicationPage extends React.Component {
     })
   }
 
-  handleOpenRentalAssistancePanel = () => {
-    this.setState({ showAddRentalAssistanceBtn: false, showNewRentalAssistancePanel: true })
-  }
-
   updateApplicationStateAfterRequest = (applicationResponse, additionalFieldsToUpdate = {}, setStateCallback = () => {}) => {
     const leaveEditMode = (currentLeaseSectionState) =>
       currentLeaseSectionState === EDIT_LEASE_STATE
@@ -232,6 +226,7 @@ class SupplementalApplicationPage extends React.Component {
     })
 
     form.change('lease', application.lease)
+    form.change('rental_assistances', application.rental_assistances)
   }
 
   handleEditLeaseClick = (form) => {
@@ -269,10 +264,6 @@ class SupplementalApplicationPage extends React.Component {
         }))
       }).finally(() => this.setState({ loading: false }))
     // TODO: catch and handle errors
-  }
-
-  handleCloseRentalAssistancePanel = (props) => {
-    this.setState({ showAddRentalAssistanceBtn: true, showNewRentalAssistancePanel: false })
   }
 
   handleRentalAssistanceAction = (action) => {
@@ -329,9 +320,7 @@ class SupplementalApplicationPage extends React.Component {
           application: {
             ...formApplicationValues,
             rental_assistances: rentalAssistances
-          },
-          showNewRentalAssistancePanel: false,
-          showAddRentalAssistanceBtn: true
+          }
         }
       })
     }
@@ -353,18 +342,12 @@ class SupplementalApplicationPage extends React.Component {
           application: {
             ...formApplicationValues,
             rental_assistances: rentalAssistances
-          },
-          showNewRentalAssistancePanel: false,
-          showAddRentalAssistanceBtn: true
+          }
         }
       })
     }
 
     return response
-  }
-
-  hideAddRentalAssistanceBtn = () => {
-    this.setState({ showAddRentalAssistanceBtn: false })
   }
 
   handleLeaveSuppAppTab = () => {
@@ -429,7 +412,6 @@ class SupplementalApplicationPage extends React.Component {
       handleStatusModalClose: this.handleStatusModalClose,
       handleStatusModalStatusChange: this.handleStatusModalStatusChange,
       handleStatusModalSubmit: this.handleStatusModalSubmit,
-      hideAddRentalAssistanceBtn: this.hideAddRentalAssistanceBtn,
       onDismissError: this.handleDismissError,
       onSavePreference: this.handleSavePreference,
       onSubmit: this.handleSaveApplication,
