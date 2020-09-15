@@ -29,7 +29,11 @@ const getInitialLeaseState = (application) =>
 
 const shouldSaveLeaseOnApplicationSave = (leaseState) => leaseState === EDIT_LEASE_STATE
 
-const getApplicationWithEmptyLease = (application) => ({ ...application, lease: {}, rental_assistances: [] })
+const getApplicationWithEmptyLease = (application) => ({
+  ...application,
+  lease: {},
+  rental_assistances: []
+})
 
 const getListingAmiCharts = (units) => {
   return uniqBy(units, u => [u.ami_chart_type, u.ami_chart_year].join())

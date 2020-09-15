@@ -72,6 +72,8 @@ export const RentalAssistanceTable = ({
   const expandedRowRenderer = (rentalAssistances, form) => (row, toggle, original) => {
     const index = findIndex(rentalAssistances, original)
 
+    // Run the async function, if the result doesn't throw an error and returned a
+    // truthy response, toggle the panel to show/hide
     const toggleIfSuccessful = (asyncFunc) =>
       (...args) => asyncFunc(...args)
         .then(result => {
@@ -79,12 +81,12 @@ export const RentalAssistanceTable = ({
         })
 
     const handleClose = () => {
-      onCancelEdit()
+      onCancelEdit(index)
       toggle()
     }
 
     const handleDelete = () => toggleIfSuccessful(onDelete)(rentalAssistances[index])
-    const handleSave = (index, values) => toggleIfSuccessful(onSave)(index, values)
+    const handleSave = (index) => toggleIfSuccessful(onSave)(index)
 
     return (
       <RentalAssistanceForm
@@ -163,9 +165,9 @@ export const RentalAssistanceForm = ({
     }
   ))
 
-  const onSaveWithIndex = () => {
+  const handleSave = () => {
     if (isFormValid()) {
-      onSave(index, convertCurrency(form.getState().values.rental_assistances[index]))
+      onSave(index)
     }
   }
 
@@ -233,7 +235,7 @@ export const RentalAssistanceForm = ({
           <Button
             classes='primary margin-right'
             tiny
-            onClick={onSaveWithIndex}
+            onClick={handleSave}
             disabled={loading}
             noBottomMargin
             text='Save'
@@ -291,11 +293,6 @@ const RentalAssistance = ({
     }
   }, [disabled])
 
-  const handleSaveNewAssistance = async (_, values) => {
-    await handleSaveRentalAssistance(values, form.getState().values, 'create')
-    setShowNewAssistancePanel(false)
-  }
-
   const handleOpenNewPanel = () => {
     setShowNewAssistancePanel(true)
   }
@@ -311,8 +308,15 @@ const RentalAssistance = ({
     form.change(`rental_assistances.${index}`, assistanceToRevertTo)
   }
 
-  const handleSave = async (index, values) =>
-    handleSaveRentalAssistance(values, form.getState().values, 'update')
+  const handleSave = async (index, action = 'update') => {
+    const entireForm = form.getState().values
+    const rentalAssistance = convertCurrency(entireForm.rental_assistances[index])
+    return handleSaveRentalAssistance(rentalAssistance, entireForm, action)
+  }
+
+  const handleSaveNewAssistance = async (index) =>
+    handleSave(index, 'create')
+      .then(() => setShowNewAssistancePanel(false))
 
   const handleDelete = async (rentalAssistance) =>
     handleDeleteRentalAssistance(rentalAssistance, form.getState().values)
