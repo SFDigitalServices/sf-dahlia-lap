@@ -1,12 +1,11 @@
 import React from 'react'
 
-import { LEASE_UP_STATUS_OPTIONS, LEASE_UP_SUBSTATUS_OPTIONS, getLeaseUpStatusClass } from '~/utils/statusUtils'
+import { LEASE_UP_STATUS_OPTIONS, LEASE_UP_SUBSTATUS_OPTIONS } from '~/utils/statusUtils'
 import Dropdown from '../molecules/Dropdown'
 
 const StatusDropdown = ({ status, onChange, buttonClasses, menuClasses, wrapperClasses, styles, disabled, subStatus, showSubStatus, prompt }) => {
-  let dropdownButtonClasses = !showSubStatus ? [getLeaseUpStatusClass(status)] : []
+  let dropdownButtonClasses = []
   if (buttonClasses) dropdownButtonClasses.push(...buttonClasses)
-
   return (
     !showSubStatus ? (
       <Dropdown

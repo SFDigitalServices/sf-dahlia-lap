@@ -30,12 +30,12 @@ const LeaseUpTableContainer = ({
     })
   }
 
-  const leaseUpStatusChangeHandler = (applicationPreferenceId, applicationId, status) => {
+  const leaseUpStatusChangeHandler = (applicationPreferenceId, applicationId, value) => {
     updateStatusModal({
       applicationId: applicationId,
       applicationPreferenceId: applicationPreferenceId,
       isOpen: true,
-      status: status
+      status: value
     })
   }
 

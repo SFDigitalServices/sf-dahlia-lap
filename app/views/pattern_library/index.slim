@@ -5,8 +5,6 @@
 
   == pl_component 'BreadCrumbs', { items: [ { title: 'Alpha', link: '#' }, { title: 'Beta', link: '#' }, { title: 'Gamma', link: '#' }] }
   == pl_component 'Button', { text: 'Save'}
-  == pl_component 'DropdownMenuItem', { selected: 'false', value: 'Beta', label: 'Menu item', url: '1'}
-  == pl_component 'DropdownMenuItemCheckbox', { selected: 'false', value: 'Alpha', label: 'Check'}
   == pl_component 'FormGroupCheckboxGroup', { label: 'Checkbox Group', id: 'checkbox-group', name: 'Checkbox', value: 'Option 1' }, { pl_group_class: 'FormGroupCheckboxGroup' }
   == pl_component 'FormGroupRadioGroup', { label: 'Radio Group', id: 'radio-group', name: 'Radio', value: 'Option 1' }, { pl_group_class: 'FormGroupRadioGroup' }
   == pl_component 'FormGroupTextArea', { label: 'Text area', id: 'text-input', name: 'Input', placeholder: 'Enter text', describeId: 'label', note: 'Some text', value: '' }, { pl_group_class: 'FormGroupTextArea' }
@@ -24,8 +22,6 @@
   == pl_component 'ContentCardGrid', { title: 'Title', description: 'Description' }
   == pl_component 'ContentSectionBordered', { title: 'Title', subtitle: 'Sub', titleDescription: 'Some description', subtitleDescription: 'Some description', label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'label', note: 'More text', error: 'Please enter a First Name' }
   == pl_component 'ContentSectionWrapper', { title: 'Title', subtitle: 'Sub', titleDesc: 'Some description', subtitleDesc: 'Some description'}, { title: 'ContentSection' }
-  == pl_component 'DropdownMenu', { value: 'value2', items: [{ value: 'value1', label:'label1' },{ value: 'value2', label:'label2' } ] }, { pl_preview_class: 'pl-preview-h-150'}
-  == pl_component 'DropdownMenuMultiSelect', { values: ['value1'], items: [{ value: 'value1', label:'label1' },{ value: 'value2', label:'label2' } ] }, { pl_preview_class: 'pl-preview-h-150'}
   == pl_component 'DropdownWrapper', { text: 'status', size: 'tiny', icon: '#i-arrow-down', items: [{ value: 'value1', label:'label1' },{ value: 'value2', label:'label2' } ]}, { title: 'Dropdown' }
   == pl_component 'ExpandableTableWrapper', { columns: @expandable_table_columns, rows: @expandable_table_rows }, { title: 'ExpandableTable'}
   == pl_component 'FormGridRow', { label: 'Text input', id: 'text-area', name: 'Area', placeholder: 'Enter text', describeId: 'label', note: 'More text', error: 'Please enter a First Name' }

@@ -6,8 +6,6 @@ import Properties from 'components/pattern_library/properties'
 // Atoms
 import BreadCrumbs from 'components/atoms/BreadCrumbs'
 import Button from 'components/atoms/Button'
-import DropdownMenuItem from 'components/atoms/DropdownMenuItem'
-import DropdownMenuItemCheckbox from 'components/atoms/DropdownMenuItemCheckbox'
 import FormGroupCheckboxGroup from 'components/atoms/FormGroupCheckboxGroup'
 import FormGroupRadioGroup from 'components/atoms/FormGroupRadioGroup'
 import FormGroupTextArea from 'components/atoms/FormGroupTextArea'
@@ -24,8 +22,6 @@ import ContentCardGrid from 'components/molecules/ContentCardGrid'
 import ContentSection from 'components/molecules/ContentSection'
 import ContentSectionBordered from 'components/molecules/ContentSectionBordered'
 import Dropdown from 'components/molecules/Dropdown'
-import DropdownMenu from 'components/molecules/DropdownMenu'
-import DropdownMenuMultiSelect from 'components/molecules/DropdownMenuMultiSelect'
 import FormGridRow from 'components/molecules/FormGridRow'
 import FormGridTable from 'components/molecules/FormGridTable'
 import LeaseUpSidebar from 'components/molecules/lease_up_sidebar/LeaseUpSidebar'
@@ -54,8 +50,6 @@ WebpackerReact.setup({ Properties })
 // Atoms
 WebpackerReact.setup({ BreadCrumbs })
 WebpackerReact.setup({ Button })
-WebpackerReact.setup({ DropdownMenuItem })
-WebpackerReact.setup({ DropdownMenuItemCheckbox })
 WebpackerReact.setup({ FormGroupCheckboxGroup })
 WebpackerReact.setup({ FormGroupRadioGroup })
 WebpackerReact.setup({ FormGroupTextArea })
@@ -72,8 +66,6 @@ WebpackerReact.setup({ ContentCardGrid })
 WebpackerReact.setup({ ContentSection })
 WebpackerReact.setup({ ContentSectionBordered })
 WebpackerReact.setup({ Dropdown })
-WebpackerReact.setup({ DropdownMenu })
-WebpackerReact.setup({ DropdownMenuMultiSelect })
 WebpackerReact.setup({ FormGridRow })
 WebpackerReact.setup({ FormGridTable })
 WebpackerReact.setup({ LeaseUpSidebar })

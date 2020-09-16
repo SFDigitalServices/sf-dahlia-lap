@@ -52,8 +52,10 @@ const StatusModalWrapper = ({
       <div className={'form-group'}>
         <h2 className='form-label'>Status</h2>
         {/* Inline field due to the nested level throwing error in react-final-form */}
-        <Field name='status' validate={validate.isPresent('Status is required')}>
-          {({ input: { onChange }, meta }) => (
+        <Field
+          name='status'
+          validate={validate.isPresent('Status is required')}
+          component={({ input: { onChange }, meta, ...rest }) => (
             <>
               <StatusDropdown
                 status={values.status}
@@ -68,14 +70,11 @@ const StatusModalWrapper = ({
               {!values.status && meta.touched && meta.error && <small className='error'>{meta.error}</small>}
             </>
           )}
-        </Field>
+        />
         {((values.status) && LEASE_UP_SUBSTATUS_OPTIONS[values.status]) && (
-          <Field name='subStatus'>
-            {/*
-              Inline field due to the nested level throwing error in react-final-form
-              and record level validation so it can be conditional
-            */}
-            {({ input: { onChange }, meta }) => (
+          <Field
+            name='subStatus'
+            component={({ input: { onChange }, meta }) => (
               <>
                 <h2 className={`form-label ${!values.subStatus && meta.touched && meta.error ? 'error' : ''}`}>Status Detail (required)</h2>
                 <StatusDropdown
@@ -91,7 +90,7 @@ const StatusModalWrapper = ({
                 {!values.subStatus && meta.touched && meta.error && <small className='error'>{meta.error}</small>}
               </>
             )}
-          </Field>
+          />
         )}
         <TextAreaField
           label={statusRequiresComments(values.status, values.subStatus) ? 'Comment (required)' : 'Comment'}
