@@ -7,7 +7,7 @@ export const isSingleRentalAssistanceValid = (form, rentalAssistanceIndex) => {
 
 export const areAllRentalAssistancesValid = (form) => {
   const assistanceErrors = form.getState().errors.rental_assistances
-  return assistanceErrors.every(isEmpty)
+  return isEmpty(assistanceErrors) || assistanceErrors.every(isEmpty)
 }
 
 export const areLeaseAndRentalAssistancesValid = (form) => {
