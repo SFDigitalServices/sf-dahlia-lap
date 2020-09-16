@@ -83,7 +83,7 @@ const LeaseActions = ({
   )
 }
 
-const Lease = ({ form, submitting, values, store }) => {
+const Lease = ({ form, values, store }) => {
   const {
     availableUnits,
     application,
@@ -174,7 +174,6 @@ const Lease = ({ form, submitting, values, store }) => {
         </FormGrid.Row>
         <RentalAssistance
           form={form}
-          submitting={submitting}
           disabled={disabled}
           loading={loading}
         />

@@ -47,7 +47,6 @@ const isOther = (values) => values && values.type_of_assistance === 'Other'
 
 export const RentalAssistanceTable = ({
   form,
-  submitting,
   rentalAssistances,
   onCancelEdit,
   onSave,
@@ -124,7 +123,7 @@ export const RentalAssistanceTable = ({
         rows={rows}
         expanderRenderer={expanderRenderer}
         expandedRowRenderer={expandedRowRenderer(rentalAssistances, form)}
-        closeAllRows={submitting || disabled}
+        closeAllRows={disabled}
         classes={['rental-assistances']}
       />
     </TableWrapper>
@@ -269,7 +268,6 @@ export const RentalAssistanceForm = ({
 const RentalAssistance = ({
   store,
   form,
-  submitting,
   visited,
   disabled
 }) => {
@@ -331,7 +329,6 @@ const RentalAssistance = ({
           onSave={handleSave}
           form={form}
           loading={loading}
-          submitting={submitting}
           disabled={disabled}
         />
       )}
