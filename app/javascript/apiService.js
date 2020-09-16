@@ -131,6 +131,16 @@ export const createLease = async (leaseToCreate, primaryApplicantContact, applic
     .then(response => response.lease)
 }
 
+/**
+ * Delete a lease associated with an application.
+ * Additionally, delete any rental assistances associated with that lease.
+ *
+ * @param {Number} applicationId the application ID the lease is attached to
+ * @param {Number} leaseId the lease ID to delete
+ */
+export const deleteLease = async (applicationId, leaseId) =>
+  request.destroy(`/applications/${applicationId}/leases/${leaseId}`, null, true)
+
 export default {
   updateApplication,
   updateFlaggedApplication,
@@ -145,5 +155,6 @@ export default {
   updateRentalAssistance,
   deleteRentalAssistance,
   createLease,
+  deleteLease,
   updateLease
 }
