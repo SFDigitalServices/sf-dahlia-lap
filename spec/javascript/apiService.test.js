@@ -2,6 +2,7 @@ import apiService from '~/apiService'
 import { request } from '~/api/request'
 
 const mockLeasePostFn = jest.fn(() => Promise.resolve({ lease: true }))
+const mockLeaseDeleteFn = jest.fn(() => Promise.resolve(true))
 const mockLeasePutFn = jest.fn(() => Promise.resolve({ lease: true }))
 const mockPostFn = jest.fn(() => Promise.resolve(true))
 const mockPutFn = jest.fn(() => Promise.resolve(true))
@@ -135,6 +136,24 @@ describe('apiService', () => {
       expect(result).toEqual(true)
       expect(mockDestroyFn.mock.calls.length).toEqual(1)
       expect(mockDestroyFn.mock.calls[0]).toEqual([`/rental-assistances/${fakeRentalAssistanceId}`])
+    })
+  })
+
+  describe('deleteLease', () => {
+    const applicationId = 'applicationId'
+    const leaseId = 'leaseId'
+
+    beforeEach(async () => {
+      request.destroy = mockLeaseDeleteFn
+      await apiService.deleteLease(applicationId, leaseId)
+    })
+
+    test('calls request.delete', async () => {
+      expect(mockLeaseDeleteFn.mock.calls.length).toEqual(1)
+    })
+
+    test('calls request.delete with the correct params', async () => {
+      expect(mockLeaseDeleteFn.mock.calls[0]).toEqual(['/applications/applicationId/leases/leaseId', null, true])
     })
   })
 })

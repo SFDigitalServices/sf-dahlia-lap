@@ -70,10 +70,6 @@ export const updateApplicationAndAddComment = async (application, prevApplicatio
 }
 
 export const saveLeaseAndAssistances = async (application, prevApplication) => {
-  if (isEmpty(application.lease)) {
-    return defaultLeaseResponse(application)
-  }
-
   return performInSequence(
     () => createOrUpdateLease(
       application.lease,
@@ -112,18 +108,24 @@ const updateUnsavedRentalAssistances = async (application, prevApplication) => {
 }
 
 const createOrUpdateLease = async (lease, prevLease, primaryApplicantContactId, applicationId) => {
-  const isLeaseChanged = isChanged(prevLease, lease)
+  const isNewLease = !isLeaseAlreadyCreated(lease)
 
-  const saveLeasePromise = isLeaseAlreadyCreated(lease)
-    ? () => apiService.updateLease(lease, primaryApplicantContactId, applicationId)
-    : () => apiService.createLease(lease, primaryApplicantContactId, applicationId)
+  const saveLeasePromise = isNewLease
+    ? () => apiService.createLease(lease, primaryApplicantContactId, applicationId)
+    : () => apiService.updateLease(lease, primaryApplicantContactId, applicationId)
 
-  return performOrDefault(
-    isLeaseChanged && !isEmpty(lease),
-    saveLeasePromise,
-    lease
-  )
+  const isNewOrChangedLease = isNewLease || isChanged(prevLease, lease)
+  return performOrDefault(isNewOrChangedLease, saveLeasePromise, lease)
 }
+
+/**
+ * Delete a lease associated with an application.
+ * Additionally, delete any rental assistances associated with that lease.
+ *
+ * @param {Number} application the application object (must contain a lease)
+ */
+export const deleteLease = async (application) =>
+  apiService.deleteLease(application.id, application.lease.id)
 
 export const getAMIAction = async ({ chartType, chartYear }) => {
   const response = await apiService.getAMI({ chartType, chartYear })

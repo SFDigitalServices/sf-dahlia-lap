@@ -1,4 +1,5 @@
 import {
+  deleteLease,
   saveLeaseAndAssistances,
   updateApplication,
   updateApplicationAndAddComment
@@ -8,6 +9,7 @@ import { cloneDeep } from 'lodash'
 
 const mockSubmitAppFn = jest.fn()
 const mockCreateLeaseFn = jest.fn()
+const mockDeleteLeaseFn = jest.fn()
 const mockUpdateLeaseFn = jest.fn()
 const mockCreateRentalFn = jest.fn()
 const mockUpdateRentalFn = jest.fn()
@@ -23,6 +25,11 @@ jest.mock('apiService', () => {
   const mockCreateLease = async (lease) => {
     mockCreateLeaseFn(lease)
     return lease
+  }
+
+  const mockDeleteLease = async (applicationId, leaseId) => {
+    mockDeleteLeaseFn(applicationId, leaseId)
+    return true
   }
 
   const mockUpdateLease = async (lease) => {
@@ -53,6 +60,7 @@ jest.mock('apiService', () => {
   return {
     submitApplication: mockSubmitApplication,
     createLease: mockCreateLease,
+    deleteLease: mockDeleteLease,
     updateLease: mockUpdateLease,
     createRentalAssistance: mockCreateRental,
     updateRentalAssistance: mockUpdateRental,
@@ -117,7 +125,7 @@ describe('updateApplication', () => {
     expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
   })
 
-  test('it should not submit lease to backend if application has no lease', async () => {
+  test('it should submit lease to backend even if lease is empty', async () => {
     const application = {
       'id': 'appID',
       'name': 'APP-12345',
@@ -131,7 +139,7 @@ describe('updateApplication', () => {
     expect(response.id).toEqual(application.id)
     expect(response.lease).toEqual({})
     expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
-    expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
+    expect(mockCreateLeaseFn.mock.calls.length).toEqual(1)
     expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
   })
 
@@ -205,30 +213,72 @@ describe('updateApplication', () => {
 })
 
 describe('updateApplicationAndAddComment', () => {
-  test('it should update the application and add a field update comment', async () => {
-    const application = {
-      'id': 'appID',
-      'name': 'APP-12345',
-      'listing': {
-        'id': 'listingID'
-      },
-      'lease': {}
-    }
+  const newStatus = 'Approved'
 
-    const prevApp = {
-      ...application,
-      name: 'prev-app'
-    }
+  const application = {
+    'id': 'appID',
+    'name': 'APP-12345',
+    'listing': {
+      'id': 'listingID'
+    },
+    'lease': {}
+  }
 
-    const status = 'Approved'
+  const prevApp = {
+    ...application,
+    name: 'prev-app'
+  }
 
-    const response = await updateApplicationAndAddComment(application, prevApp, status, null, null, true)
-    expect(response.application.id).toEqual(application.id)
-    expect(response.statusHistory).toEqual(['status_history_item'])
-    expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
-    expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
-    expect(mockCreateFieldUpdateCommentFn.mock.calls.length).toEqual(1)
-    expect(mockCreateFieldUpdateCommentFn).toHaveBeenCalledWith('appID', 'Approved', null, null)
+  describe('when the request should also create a lease', () => {
+    let response
+    beforeEach(async () => {
+      response = await updateApplicationAndAddComment(application, prevApp, newStatus, null, null, true)
+    })
+
+    test('it should return the correct response', async () => {
+      expect(response.application.id).toEqual(application.id)
+      expect(response.statusHistory).toEqual(['status_history_item'])
+    })
+
+    test('it should update the application and add a field update comment', async () => {
+      expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
+      expect(mockCreateFieldUpdateCommentFn.mock.calls.length).toEqual(1)
+    })
+
+    test('it should create a lease', async () => {
+      expect(mockCreateLeaseFn.mock.calls.length).toEqual(1)
+      expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
+    })
+
+    test('it should pass the correct params to the field update request', async () => {
+      expect(mockCreateFieldUpdateCommentFn).toHaveBeenCalledWith('appID', newStatus, null, null)
+    })
+  })
+
+  describe('when the request should not also create a lease', () => {
+    let response
+    beforeEach(async () => {
+      response = await updateApplicationAndAddComment(application, prevApp, newStatus, null, null, false)
+    })
+
+    test('it should return the correct response', async () => {
+      expect(response.application.id).toEqual(application.id)
+      expect(response.statusHistory).toEqual(['status_history_item'])
+    })
+
+    test('it should update the application and add a field update comment', async () => {
+      expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
+      expect(mockCreateFieldUpdateCommentFn.mock.calls.length).toEqual(1)
+    })
+
+    test('it should not create a lease', async () => {
+      expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
+      expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
+    })
+
+    test('it should pass the correct params to the field update request', async () => {
+      expect(mockCreateFieldUpdateCommentFn).toHaveBeenCalledWith('appID', newStatus, null, null)
+    })
   })
 })
 
@@ -256,8 +306,8 @@ describe('saveLeaseAndAssistances', () => {
         await saveLeaseAndAssistances(currentApp, prevApp)
       })
 
-      test('it does not save anything', async () => {
-        expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
+      test('it creates a lease', async () => {
+        expect(mockCreateLeaseFn.mock.calls.length).toEqual(1)
         expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
         expect(mockCreateRentalFn.mock.calls.length).toEqual(0)
         expect(mockUpdateRentalFn.mock.calls.length).toEqual(0)
@@ -272,8 +322,8 @@ describe('saveLeaseAndAssistances', () => {
           await saveLeaseAndAssistances(currentApp, prevApp)
         })
 
-        test('it does not save anything', async () => {
-          expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
+        test('it creates a lease', async () => {
+          expect(mockCreateLeaseFn.mock.calls.length).toEqual(1)
           expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
           expect(mockCreateRentalFn.mock.calls.length).toEqual(0)
           expect(mockUpdateRentalFn.mock.calls.length).toEqual(0)
@@ -287,8 +337,8 @@ describe('saveLeaseAndAssistances', () => {
           await saveLeaseAndAssistances(currentApp, prevApp)
         })
 
-        test('it does not save anything', async () => {
-          expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
+        test('it creates a lease', async () => {
+          expect(mockCreateLeaseFn.mock.calls.length).toEqual(1)
           expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
           expect(mockCreateRentalFn.mock.calls.length).toEqual(0)
           expect(mockUpdateRentalFn.mock.calls.length).toEqual(0)
@@ -463,8 +513,8 @@ describe('saveLeaseAndAssistances', () => {
         response = await saveLeaseAndAssistances(currentApp, prevApp)
       })
 
-      it('does not trigger any requests', () => {
-        expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
+      test('it creates a lease', async () => {
+        expect(mockCreateLeaseFn.mock.calls.length).toEqual(1)
         expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
         expect(mockCreateRentalFn.mock.calls.length).toEqual(0)
         expect(mockUpdateRentalFn.mock.calls.length).toEqual(0)
@@ -548,5 +598,32 @@ describe('saveLeaseAndAssistances', () => {
     it('returns the correct lease response', () => {
       expect(response.lease).toEqual(leaseWithId)
     })
+  })
+})
+
+describe('deleteLease', () => {
+  const app = {
+    id: 'applicationId',
+    lease: {
+      id: 'leaseId'
+    }
+  }
+
+  let response
+
+  beforeEach(async () => {
+    response = await deleteLease(app)
+  })
+
+  test('returns true on success', async () => {
+    expect(response).toBeTruthy()
+  })
+
+  test('calls apiService.deleteLease', async () => {
+    expect(mockDeleteLeaseFn.mock.calls.length).toEqual(1)
+  })
+
+  test('calls apiService.deleteLease with the correct parameters', async () => {
+    expect(mockDeleteLeaseFn.mock.calls[0]).toEqual(['applicationId', 'leaseId'])
   })
 })

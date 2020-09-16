@@ -7,6 +7,7 @@ import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
 import Alerts from '~/components/Alerts'
 import {
+  deleteLease,
   saveLeaseAndAssistances,
   updateApplicationAndAddComment,
   updateApplication,
@@ -27,6 +28,12 @@ const getInitialLeaseState = (application) =>
   doesApplicationHaveLease(application) ? SHOW_LEASE_STATE : NO_LEASE_STATE
 
 const shouldSaveLeaseOnApplicationSave = (leaseState) => leaseState === EDIT_LEASE_STATE
+
+const getApplicationWithEmptyLease = (application) => ({
+  ...application,
+  lease: {},
+  rental_assistances: []
+})
 
 const getListingAmiCharts = (units) => {
   return uniqBy(units, u => [u.ami_chart_type, u.ami_chart_year].join())
@@ -58,8 +65,6 @@ class SupplementalApplicationPage extends React.Component {
     },
     // Only show lease section on load if there's a lease on the application.
     leaseSectionState: getInitialLeaseState(this.props.application),
-    showNewRentalAssistancePanel: false,
-    showAddRentalAssistanceBtn: true,
     rentalAssistances: this.props.rentalAssistances
   }
 
@@ -164,10 +169,6 @@ class SupplementalApplicationPage extends React.Component {
     })
   }
 
-  handleOpenRentalAssistancePanel = () => {
-    this.setState({ showAddRentalAssistanceBtn: false, showNewRentalAssistancePanel: true })
-  }
-
   updateApplicationStateAfterRequest = (applicationResponse, additionalFieldsToUpdate = {}, setStateCallback = () => {}) => {
     const leaveEditMode = (currentLeaseSectionState) =>
       currentLeaseSectionState === EDIT_LEASE_STATE
@@ -222,7 +223,6 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleCancelLeaseClick = (form) => {
-    // TODO: clear form state
     const { application } = this.state
 
     this.setState({
@@ -230,6 +230,7 @@ class SupplementalApplicationPage extends React.Component {
     })
 
     form.change('lease', application.lease)
+    form.change('rental_assistances', application.rental_assistances)
   }
 
   handleEditLeaseClick = (form) => {
@@ -255,12 +256,18 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleDeleteLease = () => {
-    // TODO: actually call delete action
-    this.setState({ leaseSectionState: NO_LEASE_STATE })
-  }
+    const { application } = this.state
 
-  handleCloseRentalAssistancePanel = (props) => {
-    this.setState({ showAddRentalAssistanceBtn: true, showNewRentalAssistancePanel: false })
+    this.setState({ loading: true })
+
+    deleteLease(application)
+      .then(response => {
+        this.setState(prevState => ({
+          application: getApplicationWithEmptyLease(prevState.application),
+          leaseSectionState: NO_LEASE_STATE
+        }))
+      }).finally(() => this.setState({ loading: false }))
+    // TODO: catch and handle errors
   }
 
   handleRentalAssistanceAction = (action) => {
@@ -317,9 +324,7 @@ class SupplementalApplicationPage extends React.Component {
           application: {
             ...formApplicationValues,
             rental_assistances: rentalAssistances
-          },
-          showNewRentalAssistancePanel: false,
-          showAddRentalAssistanceBtn: true
+          }
         }
       })
     }
@@ -341,18 +346,12 @@ class SupplementalApplicationPage extends React.Component {
           application: {
             ...formApplicationValues,
             rental_assistances: rentalAssistances
-          },
-          showNewRentalAssistancePanel: false,
-          showAddRentalAssistanceBtn: true
+          }
         }
       })
     }
 
     return response
-  }
-
-  hideAddRentalAssistanceBtn = () => {
-    this.setState({ showAddRentalAssistanceBtn: false })
   }
 
   handleLeaveSuppAppTab = () => {
@@ -417,7 +416,6 @@ class SupplementalApplicationPage extends React.Component {
       handleStatusModalClose: this.handleStatusModalClose,
       handleStatusModalStatusChange: this.handleStatusModalStatusChange,
       handleStatusModalSubmit: this.handleStatusModalSubmit,
-      hideAddRentalAssistanceBtn: this.hideAddRentalAssistanceBtn,
       onDismissError: this.handleDismissError,
       onSavePreference: this.handleSavePreference,
       onSubmit: this.handleSaveApplication,

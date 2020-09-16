@@ -1,4 +1,7 @@
-import React from 'react'
+import React, {
+  useEffect,
+  useState
+} from 'react'
 import { isEmpty, findIndex } from 'lodash'
 
 import TableWrapper from '~/components/atoms/TableWrapper'
@@ -45,9 +48,12 @@ export const RentalAssistanceTable = ({
   form,
   submitting,
   rentalAssistances,
-  onEdit,
+  onCancelEdit,
+  onSave,
+  onDelete,
   applicationMembers,
-  disabled
+  disabled,
+  loading
 }) => {
   const columns = [
     { content: 'Recipient' },
@@ -58,18 +64,41 @@ export const RentalAssistanceTable = ({
   ]
 
   const expanderRenderer = (row, expanded, expandedRowToggler) => {
-    const handleEdit = () => {
-      onEdit()
-      expandedRowToggler()
-    }
-
-    return (!expanded && !disabled && <ExpanderButton label='Edit' onClick={handleEdit} />)
+    return (!expanded && !disabled && <ExpanderButton label='Edit' onClick={expandedRowToggler} />)
   }
 
   const expandedRowRenderer = (rentalAssistances, form) => (row, toggle, original) => {
     const index = findIndex(rentalAssistances, original)
 
-    return <Panel toggle={toggle} rentalAssistance={original} form={form} row={row} index={index} />
+    // Run the async function, if the result doesn't throw an error and returned a
+    // truthy response, toggle the panel to show/hide
+    const toggleIfSuccessful = (asyncFunc) =>
+      (...args) => asyncFunc(...args)
+        .then(result => {
+          if (result) toggle()
+        })
+
+    const handleClose = () => {
+      onCancelEdit(index)
+      toggle()
+    }
+
+    const handleDelete = () => toggleIfSuccessful(onDelete)(rentalAssistances[index])
+    const handleSave = (index) => toggleIfSuccessful(onSave)(index)
+
+    return (
+      <RentalAssistanceForm
+        values={original}
+        row={row}
+        onSave={handleSave}
+        onClose={handleClose}
+        onDelete={handleDelete}
+        index={index}
+        applicationMembers={applicationMembers}
+        loading={loading}
+        form={form}
+      />
+    )
   }
 
   const buildRows = () => rentalAssistances.map(ra => {
@@ -100,49 +129,6 @@ export const RentalAssistanceTable = ({
     </TableWrapper>
   )
 }
-
-const Panel = withContext(({ rentalAssistance, toggle, store, row, index, form }) => {
-  const {
-    handleSaveRentalAssistance,
-    handleDeleteRentalAssistance,
-    applicationMembers,
-    handleCloseRentalAssistancePanel,
-    loading
-  } = store
-
-  const onSave = async (index, values) => {
-    const updateResult = await handleSaveRentalAssistance(values, form.getState().values, 'update')
-    if (updateResult) toggle()
-  }
-
-  const onClose = () => {
-    form.change(`rental_assistances.${index}`, rentalAssistance)
-    handleCloseRentalAssistancePanel()
-    toggle()
-  }
-
-  const onDelete = async () => {
-    const deleteResult = await handleDeleteRentalAssistance(
-      rentalAssistance,
-      form.getState().values
-    )
-    if (deleteResult) toggle()
-  }
-
-  return (
-    <RentalAssistanceForm
-      values={rentalAssistance}
-      row={row}
-      onSave={onSave}
-      onClose={onClose}
-      onDelete={onDelete}
-      index={index}
-      applicationMembers={applicationMembers}
-      loading={loading}
-      form={form}
-    />
-  )
-})
 
 export const RentalAssistanceForm = ({
   values,
@@ -177,9 +163,9 @@ export const RentalAssistanceForm = ({
     }
   ))
 
-  const onSaveWithIndex = () => {
+  const handleSave = () => {
     if (isFormValid()) {
-      onSave(index, convertCurrency(form.getState().values.rental_assistances[index]))
+      onSave(index)
     }
   }
 
@@ -247,7 +233,7 @@ export const RentalAssistanceForm = ({
           <Button
             classes='primary margin-right'
             tiny
-            onClick={onSaveWithIndex}
+            onClick={handleSave}
             disabled={loading}
             noBottomMargin
             text='Save'
@@ -289,23 +275,49 @@ const RentalAssistance = ({
   const {
     application,
     applicationMembers,
-    showNewRentalAssistancePanel,
-    handleOpenRentalAssistancePanel,
-    handleCloseRentalAssistancePanel,
+    handleDeleteRentalAssistance,
     handleSaveRentalAssistance,
-    showAddRentalAssistanceBtn,
-    hideAddRentalAssistanceBtn,
     loading
   } = store
 
-  const onSave = async (_, values) => {
-    await handleSaveRentalAssistance(values, form.getState().values, 'create')
+  const [isEditingNewAssistance, setIsEditingNewAssistance] = useState(false)
+
+  /**
+   * When the disabled prop changes to false, hide the new assistance panel.
+   */
+  useEffect(() => {
+    if (disabled) {
+      setIsEditingNewAssistance(false)
+    }
+  }, [disabled])
+
+  const handleOpenNewPanel = () => {
+    setIsEditingNewAssistance(true)
   }
 
-  const onClose = () => {
-    form.change(`rental_assistances.${application.rental_assistances.length}`, {})
-    handleCloseRentalAssistancePanel()
+  const handleCloseNewPanel = () => {
+    setIsEditingNewAssistance(false)
+    handleCancelEdit(application.rental_assistances.length)
   }
+
+  const handleCancelEdit = (index) => {
+    const isNewAssistance = index === application.rental_assistances.length
+    const assistanceToRevertTo = isNewAssistance ? {} : application.rental_assistances[index]
+    form.change(`rental_assistances.${index}`, assistanceToRevertTo)
+  }
+
+  const handleSave = async (index, action = 'update') => {
+    const entireForm = form.getState().values
+    const rentalAssistance = convertCurrency(entireForm.rental_assistances[index])
+    return handleSaveRentalAssistance(rentalAssistance, entireForm, action)
+  }
+
+  const handleSaveNewAssistance = async (index) =>
+    handleSave(index, 'create')
+      .then(() => setIsEditingNewAssistance(false))
+
+  const handleDelete = async (rentalAssistance) =>
+    handleDeleteRentalAssistance(rentalAssistance, form.getState().values)
 
   return (
     <>
@@ -313,18 +325,21 @@ const RentalAssistance = ({
         <RentalAssistanceTable
           rentalAssistances={application.rental_assistances}
           applicationMembers={applicationMembers}
-          onEdit={hideAddRentalAssistanceBtn}
+          onCancelEdit={handleCancelEdit}
+          onDelete={handleDelete}
+          onSave={handleSave}
           form={form}
+          loading={loading}
           submitting={submitting}
           disabled={disabled}
         />
       )}
 
-      {!disabled && showNewRentalAssistancePanel && (
+      {!disabled && isEditingNewAssistance && (
         <FormGrid.Row expand={false}>
           <RentalAssistanceForm
-            onSave={onSave}
-            onClose={onClose}
+            onSave={handleSaveNewAssistance}
+            onClose={handleCloseNewPanel}
             applicationMembers={applicationMembers}
             loading={loading}
             values={{ type_of_assistance: null }}
@@ -335,7 +350,7 @@ const RentalAssistance = ({
           />
         </FormGrid.Row>
       )}
-      {showAddRentalAssistanceBtn && (
+      {!isEditingNewAssistance && (
         <FormGrid.Row>
           <FormGrid.Item>
             {!disabled && (
@@ -344,7 +359,7 @@ const RentalAssistance = ({
                 text='Add Rental Assistance'
                 small
                 disabled={loading}
-                onClick={handleOpenRentalAssistancePanel}
+                onClick={handleOpenNewPanel}
               />
             )}
             <div className={disabled ? 'margin-top' : 'margin-top--half'} />
