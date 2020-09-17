@@ -85,7 +85,7 @@ describe('RentalAssistance', () => {
 })
 
 describe('RentalAssistanceTable', () => {
-  const getWrapper = ({ submitting = false, disabled = false }) => {
+  const getWrapper = ({ disabled = false }) => {
     const context = cloneDeep(baseContext)
     context.application.rental_assistances = [rentalAssistance]
 
@@ -96,7 +96,6 @@ describe('RentalAssistanceTable', () => {
           form={form}
           rentalAssistances={[rentalAssistance]}
           applicationMembers={[]}
-          submitting={submitting}
           disabled={disabled}
         />
       )
@@ -108,23 +107,13 @@ describe('RentalAssistanceTable', () => {
     expect(wrapper.find(ExpandableTable)).toHaveLength(1)
   })
 
-  test('should not close all panels if not submitting or disabled', () => {
+  test('should not close all panels if not disabled', () => {
     const wrapper = getWrapper({})
     expect(wrapper.find(ExpandableTable).prop('closeAllRows')).toBeFalsy()
   })
 
-  test('should close all panels when submitting', () => {
-    const wrapper = getWrapper({ submitting: true })
-    expect(wrapper.find(ExpandableTable).prop('closeAllRows')).toBeTruthy()
-  })
-
   test('should close all panels when disabled', () => {
     const wrapper = getWrapper({ disabled: true })
-    expect(wrapper.find(ExpandableTable).prop('closeAllRows')).toBeTruthy()
-  })
-
-  test('should close all panels when submitting and disabled', () => {
-    const wrapper = getWrapper({ disabled: true, submitting: true })
     expect(wrapper.find(ExpandableTable).prop('closeAllRows')).toBeTruthy()
   })
 })

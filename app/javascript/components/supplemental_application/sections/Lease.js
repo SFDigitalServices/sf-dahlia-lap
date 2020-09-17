@@ -18,6 +18,7 @@ import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
 import { validateLeaseCurrency } from '~/utils/form/validations'
 import { EDIT_LEASE_STATE } from '../SupplementalApplicationPage'
 import { doesApplicationHaveLease } from '~/utils/leaseUtils'
+import { areLeaseAndRentalAssistancesValid } from '~/utils/form/formSectionValidations'
 
 const toggleNoPreferenceUsed = (form, event) => {
   // lease.preference_used need to be reset, otherwise SF validation fails
@@ -83,7 +84,7 @@ const LeaseActions = ({
   )
 }
 
-const Lease = ({ form, submitting, values, store }) => {
+const Lease = ({ form, values, store }) => {
   const {
     availableUnits,
     application,
@@ -130,6 +131,15 @@ const Lease = ({ form, submitting, values, store }) => {
 
   const areNoUnitsAvailable = !availableUnitsOptions.length
 
+  const validateAndSaveLease = (form) => {
+    if (areLeaseAndRentalAssistancesValid(form)) {
+      handleSaveLease(convertPercentAndCurrency(form.getState().values))
+    } else {
+      // submit to force errors to display
+      form.submit()
+    }
+  }
+
   return (
     <InlineModal>
       <ContentSection.Header description='If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.' />
@@ -175,7 +185,6 @@ const Lease = ({ form, submitting, values, store }) => {
         </FormGrid.Row>
         <RentalAssistance
           form={form}
-          submitting={submitting}
           disabled={disabled}
           loading={loading}
         />
@@ -217,9 +226,8 @@ const Lease = ({ form, submitting, values, store }) => {
         </FormGrid.Row>
       </ContentSection.Sub>
       <FormGrid.Row>
-        {/* TODO: Wire up actions for buttons, set to disabled when loading */}
         <LeaseActions
-          onSave={() => handleSaveLease(convertPercentAndCurrency(form.getState().values))}
+          onSave={() => validateAndSaveLease(form)}
           onCancelLeaseClick={() => handleCancelLeaseClick(form)}
           onEditLeaseClick={handleEditLeaseClick}
           onDelete={openDeleteLeaseConfirmation}
