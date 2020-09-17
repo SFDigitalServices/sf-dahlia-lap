@@ -30,7 +30,6 @@ const Dropdown = ({
       isClearable={false}
       isSearchable={false}
       className='dropdown'
-      menuIsOpen
       onChange={(value) => onChange(value.value)}
       defaultValue={selectedItem}
       styles={customStyles}
