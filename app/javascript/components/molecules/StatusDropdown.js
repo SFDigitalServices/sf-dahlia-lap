@@ -7,11 +7,8 @@ import { LEASE_UP_STATUS_OPTIONS, LEASE_UP_STATUS_VALUES } from '~/utils/statusU
 import Dropdown from '../molecules/Dropdown'
 
 const renderStatusOption = ({ value, label, style }) => {
-  let liClassName = 'dropdown-menu_item'
-  // if (selected) { liClassName += ' is-selected' }
-  if (style) { classNames(liClassName, style) }
   return (
-    <li className={liClassName}>
+    <li className={classNames('dropdown-menu_item', style)}>
       <a>{label}</a>
     </li>
   )

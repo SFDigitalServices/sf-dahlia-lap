@@ -2,6 +2,7 @@ import React from 'react'
 import { find } from 'lodash'
 import Select from 'react-select'
 import PropTypes from 'prop-types'
+import { COLORS } from '~/components/atoms/colors'
 
 const Dropdown = ({
   placeholder,
@@ -17,7 +18,8 @@ const Dropdown = ({
   const customStyles = {
     option: (provided, state) => ({
       ...provided,
-      padding: 0
+      padding: 0,
+      backgroundColor: (state.isSelected && COLORS.primaryTint) || (state.isFocused && COLORS.vapor)
     })
   }
 
@@ -28,6 +30,7 @@ const Dropdown = ({
       isClearable={false}
       isSearchable={false}
       className='dropdown'
+      menuIsOpen
       onChange={(value) => onChange(value.value)}
       defaultValue={selectedItem}
       styles={customStyles}
