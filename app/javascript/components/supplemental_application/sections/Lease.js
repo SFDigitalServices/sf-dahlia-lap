@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { filter, map, isEmpty } from 'lodash'
 
 import Button from '~/components/atoms/Button'
@@ -9,6 +9,7 @@ import formUtils from '~/utils/formUtils'
 import ParkingInformationInputs from './ParkingInformationInputs'
 import RentalAssistance from './RentalAssistance'
 import { convertPercentAndCurrency } from '../../../utils/form/validations'
+import ConfirmationModal from '~/components/organisms/ConfirmationModal'
 
 import { pluck } from '~/utils/utils'
 import { withContext } from '../context'
@@ -95,6 +96,8 @@ const Lease = ({ form, values, store }) => {
     loading
   } = store
 
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
+
   const isEditingMode = leaseSectionState === EDIT_LEASE_STATE
   const disabled = !isEditingMode
 
@@ -117,6 +120,14 @@ const Lease = ({ form, values, store }) => {
   const getVisited = (fieldName) => (
     form.getFieldState(fieldName)?.visited
   )
+
+  const openDeleteLeaseConfirmation = () => setShowDeleteConfirmation(true)
+  const closeDeleteLeaseConfirmation = () => setShowDeleteConfirmation(false)
+
+  const handleDeleteLeaseConfirmed = () => {
+    setShowDeleteConfirmation(false)
+    handleDeleteLease()
+  }
 
   const areNoUnitsAvailable = !availableUnitsOptions.length
 
@@ -219,12 +230,23 @@ const Lease = ({ form, values, store }) => {
           onSave={() => validateAndSaveLease(form)}
           onCancelLeaseClick={() => handleCancelLeaseClick(form)}
           onEditLeaseClick={handleEditLeaseClick}
-          onDelete={handleDeleteLease}
+          onDelete={openDeleteLeaseConfirmation}
           loading={loading}
           leaseExists={doesApplicationHaveLease(application)}
           isEditing={isEditingMode}
         />
       </FormGrid.Row>
+      <ConfirmationModal
+        isOpen={showDeleteConfirmation}
+        onCloseClick={closeDeleteLeaseConfirmation}
+        onSecondaryClick={closeDeleteLeaseConfirmation}
+        onPrimaryClick={handleDeleteLeaseConfirmed}
+        primaryButtonIsAlert
+        primaryText='Delete Lease'
+        secondaryText='Continue Editing'
+        subtitle='This will permanently delete the lease and all related rental assistances.'
+        title='Are you sure you want to delete this lease?'
+      />
     </InlineModal>
   )
 }
