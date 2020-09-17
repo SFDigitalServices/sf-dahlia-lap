@@ -1,3 +1,6 @@
+// These colors are pulled from the sf-dahlia-pattern-library
+// https://github.com/SFDigitalServices/sf-dahlia-pattern-library/blob/main/components/01-atoms/color.config.yml
+// Whenever possible, we should use classnames to style colors but we added these in case we need them.
 export const COLORS = {
   'dust': '#f5f8f9',
   'snow': '#f9f9f9',
