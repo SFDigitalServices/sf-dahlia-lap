@@ -1,61 +1,24 @@
 import React from 'react'
 import { find } from 'lodash'
-import Select, { components } from 'react-select'
-
-const formatOptionLabel = ({ value, label, style }) => {
-  let liClassName = 'dropdown-menu_item'
-  // if (selected) { liClassName += ' is-selected' }
-  if (style) { liClassName += ` ${style}` }
-  return (
-    <li className={liClassName}>
-      <a>
-        {label}
-      </a>
-    </li>
-  )
-}
+import Select from 'react-select'
+import PropTypes from 'prop-types'
 
 const Dropdown = ({
-  prompt,
+  placeholder,
   items,
   value,
-  styles,
-  buttonClasses,
-  wrapperClasses,
-  menuClasses = [],
   disabled,
-  multiple,
-  onChange
+  onChange,
+  renderToggle,
+  renderOption
 }) => {
   let selectedItem = find(items, { value })
 
   const customStyles = {
-    option: (provided) => ({
+    option: (provided, state) => ({
       ...provided,
       padding: 0
     })
-  }
-
-  const customValueContainer = ({ children, getValue, ...props }) => {
-    const val = getValue()[0]
-    return (
-      <button
-        className={`button dropdown-button has-icon--right text-align-left ${buttonClasses ? buttonClasses.join(' ') : ''} ${val?.style ? val.style : 'tertiary'}`}
-        disabled={disabled}
-        type='button'>
-        <span className='ui-icon ui-small'>
-          <svg>
-            <use xlinkHref='#i-arrow-down' />
-          </svg>
-        </span>
-        {val?.label ? val.label : 'status'}
-        <div className='ui-icon ui-small'>
-          <components.ValueContainer getValue={getValue} {...props}>
-            {children}
-          </components.ValueContainer>
-        </div>
-      </button>
-    )
   }
 
   return (
@@ -67,9 +30,9 @@ const Dropdown = ({
       onChange={(value) => onChange(value.value)}
       defaultValue={selectedItem}
       styles={customStyles}
-      formatOptionLabel={formatOptionLabel}
+      formatOptionLabel={renderOption}
       components={{
-        ValueContainer: customValueContainer,
+        ValueContainer: renderToggle,
         SingleValue: () => null,
         IndicatorsContainer: () => null
       }}
@@ -78,4 +41,17 @@ const Dropdown = ({
   )
 }
 
+Dropdown.propTypes = {
+  placeholder: PropTypes.string,
+  items: PropTypes.arrayOf(PropTypes.object),
+  value: PropTypes.string,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
+  renderToggle: PropTypes.func.isRequired,
+  renderOption: PropTypes.func.isRequired
+}
+
+Dropdown.defaultProps = {
+  disabled: false
+}
 export default Dropdown

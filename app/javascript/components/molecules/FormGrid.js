@@ -30,11 +30,18 @@ FormGrid.Row.defaultProps = {
 
 // Wrapper for each form field.
 // NOTE: Grid is hardcoded. This should not be generic element
-FormGrid.Item = ({ children }) => (
-  <div className='form-grid_item small-6 medium-6 large-6 column'>
-    {children}
-  </div>
-)
+FormGrid.Item = ({ children, fullWidth = false }) => {
+  const classes = [
+    'form-grid_item',
+    'column'
+  ]
+
+  return (
+    <div className={classNames(classes.concat(fullWidth ? 'small-12' : 'small-6'))}>
+      {children}
+    </div>
+  )
+}
 
 // Use for form fields that have a shared label.
 FormGrid.Group = ({ children, label }) => (

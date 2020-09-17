@@ -1,9 +1,11 @@
 import React from 'react'
 import { Field } from 'react-final-form'
 
+import FormGrid from '~/components/molecules/FormGrid'
 import StatusDropdown from '~/components/molecules/StatusDropdown'
+import SubstatusDropdown from '~/components/molecules/SubstatusDropdown'
 import FormModal from './FormModal'
-import { TextAreaField } from '~/utils/form/final_form/Field'
+import { TextAreaField, Label } from '~/utils/form/final_form/Field'
 import validate from '~/utils/form/validations'
 import { statusRequiresComments, LEASE_UP_SUBSTATUS_OPTIONS, validateStatusForm } from '~/utils/statusUtils'
 
@@ -50,58 +52,73 @@ const StatusModalWrapper = ({
     }} >
     {(values, changeFieldValue) => (
       <div className={'form-group'}>
-        <h2 className='form-label'>Status</h2>
-        {/* Inline field due to the nested level throwing error in react-final-form */}
-        <Field
-          name='status'
-          validate={validate.isPresent('Status is required')}
-          component={({ input: { onChange }, meta, ...rest }) => (
-            <>
-              <StatusDropdown
-                status={values.status}
-                onChange={val => {
-                  onChange(val)
-                  changeFieldValue('subStatus', null)
-                }}
-                dropdownClasses='margin-bottom--half'
-                buttonClasses={['expand', 'small']}
-                menuClasses={['form-modal_dropdown-menu']}
-                wrapperClasses={['margin-bottom--half', 'status']} />
-              {!values.status && meta.touched && meta.error && <small className='error'>{meta.error}</small>}
-            </>
-          )}
-        />
-        {((values.status) && LEASE_UP_SUBSTATUS_OPTIONS[values.status]) && (
-          <Field
-            name='subStatus'
-            component={({ input: { onChange }, meta }) => (
+        <FormGrid.Row paddingBottom>
+          <FormGrid.Item fullWidth>
+            <Label label='Status' />
+            {/* Inline field due to the nested level throwing error in react-final-form */}
+            <Field
+              name='status'
+              validate={validate.isPresent('Status is required')}
+              component={({ input: { onChange }, meta, ...rest }) => {
+                const hasError = !values.status && meta.touched && meta.error
+                return (
               <>
-                <h2 className={`form-label ${!values.subStatus && meta.touched && meta.error ? 'error' : ''}`}>Status Detail (required)</h2>
                 <StatusDropdown
                   status={values.status}
-                  subStatus={values.subStatus}
-                  prompt={'Select One...'}
-                  showSubStatus
-                  onChange={onChange}
-                  dropdownClasses='margin-bottom--half'
-                  buttonClasses={['expand', 'substatus', !values.subStatus && meta.touched && meta.error ? 'error' : '']}
-                  menuClasses={['form-modal_dropdown-menu']}
-                  wrapperClasses={['margin-bottom--half', 'subStatus', !values.subStatus && meta.touched && meta.error ? 'error' : '']} />
-                {!values.subStatus && meta.touched && meta.error && <small className='error'>{meta.error}</small>}
+                  onChange={val => {
+                    onChange(val)
+                    changeFieldValue('subStatus', null)
+                  }}
+                  expand
+                  size='small'
+                />
+                {hasError && <small className='error'>{meta.error}</small>}
               </>
-            )}
-          />
+                )
+              }}
+            />
+          </FormGrid.Item>
+        </FormGrid.Row>
+        {((values.status) && LEASE_UP_SUBSTATUS_OPTIONS[values.status]) && (
+          <FormGrid.Row paddingBottom>
+            <FormGrid.Item fullWidth>
+              <Label label='Status Detail' blockNote='(required)' />
+              <Field
+                name='subStatus'
+                component={({ input: { onChange }, meta }) => {
+                  const hasError = !values.subStatus && meta.touched && meta.error
+                  return (
+                <>
+                  <SubstatusDropdown
+                    status={values.status}
+                    subStatus={values.subStatus}
+                    onChange={onChange}
+                    hasError={hasError}
+                    expand
+                  />
+                  {hasError && <small className='error'>{meta.error}</small>}
+                </>
+                  )
+                }}
+              />
+            </FormGrid.Item>
+          </FormGrid.Row>
         )}
-        <TextAreaField
-          label={statusRequiresComments(values.status, values.subStatus) ? 'Comment (required)' : 'Comment'}
-          labelId='status-comment-label'
-          fieldName='comment'
-          id='status-comment'
-          cols='30'
-          rows='10'
-          placeholder='Add a comment'
-          ariaDescribedby='status-comment-label'
-          maxLength='255' />
+        <FormGrid.Row>
+          <FormGrid.Item fullWidth>
+            <TextAreaField
+              label={'Comment'}
+              blockNote={statusRequiresComments(values.status, values.subStatus) && '(required)'}
+              labelId='status-comment-label'
+              fieldName='comment'
+              id='status-comment'
+              cols='30'
+              rows='10'
+              placeholder='Add a comment'
+              ariaDescribedby='status-comment-label'
+              maxLength='255' />
+          </FormGrid.Item>
+        </FormGrid.Row>
       </div>
     )}
   </FormModal>

@@ -17,9 +17,9 @@ const LeaseUpStatusCell = ({ cell, onChange }) => {
   return (
     <StatusDropdown
       status={value}
+      size='tiny'
       onChange={val => onChange(applicationPreferenceId, applicationId, val)}
-      styles={{ position: 'absolute' }}
-      buttonClasses={['tiny']} />
+    />
   )
 }
 
