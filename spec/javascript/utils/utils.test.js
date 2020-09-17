@@ -1,5 +1,5 @@
 import { convertCurrency } from '~/utils/form/validations'
-import { filterChanged } from '~/utils/utils'
+import { filterChanged, isChanged } from '~/utils/utils'
 import { cloneDeep } from 'lodash'
 
 const defaultFormObject = {
@@ -25,6 +25,28 @@ const object = {
     string: 'str'
   }
 }
+
+describe('isChanged', () => {
+  test('should return false when both objects are equal', () => {
+    expect(isChanged(undefined, undefined)).toBeFalsy()
+    expect(isChanged(null, null)).toBeFalsy()
+    expect(isChanged({}, {})).toBeFalsy()
+    expect(isChanged({ a: 'a' }, { a: 'a' })).toBeFalsy()
+    expect(isChanged({ a: { b: 'b' } }, { a: { b: 'b' } })).toBeFalsy()
+    expect(isChanged({ a: [{ b: 'b' }] }, { a: [{ b: 'b' }] })).toBeFalsy()
+  })
+
+  test('should return true when both objects are unequal', () => {
+    expect(isChanged(null, undefined)).toBeTruthy()
+    expect(isChanged(undefined, {})).toBeTruthy()
+    expect(isChanged(null, {})).toBeTruthy()
+    expect(isChanged({ a: 'a' }, {})).toBeTruthy()
+    expect(isChanged({ a: 'a' }, { a: 'b' })).toBeTruthy()
+    expect(isChanged({ a: 'a' }, { b: 'a' })).toBeTruthy()
+    expect(isChanged({ a: { b: 'b' } }, { a: { b: 'a' } })).toBeTruthy()
+    expect(isChanged({ a: [{ b: 'b' }] }, { a: [{ b: 'a' }] })).toBeTruthy()
+  })
+})
 
 describe('convertCurrency', () => {
   test('should convert currency values to float from form object', async () => {

@@ -36,7 +36,9 @@ exports[`RentalAssistance matches snapshot 1`] = `
         "subscribe": [Function],
       }
     }
-    onEdit={[Function]}
+    onCancelEdit={[Function]}
+    onDelete={[Function]}
+    onSave={[Function]}
     rentalAssistances={
       Array [
         Object {

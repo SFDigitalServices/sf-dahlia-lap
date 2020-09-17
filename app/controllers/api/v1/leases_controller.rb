@@ -39,6 +39,18 @@ module Api
         end
       end
 
+      def destroy
+        response = rest_lease_service.destroy(params[:id])
+        if response
+          logger.debug "lease destroy response: #{response}"
+          render json: true
+        else
+          render status: 422, json: false
+        end
+      end
+
+      private
+
       def lease_params
         # TODO: Also require application_id
         params.require(:lease).permit(

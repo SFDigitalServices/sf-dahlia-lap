@@ -12,16 +12,11 @@ import {
 import {
   InputField
 } from '~/utils/form/final_form/Field'
+import ExpandableTable from '~/components/molecules/ExpandableTable'
 
 const baseContext = {
   application: { rental_assistances: [] },
-  applicationMembers: [{ id: '123', first_name: 'Test', last_name: 'Tester' }],
-  showNewRentalAssistancePanel: false,
-  handleOpenRentalAssistancePanel: () => { },
-  handleCloseRentalAssistancePanel: () => { },
-  handleSaveRentalAssistance: () => { },
-  showAddRentalAssistanceBtn: () => { },
-  hideAddRentalAssistanceBtn: () => { }
+  applicationMembers: [{ id: '123', first_name: 'Test', last_name: 'Tester' }]
 }
 
 const rentalAssistance = {
@@ -57,13 +52,69 @@ describe('RentalAssistance', () => {
     expect(wrapper.find(RentalAssistanceTable)).toHaveLength(1)
   })
 
-  test('should be able to show the add rental assistance form along with the table', () => {
+  test('should render the Add Rental Assistance button by default', () => {
+    const context = cloneDeep(baseContext)
+    const wrapper = getWrapper(context)
+    expect(findByNameAndProps(wrapper, 'Button', { text: 'Add Rental Assistance' })).toHaveLength(1)
+  })
+
+  test('does not render the create new assistance form by default', () => {
+    const context = cloneDeep(baseContext)
+    const wrapper = getWrapper(context)
+    expect(wrapper.find(RentalAssistanceForm)).toHaveLength(0)
+  })
+
+  describe('after the rental assistance button is clicked', () => {
+    let wrapper
+
+    beforeEach(() => {
+      wrapper = getWrapper(cloneDeep(baseContext))
+      findByNameAndProps(wrapper, 'Button', { text: 'Add Rental Assistance' }).simulate('click')
+    })
+
+    test('should render the new rental assistance form after the add rental assistance button is clicked', () => {
+      expect(wrapper.find(RentalAssistanceForm)).toHaveLength(1)
+    })
+
+    test('should hide the new rental assistance form after cancel is clicked', () => {
+      wrapper.find(RentalAssistanceForm).prop('onClose')()
+      expect(wrapper.find(RentalAssistanceForm)).toHaveLength(0)
+      expect(findByNameAndProps(wrapper, 'Button', { text: 'Add Rental Assistance' })).toHaveLength(1)
+    })
+  })
+})
+
+describe('RentalAssistanceTable', () => {
+  const getWrapper = ({ disabled = false }) => {
     const context = cloneDeep(baseContext)
     context.application.rental_assistances = [rentalAssistance]
-    context.showNewRentalAssistancePanel = true
-    const wrapper = getWrapper(context)
-    expect(wrapper.find(RentalAssistanceTable)).toHaveLength(1)
-    expect(wrapper.find(RentalAssistanceForm)).toHaveLength(1)
+
+    return withForm(
+      context,
+      (form) => (
+        <RentalAssistanceTable
+          form={form}
+          rentalAssistances={[rentalAssistance]}
+          applicationMembers={[]}
+          disabled={disabled}
+        />
+      )
+    )
+  }
+
+  test('should render an ExpanderTable', () => {
+    const wrapper = getWrapper({})
+    expect(wrapper.find(ExpandableTable)).toHaveLength(1)
+  })
+
+  test('should not close all panels if not disabled', () => {
+    const wrapper = getWrapper({})
+    expect(wrapper.find(ExpandableTable).prop('closeAllRows')).toBeFalsy()
+  })
+
+  test('should close all panels when disabled', () => {
+    const wrapper = getWrapper({ disabled: true })
+    expect(wrapper.find(ExpandableTable).prop('closeAllRows')).toBeTruthy()
   })
 })
 
