@@ -42,7 +42,8 @@ const SubstatusDropdown = ({
     return (
       <button
         className={classNames(buttonClasses)}
-        type='button'>
+        type='button'
+        disabled={disabled}>
         <span className='ui-icon ui-small'>
           <svg>
             <use xlinkHref='#i-arrow-down' />

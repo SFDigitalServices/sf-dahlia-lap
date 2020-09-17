@@ -24,6 +24,7 @@ const Dropdown = ({
   return (
     <Select
       placeholder={null}
+      isDisabled={disabled}
       isClearable={false}
       isSearchable={false}
       className='dropdown'

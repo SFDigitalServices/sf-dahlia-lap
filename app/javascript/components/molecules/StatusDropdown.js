@@ -40,7 +40,8 @@ const StatusDropdown = ({
     return (
       <button
         className={classNames(buttonClasses.concat(val?.style || 'tertiary'))}
-        type='button'>
+        type='button'
+        disabled={disabled}>
         <span className='ui-icon ui-small'>
           <svg>
             <use xlinkHref='#i-arrow-down' />
