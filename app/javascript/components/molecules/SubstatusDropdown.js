@@ -8,6 +8,8 @@ import {
   LEASE_UP_SUBSTATUS_OPTIONS,
   LEASE_UP_SUBSTATUS_VALUES
 } from '~/utils/statusUtils'
+
+import Icon from '../atoms/Icon'
 import Dropdown from '../molecules/Dropdown'
 
 const renderSubstatusOption = ({ value, label }) => {
@@ -44,11 +46,7 @@ const SubstatusDropdown = ({
         className={classNames(buttonClasses)}
         type='button'
         disabled={disabled}>
-        <span className='ui-icon ui-small'>
-          <svg>
-            <use xlinkHref='#i-arrow-down' />
-          </svg>
-        </span>
+        <Icon icon='arrow-down' />
         {val?.label ? val.label : placeholder}
         <div className='ui-icon ui-small'>
           <components.ValueContainer getValue={getValue} {...props}>

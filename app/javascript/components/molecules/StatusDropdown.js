@@ -5,6 +5,7 @@ import classNames from 'classnames'
 
 import { LEASE_UP_STATUS_OPTIONS, LEASE_UP_STATUS_VALUES } from '~/utils/statusUtils'
 import Dropdown from '../molecules/Dropdown'
+import Icon from '../atoms/Icon'
 
 const renderStatusOption = ({ value, label, style }) => {
   return (
@@ -39,11 +40,7 @@ const StatusDropdown = ({
         className={classNames(buttonClasses.concat(val?.style || 'tertiary'))}
         type='button'
         disabled={disabled}>
-        <span className='ui-icon ui-small'>
-          <svg>
-            <use xlinkHref='#i-arrow-down' />
-          </svg>
-        </span>
+        <Icon icon='arrow-down' />
         {val?.label ? val.label : placeholder}
         <div className='ui-icon ui-small'>
           <components.ValueContainer getValue={getValue} {...props}>
