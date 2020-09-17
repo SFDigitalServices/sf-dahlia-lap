@@ -451,11 +451,7 @@ const mapProperties = ({
     application: setApplicationsDefaults(application),
     listing: application.listing,
     statusHistory: statusHistory,
-    onSubmit: (values) => updateApplication(
-      values,
-      application,
-      shouldSaveLeaseOnApplicationSave(leaseSectionState)
-    ),
+    onSubmit: (values) => this.handleSaveApplication(values),
     fileBaseUrl: fileBaseUrl,
     units: units,
     availableUnits: availableUnits

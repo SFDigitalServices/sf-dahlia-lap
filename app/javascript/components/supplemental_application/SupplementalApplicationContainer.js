@@ -70,7 +70,7 @@ const Income = ({ listingAmiCharts, visited, form }) => (
   </ContentSection>
 )
 
-const LeaseSection = ({ form, submitting, values, onCreateLeaseClick, showLeaseSection }) => (
+const LeaseSection = ({ form, values, onCreateLeaseClick, showLeaseSection }) => (
   <ContentSection
     title='Lease'
     description={!showLeaseSection && 'Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.'}
@@ -79,7 +79,6 @@ const LeaseSection = ({ form, submitting, values, onCreateLeaseClick, showLeaseS
       <Lease
         form={form}
         values={values}
-        submitting={submitting}
       />
     ) : <Button id='create-lease' text='Create Lease' small onClick={onCreateLeaseClick} />
     }
@@ -182,7 +181,6 @@ const SupplementalApplicationContainer = ({ store }) => {
         handleSubmit,
         form,
         touched,
-        submitting,
         values,
         visited
       }) => (
@@ -221,7 +219,6 @@ const SupplementalApplicationContainer = ({ store }) => {
                   <LeaseSection
                     form={form}
                     values={values}
-                    submitting={submitting}
                     showLeaseSection={leaseSectionState !== NO_LEASE_STATE}
                     onCreateLeaseClick={handleCreateLeaseClick}
                   />

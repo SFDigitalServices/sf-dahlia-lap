@@ -12,6 +12,7 @@ import FormGrid from '~/components/molecules/FormGrid'
 import InlineModal from '~/components/molecules/InlineModal'
 import formUtils from '~/utils/formUtils'
 import validate, { convertCurrency } from '~/utils/form/validations'
+import { isSingleRentalAssistanceValid } from '~/utils/form/formSectionValidations'
 import {
   CurrencyField,
   HelpText,
@@ -46,7 +47,6 @@ const isOther = (values) => values && values.type_of_assistance === 'Other'
 
 export const RentalAssistanceTable = ({
   form,
-  submitting,
   rentalAssistances,
   onCancelEdit,
   onSave,
@@ -123,7 +123,7 @@ export const RentalAssistanceTable = ({
         rows={rows}
         expanderRenderer={expanderRenderer}
         expandedRowRenderer={expandedRowRenderer(rentalAssistances, form)}
-        closeAllRows={submitting || disabled}
+        closeAllRows={disabled}
         classes={['rental-assistances']}
       />
     </TableWrapper>
@@ -148,7 +148,7 @@ export const RentalAssistanceForm = ({
   }
 
   const isFormValid = () => {
-    const isValid = isEmpty(form.getState().errors.rental_assistances) || isEmpty(form.getState().errors.rental_assistances[index])
+    const isValid = isSingleRentalAssistanceValid(form, index)
     if (!isValid) {
       // Force submit to show errors on forms
       form.submit()
@@ -268,7 +268,6 @@ export const RentalAssistanceForm = ({
 const RentalAssistance = ({
   store,
   form,
-  submitting,
   visited,
   disabled
 }) => {
@@ -330,7 +329,6 @@ const RentalAssistance = ({
           onSave={handleSave}
           form={form}
           loading={loading}
-          submitting={submitting}
           disabled={disabled}
         />
       )}
