@@ -1,11 +1,12 @@
 import React from 'react'
 import { Field } from 'react-final-form'
+import classNames from 'classnames'
 
 import FormGrid from '~/components/molecules/FormGrid'
 import StatusDropdown from '~/components/molecules/StatusDropdown'
 import SubstatusDropdown from '~/components/molecules/SubstatusDropdown'
 import FormModal from './FormModal'
-import { TextAreaField, Label } from '~/utils/form/final_form/Field'
+import { TextAreaField, Label, FieldError } from '~/utils/form/final_form/Field'
 import validate from '~/utils/form/validations'
 import { statusRequiresComments, LEASE_UP_SUBSTATUS_OPTIONS, validateStatusForm } from '~/utils/statusUtils'
 
@@ -54,26 +55,25 @@ const StatusModalWrapper = ({
       <div className={'form-group'}>
         <FormGrid.Row paddingBottom>
           <FormGrid.Item fullWidth>
-            <Label label='Status' />
-            {/* Inline field due to the nested level throwing error in react-final-form */}
             <Field
               name='status'
               validate={validate.isPresent('Status is required')}
               component={({ input: { onChange }, meta, ...rest }) => {
                 const hasError = !values.status && meta.touched && meta.error
                 return (
-              <>
-                <StatusDropdown
-                  status={values.status}
-                  onChange={val => {
-                    onChange(val)
-                    changeFieldValue('subStatus', null)
-                  }}
-                  expand
-                  size='small'
-                />
-                {hasError && <small className='error'>{meta.error}</small>}
-              </>
+                  <div className={classNames('form-group', hasError && 'error')}>
+                    <Label label='Status' />
+                    <StatusDropdown
+                      status={values.status}
+                      onChange={val => {
+                        onChange(val)
+                        changeFieldValue('subStatus', null)
+                      }}
+                      expand
+                      size='small'
+                    />
+                    <FieldError meta={meta} />
+                  </div>
                 )
               }}
             />
@@ -82,22 +82,22 @@ const StatusModalWrapper = ({
         {((values.status) && LEASE_UP_SUBSTATUS_OPTIONS[values.status]) && (
           <FormGrid.Row paddingBottom>
             <FormGrid.Item fullWidth>
-              <Label label='Status Detail' blockNote='(required)' />
               <Field
                 name='subStatus'
                 component={({ input: { onChange }, meta }) => {
                   const hasError = !values.subStatus && meta.touched && meta.error
                   return (
-                <>
-                  <SubstatusDropdown
-                    status={values.status}
-                    subStatus={values.subStatus}
-                    onChange={onChange}
-                    hasError={hasError}
-                    expand
-                  />
-                  {hasError && <small className='error'>{meta.error}</small>}
-                </>
+                    <div className={classNames('form-group', hasError && 'error')}>
+                      <Label label='Status Detail' blockNote='(required)' />
+                      <SubstatusDropdown
+                        status={values.status}
+                        subStatus={values.subStatus}
+                        onChange={onChange}
+                        hasError={hasError}
+                        expand
+                      />
+                      <FieldError meta={meta} />
+                    </div>
                   )
                 }}
               />
