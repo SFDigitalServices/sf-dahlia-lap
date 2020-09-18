@@ -100,8 +100,7 @@ describe('SupplementalApplicationPage', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  test('it doesnt send field that are not changed', async () => {
-    const payload = getMockApplication()
+  test('it doesnt send a request if nothing is changed', async () => {
     let wrapper
     await act(async () => {
       wrapper = mount(
@@ -112,8 +111,24 @@ describe('SupplementalApplicationPage', () => {
       )
     })
     await act(async () => { wrapper.find('form').first().simulate('submit') })
+    expect(mockSubmitApplication.mock.calls.length).toBe(0)
+  })
+
+  test('it only updates changed fields', async () => {
+    const payload = getMockApplication()
+    let wrapper
+    await act(async () => {
+      wrapper = mount(
+        <SupplementalApplicationPage
+          application={getMockApplication()}
+          statusHistory={statusHistory}
+          units={units} />
+      )
+    })
+    wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
+    await act(async () => { wrapper.find('form').first().simulate('submit') })
     expect(mockSubmitApplication.mock.calls.length).toBe(1)
-    expect(mockSubmitApplication).toHaveBeenCalledWith({ id: payload.id })
+    expect(mockSubmitApplication).toHaveBeenCalledWith({ id: payload.id, number_of_dependents: 2 })
   })
 
   test('it saves demographics correctly', async () => {
@@ -358,6 +373,8 @@ describe('SupplementalApplicationPage', () => {
     })
 
     test('should send a null value for unit to API if selected', async () => {
+      wrapper.find('#edit-lease-button').first().simulate('click')
+
       // Select the value from the dropdown
       wrapper.find('[name="lease.unit"] select option[value=""]').simulate('change')
 

@@ -60,4 +60,26 @@ RSpec.describe Api::V1::LeasesController, type: :controller do
       expect(json['lease']['monthly_parking_rent']).to eq(updated_monthly_rent)
     end
   end
+
+  describe '#destroy' do
+    before :each do
+      VCR.use_cassette('api/v1/leases/create/app-without-lease') do
+        params = {
+          application_id: application_without_lease,
+          lease: {
+            'monthly_parking_rent': 100,
+          },
+        }
+        post :create, params: params
+        @lease_id = JSON.parse(response.body)['lease']['id']
+      end
+    end
+    it 'deletes a lease successfully' do
+      VCR.use_cassette('api/v1/leases/destroy') do
+        delete :destroy, params: { id: @lease_id, application_id: application_without_lease }
+      end
+      expect(response).to have_http_status(:success)
+      expect(response.body).to eq("true")
+    end
+  end
 end

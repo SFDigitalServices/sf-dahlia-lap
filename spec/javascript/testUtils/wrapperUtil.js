@@ -78,3 +78,8 @@ export const findByNameAndProps = (wrapper, name, props) => {
 
   return wrapper.findWhere(predicate)
 }
+
+export const findWithText = (wrapper, nodeName, text) => {
+  const predicate = n => n.name() === nodeName && n.text() === text
+  return wrapper.findWhere(predicate)
+}

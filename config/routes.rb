@@ -35,7 +35,7 @@ Rails.application.routes.draw do
       get 'ami' => 'ami#get'
 
       resources :applications, only: %w[index update] do
-        resources :leases, only: %w[create update]
+        resources :leases, only: %w[create update destroy]
       end
 
       scope '/field-update-comments' do

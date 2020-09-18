@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { filter, map, isEmpty } from 'lodash'
 
 import Button from '~/components/atoms/Button'
@@ -8,6 +8,8 @@ import InlineModal from '~/components/molecules/InlineModal'
 import formUtils from '~/utils/formUtils'
 import ParkingInformationInputs from './ParkingInformationInputs'
 import RentalAssistance from './RentalAssistance'
+import { convertPercentAndCurrency } from '../../../utils/form/validations'
+import ConfirmationModal from '~/components/organisms/ConfirmationModal'
 
 import { pluck } from '~/utils/utils'
 import { withContext } from '../context'
@@ -16,6 +18,7 @@ import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
 import { validateLeaseCurrency } from '~/utils/form/validations'
 import { EDIT_LEASE_STATE } from '../SupplementalApplicationPage'
 import { doesApplicationHaveLease } from '~/utils/leaseUtils'
+import { areLeaseAndRentalAssistancesValid } from '~/utils/form/formSectionValidations'
 
 const toggleNoPreferenceUsed = (form, event) => {
   // lease.preference_used need to be reset, otherwise SF validation fails
@@ -81,7 +84,7 @@ const LeaseActions = ({
   )
 }
 
-const Lease = ({ form, submitting, values, store }) => {
+const Lease = ({ form, values, store }) => {
   const {
     availableUnits,
     application,
@@ -92,6 +95,8 @@ const Lease = ({ form, submitting, values, store }) => {
     leaseSectionState,
     loading
   } = store
+
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
 
   const isEditingMode = leaseSectionState === EDIT_LEASE_STATE
   const disabled = !isEditingMode
@@ -120,7 +125,24 @@ const Lease = ({ form, submitting, values, store }) => {
     form.getFieldState(fieldName)?.visited
   )
 
+  const openDeleteLeaseConfirmation = () => setShowDeleteConfirmation(true)
+  const closeDeleteLeaseConfirmation = () => setShowDeleteConfirmation(false)
+
+  const handleDeleteLeaseConfirmed = () => {
+    setShowDeleteConfirmation(false)
+    handleDeleteLease()
+  }
+
   const areNoUnitsAvailable = !availableUnitsOptions.length
+
+  const validateAndSaveLease = (form) => {
+    if (areLeaseAndRentalAssistancesValid(form)) {
+      handleSaveLease(convertPercentAndCurrency(form.getState().values))
+    } else {
+      // submit to force errors to display
+      form.submit()
+    }
+  }
 
   return (
     <InlineModal>
@@ -184,8 +206,8 @@ const Lease = ({ form, submitting, values, store }) => {
         </FormGrid.Row>
         <RentalAssistance
           form={form}
-          submitting={submitting}
           disabled={disabled}
+          loading={loading}
         />
         <FormGrid.Row>
           <FormGrid.Item>
@@ -225,17 +247,27 @@ const Lease = ({ form, submitting, values, store }) => {
         </FormGrid.Row>
       </ContentSection.Sub>
       <FormGrid.Row>
-        {/* TODO: Wire up actions for buttons, set to disabled when loading */}
         <LeaseActions
-          onSave={handleSaveLease}
-          onCancelLeaseClick={handleCancelLeaseClick}
+          onSave={() => validateAndSaveLease(form)}
+          onCancelLeaseClick={() => handleCancelLeaseClick(form)}
           onEditLeaseClick={handleEditLeaseClick}
-          onDelete={handleDeleteLease}
+          onDelete={openDeleteLeaseConfirmation}
           loading={loading}
           leaseExists={doesApplicationHaveLease(application)}
           isEditing={isEditingMode}
         />
       </FormGrid.Row>
+      <ConfirmationModal
+        isOpen={showDeleteConfirmation}
+        onCloseClick={closeDeleteLeaseConfirmation}
+        onSecondaryClick={closeDeleteLeaseConfirmation}
+        onPrimaryClick={handleDeleteLeaseConfirmed}
+        primaryButtonIsAlert
+        primaryText='Delete Lease'
+        secondaryText='Continue Editing'
+        subtitle='This will permanently delete the lease and all related rental assistances.'
+        title='Are you sure you want to delete this lease?'
+      />
     </InlineModal>
   )
 }
