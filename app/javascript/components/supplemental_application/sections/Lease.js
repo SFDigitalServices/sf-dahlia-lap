@@ -102,8 +102,12 @@ const Lease = ({ form, values, store }) => {
   const disabled = !isEditingMode
 
   const availableUnitsOptions = formUtils.toOptions(
-    map(availableUnits, pluck('id', 'unit_number'))
+    map(availableUnits, pluck('id', 'unit_number', 'priority_type'))
   )
+
+  const accessibilityUnits = availableUnits.filter((unit) => {
+    return unit.priority_type && unit.priority_type.match(/Mobility|Hearing|Vision/)
+  })
 
   const noUnitsOptions = [{ value: '', label: 'No Units Available' }]
   const confirmedPreferences = filter(application.preferences, {
@@ -144,6 +148,23 @@ const Lease = ({ form, values, store }) => {
     <InlineModal>
       <ContentSection.Header description='If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.' />
       <ContentSection.Sub title='Unit and Parking'>
+        <FormGrid.Row>
+          <FormGrid.Item>
+            <div className='margin-bottom'>
+              <strong className='form-note max-width'>Remaining Available Units and Set-Asides</strong>
+            </div>
+          </FormGrid.Item>
+        </FormGrid.Row>
+        <FormGrid.Row>
+          <FormGrid.Item small>
+            <strong className='form-note micro'>Total</strong>
+            <p className='margin-top'><strong className='form-note'>{availableUnits.length}</strong></p>
+          </FormGrid.Item>
+          <FormGrid.Item small>
+            <strong className='form-note micro'>Accessibility</strong>
+            <p className='margin-top'>{accessibilityUnits.length}</p>
+          </FormGrid.Item>
+        </FormGrid.Row>
         <FormGrid.Row>
           <FormGrid.Item>
             <SelectField
