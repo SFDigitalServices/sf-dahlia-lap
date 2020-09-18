@@ -937,7 +937,7 @@ Array [
                         <input
                           checked={true}
                           id="form-ctrl-reserved_senior"
-                          onClick={[Function]}
+                          onChange={[Function]}
                           type="checkbox"
                         />
                         <label
@@ -964,7 +964,7 @@ Array [
                         <input
                           checked={true}
                           id="form-ctrl-has_military_service"
-                          onClick={[Function]}
+                          onChange={[Function]}
                           type="checkbox"
                         />
                         <label
@@ -991,7 +991,7 @@ Array [
                         <input
                           checked={true}
                           id="form-ctrl-has_developmental_disability"
-                          onClick={[Function]}
+                          onChange={[Function]}
                           type="checkbox"
                         />
                         <label
