@@ -105,7 +105,7 @@ const Lease = ({ form, values, store }) => {
     map(availableUnits, pluck('id', 'unit_number', 'priority_type'))
   )
 
-  const accessibilityUnits = availableUnits.filter((unit) => {
+  const accessibilityUnits = availableUnits && availableUnits.filter((unit) => {
     return unit.priority_type && unit.priority_type.match(/Mobility|Hearing|Vision/)
   })
 
