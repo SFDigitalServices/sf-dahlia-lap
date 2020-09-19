@@ -22,7 +22,8 @@ const LeaseUpTableContainer = ({
     atMaxPages,
     updateStatusModal,
     handleCreateStatusUpdate
-  } }) => {
+  }
+}) => {
   const closeStatusModal = () => {
     updateStatusModal({
       isOpen: false,

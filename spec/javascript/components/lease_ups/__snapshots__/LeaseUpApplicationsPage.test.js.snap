@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
+exports[`LeaseUpApplicationsPage should render LeaseUpTable 1`] = `
 <LeaseUpApplicationsPage
   listing={
     Object {

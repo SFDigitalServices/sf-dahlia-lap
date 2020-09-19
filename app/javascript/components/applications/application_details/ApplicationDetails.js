@@ -19,7 +19,9 @@ import appPaths from '~/utils/appPaths'
 const ProofListItems = ({ fileBaseUrl, files }) => map(files, (file) => {
   return (
     <li key={file.id}>
-      <a target='_blank'
+      <a
+        target='_blank'
+        rel='noreferrer'
         href={appPaths.toAttachmentDownload(fileBaseUrl, file)}>
         {file.document_type}
       </a>

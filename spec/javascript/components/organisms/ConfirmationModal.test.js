@@ -64,10 +64,6 @@ describe('ConfirmationModal', () => {
       expect(findWithText(wrapper, 'button', SECONDARY_TEXT)).toHaveLength(1)
     })
 
-    test('should render the secondary button', () => {
-      expect(findWithText(wrapper, 'button', SECONDARY_TEXT)).toHaveLength(1)
-    })
-
     test('should trigger the onClose listener when close is clicked', () => {
       wrapper.find(Modal).prop('handleClose')()
 

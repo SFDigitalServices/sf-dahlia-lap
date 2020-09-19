@@ -27,7 +27,8 @@ export const mockStatusItems = () => [
     status: 'Waitlisted',
     substatus: 'Written confirmation sent',
     timestamp: toTimeStamp('08-22-2020 20:00'),
-    comment: null }),
+    comment: null
+  }),
   mockStatusItem({
     status: 'Lease Signed',
     substatus: null,

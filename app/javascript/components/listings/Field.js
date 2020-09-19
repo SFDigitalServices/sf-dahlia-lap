@@ -8,7 +8,15 @@ const RenderType = ({ type, value }) => {
   if (type === 'html') {
     return (<p dangerouslySetInnerHTML={generateHtml(value)} />)
   } else if (type === 'link') {
-    return (<a target='_blank' href={value}>{value}</a>)
+    return (
+      <a
+        target='_blank'
+        rel='noreferrer'
+        href={value}
+      >
+        {value}
+      </a>
+    )
   } else {
     return (<p>{String(value)}</p>)
   }

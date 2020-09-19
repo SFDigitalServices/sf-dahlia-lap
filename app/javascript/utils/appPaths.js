@@ -17,7 +17,7 @@ const toListingLeaseUps = (listingId) => `/listings/lease-ups/${listingId}/appli
 
 const toListing = (listingId) => `/listings/${listingId}`
 
-const toLeaseUps = () => `/listings/lease-ups`
+const toLeaseUps = () => '/listings/lease-ups'
 
 const toLeaseUpApplications = (listingId) => `/listings/lease-ups/${listingId}/applications`
 

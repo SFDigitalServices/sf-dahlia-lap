@@ -31,6 +31,7 @@ class LeaseUpApplicationsPage extends React.Component {
       loading: false
     }
   }
+
   eagerPagination = new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
 
   fetchApplications = async (page, filters) => {

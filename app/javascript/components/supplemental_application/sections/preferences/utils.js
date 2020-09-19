@@ -3,21 +3,21 @@ import React from 'react'
 import FormGrid from '~/components/molecules/FormGrid'
 import formUtils from '~/utils/formUtils'
 
-const test = (regex) => (value) => regex.test(value)
+const testRegex = (regex) => (value) => regex.test(value)
 
 /* Preference name */
 
-export const isCOP = test(/COP/)
+export const isCOP = testRegex(/COP/)
 
-export const isDTHP = test(/DTHP/)
+export const isDTHP = testRegex(/DTHP/)
 
-export const isAliceGriffith = test(/Griffith/)
+export const isAliceGriffith = testRegex(/Griffith/)
 
 export const isLWinSF = value => value === 'Live or Work in San Francisco Preference'
 
-export const isADHP = test(/ADHP/)
+export const isADHP = testRegex(/ADHP/)
 
-export const isNRHP = test(/NRHP/)
+export const isNRHP = testRegex(/NRHP/)
 
 export const isRentBurdenedAssistedHousing = value => value === 'Rent Burdened / Assisted Housing Preference'
 

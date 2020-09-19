@@ -27,8 +27,8 @@ describe('PaperApplicationForm', () => {
     testApplication = clone(application)
   })
 
-  describe('should validate fields correctly: ', () => {
-    test('Language', async () => {
+  describe('should validate fields correctly:', () => {
+    test('language', async () => {
       testApplication['application_language'] = null
       let wrapper
       await act(async () => {
@@ -55,7 +55,7 @@ describe('PaperApplicationForm', () => {
       expect(wrapper.text()).not.toContain('Please select a language.')
     })
 
-    test('Alternate Contact', async () => {
+    test('alternate Contact', async () => {
       testApplication['alternate_contact'] = {
         'first_name': 'Federic',
         'middle_name': 'Daaaa',
@@ -98,7 +98,7 @@ describe('PaperApplicationForm', () => {
       expect(wrapper.find(altNameErrorSelector).prop('meta')['error']).toBeUndefined()
     })
 
-    test('Annual Income', async () => {
+    test('annual Income', async () => {
       testApplication['annual_income'] = 'foo'
       const wrapper = mount(
         <PaperApplicationForm
@@ -117,7 +117,7 @@ describe('PaperApplicationForm', () => {
       expect(wrapper.text()).toContain('Please enter a valid dollar amount.')
     })
 
-    test('Demographics Defaults', async () => {
+    test('demographics Defaults', async () => {
       testApplication['demographics'] = {}
       const wrapper = mount(
         <PaperApplicationForm
@@ -150,7 +150,7 @@ describe('PaperApplicationForm', () => {
       expect(wrapper.text()).not.toContain('Sexual Orientation is required')
     })
 
-    test('Demographics Not Listed', async () => {
+    test('demographics Not Listed', async () => {
       testApplication['demographics'] = {}
       const wrapper = mount(
         <PaperApplicationForm
@@ -196,7 +196,7 @@ describe('PaperApplicationForm', () => {
       expect(wrapper.find('label#label-demographics-sexual_orientation_other').text()).not.toContain('(required)')
     })
 
-    test('Signature on Terms of Agreement', async () => {
+    test('signature on Terms of Agreement', async () => {
       testApplication['terms_acknowledged'] = false
       const wrapper = mount(
         <PaperApplicationForm
@@ -323,7 +323,7 @@ describe('PaperApplicationForm', () => {
       expect(wrapper.find('#add-preference-button').prop('disabled')).toEqual(true)
     })
 
-    test('Should clear values on preference select change to null', async () => {
+    test('should clear values on preference select change to null', async () => {
       testApplication.preferences = [{}]
       let wrapper
       await act(async () => {
@@ -359,7 +359,7 @@ describe('PaperApplicationForm', () => {
       expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toEqual({})
     })
 
-    test('Should clear values on preference select change to other preference', async () => {
+    test('should clear values on preference select change to other preference', async () => {
       testApplication.preferences = [{}]
       let wrapper
       await act(async () => {

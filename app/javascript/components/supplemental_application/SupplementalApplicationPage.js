@@ -99,7 +99,7 @@ class SupplementalApplicationPage extends React.Component {
 
   handleSavePreference = async (preferenceIndex, formApplicationValues) => {
     const preference = formApplicationValues.preferences[preferenceIndex]
-    let updates = [ updatePreference(preference) ]
+    let updates = [updatePreference(preference)]
     // If updating a rent burdened preference, we need to independently
     // update the rent on the application.
     if (preference.individual_preference === 'Rent Burdened') {
