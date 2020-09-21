@@ -157,11 +157,11 @@ const Lease = ({ form, values, store }) => {
         </FormGrid.Row>
         <FormGrid.Row>
           <FormGrid.Item small>
-            <strong className='form-note micro'>Total</strong>
+            <strong className='form-note micro h-caps'>Total</strong>
             <p className='margin-top'><strong className='form-note'>{availableUnits.length}</strong></p>
           </FormGrid.Item>
           <FormGrid.Item small>
-            <strong className='form-note micro'>Accessibility</strong>
+            <strong className='form-note micro h-caps'>Accessibility</strong>
             <p className='margin-top'>{accessibilityUnits.length}</p>
           </FormGrid.Item>
         </FormGrid.Row>
