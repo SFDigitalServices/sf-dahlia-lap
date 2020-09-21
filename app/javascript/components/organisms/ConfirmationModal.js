@@ -31,14 +31,23 @@ const ConfirmationModal = ({
         </Modal.Content>
         <Modal.Footer>
           <div className='modal-button_item modal-button_secondary'>
-            <a
-              className={buttonClasses}
-              href={primaryButtonDestination || '#'}
-              type='button'
-              onClick={onPrimaryClick}
-            >
-              {primaryText}
-            </a>
+            {primaryButtonDestination
+              ? <a
+                className={buttonClasses}
+                href={primaryButtonDestination}
+                type='button'
+                onClick={onPrimaryClick}
+              >
+                {primaryText}
+              </a>
+              : <button
+                className={buttonClasses}
+                type='button'
+                onClick={onPrimaryClick}
+              >
+                {primaryText}
+              </button>
+            }
           </div>
           <div className='modal-button_item modal-button_secondary'>
             <button className='button no-border' onClick={onSecondaryClick} type='button'>

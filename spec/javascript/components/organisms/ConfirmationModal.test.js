@@ -49,14 +49,13 @@ describe('ConfirmationModal', () => {
       expect(wrapper.find(Modal.Header).prop('id')).toEqual('confirmation-modal-header')
     })
 
-    test('should render the primary button as a link with href=#', () => {
-      const primaryButtonWrapper = findWithText(wrapper, 'a', PRIMARY_TEXT)
-      expect(primaryButtonWrapper).toHaveLength(1)
-      expect(primaryButtonWrapper.prop('href')).toEqual('#')
+    test('should render the primary button as a <button />', () => {
+      expect(findWithText(wrapper, 'button', PRIMARY_TEXT)).toHaveLength(1)
+      expect(findWithText(wrapper, 'a', PRIMARY_TEXT)).toHaveLength(0)
     })
 
     test('should render the primary button with primary style', () => {
-      const primaryWrapper = findWithText(wrapper, 'a', PRIMARY_TEXT)
+      const primaryWrapper = findWithText(wrapper, 'button', PRIMARY_TEXT)
       expect(primaryWrapper.prop('className').includes('primary')).toBeTruthy()
     })
 
@@ -73,7 +72,7 @@ describe('ConfirmationModal', () => {
     })
 
     test('should trigger the onPrimaryClick listener when primary button is clicked', () => {
-      findWithText(wrapper, 'a', PRIMARY_TEXT).simulate('click')
+      findWithText(wrapper, 'button', PRIMARY_TEXT).simulate('click')
 
       expect(ON_CLOSE.mock.calls.length).toEqual(0)
       expect(ON_PRIMARY_CLICK.mock.calls.length).toEqual(1)
@@ -120,21 +119,34 @@ describe('ConfirmationModal', () => {
     })
 
     test('should render the primary button with alert styling', () => {
-      const primaryWrapper = findWithText(wrapper, 'a', PRIMARY_TEXT)
+      const primaryWrapper = findWithText(wrapper, 'button', PRIMARY_TEXT)
       expect(primaryWrapper.prop('className').includes('alert')).toBeTruthy()
     })
   })
 
   describe('when primaryButtonDestination is provided', () => {
-    const DESTINATION = '/destinationPath'
+    const DESTINATION = '#'
     let wrapper
     beforeEach(() => {
       wrapper = getWrapper({ primaryButtonDestination: DESTINATION })
     })
 
+    test('should render the primary button as an <a /> component', () => {
+      expect(findWithText(wrapper, 'a', PRIMARY_TEXT)).toHaveLength(1)
+      expect(findWithText(wrapper, 'button', PRIMARY_TEXT)).toHaveLength(0)
+    })
+
     test('should render the primary button with the correct href', () => {
       const primaryWrapper = findWithText(wrapper, 'a', PRIMARY_TEXT)
       expect(primaryWrapper.prop('href')).toEqual(DESTINATION)
+    })
+
+    test('should trigger the onPrimaryClick listener when primary button is clicked', () => {
+      findWithText(wrapper, 'a', PRIMARY_TEXT).simulate('click')
+
+      expect(ON_CLOSE.mock.calls.length).toEqual(0)
+      expect(ON_PRIMARY_CLICK.mock.calls.length).toEqual(1)
+      expect(ON_SECONDARY_CLICK.mock.calls.length).toEqual(0)
     })
   })
 })
