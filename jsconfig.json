@@ -5,4 +5,8 @@
       "~/*": ["./app/javascript/*"],
     }
   },
+  "exclude": [
+    "node_modules",
+    "public"
+  ]
 }

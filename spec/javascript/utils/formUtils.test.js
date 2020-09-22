@@ -5,9 +5,9 @@ describe('formatPrice', () => {
     expect(formUtils.formatPrice('10')).toEqual('$10.00')
   })
   test('should be empty if there is no value', async () => {
-    expect(formUtils.formatPrice(undefined)).toEqual(null)
-    expect(formUtils.formatPrice(null)).toEqual(null)
-    expect(formUtils.formatPrice('')).toEqual(null)
+    expect(formUtils.formatPrice(undefined)).toBeNull()
+    expect(formUtils.formatPrice(null)).toBeNull()
+    expect(formUtils.formatPrice('')).toBeNull()
   })
   test('should add comma for values over 1000', async () => {
     expect(formUtils.formatPrice('11000')).toEqual('$11,000.00')
@@ -73,7 +73,7 @@ describe('formatPercent', () => {
 })
 
 describe('scrubEmptyValues', () => {
-  describe('when scrubEmptyStrings is false', async () => {
+  describe('when scrubEmptyStrings is false', () => {
     test('does not modify object without any values', async () => {
       expect(formUtils.scrubEmptyValues({})).toEqual({})
     })
@@ -102,7 +102,7 @@ describe('scrubEmptyValues', () => {
     })
   })
 
-  describe('when scrubEmptyStrings is true', async () => {
+  describe('when scrubEmptyStrings is true', () => {
     test('does not modify object without any values', async () => {
       expect(formUtils.scrubEmptyValues({}, true)).toEqual({})
     })
@@ -121,6 +121,7 @@ describe('scrubEmptyValues', () => {
     test('removes empty strings as if they were null', async () => {
       expect(formUtils.scrubEmptyValues({ 1: '' }, true)).toEqual({ })
       expect(formUtils.scrubEmptyValues({ 1: 2, 3: 4, 4: '' }, true)).toEqual({ 1: 2, 3: 4 })
+      expect(formUtils.scrubEmptyValues({ 1: null, 2: undefined, 3: 'a', 4: '' }, true)).toEqual({ 3: 'a' })
     })
 
     test('removes empty entries', async () => {
@@ -129,18 +130,12 @@ describe('scrubEmptyValues', () => {
       expect(formUtils.scrubEmptyValues({ 1: null, 2: undefined }, true)).toEqual({ })
     })
 
-    test('removes empty strings as if they were null', async () => {
-      expect(formUtils.scrubEmptyValues({ 1: '' }, true)).toEqual({ })
-      expect(formUtils.scrubEmptyValues({ 1: 2, 3: 4, 4: '' }, true)).toEqual({ 1: 2, 3: 4 })
-      expect(formUtils.scrubEmptyValues({ 1: null, 2: undefined, 3: 'a', 4: '' }, true)).toEqual({ 3: 'a' })
-    })
-
     test('does not modify object with empty nested values', async () => {
       expect(formUtils.scrubEmptyValues({ 1: { 2: undefined } }, true)).toEqual({ 1: { 2: undefined } })
     })
   })
 
-  describe('toEmptyOption', async () => {
+  describe('toEmptyOption', () => {
     test('converts a label into an empty option with that label', async () => {
       expect(formUtils.toEmptyOption('Label')).toEqual({ value: '', label: 'Label' })
     })
@@ -159,9 +154,9 @@ describe('formatNumber', () => {
   })
 
   test('should be empty if there is no value', async () => {
-    expect(formUtils.formatNumber(undefined)).toEqual(null)
-    expect(formUtils.formatNumber(null)).toEqual(null)
-    expect(formUtils.formatNumber('')).toEqual(null)
+    expect(formUtils.formatNumber(undefined)).toBeNull()
+    expect(formUtils.formatNumber(null)).toBeNull()
+    expect(formUtils.formatNumber('')).toBeNull()
   })
 
   test('should not format invalid values', async () => {

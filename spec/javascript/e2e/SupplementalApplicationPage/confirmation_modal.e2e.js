@@ -30,7 +30,7 @@ describe('SupplementalApplicationPage confirm modal', () => {
 
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
-    page.waitForSelector('.tabs').then(() => page.click('.tabs li:nth-child(1)'))
+    await page.waitForSelector('.tabs').then(() => page.click('.tabs li:nth-child(1)'))
     await page.waitForNavigation()
 
     // Verify that we're now on the application snapshot page

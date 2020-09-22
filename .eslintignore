@@ -1,0 +1,6 @@
+# node_modules ignored by default
+
+spec/javascript/fixtures/*
+app/assets/javascripts/cable.js
+app/assets/stylesheets/*.scss
+public/**/*

@@ -83,12 +83,6 @@ describe('filterChanged', () => {
     expect(diff).toEqual({ id: 'abcd' })
   })
 
-  test('should return only id if object is not changed', async () => {
-    const changedObject = cloneDeep(object)
-    const diff = filterChanged(object, changedObject)
-    expect(diff).toEqual({ id: 'abcd' })
-  })
-
   test('should update id', async () => {
     const prevApp = {
       id: 'appid',
@@ -140,8 +134,8 @@ describe('filterChanged', () => {
           name: 'james'
         }
       ],
-      other_changed_list: [ 1, 2, 3 ],
-      other_unchanged_list: [ 1, 2, 3 ]
+      other_changed_list: [1, 2, 3],
+      other_unchanged_list: [1, 2, 3]
     }
 
     const newApp = {
@@ -166,8 +160,8 @@ describe('filterChanged', () => {
           name: 'james'
         }
       ],
-      other_changed_list: [ 1, 2, 3, 4 ],
-      other_unchanged_list: [ 1, 2, 3 ]
+      other_changed_list: [1, 2, 3, 4],
+      other_unchanged_list: [1, 2, 3]
     }
 
     const expectedFilteredApp = {
@@ -182,7 +176,7 @@ describe('filterChanged', () => {
           name: 'amy'
         }
       ],
-      other_changed_list: [ 1, 2, 3, 4 ]
+      other_changed_list: [1, 2, 3, 4]
     }
     const diff = filterChanged(prevApp, newApp)
     expect(diff).toEqual(expectedFilteredApp)

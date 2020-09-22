@@ -68,7 +68,7 @@ describe('StatusItems', () => {
   })
 
   describe('with a single item in the status items list', () => {
-    const statusItems = [mockStatusItems()]
+    const statusItems = [mockStatusItem()]
 
     test('should render one status item when no limit is specified', () => {
       expect(getWrapper(statusItems).find(StatusItem)).toHaveLength(1)
@@ -78,7 +78,7 @@ describe('StatusItems', () => {
       expect(getWrapper(statusItems, 0).find(StatusItem)).toHaveLength(0)
     })
 
-    test('should render one status items when limit is 1', () => {
+    test('should render one status item when limit is 1', () => {
       expect(getWrapper(statusItems, 1).find(StatusItem)).toHaveLength(1)
     })
 

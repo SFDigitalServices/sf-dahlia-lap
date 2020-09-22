@@ -252,6 +252,7 @@ Array [
                                   <a
                                     className="block-link"
                                     href="undefined/servlet/servlet.FileDownload?file=00P0P00000t0P3vUAE"
+                                    rel="noreferrer"
                                     target="_blank"
                                   >
                                     Copy of Lease
@@ -937,7 +938,7 @@ Array [
                         <input
                           checked={true}
                           id="form-ctrl-reserved_senior"
-                          onClick={[Function]}
+                          onChange={[Function]}
                           type="checkbox"
                         />
                         <label
@@ -964,7 +965,7 @@ Array [
                         <input
                           checked={true}
                           id="form-ctrl-has_military_service"
-                          onClick={[Function]}
+                          onChange={[Function]}
                           type="checkbox"
                         />
                         <label
@@ -991,7 +992,7 @@ Array [
                         <input
                           checked={true}
                           id="form-ctrl-has_developmental_disability"
-                          onClick={[Function]}
+                          onChange={[Function]}
                           type="checkbox"
                         />
                         <label

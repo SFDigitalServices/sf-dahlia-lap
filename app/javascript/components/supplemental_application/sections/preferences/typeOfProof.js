@@ -17,6 +17,7 @@ const ProofFilesList = ({ proofFiles, fileBaseUrl }) => {
               href={appPaths.toAttachmentDownload(fileBaseUrl, file)}
               className='block-link'
               target='_blank'
+              rel='noreferrer'
             >
               {file.document_type}
             </a>

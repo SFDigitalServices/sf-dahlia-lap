@@ -17,7 +17,7 @@ describe('appPaths', () => {
     test('it should return null url not an expected file_type', () => {
       const file = { 'file_type': 'Something Else', id: 'fileId' }
       const url = appPaths.toAttachmentDownload('fileBase.com', file)
-      expect(url).toEqual(null)
+      expect(url).toBeNull()
     })
   })
 })
