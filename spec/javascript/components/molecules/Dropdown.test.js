@@ -3,6 +3,9 @@ import { shallow } from 'enzyme'
 import Dropdown from '~/components/molecules/Dropdown'
 import { components } from 'react-select'
 
+// Use a string selector in these tests to avoid confusion with the StateManager wrapper that exists in react-select
+const selectSelector = 'Select'
+
 const defaultOptionRenderer = ({ label }) => (
   <li>
     <a>{label}</a>
@@ -34,12 +37,12 @@ describe(Dropdown, () => {
   let wrapper
   test('it renders a select', () => {
     wrapper = getWrapper()
-    expect(wrapper.dive().find('Select').exists()).toBeTruthy()
+    expect(wrapper.dive().find(selectSelector).exists()).toBeTruthy()
   })
 
   test('it renders with default props correctly', () => {
     wrapper = getWrapper()
-    const selectProps = wrapper.dive().find('Select').props()
+    const selectProps = wrapper.dive().find(selectSelector).props()
     expect(selectProps.classNamePrefix).toBeNull()
     expect(selectProps.isDisabled).toBe(false)
     expect(selectProps.options).toEqual([])
@@ -61,7 +64,7 @@ describe(Dropdown, () => {
       classNamePrefix: testClassNamePrefix,
       disabled: true
     })
-    const selectProps = wrapper.dive().find('Select').props()
+    const selectProps = wrapper.dive().find(selectSelector).props()
     expect(selectProps.classNamePrefix).toEqual(testClassNamePrefix)
     expect(selectProps.isDisabled).toBe(true)
     expect(selectProps.value).toEqual(sampleItems[1])

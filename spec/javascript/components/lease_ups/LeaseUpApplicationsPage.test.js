@@ -1,6 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
+import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 
 const mockfetchLeaseUpApplications = jest.fn()
 const mockCreateFieldUpdateComment = jest.fn()
@@ -85,13 +86,13 @@ describe('LeaseUpApplicationsPage', () => {
     expect(wrapper.find(rowSelector).first().find('button').exists()).toBeTruthy()
     wrapper.find(rowSelector).first().find('Select').instance().props.onChange({ 'value': 'Appealed' })
     wrapper.update()
-    expect(wrapper.find('StatusModalWrapper').props().isOpen).toBeTruthy()
+    expect(wrapper.find(StatusModalWrapper).props().isOpen).toBeTruthy()
 
     // Click the close button
     wrapper.find('.close-reveal-modal').simulate('click')
 
     // Expect the modal to be closed
-    expect(wrapper.find('StatusModalWrapper').props().isOpen).toBeFalsy()
+    expect(wrapper.find(StatusModalWrapper).props().isOpen).toBeFalsy()
 
     // if submit wasn't clicked we shouldn't trigger an API request
     expect(mockCreateFieldUpdateComment).not.toHaveBeenCalled()

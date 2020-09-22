@@ -1,7 +1,10 @@
 import React from 'react'
 import { mount, shallow } from 'enzyme'
+import Select from 'react-select'
+
 import StatusDropdown, { renderStatusOption } from '~/components/molecules/StatusDropdown'
 import { LEASE_UP_STATUS_OPTIONS } from '~/utils/statusUtils'
+import Dropdown from '~/components/molecules/Dropdown'
 
 const ON_CHANGE = jest.fn()
 
@@ -16,13 +19,13 @@ describe('StatusDropdown', () => {
   let wrapper
   test('it renders a select', () => {
     wrapper = getWrapper()
-    expect(wrapper.find('Select').exists()).toBeTruthy()
+    expect(wrapper.find(Select).exists()).toBeTruthy()
   })
 
   test('it renders with default props correctly', () => {
     wrapper = getWrapper()
 
-    const dropdownProps = wrapper.find('Dropdown').props()
+    const dropdownProps = wrapper.find(Dropdown).props()
     expect(dropdownProps.items).toEqual(LEASE_UP_STATUS_OPTIONS)
     expect(dropdownProps.value).toBeNull()
     expect(dropdownProps.placeholder).toEqual('Status')
@@ -39,7 +42,7 @@ describe('StatusDropdown', () => {
         'text-align-left',
         'tertiary'
       ]
-      const toggleButton = wrapper.find('Select').find('.status-dropdown__control').find('button')
+      const toggleButton = wrapper.find(Select).find('.status-dropdown__control').find('button')
       expect(toggleButton.text()).toEqual('Status')
       expect(toggleButton.hasClass(expectedButtonClasses.join(' '))).toEqual(true)
       expect(toggleButton.prop('disabled')).toEqual(false)
@@ -47,7 +50,7 @@ describe('StatusDropdown', () => {
 
     test('without any additional button styles', () => {
       wrapper = getWrapper()
-      const toggleButton = wrapper.find('Select').find('.status-dropdown__control').find('button')
+      const toggleButton = wrapper.find(Select).find('.status-dropdown__control').find('button')
       expect(toggleButton.hasClass('expand')).toBe(false)
       expect(toggleButton.hasClass('tiny')).toBe(false)
       expect(toggleButton.hasClass('small')).toBe(false)
@@ -55,13 +58,13 @@ describe('StatusDropdown', () => {
 
     test('when additional styles are provided', () => {
       wrapper = getWrapper({ expand: true, size: 'tiny' })
-      let toggleButton = wrapper.find('Select').find('.status-dropdown__control').find('button')
+      let toggleButton = wrapper.find(Select).find('.status-dropdown__control').find('button')
       expect(toggleButton.hasClass('expand')).toBe(true)
       expect(toggleButton.hasClass('tiny')).toBe(true)
       expect(toggleButton.hasClass('small')).toBe(false)
 
       wrapper = getWrapper({ expand: true, size: 'small' })
-      toggleButton = wrapper.find('Select').find('.status-dropdown__control').find('button')
+      toggleButton = wrapper.find(Select).find('.status-dropdown__control').find('button')
       expect(toggleButton.hasClass('tiny')).toBe(false)
       expect(toggleButton.hasClass('small')).toBe(true)
     })
@@ -75,20 +78,20 @@ describe('StatusDropdown', () => {
         'text-align-left',
         'is-appealed'
       ]
-      const toggleButton = wrapper.find('Select').find('.status-dropdown__control').find('button')
+      const toggleButton = wrapper.find(Select).find('.status-dropdown__control').find('button')
       expect(toggleButton.text()).toEqual('Appealed')
       expect(toggleButton.hasClass(expectedButtonClasses.join(' '))).toBe(true)
     })
 
     test('when the dropdown is disabled', () => {
       wrapper = getWrapper({ disabled: true })
-      const toggleButton = wrapper.find('Select').find('.status-dropdown__control').find('button')
+      const toggleButton = wrapper.find(Select).find('.status-dropdown__control').find('button')
       expect(toggleButton.prop('disabled')).toEqual(true)
     })
 
     test('when a placeholder is provided', () => {
       wrapper = getWrapper({ placeholder: 'placeholder' })
-      const toggleButton = wrapper.find('Select').find('.status-dropdown__control').find('button')
+      const toggleButton = wrapper.find(Select).find('.status-dropdown__control').find('button')
       expect(toggleButton.text()).toEqual('placeholder')
     })
   })
