@@ -7,9 +7,9 @@ import { LEASE_UP_STATUS_OPTIONS, LEASE_UP_STATUS_VALUES } from '~/utils/statusU
 import Dropdown from '../molecules/Dropdown'
 import Icon from '../atoms/Icon'
 
-const renderStatusOption = ({ value, label, style }) => {
+const renderStatusOption = ({ value, label, statusClassName }) => {
   return (
-    <li className={classNames('dropdown-menu_item', style)}>
+    <li className={classNames('dropdown-menu_item', statusClassName)}>
       <a>{label}</a>
     </li>
   )
@@ -37,7 +37,7 @@ const StatusDropdown = ({
 
     return (
       <button
-        className={classNames(buttonClasses.concat(val?.style || 'tertiary'))}
+        className={classNames(buttonClasses.concat(val?.statusClassName || 'tertiary'))}
         type='button'
         disabled={disabled}>
         <Icon icon='arrow-down' />

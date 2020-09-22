@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import { COLORS } from '~/components/atoms/colors'
 
 const Dropdown = ({
-  placeholder,
   items,
   value,
   disabled,

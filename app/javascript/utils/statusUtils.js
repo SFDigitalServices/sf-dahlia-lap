@@ -1,13 +1,13 @@
 import { find, map } from 'lodash'
 
 export const LEASE_UP_STATUS_OPTIONS = [
-  { value: 'Processing', label: 'Processing', style: 'is-processing', commentRequired: true },
-  { value: 'Withdrawn', label: 'Withdrawn', style: 'is-withdrawn' },
-  { value: 'Appealed', label: 'Appealed', style: 'is-appealed', commentRequired: true },
-  { value: 'Waitlisted', label: 'Waitlisted', style: 'is-waitlisted', commentRequired: true },
-  { value: 'Disqualified', label: 'Disqualified', style: 'is-disqualified', commentRequired: true },
-  { value: 'Approved', label: 'Approved', style: 'is-approved', commentRequired: true },
-  { value: 'Lease Signed', label: 'Lease Signed', style: 'is-leased' }
+  { value: 'Processing', label: 'Processing', statusClassName: 'is-processing', commentRequired: true },
+  { value: 'Withdrawn', label: 'Withdrawn', statusClassName: 'is-withdrawn' },
+  { value: 'Appealed', label: 'Appealed', statusClassName: 'is-appealed', commentRequired: true },
+  { value: 'Waitlisted', label: 'Waitlisted', statusClassName: 'is-waitlisted', commentRequired: true },
+  { value: 'Disqualified', label: 'Disqualified', statusClassName: 'is-disqualified', commentRequired: true },
+  { value: 'Approved', label: 'Approved', statusClassName: 'is-approved', commentRequired: true },
+  { value: 'Lease Signed', label: 'Lease Signed', statusClassName: 'is-leased' }
 ]
 
 export const LEASE_UP_SUBSTATUS_OPTIONS = {
@@ -54,12 +54,12 @@ export const LEASE_UP_SUBSTATUS_VALUES =
 
 export const getLeaseUpStatusClass = status => {
   const statusOption = find(LEASE_UP_STATUS_OPTIONS, { value: status })
-  return statusOption ? statusOption.style : 'tertiary'
+  return statusOption ? statusOption.statusClassName : 'tertiary'
 }
 
 export const getStatusPillClass = status => {
   const statusOption = find(LEASE_UP_STATUS_OPTIONS, { value: status })
-  return statusOption ? statusOption.style : 'is-no-status'
+  return statusOption ? statusOption.statusClassName : 'is-no-status'
 }
 
 export const getStatusPillLabel = status => {

@@ -66,7 +66,7 @@ jest.mock('apiService', () => {
 
 const statusHistory = [
   { status: 'Approved', comment: 'xxxx1', date: '2018-05-10T19:54:11.000+0000' },
-  { status: 'Pending', comment: 'xxxx2', date: '2018-05-10T19:54:11.000+0000' }
+  { status: 'Processing', comment: 'xxxx2', date: '2018-05-10T19:54:11.000+0000' }
 ]
 
 describe('SupplementalApplicationPage', () => {

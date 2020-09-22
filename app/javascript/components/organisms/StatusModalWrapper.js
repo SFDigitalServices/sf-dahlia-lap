@@ -18,8 +18,8 @@ const StatusModalWrapper = ({
   alertMsg,
   onAlertCloseClick,
   loading,
-  status = '',
-  subStatus = '',
+  status = null,
+  subStatus = null,
   header,
   submitButton
 }) => (
@@ -85,7 +85,7 @@ const StatusModalWrapper = ({
               <Field
                 name='subStatus'
                 component={({ input: { onChange }, meta }) => {
-                  const hasError = !values.subStatus && meta.touched && meta.error
+                  const hasError = !values.subStatus && meta.error && meta.touched
                   return (
                     <div className={classNames('form-group', hasError && 'error')}>
                       <Label label='Status Detail' blockNote='(required)' />

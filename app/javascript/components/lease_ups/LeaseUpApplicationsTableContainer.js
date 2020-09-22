@@ -76,7 +76,6 @@ const LeaseUpTableContainer = ({
   }
 
   const rowsData = (applications) => map(applications, buildRowData)
-
   return (
     <>
       <LeaseUpApplicationsFilter preferences={preferences} onSubmit={handleOnFilter} loading={loading} />

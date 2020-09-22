@@ -291,7 +291,7 @@ Array [
                                   className="form-grid row margin-left-none margin-right-none"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -309,7 +309,7 @@ Array [
                                     </div>
                                   </div>
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -349,7 +349,7 @@ Array [
                                     </div>
                                   </div>
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -517,7 +517,7 @@ Array [
                                   className="form-grid row margin-left-none margin-right-none"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -535,7 +535,7 @@ Array [
                                     </div>
                                   </div>
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -580,7 +580,7 @@ Array [
                                     </div>
                                   </div>
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -620,7 +620,7 @@ Array [
                                     </div>
                                   </div>
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -708,7 +708,7 @@ Array [
                                   className="form-grid row margin-left-none margin-right-none"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -826,7 +826,7 @@ Array [
                 className="form-grid row expand"
               >
                 <div
-                  className="form-grid_item small-6 medium-6 large-6 column"
+                  className="form-grid_item column small-6"
                 >
                   <div
                     className="form-group"
@@ -907,7 +907,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="form-grid_item small-6 medium-6 large-6 column"
+                  className="form-grid_item column small-6"
                 >
                   <div
                     className="form-group"
@@ -1038,7 +1038,7 @@ Array [
                 className="form-grid row expand"
               >
                 <div
-                  className="form-grid_item small-6 medium-6 large-6 column"
+                  className="form-grid_item column small-6"
                 >
                   <div
                     className="form-group"
@@ -1099,7 +1099,7 @@ Array [
                 className="form-grid row expand"
               >
                 <div
-                  className="form-grid_item small-6 medium-6 large-6 column"
+                  className="form-grid_item column small-6"
                 >
                   <div
                     className="form-group"
@@ -1129,7 +1129,7 @@ Array [
                 className="form-grid row expand"
               >
                 <div
-                  className="form-grid_item small-6 medium-6 large-6 column"
+                  className="form-grid_item column small-6"
                 >
                   <div
                     className="form-group"
@@ -1165,7 +1165,7 @@ Array [
                 className="form-grid row expand"
               >
                 <div
-                  className="form-grid_item small-6 medium-6 large-6 column"
+                  className="form-grid_item column small-6"
                 >
                   <div
                     className="form-group"
@@ -1215,7 +1215,7 @@ Array [
                 className="form-grid row expand"
               >
                 <div
-                  className="form-grid_item small-6 medium-6 large-6 column"
+                  className="form-grid_item column small-6"
                 >
                   <div
                     className="form-group"
@@ -1245,7 +1245,7 @@ Array [
                 className="form-grid row expand"
               >
                 <div
-                  className="form-grid_item small-6 medium-6 large-6 column"
+                  className="form-grid_item column small-6"
                 >
                   <div
                     className="form-group"
@@ -1289,7 +1289,7 @@ Array [
                 className="form-grid row expand"
               >
                 <div
-                  className="form-grid_item small-6 medium-6 large-6 column"
+                  className="form-grid_item column small-6"
                 >
                   <div
                     className="form-group"
@@ -1379,7 +1379,7 @@ Array [
                   className="form-grid row expand"
                 >
                   <div
-                    className="form-grid_item small-6 medium-6 large-6 column"
+                    className="form-grid_item column small-6"
                   >
                     <div
                       className="form-group"
@@ -1414,7 +1414,7 @@ Array [
                   className="form-grid row expand"
                 >
                   <div
-                    className="form-grid_item small-6 medium-6 large-6 column"
+                    className="form-grid_item column small-6"
                   >
                     <div
                       className="form-group"
@@ -1455,7 +1455,7 @@ Array [
                     </div>
                   </div>
                   <div
-                    className="form-grid_item small-6 medium-6 large-6 column"
+                    className="form-grid_item column small-6"
                   >
                     <div
                       className="form-group"
@@ -1500,7 +1500,7 @@ Array [
                   className="form-grid row expand"
                 >
                   <div
-                    className="form-grid_item small-6 medium-6 large-6 column"
+                    className="form-grid_item column small-6"
                   >
                     <div
                       className="form-group"
@@ -1531,7 +1531,7 @@ Array [
                   className="form-grid row expand"
                 >
                   <div
-                    className="form-grid_item small-6 medium-6 large-6 column"
+                    className="form-grid_item column small-6"
                   >
                     <label
                       className="form-label"
@@ -1639,7 +1639,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -1678,7 +1678,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -1787,7 +1787,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -1817,7 +1817,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="rental-assistance-recurring radio-group-inline"
@@ -1954,7 +1954,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -1993,7 +1993,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -2102,7 +2102,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -2132,7 +2132,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="rental-assistance-recurring radio-group-inline"
@@ -2269,7 +2269,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -2308,7 +2308,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -2417,7 +2417,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -2447,7 +2447,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="rental-assistance-recurring radio-group-inline"
@@ -2584,7 +2584,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -2623,7 +2623,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -2732,7 +2732,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -2762,7 +2762,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="rental-assistance-recurring radio-group-inline"
@@ -2899,7 +2899,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -2938,7 +2938,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -3047,7 +3047,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -3077,7 +3077,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="rental-assistance-recurring radio-group-inline"
@@ -3214,7 +3214,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -3253,7 +3253,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -3362,7 +3362,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -3392,7 +3392,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="rental-assistance-recurring radio-group-inline"
@@ -3529,7 +3529,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -3568,7 +3568,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -3677,7 +3677,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -3707,7 +3707,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="rental-assistance-recurring radio-group-inline"
@@ -3844,7 +3844,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -3883,7 +3883,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -3992,7 +3992,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -4022,7 +4022,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="rental-assistance-recurring radio-group-inline"
@@ -4159,7 +4159,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -4198,7 +4198,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -4307,7 +4307,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="form-group"
@@ -4337,7 +4337,7 @@ Array [
                                   className="form-grid row expand"
                                 >
                                   <div
-                                    className="form-grid_item small-6 medium-6 large-6 column"
+                                    className="form-grid_item column small-6"
                                   >
                                     <div
                                       className="rental-assistance-recurring radio-group-inline"
@@ -4439,7 +4439,7 @@ Array [
                   className="form-grid row expand"
                 >
                   <div
-                    className="form-grid_item small-6 medium-6 large-6 column"
+                    className="form-grid_item column small-6"
                   >
                     <div
                       className="margin-top"
@@ -4455,7 +4455,7 @@ Array [
                   className="form-grid row expand"
                 >
                   <div
-                    className="form-grid_item small-6 medium-6 large-6 column"
+                    className="form-grid_item column small-6"
                   >
                     <div
                       className="form-group"
@@ -4506,7 +4506,7 @@ Array [
                   className="form-grid row expand"
                 >
                   <div
-                    className="form-grid_item small-6 medium-6 large-6 column"
+                    className="form-grid_item column small-6"
                   >
                     <div
                       className="form-group"
@@ -4578,7 +4578,7 @@ Array [
                   className="form-grid row expand"
                 >
                   <div
-                    className="form-grid_item small-6 medium-6 large-6 column"
+                    className="form-grid_item column small-6"
                   >
                     <div
                       className="form-group"
@@ -4651,7 +4651,7 @@ Array [
               className="form-grid row expand"
             >
               <div
-                className="form-grid_item small-6 medium-6 large-6 column"
+                className="form-grid_item column small-6"
               >
                 <div
                   className="form-group"
@@ -4735,7 +4735,7 @@ Array [
               className="form-grid row expand"
             >
               <div
-                className="form-grid_item small-6 medium-6 large-6 column"
+                className="form-grid_item column small-6"
               >
                 <div
                   className="form-group"
@@ -4825,7 +4825,7 @@ Array [
               className="form-grid row expand"
             >
               <div
-                className="form-grid_item small-6 medium-6 large-6 column"
+                className="form-grid_item column small-6"
               >
                 <div
                   className="form-group"
@@ -4909,7 +4909,7 @@ Array [
               className="form-grid row expand"
             >
               <div
-                className="form-grid_item small-6 medium-6 large-6 column"
+                className="form-grid_item column small-6"
               >
                 <div
                   className="form-group"
@@ -4981,32 +4981,54 @@ Array [
                   className="status-history-buttons"
                 >
                   <div
-                    className="dropdown"
-                    onClick={[Function]}
+                    className="dropdown css-2b097c-container"
+                    onKeyDown={[Function]}
                   >
-                    <button
-                      aria-expanded="false"
-                      className="button dropdown-button has-icon--right text-align-left tertiary tight-padding"
-                      disabled={false}
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      <span
-                        className="ui-icon ui-small"
-                      >
-                        <svg>
-                          <use
-                            xlinkHref="#i-arrow-down"
-                          />
-                        </svg>
-                      </span>
-                      Status
-                    </button>
                     <div
-                      aria-hidden="true"
-                      className="dropdown-menu-wrapper"
-                      role="menu"
-                    />
+                      className=" css-yk16xz-control"
+                      onMouseDown={[Function]}
+                      onTouchEnd={[Function]}
+                    >
+                      <button
+                        className="button dropdown-button has-icon--right text-align-left tertiary"
+                        disabled={false}
+                        type="button"
+                      >
+                        <span
+                          className="ui-icon ui-small"
+                        >
+                          <svg>
+                            <use
+                              xlinkHref="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                        Status
+                        <div
+                          className="ui-icon ui-small"
+                        >
+                          <div
+                            className=" css-g1d714-ValueContainer"
+                          >
+                            <div
+                              className=" css-1wa3eu0-placeholder"
+                            />
+                            <input
+                              aria-autocomplete="list"
+                              className="css-62g3xt-dummyInput"
+                              disabled={false}
+                              id="react-select-2-input"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              onFocus={[Function]}
+                              readOnly={true}
+                              tabIndex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                      </button>
+                    </div>
                   </div>
                   <button
                     className="tertiary tight-padding"
@@ -5025,32 +5047,54 @@ Array [
                   className="status-history-buttons"
                 >
                   <div
-                    className="dropdown"
-                    onClick={[Function]}
+                    className="dropdown css-2b097c-container"
+                    onKeyDown={[Function]}
                   >
-                    <button
-                      aria-expanded="false"
-                      className="button dropdown-button has-icon--right text-align-left tertiary tight-padding"
-                      disabled={false}
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      <span
-                        className="ui-icon ui-small"
-                      >
-                        <svg>
-                          <use
-                            xlinkHref="#i-arrow-down"
-                          />
-                        </svg>
-                      </span>
-                      Status
-                    </button>
                     <div
-                      aria-hidden="true"
-                      className="dropdown-menu-wrapper"
-                      role="menu"
-                    />
+                      className=" css-yk16xz-control"
+                      onMouseDown={[Function]}
+                      onTouchEnd={[Function]}
+                    >
+                      <button
+                        className="button dropdown-button has-icon--right text-align-left tertiary"
+                        disabled={false}
+                        type="button"
+                      >
+                        <span
+                          className="ui-icon ui-small"
+                        >
+                          <svg>
+                            <use
+                              xlinkHref="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                        Status
+                        <div
+                          className="ui-icon ui-small"
+                        >
+                          <div
+                            className=" css-g1d714-ValueContainer"
+                          >
+                            <div
+                              className=" css-1wa3eu0-placeholder"
+                            />
+                            <input
+                              aria-autocomplete="list"
+                              className="css-62g3xt-dummyInput"
+                              disabled={false}
+                              id="react-select-3-input"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              onFocus={[Function]}
+                              readOnly={true}
+                              tabIndex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                      </button>
+                    </div>
                   </div>
                   <button
                     className="tertiary tight-padding"

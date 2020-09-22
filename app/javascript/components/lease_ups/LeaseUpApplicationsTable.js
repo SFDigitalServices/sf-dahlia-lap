@@ -13,7 +13,7 @@ const LeaseUpStatusCell = ({ cell, onChange }) => {
   const applicationId = cell.original.application_id
   const applicationPreferenceId = cell.original.application_preference_id
 
-  const value = cell.value || ''
+  const value = cell.value || null
   return (
     <StatusDropdown
       status={value}
