@@ -4985,7 +4985,7 @@ Array [
                     onKeyDown={[Function]}
                   >
                     <div
-                      className=" css-yk16xz-control"
+                      className="status-dropdown__control css-yk16xz-control"
                       onMouseDown={[Function]}
                       onTouchEnd={[Function]}
                     >
@@ -5008,10 +5008,10 @@ Array [
                           className="ui-icon ui-small"
                         >
                           <div
-                            className=" css-g1d714-ValueContainer"
+                            className="status-dropdown__value-container css-g1d714-ValueContainer"
                           >
                             <div
-                              className=" css-1wa3eu0-placeholder"
+                              className="status-dropdown__placeholder css-1wa3eu0-placeholder"
                             />
                             <input
                               aria-autocomplete="list"
@@ -5051,7 +5051,7 @@ Array [
                     onKeyDown={[Function]}
                   >
                     <div
-                      className=" css-yk16xz-control"
+                      className="status-dropdown__control css-yk16xz-control"
                       onMouseDown={[Function]}
                       onTouchEnd={[Function]}
                     >
@@ -5074,10 +5074,10 @@ Array [
                           className="ui-icon ui-small"
                         >
                           <div
-                            className=" css-g1d714-ValueContainer"
+                            className="status-dropdown__value-container css-g1d714-ValueContainer"
                           >
                             <div
-                              className=" css-1wa3eu0-placeholder"
+                              className="status-dropdown__placeholder css-1wa3eu0-placeholder"
                             />
                             <input
                               aria-autocomplete="list"

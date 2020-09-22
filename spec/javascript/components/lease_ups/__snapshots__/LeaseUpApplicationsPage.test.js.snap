@@ -3679,6 +3679,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                             status={null}
                                           >
                                             <Dropdown
+                                              classNamePrefix="status-dropdown"
                                               disabled={false}
                                               items={
                                                 Array [
@@ -3732,6 +3733,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                             >
                                               <StateManager
                                                 className="dropdown"
+                                                classNamePrefix="status-dropdown"
                                                 components={
                                                   Object {
                                                     "IndicatorsContainer": [Function],
@@ -3803,6 +3805,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                   blurInputOnSelect={true}
                                                   captureMenuScroll={false}
                                                   className="dropdown"
+                                                  classNamePrefix="status-dropdown"
                                                   closeMenuOnScroll={false}
                                                   closeMenuOnSelect={true}
                                                   components={
@@ -3966,6 +3969,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                         "blurInputOnSelect": true,
                                                         "captureMenuScroll": false,
                                                         "className": "dropdown",
+                                                        "classNamePrefix": "status-dropdown",
                                                         "closeMenuOnScroll": false,
                                                         "closeMenuOnSelect": true,
                                                         "components": Object {
@@ -4175,6 +4179,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                               "blurInputOnSelect": true,
                                                               "captureMenuScroll": false,
                                                               "className": "dropdown",
+                                                              "classNamePrefix": "status-dropdown",
                                                               "closeMenuOnScroll": false,
                                                               "closeMenuOnSelect": true,
                                                               "components": Object {
@@ -4299,7 +4304,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                           <EmotionCssPropInternal
                                                             __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Control"
                                                             __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
-                                                            className=""
+                                                            className="status-dropdown__control"
                                                             css={
                                                               Object {
                                                                 "&:hover": Object {
@@ -4328,7 +4333,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                             onTouchEnd={[Function]}
                                                           >
                                                             <div
-                                                              className=" css-yk16xz-control"
+                                                              className="status-dropdown__control css-yk16xz-control"
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
@@ -4392,6 +4397,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                     "blurInputOnSelect": true,
                                                                     "captureMenuScroll": false,
                                                                     "className": "dropdown",
+                                                                    "classNamePrefix": "status-dropdown",
                                                                     "closeMenuOnScroll": false,
                                                                     "closeMenuOnSelect": true,
                                                                     "components": Object {
@@ -4594,6 +4600,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                           "blurInputOnSelect": true,
                                                                           "captureMenuScroll": false,
                                                                           "className": "dropdown",
+                                                                          "classNamePrefix": "status-dropdown",
                                                                           "closeMenuOnScroll": false,
                                                                           "closeMenuOnSelect": true,
                                                                           "components": Object {
@@ -4718,7 +4725,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                       <EmotionCssPropInternal
                                                                         __EMOTION_LABEL_PLEASE_DO_NOT_USE__="ValueContainer"
                                                                         __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
-                                                                        className=""
+                                                                        className="status-dropdown__value-container"
                                                                         css={
                                                                           Object {
                                                                             "WebkitOverflowScrolling": "touch",
@@ -4734,7 +4741,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                         }
                                                                       >
                                                                         <div
-                                                                          className=" css-g1d714-ValueContainer"
+                                                                          className="status-dropdown__value-container css-g1d714-ValueContainer"
                                                                         >
                                                                           <Placeholder
                                                                             clearValue={[Function]}
@@ -4798,6 +4805,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                                 "blurInputOnSelect": true,
                                                                                 "captureMenuScroll": false,
                                                                                 "className": "dropdown",
+                                                                                "classNamePrefix": "status-dropdown",
                                                                                 "closeMenuOnScroll": false,
                                                                                 "closeMenuOnSelect": true,
                                                                                 "components": Object {
@@ -4922,7 +4930,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                             <EmotionCssPropInternal
                                                                               __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Placeholder"
                                                                               __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
-                                                                              className=""
+                                                                              className="status-dropdown__placeholder"
                                                                               css={
                                                                                 Object {
                                                                                   "boxSizing": "border-box",
@@ -4937,7 +4945,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                               }
                                                                             >
                                                                               <div
-                                                                                className=" css-1wa3eu0-placeholder"
+                                                                                className="status-dropdown__placeholder css-1wa3eu0-placeholder"
                                                                               />
                                                                             </EmotionCssPropInternal>
                                                                           </Placeholder>
@@ -5055,6 +5063,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                     "blurInputOnSelect": true,
                                                                     "captureMenuScroll": false,
                                                                     "className": "dropdown",
+                                                                    "classNamePrefix": "status-dropdown",
                                                                     "closeMenuOnScroll": false,
                                                                     "closeMenuOnSelect": true,
                                                                     "components": Object {
@@ -7018,6 +7027,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                             status={null}
                                           >
                                             <Dropdown
+                                              classNamePrefix="status-dropdown"
                                               disabled={false}
                                               items={
                                                 Array [
@@ -7071,6 +7081,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                             >
                                               <StateManager
                                                 className="dropdown"
+                                                classNamePrefix="status-dropdown"
                                                 components={
                                                   Object {
                                                     "IndicatorsContainer": [Function],
@@ -7142,6 +7153,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                   blurInputOnSelect={true}
                                                   captureMenuScroll={false}
                                                   className="dropdown"
+                                                  classNamePrefix="status-dropdown"
                                                   closeMenuOnScroll={false}
                                                   closeMenuOnSelect={true}
                                                   components={
@@ -7305,6 +7317,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                         "blurInputOnSelect": true,
                                                         "captureMenuScroll": false,
                                                         "className": "dropdown",
+                                                        "classNamePrefix": "status-dropdown",
                                                         "closeMenuOnScroll": false,
                                                         "closeMenuOnSelect": true,
                                                         "components": Object {
@@ -7514,6 +7527,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                               "blurInputOnSelect": true,
                                                               "captureMenuScroll": false,
                                                               "className": "dropdown",
+                                                              "classNamePrefix": "status-dropdown",
                                                               "closeMenuOnScroll": false,
                                                               "closeMenuOnSelect": true,
                                                               "components": Object {
@@ -7638,7 +7652,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                           <EmotionCssPropInternal
                                                             __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Control"
                                                             __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
-                                                            className=""
+                                                            className="status-dropdown__control"
                                                             css={
                                                               Object {
                                                                 "&:hover": Object {
@@ -7667,7 +7681,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                             onTouchEnd={[Function]}
                                                           >
                                                             <div
-                                                              className=" css-yk16xz-control"
+                                                              className="status-dropdown__control css-yk16xz-control"
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
@@ -7731,6 +7745,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                     "blurInputOnSelect": true,
                                                                     "captureMenuScroll": false,
                                                                     "className": "dropdown",
+                                                                    "classNamePrefix": "status-dropdown",
                                                                     "closeMenuOnScroll": false,
                                                                     "closeMenuOnSelect": true,
                                                                     "components": Object {
@@ -7933,6 +7948,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                           "blurInputOnSelect": true,
                                                                           "captureMenuScroll": false,
                                                                           "className": "dropdown",
+                                                                          "classNamePrefix": "status-dropdown",
                                                                           "closeMenuOnScroll": false,
                                                                           "closeMenuOnSelect": true,
                                                                           "components": Object {
@@ -8057,7 +8073,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                       <EmotionCssPropInternal
                                                                         __EMOTION_LABEL_PLEASE_DO_NOT_USE__="ValueContainer"
                                                                         __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
-                                                                        className=""
+                                                                        className="status-dropdown__value-container"
                                                                         css={
                                                                           Object {
                                                                             "WebkitOverflowScrolling": "touch",
@@ -8073,7 +8089,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                         }
                                                                       >
                                                                         <div
-                                                                          className=" css-g1d714-ValueContainer"
+                                                                          className="status-dropdown__value-container css-g1d714-ValueContainer"
                                                                         >
                                                                           <Placeholder
                                                                             clearValue={[Function]}
@@ -8137,6 +8153,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                                 "blurInputOnSelect": true,
                                                                                 "captureMenuScroll": false,
                                                                                 "className": "dropdown",
+                                                                                "classNamePrefix": "status-dropdown",
                                                                                 "closeMenuOnScroll": false,
                                                                                 "closeMenuOnSelect": true,
                                                                                 "components": Object {
@@ -8261,7 +8278,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                             <EmotionCssPropInternal
                                                                               __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Placeholder"
                                                                               __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
-                                                                              className=""
+                                                                              className="status-dropdown__placeholder"
                                                                               css={
                                                                                 Object {
                                                                                   "boxSizing": "border-box",
@@ -8276,7 +8293,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                               }
                                                                             >
                                                                               <div
-                                                                                className=" css-1wa3eu0-placeholder"
+                                                                                className="status-dropdown__placeholder css-1wa3eu0-placeholder"
                                                                               />
                                                                             </EmotionCssPropInternal>
                                                                           </Placeholder>
@@ -8394,6 +8411,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                     "blurInputOnSelect": true,
                                                                     "captureMenuScroll": false,
                                                                     "className": "dropdown",
+                                                                    "classNamePrefix": "status-dropdown",
                                                                     "closeMenuOnScroll": false,
                                                                     "closeMenuOnSelect": true,
                                                                     "components": Object {
@@ -10357,6 +10375,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                             status={null}
                                           >
                                             <Dropdown
+                                              classNamePrefix="status-dropdown"
                                               disabled={false}
                                               items={
                                                 Array [
@@ -10410,6 +10429,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                             >
                                               <StateManager
                                                 className="dropdown"
+                                                classNamePrefix="status-dropdown"
                                                 components={
                                                   Object {
                                                     "IndicatorsContainer": [Function],
@@ -10481,6 +10501,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                   blurInputOnSelect={true}
                                                   captureMenuScroll={false}
                                                   className="dropdown"
+                                                  classNamePrefix="status-dropdown"
                                                   closeMenuOnScroll={false}
                                                   closeMenuOnSelect={true}
                                                   components={
@@ -10644,6 +10665,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                         "blurInputOnSelect": true,
                                                         "captureMenuScroll": false,
                                                         "className": "dropdown",
+                                                        "classNamePrefix": "status-dropdown",
                                                         "closeMenuOnScroll": false,
                                                         "closeMenuOnSelect": true,
                                                         "components": Object {
@@ -10853,6 +10875,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                               "blurInputOnSelect": true,
                                                               "captureMenuScroll": false,
                                                               "className": "dropdown",
+                                                              "classNamePrefix": "status-dropdown",
                                                               "closeMenuOnScroll": false,
                                                               "closeMenuOnSelect": true,
                                                               "components": Object {
@@ -10977,7 +11000,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                           <EmotionCssPropInternal
                                                             __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Control"
                                                             __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
-                                                            className=""
+                                                            className="status-dropdown__control"
                                                             css={
                                                               Object {
                                                                 "&:hover": Object {
@@ -11006,7 +11029,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                             onTouchEnd={[Function]}
                                                           >
                                                             <div
-                                                              className=" css-yk16xz-control"
+                                                              className="status-dropdown__control css-yk16xz-control"
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
@@ -11070,6 +11093,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                     "blurInputOnSelect": true,
                                                                     "captureMenuScroll": false,
                                                                     "className": "dropdown",
+                                                                    "classNamePrefix": "status-dropdown",
                                                                     "closeMenuOnScroll": false,
                                                                     "closeMenuOnSelect": true,
                                                                     "components": Object {
@@ -11272,6 +11296,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                           "blurInputOnSelect": true,
                                                                           "captureMenuScroll": false,
                                                                           "className": "dropdown",
+                                                                          "classNamePrefix": "status-dropdown",
                                                                           "closeMenuOnScroll": false,
                                                                           "closeMenuOnSelect": true,
                                                                           "components": Object {
@@ -11396,7 +11421,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                       <EmotionCssPropInternal
                                                                         __EMOTION_LABEL_PLEASE_DO_NOT_USE__="ValueContainer"
                                                                         __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
-                                                                        className=""
+                                                                        className="status-dropdown__value-container"
                                                                         css={
                                                                           Object {
                                                                             "WebkitOverflowScrolling": "touch",
@@ -11412,7 +11437,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                         }
                                                                       >
                                                                         <div
-                                                                          className=" css-g1d714-ValueContainer"
+                                                                          className="status-dropdown__value-container css-g1d714-ValueContainer"
                                                                         >
                                                                           <Placeholder
                                                                             clearValue={[Function]}
@@ -11476,6 +11501,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                                 "blurInputOnSelect": true,
                                                                                 "captureMenuScroll": false,
                                                                                 "className": "dropdown",
+                                                                                "classNamePrefix": "status-dropdown",
                                                                                 "closeMenuOnScroll": false,
                                                                                 "closeMenuOnSelect": true,
                                                                                 "components": Object {
@@ -11600,7 +11626,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                             <EmotionCssPropInternal
                                                                               __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Placeholder"
                                                                               __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
-                                                                              className=""
+                                                                              className="status-dropdown__placeholder"
                                                                               css={
                                                                                 Object {
                                                                                   "boxSizing": "border-box",
@@ -11615,7 +11641,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                               }
                                                                             >
                                                                               <div
-                                                                                className=" css-1wa3eu0-placeholder"
+                                                                                className="status-dropdown__placeholder css-1wa3eu0-placeholder"
                                                                               />
                                                                             </EmotionCssPropInternal>
                                                                           </Placeholder>
@@ -11733,6 +11759,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                     "blurInputOnSelect": true,
                                                                     "captureMenuScroll": false,
                                                                     "className": "dropdown",
+                                                                    "classNamePrefix": "status-dropdown",
                                                                     "closeMenuOnScroll": false,
                                                                     "closeMenuOnSelect": true,
                                                                     "components": Object {
@@ -13696,6 +13723,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                             status={null}
                                           >
                                             <Dropdown
+                                              classNamePrefix="status-dropdown"
                                               disabled={false}
                                               items={
                                                 Array [
@@ -13749,6 +13777,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                             >
                                               <StateManager
                                                 className="dropdown"
+                                                classNamePrefix="status-dropdown"
                                                 components={
                                                   Object {
                                                     "IndicatorsContainer": [Function],
@@ -13820,6 +13849,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                   blurInputOnSelect={true}
                                                   captureMenuScroll={false}
                                                   className="dropdown"
+                                                  classNamePrefix="status-dropdown"
                                                   closeMenuOnScroll={false}
                                                   closeMenuOnSelect={true}
                                                   components={
@@ -13983,6 +14013,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                         "blurInputOnSelect": true,
                                                         "captureMenuScroll": false,
                                                         "className": "dropdown",
+                                                        "classNamePrefix": "status-dropdown",
                                                         "closeMenuOnScroll": false,
                                                         "closeMenuOnSelect": true,
                                                         "components": Object {
@@ -14192,6 +14223,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                               "blurInputOnSelect": true,
                                                               "captureMenuScroll": false,
                                                               "className": "dropdown",
+                                                              "classNamePrefix": "status-dropdown",
                                                               "closeMenuOnScroll": false,
                                                               "closeMenuOnSelect": true,
                                                               "components": Object {
@@ -14316,7 +14348,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                           <EmotionCssPropInternal
                                                             __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Control"
                                                             __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
-                                                            className=""
+                                                            className="status-dropdown__control"
                                                             css={
                                                               Object {
                                                                 "&:hover": Object {
@@ -14345,7 +14377,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                             onTouchEnd={[Function]}
                                                           >
                                                             <div
-                                                              className=" css-yk16xz-control"
+                                                              className="status-dropdown__control css-yk16xz-control"
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
@@ -14409,6 +14441,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                     "blurInputOnSelect": true,
                                                                     "captureMenuScroll": false,
                                                                     "className": "dropdown",
+                                                                    "classNamePrefix": "status-dropdown",
                                                                     "closeMenuOnScroll": false,
                                                                     "closeMenuOnSelect": true,
                                                                     "components": Object {
@@ -14611,6 +14644,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                           "blurInputOnSelect": true,
                                                                           "captureMenuScroll": false,
                                                                           "className": "dropdown",
+                                                                          "classNamePrefix": "status-dropdown",
                                                                           "closeMenuOnScroll": false,
                                                                           "closeMenuOnSelect": true,
                                                                           "components": Object {
@@ -14735,7 +14769,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                       <EmotionCssPropInternal
                                                                         __EMOTION_LABEL_PLEASE_DO_NOT_USE__="ValueContainer"
                                                                         __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
-                                                                        className=""
+                                                                        className="status-dropdown__value-container"
                                                                         css={
                                                                           Object {
                                                                             "WebkitOverflowScrolling": "touch",
@@ -14751,7 +14785,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                         }
                                                                       >
                                                                         <div
-                                                                          className=" css-g1d714-ValueContainer"
+                                                                          className="status-dropdown__value-container css-g1d714-ValueContainer"
                                                                         >
                                                                           <Placeholder
                                                                             clearValue={[Function]}
@@ -14815,6 +14849,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                                 "blurInputOnSelect": true,
                                                                                 "captureMenuScroll": false,
                                                                                 "className": "dropdown",
+                                                                                "classNamePrefix": "status-dropdown",
                                                                                 "closeMenuOnScroll": false,
                                                                                 "closeMenuOnSelect": true,
                                                                                 "components": Object {
@@ -14939,7 +14974,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                             <EmotionCssPropInternal
                                                                               __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Placeholder"
                                                                               __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
-                                                                              className=""
+                                                                              className="status-dropdown__placeholder"
                                                                               css={
                                                                                 Object {
                                                                                   "boxSizing": "border-box",
@@ -14954,7 +14989,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                               }
                                                                             >
                                                                               <div
-                                                                                className=" css-1wa3eu0-placeholder"
+                                                                                className="status-dropdown__placeholder css-1wa3eu0-placeholder"
                                                                               />
                                                                             </EmotionCssPropInternal>
                                                                           </Placeholder>
@@ -15072,6 +15107,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                     "blurInputOnSelect": true,
                                                                     "captureMenuScroll": false,
                                                                     "className": "dropdown",
+                                                                    "classNamePrefix": "status-dropdown",
                                                                     "closeMenuOnScroll": false,
                                                                     "closeMenuOnSelect": true,
                                                                     "components": Object {
@@ -17035,6 +17071,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                             status={null}
                                           >
                                             <Dropdown
+                                              classNamePrefix="status-dropdown"
                                               disabled={false}
                                               items={
                                                 Array [
@@ -17088,6 +17125,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                             >
                                               <StateManager
                                                 className="dropdown"
+                                                classNamePrefix="status-dropdown"
                                                 components={
                                                   Object {
                                                     "IndicatorsContainer": [Function],
@@ -17159,6 +17197,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                   blurInputOnSelect={true}
                                                   captureMenuScroll={false}
                                                   className="dropdown"
+                                                  classNamePrefix="status-dropdown"
                                                   closeMenuOnScroll={false}
                                                   closeMenuOnSelect={true}
                                                   components={
@@ -17322,6 +17361,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                         "blurInputOnSelect": true,
                                                         "captureMenuScroll": false,
                                                         "className": "dropdown",
+                                                        "classNamePrefix": "status-dropdown",
                                                         "closeMenuOnScroll": false,
                                                         "closeMenuOnSelect": true,
                                                         "components": Object {
@@ -17531,6 +17571,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                               "blurInputOnSelect": true,
                                                               "captureMenuScroll": false,
                                                               "className": "dropdown",
+                                                              "classNamePrefix": "status-dropdown",
                                                               "closeMenuOnScroll": false,
                                                               "closeMenuOnSelect": true,
                                                               "components": Object {
@@ -17655,7 +17696,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                           <EmotionCssPropInternal
                                                             __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Control"
                                                             __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
-                                                            className=""
+                                                            className="status-dropdown__control"
                                                             css={
                                                               Object {
                                                                 "&:hover": Object {
@@ -17684,7 +17725,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                             onTouchEnd={[Function]}
                                                           >
                                                             <div
-                                                              className=" css-yk16xz-control"
+                                                              className="status-dropdown__control css-yk16xz-control"
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
@@ -17748,6 +17789,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                     "blurInputOnSelect": true,
                                                                     "captureMenuScroll": false,
                                                                     "className": "dropdown",
+                                                                    "classNamePrefix": "status-dropdown",
                                                                     "closeMenuOnScroll": false,
                                                                     "closeMenuOnSelect": true,
                                                                     "components": Object {
@@ -17950,6 +17992,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                           "blurInputOnSelect": true,
                                                                           "captureMenuScroll": false,
                                                                           "className": "dropdown",
+                                                                          "classNamePrefix": "status-dropdown",
                                                                           "closeMenuOnScroll": false,
                                                                           "closeMenuOnSelect": true,
                                                                           "components": Object {
@@ -18074,7 +18117,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                       <EmotionCssPropInternal
                                                                         __EMOTION_LABEL_PLEASE_DO_NOT_USE__="ValueContainer"
                                                                         __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
-                                                                        className=""
+                                                                        className="status-dropdown__value-container"
                                                                         css={
                                                                           Object {
                                                                             "WebkitOverflowScrolling": "touch",
@@ -18090,7 +18133,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                         }
                                                                       >
                                                                         <div
-                                                                          className=" css-g1d714-ValueContainer"
+                                                                          className="status-dropdown__value-container css-g1d714-ValueContainer"
                                                                         >
                                                                           <Placeholder
                                                                             clearValue={[Function]}
@@ -18154,6 +18197,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                                 "blurInputOnSelect": true,
                                                                                 "captureMenuScroll": false,
                                                                                 "className": "dropdown",
+                                                                                "classNamePrefix": "status-dropdown",
                                                                                 "closeMenuOnScroll": false,
                                                                                 "closeMenuOnSelect": true,
                                                                                 "components": Object {
@@ -18278,7 +18322,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                             <EmotionCssPropInternal
                                                                               __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Placeholder"
                                                                               __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
-                                                                              className=""
+                                                                              className="status-dropdown__placeholder"
                                                                               css={
                                                                                 Object {
                                                                                   "boxSizing": "border-box",
@@ -18293,7 +18337,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                               }
                                                                             >
                                                                               <div
-                                                                                className=" css-1wa3eu0-placeholder"
+                                                                                className="status-dropdown__placeholder css-1wa3eu0-placeholder"
                                                                               />
                                                                             </EmotionCssPropInternal>
                                                                           </Placeholder>
@@ -18411,6 +18455,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                                     "blurInputOnSelect": true,
                                                                     "captureMenuScroll": false,
                                                                     "className": "dropdown",
+                                                                    "classNamePrefix": "status-dropdown",
                                                                     "closeMenuOnScroll": false,
                                                                     "closeMenuOnSelect": true,
                                                                     "components": Object {
