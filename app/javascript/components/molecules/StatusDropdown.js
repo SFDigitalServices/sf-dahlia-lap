@@ -7,7 +7,7 @@ import { LEASE_UP_STATUS_OPTIONS, LEASE_UP_STATUS_VALUES } from '~/utils/statusU
 import Dropdown from '../molecules/Dropdown'
 import Icon from '../atoms/Icon'
 
-const renderStatusOption = ({ value, label, statusClassName }, { selectValue }) => {
+export const renderStatusOption = ({ value, label, statusClassName }, { selectValue }) => {
   const isSelected = selectValue[0]?.value === value
   return (
     <li className={classNames('dropdown-menu_item', statusClassName)} aria-selected={isSelected}>
@@ -66,19 +66,20 @@ const StatusDropdown = ({
 }
 
 StatusDropdown.propTypes = {
-  status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
-  onChange: PropTypes.func,
   disabled: PropTypes.bool,
+  expand: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['tiny', 'small']),
-  expand: PropTypes.bool
+  status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES)
 }
 
 StatusDropdown.defaultProps = {
-  status: null,
+  disabled: false,
+  expand: false,
   placeholder: 'Status',
   size: null,
-  expand: false
+  status: null
 }
 
 export default StatusDropdown

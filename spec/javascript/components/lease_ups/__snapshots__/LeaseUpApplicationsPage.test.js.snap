@@ -3672,6 +3672,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                           onChange={[Function]}
                                         >
                                           <StatusDropdown
+                                            disabled={false}
                                             expand={false}
                                             onChange={[Function]}
                                             placeholder="Status"
@@ -4521,6 +4522,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                               >
                                                                 <button
                                                                   className="button dropdown-button has-icon--right text-align-left tiny tertiary"
+                                                                  disabled={false}
                                                                   type="button"
                                                                 >
                                                                   <Icon
@@ -7020,6 +7022,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                           onChange={[Function]}
                                         >
                                           <StatusDropdown
+                                            disabled={false}
                                             expand={false}
                                             onChange={[Function]}
                                             placeholder="Status"
@@ -7869,6 +7872,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                               >
                                                                 <button
                                                                   className="button dropdown-button has-icon--right text-align-left tiny tertiary"
+                                                                  disabled={false}
                                                                   type="button"
                                                                 >
                                                                   <Icon
@@ -10368,6 +10372,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                           onChange={[Function]}
                                         >
                                           <StatusDropdown
+                                            disabled={false}
                                             expand={false}
                                             onChange={[Function]}
                                             placeholder="Status"
@@ -11217,6 +11222,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                               >
                                                                 <button
                                                                   className="button dropdown-button has-icon--right text-align-left tiny tertiary"
+                                                                  disabled={false}
                                                                   type="button"
                                                                 >
                                                                   <Icon
@@ -13716,6 +13722,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                           onChange={[Function]}
                                         >
                                           <StatusDropdown
+                                            disabled={false}
                                             expand={false}
                                             onChange={[Function]}
                                             placeholder="Status"
@@ -14565,6 +14572,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                               >
                                                                 <button
                                                                   className="button dropdown-button has-icon--right text-align-left tiny tertiary"
+                                                                  disabled={false}
                                                                   type="button"
                                                                 >
                                                                   <Icon
@@ -17064,6 +17072,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                           onChange={[Function]}
                                         >
                                           <StatusDropdown
+                                            disabled={false}
                                             expand={false}
                                             onChange={[Function]}
                                             placeholder="Status"
@@ -17913,6 +17922,7 @@ exports[`LeaseUpApplicationsPage Should render LeaseUpTable 1`] = `
                                                               >
                                                                 <button
                                                                   className="button dropdown-button has-icon--right text-align-left tiny tertiary"
+                                                                  disabled={false}
                                                                   type="button"
                                                                 >
                                                                   <Icon

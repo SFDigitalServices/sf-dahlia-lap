@@ -46,17 +46,19 @@ const Dropdown = ({
 }
 
 Dropdown.propTypes = {
-  placeholder: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.object),
-  value: PropTypes.string,
+  classNamePrefix: PropTypes.string,
   disabled: PropTypes.bool,
-  onChange: PropTypes.func,
+  items: PropTypes.arrayOf(PropTypes.object),
+  onChange: PropTypes.func.isRequired,
   renderToggle: PropTypes.func.isRequired,
   renderOption: PropTypes.func.isRequired,
-  classNamePrefix: PropTypes.string
+  value: PropTypes.string
 }
 
 Dropdown.defaultProps = {
-  disabled: false
+  classNamePrefix: null,
+  disabled: false,
+  items: [],
+  value: null
 }
 export default Dropdown
