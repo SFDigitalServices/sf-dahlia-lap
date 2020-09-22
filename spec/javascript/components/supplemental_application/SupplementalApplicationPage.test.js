@@ -66,7 +66,7 @@ jest.mock('apiService', () => {
 
 const statusHistory = [
   { status: 'Approved', comment: 'xxxx1', date: '2018-05-10T19:54:11.000+0000' },
-  { status: 'Processing', comment: 'xxxx2', date: '2018-05-10T19:54:11.000+0000' }
+  { status: 'Withdrawn', comment: 'xxxx2', date: '2018-05-10T19:54:11.000+0000' }
 ]
 
 describe('SupplementalApplicationPage', () => {
@@ -92,7 +92,8 @@ describe('SupplementalApplicationPage', () => {
       component = renderer.create(
         <SupplementalApplicationPage
           application={getMockApplication()}
-          units={units} />
+          units={units}
+          availableUnits={[]} />
       )
     })
 
@@ -107,7 +108,8 @@ describe('SupplementalApplicationPage', () => {
         <SupplementalApplicationPage
           application={getMockApplication()}
           statusHistory={statusHistory}
-          units={units} />
+          units={units}
+          availableUnits={[]} />
       )
     })
     await act(async () => { wrapper.find('form').first().simulate('submit') })
@@ -122,7 +124,8 @@ describe('SupplementalApplicationPage', () => {
         <SupplementalApplicationPage
           application={getMockApplication()}
           statusHistory={statusHistory}
-          units={units} />
+          units={units}
+          availableUnits={[]} />
       )
     })
     wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
@@ -144,7 +147,8 @@ describe('SupplementalApplicationPage', () => {
         <SupplementalApplicationPage
           application={getMockApplication()}
           statusHistory={statusHistory}
-          units={units} />
+          units={units}
+          availableUnits={[]} />
       )
     })
 
@@ -180,6 +184,7 @@ describe('SupplementalApplicationPage', () => {
           <SupplementalApplicationPage
             application={withValidPreferences}
             statusHistory={statusHistory}
+            availableUnits={[]}
           />
         )
       })
@@ -228,6 +233,7 @@ describe('SupplementalApplicationPage', () => {
           <SupplementalApplicationPage
             application={withValidPreferences}
             statusHistory={statusHistory}
+            availableUnits={[]}
           />
         )
       })
@@ -267,7 +273,8 @@ describe('SupplementalApplicationPage', () => {
           <SupplementalApplicationPage
             application={application}
             statusHistory={statusHistory}
-            units={units} />
+            units={units}
+            availableUnits={[]} />
         )
       })
       wrapper.find('input#form-confirmed_household_annual_income').simulate('change', { target: { value: '1234' } })
@@ -290,7 +297,8 @@ describe('SupplementalApplicationPage', () => {
           <SupplementalApplicationPage
             application={application}
             statusHistory={statusHistory}
-            units={units} />
+            units={units}
+            availableUnits={[]} />
         )
       })
       wrapper.find('input#form-confirmed_household_annual_income').simulate('change', { target: { value: '' } })
@@ -394,7 +402,8 @@ describe('SupplementalApplicationPage', () => {
           <SupplementalApplicationPage
             application={getMockApplication()}
             statusHistory={statusHistory}
-            units={[]} />
+            units={[]}
+            availableUnits={[]} />
         )
       })
       const unitSelect = await wrapper.find('#lease_assigned_unit').first()
@@ -412,6 +421,7 @@ describe('SupplementalApplicationPage', () => {
           <SupplementalApplicationPage
             application={getMockApplication()}
             statusHistory={statusHistory}
+            availableUnits={[]}
           />
         )
       })
@@ -430,6 +440,7 @@ describe('SupplementalApplicationPage', () => {
         <SupplementalApplicationPage
           application={getMockApplication()}
           statusHistory={statusHistory}
+          availableUnits={[]}
         />
       )
     })

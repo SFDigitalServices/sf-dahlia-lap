@@ -27,48 +27,8 @@ Array [
     className="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x bg-white"
   >
     <div
-      className="loading-panel loading"
+      className="loading-panel"
     >
-      <div
-        className="spinner sk-fading-circle"
-      >
-        <div
-          className="sk-circle1 sk-circle"
-        />
-        <div
-          className="sk-circle2 sk-circle"
-        />
-        <div
-          className="sk-circle3 sk-circle"
-        />
-        <div
-          className="sk-circle4 sk-circle"
-        />
-        <div
-          className="sk-circle5 sk-circle"
-        />
-        <div
-          className="sk-circle6 sk-circle"
-        />
-        <div
-          className="sk-circle7 sk-circle"
-        />
-        <div
-          className="sk-circle8 sk-circle"
-        />
-        <div
-          className="sk-circle9 sk-circle"
-        />
-        <div
-          className="sk-circle10 sk-circle"
-        />
-        <div
-          className="sk-circle11 sk-circle"
-        />
-        <div
-          className="sk-circle12 sk-circle"
-        />
-      </div>
       <form
         noValidate={true}
         onSubmit={[Function]}
@@ -447,12 +407,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -odd"
+              className="rt-tr -odd"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -462,12 +422,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -477,12 +452,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -492,12 +466,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -506,13 +481,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -521,13 +493,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -536,13 +505,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -551,13 +517,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -566,26 +529,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -593,12 +537,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -even"
+              className="rt-tr -even"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -608,12 +552,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -623,12 +582,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -638,12 +596,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -652,13 +611,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -667,13 +623,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -682,13 +635,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -697,13 +647,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -712,26 +659,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -739,12 +667,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -odd"
+              className="rt-tr -odd"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -754,12 +682,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -769,12 +712,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -784,12 +726,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -798,13 +741,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -813,13 +753,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -828,13 +765,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -843,13 +777,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -858,26 +789,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -885,12 +797,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -even"
+              className="rt-tr -even"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -900,12 +812,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -915,12 +842,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -930,12 +856,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -944,13 +871,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -959,13 +883,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -974,13 +895,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -989,13 +907,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1004,26 +919,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -1031,12 +927,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -odd"
+              className="rt-tr -odd"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1046,12 +942,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1061,12 +972,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1076,12 +986,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1090,13 +1001,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1105,13 +1013,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1120,13 +1025,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1135,13 +1037,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1150,26 +1049,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -1177,12 +1057,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -even"
+              className="rt-tr -even"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1192,12 +1072,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1207,12 +1102,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1222,12 +1116,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1236,13 +1131,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1251,13 +1143,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1266,13 +1155,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1281,13 +1167,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1296,26 +1179,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -1323,12 +1187,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -odd"
+              className="rt-tr -odd"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1338,12 +1202,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1353,12 +1232,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1368,12 +1246,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1382,13 +1261,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1397,13 +1273,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1412,13 +1285,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1427,13 +1297,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1442,26 +1309,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -1469,12 +1317,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -even"
+              className="rt-tr -even"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1484,12 +1332,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1499,12 +1362,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1514,12 +1376,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1528,13 +1391,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1543,13 +1403,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1558,13 +1415,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1573,13 +1427,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1588,26 +1439,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -1615,12 +1447,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -odd"
+              className="rt-tr -odd"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1630,12 +1462,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1645,12 +1492,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1660,12 +1506,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1674,13 +1521,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1689,13 +1533,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1704,13 +1545,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1719,13 +1557,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1734,26 +1569,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -1761,12 +1577,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -even"
+              className="rt-tr -even"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1776,12 +1592,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1791,12 +1622,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1806,12 +1636,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1820,13 +1651,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1835,13 +1663,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1850,13 +1675,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1865,13 +1687,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1880,26 +1699,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -1907,12 +1707,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -odd"
+              className="rt-tr -odd"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1922,12 +1722,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1937,12 +1752,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1952,12 +1766,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1966,13 +1781,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1981,13 +1793,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -1996,13 +1805,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2011,13 +1817,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2026,26 +1829,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -2053,12 +1837,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -even"
+              className="rt-tr -even"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2068,12 +1852,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2083,12 +1882,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2098,12 +1896,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2112,13 +1911,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2127,13 +1923,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2142,13 +1935,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2157,13 +1947,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2172,26 +1959,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -2199,12 +1967,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -odd"
+              className="rt-tr -odd"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2214,12 +1982,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2229,12 +2012,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2244,12 +2026,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2258,13 +2041,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2273,13 +2053,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2288,13 +2065,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2303,13 +2077,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2318,26 +2089,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -2345,12 +2097,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -even"
+              className="rt-tr -even"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2360,12 +2112,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2375,12 +2142,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2390,12 +2156,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2404,13 +2171,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2419,13 +2183,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2434,13 +2195,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2449,13 +2207,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2464,26 +2219,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -2491,12 +2227,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -odd"
+              className="rt-tr -odd"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2506,12 +2242,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2521,12 +2272,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2536,12 +2286,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2550,13 +2301,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2565,13 +2313,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2580,13 +2325,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2595,13 +2337,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2610,26 +2349,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -2637,12 +2357,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -even"
+              className="rt-tr -even"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2652,12 +2372,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2667,12 +2402,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2682,12 +2416,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2696,13 +2431,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2711,13 +2443,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2726,13 +2455,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2741,13 +2467,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2756,26 +2479,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -2783,12 +2487,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -odd"
+              className="rt-tr -odd"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2798,12 +2502,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2813,12 +2532,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2828,12 +2546,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2842,13 +2561,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2857,13 +2573,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2872,13 +2585,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2887,13 +2597,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2902,26 +2609,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -2929,12 +2617,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -even"
+              className="rt-tr -even"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2944,12 +2632,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2959,12 +2662,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2974,12 +2676,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -2988,13 +2691,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3003,13 +2703,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3018,13 +2715,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3033,13 +2727,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3048,26 +2739,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -3075,12 +2747,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -odd"
+              className="rt-tr -odd"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3090,12 +2762,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3105,12 +2792,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3120,12 +2806,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3134,13 +2821,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3149,13 +2833,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3164,13 +2845,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3179,13 +2857,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3194,26 +2869,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
           <div
@@ -3221,12 +2877,12 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -even"
+              className="rt-tr -even"
               role="row"
-              style={Object {}}
             >
               <div
-                className="rt-td"
+                className="rt-td rt-expandable"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3236,12 +2892,27 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  Object {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3251,12 +2922,11 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                200 Buchanan (Alchemy by Alta)
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3266,12 +2936,13 @@ Array [
                   }
                 }
               >
-                <span>
-                   
-                </span>
+                <div>
+                  08/31/2016
+                </div>
               </div>
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3280,13 +2951,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3295,13 +2963,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3310,13 +2975,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3325,13 +2987,10 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
               <div
                 className="rt-td"
+                onClick={[Function]}
                 role="gridcell"
                 style={
                   Object {
@@ -3340,26 +2999,7 @@ Array [
                     "width": "100px",
                   }
                 }
-              >
-                <span>
-                   
-                </span>
-              </div>
-              <div
-                className="rt-td"
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                <span>
-                   
-                </span>
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -3408,7 +3048,7 @@ Array [
               <span
                 className="-totalPages"
               >
-                1
+                5
               </span>
             </span>
           </div>
@@ -3417,7 +3057,7 @@ Array [
           >
             <button
               className="-btn"
-              disabled={true}
+              disabled={false}
               onClick={[Function]}
               type="button"
             >
@@ -3427,12 +3067,7 @@ Array [
         </div>
       </div>
       <div
-        className="rt-noData"
-      >
-        No rows found
-      </div>
-      <div
-        className="-loading -active"
+        className="-loading"
       >
         <div
           className="-loading-inner"

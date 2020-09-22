@@ -252,6 +252,7 @@ Array [
                                   <a
                                     className="block-link"
                                     href="undefined/servlet/servlet.FileDownload?file=00P0P00000t0P3vUAE"
+                                    rel="noreferrer"
                                     target="_blank"
                                   >
                                     Copy of Lease
@@ -937,7 +938,7 @@ Array [
                         <input
                           checked={true}
                           id="form-ctrl-reserved_senior"
-                          onClick={[Function]}
+                          onChange={[Function]}
                           type="checkbox"
                         />
                         <label
@@ -964,7 +965,7 @@ Array [
                         <input
                           checked={true}
                           id="form-ctrl-has_military_service"
-                          onClick={[Function]}
+                          onChange={[Function]}
                           type="checkbox"
                         />
                         <label
@@ -991,7 +992,7 @@ Array [
                         <input
                           checked={true}
                           id="form-ctrl-has_developmental_disability"
-                          onClick={[Function]}
+                          onChange={[Function]}
                           type="checkbox"
                         />
                         <label
@@ -1375,6 +1376,63 @@ Array [
                   }
                 }
               >
+                <div
+                  className="form-grid row expand"
+                >
+                  <div
+                    className="form-grid_item column small-6"
+                  >
+                    <div
+                      className="margin-bottom"
+                    >
+                      <strong
+                        className="form-note max-width"
+                      >
+                        Remaining Available Units and Set-Asides
+                      </strong>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="form-grid row expand"
+                >
+                  <div
+                    className="form-grid_item column small-3"
+                  >
+                    <strong
+                      className="form-note micro h-caps"
+                    >
+                      Total
+                    </strong>
+                    <p
+                      className="margin-top"
+                    >
+                      <strong
+                        className="form-note"
+                      >
+                        0
+                      </strong>
+                    </p>
+                  </div>
+                  <div
+                    className="form-grid_item column small-3"
+                  >
+                    <strong
+                      className="form-note micro h-caps"
+                    >
+                      Accessibility
+                    </strong>
+                    <p
+                      className="margin-top"
+                    >
+                      <span
+                        className="form-note"
+                      >
+                        0
+                      </span>
+                    </p>
+                  </div>
+                </div>
                 <div
                   className="form-grid row expand"
                 >

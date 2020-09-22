@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-conditional-expect */
 import React from 'react'
 import { mount } from 'enzyme'
 import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
@@ -75,10 +76,10 @@ describe('LeaseUpApplicationsPage', () => {
     await tick()
     wrapper.update()
   })
-  test('Should render LeaseUpTable', async () => {
+  test('should render LeaseUpTable', async () => {
     expect(wrapper).toMatchSnapshot()
   })
-  test('Should render accessibility requests when present', async () => {
+  test('should render accessibility requests when present', async () => {
     expect(wrapper.find(rowSelector).first().text()).toContain('Vision')
   })
 

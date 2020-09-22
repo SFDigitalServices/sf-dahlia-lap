@@ -18,7 +18,7 @@ describe('LeaseUpSidebar', () => {
       const wrapper = getWrapper([])
       // two sidebar buttons components, one for mobile, one for desktop
       expect(wrapper.find(LeaseUpStatusButtons)).toHaveLength(2)
-      expect(wrapper.find(LeaseUpStatusButtons).first().prop('status')).toEqual(null)
+      expect(wrapper.find(LeaseUpStatusButtons).first().prop('status')).toBeNull()
       expect(wrapper.find(StatusHistoryContainer)).toHaveLength(0)
     })
 

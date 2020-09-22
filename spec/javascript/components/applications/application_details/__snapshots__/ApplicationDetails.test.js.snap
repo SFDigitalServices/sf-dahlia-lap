@@ -730,6 +730,7 @@ exports[`ApplicationDetails should render without error and as expected 1`] = `
       <li>
         <a
           href="undefined/servlet/servlet.FileDownload?file=xxxx1"
+          rel="noreferrer"
           target="_blank"
         >
           Namexxx1
@@ -738,6 +739,7 @@ exports[`ApplicationDetails should render without error and as expected 1`] = `
       <li>
         <a
           href="undefined/sfc/servlet.shepherd/version/download/xxxx2"
+          rel="noreferrer"
           target="_blank"
         >
           Namexxx2

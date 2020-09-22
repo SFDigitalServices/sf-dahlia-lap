@@ -279,7 +279,12 @@ export const TextCheckboxField = ({ fieldName, label, blockNote, validation, id,
             meta={meta}
             aria-labelledby={ariaLabelledby}
             id={id || `form-base-${fieldName}`} />
-          <input id={id || `form-ctrl-${fieldName}`} type='checkbox' checked={input.value === trueValue} onClick={onChange} />
+          <input
+            id={id || `form-ctrl-${fieldName}`}
+            type='checkbox'
+            checked={input.value === trueValue}
+            onChange={onChange}
+          />
           <Label
             label={label}
             id={id || `form-ctrl-${fieldName}`}

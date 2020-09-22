@@ -184,66 +184,66 @@ const SupplementalApplicationContainer = ({ store }) => {
         values,
         visited
       }) => (
-          <>
-            {failed && (
-              <AlertBox
-                invert
-                onCloseClick={() => setFailed(false)}
-                message='Please resolve any errors before saving the application.'
-              />
-            )}
-            <form
-              onSubmit={handleSubmit}
-              onChange={assignSupplementalAppTouched}
-              style={{ margin: '0px' }}
-              id='shortForm'
-              noValidate
-            >
-              <AsymColumnLayout.Container>
-
-                <AsymColumnLayout.MainContent>
-                  <ConfirmedPreferencesSection
-                    application={application}
-                    applicationMembers={applicationMembers}
-                    fileBaseUrl={fileBaseUrl}
-                    onSave={onSavePreference}
-                    onDismissError={onDismissError}
-                    confirmedPreferencesFailed={confirmedPreferencesFailed}
-                    form={form}
-                  />
-                  <Income
-                    listingAmiCharts={listingAmiCharts}
-                    visited={visited}
-                    form={form}
-                  />
-                  <LeaseSection
-                    form={form}
-                    values={values}
-                    showLeaseSection={leaseSectionState !== NO_LEASE_STATE}
-                    onCreateLeaseClick={handleCreateLeaseClick}
-                  />
-                  <DemographicsSection />
-                </AsymColumnLayout.MainContent>
-                <AsymColumnLayout.Sidebar>
-                  <Sidebar
-                    onAddCommentClicked={() => onAddCommentClicked(form, touched)}
-                    onChangeStatus={(value) => onChangeStatus(form, touched, value)}
-                    onSaveClicked={() => checkForValidationErrors(form, touched)}
-                  />
-                </AsymColumnLayout.Sidebar>
-              </AsymColumnLayout.Container>
-            </form>
-            <StatusModalWrapper
-              {...statusModal}
-              onClose={handleStatusModalClose}
-              onSubmit={submittedValues =>
-                handleStatusModalSubmit(
-                  submittedValues,
-                  convertPercentAndCurrency(form.getState().values)
-                )
-              }
+        <>
+          {failed && (
+            <AlertBox
+              invert
+              onCloseClick={() => setFailed(false)}
+              message='Please resolve any errors before saving the application.'
             />
-          </>
+          )}
+          <form
+            onSubmit={handleSubmit}
+            onChange={assignSupplementalAppTouched}
+            style={{ margin: '0px' }}
+            id='shortForm'
+            noValidate
+          >
+            <AsymColumnLayout.Container>
+
+              <AsymColumnLayout.MainContent>
+                <ConfirmedPreferencesSection
+                  application={application}
+                  applicationMembers={applicationMembers}
+                  fileBaseUrl={fileBaseUrl}
+                  onSave={onSavePreference}
+                  onDismissError={onDismissError}
+                  confirmedPreferencesFailed={confirmedPreferencesFailed}
+                  form={form}
+                />
+                <Income
+                  listingAmiCharts={listingAmiCharts}
+                  visited={visited}
+                  form={form}
+                />
+                <LeaseSection
+                  form={form}
+                  values={values}
+                  showLeaseSection={leaseSectionState !== NO_LEASE_STATE}
+                  onCreateLeaseClick={handleCreateLeaseClick}
+                />
+                <DemographicsSection />
+              </AsymColumnLayout.MainContent>
+              <AsymColumnLayout.Sidebar>
+                <Sidebar
+                  onAddCommentClicked={() => onAddCommentClicked(form, touched)}
+                  onChangeStatus={(value) => onChangeStatus(form, touched, value)}
+                  onSaveClicked={() => checkForValidationErrors(form, touched)}
+                />
+              </AsymColumnLayout.Sidebar>
+            </AsymColumnLayout.Container>
+          </form>
+          <StatusModalWrapper
+            {...statusModal}
+            onClose={handleStatusModalClose}
+            onSubmit={submittedValues =>
+              handleStatusModalSubmit(
+                submittedValues,
+                convertPercentAndCurrency(form.getState().values)
+              )
+            }
+          />
+        </>
       )}
     />
   )

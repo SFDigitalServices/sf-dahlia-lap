@@ -33,7 +33,7 @@ const getWrapper = (propOverrides = {}) => shallow(
   />
 )
 
-describe(Dropdown, () => {
+describe('Dropdown', () => {
   let wrapper
   test('it renders a select', () => {
     wrapper = getWrapper()

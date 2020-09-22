@@ -59,11 +59,11 @@ const checkForSubStatus = async (selectedStatus, page) => {
     await page.waitForSelector('.form-modal_form_wrapper .substatus-dropdown__control')
     await page.click('.form-modal_form_wrapper .substatus-dropdown__control button')
     const emptySubStatus = await page.$eval('.form-modal_form_wrapper .substatus-dropdown__control button', e => e.textContent)
-    expect(emptySubStatus.toLowerCase().includes('select one...')).toBe(true)
+    expect(emptySubStatus.toLowerCase()).toContain('select one...')
     await page.waitForSelector('.form-modal_form_wrapper .substatus-dropdown__menu')
     await page.click('.form-modal_form_wrapper .substatus-dropdown__menu li a')
     const selectedSubStatus = await page.$eval('.form-modal_form_wrapper .substatus-dropdown__control button', e => e.textContent)
-    expect(selectedSubStatus.toLowerCase().includes('select one...')).toBe(false)
+    expect(selectedSubStatus.toLowerCase()).not.toContain('select one...')
     return selectedSubStatus
   }
 }
