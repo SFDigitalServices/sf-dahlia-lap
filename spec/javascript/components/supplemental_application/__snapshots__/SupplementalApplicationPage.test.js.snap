@@ -1400,7 +1400,7 @@ Array [
                     className="form-grid_item column small-3 medium-3 large-3"
                   >
                     <strong
-                      className="form-note micro"
+                      className="form-note micro h-caps"
                     >
                       Total
                     </strong>
@@ -1418,14 +1418,18 @@ Array [
                     className="form-grid_item column small-3 medium-3 large-3"
                   >
                     <strong
-                      className="form-note micro"
+                      className="form-note micro h-caps"
                     >
                       Accessibility
                     </strong>
                     <p
                       className="margin-top"
                     >
-                      0
+                      <span
+                        className="form-note"
+                      >
+                        0
+                      </span>
                     </p>
                   </div>
                 </div>
