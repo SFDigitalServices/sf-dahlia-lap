@@ -33,8 +33,8 @@ FormGrid.Row.defaultProps = {
 FormGrid.Item = ({ children, small = false }) => (
   <div className={classNames(
     'form-grid_item column',
-    { 'small-6 medium-6 large-6': !small },
-    { 'small-3 medium-3 large-3': small }
+    { 'small-6': !small },
+    { 'small-3': small }
   )}>
     {children}
   </div>
