@@ -12,9 +12,10 @@ import {
 import Icon from '../atoms/Icon'
 import Dropdown from '../molecules/Dropdown'
 
-const renderSubstatusOption = ({ value, label }) => {
+const renderSubstatusOption = ({ value, label }, { selectValue }) => {
+  const isSelected = selectValue[0]?.value === value
   return (
-    <li className={'dropdown-menu_item'}>
+    <li className={'dropdown-menu_item'} aria-selected={isSelected}>
       <a>{label}</a>
     </li>
   )
@@ -59,6 +60,7 @@ const SubstatusDropdown = ({
 
   return (
     <Dropdown
+      classNamePrefix='substatus-dropdown'
       items={LEASE_UP_SUBSTATUS_OPTIONS[status]}
       value={subStatus}
       placeholder={placeholder}

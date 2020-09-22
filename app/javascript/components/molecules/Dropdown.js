@@ -10,7 +10,8 @@ const Dropdown = ({
   disabled,
   onChange,
   renderToggle,
-  renderOption
+  renderOption,
+  classNamePrefix
 }) => {
   let selectedItem = find(items, { value })
 
@@ -24,6 +25,7 @@ const Dropdown = ({
 
   return (
     <Select
+      classNamePrefix={classNamePrefix}
       placeholder={null}
       isDisabled={disabled}
       isClearable={false}
@@ -50,7 +52,8 @@ Dropdown.propTypes = {
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
   renderToggle: PropTypes.func.isRequired,
-  renderOption: PropTypes.func.isRequired
+  renderOption: PropTypes.func.isRequired,
+  classNamePrefix: PropTypes.string
 }
 
 Dropdown.defaultProps = {

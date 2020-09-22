@@ -7,8 +7,8 @@ const testStatusModalUpdate = async (page) => {
 
   // Select a status different from the current one in the status modal
   await page.click('.form-modal_form_wrapper .dropdown')
-  const newSelectedStatus = await page.$eval('.form-modal_form_wrapper .dropdown-menu li[aria-selected="false"] a', e => e.textContent)
-  await page.click('.form-modal_form_wrapper .dropdown-menu li[aria-selected="false"] a')
+  const newSelectedStatus = await page.$eval('.form-modal_form_wrapper li[aria-selected="false"].dropdown-menu_item  a', e => e.textContent)
+  await page.click('.form-modal_form_wrapper li[aria-selected="false"].dropdown-menu_item  a')
 
   const selectedSubstatus = await checkForSubStatus(newSelectedStatus, page)
 
@@ -56,14 +56,13 @@ const savePage = async (page) => {
 const checkForSubStatus = async (selectedStatus, page) => {
   if (selectedStatus.toLowerCase() !== 'processing' && selectedStatus.toLowerCase() !== 'lease signed') {
     // If status has a subStatus value wait for that dropdown to be available and select one
-    await page.waitForSelector('.form-modal_form_wrapper .dropdown.subStatus')
-    await page.click('.form-modal_form_wrapper .dropdown.subStatus button')
-    const emptySubStatus = await page.$eval('.form-modal_form_wrapper .dropdown.subStatus button', e => e.textContent)
+    await page.waitForSelector('.form-modal_form_wrapper .substatus-dropdown__control')
+    await page.click('.form-modal_form_wrapper .substatus-dropdown__control button')
+    const emptySubStatus = await page.$eval('.form-modal_form_wrapper .substatus-dropdown__control button', e => e.textContent)
     expect(emptySubStatus.toLowerCase().includes('select one...')).toBe(true)
-
-    await page.waitForSelector('.form-modal_form_wrapper .dropdown.subStatus .dropdown-menu')
-    await page.click('.form-modal_form_wrapper .dropdown.subStatus .dropdown-menu li a')
-    const selectedSubStatus = await page.$eval('.form-modal_form_wrapper .dropdown.subStatus button', e => e.textContent)
+    await page.waitForSelector('.form-modal_form_wrapper .substatus-dropdown__menu')
+    await page.click('.form-modal_form_wrapper .substatus-dropdown__menu li a')
+    const selectedSubStatus = await page.$eval('.form-modal_form_wrapper .substatus-dropdown__control button', e => e.textContent)
     expect(selectedSubStatus.toLowerCase().includes('select one...')).toBe(false)
     return selectedSubStatus
   }
