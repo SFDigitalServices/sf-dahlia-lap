@@ -3,5 +3,8 @@
         "javascript",
         "javascriptreact",
     ],
-    "javascript.validate.enable": false
+    "javascript.validate.enable": false,
+    "jest.disabledWorkspaceFolders": [
+        "spec/javascript/e2e"
+    ]
 }
