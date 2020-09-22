@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-conditional-expect */
 import React from 'react'
 import { act } from 'react-dom/test-utils'
 import { mount } from 'enzyme'
@@ -94,10 +95,10 @@ describe('LeaseUpApplicationsPage', () => {
     await tick()
     wrapper.update()
   })
-  test('Should render LeaseUpTable', async () => {
+  test('should render LeaseUpTable', async () => {
     expect(wrapper).toMatchSnapshot()
   })
-  test('Should render accessibility when present', async () => {
+  test('should render accessibility when present', async () => {
     expect(wrapper.find('div.rt-tbody .rt-tr-group').first().text()).toContain('Vision')
   })
 
@@ -109,7 +110,7 @@ describe('LeaseUpApplicationsPage', () => {
     const statusSelector = '.form-modal_form_wrapper .dropdown.status'
     const subStatusSelector = '.form-modal_form_wrapper .dropdown.subStatus'
 
-    test('Can be opened and closed', async () => {
+    test('can be opened and closed', async () => {
       openStatusModal(wrapper)
 
       // Expect the modal to be open
@@ -125,7 +126,7 @@ describe('LeaseUpApplicationsPage', () => {
       expect(mockCreateFieldUpdateComment.mock.calls.length).toEqual(0)
     })
 
-    test('Should display sub status options properly', async () => {
+    test('should display sub status options properly', async () => {
       openStatusModal(wrapper)
 
       // Expect the modal to be open
@@ -134,7 +135,7 @@ describe('LeaseUpApplicationsPage', () => {
       if (!status.toLowerCase().includes('processing') && !status.toLowerCase().includes('lease signed')) {
         expect(wrapper.find(subStatusSelector).exists()).toBe(true)
         const emptyStatus = wrapper.find(`${subStatusSelector} button`).html()
-        expect(emptyStatus.toLowerCase().includes('select one...')).toBe(true)
+        expect(emptyStatus.toLowerCase()).toContain('select one...')
       } else {
         expect(wrapper.find(subStatusSelector).exists()).toBe(false)
       }
@@ -149,7 +150,7 @@ describe('LeaseUpApplicationsPage', () => {
       expect(mockCreateFieldUpdateComment.mock.calls.length).toEqual(0)
     })
 
-    test('Should call createFieldUpdateComment and close on successful submit', async () => {
+    test('should call createFieldUpdateComment and close on successful submit', async () => {
       mockCreateFieldUpdateComment.mockReturnValueOnce(true)
       openStatusModal(wrapper)
 
@@ -157,7 +158,7 @@ describe('LeaseUpApplicationsPage', () => {
       if (!status.toLowerCase().includes('processing') && !status.toLowerCase().includes('lease signed')) {
         expect(wrapper.find(subStatusSelector).exists()).toBe(true)
         const emptyStatus = wrapper.find(`${subStatusSelector} button`).html()
-        expect(emptyStatus.toLowerCase().includes('select one...')).toBe(true)
+        expect(emptyStatus.toLowerCase()).toContain('select one...')
 
         wrapper.find(subStatusSelector).find('button').simulate('click')
         await tick()
@@ -165,7 +166,7 @@ describe('LeaseUpApplicationsPage', () => {
         await tick()
 
         const updatedStatus = wrapper.find(`${subStatusSelector} button`).html()
-        expect(updatedStatus.toLowerCase().includes('select one...')).toBe(false)
+        expect(updatedStatus.toLowerCase()).not.toContain('select one...')
       } else {
         expect(wrapper.find(subStatusSelector).exists()).toBe(false)
       }
@@ -181,7 +182,7 @@ describe('LeaseUpApplicationsPage', () => {
       expect(wrapper.find(openModalSelector).exists()).toBe(false)
     })
 
-    test('Should display errors on required comment', async () => {
+    test('should display errors on required comment', async () => {
       openStatusModal(wrapper)
 
       const status = await wrapper.find(statusSelector).first().html()
@@ -207,7 +208,7 @@ describe('LeaseUpApplicationsPage', () => {
       expect(labelValue.toLowerCase().includes('required')).toBe(statusRequiresComments(status.toLowerCase(), substatus.toLowerCase()))
     })
 
-    test('Should open closeable alert modal on failed submit', async () => {
+    test('should open closeable alert modal on failed submit', async () => {
       openStatusModal(wrapper)
 
       const status = await wrapper.find(statusSelector).first().html()

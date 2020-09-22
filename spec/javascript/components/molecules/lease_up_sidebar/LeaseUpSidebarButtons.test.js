@@ -13,7 +13,7 @@ describe('LeaseUpStatusButtons', () => {
   test('should render the status dropdown correctly when no status is passed', () => {
     const wrapper = shallow(<LeaseUpStatusButtons />)
     expect(wrapper.find(StatusDropdown)).toHaveLength(1)
-    expect(wrapper.find(StatusDropdown).prop('status')).toEqual(null)
+    expect(wrapper.find(StatusDropdown).prop('status')).toBeNull()
   })
 
   test('should render a comment button', () => {

@@ -108,7 +108,7 @@ describe('apiService', () => {
 
       expect(result).toEqual(true)
       expect(mockPostFn.mock.calls.length).toEqual(1)
-      expect(mockPostFn.mock.calls[0]).toEqual([`/rental-assistances`, expectedData])
+      expect(mockPostFn.mock.calls[0]).toEqual(['/rental-assistances', expectedData])
     })
   })
   describe('updateRentalAssistance', () => {

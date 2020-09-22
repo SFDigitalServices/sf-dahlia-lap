@@ -32,7 +32,7 @@ const ApplicationsTable = ({ applications, onFetchData, loading, pages, rowsPerP
     { Header: 'Application Submission Type', accessor: 'application_submission_type' }
   ]
 
-  const sortBy = [ { id: 'number', desc: false } ]
+  const sortBy = [{ id: 'number', desc: false }]
 
   const getPaginationProps = () => {
     return {

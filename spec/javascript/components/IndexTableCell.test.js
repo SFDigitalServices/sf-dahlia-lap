@@ -10,7 +10,7 @@ describe('IndexTableCell', () => {
       <IndexTableCell {...{ val }} />
     )
 
-    expect(component.toJSON()).toEqual(null)
+    expect(component.toJSON()).toBeNull()
   })
 
   test('should return string value if cell is not being edited', () => {

@@ -10,7 +10,7 @@ const onDismissError = () => {}
 const formApi = {}
 
 describe('PreferencesTable', () => {
-  test('should render a table of only preferences that the application receives (Receives_Preference = true) ', () => {
+  test('should render a table of only preferences that the application receives (Receives_Preference = true)', () => {
     const wrapper = mount(
       <PreferencesTable
         application={application}

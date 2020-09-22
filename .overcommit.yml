@@ -45,14 +45,10 @@ PreCommit:
       - 'app/assets/**/*.svg'
       - 'public/**/*.svg'
 
-  Standard:
+  Eslint:
     enabled: true
     description: 'Linting JavaScript'
-    required_executable: './node_modules/.bin/standard'
-    exclude:
-      - 'node_modules/**/*.js'
-      - 'spec/javascript/fixtures/*.js'
-      - 'app/assets/javascripts/cable.js'
+    command: ['yarn', 'lint']
 
   ScanForEnvVars:
     enabled: true

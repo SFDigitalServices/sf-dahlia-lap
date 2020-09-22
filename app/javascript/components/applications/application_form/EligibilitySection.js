@@ -61,7 +61,7 @@ const EligibilitySection = ({ listing, lendingInstitutions, form }) => {
           <div className='small-12 columns'>
             <CheckboxField
               id='has_completed_homebuyer_education'
-              label={`Completed homebuyers' education`}
+              label={'Completed homebuyers\' education'}
               blockNote='(required)'
               fieldName='has_completed_homebuyer_education'
               ariaLabelledby='prereqs'

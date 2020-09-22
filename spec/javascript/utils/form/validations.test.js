@@ -22,7 +22,7 @@ describe('validate', () => {
   describe('isOldEnough', () => {
     describe('passes validation if DOB', () => {
       test('is more than 18 years ago', () => {
-        expect(validate.isOldEnough(VALIDATION_MSG)(['2000', '01', '12'])).toEqual(undefined)
+        expect(validate.isOldEnough(VALIDATION_MSG)(['2000', '01', '12'])).toBeUndefined()
       })
     })
     describe('fails validation if DOB', () => {
@@ -38,7 +38,7 @@ describe('validate', () => {
   describe('isValidEmail', () => {
     describe('passes validation if email', () => {
       test('is valid', () => {
-        expect(validate.isValidEmail(VALIDATION_MSG)('test.test@test.com.uk')).toEqual(undefined)
+        expect(validate.isValidEmail(VALIDATION_MSG)('test.test@test.com.uk')).toBeUndefined()
       })
     })
     describe('fails validation if email', () => {
@@ -51,20 +51,20 @@ describe('validate', () => {
   describe('isDate', () => {
     describe('passes validation', () => {
       test('if date is valid and 0-padded', () => {
-        expect(validate.isDate(VALIDATION_MSG)(['2000', '02', '29'])).toEqual(undefined)
+        expect(validate.isDate(VALIDATION_MSG)(['2000', '02', '29'])).toBeUndefined()
       })
       test('if date is valid and not 0-padded', () => {
-        expect(validate.isDate(VALIDATION_MSG)(['2000', '2', '9'])).toEqual(undefined)
+        expect(validate.isDate(VALIDATION_MSG)(['2000', '2', '9'])).toBeUndefined()
       })
       test('if date is valid and values are integers', () => {
-        expect(validate.isDate(VALIDATION_MSG)([2000, 2, 9])).toEqual(undefined)
+        expect(validate.isDate(VALIDATION_MSG)([2000, 2, 9])).toBeUndefined()
       })
       test('if date is in the future', () => {
         const futureYear = moment().add(1, 'years').year()
-        expect(validate.isDate(VALIDATION_MSG)([futureYear, '01', '12'])).toEqual(undefined)
+        expect(validate.isDate(VALIDATION_MSG)([futureYear, '01', '12'])).toBeUndefined()
       })
       test('if date is empty', () => {
-        expect(validate.isDate(VALIDATION_MSG)(['', '', ''])).toEqual(undefined)
+        expect(validate.isDate(VALIDATION_MSG)(['', '', ''])).toBeUndefined()
       })
     })
     describe('fails validation', () => {
@@ -97,24 +97,24 @@ describe('validate', () => {
   describe('isValidPercent', () => {
     describe('passes validation', () => {
       test('when a null or empty string is passed', () => {
-        expect(validate.isValidPercent(VALIDATION_MSG)(null)).toEqual(undefined)
-        expect(validate.isValidPercent(VALIDATION_MSG)('')).toEqual(undefined)
+        expect(validate.isValidPercent(VALIDATION_MSG)(null)).toBeUndefined()
+        expect(validate.isValidPercent(VALIDATION_MSG)('')).toBeUndefined()
       })
       test('when a number is entered', () => {
-        expect(validate.isValidPercent(VALIDATION_MSG)(2000)).toEqual(undefined)
-        expect(validate.isValidPercent(VALIDATION_MSG)(2)).toEqual(undefined)
-        expect(validate.isValidPercent(VALIDATION_MSG)('2000')).toEqual(undefined)
-        expect(validate.isValidPercent(VALIDATION_MSG)('002000')).toEqual(undefined)
+        expect(validate.isValidPercent(VALIDATION_MSG)(2000)).toBeUndefined()
+        expect(validate.isValidPercent(VALIDATION_MSG)(2)).toBeUndefined()
+        expect(validate.isValidPercent(VALIDATION_MSG)('2000')).toBeUndefined()
+        expect(validate.isValidPercent(VALIDATION_MSG)('002000')).toBeUndefined()
       })
       test('when a number with a trailing decimal is entered', () => {
-        expect(validate.isValidPercent(VALIDATION_MSG)('2000.')).toEqual(undefined)
+        expect(validate.isValidPercent(VALIDATION_MSG)('2000.')).toBeUndefined()
       })
       test('when a percent string is entered', () => {
-        expect(validate.isValidPercent(VALIDATION_MSG)('20%')).toEqual(undefined)
-        expect(validate.isValidPercent(VALIDATION_MSG)('20.0%')).toEqual(undefined)
-        expect(validate.isValidPercent(VALIDATION_MSG)('20.%')).toEqual(undefined)
-        expect(validate.isValidPercent(VALIDATION_MSG)('20.3%')).toEqual(undefined)
-        expect(validate.isValidPercent(VALIDATION_MSG)('20.12345%')).toEqual(undefined)
+        expect(validate.isValidPercent(VALIDATION_MSG)('20%')).toBeUndefined()
+        expect(validate.isValidPercent(VALIDATION_MSG)('20.0%')).toBeUndefined()
+        expect(validate.isValidPercent(VALIDATION_MSG)('20.%')).toBeUndefined()
+        expect(validate.isValidPercent(VALIDATION_MSG)('20.3%')).toBeUndefined()
+        expect(validate.isValidPercent(VALIDATION_MSG)('20.12345%')).toBeUndefined()
       })
     })
     describe('fails validation', () => {
@@ -146,24 +146,24 @@ describe('validate', () => {
   describe('isValidCurrency', () => {
     describe('passes validation', () => {
       test('when a null or empty string is passed', () => {
-        expect(validate.isValidCurrency(VALIDATION_MSG)(null)).toEqual(undefined)
-        expect(validate.isValidCurrency(VALIDATION_MSG)('')).toEqual(undefined)
+        expect(validate.isValidCurrency(VALIDATION_MSG)(null)).toBeUndefined()
+        expect(validate.isValidCurrency(VALIDATION_MSG)('')).toBeUndefined()
       })
       test('when a number is entered', () => {
-        expect(validate.isValidCurrency(VALIDATION_MSG)(2000)).toEqual(undefined)
-        expect(validate.isValidCurrency(VALIDATION_MSG)(2000.5)).toEqual(undefined)
-        expect(validate.isValidCurrency(VALIDATION_MSG)('2000.5')).toEqual(undefined)
+        expect(validate.isValidCurrency(VALIDATION_MSG)(2000)).toBeUndefined()
+        expect(validate.isValidCurrency(VALIDATION_MSG)(2000.5)).toBeUndefined()
+        expect(validate.isValidCurrency(VALIDATION_MSG)('2000.5')).toBeUndefined()
       })
       test('when a currency string is entered', () => {
-        expect(validate.isValidCurrency(VALIDATION_MSG)('$2000')).toEqual(undefined)
-        expect(validate.isValidCurrency(VALIDATION_MSG)('$2,000')).toEqual(undefined)
-        expect(validate.isValidCurrency(VALIDATION_MSG)('$2000.53')).toEqual(undefined)
-        expect(validate.isValidCurrency(VALIDATION_MSG)('2,000')).toEqual(undefined)
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$2000')).toBeUndefined()
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$2,000')).toBeUndefined()
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$2000.53')).toBeUndefined()
+        expect(validate.isValidCurrency(VALIDATION_MSG)('2,000')).toBeUndefined()
       })
       test('when a currency string with too many commas is entered', () => {
-        expect(validate.isValidCurrency(VALIDATION_MSG)('$2000,')).toEqual(undefined)
-        expect(validate.isValidCurrency(VALIDATION_MSG)('$2000,.52')).toEqual(undefined)
-        expect(validate.isValidCurrency(VALIDATION_MSG)('$2,0,0,0')).toEqual(undefined)
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$2000,')).toBeUndefined()
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$2000,.52')).toBeUndefined()
+        expect(validate.isValidCurrency(VALIDATION_MSG)('$2,0,0,0')).toBeUndefined()
       })
     })
     describe('fails validation', () => {
@@ -189,18 +189,21 @@ describe('validate', () => {
         expect(validate.isValidCurrency(VALIDATION_MSG)('$2,000;')).toEqual(VALIDATION_MSG)
       })
     })
+  })
+
+  describe('isUnderMaxValue', () => {
     describe('passes validation', () => {
       test('when null or empty string is passed', () => {
-        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(null)).toEqual(undefined)
-        expect(validate.isUnderMaxValue('')(VALIDATION_MSG)(null)).toEqual(undefined)
+        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(null)).toBeUndefined()
+        expect(validate.isUnderMaxValue('')(VALIDATION_MSG)(null)).toBeUndefined()
       })
       test('when a number under the max value is entered', () => {
-        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(9)).toEqual(undefined)
-        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(9.99)).toEqual(undefined)
+        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(9)).toBeUndefined()
+        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)(9.99)).toBeUndefined()
       })
       test('when a currency string with a value under the max is entered', () => {
-        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$9')).toEqual(undefined)
-        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$9.99')).toEqual(undefined)
+        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$9')).toBeUndefined()
+        expect(validate.isUnderMaxValue(10)(VALIDATION_MSG)('$9.99')).toBeUndefined()
       })
     })
     describe('fails validation', () => {
@@ -219,18 +222,18 @@ describe('validate', () => {
     })
   })
   describe('isPresent', () => {
-    describe('passes validation on ', () => {
+    describe('passes validation on', () => {
       test('a non-empty string', () => {
-        expect(validate.isPresent(VALIDATION_MSG)('something')).toEqual(undefined)
+        expect(validate.isPresent(VALIDATION_MSG)('something')).toBeUndefined()
       })
       test('an integer', () => {
-        expect(validate.isPresent(VALIDATION_MSG)(9)).toEqual(undefined)
+        expect(validate.isPresent(VALIDATION_MSG)(9)).toBeUndefined()
       })
       test('an array with values in it', () => {
-        expect(validate.isPresent(VALIDATION_MSG)(['1', '2', '3'])).toEqual(undefined)
+        expect(validate.isPresent(VALIDATION_MSG)(['1', '2', '3'])).toBeUndefined()
       })
     })
-    describe('fails validation on ', () => {
+    describe('fails validation on', () => {
       test('an empty string', () => {
         expect(validate.isPresent(VALIDATION_MSG)('')).toEqual(VALIDATION_MSG)
       })
@@ -246,7 +249,7 @@ describe('validate', () => {
   })
   describe('isValidDate', () => {
     const error = {}
-    describe('fails validation on ', () => {
+    describe('fails validation on', () => {
       test('a empty date', () => {
         expect(validate.isValidDate(undefined, error)).toEqual(dateErrorObject(DATE_VALIDATION_MSG))
       })
@@ -257,7 +260,7 @@ describe('validate', () => {
         expect(validate.isValidDate({ year: 2015, month: 10, day: 10 }, error, { isPrimaryApplicant: true })).toEqual(dateErrorObject('The primary applicant must be 18 years of age or older'))
       })
     })
-    describe('passes validation on ', () => {
+    describe('passes validation on', () => {
       test('a valid date', () => {
         expect(validate.isValidDate({ year: 1990, month: 10, day: 1 }, error)).toEqual(dateErrorObject(undefined))
       })

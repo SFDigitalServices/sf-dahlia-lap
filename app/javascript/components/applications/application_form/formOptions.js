@@ -9,7 +9,7 @@ const labelize = (options, attrs = {}, noPlaceholder = false) => {
     noPlaceholder ||
     isEmpty(options) ||
     options[0] === '' ||
-    (options[0].hasOwnProperty('value') && isNullOrEmptyString(options[0].value))
+    (Object.prototype.hasOwnProperty.call(options[0], 'value') && isNullOrEmptyString(options[0].value))
 
   let labelizedOptions = []
   if (!emptyInitialOptionPresent) {
@@ -23,8 +23,8 @@ const labelize = (options, attrs = {}, noPlaceholder = false) => {
   return labelizedOptions.concat(
     options.map(option => {
       return {
-        value: option.hasOwnProperty('value') ? option.value : option,
-        label: option.hasOwnProperty('label') ? option.label : option,
+        value: Object.prototype.hasOwnProperty.call(option, 'value') ? option.value : option,
+        label: Object.prototype.hasOwnProperty.call(option, 'label') ? option.label : option,
         ...(option.disabled && { disabled: option.disabled })
       }
     })
