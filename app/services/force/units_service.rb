@@ -17,7 +17,7 @@ module Force
                          .to_soql
 
       result = builder.from(:Unit__c)
-             .select('Id, Unit_Number__c ')
+             .select('Id, Unit_Number__c, Priority_Type__c')
              .where_eq('Listing__c', listing_id, :string)
              .where("Id NOT IN (#{sub_query})")
              .transform_results { |results| massage(results) }
