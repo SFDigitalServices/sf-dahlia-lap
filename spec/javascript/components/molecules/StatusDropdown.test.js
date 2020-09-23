@@ -32,8 +32,8 @@ describe('StatusDropdown', () => {
     expect(dropdownProps.disabled).toBeFalsy()
   })
 
-  describe('it renders the toggle as expected', () => {
-    test('when value is null', () => {
+  describe('toggle', () => {
+    test('renders as expected when value is null', () => {
       wrapper = getWrapper()
       const expectedButtonClasses = [
         'button',
@@ -48,7 +48,7 @@ describe('StatusDropdown', () => {
       expect(toggleButton.prop('disabled')).toEqual(false)
     })
 
-    test('without any additional button styles', () => {
+    test('renders without any additional button styles when none are provided', () => {
       wrapper = getWrapper()
       const toggleButton = wrapper.find(Select).find('.status-dropdown__control').find('button')
       expect(toggleButton.hasClass('expand')).toBe(false)
@@ -56,7 +56,7 @@ describe('StatusDropdown', () => {
       expect(toggleButton.hasClass('small')).toBe(false)
     })
 
-    test('when additional styles are provided', () => {
+    test('renders with additional styles when provided', () => {
       wrapper = getWrapper({ expand: true, size: 'tiny' })
       let toggleButton = wrapper.find(Select).find('.status-dropdown__control').find('button')
       expect(toggleButton.hasClass('expand')).toBe(true)
@@ -69,34 +69,27 @@ describe('StatusDropdown', () => {
       expect(toggleButton.hasClass('small')).toBe(true)
     })
 
-    test('when value provided and is styled', () => {
+    test('renders value with styles when provided', () => {
       wrapper = getWrapper({ status: 'Appealed' })
-      const expectedButtonClasses = [
-        'button',
-        'dropdown-button',
-        'has-icon--right',
-        'text-align-left',
-        'is-appealed'
-      ]
       const toggleButton = wrapper.find(Select).find('.status-dropdown__control').find('button')
       expect(toggleButton.text()).toEqual('Appealed')
-      expect(toggleButton.hasClass(expectedButtonClasses.join(' '))).toBe(true)
+      expect(toggleButton.hasClass('is-appealed')).toBe(true)
     })
 
-    test('when the dropdown is disabled', () => {
+    test('renders when the dropdown is disabled', () => {
       wrapper = getWrapper({ disabled: true })
       const toggleButton = wrapper.find(Select).find('.status-dropdown__control').find('button')
       expect(toggleButton.prop('disabled')).toEqual(true)
     })
 
-    test('when a placeholder is provided', () => {
+    test('renders a placeholder when provided', () => {
       wrapper = getWrapper({ placeholder: 'placeholder' })
       const toggleButton = wrapper.find(Select).find('.status-dropdown__control').find('button')
       expect(toggleButton.text()).toEqual('placeholder')
     })
   })
 
-  describe('it renders the options as expected', () => {
+  describe('renderStatusOption', () => {
     const getStatusOptionWrapper = (option, selectedValue) => shallow(
       renderStatusOption(option, { selectValue: [{ value: selectedValue }] })
     )
@@ -109,22 +102,22 @@ describe('StatusDropdown', () => {
       statusClassName: testStatusClassName
     }
 
-    test('with a styled value', () => {
+    test('renders a styled value with expected styles', () => {
       wrapper = getStatusOptionWrapper(sampleOption, 'notSelected')
-      const expectedLiClasses = `dropdown-menu_item ${testStatusClassName}`
-      expect(wrapper.find('li').hasClass(expectedLiClasses)).toEqual(true)
+      expect(wrapper.find('li').hasClass(testStatusClassName)).toEqual(true)
+      expect(wrapper.find('li').hasClass('dropdown-menu_item')).toEqual(true)
       expect(wrapper.text()).toEqual(testLabel)
       // Verify that its not selected
       expect(wrapper.find('li').prop('aria-selected')).toEqual(false)
     })
 
-    test('with a selected value', () => {
+    test('renders a selected value as expected', () => {
       wrapper = getStatusOptionWrapper(sampleOption, testValue)
       expect(wrapper.find('li').prop('aria-selected')).toEqual(true)
       expect(wrapper.text()).toEqual(testLabel)
     })
 
-    test('with a null value', () => {
+    test('renders as expected with a null value', () => {
       wrapper = getStatusOptionWrapper({}, testValue)
       expect(wrapper.find('li').hasClass(testStatusClassName)).toEqual(false)
       expect(wrapper.text()).toEqual('')
