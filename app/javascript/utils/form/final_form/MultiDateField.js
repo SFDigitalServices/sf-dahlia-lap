@@ -34,7 +34,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
     errorField = form.getState().errors[fieldName.split('.')[0]]
   }
   const baseFieldName = last(fieldName.split('.'))
-  const error = form && touched && errorField && errorField[baseFieldName] && errorField[baseFieldName]['all']
+  const error = form && touched && errorField && errorField[baseFieldName] && errorField[baseFieldName].all
   return (
     <div className={classNames('form-group', (error && 'error') || '')}>
       <label className='form-label' htmlFor={id || `form-${fieldName}`}>
@@ -48,7 +48,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
           id={id ? `${id}_month` : `form-${fieldName}_month`}
           placeholder='MM'
           pattern='\d*'
-          maxLength={maxLengthMap['month']}
+          maxLength={maxLengthMap.month}
           disabled={disabled}
         />
       </div>
@@ -59,7 +59,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
           id={id ? `${id}_day` : `form-${fieldName}_day`}
           placeholder='DD'
           pattern='\d*'
-          maxLength={maxLengthMap['day']}
+          maxLength={maxLengthMap.day}
           disabled={disabled}
         />
       </div>
@@ -70,7 +70,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
           id={id ? `${id}_year` : `form-${fieldName}_year`}
           placeholder='YYYY'
           pattern='\d*'
-          maxLength={maxLengthMap['year']}
+          maxLength={maxLengthMap.year}
           disabled={disabled}
         />
       </div>

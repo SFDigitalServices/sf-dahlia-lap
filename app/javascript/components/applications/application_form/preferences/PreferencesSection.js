@@ -12,7 +12,7 @@ const PreferencesSection = ({ form, editValues, listingPreferences }) => {
       forEach(editValues.preferences, (preference) => {
         if (!isEmpty(preference.application_member)) {
           const editPreference = preference
-          editPreference['naturalKey'] = naturalKeyFromPreference(preference)
+          editPreference.naturalKey = naturalKeyFromPreference(preference)
           autofillPreferences.push(editPreference)
         }
       })

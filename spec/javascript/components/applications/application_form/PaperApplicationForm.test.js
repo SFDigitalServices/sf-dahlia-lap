@@ -29,7 +29,7 @@ describe('PaperApplicationForm', () => {
 
   describe('should validate fields correctly:', () => {
     test('language', async () => {
-      testApplication['application_language'] = null
+      testApplication.application_language = null
       let wrapper
       await act(async () => {
         wrapper = mount(
@@ -56,7 +56,7 @@ describe('PaperApplicationForm', () => {
     })
 
     test('alternate Contact', async () => {
-      testApplication['alternate_contact'] = {
+      testApplication.alternate_contact = {
         first_name: 'Federic',
         middle_name: 'Daaaa',
         last_name: 'dayan',
@@ -78,14 +78,14 @@ describe('PaperApplicationForm', () => {
       await act(async () => {
         wrapper.find('form').first().simulate('submit')
       }) // Expect no errors since alternate contact is filled out with required values
-      expect(wrapper.find(altNameErrorSelector).prop('meta')['error']).toBeUndefined()
+      expect(wrapper.find(altNameErrorSelector).prop('meta').error).toBeUndefined()
 
       // Delete alt contact first name and expect validation
       wrapper.find('#alt_first_name input').simulate('change', { target: { value: '' } })
       await act(async () => {
         wrapper.find('form').first().simulate('submit')
       })
-      expect(wrapper.find(altNameErrorSelector).prop('meta')['error']).toEqual('Please enter a First Name')
+      expect(wrapper.find(altNameErrorSelector).prop('meta').error).toEqual('Please enter a First Name')
 
       // Remove all values and expect the validation to go away
       wrapper.find('#alt_first_name input').simulate('change', { target: { value: '' } })
@@ -95,11 +95,11 @@ describe('PaperApplicationForm', () => {
       await act(async () => {
         wrapper.find('form').first().simulate('submit')
       })
-      expect(wrapper.find(altNameErrorSelector).prop('meta')['error']).toBeUndefined()
+      expect(wrapper.find(altNameErrorSelector).prop('meta').error).toBeUndefined()
     })
 
     test('annual Income', async () => {
-      testApplication['annual_income'] = 'foo'
+      testApplication.annual_income = 'foo'
       const wrapper = mount(
         <PaperApplicationForm
           listing={listing}
@@ -118,7 +118,7 @@ describe('PaperApplicationForm', () => {
     })
 
     test('demographics Defaults', async () => {
-      testApplication['demographics'] = {}
+      testApplication.demographics = {}
       const wrapper = mount(
         <PaperApplicationForm
           listing={listing}
@@ -151,7 +151,7 @@ describe('PaperApplicationForm', () => {
     })
 
     test('demographics Not Listed', async () => {
-      testApplication['demographics'] = {}
+      testApplication.demographics = {}
       const wrapper = mount(
         <PaperApplicationForm
           listing={listing}
@@ -197,7 +197,7 @@ describe('PaperApplicationForm', () => {
     })
 
     test('signature on Terms of Agreement', async () => {
-      testApplication['terms_acknowledged'] = false
+      testApplication.terms_acknowledged = false
       const wrapper = mount(
         <PaperApplicationForm
           listing={listing}

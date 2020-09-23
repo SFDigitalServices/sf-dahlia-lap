@@ -21,7 +21,7 @@ export const FIELD_NAME = 'preferences'
 export const buildFieldId = (i, field) => `${FIELD_NAME}.${i}.${field}`
 
 export const addNaturalKeyToPreference = (p) => {
-  p['naturalKey'] = naturalKeyFromPreference(p)
+  p.naturalKey = naturalKeyFromPreference(p)
 }
 
 export const buildHouseholdMembersOptions = (applicationMembers) => {

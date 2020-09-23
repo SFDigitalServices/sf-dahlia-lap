@@ -75,7 +75,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
               fieldName='household_assets'
               label='Household Assets'
               validation={validateIncomeCurrency}
-              isDirty={visited && visited['household_assets']}
+              isDirty={visited && visited.household_assets}
             />
           </FormGrid.Item>
         </FormGrid.Row>
@@ -85,7 +85,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
               fieldName='confirmed_household_annual_income'
               label='Confirmed Annual Income'
               validation={validateIncomeCurrency}
-              isDirty={visited && visited['confirmed_household_annual_income']}
+              isDirty={visited && visited.confirmed_household_annual_income}
               helpText='Not Including % of Assets'
             />
           </FormGrid.Item>
@@ -96,7 +96,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
               fieldName='hh_total_income_with_assets_annual'
               label='Final Household Annual Income'
               validation={validateIncomeCurrency}
-              isDirty={visited && visited['hh_total_income_with_assets_annual']}
+              isDirty={visited && visited.hh_total_income_with_assets_annual}
               helpText='Includes % of assets if applicable'
             />
           </FormGrid.Item>
@@ -112,7 +112,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
               validation={validate.isValidPercent(
                 'Please enter a valid percent.'
               )}
-              isDirty={visited && visited['ami_percentage']}
+              isDirty={visited && visited.ami_percentage}
             />
           </FormGrid.Item>
         </FormGrid.Row>

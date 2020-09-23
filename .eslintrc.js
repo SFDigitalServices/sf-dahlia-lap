@@ -45,8 +45,6 @@ module.exports = {
     'jest/valid-expect': 'error',
 
     // TODO: turn this back on in future PR
-    'dot-notation': 'off',
-    // TODO: turn this back on in future PR
     'jest/prefer-to-have-length': 'off',
 
     // Don't always require expects, some of our frontend integration tests

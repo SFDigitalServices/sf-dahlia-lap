@@ -283,7 +283,7 @@ describe('SupplementalApplicationPage', () => {
       await act(async () => { wrapper.find('form').first().simulate('submit') })
 
       const expectedApplication = { id: application.id }
-      expectedApplication['confirmed_household_annual_income'] = 1234.0
+      expectedApplication.confirmed_household_annual_income = 1234.0
 
       expect(mockSubmitApplication.mock.calls.length).toBe(1)
       expect(mockSubmitApplication).toHaveBeenCalledWith(expectedApplication)
@@ -305,7 +305,7 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
 
       const expectedApplication = { id: application.id }
-      expectedApplication['confirmed_household_annual_income'] = null
+      expectedApplication.confirmed_household_annual_income = null
 
       await act(async () => { wrapper.find('form').first().simulate('submit') })
       expect(mockSubmitApplication.mock.calls.length).toBe(1)
@@ -372,7 +372,7 @@ describe('SupplementalApplicationPage', () => {
         total_monthly_rent_without_parking: '1',
         monthly_parking_rent: '2',
         monthly_tenant_contribution: '3',
-        primary_applicant_contact: mockApplication['applicant']['id']
+        primary_applicant_contact: mockApplication.applicant.id
       }
 
       expect(mockCreateLease.mock.calls.length).toBe(0)

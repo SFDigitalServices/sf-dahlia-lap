@@ -7,7 +7,7 @@ import { LEASE_UP_SUBSTATUS_OPTIONS } from '~/utils/statusUtils'
 import Dropdown from '~/components/molecules/Dropdown'
 
 const ON_CHANGE = jest.fn()
-const APPEALED_SUBSTATUS = LEASE_UP_SUBSTATUS_OPTIONS['Appealed'][0].value
+const APPEALED_SUBSTATUS = LEASE_UP_SUBSTATUS_OPTIONS.Appealed[0].value
 
 const getWrapper = (propOverrides = {}) => mount(
   <SubstatusDropdown
@@ -37,7 +37,7 @@ describe('SubstatusDropdown', () => {
     wrapper = getWrapper({ status: 'Appealed' })
 
     const dropdownProps = wrapper.find(Dropdown).props()
-    expect(dropdownProps.items).toEqual(LEASE_UP_SUBSTATUS_OPTIONS['Appealed'])
+    expect(dropdownProps.items).toEqual(LEASE_UP_SUBSTATUS_OPTIONS.Appealed)
   })
 
   describe('toggle', () => {

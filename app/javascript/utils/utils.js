@@ -36,7 +36,7 @@ export const filterChanged = (prev, current) => {
         const obj = filterChanged(prev[key], value)
         if (!isEmpty(obj)) {
           if (value.id) {
-            obj['id'] = value.id
+            obj.id = value.id
           }
           changedFields[key] = obj
         }
@@ -45,7 +45,7 @@ export const filterChanged = (prev, current) => {
       }
     }
   })
-  changedFields['id'] = prev['id']
+  changedFields.id = prev.id
   return changedFields
 }
 

@@ -18,9 +18,9 @@ const HouseholdIncomeSection = ({ visited }) => {
             fieldName='annual_income'
             id='annual_income'
             label='Annual Income'
-            maxLength={maxLengthMap['income']}
+            maxLength={maxLengthMap.income}
             validation={validate.isValidCurrency('Please enter a valid dollar amount.')}
-            isDirty={visited && visited['annual_income']}
+            isDirty={visited && visited.annual_income}
           />
         </div>
         <div className='small-6 columns'>

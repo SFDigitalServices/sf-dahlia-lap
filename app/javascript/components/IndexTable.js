@@ -73,7 +73,7 @@ const IndexTable = ({ fields, results, links, page }) => {
         }
         column.Filter = ({ filter, onChange }) => {
           const uniqListings = uniqBy(map(results, (result) => {
-            return { name: result['listing.name'] || result['listing_name'] }
+            return { name: result['listing.name'] || result.listing_name }
           }), 'name')
           const sortedUniqListings = sortBy(uniqListings, (listing) => {
             return listing.name

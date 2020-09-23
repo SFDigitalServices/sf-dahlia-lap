@@ -28,28 +28,28 @@ const AddressForm = ({ title, fieldName, addressFieldMap }) => {
             <InputField
               label='Street Address'
               fieldName={buildField(fieldName, addressFieldMap, 'address')}
-              maxLength={maxLengthMap['address']}
+              maxLength={maxLengthMap.address}
             />
           </div>
           <div className='small-6 columns'>
             <InputField
               label='City'
               fieldName={buildField(fieldName, addressFieldMap, 'city')}
-              maxLength={maxLengthMap['city']}
+              maxLength={maxLengthMap.city}
             />
           </div>
           <div className='small-6 columns'>
             <InputField
               label='State'
               fieldName={buildField(fieldName, addressFieldMap, 'state')}
-              maxLength={maxLengthMap['state']}
+              maxLength={maxLengthMap.state}
             />
           </div>
           <div className='small-6 columns'>
             <InputField
               label='Zip'
               fieldName={buildField(fieldName, addressFieldMap, 'zip')}
-              maxLength={maxLengthMap['zip']}
+              maxLength={maxLengthMap.zip}
             />
           </div>
         </div>

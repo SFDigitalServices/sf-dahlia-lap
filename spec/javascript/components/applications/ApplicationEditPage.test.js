@@ -49,11 +49,11 @@ describe('ApplicationEditPage', () => {
 
     const expectedApplication = {
       ...mockApplication,
-      listing_id: listing['id']
+      listing_id: listing.id
     }
 
-    expectedApplication['preferences'][0]['naturalKey'] = 'karen,jones,1950-01-01'
-    expectedApplication['preferences'][1]['naturalKey'] = 'diego,maradona,1976-06-11'
+    expectedApplication.preferences[0].naturalKey = 'karen,jones,1950-01-01'
+    expectedApplication.preferences[1].naturalKey = 'diego,maradona,1976-06-11'
     expect(mockSubmitApplication.mock.calls.length).toBe(1)
     expect(mockSubmitApplication.mock.calls[0][0]).toEqual(expectedApplication)
   })
