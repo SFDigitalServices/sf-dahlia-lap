@@ -31,6 +31,10 @@ module.exports = {
     'react'
   ],
   rules: {
+    /*
+     * TODO: Add react-hooks library for the react-hooks/exhaustive-deps lint
+     * rule which will catch and fix unnecessarily expensive useEffect hooks.
+     */
     'jest/no-disabled-tests': 'error',
     'jest/no-focused-tests': 'error',
     'jest/no-identical-title': 'error',
