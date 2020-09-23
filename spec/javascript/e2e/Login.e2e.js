@@ -5,7 +5,7 @@ let testBrowser
 
 describe('Login/Logout', () => {
   test('lead header loads correctly', async () => {
-    let { browser, page } = await SetupBrowserAndPage()
+    const { browser, page } = await SetupBrowserAndPage()
     testBrowser = browser
 
     await page.goto('http://localhost:3000/')
@@ -16,7 +16,7 @@ describe('Login/Logout', () => {
   }, DEFAULT_E2E_TIME_OUT)
 
   test('should sign out successfully', async () => {
-    let { page } = await SetupBrowserAndPage(testBrowser)
+    const { page } = await SetupBrowserAndPage(testBrowser)
 
     await sharedSteps.loginAsAgent(page)
 

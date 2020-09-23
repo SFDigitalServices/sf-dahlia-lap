@@ -47,7 +47,7 @@ describe('ApplicationEditPage', () => {
       wrapper.find('form').first().simulate('submit')
     })
 
-    let expectedApplication = {
+    const expectedApplication = {
       ...mockApplication,
       listing_id: listing['id']
     }
@@ -80,7 +80,7 @@ describe('ApplicationEditPage', () => {
   })
 
   test('it should not save with demographics validation errors', async () => {
-    let applicationWithInvalidDemo = {
+    const applicationWithInvalidDemo = {
       ...mockApplication,
       demographics: {
         sexual_orientation: 'not listed',

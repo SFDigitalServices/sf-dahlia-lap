@@ -10,7 +10,7 @@ let testBrowser
 
 describe('SupplementalApplicationPage confirm modal', () => {
   test('should pop up if there was a change in an application field', async () => {
-    let { browser, page } = await SetupBrowserAndPage(null, true)
+    const { browser, page } = await SetupBrowserAndPage(null, true)
     testBrowser = browser
 
     await sharedSteps.loginAsAgent(page)
@@ -26,7 +26,7 @@ describe('SupplementalApplicationPage confirm modal', () => {
     expect(hasConfirmModal).toBe(true)
   }, DEFAULT_E2E_TIME_OUT)
   test('should not show pop up if there was not a change in an application field', async () => {
-    let { page } = await SetupBrowserAndPage(testBrowser, true)
+    const { page } = await SetupBrowserAndPage(testBrowser, true)
 
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
@@ -39,7 +39,7 @@ describe('SupplementalApplicationPage confirm modal', () => {
     await testBrowser.close()
   }, DEFAULT_E2E_TIME_OUT)
   test('should not pop up if the form was submitted successfully', async () => {
-    let { browser, page } = await SetupBrowserAndPage(null, true)
+    const { browser, page } = await SetupBrowserAndPage(null, true)
     testBrowser = browser
 
     await sharedSteps.loginAsAgent(page)

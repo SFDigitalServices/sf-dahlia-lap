@@ -8,7 +8,7 @@ import SetupBrowserAndPage from '../utils/SetupBrowserAndPage'
 
 describe('FlaggedApplicationsShowPage', () => {
   test('should allow comments to be updated', async () => {
-    let { browser, page } = await SetupBrowserAndPage()
+    const { browser, page } = await SetupBrowserAndPage()
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/flagged/${FLAGGED_RECORD_SET_ID}`)

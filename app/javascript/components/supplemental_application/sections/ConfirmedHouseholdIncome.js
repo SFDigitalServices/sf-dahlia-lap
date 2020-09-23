@@ -31,7 +31,7 @@ export const getAmiPercent = ({ income, ami }) => {
   if (isNil(ami)) {
     return 'Missing AMI Chart'
   }
-  let incomeFloat = isString(income)
+  const incomeFloat = isString(income)
     ? Number(income.replace(/[$,]+/g, ''))
     : income
   if (Number.isNaN(incomeFloat)) {

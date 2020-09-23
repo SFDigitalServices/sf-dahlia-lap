@@ -29,11 +29,11 @@ describe('labelize', () => {
       expect(labelize([option])[0]).toEqual(emptyOption)
     })
     test('does not add an empty option with empty value', () => {
-      let option = { value: '', label: 'test' }
+      const option = { value: '', label: 'test' }
       expect(labelize([option])[0]).toEqual(option)
     })
     test('does not add an empty option with first option as empty string', () => {
-      let option = ''
+      const option = ''
       expect(labelize([option])[0]).toEqual({ value: '', label: '' })
     })
     test('does not add an empty option with noPlaceholder=true', () => {

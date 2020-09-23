@@ -7,7 +7,7 @@ import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
 import { mailingAddressFieldMap } from './utils'
 import { maxLengthMap } from '~/utils/formUtils'
 
-let { phoneTypeOptions } = formOptions
+const { phoneTypeOptions } = formOptions
 
 const PrimaryApplicantSection = ({ form }) => {
   return (

@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 import BreadCrumbs from 'components/atoms/BreadCrumbs'
 
 describe('BreadCrumbs', () => {
-  let items = [
+  const items = [
     { title: 'Alpha', link: '/alpah' },
     { title: 'Beta', link: '/beta' },
     { title: 'Gama', link: '/gama' },
@@ -15,7 +15,7 @@ describe('BreadCrumbs', () => {
       <BreadCrumbs items={items} />
     )
 
-    let tree = component.toJSON()
+    const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

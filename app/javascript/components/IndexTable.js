@@ -15,7 +15,7 @@ const IndexTable = ({ fields, results, links, page }) => {
     each(fields, (attrs, field) => {
       attrs = attrs || {}
       if (field === 'Id' || field === 'id') return
-      let column = {
+      const column = {
         id: field,
         accessor: (row) => (
           row[field]
@@ -72,14 +72,14 @@ const IndexTable = ({ fields, results, links, page }) => {
           return row[filter.id] === filter.value
         }
         column.Filter = ({ filter, onChange }) => {
-          let uniqListings = uniqBy(map(results, (result) => {
+          const uniqListings = uniqBy(map(results, (result) => {
             return { name: result['listing.name'] || result['listing_name'] }
           }), 'name')
-          let sortedUniqListings = sortBy(uniqListings, (listing) => {
+          const sortedUniqListings = sortBy(uniqListings, (listing) => {
             return listing.name
           })
 
-          let listingOptions = []
+          const listingOptions = []
           each(sortedUniqListings, (listing, i) => {
             listingOptions.push(
               <option value={listing.name} key={i}>{listing.name}</option>
@@ -117,7 +117,7 @@ const IndexTable = ({ fields, results, links, page }) => {
       columns={columnData()}
       data={results}
       SubComponent={row => {
-        let linkTags = []
+        const linkTags = []
         each(links, (link, i) => {
           let href = ''
           const originalId = row.original.Id || row.original.id

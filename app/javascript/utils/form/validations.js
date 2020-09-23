@@ -50,7 +50,7 @@ const isDate = (date) => {
 }
 
 const isValidEmail = (email) => {
-  let emailRegex = new RegExp([
+  const emailRegex = new RegExp([
     "^[a-zA-Z0-9!%&'*+\\/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!%&'*+\\/=?^_`{|}~-]+)*",
     '@',
     '(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$'
@@ -85,7 +85,7 @@ const isUnderMaxValue = maxValue => value => {
   if (isNil(value) || value === '') {
     return true
   }
-  let incomeFloat = isString(value) ? parseFloat(value.replace(/[$,]+/g, '')) : value
+  const incomeFloat = isString(value) ? parseFloat(value.replace(/[$,]+/g, '')) : value
   if (Number.isNaN(incomeFloat)) {
     return false
   }
@@ -152,7 +152,7 @@ export const validateLeaseCurrency = (value) => {
 }
 
 const convertValues = (values, convertValueFunc) => {
-  let flattenedValues = flatten(values)
+  const flattenedValues = flatten(values)
   Object.keys(flattenedValues).map(key => {
     flattenedValues[key] = convertValueFunc(flattenedValues[key])
   })

@@ -6,7 +6,7 @@ import SetupBrowserAndPage from '../utils/SetupBrowserAndPage'
 const firstRowDropdown = '.rt-tr-group:first-child .rt-td .dropdown .dropdown-button'
 describe('LeaseUpPage', () => {
   test('should change "Lease Up Status" for specific application preference using dropdown in row', async () => {
-    let { browser, page } = await SetupBrowserAndPage(null, true)
+    const { browser, page } = await SetupBrowserAndPage(null, true)
 
     await sharedSteps.loginAsAgent(page)
 

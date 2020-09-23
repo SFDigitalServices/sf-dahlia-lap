@@ -2,7 +2,7 @@ import { request } from '~/api/request'
 import { isLeaseAlreadyCreated } from './utils/leaseUtils'
 
 const updateFlaggedApplication = async (data) => {
-  let putData = {
+  const putData = {
     flagged_application: {
       id: data.id,
       review_status: data.review_status,

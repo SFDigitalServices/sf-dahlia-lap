@@ -3,22 +3,22 @@ import { map, each, includes, keys, toPairs, isEmpty } from 'lodash'
 import formOptions from './formOptions'
 import { SelectField, CheckboxField } from '~/utils/form/final_form/Field'
 
-let {
+const {
   yesNoOptions,
   adaPriorityValueToLabelMap
 } = formOptions
 
 const ReservedPrioritySection = ({ editValues, listing }) => {
-  let autofillValues = {}
+  const autofillValues = {}
 
   const adaPriorities = toPairs(adaPriorityValueToLabelMap)
 
   if (!isEmpty(editValues) && editValues.has_ada_priorities_selected) {
-    let selected = keys(editValues.has_ada_priorities_selected)
+    const selected = keys(editValues.has_ada_priorities_selected)
     each(selected, value => { autofillValues[value] = true })
   }
 
-  let reservedTypes = map(listing.units, unit => unit.reserved_type)
+  const reservedTypes = map(listing.units, unit => unit.reserved_type)
 
   const developmentalDisabilityMarkup = () => {
     if (includes(reservedTypes, 'Developmental disabilities')) {

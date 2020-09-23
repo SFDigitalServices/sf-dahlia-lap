@@ -5,13 +5,13 @@ const isNullOrEmptyString = (value) => value === undefined || value === null || 
 const labelize = (options, attrs = {}, noPlaceholder = false) => {
   if (isEmpty(options)) return []
 
-  let emptyInitialOptionPresent =
+  const emptyInitialOptionPresent =
     noPlaceholder ||
     isEmpty(options) ||
     options[0] === '' ||
     (Object.prototype.hasOwnProperty.call(options[0], 'value') && isNullOrEmptyString(options[0].value))
 
-  let labelizedOptions = []
+  const labelizedOptions = []
   if (!emptyInitialOptionPresent) {
     const initialValues = { value: '', label: 'Select One...' }
     if (attrs && attrs['disableEmpty']) {

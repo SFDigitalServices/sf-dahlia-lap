@@ -12,7 +12,7 @@ let testBrowser
 
 describe('ApplicationNewPage', () => {
   test('should fail if required fields are missing, and create application if not', async () => {
-    let { browser, page } = await SetupBrowserAndPage()
+    const { browser, page } = await SetupBrowserAndPage()
     testBrowser = browser
 
     await sharedSteps.loginAsAgent(page)
@@ -61,7 +61,7 @@ describe('ApplicationNewPage', () => {
     expect(values).toContain('Vision impairments;Mobility impairments;Hearing impairments')
   }, DEFAULT_E2E_TIME_OUT)
   test('should fail if household member is present but incomplete, and save when complete', async () => {
-    let { page } = await SetupBrowserAndPage(testBrowser)
+    const { page } = await SetupBrowserAndPage(testBrowser)
 
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
     await utils.fillOutRequiredFields(page)
@@ -118,7 +118,7 @@ describe('ApplicationNewPage', () => {
     expect(tableValues[0]).toContain(HOUSEHOLD_MEMBER_DATE_OF_BIRTH)
   }, DEFAULT_E2E_TIME_OUT)
   test('should create a new application with live/work preference successfully', async () => {
-    let { page } = await SetupBrowserAndPage(testBrowser)
+    const { page } = await SetupBrowserAndPage(testBrowser)
 
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
@@ -187,7 +187,7 @@ describe('ApplicationNewPage', () => {
     expect(liveWorkRow[0]).toContain('Telephone bill')
   }, DEFAULT_E2E_TIME_OUT)
   test('should validate hh member attached to preference if hh member updates', async () => {
-    let { page } = await SetupBrowserAndPage(testBrowser)
+    const { page } = await SetupBrowserAndPage(testBrowser)
 
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
@@ -221,7 +221,7 @@ describe('ApplicationNewPage', () => {
     expect(errors).toContain('This field is required')
   }, DEFAULT_E2E_TIME_OUT)
   test('should bring up an alternate contact error message only if values are present but not first or last name', async () => {
-    let { page } = await SetupBrowserAndPage(testBrowser)
+    const { page } = await SetupBrowserAndPage(testBrowser)
 
     await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
 
@@ -253,7 +253,7 @@ describe('ApplicationNewPage', () => {
     expect(hasApplicationDetails).toBe(true)
   }, DEFAULT_E2E_TIME_OUT)
   test('should fail for an incomplete new sale application, and create successfully when complete', async () => {
-    let { page } = await SetupBrowserAndPage(testBrowser)
+    const { page } = await SetupBrowserAndPage(testBrowser)
 
     await sharedSteps.goto(page, `/listings/${SALE_LISTING_ID}/applications/new`)
 
@@ -279,8 +279,8 @@ describe('ApplicationNewPage', () => {
     await page.click('#has_loan_preapproval')
     await page.click('#has_completed_homebuyer_education')
     await page.click('#is_first_time_homebuyer')
-    let selectedInstitution = await page.select('#lending_institution', LENDING_INSTITUTION)
-    let selectedAgent = await page.select('#lending_agent', LENDING_AGENT_ID)
+    const selectedInstitution = await page.select('#lending_institution', LENDING_INSTITUTION)
+    const selectedAgent = await page.select('#lending_agent', LENDING_AGENT_ID)
     // Verify that lending agent was selected as expected, for debugging
     expect(selectedInstitution[0]).toBe(LENDING_INSTITUTION)
     expect(selectedAgent[0]).toBe(LENDING_AGENT_ID)

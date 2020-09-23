@@ -16,7 +16,7 @@ const LeaseUpListingsTable = ({ listings, onCellClick }) => {
   ]
 
   const getTdProps = (state, rowInfo, column, instance) => {
-    let attributes = {
+    const attributes = {
       onClick: (e, handleOriginal) => onCellClick(rowInfo)
     }
 

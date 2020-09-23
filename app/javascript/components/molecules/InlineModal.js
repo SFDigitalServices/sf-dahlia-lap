@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 const InlineModal = ({ whiteBackground = false, children, marginBottom = false, id }) => {
-  let classes = [
+  const classes = [
     'inline-modal',
     'padding-left--2x',
     'padding-right--2x',

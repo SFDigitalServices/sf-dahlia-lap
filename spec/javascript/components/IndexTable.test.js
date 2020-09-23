@@ -24,7 +24,7 @@ describe('IndexTable', () => {
       <IndexTable results={results} fields={fields} />
     )
 
-    let tree = component.toJSON()
+    const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
   })
 

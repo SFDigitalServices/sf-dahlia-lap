@@ -65,7 +65,7 @@ describe('SubstatusDropdown', () => {
 
     test('renders additional styles when provided', () => {
       wrapper = getWrapper({ expand: true, hasError: true })
-      let toggleButton = wrapper.find(Select).find('.substatus-dropdown__control').find('button')
+      const toggleButton = wrapper.find(Select).find('.substatus-dropdown__control').find('button')
       expect(toggleButton.hasClass('expand')).toBe(true)
       expect(toggleButton.hasClass('error')).toBe(true)
     })

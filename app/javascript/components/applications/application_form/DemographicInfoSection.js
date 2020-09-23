@@ -4,7 +4,7 @@ import { SelectField, InputField } from '~/utils/form/final_form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
 import validate from '~/utils/form/validations'
 
-let {
+const {
   genderOptions,
   sexualOrientationOptions,
   raceOptions,

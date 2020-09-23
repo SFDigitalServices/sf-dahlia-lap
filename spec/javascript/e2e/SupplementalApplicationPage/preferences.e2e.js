@@ -9,7 +9,7 @@ let testBrowser
 
 describe('SupplementalApplicationPage Confirmed Preferences section', () => {
   test('should allow updates to live/work preference', async () => {
-    let { browser, page } = await SetupBrowserAndPage()
+    const { browser, page } = await SetupBrowserAndPage()
     testBrowser = browser
 
     await sharedSteps.loginAsAgent(page)
@@ -86,7 +86,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
   }, DEFAULT_E2E_TIME_OUT)
 
   test('should allow updates to assisted housing preference', async () => {
-    let { page } = await SetupBrowserAndPage(testBrowser)
+    const { page } = await SetupBrowserAndPage(testBrowser)
 
     // The application used here must include a claimed assisted housing
     // preference for this test to be able to pass.
@@ -138,7 +138,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
   test(
     'should persist all unsaved supp app form values when a confirmed preference panel is saved',
     async () => {
-      let { page } = await SetupBrowserAndPage(testBrowser)
+      const { page } = await SetupBrowserAndPage(testBrowser)
 
       await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 

@@ -28,7 +28,7 @@ describe('EagerPagination', () => {
 
       const eagerPagination = new EagerPagination(5, 20)
 
-      let pages = []
+      const pages = []
       pages.push(await eagerPagination.getPage(0, fetchData))
       pages.push(await eagerPagination.getPage(1, fetchData))
       pages.push(await eagerPagination.getPage(2, fetchData))

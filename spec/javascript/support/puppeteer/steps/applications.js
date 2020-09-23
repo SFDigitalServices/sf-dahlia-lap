@@ -11,7 +11,7 @@ import SetupBrowserAndPage from '../../../utils/SetupBrowserAndPage'
  * @param {string} id  - application id to edit or listing id to create an application off of
  */
 export const applicationRedirectRouteCheck = async (type, id, testBrowser) => {
-  let { browser, page } = await SetupBrowserAndPage(testBrowser)
+  const { browser, page } = await SetupBrowserAndPage(testBrowser)
 
   const fullURL = type === 'new' ? `/listings/${id}/applications/new` : `/applications/${id}/edit`
   const resultURL = type === 'new' ? `listings/${id}` : `applications/${id}`

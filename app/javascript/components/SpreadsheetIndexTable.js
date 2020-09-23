@@ -17,14 +17,14 @@ class SpreadsheetIndexTable extends React.Component {
   }
 
   columnData = () => {
-    let { fields } = this.props
+    const { fields } = this.props
     var columns = []
     each(fields, (attrs, field) => {
       attrs = attrs || {}
       // don't show Id column
       if (toLower(field) === 'id') return
       if (toLower(field) === 'application') return
-      let column = {
+      const column = {
         id: field,
         accessor: (row) => (
           row[field]
@@ -32,15 +32,15 @@ class SpreadsheetIndexTable extends React.Component {
         Cell: (cellInfo) => {
           // we are "editing" this row if we have expanded it
           let editing = this.state.expanded[cellInfo.viewIndex]
-          let lotteryStatus = this.state.persistedData[cellInfo.index]['Flagged_Record_Set.Listing.Lottery_Status']
+          const lotteryStatus = this.state.persistedData[cellInfo.index]['Flagged_Record_Set.Listing.Lottery_Status']
           if (includes(['In Progress', 'Lottery Complete'], lotteryStatus)) {
             // don't allow editing based on certain lotteryStatus values
             editing = false
           }
-          let onChange = this.onCellChange(cellInfo)
-          let val = this.state.persistedData[cellInfo.index][cellInfo.column.id]
-          let editVal = this.state.editData[cellInfo.index][cellInfo.column.id] || ''
-          let props = { attrs, val, editVal, editing, onChange }
+          const onChange = this.onCellChange(cellInfo)
+          const val = this.state.persistedData[cellInfo.index][cellInfo.column.id]
+          const editVal = this.state.editData[cellInfo.index][cellInfo.column.id] || ''
+          const props = { attrs, val, editVal, editing, onChange }
           return (
             <IndexTableCell {...props} />
           )
@@ -77,7 +77,7 @@ class SpreadsheetIndexTable extends React.Component {
   closeRow = (rowInfo, save = false) => {
     return async () => {
       // close the expanded/editing state
-      let expanded = { ...this.state.expanded }
+      const expanded = { ...this.state.expanded }
       expanded[rowInfo.viewIndex] = !expanded[rowInfo.viewIndex]
       let loading = { ...this.state.loading }
       loading[rowInfo.index] = true
@@ -85,7 +85,7 @@ class SpreadsheetIndexTable extends React.Component {
 
       // clone array
       let editData = [...this.state.editData]
-      let persistedData = [...this.state.persistedData]
+      const persistedData = [...this.state.persistedData]
 
       if (save) {
         loading = { ...loading }
@@ -107,7 +107,7 @@ class SpreadsheetIndexTable extends React.Component {
     var getTrProps = (state, rowInfo, column, instance) => {
       return {
         onClick: (e, handleOriginal) => {
-          let expanded = this.state.expanded
+          const expanded = this.state.expanded
           if (this.state.expanded[rowInfo.viewIndex]) {
             return
           } else {
@@ -119,8 +119,8 @@ class SpreadsheetIndexTable extends React.Component {
     }
 
     const flaggedApplicationRow = (row) => {
-      let lotteryStatus = row.original.flagged_record.listing.lottery_status
-      let viewApplicationLink = (
+      const lotteryStatus = row.original.flagged_record.listing.lottery_status
+      const viewApplicationLink = (
         <li>
           <a className='button secondary tiny' href={`/applications/${row.original.application}`}>
             View Application

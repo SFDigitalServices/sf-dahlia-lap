@@ -44,7 +44,7 @@ const split = (array, splitOn = null) => {
     firstHalf = take(array, splitOn)
     secondHalf = takeRight(array, array.length - splitOn)
   } else {
-    let halfLength = array.length / 2
+    const halfLength = array.length / 2
     firstHalf = take(array, Math.floor(halfLength))
     secondHalf = takeRight(array, Math.ceil(halfLength))
   }

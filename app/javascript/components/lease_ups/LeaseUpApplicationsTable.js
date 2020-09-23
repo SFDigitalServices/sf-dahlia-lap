@@ -66,7 +66,7 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
   ]
 
   const getTdProps = (state, rowInfo, column, instance) => {
-    let attrs = {}
+    const attrs = {}
 
     // classes and onClick actions vary depending on the type of column
     if (column.id === 'lease_up_status') {

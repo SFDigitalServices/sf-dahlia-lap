@@ -13,7 +13,7 @@ const buildListingPreferencesOptions = (form, listingPreferences, selectedId) =>
   // Exclude preferences that are already present in application elsewhere
   // The currently selected preference is a valid option
   const preferenceOptions = omitBy(listingPreferences, (listingPref) => {
-    let isSelected = find(form.getState().values.preferences, { listing_preference_id: listingPref.id })
+    const isSelected = find(form.getState().values.preferences, { listing_preference_id: listingPref.id })
     return (isSelected && isSelected.listing_preference_id !== selectedId)
   })
 
@@ -28,7 +28,7 @@ const buildListingPreferencesOptions = (form, listingPreferences, selectedId) =>
 }
 
 const removePreference = (form, i) => {
-  let preferences = cloneDeep(form.getState().values[FIELD_NAME])
+  const preferences = cloneDeep(form.getState().values[FIELD_NAME])
   preferences.splice(i, 1)
   form.change(FIELD_NAME, preferences)
 }
