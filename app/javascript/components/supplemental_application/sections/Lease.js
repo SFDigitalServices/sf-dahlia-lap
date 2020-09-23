@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { filter, map, isEmpty } from 'lodash'
+import { capitalize, each, filter, map, isEmpty } from 'lodash'
 
 import Button from '~/components/atoms/Button'
 import ContentSection from '~/components/molecules/ContentSection'
@@ -144,6 +144,13 @@ const Lease = ({ form, values, store }) => {
     }
   }
 
+  const accesibilityRequests = []
+  each(application.has_ada_priorities_selected, (value, request) => {
+    if (value) {
+      accesibilityRequests.push(capitalize(request.replace('_impairments', '')))
+    }
+  })
+
   return (
     <InlineModal>
       <ContentSection.Header description='If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.' />
@@ -163,6 +170,23 @@ const Lease = ({ form, values, store }) => {
           <FormGrid.Item small>
             <strong className='form-note micro h-caps'>Accessibility</strong>
             <p className='margin-top'><span className='form-note'>{accessibilityUnits.length}</span></p>
+          </FormGrid.Item>
+        </FormGrid.Row>
+        <FormGrid.Row>
+          <FormGrid.Item>
+            <div className='margin-bottom'>
+              <strong className='form-note max-width'>Household Information</strong>
+            </div>
+          </FormGrid.Item>
+        </FormGrid.Row>
+        <FormGrid.Row>
+          <FormGrid.Item small>
+            <strong className='form-note micro h-caps'>Members</strong>
+            <p className='margin-top'><strong className='form-note'>{application.household_members.length + 1}</strong></p>
+          </FormGrid.Item>
+          <FormGrid.Item small>
+            <strong className='form-note micro h-caps'>Accessibility Requests</strong>
+            <p className='margin-top'><span className='form-note'>{accesibilityRequests.join(', ')}</span></p>
           </FormGrid.Item>
         </FormGrid.Row>
         <FormGrid.Row>

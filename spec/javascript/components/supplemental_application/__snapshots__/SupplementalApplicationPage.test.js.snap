@@ -1440,6 +1440,63 @@ Array [
                     className="form-grid_item column small-6"
                   >
                     <div
+                      className="margin-bottom"
+                    >
+                      <strong
+                        className="form-note max-width"
+                      >
+                        Household Information
+                      </strong>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="form-grid row expand"
+                >
+                  <div
+                    className="form-grid_item column small-3"
+                  >
+                    <strong
+                      className="form-note micro h-caps"
+                    >
+                      Members
+                    </strong>
+                    <p
+                      className="margin-top"
+                    >
+                      <strong
+                        className="form-note"
+                      >
+                        1
+                      </strong>
+                    </p>
+                  </div>
+                  <div
+                    className="form-grid_item column small-3"
+                  >
+                    <strong
+                      className="form-note micro h-caps"
+                    >
+                      Accessibility Requests
+                    </strong>
+                    <p
+                      className="margin-top"
+                    >
+                      <span
+                        className="form-note"
+                      >
+                        
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <div
+                  className="form-grid row expand"
+                >
+                  <div
+                    className="form-grid_item column small-6"
+                  >
+                    <div
                       className="form-group"
                     >
                       <label
