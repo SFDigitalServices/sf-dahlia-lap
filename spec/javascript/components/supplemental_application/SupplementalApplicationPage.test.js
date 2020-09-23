@@ -113,7 +113,7 @@ describe('SupplementalApplicationPage', () => {
       )
     })
     await act(async () => { wrapper.find('form').first().simulate('submit') })
-    expect(mockSubmitApplication.mock.calls.length).toBe(0)
+    expect(mockSubmitApplication.mock.calls).toHaveLength(0)
   })
 
   test('it only updates changed fields', async () => {
@@ -130,7 +130,7 @@ describe('SupplementalApplicationPage', () => {
     })
     wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
     await act(async () => { wrapper.find('form').first().simulate('submit') })
-    expect(mockSubmitApplication.mock.calls.length).toBe(1)
+    expect(mockSubmitApplication.mock.calls).toHaveLength(1)
     expect(mockSubmitApplication).toHaveBeenCalledWith({ id: payload.id, number_of_dependents: 2 })
   })
 
@@ -159,7 +159,7 @@ describe('SupplementalApplicationPage', () => {
 
     await act(async () => { wrapper.find('form').first().simulate('submit') })
 
-    expect(mockSubmitApplication.mock.calls.length).toBe(1)
+    expect(mockSubmitApplication.mock.calls).toHaveLength(1)
     expect(mockSubmitApplication.mock.calls[0][0]).toMatchObject(expectedDemographics)
   })
 
@@ -203,8 +203,8 @@ describe('SupplementalApplicationPage', () => {
         post_lottery_validation: 'Unconfirmed'
       }
 
-      expect(mockUpdateApplication.mock.calls.length).toBe(0)
-      expect(mockUpdatePreference.mock.calls.length).toBe(1)
+      expect(mockUpdateApplication.mock.calls).toHaveLength(0)
+      expect(mockUpdatePreference.mock.calls).toHaveLength(1)
       // Additional fields are sent to the API, but these are the fields that we care about.
       expect(mockUpdatePreference).toHaveBeenCalledWith(expect.objectContaining(expectedPreferencePayload))
     })
@@ -257,8 +257,8 @@ describe('SupplementalApplicationPage', () => {
         recordtype_developername: 'RB_AHP',
         type_of_proof: 'Lease and rent proof'
       }
-      expect(mockUpdateApplication.mock.calls.length).toBe(1)
-      expect(mockUpdatePreference.mock.calls.length).toBe(1)
+      expect(mockUpdateApplication.mock.calls).toHaveLength(1)
+      expect(mockUpdatePreference.mock.calls).toHaveLength(1)
       expect(mockUpdatePreference).toHaveBeenCalledWith(expect.objectContaining(expectedPreferencePayload))
       expect(mockUpdateApplication).toHaveBeenCalledWith({ id: 'application_id', total_monthly_rent: '50' })
     })
@@ -285,7 +285,7 @@ describe('SupplementalApplicationPage', () => {
       const expectedApplication = { id: application.id }
       expectedApplication.confirmed_household_annual_income = 1234.0
 
-      expect(mockSubmitApplication.mock.calls.length).toBe(1)
+      expect(mockSubmitApplication.mock.calls).toHaveLength(1)
       expect(mockSubmitApplication).toHaveBeenCalledWith(expectedApplication)
     })
 
@@ -308,7 +308,7 @@ describe('SupplementalApplicationPage', () => {
       expectedApplication.confirmed_household_annual_income = null
 
       await act(async () => { wrapper.find('form').first().simulate('submit') })
-      expect(mockSubmitApplication.mock.calls.length).toBe(1)
+      expect(mockSubmitApplication.mock.calls).toHaveLength(1)
       expect(mockSubmitApplication).toHaveBeenCalledWith(expectedApplication)
     })
   })
@@ -375,8 +375,8 @@ describe('SupplementalApplicationPage', () => {
         primary_applicant_contact: mockApplication.applicant.id
       }
 
-      expect(mockCreateLease.mock.calls.length).toBe(0)
-      expect(mockUpdateLease.mock.calls.length).toBe(1)
+      expect(mockCreateLease.mock.calls).toHaveLength(0)
+      expect(mockUpdateLease.mock.calls).toHaveLength(1)
       expect(mockUpdateLease).toHaveBeenCalledWith(expectedLease)
     })
 
@@ -390,8 +390,8 @@ describe('SupplementalApplicationPage', () => {
       await act(async () => { wrapper.find('form').first().simulate('submit') })
 
       // Verify that the API was called with null unit value
-      expect(mockCreateLease.mock.calls.length).toBe(0)
-      expect(mockUpdateLease.mock.calls.length).toBe(1)
+      expect(mockCreateLease.mock.calls).toHaveLength(0)
+      expect(mockUpdateLease.mock.calls).toHaveLength(1)
       expect(mockUpdateLease).toHaveBeenCalledWith(expect.objectContaining({ unit: '' }))
     })
 

@@ -44,9 +44,6 @@ module.exports = {
     // Ensure you're actually asserting something when calling expect
     'jest/valid-expect': 'error',
 
-    // TODO: turn this back on in future PR
-    'jest/prefer-to-have-length': 'off',
-
     // Don't always require expects, some of our frontend integration tests
     // should pass as long as they don't timeout
     'jest/expect-expect': 'off',

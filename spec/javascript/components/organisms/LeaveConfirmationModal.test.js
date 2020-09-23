@@ -31,6 +31,6 @@ describe('LeaveConfirmationModal', () => {
     wrapper.find('.modal-button_secondary button').simulate('click')
     wrapper.find('.close-reveal-modal').simulate('click')
 
-    expect(handleClose.mock.calls.length).toBe(2)
+    expect(handleClose.mock.calls).toHaveLength(2)
   })
 })

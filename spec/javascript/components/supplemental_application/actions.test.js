@@ -74,7 +74,7 @@ describe('updateApplication', () => {
     const applicationDomain = supplementalApplication
     const response = await updateApplication(applicationDomain)
     expect(response.id).toEqual(supplementalApplication.id)
-    expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
+    expect(mockSubmitAppFn.mock.calls).toHaveLength(1)
     expect(mockSubmitAppFn.mock.calls[0][0]).toEqual(applicationDomain)
   })
 
@@ -92,9 +92,9 @@ describe('updateApplication', () => {
     expect(response.id).toEqual(application.id)
     expect(response.listing_id).toEqual(application.listing_id)
     expect(response.lease.id).toEqual(application.lease.id)
-    expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
-    expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
-    expect(mockUpdateLeaseFn.mock.calls.length).toEqual(1)
+    expect(mockSubmitAppFn.mock.calls).toHaveLength(1)
+    expect(mockCreateLeaseFn.mock.calls).toHaveLength(0)
+    expect(mockUpdateLeaseFn.mock.calls).toHaveLength(1)
   })
 
   test('it should not submit lease to backend if alsoSavelease is false', async () => {
@@ -120,9 +120,9 @@ describe('updateApplication', () => {
     expect(response.id).toEqual(application.id)
     expect(response.listing_id).toEqual(application.listing_id)
     expect(response.lease.id).toEqual(prevApplication.lease.id)
-    expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
-    expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
-    expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
+    expect(mockSubmitAppFn.mock.calls).toHaveLength(1)
+    expect(mockCreateLeaseFn.mock.calls).toHaveLength(0)
+    expect(mockUpdateLeaseFn.mock.calls).toHaveLength(0)
   })
 
   test('it should submit lease to backend even if lease is empty', async () => {
@@ -138,9 +138,9 @@ describe('updateApplication', () => {
     const response = await updateApplication(application, null, true)
     expect(response.id).toEqual(application.id)
     expect(response.lease).toEqual({})
-    expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
-    expect(mockCreateLeaseFn.mock.calls.length).toEqual(1)
-    expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
+    expect(mockSubmitAppFn.mock.calls).toHaveLength(1)
+    expect(mockCreateLeaseFn.mock.calls).toHaveLength(1)
+    expect(mockUpdateLeaseFn.mock.calls).toHaveLength(0)
   })
 
   test('it should not submit lease to backend if lease is unchanged', async () => {
@@ -163,9 +163,9 @@ describe('updateApplication', () => {
     const response = await updateApplication(application, prevApplication, true)
     expect(response.id).toEqual(application.id)
     expect(response.lease.id).toEqual('leaseID')
-    expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
-    expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
-    expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
+    expect(mockSubmitAppFn.mock.calls).toHaveLength(1)
+    expect(mockCreateLeaseFn.mock.calls).toHaveLength(0)
+    expect(mockUpdateLeaseFn.mock.calls).toHaveLength(0)
   })
 
   test('it should not submit application to backend if application is unchanged', async () => {
@@ -183,9 +183,9 @@ describe('updateApplication', () => {
 
     const response = await updateApplication(application, application, true)
     expect(response).toEqual(application)
-    expect(mockSubmitAppFn.mock.calls.length).toEqual(0)
-    expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
-    expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
+    expect(mockSubmitAppFn.mock.calls).toHaveLength(0)
+    expect(mockCreateLeaseFn.mock.calls).toHaveLength(0)
+    expect(mockUpdateLeaseFn.mock.calls).toHaveLength(0)
   })
 
   test('it should create and update rental assistances', async () => {
@@ -207,8 +207,8 @@ describe('updateApplication', () => {
 
     const response = await updateApplication(application, baseApplication, true)
     expect(response.id).toEqual(application.id)
-    expect(mockCreateRentalFn.mock.calls.length).toEqual(1)
-    expect(mockUpdateRentalFn.mock.calls.length).toEqual(1)
+    expect(mockCreateRentalFn.mock.calls).toHaveLength(1)
+    expect(mockUpdateRentalFn.mock.calls).toHaveLength(1)
   })
 })
 
@@ -241,13 +241,13 @@ describe('updateApplicationAndAddComment', () => {
     })
 
     test('it should update the application and add a field update comment', async () => {
-      expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
-      expect(mockCreateFieldUpdateCommentFn.mock.calls.length).toEqual(1)
+      expect(mockSubmitAppFn.mock.calls).toHaveLength(1)
+      expect(mockCreateFieldUpdateCommentFn.mock.calls).toHaveLength(1)
     })
 
     test('it should create a lease', async () => {
-      expect(mockCreateLeaseFn.mock.calls.length).toEqual(1)
-      expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
+      expect(mockCreateLeaseFn.mock.calls).toHaveLength(1)
+      expect(mockUpdateLeaseFn.mock.calls).toHaveLength(0)
     })
 
     test('it should pass the correct params to the field update request', async () => {
@@ -267,13 +267,13 @@ describe('updateApplicationAndAddComment', () => {
     })
 
     test('it should update the application and add a field update comment', async () => {
-      expect(mockSubmitAppFn.mock.calls.length).toEqual(1)
-      expect(mockCreateFieldUpdateCommentFn.mock.calls.length).toEqual(1)
+      expect(mockSubmitAppFn.mock.calls).toHaveLength(1)
+      expect(mockCreateFieldUpdateCommentFn.mock.calls).toHaveLength(1)
     })
 
     test('it should not create a lease', async () => {
-      expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
-      expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
+      expect(mockCreateLeaseFn.mock.calls).toHaveLength(0)
+      expect(mockUpdateLeaseFn.mock.calls).toHaveLength(0)
     })
 
     test('it should pass the correct params to the field update request', async () => {
@@ -307,11 +307,11 @@ describe('saveLeaseAndAssistances', () => {
       })
 
       test('it creates a lease', async () => {
-        expect(mockCreateLeaseFn.mock.calls.length).toEqual(1)
-        expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
-        expect(mockCreateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockUpdateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockGetRentalAssistancesFn.mock.calls.length).toEqual(0)
+        expect(mockCreateLeaseFn.mock.calls).toHaveLength(1)
+        expect(mockUpdateLeaseFn.mock.calls).toHaveLength(0)
+        expect(mockCreateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockUpdateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockGetRentalAssistancesFn.mock.calls).toHaveLength(0)
       })
     })
 
@@ -323,11 +323,11 @@ describe('saveLeaseAndAssistances', () => {
         })
 
         test('it creates a lease', async () => {
-          expect(mockCreateLeaseFn.mock.calls.length).toEqual(1)
-          expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
-          expect(mockCreateRentalFn.mock.calls.length).toEqual(0)
-          expect(mockUpdateRentalFn.mock.calls.length).toEqual(0)
-          expect(mockGetRentalAssistancesFn.mock.calls.length).toEqual(0)
+          expect(mockCreateLeaseFn.mock.calls).toHaveLength(1)
+          expect(mockUpdateLeaseFn.mock.calls).toHaveLength(0)
+          expect(mockCreateRentalFn.mock.calls).toHaveLength(0)
+          expect(mockUpdateRentalFn.mock.calls).toHaveLength(0)
+          expect(mockGetRentalAssistancesFn.mock.calls).toHaveLength(0)
         })
       })
 
@@ -338,11 +338,11 @@ describe('saveLeaseAndAssistances', () => {
         })
 
         test('it creates a lease', async () => {
-          expect(mockCreateLeaseFn.mock.calls.length).toEqual(1)
-          expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
-          expect(mockCreateRentalFn.mock.calls.length).toEqual(0)
-          expect(mockUpdateRentalFn.mock.calls.length).toEqual(0)
-          expect(mockGetRentalAssistancesFn.mock.calls.length).toEqual(0)
+          expect(mockCreateLeaseFn.mock.calls).toHaveLength(1)
+          expect(mockUpdateLeaseFn.mock.calls).toHaveLength(0)
+          expect(mockCreateRentalFn.mock.calls).toHaveLength(0)
+          expect(mockUpdateRentalFn.mock.calls).toHaveLength(0)
+          expect(mockGetRentalAssistancesFn.mock.calls).toHaveLength(0)
         })
       })
     })
@@ -360,11 +360,11 @@ describe('saveLeaseAndAssistances', () => {
       })
 
       it('only triggers a lease update request', () => {
-        expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
-        expect(mockUpdateLeaseFn.mock.calls.length).toEqual(1)
-        expect(mockCreateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockUpdateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockGetRentalAssistancesFn.mock.calls.length).toEqual(0)
+        expect(mockCreateLeaseFn.mock.calls).toHaveLength(0)
+        expect(mockUpdateLeaseFn.mock.calls).toHaveLength(1)
+        expect(mockCreateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockUpdateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockGetRentalAssistancesFn.mock.calls).toHaveLength(0)
       })
 
       it('returns the correct lease response', () => {
@@ -385,11 +385,11 @@ describe('saveLeaseAndAssistances', () => {
       })
 
       it('only triggers a lease update request', () => {
-        expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
-        expect(mockUpdateLeaseFn.mock.calls.length).toEqual(1)
-        expect(mockCreateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockUpdateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockGetRentalAssistancesFn.mock.calls.length).toEqual(0)
+        expect(mockCreateLeaseFn.mock.calls).toHaveLength(0)
+        expect(mockUpdateLeaseFn.mock.calls).toHaveLength(1)
+        expect(mockCreateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockUpdateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockGetRentalAssistancesFn.mock.calls).toHaveLength(0)
       })
 
       it('returns the correct lease response', () => {
@@ -410,11 +410,11 @@ describe('saveLeaseAndAssistances', () => {
       })
 
       it('does not trigger any requests', () => {
-        expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
-        expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
-        expect(mockCreateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockUpdateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockGetRentalAssistancesFn.mock.calls.length).toEqual(0)
+        expect(mockCreateLeaseFn.mock.calls).toHaveLength(0)
+        expect(mockUpdateLeaseFn.mock.calls).toHaveLength(0)
+        expect(mockCreateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockUpdateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockGetRentalAssistancesFn.mock.calls).toHaveLength(0)
       })
 
       it('returns the correct lease response', () => {
@@ -435,11 +435,11 @@ describe('saveLeaseAndAssistances', () => {
       })
 
       it('only updates the lease', () => {
-        expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
-        expect(mockUpdateLeaseFn.mock.calls.length).toEqual(1)
-        expect(mockCreateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockUpdateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockGetRentalAssistancesFn.mock.calls.length).toEqual(0)
+        expect(mockCreateLeaseFn.mock.calls).toHaveLength(0)
+        expect(mockUpdateLeaseFn.mock.calls).toHaveLength(1)
+        expect(mockCreateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockUpdateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockGetRentalAssistancesFn.mock.calls).toHaveLength(0)
       })
 
       it('returns the correct lease response', () => {
@@ -464,11 +464,11 @@ describe('saveLeaseAndAssistances', () => {
       })
 
       it('only triggers a lease create request', () => {
-        expect(mockCreateLeaseFn.mock.calls.length).toEqual(1)
-        expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
-        expect(mockCreateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockUpdateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockGetRentalAssistancesFn.mock.calls.length).toEqual(0)
+        expect(mockCreateLeaseFn.mock.calls).toHaveLength(1)
+        expect(mockUpdateLeaseFn.mock.calls).toHaveLength(0)
+        expect(mockCreateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockUpdateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockGetRentalAssistancesFn.mock.calls).toHaveLength(0)
       })
 
       it('returns the correct lease response', () => {
@@ -489,11 +489,11 @@ describe('saveLeaseAndAssistances', () => {
       })
 
       it('only triggers a lease create request', () => {
-        expect(mockCreateLeaseFn.mock.calls.length).toEqual(1)
-        expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
-        expect(mockCreateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockUpdateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockGetRentalAssistancesFn.mock.calls.length).toEqual(0)
+        expect(mockCreateLeaseFn.mock.calls).toHaveLength(1)
+        expect(mockUpdateLeaseFn.mock.calls).toHaveLength(0)
+        expect(mockCreateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockUpdateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockGetRentalAssistancesFn.mock.calls).toHaveLength(0)
       })
 
       it('returns the correct lease response', () => {
@@ -514,11 +514,11 @@ describe('saveLeaseAndAssistances', () => {
       })
 
       test('it creates a lease', async () => {
-        expect(mockCreateLeaseFn.mock.calls.length).toEqual(1)
-        expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
-        expect(mockCreateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockUpdateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockGetRentalAssistancesFn.mock.calls.length).toEqual(0)
+        expect(mockCreateLeaseFn.mock.calls).toHaveLength(1)
+        expect(mockUpdateLeaseFn.mock.calls).toHaveLength(0)
+        expect(mockCreateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockUpdateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockGetRentalAssistancesFn.mock.calls).toHaveLength(0)
       })
 
       it('returns the correct lease response', () => {
@@ -539,11 +539,11 @@ describe('saveLeaseAndAssistances', () => {
       })
 
       it('only creates the new lease', () => {
-        expect(mockCreateLeaseFn.mock.calls.length).toEqual(1)
-        expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
-        expect(mockCreateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockUpdateRentalFn.mock.calls.length).toEqual(0)
-        expect(mockGetRentalAssistancesFn.mock.calls.length).toEqual(0)
+        expect(mockCreateLeaseFn.mock.calls).toHaveLength(1)
+        expect(mockUpdateLeaseFn.mock.calls).toHaveLength(0)
+        expect(mockCreateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockUpdateRentalFn.mock.calls).toHaveLength(0)
+        expect(mockGetRentalAssistancesFn.mock.calls).toHaveLength(0)
       })
 
       it('returns the correct lease response', () => {
@@ -566,11 +566,11 @@ describe('saveLeaseAndAssistances', () => {
     })
 
     it('only triggers an assistance create request', () => {
-      expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
-      expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
-      expect(mockCreateRentalFn.mock.calls.length).toEqual(1)
-      expect(mockUpdateRentalFn.mock.calls.length).toEqual(0)
-      expect(mockGetRentalAssistancesFn.mock.calls.length).toEqual(1)
+      expect(mockCreateLeaseFn.mock.calls).toHaveLength(0)
+      expect(mockUpdateLeaseFn.mock.calls).toHaveLength(0)
+      expect(mockCreateRentalFn.mock.calls).toHaveLength(1)
+      expect(mockUpdateRentalFn.mock.calls).toHaveLength(0)
+      expect(mockGetRentalAssistancesFn.mock.calls).toHaveLength(1)
     })
 
     it('returns the correct lease response', () => {
@@ -588,11 +588,11 @@ describe('saveLeaseAndAssistances', () => {
     })
 
     it('only triggers an assistance create request', () => {
-      expect(mockCreateLeaseFn.mock.calls.length).toEqual(0)
-      expect(mockUpdateLeaseFn.mock.calls.length).toEqual(0)
-      expect(mockCreateRentalFn.mock.calls.length).toEqual(0)
-      expect(mockUpdateRentalFn.mock.calls.length).toEqual(1)
-      expect(mockGetRentalAssistancesFn.mock.calls.length).toEqual(1)
+      expect(mockCreateLeaseFn.mock.calls).toHaveLength(0)
+      expect(mockUpdateLeaseFn.mock.calls).toHaveLength(0)
+      expect(mockCreateRentalFn.mock.calls).toHaveLength(0)
+      expect(mockUpdateRentalFn.mock.calls).toHaveLength(1)
+      expect(mockGetRentalAssistancesFn.mock.calls).toHaveLength(1)
     })
 
     it('returns the correct lease response', () => {
@@ -620,7 +620,7 @@ describe('deleteLease', () => {
   })
 
   test('calls apiService.deleteLease', async () => {
-    expect(mockDeleteLeaseFn.mock.calls.length).toEqual(1)
+    expect(mockDeleteLeaseFn.mock.calls).toHaveLength(1)
   })
 
   test('calls apiService.deleteLease with the correct parameters', async () => {

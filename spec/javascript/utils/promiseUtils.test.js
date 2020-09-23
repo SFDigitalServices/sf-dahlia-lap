@@ -71,7 +71,7 @@ describe('performOrDefault', () => {
     })
 
     test('it triggers the promise', async () => {
-      expect(promiseTriggeredSpy.mock.calls.length).toEqual(1)
+      expect(promiseTriggeredSpy.mock.calls).toHaveLength(1)
     })
 
     test('it does not cause an error', async () => {
@@ -99,7 +99,7 @@ describe('performOrDefault', () => {
     })
 
     test('it does not trigger the promise', async () => {
-      expect(promiseTriggeredSpy.mock.calls.length).toEqual(0)
+      expect(promiseTriggeredSpy.mock.calls).toHaveLength(0)
     })
 
     test('it does not cause an error', async () => {
@@ -175,8 +175,8 @@ describe('performInSequence', () => {
       })
 
       expect(errorCaught).toBeTruthy()
-      expect(firstCompletedSpy.mock.calls.length).toEqual(1)
-      expect(secondCompletedSpy.mock.calls.length).toEqual(0)
+      expect(firstCompletedSpy.mock.calls).toHaveLength(1)
+      expect(secondCompletedSpy.mock.calls).toHaveLength(0)
     })
 
     it('fails when the second promise is rejected', async () => {
@@ -192,8 +192,8 @@ describe('performInSequence', () => {
       })
 
       expect(errorCaught).toBeTruthy()
-      expect(firstCompletedSpy.mock.calls.length).toEqual(1)
-      expect(secondCompletedSpy.mock.calls.length).toEqual(1)
+      expect(firstCompletedSpy.mock.calls).toHaveLength(1)
+      expect(secondCompletedSpy.mock.calls).toHaveLength(1)
     })
 
     it('fails when the both promises are rejected', async () => {
@@ -209,8 +209,8 @@ describe('performInSequence', () => {
       })
 
       expect(errorCaught).toBeTruthy()
-      expect(firstCompletedSpy.mock.calls.length).toEqual(1)
-      expect(secondCompletedSpy.mock.calls.length).toEqual(0)
+      expect(firstCompletedSpy.mock.calls).toHaveLength(1)
+      expect(secondCompletedSpy.mock.calls).toHaveLength(0)
     })
   })
 })

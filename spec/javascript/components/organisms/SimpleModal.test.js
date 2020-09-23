@@ -57,8 +57,8 @@ describe('SimpleModal', () => {
     wrapper.find('.modal-button_secondary button').simulate('click')
     wrapper.find('.close-reveal-modal').simulate('click')
 
-    expect(onPrimaryClick.mock.calls.length).toBe(1)
-    expect(onSecondaryClick.mock.calls.length).toBe(1)
-    expect(onCloseClick.mock.calls.length).toBe(1)
+    expect(onPrimaryClick.mock.calls).toHaveLength(1)
+    expect(onSecondaryClick.mock.calls).toHaveLength(1)
+    expect(onCloseClick.mock.calls).toHaveLength(1)
   })
 })

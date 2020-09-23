@@ -54,7 +54,7 @@ describe('ApplicationEditPage', () => {
 
     expectedApplication.preferences[0].naturalKey = 'karen,jones,1950-01-01'
     expectedApplication.preferences[1].naturalKey = 'diego,maradona,1976-06-11'
-    expect(mockSubmitApplication.mock.calls.length).toBe(1)
+    expect(mockSubmitApplication.mock.calls).toHaveLength(1)
     expect(mockSubmitApplication.mock.calls[0][0]).toEqual(expectedApplication)
   })
 
@@ -76,7 +76,7 @@ describe('ApplicationEditPage', () => {
       wrapper.find('form').first().simulate('submit')
     })
 
-    expect(mockSubmitApplication.mock.calls.length).toBe(0)
+    expect(mockSubmitApplication.mock.calls).toHaveLength(0)
   })
 
   test('it should not save with demographics validation errors', async () => {
@@ -102,7 +102,7 @@ describe('ApplicationEditPage', () => {
       wrapper.find('form').first().simulate('submit')
     })
 
-    expect(mockSubmitApplication.mock.calls.length).toBe(0)
+    expect(mockSubmitApplication.mock.calls).toHaveLength(0)
   })
 
   describe('should render', () => {
