@@ -1,6 +1,9 @@
 import { request } from '~/api/request'
 import { isLeaseAlreadyCreated } from './utils/leaseUtils'
 
+const getLeaseUpListings = async () =>
+  request.get('/lease-ups/listings').then((result) => result.listings)
+
 const updateFlaggedApplication = async (data) => {
   const putData = {
     flagged_application: {
@@ -151,6 +154,7 @@ export default {
   fetchApplications,
   fetchLeaseUpApplications,
   getAMI,
+  getLeaseUpListings,
   updatePreference,
   createFieldUpdateComment,
   getRentalAssistances,
