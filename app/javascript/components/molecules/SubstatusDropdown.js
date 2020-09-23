@@ -3,42 +3,48 @@ import PropTypes from 'prop-types'
 import { components } from 'react-select'
 import classNames from 'classnames'
 
-import { LEASE_UP_STATUS_OPTIONS, LEASE_UP_STATUS_VALUES } from '~/utils/statusUtils'
-import Dropdown from '../molecules/Dropdown'
-import Icon from '../atoms/Icon'
+import {
+  LEASE_UP_STATUS_VALUES,
+  LEASE_UP_SUBSTATUS_OPTIONS,
+  LEASE_UP_SUBSTATUS_VALUES
+} from '~/utils/statusUtils'
 
-export const renderStatusOption = ({ value, label, statusClassName }, { selectValue }) => {
+import Icon from '../atoms/Icon'
+import Dropdown from '../molecules/Dropdown'
+
+export const renderSubstatusOption = ({ value, label }, { selectValue }) => {
   const isSelected = selectValue[0]?.value === value
   return (
-    <li className={classNames('dropdown-menu_item', statusClassName)} aria-selected={isSelected}>
+    <li className={'dropdown-menu_item'} aria-selected={isSelected}>
       <a>{label}</a>
     </li>
   )
 }
 
-const StatusDropdown = ({
+const SubstatusDropdown = ({
   status,
+  subStatus,
   onChange,
   disabled,
   placeholder,
-  size,
-  expand
+  expand,
+  hasError
 }) => {
   const buttonClasses = [
     'button',
     'dropdown-button',
+    'substatus',
     'has-icon--right',
     'text-align-left',
     { 'expand': expand },
-    { 'tiny': size === 'tiny' },
-    { 'small': size === 'small' }
+    { 'error': hasError }
   ]
   const renderStatusToggle = ({ children, getValue, ...props }) => {
     const val = getValue()[0]
 
     return (
       <button
-        className={classNames(buttonClasses.concat(val?.statusClassName || 'tertiary'))}
+        className={classNames(buttonClasses)}
         type='button'
         disabled={disabled}>
         <Icon icon='arrow-down' />
@@ -54,32 +60,34 @@ const StatusDropdown = ({
 
   return (
     <Dropdown
-      classNamePrefix='status-dropdown'
-      items={LEASE_UP_STATUS_OPTIONS}
-      value={status}
+      classNamePrefix='substatus-dropdown'
+      items={LEASE_UP_SUBSTATUS_OPTIONS[status] || []}
+      value={subStatus}
       placeholder={placeholder}
-      onChange={val => onChange(val)}
+      onChange={val => onChange(val, 'subStatus')}
       renderToggle={renderStatusToggle}
-      renderOption={renderStatusOption}
+      renderOption={renderSubstatusOption}
       disabled={disabled} />
   )
 }
 
-StatusDropdown.propTypes = {
-  disabled: PropTypes.bool,
+SubstatusDropdown.propTypes = {
   expand: PropTypes.bool,
+  disabled: PropTypes.bool,
+  hasError: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
-  size: PropTypes.oneOf(['tiny', 'small']),
-  status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES)
+  status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
+  subStatus: PropTypes.oneOf(LEASE_UP_SUBSTATUS_VALUES)
 }
 
-StatusDropdown.defaultProps = {
-  disabled: false,
+SubstatusDropdown.defaultProps = {
   expand: false,
-  placeholder: 'Status',
-  size: null,
-  status: null
+  disabled: false,
+  hasError: false,
+  placeholder: 'Select one...',
+  status: null,
+  subStatus: null
 }
 
-export default StatusDropdown
+export default SubstatusDropdown

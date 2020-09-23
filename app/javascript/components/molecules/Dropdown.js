@@ -1,102 +1,64 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React from 'react'
 import { find } from 'lodash'
-import classNames from 'classnames'
-
-import DropdownMenu from '../molecules/DropdownMenu'
-import DropdownMenuMultiSelect from '../molecules/DropdownMenuMultiSelect'
+import Select from 'react-select'
+import PropTypes from 'prop-types'
+import { COLORS } from '~/components/atoms/colors'
 
 const Dropdown = ({
-  prompt,
   items,
   value,
-  styles,
-  buttonClasses,
-  wrapperClasses,
-  menuClasses = [],
   disabled,
-  multiple,
-  onChange
+  onChange,
+  renderToggle,
+  renderOption,
+  classNamePrefix
 }) => {
-  const [expanded, setExpanded] = useState(false)
-  const wrapperRef = useRef(null)
-  const buttonRef = useRef(null)
-  const DropdownComponent = multiple ? DropdownMenuMultiSelect : DropdownMenu
-  // With the empty array passed as the second argument
-  // this useEffect call acts like a componentDidMount call.
-  // The returned function call here acts as a cleanup method.
-  // This allows for a componentDidUnmount call.
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside)
-    document.addEventListener('keydown', onEscapeHandler)
+  let selectedItem = find(items, { value })
 
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-      document.removeEventListener('keydown', onEscapeHandler)
-    }
-  }, [])
-
-  const toggleExpand = (e) => {
-    setExpanded(!expanded)
-    // We need this to avoid triggering the collapse function from Foundation
-    e.stopPropagation()
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      padding: 0,
+      backgroundColor: (state.isSelected && COLORS.primaryTint) || (state.isFocused && COLORS.vapor)
+    })
   }
-
-  const componentClickHandler = (e) => {
-    // We want to hide the dropdown menu only when we click in the component but outside the menu
-    if (wrapperRef === e.target) { setExpanded(false) }
-  }
-
-  const onChangeHandler = (value, label) => {
-    if (!multiple) {
-      setExpanded(false)
-      buttonRef.current.focus()
-    }
-    onChange && onChange(value, label)
-  }
-
-  const handleClickOutside = (event) => {
-    if (wrapperRef && !wrapperRef.current.contains(event.target)) {
-      setExpanded(false)
-    }
-  }
-
-  const onEscapeHandler = (event) => {
-    if (event.keyCode === 27) { setExpanded(false) }
-  }
-
-  const selectedItem = find(items, { value })
 
   return (
-    <div
-      className={classNames('dropdown', wrapperClasses)}
-      onClick={componentClickHandler}
-      ref={wrapperRef}
-      style={styles}>
-      <button
-        aria-expanded={expanded ? 'true' : 'false'}
-        onClick={toggleExpand}
-        ref={buttonRef}
-        className={`button dropdown-button has-icon--right text-align-left ${buttonClasses ? buttonClasses.join(' ') : ''}`}
-        type='button'
-        disabled={disabled}>
-        <span className='ui-icon ui-small'>
-          <svg>
-            <use xlinkHref='#i-arrow-down' />
-          </svg>
-        </span>
-        {selectedItem ? selectedItem.label : prompt}
-      </button>
-      <div className='dropdown-menu-wrapper' aria-hidden={expanded ? 'false' : 'true'} role='menu'>
-        {expanded && (
-          <DropdownComponent
-            onChange={onChangeHandler}
-            items={items}
-            {...(multiple ? { values: value } : { value })}
-            classes={menuClasses} />
-        )}
-      </div>
-    </div>
+    <Select
+      classNamePrefix={classNamePrefix}
+      placeholder={null}
+      isDisabled={disabled}
+      isClearable={false}
+      isSearchable={false}
+      className='dropdown'
+      onChange={(value) => onChange(value.value)}
+      defaultValue={selectedItem}
+      styles={customStyles}
+      formatOptionLabel={renderOption}
+      components={{
+        ValueContainer: renderToggle,
+        SingleValue: () => null,
+        IndicatorsContainer: () => null
+      }}
+      options={items}
+    />
   )
 }
 
+Dropdown.propTypes = {
+  classNamePrefix: PropTypes.string,
+  disabled: PropTypes.bool,
+  items: PropTypes.arrayOf(PropTypes.object),
+  onChange: PropTypes.func.isRequired,
+  renderToggle: PropTypes.func.isRequired,
+  renderOption: PropTypes.func.isRequired,
+  value: PropTypes.string
+}
+
+Dropdown.defaultProps = {
+  classNamePrefix: null,
+  disabled: false,
+  items: [],
+  value: null
+}
 export default Dropdown

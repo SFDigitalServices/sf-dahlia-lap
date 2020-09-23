@@ -29,10 +29,10 @@ describe('SupplementalApplicationPage action buttons', () => {
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
     // Click on the status dropdown button at the bottom of the page
-    await page.click('.status-history-buttons .dropdown')
+    await page.click('.status-history-buttons button.dropdown-button ')
 
     // Select a status from the dropdown menu
-    await page.click('.status-history-buttons .dropdown-menu li[aria-selected="false"] a:first-child')
+    await page.click('.status-history-buttons li[aria-selected="false"].dropdown-menu_item a:first-child')
 
     await supplementalApplicationSteps.testStatusModalUpdate(page)
 
