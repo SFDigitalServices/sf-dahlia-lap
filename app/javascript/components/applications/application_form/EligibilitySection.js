@@ -14,7 +14,7 @@ const EligibilitySection = ({ listing, lendingInstitutions, form }) => {
 
     if (form.getState().values.lending_agent) {
       each(lendingInstitutions, (agents, institution) => {
-        if (some(agents, { 'Id': form.getState().values.lending_agent })) {
+        if (some(agents, { Id: form.getState().values.lending_agent })) {
           mappedLenders = map(agents, (lender) => ({ label: `${lender.FirstName} ${lender.LastName}`, value: lender.Id }))
           form.change('lending_institution', institution)
         }

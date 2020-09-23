@@ -16,9 +16,9 @@ const Button = ({
     classes,
     'button',
     {
-      'small': small,
-      'tertiary': tertiary,
-      'tiny': tiny,
+      small: small,
+      tertiary: tertiary,
+      tiny: tiny,
       'margin-bottom-none': noBottomMargin
     }
   )

@@ -10,7 +10,7 @@ const mockDestroyFn = jest.fn(() => Promise.resolve(true))
 request.destroy = mockDestroyFn
 
 const getExpectedLeaseResponse = (lease, contact = undefined, leaseStartDate = {}) => ({
-  'lease': {
+  lease: {
     ...lease,
     lease_start_date: leaseStartDate,
     primary_applicant_contact: contact
@@ -29,7 +29,7 @@ describe('apiService', () => {
 
     test('should submit post request to create lease properly', async () => {
       var lease = {
-        'monthly_parking_rent': 100
+        monthly_parking_rent: 100
       }
       var expectedData = getExpectedLeaseResponse(lease, fakeContact)
 
@@ -42,8 +42,8 @@ describe('apiService', () => {
 
     test('should fail if the lease already contains a salesforce ID', async () => {
       var lease = {
-        'id': 'lease_id',
-        'monthly_parking_rent': 100
+        id: 'lease_id',
+        monthly_parking_rent: 100
       }
       let throwsError = false
       await apiService.createLease(lease, fakeContact, fakeAppId)
@@ -66,8 +66,8 @@ describe('apiService', () => {
 
     test('should submit put request to update lease correctly', async () => {
       var lease = {
-        'id': fakeLeaseId,
-        'monthly_parking_rent': 100
+        id: fakeLeaseId,
+        monthly_parking_rent: 100
       }
       var expectedData = getExpectedLeaseResponse(lease, fakeContact)
 
@@ -80,7 +80,7 @@ describe('apiService', () => {
 
     test('should fail if the lease doesn’t have an id', async () => {
       var lease = {
-        'monthly_parking_rent': 100
+        monthly_parking_rent: 100
       }
       let throwsError = false
       await apiService.updateLease(lease, fakeContact, fakeAppId)
@@ -100,9 +100,9 @@ describe('apiService', () => {
     })
     test('should send a post request with expected format', async () => {
       var rentalAssistance = {
-        'property': 'something'
+        property: 'something'
       }
-      var expectedData = { 'rental_assistance': rentalAssistance, 'application_id': fakeAppId }
+      var expectedData = { rental_assistance: rentalAssistance, application_id: fakeAppId }
 
       var result = await apiService.createRentalAssistance(rentalAssistance, fakeAppId)
 
@@ -118,9 +118,9 @@ describe('apiService', () => {
     test('should send a put request with expected format', async () => {
       const fakeRentalAssistanceId = 'fake_rental_id'
       var rentalAssistance = {
-        'id': fakeRentalAssistanceId
+        id: fakeRentalAssistanceId
       }
-      var expectedData = { 'rental_assistance': rentalAssistance, 'application_id': fakeAppId }
+      var expectedData = { rental_assistance: rentalAssistance, application_id: fakeAppId }
 
       var result = await apiService.updateRentalAssistance(rentalAssistance, fakeAppId)
       expect(result).toEqual(true)

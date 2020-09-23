@@ -80,11 +80,11 @@ describe('updateApplication', () => {
 
   test('it should submit lease to backend if lease is present in application', async () => {
     const application = {
-      'id': 'appID',
-      'name': 'APP-12345',
-      'listing_id': 'listingID',
-      'lease': {
-        'id': 'leaseID'
+      id: 'appID',
+      name: 'APP-12345',
+      listing_id: 'listingID',
+      lease: {
+        id: 'leaseID'
       }
     }
 
@@ -99,20 +99,20 @@ describe('updateApplication', () => {
 
   test('it should not submit lease to backend if alsoSavelease is false', async () => {
     const application = {
-      'id': 'appID',
-      'name': 'APP-12345',
-      'listing_id': 'listingID',
-      'lease': {
-        'id': 'leaseID'
+      id: 'appID',
+      name: 'APP-12345',
+      listing_id: 'listingID',
+      lease: {
+        id: 'leaseID'
       }
     }
 
     const prevApplication = {
-      'id': 'appID',
-      'name': 'APP-123452',
-      'listing_id': 'listingID2',
-      'lease': {
-        'id': 'leaseID2'
+      id: 'appID',
+      name: 'APP-123452',
+      listing_id: 'listingID2',
+      lease: {
+        id: 'leaseID2'
       }
     }
 
@@ -127,12 +127,12 @@ describe('updateApplication', () => {
 
   test('it should submit lease to backend even if lease is empty', async () => {
     const application = {
-      'id': 'appID',
-      'name': 'APP-12345',
-      'listing': {
-        'id': 'listingID'
+      id: 'appID',
+      name: 'APP-12345',
+      listing: {
+        id: 'listingID'
       },
-      'lease': {}
+      lease: {}
     }
 
     const response = await updateApplication(application, null, true)
@@ -145,13 +145,13 @@ describe('updateApplication', () => {
 
   test('it should not submit lease to backend if lease is unchanged', async () => {
     const application = {
-      'id': 'appID',
-      'name': 'APP-12345',
-      'listing': {
-        'id': 'listingID'
+      id: 'appID',
+      name: 'APP-12345',
+      listing: {
+        id: 'listingID'
       },
-      'lease': {
-        'id': 'leaseID'
+      lease: {
+        id: 'leaseID'
       }
     }
 
@@ -170,15 +170,15 @@ describe('updateApplication', () => {
 
   test('it should not submit application to backend if application is unchanged', async () => {
     const application = {
-      'id': 'appID',
-      'name': 'APP-12345',
-      'listing': {
-        'id': 'listingID'
+      id: 'appID',
+      name: 'APP-12345',
+      listing: {
+        id: 'listingID'
       },
-      'lease': {
-        'id': 'leaseID'
+      lease: {
+        id: 'leaseID'
       },
-      'rental_assistances': []
+      rental_assistances: []
     }
 
     const response = await updateApplication(application, application, true)
@@ -190,13 +190,13 @@ describe('updateApplication', () => {
 
   test('it should create and update rental assistances', async () => {
     const baseApplication = {
-      'id': 'appID',
-      'name': 'APP-12345',
-      'listing': {
-        'id': 'listingID'
+      id: 'appID',
+      name: 'APP-12345',
+      listing: {
+        id: 'listingID'
       },
-      'lease': { id: 'leaseId' },
-      'rental_assistances': [
+      lease: { id: 'leaseId' },
+      rental_assistances: [
         { id: 'abc1', assistance_amount: 11, recipient: 'recipient' },
         { id: 'abc2', assistance_amount: 22, recipient: 'recipient2' }
       ]
@@ -216,12 +216,12 @@ describe('updateApplicationAndAddComment', () => {
   const newStatus = 'Approved'
 
   const application = {
-    'id': 'appID',
-    'name': 'APP-12345',
-    'listing': {
-      'id': 'listingID'
+    id: 'appID',
+    name: 'APP-12345',
+    listing: {
+      id: 'listingID'
     },
-    'lease': {}
+    lease: {}
   }
 
   const prevApp = {

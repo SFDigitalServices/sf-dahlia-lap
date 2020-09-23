@@ -6,31 +6,31 @@ import TableLayout from '../../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
 
 const flaggedTableFields = {
-  'id': null,
-  'listing_name': {
-    'label': 'Listing Name'
+  id: null,
+  listing_name: {
+    label: 'Listing Name'
   },
-  'rule_name': {
-    'label': 'Rule Name'
+  rule_name: {
+    label: 'Rule Name'
   },
-  'total_number_of_pending_review': {
-    'label': 'Total Number of Pending Review'
+  total_number_of_pending_review: {
+    label: 'Total Number of Pending Review'
   },
-  'total_number_of_appealed': {
-    'label': 'Total Number of Appealed'
+  total_number_of_appealed: {
+    label: 'Total Number of Appealed'
   }
 }
 
 const duplicatedTableFields = {
-  'id': null,
-  'listing_name': {
-    'label': 'Listing Name'
+  id: null,
+  listing_name: {
+    label: 'Listing Name'
   },
-  'rule_name': {
-    'label': 'Rule Name'
+  rule_name: {
+    label: 'Rule Name'
   },
-  'total_number_of_duplicates': {
-    'label': 'Total_Number_of_Duplicates'
+  total_number_of_duplicates: {
+    label: 'Total_Number_of_Duplicates'
   }
 }
 

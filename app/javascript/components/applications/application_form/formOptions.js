@@ -13,7 +13,7 @@ const labelize = (options, attrs = {}, noPlaceholder = false) => {
 
   let labelizedOptions = []
   if (!emptyInitialOptionPresent) {
-    const initialValues = { 'value': '', 'label': 'Select One...' }
+    const initialValues = { value: '', label: 'Select One...' }
     if (attrs && attrs['disableEmpty']) {
       initialValues['disabled'] = 'disabled'
     }

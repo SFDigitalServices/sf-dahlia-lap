@@ -8,7 +8,7 @@ describe('formatValue', () => {
       expect(formatValue(dateString, 'date')).toEqual(expectedDate)
     })
     test('formats dates that are objects', () => {
-      const dateObject = { 'month': '1', 'day': '24', 'year': '1990' }
+      const dateObject = { month: '1', day: '24', year: '1990' }
       const expectedDate = '01/24/1990'
       expect(formatValue(dateObject, 'date')).toEqual(expectedDate)
     })

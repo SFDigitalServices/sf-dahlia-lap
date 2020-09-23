@@ -45,8 +45,6 @@ module.exports = {
     'jest/valid-expect': 'error',
 
     // TODO: turn this back on in future PR
-    'quote-props': 'off',
-    // TODO: turn this back on in future PR
     'prefer-const': 'off',
     // TODO: turn this back on in future PR
     'dot-notation': 'off',

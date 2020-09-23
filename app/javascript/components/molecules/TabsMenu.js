@@ -7,7 +7,7 @@ import keyboard from '~/utils/keyboard'
 const Tab = ({ title, url, active, onKeyDown, onFocus, onClick, linkRefs }) => {
   const liClassName = classNames({
     'tab-title': true,
-    'active': active
+    active: active
   })
 
   let tabContent

@@ -3,31 +3,31 @@ import IndexTable from '../IndexTable'
 import TableLayout from '../layouts/TableLayout'
 
 const tableFields = {
-  'id': null,
-  'name': {
-    'label': 'Listing Name',
-    'minWidth': 225
+  id: null,
+  name: {
+    label: 'Listing Name',
+    minWidth: 225
   },
-  'application_due_date': {
-    'type': 'date',
-    'label': 'Application Due Date'
+  application_due_date: {
+    type: 'date',
+    label: 'Application Due Date'
   },
-  'lottery_date': {
-    'type': 'date',
-    'label': 'Lottery Date'
+  lottery_date: {
+    type: 'date',
+    label: 'Lottery Date'
   },
-  'lottery_results_date': {
-    'type': 'date',
-    'label': 'Lottery Results Date'
+  lottery_results_date: {
+    type: 'date',
+    label: 'Lottery Results Date'
   },
-  'lottery_status': {
-    'label': 'Lottery Status'
+  lottery_status: {
+    label: 'Lottery Status'
   },
-  'nflagged_applications': {
-    'label': 'Flagged Applications'
+  nflagged_applications: {
+    label: 'Flagged Applications'
   },
-  'in_lottery': {
-    'label': 'Applications In Lottery'
+  in_lottery: {
+    label: 'Applications In Lottery'
   }
 }
 

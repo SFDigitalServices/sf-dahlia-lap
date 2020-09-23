@@ -46,7 +46,7 @@ const clearPreference = (form, i, target) => {
       }
     }
     // Keep the new listing preference id, but clear all other state.
-    form.change(`preferences[${i}]`, { 'listing_preference_id': target })
+    form.change(`preferences[${i}]`, { listing_preference_id: target })
   }
 }
 

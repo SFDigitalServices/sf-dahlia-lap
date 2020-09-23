@@ -57,10 +57,10 @@ describe('PaperApplicationForm', () => {
 
     test('alternate Contact', async () => {
       testApplication['alternate_contact'] = {
-        'first_name': 'Federic',
-        'middle_name': 'Daaaa',
-        'last_name': 'dayan',
-        'email': 'fede@eee.com'
+        first_name: 'Federic',
+        middle_name: 'Daaaa',
+        last_name: 'dayan',
+        email: 'fede@eee.com'
       }
       let wrapper
       await act(async () => {
@@ -347,9 +347,9 @@ describe('PaperApplicationForm', () => {
 
       // Verify that it's in the state
       const expectedPreferenceValue = {
-        'listing_preference_id': copPreferenceId,
-        'recordtype_developername': 'COP',
-        'naturalKey': hhNaturalKey
+        listing_preference_id: copPreferenceId,
+        recordtype_developername: 'COP',
+        naturalKey: hhNaturalKey
       }
       expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toMatchObject(expectedPreferenceValue)
 
@@ -384,9 +384,9 @@ describe('PaperApplicationForm', () => {
 
       // Verify that it's in the state
       const expectedPreferenceValue = {
-        'listing_preference_id': copPreferenceId,
-        'recordtype_developername': 'COP',
-        'naturalKey': hhNaturalKey
+        listing_preference_id: copPreferenceId,
+        recordtype_developername: 'COP',
+        naturalKey: hhNaturalKey
       }
       expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toEqual(expectedPreferenceValue)
 
@@ -394,8 +394,8 @@ describe('PaperApplicationForm', () => {
       await updatePreference(wrapper, liveWorkPreferenceId)
       // Verify the state is cleared except for listing preference id
       const expectedNewPreferenceValue = {
-        'listing_preference_id': liveWorkPreferenceId,
-        'recordtype_developername': 'L_W'
+        listing_preference_id: liveWorkPreferenceId,
+        recordtype_developername: 'L_W'
       }
       expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toEqual(expectedNewPreferenceValue)
 
