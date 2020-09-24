@@ -17,7 +17,8 @@ const TabCardWrapper = () => {
         placeholder='Enter Text'
         describeId='label'
         note='More text'
-        error='Please enter a First Name' />
+        error='Please enter a First Name'
+      />
     </TabCard>
   )
 }

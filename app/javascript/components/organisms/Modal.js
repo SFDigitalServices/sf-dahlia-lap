@@ -32,7 +32,8 @@ const Modal = ({ children, isOpen, handleClose, styleType }) => (
     style={styleTypes[styleType || 'small']}
     onRequestClose={handleClose}
     shouldCloseOnOverlayClick
-    ariaHideApp={process.env.NODE_ENV !== 'test'}>
+    ariaHideApp={process.env.NODE_ENV !== 'test'}
+  >
     {children}
   </ReactModal>
 )
@@ -40,7 +41,11 @@ const Modal = ({ children, isOpen, handleClose, styleType }) => (
 Modal.Body = ({ children, handleClose, hidden }) => (
   <div aria-labelledby='modalTitle' aria-hidden={hidden} role='dialog'>
     {children}
-    <button className='button button-link close-reveal-modal' aria-label='Close modal' onClick={handleClose}>
+    <button
+      className='button button-link close-reveal-modal'
+      aria-label='Close modal'
+      onClick={handleClose}
+    >
       <span className='sr-only'>Close</span>
       <span className='ui-icon ui-medium i-primary'>
         <svg>
@@ -57,20 +62,14 @@ Modal.Header = ({ id, title }) => (
   </header>
 )
 
-Modal.Content = ({ children }) => (
-  <section className='modal-inner'>
-    {children}
-  </section>
-)
+Modal.Content = ({ children }) => <section className='modal-inner'>{children}</section>
 
 Modal.Footer = ({ children }) => (
   <footer className='modal-footer bg-dust'>
-    <div className='modal-button-group row'>
-      { children }
-    </div>
+    <div className='modal-button-group row'>{children}</div>
   </footer>
 )
 
-Modal.Alert = (props) => (<Alert {...props} />)
+Modal.Alert = (props) => <Alert {...props} />
 
 export default Modal

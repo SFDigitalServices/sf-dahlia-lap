@@ -4,7 +4,9 @@ import { buildFields } from '~/utils/fieldSpecs'
 import arrayUtils from '~/utils/arrayUtils'
 
 var generateContent = (dataCollection, entry, i) => {
-  if (dataCollection == null) { return }
+  if (dataCollection == null) {
+    return
+  }
 
   const { label } = entry
   let { value } = entry
@@ -13,9 +15,7 @@ var generateContent = (dataCollection, entry, i) => {
   }
   return (
     <div className='margin-bottom--half' key={i}>
-      <h4 className='t-sans t-small t-bold no-margin'>
-        {label}
-      </h4>
+      <h4 className='t-sans t-small t-bold no-margin'>{label}</h4>
       <p>{value}</p>
     </div>
   )
@@ -30,14 +30,10 @@ const ApplicationDetailsContentCard = ({ dataCollection, title, fields, labelMap
       <h4 className='content-card_title t-serif'>{title}</h4>
       <ul className='content-grid'>
         <li className='content-item'>
-          <div className='content-card'>
-            {firstHalf}
-          </div>
+          <div className='content-card'>{firstHalf}</div>
         </li>
         <li className='content-item'>
-          <div className='content-card'>
-            {secondHalf}
-          </div>
+          <div className='content-card'>{secondHalf}</div>
         </li>
       </ul>
     </div>

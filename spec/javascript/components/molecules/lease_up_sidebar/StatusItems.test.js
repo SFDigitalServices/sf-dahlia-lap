@@ -4,12 +4,8 @@ import { mockManyStatusItems, mockStatusItem, mockStatusItems } from '../../../m
 import StatusItems from 'components/molecules/lease_up_sidebar/StatusItems'
 import StatusItem from 'components/molecules/lease_up_sidebar/StatusItem'
 
-const getWrapper = (items, limit = undefined) => shallow(
-  <StatusItems
-    statusItems={items}
-    limit={limit}
-  />
-)
+const getWrapper = (items, limit = undefined) =>
+  shallow(<StatusItems statusItems={items} limit={limit} />)
 
 const TIMESTAMP_AUGUST_25_2020 = 1598338800
 const TIMESTAMP_AUGUST_26_2020 = 1598400000

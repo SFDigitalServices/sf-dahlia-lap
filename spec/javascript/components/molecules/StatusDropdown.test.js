@@ -8,12 +8,8 @@ import Dropdown from '~/components/molecules/Dropdown'
 
 const ON_CHANGE = jest.fn()
 
-const getWrapper = (propOverrides = {}) => mount(
-  <StatusDropdown
-    onChange={ON_CHANGE}
-    {...propOverrides}
-  />
-)
+const getWrapper = (propOverrides = {}) =>
+  mount(<StatusDropdown onChange={ON_CHANGE} {...propOverrides} />)
 
 describe('StatusDropdown', () => {
   let wrapper
@@ -90,9 +86,8 @@ describe('StatusDropdown', () => {
   })
 
   describe('renderStatusOption', () => {
-    const getStatusOptionWrapper = (option, selectedValue) => shallow(
-      renderStatusOption(option, { selectValue: [{ value: selectedValue }] })
-    )
+    const getStatusOptionWrapper = (option, selectedValue) =>
+      shallow(renderStatusOption(option, { selectValue: [{ value: selectedValue }] }))
     const testValue = 'testValue'
     const testStatusClassName = 'status-class-name'
     const testLabel = 'testLabel'

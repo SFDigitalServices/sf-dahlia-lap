@@ -35,13 +35,17 @@ class LeaseUpApplicationsPage extends React.Component {
   eagerPagination = new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
 
   fetchApplications = async (page, filters) => {
-    let { records, pages } = await apiService.fetchLeaseUpApplications(this.props.listing.id, page, { filters })
+    let { records, pages } = await apiService.fetchLeaseUpApplications(
+      this.props.listing.id,
+      page,
+      { filters }
+    )
     records = map(records, buildLeaseUpAppPrefModel)
     return { records, pages }
   }
 
   loadPage = async (page, filters) => {
-    const fetcher = p => this.fetchApplications(p, filters)
+    const fetcher = (p) => this.fetchApplications(p, filters)
     this.setState({ loading: true, page: page })
     const { records, pages } = await this.eagerPagination.getPage(page, fetcher)
     this.setState({ applications: records, loading: false, pages: pages, atMaxPages: false })
@@ -71,11 +75,14 @@ class LeaseUpApplicationsPage extends React.Component {
     const { applications } = this.state
 
     createFieldUpdateComment(applicationId, status, comment, subStatus)
-      .then(response => {
+      .then((response) => {
         each(applications, (app, index) => {
           if (app.application_id === applicationId) {
             this.updateResults(`[${index}]['lease_up_status']`, status)
-            this.updateResults(`[${index}]['status_updated']`, moment().format(SALESFORCE_DATE_FORMAT))
+            this.updateResults(
+              `[${index}]['status_updated']`,
+              moment().format(SALESFORCE_DATE_FORMAT)
+            )
           }
         })
 
@@ -98,7 +105,7 @@ class LeaseUpApplicationsPage extends React.Component {
   }
 
   updateStatusModal = (values) => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return {
         statusModal: {
           ...clone(prevState.statusModal),
@@ -109,14 +116,14 @@ class LeaseUpApplicationsPage extends React.Component {
   }
 
   updateResults = (path, value) => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return {
         applications: set(clone(prevState.applications), path, value)
       }
     })
   }
 
-  render () {
+  render() {
     const listing = this.props.listing
 
     const baseUrl = typeof SALESFORCE_BASE_URL !== 'undefined' ? SALESFORCE_BASE_URL : ''
@@ -126,7 +133,10 @@ class LeaseUpApplicationsPage extends React.Component {
       link: `${baseUrl}/${listing.report_id}?csv=1`
     }
 
-    const preferences = map(listing.listing_lottery_preferences, (pref) => pref.lottery_preference.name)
+    const preferences = map(
+      listing.listing_lottery_preferences,
+      (pref) => pref.lottery_preference.name
+    )
 
     const pageHeader = {
       title: listing.name,

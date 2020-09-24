@@ -13,21 +13,22 @@ export const isDTHP = testRegex(/DTHP/)
 
 export const isAliceGriffith = testRegex(/Griffith/)
 
-export const isLWinSF = value => value === 'Live or Work in San Francisco Preference'
+export const isLWinSF = (value) => value === 'Live or Work in San Francisco Preference'
 
 export const isADHP = testRegex(/ADHP/)
 
 export const isNRHP = testRegex(/NRHP/)
 
-export const isRentBurdenedAssistedHousing = value => value === 'Rent Burdened / Assisted Housing Preference'
+export const isRentBurdenedAssistedHousing = (value) =>
+  value === 'Rent Burdened / Assisted Housing Preference'
 
 /* Individual Preference */
 
-export const isLiveInSF = value => value === 'Live in SF'
+export const isLiveInSF = (value) => value === 'Live in SF'
 
-export const isAssistedHousing = value => value === 'Assisted Housing'
+export const isAssistedHousing = (value) => value === 'Assisted Housing'
 
-export const isRentBurdened = value => value === 'Rent Burdened'
+export const isRentBurdened = (value) => value === 'Rent Burdened'
 
 export const getPreferenceName = (preference) => {
   const preferenceName = preference.preference_name
@@ -57,14 +58,8 @@ export const individualPreferenceOptions = formUtils.toOptions(['Live in SF', 'W
 
 export const FormItem = ({ label, children }) => (
   <FormGrid.Item>
-    <FormGrid.Group label={label}>
-      {children}
-    </FormGrid.Group>
+    <FormGrid.Group label={label}>{children}</FormGrid.Group>
   </FormGrid.Item>
 )
 
-export const Comment = ({ children }) => (
-  <p className='t-base c-steel'>
-    {children}
-  </p>
-)
+export const Comment = ({ children }) => <p className='t-base c-steel'>{children}</p>

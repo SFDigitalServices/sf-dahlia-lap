@@ -5,7 +5,11 @@ const IgnoreImageAndCSSLoad = async (page) => {
   await page.setRequestInterception(true)
 
   page.on('request', (req) => {
-    if (req.resourceType() === 'stylesheet' || req.resourceType() === 'font' || req.resourceType() === 'image') {
+    if (
+      req.resourceType() === 'stylesheet' ||
+      req.resourceType() === 'font' ||
+      req.resourceType() === 'image'
+    ) {
       return req.abort()
     }
     return req.continue()
@@ -15,7 +19,10 @@ const IgnoreImageAndCSSLoad = async (page) => {
 }
 
 const SetupBrowser = async () => {
-  const browser = await puppeteer.launch({ headless: HEADLESS, args: ['--no-sandbox', '--disable-setuid-sandbox'] })
+  const browser = await puppeteer.launch({
+    headless: HEADLESS,
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  })
   return browser
 }
 

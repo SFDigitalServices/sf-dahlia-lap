@@ -35,10 +35,9 @@ const duplicatedTableFields = {
 }
 
 const FlaggedApplicationsIndexTable = ({ flaggedRecords, fields }) => {
-  return <IndexTable
-    results={flaggedRecords}
-    fields={fields}
-    links={['View Flagged Applications']} />
+  return (
+    <IndexTable results={flaggedRecords} fields={fields} links={['View Flagged Applications']} />
+  )
 }
 
 const getTableFieldsForType = (type) => {
@@ -55,9 +54,7 @@ const FlaggedApplicationsIndexPage = ({ title, flaggedRecords, type }) => {
   const tableFields = getTableFieldsForType(type)
   return (
     <TableLayout pageHeader={{ title: title }}>
-      <FlaggedApplicationsIndexTable
-        flaggedRecords={flaggedRecords}
-        fields={tableFields} />
+      <FlaggedApplicationsIndexTable flaggedRecords={flaggedRecords} fields={tableFields} />
     </TableLayout>
   )
 }
@@ -73,7 +70,7 @@ const mapProperties = ({ title, flaggedRecords, type }) => {
   return {
     type,
     title,
-    flaggedRecords: flaggedRecords.map(i => buildFlaggedRecordModel(i))
+    flaggedRecords: flaggedRecords.map((i) => buildFlaggedRecordModel(i))
   }
 }
 

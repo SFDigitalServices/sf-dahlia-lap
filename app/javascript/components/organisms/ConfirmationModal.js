@@ -17,10 +17,7 @@ const ConfirmationModal = ({
   title,
   titleId = 'confirmation-modal-header'
 }) => {
-  const buttonClasses = classNames(
-    'button',
-    primaryButtonIsAlert ? 'alert' : 'primary'
-  )
+  const buttonClasses = classNames('button', primaryButtonIsAlert ? 'alert' : 'primary')
 
   return (
     <Modal isOpen={isOpen} handleClose={onCloseClick}>
@@ -31,8 +28,8 @@ const ConfirmationModal = ({
         </Modal.Content>
         <Modal.Footer>
           <div className='modal-button_item modal-button_secondary'>
-            {primaryButtonDestination
-              ? <a
+            {primaryButtonDestination ? (
+              <a
                 className={buttonClasses}
                 href={primaryButtonDestination}
                 type='button'
@@ -40,14 +37,11 @@ const ConfirmationModal = ({
               >
                 {primaryText}
               </a>
-              : <button
-                className={buttonClasses}
-                type='button'
-                onClick={onPrimaryClick}
-              >
+            ) : (
+              <button className={buttonClasses} type='button' onClick={onPrimaryClick}>
                 {primaryText}
               </button>
-            }
+            )}
           </div>
           <div className='modal-button_item modal-button_secondary'>
             <button className='button no-border' onClick={onSecondaryClick} type='button'>

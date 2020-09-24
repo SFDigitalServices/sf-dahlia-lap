@@ -35,7 +35,7 @@ const enterValue = async (page, selector, value) => {
   await page.waitForSelector(selector)
   // Clear the value that's there. Final form resets field value on enter, so we need to do it 'manually' with backspace.
   await page.focus(selector)
-  const inputValue = await page.$eval(selector, el => el.value)
+  const inputValue = await page.$eval(selector, (el) => el.value)
   for (let i = 0; i < inputValue.length; i++) {
     await page.keyboard.press('Backspace')
   }
@@ -52,7 +52,7 @@ const getInputValue = async (page, selector) => {
 
 const getText = async (page, selector) => {
   await page.waitForSelector(selector)
-  return page.$eval(selector, e => e.textContent)
+  return page.$eval(selector, (e) => e.textContent)
 }
 
 const generateRandomString = (length) => {
@@ -72,7 +72,7 @@ const selectedOptionSelector = (fieldSelector) => {
 
 const getFormErrors = async (page) => {
   // Return list of errors present on a form
-  const errors = await page.$$eval('span.error', divs => divs.map(d => d.textContent))
+  const errors = await page.$$eval('span.error', (divs) => divs.map((d) => d.textContent))
   return errors
 }
 

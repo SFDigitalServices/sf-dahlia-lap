@@ -12,7 +12,11 @@ const getRenderType = (value) => {
 }
 
 const formatValue = (value, type) => {
-  if (type === 'date') { return moment(value).format('L') } else { return value }
+  if (type === 'date') {
+    return moment(value).format('L')
+  } else {
+    return value
+  }
 }
 
 export const buildFieldEntry = (item, entry) => {

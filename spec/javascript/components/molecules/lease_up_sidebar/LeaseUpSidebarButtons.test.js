@@ -7,7 +7,9 @@ const ON_CHANGE_STATUS = jest.fn()
 
 describe('LeaseUpStatusButtons', () => {
   test('should render the status dropdown correctly', () => {
-    const wrapper = shallow(<LeaseUpStatusButtons onChangeStatus={ON_CHANGE_STATUS} status={'Approved'} />)
+    const wrapper = shallow(
+      <LeaseUpStatusButtons onChangeStatus={ON_CHANGE_STATUS} status={'Approved'} />
+    )
     expect(wrapper.find(StatusDropdown)).toHaveLength(1)
     expect(wrapper.find(StatusDropdown).prop('status')).toEqual('Approved')
   })
@@ -19,11 +21,11 @@ describe('LeaseUpStatusButtons', () => {
   })
 
   test('should render a comment button', () => {
-    const wrapper = shallow(<LeaseUpStatusButtons onChangeStatus={ON_CHANGE_STATUS} status={'Approved'} />)
+    const wrapper = shallow(
+      <LeaseUpStatusButtons onChangeStatus={ON_CHANGE_STATUS} status={'Approved'} />
+    )
     expect(wrapper.find('button#add-status-history-comment')).toHaveLength(1)
-    expect(
-      wrapper.find('button#add-status-history-comment').prop('disabled')
-    ).toBeFalsy()
+    expect(wrapper.find('button#add-status-history-comment').prop('disabled')).toBeFalsy()
   })
 
   test('should disable both buttons when loading', () => {
@@ -31,9 +33,7 @@ describe('LeaseUpStatusButtons', () => {
       <LeaseUpStatusButtons onChangeStatus={ON_CHANGE_STATUS} status={'Approved'} isLoading />
     )
 
-    expect(
-      wrapper.find('button#add-status-history-comment').prop('disabled')
-    ).toBeTruthy()
+    expect(wrapper.find('button#add-status-history-comment').prop('disabled')).toBeTruthy()
     expect(wrapper.find(StatusDropdown).prop('disabled')).toBeTruthy()
   })
 })

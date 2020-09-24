@@ -1,7 +1,7 @@
 import { FIRST_NAME, LAST_NAME, DOB_MONTH, DOB_DAY, DOB_YEAR, DECLINE_TO_STATE } from './consts'
 
 const count = async (page, selector) => {
-  return page.$$eval(selector, elements => elements.length)
+  return page.$$eval(selector, (elements) => elements.length)
 }
 
 const isPresent = async (page, selector) => {
@@ -9,16 +9,17 @@ const isPresent = async (page, selector) => {
   return c > 0
 }
 
-const blurValidation = (page, selector) => page.evaluate((selector) => {
-  if (selector) {
-    const domSelector = document.querySelector(selector)
-    domSelector.focus()
-    return domSelector.blur()
-  } else {
-    document.querySelector('input').blur()
-    return document.querySelector('select').blur()
-  }
-}, selector)
+const blurValidation = (page, selector) =>
+  page.evaluate((selector) => {
+    if (selector) {
+      const domSelector = document.querySelector(selector)
+      domSelector.focus()
+      return domSelector.blur()
+    } else {
+      document.querySelector('input').blur()
+      return document.querySelector('select').blur()
+    }
+  }, selector)
 
 const fillOutRequiredFields = async (page) => {
   await page.select('#application_language', 'English')

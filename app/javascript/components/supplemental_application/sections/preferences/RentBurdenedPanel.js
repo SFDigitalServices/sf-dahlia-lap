@@ -12,9 +12,7 @@ const { labelize } = formOptions
 export const RentBurdenedPanel = ({ preferenceIndex, visited }) => (
   <FormGrid.Row expand={false}>
     <FormItem label='Preference Name'>
-      <div className='text-value'>
-        Rent Burdened Housing Preference
-      </div>
+      <div className='text-value'>Rent Burdened Housing Preference</div>
     </FormItem>
     <FormItem>
       {/* Total monthly rent is stored in the application, not the preference. */}
@@ -23,14 +21,16 @@ export const RentBurdenedPanel = ({ preferenceIndex, visited }) => (
         type='number'
         label='Total Household Monthly Rent'
         validation={validate.isValidCurrency('Please enter a valid dollar amount.')}
-        isDirty={visited && visited.total_monthly_rent} />
+        isDirty={visited && visited.total_monthly_rent}
+      />
     </FormItem>
     <FormItem>
       <SelectField
         fieldName={buildFieldId(preferenceIndex, 'post_lottery_validation')}
         options={labelize(statusOptions, { disableEmpty: true })}
         label='Status'
-        className='preference-status-select' />
+        className='preference-status-select'
+      />
     </FormItem>
   </FormGrid.Row>
 )

@@ -4,14 +4,13 @@ import { SelectField, InputField } from '~/utils/form/final_form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
 import validate from '~/utils/form/validations'
 
-const {
-  genderOptions,
-  sexualOrientationOptions,
-  raceOptions,
-  ethnicityOptions
-} = formOptions
+const { genderOptions, sexualOrientationOptions, raceOptions, ethnicityOptions } = formOptions
 
-const DemographicInfoSection = ({ values: { demographics }, genderSpecifyRequired, orientationOtherRequired }) => {
+const DemographicInfoSection = ({
+  values: { demographics },
+  genderSpecifyRequired,
+  orientationOtherRequired
+}) => {
   return (
     <div className='border-bottom margin-bottom--2x'>
       <h3>Demographic Information</h3>
@@ -22,7 +21,8 @@ const DemographicInfoSection = ({ values: { demographics }, genderSpecifyRequire
             label='Ethnicity'
             options={ethnicityOptions}
             blockNote='(required)'
-            validation={validate.isPresent('Ethnicity is required')} />
+            validation={validate.isPresent('Ethnicity is required')}
+          />
         </div>
         <div className='small-6 columns'>
           <SelectField
@@ -30,7 +30,8 @@ const DemographicInfoSection = ({ values: { demographics }, genderSpecifyRequire
             label='Race'
             options={raceOptions}
             blockNote='(required)'
-            validation={validate.isPresent('Race is required')} />
+            validation={validate.isPresent('Race is required')}
+          />
         </div>
         <div className='small-6 columns'>
           <SelectField
@@ -38,14 +39,16 @@ const DemographicInfoSection = ({ values: { demographics }, genderSpecifyRequire
             label='Gender'
             options={genderOptions}
             blockNote='(required)'
-            validation={validate.isPresent('Gender is required')} />
+            validation={validate.isPresent('Gender is required')}
+          />
         </div>
         <div className='small-6 columns'>
           <InputField
             fieldName='demographics.gender_other'
             label='Gender Specify (if not listed)'
             blockNote={genderSpecifyRequired ? '(required)' : null}
-            maxLength={maxLengthMap.gender_other} />
+            maxLength={maxLengthMap.gender_other}
+          />
         </div>
         <div className='small-6 columns'>
           <SelectField
@@ -53,14 +56,16 @@ const DemographicInfoSection = ({ values: { demographics }, genderSpecifyRequire
             label='Sexual Orientation'
             options={sexualOrientationOptions}
             blockNote='(required)'
-            validation={validate.isPresent('Sexual Orientation is required')} />
+            validation={validate.isPresent('Sexual Orientation is required')}
+          />
         </div>
         <div className='small-6 columns'>
           <InputField
             fieldName='demographics.sexual_orientation_other'
             label='Sexual Orientation (if not listed)'
             blockNote={orientationOtherRequired ? '(required)' : null}
-            maxLength={maxLengthMap.sexual_orientation_other} />
+            maxLength={maxLengthMap.sexual_orientation_other}
+          />
         </div>
       </div>
       <div className='row' />

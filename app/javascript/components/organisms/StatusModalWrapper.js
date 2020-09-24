@@ -8,7 +8,11 @@ import SubstatusDropdown from '~/components/molecules/SubstatusDropdown'
 import FormModal from './FormModal'
 import { TextAreaField, Label, FieldError } from '~/utils/form/final_form/Field'
 import validate from '~/utils/form/validations'
-import { statusRequiresComments, LEASE_UP_SUBSTATUS_OPTIONS, validateStatusForm } from '~/utils/statusUtils'
+import {
+  statusRequiresComments,
+  LEASE_UP_SUBSTATUS_OPTIONS,
+  validateStatusForm
+} from '~/utils/statusUtils'
 
 const StatusModalWrapper = ({
   isOpen,
@@ -29,7 +33,7 @@ const StatusModalWrapper = ({
     secondary='cancel'
     isOpen={isOpen}
     handleClose={onClose}
-    onSubmit={values => validateStatusForm(values) ? onSubmit(values) : null}
+    onSubmit={(values) => (validateStatusForm(values) ? onSubmit(values) : null)}
     onSecondaryClick={onClose}
     type='status'
     showAlert={showAlert}
@@ -41,16 +45,17 @@ const StatusModalWrapper = ({
       subStatus,
       comment: ''
     }}
-    validateError={values => {
+    validateError={(values) => {
       const errors = {}
-      if (values.status && LEASE_UP_SUBSTATUS_OPTIONS[values.status] && (!values.subStatus)) {
+      if (values.status && LEASE_UP_SUBSTATUS_OPTIONS[values.status] && !values.subStatus) {
         errors.subStatus = 'Please provide status details.'
       }
       if (!values.comment && statusRequiresComments(values.status, values.subStatus)) {
         errors.comment = 'Please provide a comment.'
       }
       return errors
-    }} >
+    }}
+  >
     {(values, changeFieldValue) => (
       <div className={'form-group'}>
         <FormGrid.Row paddingBottom>
@@ -65,7 +70,7 @@ const StatusModalWrapper = ({
                     <Label label='Status' />
                     <StatusDropdown
                       status={values.status}
-                      onChange={val => {
+                      onChange={(val) => {
                         onChange(val)
                         changeFieldValue('subStatus', null)
                       }}
@@ -79,7 +84,7 @@ const StatusModalWrapper = ({
             />
           </FormGrid.Item>
         </FormGrid.Row>
-        {((values.status) && LEASE_UP_SUBSTATUS_OPTIONS[values.status]) && (
+        {values.status && LEASE_UP_SUBSTATUS_OPTIONS[values.status] && (
           <FormGrid.Row paddingBottom>
             <FormGrid.Item fullWidth>
               <Field
@@ -116,7 +121,8 @@ const StatusModalWrapper = ({
               rows='10'
               placeholder='Add a comment'
               ariaDescribedby='status-comment-label'
-              maxLength='255' />
+              maxLength='255'
+            />
           </FormGrid.Item>
         </FormGrid.Row>
       </div>

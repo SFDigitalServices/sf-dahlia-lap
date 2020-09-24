@@ -7,7 +7,10 @@ const testStatusModalUpdate = async (page) => {
 
   // Select a status different from the current one in the status modal
   await page.click('.form-modal_form_wrapper .dropdown')
-  const newSelectedStatus = await page.$eval('.form-modal_form_wrapper li[aria-selected="false"].dropdown-menu_item  a', e => e.textContent)
+  const newSelectedStatus = await page.$eval(
+    '.form-modal_form_wrapper li[aria-selected="false"].dropdown-menu_item  a',
+    (e) => e.textContent
+  )
   await page.click('.form-modal_form_wrapper li[aria-selected="false"].dropdown-menu_item  a')
 
   const selectedSubstatus = await checkForSubStatus(newSelectedStatus, page)
@@ -25,19 +28,32 @@ const testStatusModalUpdate = async (page) => {
       if (response.status() !== 200) {
         const responseBody = await response.json()
         console.error('Status update failure response: ', responseBody)
-        console.error('Selected status: ', newSelectedStatus, ', Selected substatus:', selectedSubstatus)
+        console.error(
+          'Selected status: ',
+          newSelectedStatus,
+          ', Selected substatus:',
+          selectedSubstatus
+        )
       }
       expect(response.status()).toBe(200)
     }
   })
   // wait for modal overlay to be hidden after submit
-  await page.waitForSelector('.ReactModal__Overlay.ReactModal__Overlay--after-open', { hidden: true })
+  await page.waitForSelector('.ReactModal__Overlay.ReactModal__Overlay--after-open', {
+    hidden: true
+  })
   // The latest status in the status history should be the status that was just selected and saved
-  const latestStatus = await page.$eval('.status-items .status-item:first-child .status-pill', e => e.textContent)
+  const latestStatus = await page.$eval(
+    '.status-items .status-item:first-child .status-pill',
+    (e) => e.textContent
+  )
   expect(latestStatus).toBe(newSelectedStatus)
 
   // The latest comment in the status history should be the comment that was just entered and saved
-  const latestComment = await page.$eval('.status-items .status-item:first-child .status-item-text', e => e.textContent)
+  const latestComment = await page.$eval(
+    '.status-items .status-item:first-child .status-item-text',
+    (e) => e.textContent
+  )
   expect(latestComment).toBe(COMMENT)
 }
 
@@ -54,15 +70,24 @@ const savePage = async (page) => {
 }
 
 const checkForSubStatus = async (selectedStatus, page) => {
-  if (selectedStatus.toLowerCase() !== 'processing' && selectedStatus.toLowerCase() !== 'lease signed') {
+  if (
+    selectedStatus.toLowerCase() !== 'processing' &&
+    selectedStatus.toLowerCase() !== 'lease signed'
+  ) {
     // If status has a subStatus value wait for that dropdown to be available and select one
     await page.waitForSelector('.form-modal_form_wrapper .substatus-dropdown__control')
     await page.click('.form-modal_form_wrapper .substatus-dropdown__control button')
-    const emptySubStatus = await page.$eval('.form-modal_form_wrapper .substatus-dropdown__control button', e => e.textContent)
+    const emptySubStatus = await page.$eval(
+      '.form-modal_form_wrapper .substatus-dropdown__control button',
+      (e) => e.textContent
+    )
     expect(emptySubStatus.toLowerCase()).toContain('select one...')
     await page.waitForSelector('.form-modal_form_wrapper .substatus-dropdown__menu')
     await page.click('.form-modal_form_wrapper .substatus-dropdown__menu li a')
-    const selectedSubStatus = await page.$eval('.form-modal_form_wrapper .substatus-dropdown__control button', e => e.textContent)
+    const selectedSubStatus = await page.$eval(
+      '.form-modal_form_wrapper .substatus-dropdown__control button',
+      (e) => e.textContent
+    )
     expect(selectedSubStatus.toLowerCase()).not.toContain('select one...')
     return selectedSubStatus
   }

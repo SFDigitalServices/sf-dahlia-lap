@@ -5,7 +5,8 @@ const toTimeStamp = (dateString) => moment.utc(dateString, 'MM-DD-YYYY hh:mm').u
 const statusItem = {
   status: 'Approved',
   substatus: 'Approval letter sent',
-  comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.',
+  comment:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.',
   timestamp: toTimeStamp('08-25-2020 20:00')
 }
 
@@ -42,5 +43,4 @@ export const mockStatusItems = () => [
   })
 ]
 
-export const mockManyStatusItems = (n) =>
-  Array.from({ length: n }, () => mockStatusItem())
+export const mockManyStatusItems = (n) => Array.from({ length: n }, () => mockStatusItem())

@@ -10,9 +10,7 @@ describe('ApplicationDetails', () => {
       const fileBaseUrl = 'http://www.someurl.com'
 
       const wrapper = renderer.create(
-        <ApplicationDetails
-          application={application}
-          file_base_url={fileBaseUrl} />
+        <ApplicationDetails application={application} file_base_url={fileBaseUrl} />
       )
       expect(wrapper.toJSON()).toMatchSnapshot()
     })
@@ -21,12 +19,14 @@ describe('ApplicationDetails', () => {
       const fileBaseUrl = 'http://www.someurl.com'
 
       const wrapper = mount(
-        <ApplicationDetails
-          application={application}
-          file_base_url={fileBaseUrl} />
+        <ApplicationDetails application={application} file_base_url={fileBaseUrl} />
       )
-      expect(wrapper.find('a').first().getDOMNode().getAttribute('href')).toContain('servlet/servlet.FileDownload')
-      expect(wrapper.find('a').last().getDOMNode().getAttribute('href')).toContain('sfc/servlet.shepherd/version/download')
+      expect(wrapper.find('a').first().getDOMNode().getAttribute('href')).toContain(
+        'servlet/servlet.FileDownload'
+      )
+      expect(wrapper.find('a').last().getDOMNode().getAttribute('href')).toContain(
+        'sfc/servlet.shepherd/version/download'
+      )
     })
   })
 })

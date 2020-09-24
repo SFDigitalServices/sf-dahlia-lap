@@ -15,7 +15,7 @@ const run = (rules, values, ifRules) => {
 }
 
 const validate = (rules, ifRules = null) => {
-  return values => {
+  return (values) => {
     return run(rules, values, ifRules)
   }
 }
@@ -26,7 +26,7 @@ const validates = (fun, message) => (value) => {
   return fun(value) ? undefined : message
 }
 
-const decorateValidator = fn => message => validates(fn, message)
+const decorateValidator = (fn) => (message) => validates(fn, message)
 
 const isOldEnough = (dateOfBirth) => {
   if (dateOfBirth && isDate(dateOfBirth)) {
@@ -50,11 +50,13 @@ const isDate = (date) => {
 }
 
 const isValidEmail = (email) => {
-  const emailRegex = new RegExp([
-    "^[a-zA-Z0-9!%&'*+\\/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!%&'*+\\/=?^_`{|}~-]+)*",
-    '@',
-    '(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$'
-  ].join(''))
+  const emailRegex = new RegExp(
+    [
+      "^[a-zA-Z0-9!%&'*+\\/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!%&'*+\\/=?^_`{|}~-]+)*",
+      '@',
+      '(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$'
+    ].join('')
+  )
   if (email) {
     return emailRegex.test(email)
   }
@@ -81,7 +83,7 @@ export const isValidPercent = (value) => {
   }
 }
 
-const isUnderMaxValue = maxValue => value => {
+const isUnderMaxValue = (maxValue) => (value) => {
   if (isNil(value) || value === '') {
     return true
   }
@@ -112,9 +114,7 @@ validate.isPresent = decorateValidator(isPresent)
 validate.isChecked = decorateValidator(isChecked)
 validate.list = (fn) => (list) => map(list, fn)
 validate.any = (...fns) => (value) => {
-  return first(
-    compact(
-      map(fns, fn => fn(value))))
+  return first(compact(map(fns, (fn) => fn(value))))
 }
 
 // Options accept:
@@ -125,8 +125,13 @@ validate.isValidDate = (date, errors, options = {}) => {
   if (date) {
     let dateArray = [date.year, date.month, date.day]
     if (options.isPrimaryApplicant) {
-      dateArray = map(dateArray, (value) => { return toInteger(value) })
-      errorMessage = validate.any(validate.isDate(errorMessage), validate.isOldEnough('The primary applicant must be 18 years of age or older'))(dateArray)
+      dateArray = map(dateArray, (value) => {
+        return toInteger(value)
+      })
+      errorMessage = validate.any(
+        validate.isDate(errorMessage),
+        validate.isOldEnough('The primary applicant must be 18 years of age or older')
+      )(dateArray)
     } else {
       errorMessage = validate.any(validate.isDate(errorMessage))(dateArray)
     }
@@ -141,7 +146,7 @@ validate.isValidDate = (date, errors, options = {}) => {
 }
 
 export const touchAllFields = (form, touchedState) => {
-  Object.keys(touchedState).map(fieldName => form.blur(fieldName))
+  Object.keys(touchedState).map((fieldName) => form.blur(fieldName))
 }
 
 export const validateLeaseCurrency = (value) => {
@@ -153,14 +158,15 @@ export const validateLeaseCurrency = (value) => {
 
 const convertValues = (values, convertValueFunc) => {
   const flattenedValues = flatten(values)
-  Object.keys(flattenedValues).map(key => {
+  Object.keys(flattenedValues).map((key) => {
     flattenedValues[key] = convertValueFunc(flattenedValues[key])
   })
 
   return unflatten(flattenedValues)
 }
 
-const isCurrencyString = (value) => typeof value === 'string' && value.startsWith('$') && isValidCurrency(value)
+const isCurrencyString = (value) =>
+  typeof value === 'string' && value.startsWith('$') && isValidCurrency(value)
 
 /**
  * Convert Currency
@@ -186,7 +192,8 @@ export const convertCurrency = (values) => {
  */
 export const convertPercentAndCurrency = (values) => {
   const convertPercentToFloat = (value) => parseFloat(value)
-  const convertCurrencyToFloat = (value) => parseFloat(parseFloat(value.replace(/\$|,/g, '')).toFixed(2))
+  const convertCurrencyToFloat = (value) =>
+    parseFloat(parseFloat(value.replace(/\$|,/g, '')).toFixed(2))
   return convertValues(values, (value) => {
     if (typeof value !== 'string') return value
 

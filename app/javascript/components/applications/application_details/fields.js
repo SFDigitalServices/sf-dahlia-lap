@@ -50,7 +50,11 @@ export const householdMembersFields = [
   'zip_code'
 ]
 
-const adaPrioritiesToString = (list) => join(map(keys(list), v => formOptions.adaPriorityValueToLabelMap[v]), ';')
+const adaPrioritiesToString = (list) =>
+  join(
+    map(keys(list), (v) => formOptions.adaPriorityValueToLabelMap[v]),
+    ';'
+  )
 
 export const reservedAndPriorityFields = [
   'has_military_service',
@@ -77,14 +81,23 @@ export const declareHouseholdIncome = [
 
 export const flaggedApplicationsFields = [
   { field: 'flagged_record.rule_name', label: 'Rule Name' },
-  { field: 'flagged_record.total_number_of_pending_review', label: 'Total Number of Pending Review' },
+  {
+    field: 'flagged_record.total_number_of_pending_review',
+    label: 'Total Number of Pending Review'
+  },
   'view record set'
 ]
 
 export const applicationEligibilityFields = [
   { field: 'is_first_time_homebuyer', label: 'Have they owned property in the last three years?' },
-  { field: 'has_completed_homebuyer_education', label: 'Have they completed homebuyers\' education?' },
-  { field: 'has_loan_preapproval', label: 'Do they have a loan pre-approval from a MOHCD-approved lender?' },
+  {
+    field: 'has_completed_homebuyer_education',
+    label: "Have they completed homebuyers' education?"
+  },
+  {
+    field: 'has_loan_preapproval',
+    label: 'Do they have a loan pre-approval from a MOHCD-approved lender?'
+  },
   { field: 'lending_institution', label: 'Lending Institution' },
   { field: 'name_of_lender', label: 'Name of Lender' }
 ]

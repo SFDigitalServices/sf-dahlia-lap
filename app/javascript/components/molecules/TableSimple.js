@@ -5,9 +5,7 @@ const TableSimple = ({ header, value, headerB, valueB }) => {
     <table className='td-light td-plain th-plain' role='grid'>
       <thead>
         <tr>
-          <th scope='col'>
-            {header}
-          </th>
+          <th scope='col'>{header}</th>
           <th scope='col' className='text-right'>
             {headerB}
           </th>
@@ -15,12 +13,8 @@ const TableSimple = ({ header, value, headerB, valueB }) => {
       </thead>
       <tbody>
         <tr>
-          <td scope='row'>
-            {value}
-          </td>
-          <td className='text-right'>
-            {valueB}
-          </td>
+          <td scope='row'>{value}</td>
+          <td className='text-right'>{valueB}</td>
         </tr>
       </tbody>
     </table>

@@ -6,9 +6,7 @@ import { InputField, SelectField } from '~/utils/form/final_form/Field'
 import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
 import validate from '~/utils/form/validations'
 
-const {
-  relationshipOptions
-} = formOptions
+const { relationshipOptions } = formOptions
 
 const HouseholdMemberForm = ({ i, form }) => {
   return (

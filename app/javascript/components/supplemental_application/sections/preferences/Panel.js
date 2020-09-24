@@ -16,11 +16,10 @@ const isPreference = (recordType, preferenceName) => (pref) => {
   const individualPreference = pref.individual_preference
 
   // If preferenceName is provided, check that the individual preference matches it.
-  return recordtypeDevelopername === recordType &&
-    (
-      !preferenceName ||
-      individualPreference === preferenceName
-    )
+  return (
+    recordtypeDevelopername === recordType &&
+    (!preferenceName || individualPreference === preferenceName)
+  )
 }
 
 const getPreferencePanel = cond([
@@ -33,10 +32,21 @@ const getPreferencePanel = cond([
   [stubTrue, constant(DefaultPanel)]
 ])
 
-const Panel = ({ application, applicationMembers, preferenceIndex, onClose, onSave, loading, form, visited }) => {
+const Panel = ({
+  application,
+  applicationMembers,
+  preferenceIndex,
+  onClose,
+  onSave,
+  loading,
+  form,
+  visited
+}) => {
   const preference = application.preferences[preferenceIndex]
   const PreferencePanel = getPreferencePanel(preference)
-  const memberOption = (member) => { return { value: member.id, label: `${member.first_name} ${member.last_name}` } }
+  const memberOption = (member) => {
+    return { value: member.id, label: `${member.first_name} ${member.last_name}` }
+  }
   const applicationMembersOptions = map(applicationMembers, memberOption)
   const onSaveWithPreferenceIndex = () => {
     onSave(preferenceIndex, form.getState().values)
@@ -63,14 +73,16 @@ const Panel = ({ application, applicationMembers, preferenceIndex, onClose, onSa
             className='button primary tiny margin-right margin-bottom-none save-panel-btn'
             type='button'
             onClick={onSaveWithPreferenceIndex}
-            disabled={loading}>
+            disabled={loading}
+          >
             Save
           </button>
           <button
             className='button secondary tiny margin-bottom-none'
             type='button'
             onClick={handleOnClose}
-            disabled={loading}>
+            disabled={loading}
+          >
             Cancel
           </button>
         </div>

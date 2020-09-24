@@ -18,14 +18,12 @@ const LeaseUpStatusCell = ({ cell, onChange }) => {
     <StatusDropdown
       status={value}
       size='tiny'
-      onChange={val => onChange(applicationPreferenceId, applicationId, val)}
+      onChange={(val) => onChange(applicationPreferenceId, applicationId, val)}
     />
   )
 }
 
-const resizableCell = (cell) => (
-  <span className='rt-resizable-td-content'>{cell.value}</span>
-)
+const resizableCell = (cell) => <span className='rt-resizable-td-content'>{cell.value}</span>
 
 const isInvalid = (original) => {
   return original.post_lottery_validation === 'Invalid'
@@ -36,7 +34,9 @@ const PreferenceRankCell = ({ cell }) => {
     return (
       <div>
         <span className='rt-td-label-rank t-semis'>{cell.original.preference_rank}</span>
-        <span className='rt-td-label-invalid t-semis'>Invalid {cell.original.preference_record_type}</span>
+        <span className='rt-td-label-invalid t-semis'>
+          Invalid {cell.original.preference_record_type}
+        </span>
       </div>
     )
   } else {
@@ -44,25 +44,69 @@ const PreferenceRankCell = ({ cell }) => {
   }
 }
 
-const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick, loading, onFetchData, pages, rowsPerPage, atMaxPages }) => {
+const LeaseUpApplicationsTable = ({
+  listingId,
+  dataSet,
+  onLeaseUpStatusChange,
+  onCellClick,
+  loading,
+  onFetchData,
+  pages,
+  rowsPerPage,
+  atMaxPages
+}) => {
   const [currentPage, setCurrentPage] = useState(0)
 
   useEffect(() => {
     setCurrentPage(0)
   }, [pages])
 
-  const maxPagesMsg = `Unfortunately, we can only display the first ${MAX_SERVER_LIMIT / rowsPerPage} pages of applications at this time. Please use the filters above to narrow your results.`
+  const maxPagesMsg = `Unfortunately, we can only display the first ${
+    MAX_SERVER_LIMIT / rowsPerPage
+  } pages of applications at this time. Please use the filters above to narrow your results.`
   const noDataMsg = atMaxPages ? maxPagesMsg : 'No results, try adjusting your filters'
   const columns = [
-    { Header: 'Preference Rank', accessor: 'rankOrder', headerClassName: 'td-min-narrow', Cell: cell => <PreferenceRankCell cell={cell} /> },
-    { Header: 'Application Number', accessor: 'application_number', className: 'text-left', Cell: (cell) => (<a href={appPaths.toApplicationSupplementals(cell.original.application_id)} className='has-border'>{cell.value}</a>) },
+    {
+      Header: 'Preference Rank',
+      accessor: 'rankOrder',
+      headerClassName: 'td-min-narrow',
+      Cell: (cell) => <PreferenceRankCell cell={cell} />
+    },
+    {
+      Header: 'Application Number',
+      accessor: 'application_number',
+      className: 'text-left',
+      Cell: (cell) => (
+        <a
+          href={appPaths.toApplicationSupplementals(cell.original.application_id)}
+          className='has-border'
+        >
+          {cell.value}
+        </a>
+      )
+    },
     { Header: 'First Name', accessor: 'first_name', Cell: resizableCell, className: 'text-left' },
     { Header: 'Last Name', accessor: 'last_name', Cell: resizableCell, className: 'text-left' },
     { Header: 'Phone', accessor: 'phone', Cell: resizableCell, className: 'text-left' },
     { Header: 'Email', accessor: 'email', Cell: resizableCell, className: 'text-left' },
-    { Header: 'Accessibility Requests', accessor: 'accessibility', Cell: resizableCell, className: 'text-left' },
-    { Header: 'Status Updated', accessor: 'status_last_updated', headerClassName: 'td-offset-right text-right', Cell: cellFormat.date },
-    { Header: 'Lease Up Status', accessor: 'lease_up_status', headerClassName: 'td-min-wide tr-fixed-right', Cell: cell => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} /> }
+    {
+      Header: 'Accessibility Requests',
+      accessor: 'accessibility',
+      Cell: resizableCell,
+      className: 'text-left'
+    },
+    {
+      Header: 'Status Updated',
+      accessor: 'status_last_updated',
+      headerClassName: 'td-offset-right text-right',
+      Cell: cellFormat.date
+    },
+    {
+      Header: 'Lease Up Status',
+      accessor: 'lease_up_status',
+      headerClassName: 'td-min-wide tr-fixed-right',
+      Cell: (cell) => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} />
+    }
   ]
 
   const getTdProps = (state, rowInfo, column, instance) => {
@@ -72,7 +116,9 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
     if (column.id === 'lease_up_status') {
       attrs.className = 'td-min-wide td-status td-fixed-right'
     } else if (column.id !== 'application_number') {
-      attrs.onClick = (e, handleOriginal) => { if (rowInfo) onCellClick(listingId, rowInfo) }
+      attrs.onClick = (e, handleOriginal) => {
+        if (rowInfo) onCellClick(listingId, rowInfo)
+      }
 
       if (column.id === 'status_last_updated') {
         attrs.className = 'td-offset-right text-right'
@@ -85,15 +131,14 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
   }
 
   const getTrProps = (state, rowInfo, column) => {
-    const statusClassName = (rowInfo && !!trim(rowInfo.row.lease_up_status))
-      ? getLeaseUpStatusClass(rowInfo.row.lease_up_status)
-      : ''
+    const statusClassName =
+      rowInfo && !!trim(rowInfo.row.lease_up_status)
+        ? getLeaseUpStatusClass(rowInfo.row.lease_up_status)
+        : ''
 
-    const trClassName = classNames(
-      'rt-tr-status',
-      statusClassName,
-      { 'is-invalid': rowInfo && isInvalid(rowInfo.original) }
-    )
+    const trClassName = classNames('rt-tr-status', statusClassName, {
+      'is-invalid': rowInfo && isInvalid(rowInfo.original)
+    })
 
     return {
       className: trClassName,

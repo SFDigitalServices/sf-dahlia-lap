@@ -12,14 +12,14 @@ jest.mock('apiService', () => {
 })
 
 describe('ListingApplicationsPage', () => {
-  const listing = { id: 'listingId', name: 'listing name', lottery_date: '2017-03-22T18:00:00.000+0000' }
+  const listing = {
+    id: 'listingId',
+    name: 'listing name',
+    lottery_date: '2017-03-22T18:00:00.000+0000'
+  }
 
   test('should render succesfully', () => {
-    const wrapper = renderer.create(
-      <ListingApplicationsPage
-        listing={listing}
-      />
-    )
+    const wrapper = renderer.create(<ListingApplicationsPage listing={listing} />)
     expect(wrapper.toJSON()).toMatchSnapshot()
   })
 })

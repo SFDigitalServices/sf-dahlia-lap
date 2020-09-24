@@ -4,11 +4,7 @@ import { mockManyStatusItems, mockStatusItem } from '../../../mocks/statusItemMo
 import StatusHistoryContainer from 'components/molecules/lease_up_sidebar/StatusHistoryContainer'
 import StatusItems from 'components/molecules/lease_up_sidebar/StatusItems'
 
-const getWrapper = (items) => shallow(
-  <StatusHistoryContainer
-    statusItems={items}
-  />
-)
+const getWrapper = (items) => shallow(<StatusHistoryContainer statusItems={items} />)
 
 describe('StatusHistoryContainer', () => {
   test('should render with empty status items correctly', () => {

@@ -4,10 +4,7 @@ import { buildFieldId } from './utils'
 import { SelectField } from '~/utils/form/final_form/Field'
 import validate from '~/utils/form/validations'
 
-const {
-  preferenceProofOptionsLiveSf,
-  preferenceProofOptionsWorkSf
-} = formOptions
+const { preferenceProofOptionsLiveSf, preferenceProofOptionsWorkSf } = formOptions
 
 const getProofTypes = (pref) => {
   if (pref === 'Live in SF') {
@@ -56,7 +53,10 @@ const LiveWorkFields = ({ i, form, householdMembers }) => {
         />
       </div>
       <div className='small-12 columns'>
-        <p>Please check to make sure that a document proving the preference address was attached to the application. If no proof document was attached, do not select this preference.</p>
+        <p>
+          Please check to make sure that a document proving the preference address was attached to
+          the application. If no proof document was attached, do not select this preference.
+        </p>
       </div>
     </div>
   )

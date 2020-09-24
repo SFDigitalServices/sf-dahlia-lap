@@ -9,9 +9,7 @@ import { maxLengthMap } from '~/utils/formUtils'
 import validate from '~/utils/form/validations'
 
 const buildTypeOfProofOptions = (values) => {
-  return map(values, (option) => (
-    { value: option, label: option }
-  ))
+  return map(values, (option) => ({ value: option, label: option }))
 }
 
 const AddressRow = ({ fieldId }) => (
@@ -92,7 +90,10 @@ const AliceGriffithFields = ({ i, householdMembers }) => {
         </Column>
       </Row>
       <AddressRow fieldId={fieldId} />
-      <p>Please check to make sure that a document proving the preference address was attached to the application. If no proof document was attached, do not select this preference.</p>
+      <p>
+        Please check to make sure that a document proving the preference address was attached to the
+        application. If no proof document was attached, do not select this preference.
+      </p>
       <p>MOHCD will verify that the applicant provided a valid address.</p>
     </Column>
   )

@@ -62,13 +62,15 @@ const LeaseUpTableContainer = ({
     const accessibilityKeys = compact(Object.keys(result.has_ada_priorities_selected || []))
 
     if (accessibilityKeys && accessibilityKeys.length > 0) {
-      rowData.accessibility = accessibilityKeys.map(key => capitalize(key.split('_')[0])).join(', ')
+      rowData.accessibility = accessibilityKeys
+        .map((key) => capitalize(key.split('_')[0]))
+        .join(', ')
     }
 
     rowData.preference_rank = `${result.preference_record_type} ${result.preference_lottery_rank}`
     var prefNum = parseFloat(result.preference_order)
     var rankNum = parseFloat(result.preference_lottery_rank)
-    rowData.rankOrder = prefNum + (rankNum * 0.0001)
+    rowData.rankOrder = prefNum + rankNum * 0.0001
     return rowData
   }
 
@@ -79,7 +81,11 @@ const LeaseUpTableContainer = ({
   const rowsData = (applications) => map(applications, buildRowData)
   return (
     <>
-      <LeaseUpApplicationsFilter preferences={preferences} onSubmit={handleOnFilter} loading={loading} />
+      <LeaseUpApplicationsFilter
+        preferences={preferences}
+        onSubmit={handleOnFilter}
+        loading={loading}
+      />
       <LeaseUpApplicationsTable
         dataSet={rowsData(applications)}
         listingId={listing.id}
@@ -96,7 +102,8 @@ const LeaseUpTableContainer = ({
         header='Update Status'
         submitButton='Update'
         onSubmit={createStatusUpdate}
-        onClose={closeStatusModal} />
+        onClose={closeStatusModal}
+      />
     </>
   )
 }

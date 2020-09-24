@@ -37,7 +37,7 @@ describe('PaperApplicationForm', () => {
             listing={listing}
             application={testApplication}
             lendingInstitutions={{}}
-            onSubmit={() => (null)}
+            onSubmit={() => null}
           />
         )
       })
@@ -47,7 +47,9 @@ describe('PaperApplicationForm', () => {
       })
 
       expect(wrapper.text()).toContain('Please select a language.')
-      wrapper.find('#application_language select').simulate('change', { target: { value: 'English' } })
+      wrapper
+        .find('#application_language select')
+        .simulate('change', { target: { value: 'English' } })
       wrapper.find('#application_language select').simulate('blur')
       await act(async () => {
         wrapper.find('form').first().simulate('submit')
@@ -69,7 +71,7 @@ describe('PaperApplicationForm', () => {
             listing={listing}
             application={testApplication}
             lendingInstitutions={{}}
-            onSubmit={() => (null)}
+            onSubmit={() => null}
           />
         )
       })
@@ -85,13 +87,17 @@ describe('PaperApplicationForm', () => {
       await act(async () => {
         wrapper.find('form').first().simulate('submit')
       })
-      expect(wrapper.find(altNameErrorSelector).prop('meta').error).toEqual('Please enter a First Name')
+      expect(wrapper.find(altNameErrorSelector).prop('meta').error).toEqual(
+        'Please enter a First Name'
+      )
 
       // Remove all values and expect the validation to go away
       wrapper.find('#alt_first_name input').simulate('change', { target: { value: '' } })
       wrapper.find('#alt_middle_name input').simulate('change', { target: { value: '' } })
       wrapper.find('#alt_last_name input').simulate('change', { target: { value: '' } })
-      wrapper.find('[name="alternate_contact.email"] input').simulate('change', { target: { value: '' } })
+      wrapper
+        .find('[name="alternate_contact.email"] input')
+        .simulate('change', { target: { value: '' } })
       await act(async () => {
         wrapper.find('form').first().simulate('submit')
       })
@@ -124,7 +130,7 @@ describe('PaperApplicationForm', () => {
           listing={listing}
           application={testApplication}
           lendingInstitutions={{}}
-          onSubmit={() => (null)}
+          onSubmit={() => null}
         />
       )
       await act(async () => {
@@ -136,10 +142,22 @@ describe('PaperApplicationForm', () => {
       expect(wrapper.text()).toContain('Gender is required')
       expect(wrapper.text()).toContain('Sexual Orientation is required')
 
-      wrapper.find(`select[name="demographics.ethnicity"] option[value="${DECLINE}"]`).simulate('change').simulate('blur')
-      wrapper.find(`select[name="demographics.race"] option[value="${DECLINE}"]`).simulate('change').simulate('blur')
-      wrapper.find(`select[name="demographics.gender"] option[value="${DECLINE}"]`).simulate('change').simulate('blur')
-      wrapper.find(`select[name="demographics.sexual_orientation"] option[value="${DECLINE}"]`).simulate('change').simulate('blur')
+      wrapper
+        .find(`select[name="demographics.ethnicity"] option[value="${DECLINE}"]`)
+        .simulate('change')
+        .simulate('blur')
+      wrapper
+        .find(`select[name="demographics.race"] option[value="${DECLINE}"]`)
+        .simulate('change')
+        .simulate('blur')
+      wrapper
+        .find(`select[name="demographics.gender"] option[value="${DECLINE}"]`)
+        .simulate('change')
+        .simulate('blur')
+      wrapper
+        .find(`select[name="demographics.sexual_orientation"] option[value="${DECLINE}"]`)
+        .simulate('change')
+        .simulate('blur')
       await act(async () => {
         wrapper.find('form').first().simulate('submit')
       })
@@ -157,18 +175,24 @@ describe('PaperApplicationForm', () => {
           listing={listing}
           application={testApplication}
           lendingInstitutions={{}}
-          onSubmit={() => (null)}
+          onSubmit={() => null}
         />
       )
       // Select "Not Listed" for gender and sexual orientation
-      wrapper.find('select[name="demographics.gender"]').simulate('change', { target: { value: 'Not Listed' } })
+      wrapper
+        .find('select[name="demographics.gender"]')
+        .simulate('change', { target: { value: 'Not Listed' } })
       wrapper.find('select[name="demographics.gender"]').simulate('blur')
-      wrapper.find('select[name="demographics.sexual_orientation"]').simulate('change', { target: { value: 'Not Listed' } })
+      wrapper
+        .find('select[name="demographics.sexual_orientation"]')
+        .simulate('change', { target: { value: 'Not Listed' } })
       wrapper.find('select[name="demographics.sexual_orientation"]').simulate('blur')
 
       // Expect that gender/sexual orientation fields are labeled as required
       expect(wrapper.find('label#label-demographics-gender_other').text()).toContain('(required)')
-      expect(wrapper.find('label#label-demographics-sexual_orientation_other').text()).toContain('(required)')
+      expect(wrapper.find('label#label-demographics-sexual_orientation_other').text()).toContain(
+        '(required)'
+      )
       await act(async () => {
         wrapper.find('form').first().simulate('submit')
       })
@@ -178,9 +202,13 @@ describe('PaperApplicationForm', () => {
       expect(wrapper.text()).toContain('Sexual Orientation is required')
 
       // Fill out the gender/sexual orientation other fields
-      wrapper.find('input[name="demographics.gender_other"]').simulate('change', { target: { value: 'Not Listed' } })
+      wrapper
+        .find('input[name="demographics.gender_other"]')
+        .simulate('change', { target: { value: 'Not Listed' } })
       wrapper.find('input[name="demographics.gender_other"]').simulate('blur')
-      wrapper.find('input[name="demographics.sexual_orientation_other"]').simulate('change', { target: { value: 'Not Listed' } })
+      wrapper
+        .find('input[name="demographics.sexual_orientation_other"]')
+        .simulate('change', { target: { value: 'Not Listed' } })
       wrapper.find('input[name="demographics.sexual_orientation_other"]').simulate('blur')
       wrapper.find('form').first().simulate('submit')
 
@@ -188,12 +216,22 @@ describe('PaperApplicationForm', () => {
       expect(wrapper.text()).not.toContain('Sexual Orientation is required')
 
       // Change selected gender/orientation to somethiing other than not listed
-      wrapper.find(`select[name="demographics.gender"] option[value="${DECLINE}"]`).simulate('change').simulate('blur')
-      wrapper.find(`select[name="demographics.sexual_orientation"] option[value="${DECLINE}"]`).simulate('change').simulate('blur')
+      wrapper
+        .find(`select[name="demographics.gender"] option[value="${DECLINE}"]`)
+        .simulate('change')
+        .simulate('blur')
+      wrapper
+        .find(`select[name="demographics.sexual_orientation"] option[value="${DECLINE}"]`)
+        .simulate('change')
+        .simulate('blur')
 
       // Expect the required block note to disappear
-      expect(wrapper.find('label#label-demographics-gender_other').text()).not.toContain('(required)')
-      expect(wrapper.find('label#label-demographics-sexual_orientation_other').text()).not.toContain('(required)')
+      expect(wrapper.find('label#label-demographics-gender_other').text()).not.toContain(
+        '(required)'
+      )
+      expect(
+        wrapper.find('label#label-demographics-sexual_orientation_other').text()
+      ).not.toContain('(required)')
     })
 
     test('signature on Terms of Agreement', async () => {
@@ -203,7 +241,7 @@ describe('PaperApplicationForm', () => {
           listing={listing}
           application={testApplication}
           lendingInstitutions={{}}
-          onSubmit={() => (null)}
+          onSubmit={() => null}
         />
       )
       await act(async () => {
@@ -212,7 +250,9 @@ describe('PaperApplicationForm', () => {
 
       expect(wrapper.text()).toContain('Signature on Terms of Agreement is required')
 
-      await wrapper.find('input[name="terms_acknowledged"]').simulate('change', { target: { value: true } })
+      await wrapper
+        .find('input[name="terms_acknowledged"]')
+        .simulate('change', { target: { value: true } })
       await wrapper.find('input[name="terms_acknowledged"]').simulate('blur')
 
       await act(async () => {
@@ -270,11 +310,15 @@ describe('PaperApplicationForm', () => {
             />
           )
         })
-        wrapper.find('#lending_institution select').simulate('change', { target: { value: 'First Republic Bank' } })
+        wrapper
+          .find('#lending_institution select')
+          .simulate('change', { target: { value: 'First Republic Bank' } })
         expect(wrapper.text()).toContain('Hilary Byrde')
         wrapper.find('form').first().simulate('submit')
         expect(wrapper.text()).toContain('Please select a lender.')
-        expect(wrapper.text()).toContain('The applicant cannot qualify for the listing unless this is true.')
+        expect(wrapper.text()).toContain(
+          'The applicant cannot qualify for the listing unless this is true.'
+        )
         wrapper.find('#lending_agent select').simulate('change', { target: { value: 1 } })
         wrapper.find('#lending_agent select').simulate('blur')
         wrapper.find('form').first().simulate('submit')
@@ -297,7 +341,9 @@ describe('PaperApplicationForm', () => {
           // add additional tick to allow lending institutions to load
           await wrapper.update()
 
-          expect(wrapper.find('#lending_institution select').props().value).toEqual('First Republic Bank')
+          expect(wrapper.find('#lending_institution select').props().value).toEqual(
+            'First Republic Bank'
+          )
           expect(wrapper.find('#lending_agent select').props().value).toEqual('003U000001Wnp5gIAB')
         })
       })
@@ -307,18 +353,16 @@ describe('PaperApplicationForm', () => {
     // Helper function for updating preference select successfully
     const updatePreference = async (wrapper, prefId) => {
       await act(async () => {
-        await wrapper.find('#select-paper-preference-0 select').simulate('change', { target: { value: prefId } })
+        await wrapper
+          .find('#select-paper-preference-0 select')
+          .simulate('change', { target: { value: prefId } })
       })
       wrapper.update()
     }
 
     test('add preference button is disabled without primary applicant', async () => {
       const wrapper = mount(
-        <PaperApplicationForm
-          listing={listing}
-          lendingInstitutions={{}}
-          onSubmit={() => (null)}
-        />
+        <PaperApplicationForm listing={listing} lendingInstitutions={{}} onSubmit={() => null} />
       )
       expect(wrapper.find('#add-preference-button').prop('disabled')).toEqual(true)
     })
@@ -331,7 +375,7 @@ describe('PaperApplicationForm', () => {
           <PaperApplicationForm
             listing={listing}
             lendingInstitutions={{}}
-            onSubmit={() => (null)}
+            onSubmit={() => null}
             application={testApplication}
           />
         )
@@ -343,7 +387,9 @@ describe('PaperApplicationForm', () => {
       await updatePreference(wrapper, copPreferenceId)
 
       // Fill out a field in the preference
-      await wrapper.find('Field[name="preferences.0.naturalKey"] select').simulate('change', { target: { value: hhNaturalKey } })
+      await wrapper
+        .find('Field[name="preferences.0.naturalKey"] select')
+        .simulate('change', { target: { value: hhNaturalKey } })
 
       // Verify that it's in the state
       const expectedPreferenceValue = {
@@ -351,12 +397,16 @@ describe('PaperApplicationForm', () => {
         recordtype_developername: 'COP',
         naturalKey: hhNaturalKey
       }
-      expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toMatchObject(expectedPreferenceValue)
+      expect(
+        wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]
+      ).toMatchObject(expectedPreferenceValue)
 
       // Change to no preference
       await updatePreference(wrapper, '')
       // Verify the state is cleared
-      expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toEqual({})
+      expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toEqual(
+        {}
+      )
     })
 
     test('should clear values on preference select change to other preference', async () => {
@@ -367,7 +417,7 @@ describe('PaperApplicationForm', () => {
           <PaperApplicationForm
             listing={listing}
             lendingInstitutions={{}}
-            onSubmit={() => (null)}
+            onSubmit={() => null}
             application={testApplication}
           />
         )
@@ -380,7 +430,9 @@ describe('PaperApplicationForm', () => {
       await updatePreference(wrapper, copPreferenceId)
 
       // Fill out a field in the preference
-      await wrapper.find('Field[name="preferences.0.naturalKey"] select').simulate('change', { target: { value: hhNaturalKey } })
+      await wrapper
+        .find('Field[name="preferences.0.naturalKey"] select')
+        .simulate('change', { target: { value: hhNaturalKey } })
 
       // Verify that it's in the state
       const expectedPreferenceValue = {
@@ -388,7 +440,9 @@ describe('PaperApplicationForm', () => {
         recordtype_developername: 'COP',
         naturalKey: hhNaturalKey
       }
-      expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toEqual(expectedPreferenceValue)
+      expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toEqual(
+        expectedPreferenceValue
+      )
 
       // Change to different preference
       await updatePreference(wrapper, liveWorkPreferenceId)
@@ -397,10 +451,14 @@ describe('PaperApplicationForm', () => {
         listing_preference_id: liveWorkPreferenceId,
         recordtype_developername: 'L_W'
       }
-      expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toEqual(expectedNewPreferenceValue)
+      expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toEqual(
+        expectedNewPreferenceValue
+      )
 
       // Verify that naturalKey doesn't have any form errors.
-      expect(wrapper.find('Field[name="preferences.0.naturalKey"] FieldError .error').exists()).toEqual(false)
+      expect(
+        wrapper.find('Field[name="preferences.0.naturalKey"] FieldError .error').exists()
+      ).toEqual(false)
     })
   })
 })

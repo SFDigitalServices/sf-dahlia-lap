@@ -8,7 +8,20 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:jest/style',
     'plugin:react/recommended',
-    'plugin:react-hooks/recommended'
+    'plugin:react-hooks/recommended',
+
+    /*
+     * These prettier configs turn off any conflicting eslint configs
+     * This way prettier controls all formatting, eslint controls
+     * non-formatting linting
+     *
+     * Note: All prettier extends configs need to come at the end of the
+     * list, so they can override previous rules.
+     */
+    'prettier',
+    'prettier/babel',
+    'prettier/react',
+    'prettier/standard'
   ],
   globals: {
     Atomics: 'readonly',
@@ -29,18 +42,25 @@ module.exports = {
   plugins: [
     '@babel',
     'jest',
-    'react'
+    'react',
+
+    // This adds prettier formatting rules to eslint
+    'prettier'
   ],
   rules: {
+    'prettier/prettier': ['error'],
     'jest/no-disabled-tests': 'error',
     'jest/no-focused-tests': 'error',
     'jest/no-identical-title': 'error',
 
     // only allow the first letter to be uppercase in 'describe' block descriptions,
     // 'test' and 'it' block descriptions must start with lowercase
-    'jest/lowercase-name': ['error', {
-      ignore: ['describe']
-    }],
+    'jest/lowercase-name': [
+      'error',
+      {
+        ignore: ['describe']
+      }
+    ],
 
     // Ensure you're actually asserting something when calling expect
     'jest/valid-expect': 'error',

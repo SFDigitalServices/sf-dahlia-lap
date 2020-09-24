@@ -20,7 +20,7 @@ const getRenderType = (value) => {
 }
 
 const dateIsJson = (date) => {
-  return (date && typeof date === 'object' && 'month' in date && 'day' in date && 'year' in date)
+  return date && typeof date === 'object' && 'month' in date && 'day' in date && 'year' in date
 }
 
 export const formatValue = (value, type) => {
@@ -38,17 +38,20 @@ export const formatValue = (value, type) => {
 }
 
 const cleanupWords = (value) => {
-  each([
-    [' Or ', ' or '],
-    [' Of ', ' of '],
-    ['Proof', 'proof'],
-    ['Who', 'who'],
-    ['Ada', 'ADA'],
-    [' To ', ' to '],
-    ['Claimed', 'claimed']
-  ], ([a, b]) => {
-    value = replace(value, a, b)
-  })
+  each(
+    [
+      [' Or ', ' or '],
+      [' Of ', ' of '],
+      ['Proof', 'proof'],
+      ['Who', 'who'],
+      ['Ada', 'ADA'],
+      [' To ', ' to '],
+      ['Claimed', 'claimed']
+    ],
+    ([a, b]) => {
+      value = replace(value, a, b)
+    }
+  )
 
   return value
 }
@@ -88,7 +91,9 @@ export const buildFieldSpecs = (entry) => {
     specs.label = formatLabel(specs.field)
   }
 
-  if (!specs.formatType) { specs.formatType = getFormatType(specs.field) }
+  if (!specs.formatType) {
+    specs.formatType = getFormatType(specs.field)
+  }
 
   return specs
 }

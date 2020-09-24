@@ -12,4 +12,4 @@ global.shallow = shallow
 global.render = render
 global.mount = mount
 
-global.wait = ms => new Promise((resolve, reject) => setTimeout(resolve, ms))
+global.wait = (ms) => new Promise((resolve, reject) => setTimeout(resolve, ms))

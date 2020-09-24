@@ -4,9 +4,7 @@ import formOptions from '~/components/applications/application_form/formOptions'
 import classNames from 'classnames'
 import formUtils from '~/utils/formUtils'
 
-const {
-  labelize
-} = formOptions
+const { labelize } = formOptions
 
 // Make react-final-form does include empty values on submit.
 // Source: https://github.com/final-form/react-final-form/issues/130#issuecomment-425482365
@@ -35,7 +33,8 @@ export const Input = ({
   fieldName,
   disabled
 }) => (
-  <input {...input}
+  <input
+    {...input}
     id={id || `form-${fieldName}`}
     className={(meta.error && meta.touched && 'error') || ''}
     type={type}
@@ -47,27 +46,26 @@ export const Input = ({
 )
 
 export const Label = ({ label, fieldName, blockNote, id, labelId }) => {
-  return (
-    label ? (
-      <label
-        htmlFor={id || `form-${fieldName}`}
-        id={(labelId || `label-${fieldName}`).replace('.', '-')}
-        className='form-label'
-      >
-        {label}
-        {blockNote && <BlockNote value={blockNote} />}
-      </label>
-    ) : null
-  )
+  return label ? (
+    <label
+      htmlFor={id || `form-${fieldName}`}
+      id={(labelId || `label-${fieldName}`).replace('.', '-')}
+      className='form-label'
+    >
+      {label}
+      {blockNote && <BlockNote value={blockNote} />}
+    </label>
+  ) : null
 }
 
 export const HelpText = ({ describeId, note }) => (
-  <span className='form-note shift-up' id={describeId}>{note}</span>
+  <span className='form-note shift-up' id={describeId}>
+    {note}
+  </span>
 )
 
-export const FieldError = ({ meta }) => (
+export const FieldError = ({ meta }) =>
   meta.error && meta.touched ? <span className='form-note error'>{meta.error}</span> : null
-)
 
 export const InputField = ({
   fieldName,
@@ -94,12 +92,18 @@ export const InputField = ({
   >
     {({ input, meta }) => (
       <>
-        <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
+        <div
+          className={classNames(
+            label && 'form-group',
+            (meta.error && meta.touched && 'error') || ''
+          )}
+        >
           <Label
             label={label}
             id={id || `form-${fieldName}`}
             fieldName={fieldName}
-            blockNote={blockNote} />
+            blockNote={blockNote}
+          />
           <Input
             input={input}
             meta={meta}
@@ -110,7 +114,7 @@ export const InputField = ({
             disabled={disabled}
           />
           <FieldError meta={meta} />
-          { helpText && <HelpText note={helpText} describeId={`describe-${id || fieldName}`} /> }
+          {helpText && <HelpText note={helpText} describeId={`describe-${id || fieldName}`} />}
         </div>
       </>
     )}
@@ -199,16 +203,19 @@ export const SelectField = ({
     formatOnBlur={isDirty}
   >
     {({ input, meta }) => {
-      const selectOptions = disabled && disabledOptions ? disabledOptions : labelize(options, {}, noPlaceholder)
+      const selectOptions =
+        disabled && disabledOptions ? disabledOptions : labelize(options, {}, noPlaceholder)
       return (
         <>
-          <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
+          <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')}>
             <Label
               label={label}
               id={id || `form-${fieldName}`}
               fieldName={fieldName}
-              blockNote={blockNote} />
-            <select {...input}
+              blockNote={blockNote}
+            />
+            <select
+              {...input}
               onChange={(event) => {
                 input.onChange(event)
                 onChange && onChange(event)
@@ -217,13 +224,16 @@ export const SelectField = ({
               name={input.name}
               className={classNames(className, (meta.error && meta.touched && 'error') || '')}
               {...(selectValue && { value: selectValue })}
-              {...(disabled && { disabled })}>
-              { selectOptions.map(({ value, label, disabled }) => (
-                <option key={value} value={value} disabled={disabled}>{label}</option>
-              )) }
+              {...(disabled && { disabled })}
+            >
+              {selectOptions.map(({ value, label, disabled }) => (
+                <option key={value} value={value} disabled={disabled}>
+                  {label}
+                </option>
+              ))}
             </select>
             <FieldError meta={meta} />
-            { helpText && <HelpText note={helpText} describeId={`describe-${id || fieldName}`} /> }
+            {helpText && <HelpText note={helpText} describeId={`describe-${id || fieldName}`} />}
           </div>
         </>
       )
@@ -235,13 +245,14 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
   <Field name={fieldName} validate={validation} type='checkbox'>
     {({ input, meta }) => (
       <>
-        <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
+        <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')}>
           <Input
             input={input}
             type='checkbox'
             meta={meta}
             aria-labelledby={ariaLabelledby}
-            id={id || `form-${fieldName}`} />
+            id={id || `form-${fieldName}`}
+          />
           <Label
             label={label}
             id={id || `form-${fieldName}`}
@@ -259,7 +270,18 @@ export const CheckboxField = ({ fieldName, label, blockNote, validation, id, ari
  * Displays similarly to the CheckboxField but is backed by a string with two possible string
  * values instead of a boolean. (ex: has_developental_disability: "Yes"/"No").
  */
-export const TextCheckboxField = ({ fieldName, label, blockNote, validation, id, ariaLabelledby, form, trueValue = 'Yes', falseValue = 'No', initialValue = null }) => {
+export const TextCheckboxField = ({
+  fieldName,
+  label,
+  blockNote,
+  validation,
+  id,
+  ariaLabelledby,
+  form,
+  trueValue = 'Yes',
+  falseValue = 'No',
+  initialValue = null
+}) => {
   const onChange = (event) => {
     form.change(fieldName, event.target.checked ? trueValue : falseValue)
   }
@@ -272,13 +294,14 @@ export const TextCheckboxField = ({ fieldName, label, blockNote, validation, id,
       initialValue={initialValue}
     >
       {({ input, meta }) => (
-        <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')} >
+        <div className={classNames('form-group', (meta.error && meta.touched && 'error') || '')}>
           <Input
             input={input}
             type='hidden'
             meta={meta}
             aria-labelledby={ariaLabelledby}
-            id={id || `form-base-${fieldName}`} />
+            id={id || `form-base-${fieldName}`}
+          />
           <input
             id={id || `form-ctrl-${fieldName}`}
             type='checkbox'
@@ -302,22 +325,36 @@ const YesNoRadioField = ({ value, label, type, fieldName, className, uniqId }) =
   <Field name={fieldName} value={value} type='radio'>
     {({ input }) => (
       <p className='radio-inline'>
-        <input {...input} id={`${fieldName}-${uniqId}-${type}`} className={className} type='radio' />
-        <label className='radio-inline_label' htmlFor={`${fieldName}-${uniqId}-${type}`}>{label}</label>
+        <input
+          {...input}
+          id={`${fieldName}-${uniqId}-${type}`}
+          className={className}
+          type='radio'
+        />
+        <label className='radio-inline_label' htmlFor={`${fieldName}-${uniqId}-${type}`}>
+          {label}
+        </label>
       </p>
     )}
   </Field>
 )
 
-export const YesNoRadioGroup = ({ fieldName, uniqId, trueValue = 'true', trueLabel = 'Yes', falseValue = 'false', falseLabel = 'No', inputClassName, className, label }) => {
+export const YesNoRadioGroup = ({
+  fieldName,
+  uniqId,
+  trueValue = 'true',
+  trueLabel = 'Yes',
+  falseValue = 'false',
+  falseLabel = 'No',
+  inputClassName,
+  className,
+  label
+}) => {
   const divClassName = classNames(className, 'radio-group-inline')
   return (
     <div className={divClassName}>
       <>
-        <Label
-          label={label}
-          id={`form-${fieldName}`}
-          fieldName={fieldName} />
+        <Label label={label} id={`form-${fieldName}`} fieldName={fieldName} />
         <YesNoRadioField
           value={trueValue}
           label={trueLabel}
@@ -339,26 +376,47 @@ export const YesNoRadioGroup = ({ fieldName, uniqId, trueValue = 'true', trueLab
   )
 }
 
-export const TextAreaField = ({ fieldName, label, labelId, cols, rows, validation, placeholder, maxLength, id, ariaDescribedby, blockNote, labelClass }) => (
+export const TextAreaField = ({
+  fieldName,
+  label,
+  labelId,
+  cols,
+  rows,
+  validation,
+  placeholder,
+  maxLength,
+  id,
+  ariaDescribedby,
+  blockNote,
+  labelClass
+}) => (
   <Field name={fieldName} validate={validation} component='textarea' parse={identity}>
     {({ input, meta }) => (
       <>
-        <div className={classNames((label && 'form-group'), (meta.error && meta.touched && 'error') || '')} >
+        <div
+          className={classNames(
+            label && 'form-group',
+            (meta.error && meta.touched && 'error') || ''
+          )}
+        >
           <Label
             label={label}
             labelId={labelId}
             id={id || `form-${fieldName}`}
             fieldName={fieldName}
             blockNote={blockNote}
-            className={labelClass} />
-          <textarea {...input}
+            className={labelClass}
+          />
+          <textarea
+            {...input}
             id={id || `form-${fieldName}`}
             className={(meta.error && meta.touched && 'error') || ''}
             placeholder={placeholder}
             maxLength={maxLength}
             cols={cols}
             rows={rows}
-            aria-describedby={ariaDescribedby} />
+            aria-describedby={ariaDescribedby}
+          />
           <FieldError meta={meta} />
         </div>
       </>

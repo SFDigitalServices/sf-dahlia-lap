@@ -27,7 +27,12 @@ const formatPrice = (value) => {
 
   // return value if value is not valid number
   if (isValidCurrency(value) && !isNaN(parseFloat(valueString))) {
-    return '$' + parseFloat(valueString).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
+    return (
+      '$' +
+      parseFloat(valueString)
+        .toFixed(2)
+        .replace(/\d(?=(\d{3})+\.)/g, '$&,')
+    )
   } else {
     return value
   }
@@ -45,10 +50,12 @@ const formatPercent = (value) => {
 }
 
 // filter an object to only include keys that correspond to values that pass the given predicate
-const filterValues = (obj, predicate) => Object.fromEntries(
-  Object.keys(obj)
-    .filter(key => predicate(obj[key]))
-    .map(key => [key, obj[key]]))
+const filterValues = (obj, predicate) =>
+  Object.fromEntries(
+    Object.keys(obj)
+      .filter((key) => predicate(obj[key]))
+      .map((key) => [key, obj[key]])
+  )
 
 // remove keys from obj if the values are empty (null or undefined).
 // Optionally scrub empty strings ('') as well.

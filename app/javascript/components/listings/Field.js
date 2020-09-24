@@ -6,28 +6,22 @@ var generateHtml = (value) => {
 
 const RenderType = ({ type, value }) => {
   if (type === 'html') {
-    return (<p dangerouslySetInnerHTML={generateHtml(value)} />)
+    return <p dangerouslySetInnerHTML={generateHtml(value)} />
   } else if (type === 'link') {
     return (
-      <a
-        target='_blank'
-        rel='noreferrer'
-        href={value}
-      >
+      <a target='_blank' rel='noreferrer' href={value}>
         {value}
       </a>
     )
   } else {
-    return (<p>{String(value)}</p>)
+    return <p>{String(value)}</p>
   }
 }
 
 const Content = ({ label, value, type }) => {
   return (
     <div className='margin-bottom--half'>
-      <h4 className='t-sans t-small t-bold no-margin'>
-        {label}
-      </h4>
+      <h4 className='t-sans t-small t-bold no-margin'>{label}</h4>
       <RenderType type={type} value={value} />
     </div>
   )

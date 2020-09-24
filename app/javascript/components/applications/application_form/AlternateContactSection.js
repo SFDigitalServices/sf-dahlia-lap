@@ -5,10 +5,7 @@ import AddressForm from './AddressForm'
 import { mailingAddressFieldMap } from './utils'
 import { maxLengthMap } from '~/utils/formUtils'
 
-const {
-  alternateContactOptions,
-  phoneTypeOptions
-} = formOptions
+const { alternateContactOptions, phoneTypeOptions } = formOptions
 
 const AlternateContactSection = () => {
   return (
@@ -49,7 +46,8 @@ const AlternateContactSection = () => {
           <SelectField
             fieldName='alternate_contact.alternate_contact_type'
             label='Alternate Contact Type'
-            options={alternateContactOptions} />
+            options={alternateContactOptions}
+          />
         </div>
         <div className='small-4 columns'>
           <label>Alternate Contact Type Other</label>
@@ -86,7 +84,8 @@ const AlternateContactSection = () => {
           <SelectField
             fieldName='alternate_contact.phone_type'
             label='Phone Type'
-            options={phoneTypeOptions} />
+            options={phoneTypeOptions}
+          />
         </div>
       </div>
       <AddressForm

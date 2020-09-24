@@ -134,7 +134,8 @@ Array [
             <p
               className="form-note max-width margin-bottom--3halves"
             >
-              Complete this section first. 
+              Complete this section first.
+               
               <b>
                 You must confirm claimed preferences before sending out a post-lottery letter.
               </b>

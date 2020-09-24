@@ -16,14 +16,7 @@ export const renderStatusOption = ({ value, label, statusClassName }, { selectVa
   )
 }
 
-const StatusDropdown = ({
-  status,
-  onChange,
-  disabled,
-  placeholder,
-  size,
-  expand
-}) => {
+const StatusDropdown = ({ status, onChange, disabled, placeholder, size, expand }) => {
   const buttonClasses = [
     'button',
     'dropdown-button',
@@ -40,7 +33,8 @@ const StatusDropdown = ({
       <button
         className={classNames(buttonClasses.concat(val?.statusClassName || 'tertiary'))}
         type='button'
-        disabled={disabled}>
+        disabled={disabled}
+      >
         <Icon icon='arrow-down' />
         {val?.label ? val.label : placeholder}
         <div className='ui-icon ui-small'>
@@ -58,10 +52,11 @@ const StatusDropdown = ({
       items={LEASE_UP_STATUS_OPTIONS}
       value={status}
       placeholder={placeholder}
-      onChange={val => onChange(val)}
+      onChange={(val) => onChange(val)}
       renderToggle={renderStatusToggle}
       renderOption={renderStatusOption}
-      disabled={disabled} />
+      disabled={disabled}
+    />
   )
 }
 

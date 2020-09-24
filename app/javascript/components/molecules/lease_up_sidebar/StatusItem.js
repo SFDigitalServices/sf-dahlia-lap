@@ -8,9 +8,7 @@ import StatusItemShape from '../../../utils/shapes/StatusItemShape'
 import { getSubStatusLabel } from '../../../utils/statusUtils'
 
 const StatusDate = ({ timestamp }) => (
-  <div className='status-item-date'>
-    {moment.unix(timestamp).format('MMM D, YYYY')}
-  </div>
+  <div className='status-item-date'>{moment.unix(timestamp).format('MMM D, YYYY')}</div>
 )
 
 StatusDate.propTypes = { timestamp: PropTypes.number }
@@ -26,14 +24,8 @@ const StatusItem = ({ statusItem }) => {
         <StatusPill status={status} />
         <StatusDate timestamp={timestamp} />
       </div>
-      {substatusLabel && (
-        <div className='item-substatus-text'>
-          {substatusLabel}
-        </div>
-      )}
-      <div className='status-item-text'>
-        {comment}
-      </div>
+      {substatusLabel && <div className='item-substatus-text'>{substatusLabel}</div>}
+      <div className='status-item-text'>{comment}</div>
     </div>
   )
 }

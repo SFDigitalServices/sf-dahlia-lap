@@ -12,7 +12,7 @@ const Tab = ({ title, url, active, onKeyDown, onFocus, onClick, linkRefs }) => {
 
   let tabContent
   if (onClick) {
-    tabContent =
+    tabContent = (
       <button
         type='button'
         className='button-unstyled'
@@ -22,11 +22,13 @@ const Tab = ({ title, url, active, onKeyDown, onFocus, onClick, linkRefs }) => {
         onFocus={onFocus}
         onKeyDown={onKeyDown}
         tabIndex={active ? '-1' : '0'}
-        aria-selected={active}>
+        aria-selected={active}
+      >
         {title}
       </button>
+    )
   } else {
-    tabContent =
+    tabContent = (
       <a
         href={url}
         className='button-unstyled'
@@ -35,9 +37,11 @@ const Tab = ({ title, url, active, onKeyDown, onFocus, onClick, linkRefs }) => {
         onFocus={onFocus}
         onKeyDown={onKeyDown}
         tabIndex={active ? '-1' : '0'}
-        aria-selected={active}>
+        aria-selected={active}
+      >
         {title}
       </a>
+    )
   }
 
   return (
@@ -51,7 +55,8 @@ const TabsMenu = ({ items }) => {
   const tabRefs = arrayUtils.cycle([])
 
   const handleKeyDown = (e) => {
-    keyboard.forEvent(e)
+    keyboard
+      .forEvent(e)
       .on('leftArrow', () => tabRefs.prev().focus())
       .on('rightArrow', () => tabRefs.next().focus())
   }
@@ -68,18 +73,17 @@ const TabsMenu = ({ items }) => {
 
   return (
     <ul className='tabs' role='menubar'>
-      {
-        items.map((item) => (
-          <Tab
-            {...item}
-            key={item.title}
-            onKeyDown={handleKeyDown}
-            onFocus={handleOnFocus}
-            onClick={item.onClick}
-            linkRefs={addTabRef}
-            active={item.active} />)
-        )
-      }
+      {items.map((item) => (
+        <Tab
+          {...item}
+          key={item.title}
+          onKeyDown={handleKeyDown}
+          onFocus={handleOnFocus}
+          onClick={item.onClick}
+          linkRefs={addTabRef}
+          active={item.active}
+        />
+      ))}
     </ul>
   )
 }

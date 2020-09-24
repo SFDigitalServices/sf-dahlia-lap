@@ -31,7 +31,10 @@ const RentBurdenedAssistedHousingFields = ({ householdMembers, i }) => {
       </div>
       <div className='small-12 columns'>
         <p>Do not give this preference unless applicant has provided a lease.</p>
-        <p>If the person who lives in assisted housing is not the primary applicant, enter their address in the Household Members table above.</p>
+        <p>
+          If the person who lives in assisted housing is not the primary applicant, enter their
+          address in the Household Members table above.
+        </p>
       </div>
     </div>
   )

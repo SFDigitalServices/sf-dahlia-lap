@@ -1,24 +1,26 @@
-import {
-  performAllInSequence,
-  performInSequence,
-  performOrDefault
-} from 'utils/promiseUtils'
+import { performAllInSequence, performInSequence, performOrDefault } from 'utils/promiseUtils'
 
-const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms))
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
-const getPromiseFunc = ({ value = null, onCompletedSpy = () => {}, slow = false, fail = false } = {}) => {
+const getPromiseFunc = ({
+  value = null,
+  onCompletedSpy = () => {},
+  slow = false,
+  fail = false
+} = {}) => {
   const markCompletedAndReturn = () => {
     onCompletedSpy()
     return value
   }
 
-  return () => wait(slow ? 300 : 0)
-    .then(markCompletedAndReturn)
-    .then(result => {
-      if (fail) throw new Error('Promise failed with return value: ' + value)
+  return () =>
+    wait(slow ? 300 : 0)
+      .then(markCompletedAndReturn)
+      .then((result) => {
+        if (fail) throw new Error('Promise failed with return value: ' + value)
 
-      return value
-    })
+        return value
+      })
 }
 
 const wasCalledBefore = (spy1, spy2) =>
@@ -124,16 +126,14 @@ describe('performInSequence', () => {
       await performInSequence(
         getPromiseFunc({ value: 1 }),
         getPromiseFunc({ value: 2 })
-      )
-        .then(responses => expect(responses).toEqual([1, 2]))
+      ).then((responses) => expect(responses).toEqual([1, 2]))
     })
 
     test('it returns the responses in order even when slow promise is first', async () => {
       await performInSequence(
         getPromiseFunc({ value: 1, slow: true }),
         getPromiseFunc({ value: 2 })
-      )
-        .then(responses => expect(responses).toEqual([1, 2]))
+      ).then((responses) => expect(responses).toEqual([1, 2]))
     })
 
     test('it completes the responses in order even when slow promise is second', async () => {
@@ -142,7 +142,7 @@ describe('performInSequence', () => {
       await performInSequence(
         getPromiseFunc({ value: 1, onCompletedSpy: firstCompletedSpy }),
         getPromiseFunc({ value: 2, onCompletedSpy: secondCompletedSpy, slow: true })
-      ).then(responses => {
+      ).then((responses) => {
         expect(responses).toEqual([1, 2])
         expect(wasCalledBefore(firstCompletedSpy, secondCompletedSpy)).toBeTruthy()
       })
@@ -154,7 +154,7 @@ describe('performInSequence', () => {
       await performInSequence(
         getPromiseFunc({ value: 1, onCompletedSpy: firstCompletedSpy, slow: true }),
         getPromiseFunc({ value: 2, onCompletedSpy: secondCompletedSpy })
-      ).then(responses => {
+      ).then((responses) => {
         expect(responses).toEqual([1, 2])
         expect(wasCalledBefore(firstCompletedSpy, secondCompletedSpy)).toBeTruthy()
       })
@@ -223,14 +223,13 @@ describe('performAllInSequence', () => {
   })
 
   test('it works with an empty list', async () => {
-    await performAllInSequence([])
-      .then(responses => expect(responses).toEqual([]))
+    await performAllInSequence([]).then((responses) => expect(responses).toEqual([]))
   })
 
   test('it works with a single promise', async () => {
-    await performAllInSequence([
-      getPromiseFunc({ value: 1 })
-    ]).then(responses => expect(responses).toEqual([1]))
+    await performAllInSequence([getPromiseFunc({ value: 1 })]).then((responses) =>
+      expect(responses).toEqual([1])
+    )
   })
 
   test('it returns the responses in order', async () => {
@@ -239,7 +238,7 @@ describe('performAllInSequence', () => {
       getPromiseFunc({ value: 2 }),
       getPromiseFunc({ value: 3 }),
       getPromiseFunc({ value: 4 })
-    ]).then(responses => expect(responses).toEqual([1, 2, 3, 4]))
+    ]).then((responses) => expect(responses).toEqual([1, 2, 3, 4]))
   })
 
   test('it returns the responses in order even when slow promise is first', async () => {
@@ -248,7 +247,7 @@ describe('performAllInSequence', () => {
       getPromiseFunc({ value: 2 }),
       getPromiseFunc({ value: 3 }),
       getPromiseFunc({ value: 4 })
-    ]).then(responses => expect(responses).toEqual([1, 2, 3, 4]))
+    ]).then((responses) => expect(responses).toEqual([1, 2, 3, 4]))
   })
 
   test('it completes the responses in order even when slow promise is last', async () => {
@@ -257,7 +256,7 @@ describe('performAllInSequence', () => {
       getPromiseFunc({ value: 2, onCompletedSpy: completedSpies[1] }),
       getPromiseFunc({ value: 3, onCompletedSpy: completedSpies[2] }),
       getPromiseFunc({ value: 4, onCompletedSpy: completedSpies[3], slow: true })
-    ]).then(responses => {
+    ]).then((responses) => {
       expect(responses).toEqual([1, 2, 3, 4])
       expect(wereCalledInOrder(completedSpies)).toBeTruthy()
     })
@@ -269,7 +268,7 @@ describe('performAllInSequence', () => {
       getPromiseFunc({ value: 2, onCompletedSpy: completedSpies[1] }),
       getPromiseFunc({ value: 3, onCompletedSpy: completedSpies[2] }),
       getPromiseFunc({ value: 4, onCompletedSpy: completedSpies[3] })
-    ]).then(responses => {
+    ]).then((responses) => {
       expect(responses).toEqual([1, 2, 3, 4])
       expect(wereCalledInOrder(completedSpies)).toBeTruthy()
     })
@@ -293,7 +292,7 @@ describe('performAllInSequence', () => {
       })
 
       expect(errorCaught).toBeTruthy()
-      expect(completedSpies.map(spy => spy.mock.calls.length)).toEqual([1, 0, 0, 0])
+      expect(completedSpies.map((spy) => spy.mock.calls.length)).toEqual([1, 0, 0, 0])
     })
 
     test('it rejects when the second promise fails', async () => {
@@ -307,7 +306,7 @@ describe('performAllInSequence', () => {
       })
 
       expect(errorCaught).toBeTruthy()
-      expect(completedSpies.map(spy => spy.mock.calls.length)).toEqual([1, 1, 0, 0])
+      expect(completedSpies.map((spy) => spy.mock.calls.length)).toEqual([1, 1, 0, 0])
     })
 
     test('it rejects when the last promise fails', async () => {
@@ -321,7 +320,7 @@ describe('performAllInSequence', () => {
       })
 
       expect(errorCaught).toBeTruthy()
-      expect(completedSpies.map(spy => spy.mock.calls.length)).toEqual([1, 1, 1, 1])
+      expect(completedSpies.map((spy) => spy.mock.calls.length)).toEqual([1, 1, 1, 1])
     })
 
     test('it rejects when all of the promises fail', async () => {
@@ -336,7 +335,7 @@ describe('performAllInSequence', () => {
       })
 
       expect(errorCaught).toBeTruthy()
-      expect(completedSpies.map(spy => spy.mock.calls.length)).toEqual([1, 0, 0, 0])
+      expect(completedSpies.map((spy) => spy.mock.calls.length)).toEqual([1, 0, 0, 0])
     })
   })
 })

@@ -19,12 +19,23 @@ const DropdownWrapper = ({ items }) => {
       <h3>Single select</h3>
       <div>
         Value: {dropdown1Value}
-        <Dropdown prompt='Select option' value={dropdown1Value} onChange={onChangeDropdown1} items={items} />
+        <Dropdown
+          prompt='Select option'
+          value={dropdown1Value}
+          onChange={onChangeDropdown1}
+          items={items}
+        />
       </div>
       <h3>Multiple select</h3>
       <div>
         Values: {dropdown2Value}
-        <Dropdown prompt='Select option' multiple value={dropdown2Value} onChange={onChangeDropdown2} items={items} />
+        <Dropdown
+          prompt='Select option'
+          multiple
+          value={dropdown2Value}
+          onChange={onChangeDropdown2}
+          items={items}
+        />
       </div>
     </div>
   )

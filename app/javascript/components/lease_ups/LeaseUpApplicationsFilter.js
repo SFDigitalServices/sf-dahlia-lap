@@ -35,7 +35,11 @@ const LeaseUpApplicationsFilter = ({ onSubmit, preferences = [], loading = false
             <div className='filter-row'>
               <div className='filter-group'>
                 <div className='filter-group_item'>
-                  <SelectField fieldName='preference' options={preferenceOptions} placeholder='Preference' />
+                  <SelectField
+                    fieldName='preference'
+                    options={preferenceOptions}
+                    placeholder='Preference'
+                  />
                 </div>
                 <div className='filter-group_item'>
                   <InputField fieldName='application_number' placeholder='Application Number' />
@@ -50,7 +54,11 @@ const LeaseUpApplicationsFilter = ({ onSubmit, preferences = [], loading = false
                   <SelectField fieldName='status' options={StatusOptions} placeholder='Status' />
                 </div>
                 <div className='filter-group_item'>
-                  <SelectField fieldName='accessibility' options={accessibilityFilterOptions} placeholder='Accessibility Requests' />
+                  <SelectField
+                    fieldName='accessibility'
+                    options={accessibilityFilterOptions}
+                    placeholder='Accessibility Requests'
+                  />
                 </div>
                 <div className='filter-group_action'>
                   <button className='small'>Filter</button>
@@ -58,7 +66,8 @@ const LeaseUpApplicationsFilter = ({ onSubmit, preferences = [], loading = false
               </div>
             </div>
           </form>
-        )} />
+        )}
+      />
     </Loading>
   )
 }
