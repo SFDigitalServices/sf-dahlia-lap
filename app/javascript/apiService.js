@@ -2,7 +2,7 @@ import { request } from '~/api/request'
 import { isLeaseAlreadyCreated } from './utils/leaseUtils'
 
 const updateFlaggedApplication = async (data) => {
-  let putData = {
+  const putData = {
     flagged_application: {
       id: data.id,
       review_status: data.review_status,
@@ -115,7 +115,7 @@ export const updateLease = async (leaseToUpdate, primaryApplicantContact, applic
 
   const data = getLeaseRequestData(leaseToUpdate, primaryApplicantContact)
 
-  const leaseId = leaseToUpdate['id']
+  const leaseId = leaseToUpdate.id
   return request.put(`/applications/${applicationId}/leases/${leaseId}`, data, true)
     .then(response => response.lease)
 }

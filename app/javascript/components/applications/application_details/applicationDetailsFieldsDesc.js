@@ -1,44 +1,44 @@
 const fields = {
-  'id': null,
-  'name': {
-    'label': 'Application Number'
+  id: null,
+  name: {
+    label: 'Application Number'
   },
-  'applicant': null,
-  'alternate_contact': null,
-  'listing': null,
+  applicant: null,
+  alternate_contact: null,
+  listing: null,
   'listing.name': {
-    'label': 'Listing Name'
+    label: 'Listing Name'
   },
   'listing.id': null,
-  'status': null,
+  status: null,
   'listing.reserved_community_type': null,
-  'total_household_size': null,
-  'application_submission_type': null,
-  'application_submitted_date': null,
+  total_household_size: null,
+  application_submission_type: null,
+  application_submitted_date: null,
   'createdby.name': {
-    'label': 'Created By'
+    label: 'Created By'
   },
-  'annual_income': null,
-  'monthly_income': null,
-  'is_first_time_homebuyer': null,
+  annual_income: null,
+  monthly_income: null,
+  is_first_time_homebuyer: null,
   'listing.is_lottery_complete': null,
-  'housing_voucher_or_subsidy': null,
-  'referral_source': null,
-  'application_language': null,
-  'lottery_number_manual': null,
-  'lottery_number': null,
-  'total_monthly_rent': null,
-  'general_lottery': null,
-  'general_lottery_rank': null,
-  'answered_community_screening': null,
-  'has_completed_homebuyer_education': null,
-  'has_loan_preapproval': null,
-  'has_military_service': null,
-  'has_developmental_disability': {
-    'label': 'Has Developmental Disability'
+  housing_voucher_or_subsidy: null,
+  referral_source: null,
+  application_language: null,
+  lottery_number_manual: null,
+  lottery_number: null,
+  total_monthly_rent: null,
+  general_lottery: null,
+  general_lottery_rank: null,
+  answered_community_screening: null,
+  has_completed_homebuyer_education: null,
+  has_loan_preapproval: null,
+  has_military_service: null,
+  has_developmental_disability: {
+    label: 'Has Developmental Disability'
   },
-  'has_ada_priorities_selected': null,
-  'terms_acknowledged': null,
+  has_ada_priorities_selected: null,
+  terms_acknowledged: null,
   'applicant.id': null,
   'applicant.first_name': null,
   'applicant.last_name': null,
@@ -71,16 +71,16 @@ const fields = {
   'alternate_contact.email': null,
   'alternate_contact.agency_name': null,
   'alternate_contact.alternate_contact_type': {
-    'label': 'Relationship'
+    label: 'Relationship'
   },
   'alternate_contact.alternate_contact_type_other': {
-    'label': 'Relationship - Other'
+    label: 'Relationship - Other'
   },
-  'number_of_dependents': null,
-  'number_of_seniors': null,
-  'number_of_minors': null,
-  'lending_institution': null,
-  'name_of_lender': null
+  number_of_dependents: null,
+  number_of_seniors: null,
+  number_of_minors: null,
+  lending_institution: null,
+  name_of_lender: null
 }
 
 export default fields

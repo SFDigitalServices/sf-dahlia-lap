@@ -5,37 +5,37 @@ import TableLayout from '../../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
 
 const tableFields = {
-  'id': {
-    'label': 'Id'
+  id: {
+    label: 'Id'
   },
-  'application': {
-    'label': 'Application'
+  application: {
+    label: 'Application'
   },
-  'application_name': {
-    'label': 'App Number'
+  application_name: {
+    label: 'App Number'
   },
-  'flagged_record_set_rule_name': {
-    'label': 'Rule Name'
+  flagged_record_set_rule_name: {
+    label: 'Rule Name'
   },
-  'primary_application_applicant_name': {
-    'label': 'Primary Applicant Name'
+  primary_application_applicant_name: {
+    label: 'Primary Applicant Name'
   },
-  'flagged_record_set_listing_lottery_status': {
-    'label': 'Lottery Status'
+  flagged_record_set_listing_lottery_status: {
+    label: 'Lottery Status'
   },
-  'review_status': {
-    'label': 'Review Status',
-    'editable': true,
-    'editable_options': [
+  review_status: {
+    label: 'Review Status',
+    editable: true,
+    editable_options: [
       'Pending Review',
       'Reviewed - Keep in Lottery',
       'Reviewed - Remove from Lottery',
       'Appealed'
     ]
   },
-  'comments': {
-    'label': 'Comments',
-    'editable': true
+  comments: {
+    label: 'Comments',
+    editable: true
   }
 }
 

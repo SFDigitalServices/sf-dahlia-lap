@@ -1,7 +1,7 @@
 const keyCodeMapping = {
-  'leftArrow': 37,
-  'rightArrow': 39,
-  'tab': 39
+  leftArrow: 37,
+  rightArrow: 39,
+  tab: 39
 }
 
 const isKeyword = (keyCode, code) => {

@@ -13,7 +13,7 @@ const Dropdown = ({
   renderOption,
   classNamePrefix
 }) => {
-  let selectedItem = find(items, { value })
+  const selectedItem = find(items, { value })
 
   const customStyles = {
     option: (provided, state) => ({

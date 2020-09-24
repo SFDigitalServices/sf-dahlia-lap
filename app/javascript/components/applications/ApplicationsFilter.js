@@ -20,7 +20,7 @@ const ApplicationsFilter = ({ onSubmit, listings = [], loading = false }) => {
   const initialValues = {}
   let listingIdField
   if (listings.length === 1) {
-    initialValues['listing_id'] = listings[0].id
+    initialValues.listing_id = listings[0].id
     listingIdField = <input value={listings[0].name} type='text' disabled />
   } else {
     const listingOptions = buildListingOptions(sortedList)

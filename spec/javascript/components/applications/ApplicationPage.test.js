@@ -39,11 +39,11 @@ describe('ApplicationPage', () => {
     test('application with flagged applications', () => {
       const applicationWithFlagged = clone(application)
       applicationWithFlagged.flagged_applications = [{
-        'flagged_record':
+        flagged_record:
           {
-            'id': 'a0r0P00002X4r08QAB',
-            'rule_name': 'Name + DOB',
-            'total_number_of_pending_review': 51
+            id: 'a0r0P00002X4r08QAB',
+            rule_name: 'Name + DOB',
+            total_number_of_pending_review: 51
           }
       }]
 

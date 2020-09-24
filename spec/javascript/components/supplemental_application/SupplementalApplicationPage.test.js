@@ -97,7 +97,7 @@ describe('SupplementalApplicationPage', () => {
       )
     })
 
-    let tree = component.toJSON()
+    const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
   })
 
@@ -113,7 +113,7 @@ describe('SupplementalApplicationPage', () => {
       )
     })
     await act(async () => { wrapper.find('form').first().simulate('submit') })
-    expect(mockSubmitApplication.mock.calls.length).toBe(0)
+    expect(mockSubmitApplication.mock.calls).toHaveLength(0)
   })
 
   test('it only updates changed fields', async () => {
@@ -130,16 +130,16 @@ describe('SupplementalApplicationPage', () => {
     })
     wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
     await act(async () => { wrapper.find('form').first().simulate('submit') })
-    expect(mockSubmitApplication.mock.calls.length).toBe(1)
+    expect(mockSubmitApplication.mock.calls).toHaveLength(1)
     expect(mockSubmitApplication).toHaveBeenCalledWith({ id: payload.id, number_of_dependents: 2 })
   })
 
   test('it saves demographics correctly', async () => {
     const expectedDemographics = {
-      'number_of_dependents': 2,
-      'number_of_seniors': 3,
-      'number_of_minors': 0,
-      'applicant': { 'marital_status': 'Domestic Partner' }
+      number_of_dependents: 2,
+      number_of_seniors: 3,
+      number_of_minors: 0,
+      applicant: { marital_status: 'Domestic Partner' }
     }
     let wrapper
     await act(async () => {
@@ -159,7 +159,7 @@ describe('SupplementalApplicationPage', () => {
 
     await act(async () => { wrapper.find('form').first().simulate('submit') })
 
-    expect(mockSubmitApplication.mock.calls.length).toBe(1)
+    expect(mockSubmitApplication.mock.calls).toHaveLength(1)
     expect(mockSubmitApplication.mock.calls[0][0]).toMatchObject(expectedDemographics)
   })
 
@@ -203,8 +203,8 @@ describe('SupplementalApplicationPage', () => {
         post_lottery_validation: 'Unconfirmed'
       }
 
-      expect(mockUpdateApplication.mock.calls.length).toBe(0)
-      expect(mockUpdatePreference.mock.calls.length).toBe(1)
+      expect(mockUpdateApplication.mock.calls).toHaveLength(0)
+      expect(mockUpdatePreference.mock.calls).toHaveLength(1)
       // Additional fields are sent to the API, but these are the fields that we care about.
       expect(mockUpdatePreference).toHaveBeenCalledWith(expect.objectContaining(expectedPreferencePayload))
     })
@@ -244,23 +244,23 @@ describe('SupplementalApplicationPage', () => {
       await act(async () => { wrapper.find('.preferences-table .save-panel-btn').first().simulate('click') })
 
       const expectedPreferencePayload = {
-        'application_member_id': 'xxx',
-        'id': 'preference_id',
-        'individual_preference': 'Rent Burdened',
-        'listing_preference_id': 'a0l0P00001Q1vxUQAR',
-        'lottery_status': null,
-        'name': 'AP-1234',
-        'post_lottery_validation': 'Unconfirmed',
-        'preference_name': 'Rent Burdened Assisted Housing',
-        'preference_order': 1,
-        'receives_preference': true,
-        'recordtype_developername': 'RB_AHP',
-        'type_of_proof': 'Lease and rent proof'
+        application_member_id: 'xxx',
+        id: 'preference_id',
+        individual_preference: 'Rent Burdened',
+        listing_preference_id: 'a0l0P00001Q1vxUQAR',
+        lottery_status: null,
+        name: 'AP-1234',
+        post_lottery_validation: 'Unconfirmed',
+        preference_name: 'Rent Burdened Assisted Housing',
+        preference_order: 1,
+        receives_preference: true,
+        recordtype_developername: 'RB_AHP',
+        type_of_proof: 'Lease and rent proof'
       }
-      expect(mockUpdateApplication.mock.calls.length).toBe(1)
-      expect(mockUpdatePreference.mock.calls.length).toBe(1)
+      expect(mockUpdateApplication.mock.calls).toHaveLength(1)
+      expect(mockUpdatePreference.mock.calls).toHaveLength(1)
       expect(mockUpdatePreference).toHaveBeenCalledWith(expect.objectContaining(expectedPreferencePayload))
-      expect(mockUpdateApplication).toHaveBeenCalledWith({ 'id': 'application_id', 'total_monthly_rent': '50' })
+      expect(mockUpdateApplication).toHaveBeenCalledWith({ id: 'application_id', total_monthly_rent: '50' })
     })
   })
 
@@ -283,9 +283,9 @@ describe('SupplementalApplicationPage', () => {
       await act(async () => { wrapper.find('form').first().simulate('submit') })
 
       const expectedApplication = { id: application.id }
-      expectedApplication['confirmed_household_annual_income'] = 1234.0
+      expectedApplication.confirmed_household_annual_income = 1234.0
 
-      expect(mockSubmitApplication.mock.calls.length).toBe(1)
+      expect(mockSubmitApplication.mock.calls).toHaveLength(1)
       expect(mockSubmitApplication).toHaveBeenCalledWith(expectedApplication)
     })
 
@@ -305,10 +305,10 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
 
       const expectedApplication = { id: application.id }
-      expectedApplication['confirmed_household_annual_income'] = null
+      expectedApplication.confirmed_household_annual_income = null
 
       await act(async () => { wrapper.find('form').first().simulate('submit') })
-      expect(mockSubmitApplication.mock.calls.length).toBe(1)
+      expect(mockSubmitApplication.mock.calls).toHaveLength(1)
       expect(mockSubmitApplication).toHaveBeenCalledWith(expectedApplication)
     })
   })
@@ -326,8 +326,8 @@ describe('SupplementalApplicationPage', () => {
 
       // Add available units
       const mockAvailableUnits = [
-        { 'unit_number': 1, 'id': 'id1' },
-        { 'unit_number': 2, 'id': 'id2' }
+        { unit_number: 1, id: 'id1' },
+        { unit_number: 2, id: 'id2' }
       ]
 
       await act(async () => {
@@ -362,21 +362,21 @@ describe('SupplementalApplicationPage', () => {
       await act(async () => { wrapper.find('form').first().simulate('submit') })
 
       const expectedLease = {
-        'id': 'a130P000005TeZrQAK',
-        'bmr_parking_space_assigned': null,
-        'unit': 'id1',
-        'lease_start_date': { 'year': '2019', 'month': '1', 'day': '12' },
-        'lease_status': 'Draft',
-        'no_preference_used': false,
-        'preference_used': 'testValidPref',
-        'total_monthly_rent_without_parking': '1',
-        'monthly_parking_rent': '2',
-        'monthly_tenant_contribution': '3',
-        'primary_applicant_contact': mockApplication['applicant']['id']
+        id: 'a130P000005TeZrQAK',
+        bmr_parking_space_assigned: null,
+        unit: 'id1',
+        lease_start_date: { year: '2019', month: '1', day: '12' },
+        lease_status: 'Draft',
+        no_preference_used: false,
+        preference_used: 'testValidPref',
+        total_monthly_rent_without_parking: '1',
+        monthly_parking_rent: '2',
+        monthly_tenant_contribution: '3',
+        primary_applicant_contact: mockApplication.applicant.id
       }
 
-      expect(mockCreateLease.mock.calls.length).toBe(0)
-      expect(mockUpdateLease.mock.calls.length).toBe(1)
+      expect(mockCreateLease.mock.calls).toHaveLength(0)
+      expect(mockUpdateLease.mock.calls).toHaveLength(1)
       expect(mockUpdateLease).toHaveBeenCalledWith(expectedLease)
     })
 
@@ -390,9 +390,9 @@ describe('SupplementalApplicationPage', () => {
       await act(async () => { wrapper.find('form').first().simulate('submit') })
 
       // Verify that the API was called with null unit value
-      expect(mockCreateLease.mock.calls.length).toBe(0)
-      expect(mockUpdateLease.mock.calls.length).toBe(1)
-      expect(mockUpdateLease).toHaveBeenCalledWith(expect.objectContaining({ 'unit': '' }))
+      expect(mockCreateLease.mock.calls).toHaveLength(0)
+      expect(mockUpdateLease.mock.calls).toHaveLength(1)
+      expect(mockUpdateLease).toHaveBeenCalledWith(expect.objectContaining({ unit: '' }))
     })
 
     test('it displays "No Units Available" when no units available', async () => {

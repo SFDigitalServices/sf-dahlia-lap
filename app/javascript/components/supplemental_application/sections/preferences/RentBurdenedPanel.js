@@ -23,7 +23,7 @@ export const RentBurdenedPanel = ({ preferenceIndex, visited }) => (
         type='number'
         label='Total Household Monthly Rent'
         validation={validate.isValidCurrency('Please enter a valid dollar amount.')}
-        isDirty={visited && visited['total_monthly_rent']} />
+        isDirty={visited && visited.total_monthly_rent} />
     </FormItem>
     <FormItem>
       <SelectField

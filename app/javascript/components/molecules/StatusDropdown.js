@@ -29,9 +29,9 @@ const StatusDropdown = ({
     'dropdown-button',
     'has-icon--right',
     'text-align-left',
-    { 'expand': expand },
-    { 'tiny': size === 'tiny' },
-    { 'small': size === 'small' }
+    { expand: expand },
+    { tiny: size === 'tiny' },
+    { small: size === 'small' }
   ]
   const renderStatusToggle = ({ children, getValue, ...props }) => {
     const val = getValue()[0]

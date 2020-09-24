@@ -23,7 +23,7 @@ const toOptions = (items) => {
 // If the field is empty, return null to prevent salesforce issues.
 const formatPrice = (value) => {
   if (!value) return null
-  let valueString = value.toString().replace(/[^.|\d]/g, '')
+  const valueString = value.toString().replace(/[^.|\d]/g, '')
 
   // return value if value is not valid number
   if (isValidCurrency(value) && !isNaN(parseFloat(valueString))) {

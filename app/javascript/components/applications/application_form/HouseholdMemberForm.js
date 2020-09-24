@@ -21,7 +21,7 @@ const HouseholdMemberForm = ({ i, form }) => {
               label='First Name'
               fieldName={`household_members[${i}].first_name`}
               blockNote='(required)'
-              maxLength={maxLengthMap['first_name']}
+              maxLength={maxLengthMap.first_name}
               validation={validate.isPresent('Please enter a First Name')}
             />
           </div>
@@ -30,7 +30,7 @@ const HouseholdMemberForm = ({ i, form }) => {
               id={`household_members_${i}_middle_name`}
               label='Middle Name'
               fieldName={`household_members[${i}].middle_name`}
-              maxLength={maxLengthMap['middle_name']}
+              maxLength={maxLengthMap.middle_name}
             />
           </div>
           <div className='small-3 columns'>
@@ -39,7 +39,7 @@ const HouseholdMemberForm = ({ i, form }) => {
               label='Last Name'
               fieldName={`household_members[${i}].last_name`}
               blockNote='(required)'
-              maxLength={maxLengthMap['last_name']}
+              maxLength={maxLengthMap.last_name}
               validation={validate.isPresent('Please enter a Last Name')}
             />
           </div>

@@ -81,7 +81,7 @@ describe('scrubEmptyValues', () => {
     test('does not modify object without any empty values', async () => {
       expect(formUtils.scrubEmptyValues({ 1: 2 })).toEqual({ 1: 2 })
       expect(formUtils.scrubEmptyValues({ 1: 2, 3: 4 })).toEqual({ 1: 2, 3: 4 })
-      expect(formUtils.scrubEmptyValues({ 'a': 'b' })).toEqual({ 'a': 'b' })
+      expect(formUtils.scrubEmptyValues({ a: 'b' })).toEqual({ a: 'b' })
     })
 
     test('does not modify object with falsy but non empty values', async () => {
@@ -110,7 +110,7 @@ describe('scrubEmptyValues', () => {
     test('does not modify object without any empty values', async () => {
       expect(formUtils.scrubEmptyValues({ 1: 2 }, true)).toEqual({ 1: 2 })
       expect(formUtils.scrubEmptyValues({ 1: 2, 3: 4 }, true)).toEqual({ 1: 2, 3: 4 })
-      expect(formUtils.scrubEmptyValues({ 'a': 'b' }, true)).toEqual({ 'a': 'b' })
+      expect(formUtils.scrubEmptyValues({ a: 'b' }, true)).toEqual({ a: 'b' })
     })
 
     test('does not modify object with falsy but non empty values', async () => {

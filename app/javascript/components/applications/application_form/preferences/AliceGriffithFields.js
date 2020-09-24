@@ -22,7 +22,7 @@ const AddressRow = ({ fieldId }) => (
           label='Alice Griffith Address'
           blockNote='(required)'
           fieldName={fieldId('street')}
-          maxLength={maxLengthMap['address']}
+          maxLength={maxLengthMap.address}
           validation={validate.isPresent('Street is required')}
         />
       </Column>
@@ -33,7 +33,7 @@ const AddressRow = ({ fieldId }) => (
         <InputField
           label='City'
           fieldName={fieldId('city')}
-          maxLength={maxLengthMap['city']}
+          maxLength={maxLengthMap.city}
           validation={validate.isPresent('City is required')}
         />
       </Column>
@@ -43,7 +43,7 @@ const AddressRow = ({ fieldId }) => (
             <InputField
               label='State'
               fieldName={fieldId('state')}
-              maxLength={maxLengthMap['state']}
+              maxLength={maxLengthMap.state}
               validation={validate.isPresent('State is required')}
             />
           </Column>
@@ -51,7 +51,7 @@ const AddressRow = ({ fieldId }) => (
             <InputField
               label='Zip'
               fieldName={fieldId('zip_code')}
-              maxLength={maxLengthMap['zip']}
+              maxLength={maxLengthMap.zip}
               validation={validate.isPresent('Zip is required')}
             />
           </Column>

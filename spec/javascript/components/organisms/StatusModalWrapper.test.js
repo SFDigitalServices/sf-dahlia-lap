@@ -110,7 +110,7 @@ describe('StatusModalWrapper', () => {
 
       // Fill out the fields and verify that the errors go away
       act(() => {
-        wrapper.find(SubstatusDropdown).find('Select').instance().props.onChange({ 'value': LEASE_UP_SUBSTATUS_OPTIONS.Appealed[0].value })
+        wrapper.find(SubstatusDropdown).find('Select').instance().props.onChange({ value: LEASE_UP_SUBSTATUS_OPTIONS.Appealed[0].value })
       })
       wrapper.update()
       expect(wrapper.find(SubstatusDropdown).props().hasError).toBe(false)

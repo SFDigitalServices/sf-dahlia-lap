@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 
 const TableWrapper = ({ children, marginTop = false }) => {
-  let topLevelClasses = classNames(
+  const topLevelClasses = classNames(
     'form-grid',
     'row expand',
     { 'margin-top--half': marginTop }

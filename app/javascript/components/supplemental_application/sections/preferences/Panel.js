@@ -37,7 +37,7 @@ const Panel = ({ application, applicationMembers, preferenceIndex, onClose, onSa
   const preference = application.preferences[preferenceIndex]
   const PreferencePanel = getPreferencePanel(preference)
   const memberOption = (member) => { return { value: member.id, label: `${member.first_name} ${member.last_name}` } }
-  let applicationMembersOptions = map(applicationMembers, memberOption)
+  const applicationMembersOptions = map(applicationMembers, memberOption)
   const onSaveWithPreferenceIndex = () => {
     onSave(preferenceIndex, form.getState().values)
   }

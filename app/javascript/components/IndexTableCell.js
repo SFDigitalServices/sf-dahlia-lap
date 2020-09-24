@@ -4,7 +4,7 @@ import _ from 'lodash'
 const IndexTableCell = ({ attrs, val, editVal, editing, onChange }) => {
   if (editing && attrs && attrs.editable) {
     if (attrs.editable_options) {
-      let options = []
+      const options = []
       let i = 0
       _.each(attrs.editable_options, (option) => {
         options.push(

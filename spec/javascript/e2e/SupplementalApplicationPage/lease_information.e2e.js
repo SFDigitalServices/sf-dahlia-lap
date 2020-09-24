@@ -8,7 +8,7 @@ import SetupBrowserAndPage from '../../utils/SetupBrowserAndPage'
 
 describe('SupplementalApplicationPage lease section', () => {
   test('should allow saving of rents', async () => {
-    let { browser, page } = await SetupBrowserAndPage()
+    const { browser, page } = await SetupBrowserAndPage()
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)

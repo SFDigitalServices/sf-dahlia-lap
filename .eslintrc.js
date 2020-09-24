@@ -7,7 +7,8 @@ module.exports = {
     'standard',
     'plugin:jest/recommended',
     'plugin:jest/style',
-    'plugin:react/recommended'
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended'
   ],
   globals: {
     Atomics: 'readonly',
@@ -44,14 +45,8 @@ module.exports = {
     // Ensure you're actually asserting something when calling expect
     'jest/valid-expect': 'error',
 
-    // TODO: turn this back on in future PR
-    'quote-props': 'off',
-    // TODO: turn this back on in future PR
-    'prefer-const': 'off',
-    // TODO: turn this back on in future PR
-    'dot-notation': 'off',
-    // TODO: turn this back on in future PR
-    'jest/prefer-to-have-length': 'off',
+    // Ensure we don't cause infinite state update loops with useEffect hooks.
+    'react-hooks/exhaustive-deps': 'error',
 
     // Don't always require expects, some of our frontend integration tests
     // should pass as long as they don't timeout

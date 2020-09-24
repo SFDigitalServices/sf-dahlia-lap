@@ -20,7 +20,7 @@ const CertOfPreferenceFields = ({ householdMembers, i }) => {
         <InputField
           fieldName={buildFieldId(i, 'certificate_number')}
           label='COP Certificate Number'
-          maxLength={maxLengthMap['certificate_number']}
+          maxLength={maxLengthMap.certificate_number}
         />
       </div>
       <div className='small-12 columns'>

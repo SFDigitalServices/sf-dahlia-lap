@@ -9,7 +9,7 @@ let testBrowser
 
 describe('SupplementalApplicationPage Rental Assistance Information section', () => {
   test('should allow a new rental assistance to be created', async () => {
-    let { browser, page } = await SetupBrowserAndPage()
+    const { browser, page } = await SetupBrowserAndPage()
     testBrowser = browser
 
     await sharedSteps.loginAsAgent(page)
@@ -72,7 +72,7 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
   // assistances table. If the prior test for creating a rental assistance has
   // succeeded, then there will be at least one rental assistance present.
   test('should allow a rental assistance to be updated', async () => {
-    let { page } = await SetupBrowserAndPage(testBrowser)
+    const { page } = await SetupBrowserAndPage(testBrowser)
 
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
     await page.click('button#edit-lease-button')
@@ -117,7 +117,7 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
   // succeeded, then there will be at least one rental assistance present.
   test('should persist all unsaved supp app form values when a rental assistance panel is saved',
     async () => {
-      let { page } = await SetupBrowserAndPage(testBrowser)
+      const { page } = await SetupBrowserAndPage(testBrowser)
 
       await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
       await page.click('button#edit-lease-button')
@@ -159,7 +159,7 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
   // assistances table. If the prior test for creating a rental assistance has
   // succeeded, then there will be at least one rental assistance present.
   test('should allow a rental assistance to be deleted', async () => {
-    let { page } = await SetupBrowserAndPage(testBrowser)
+    const { page } = await SetupBrowserAndPage(testBrowser)
 
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
     await page.click('button#edit-lease-button')

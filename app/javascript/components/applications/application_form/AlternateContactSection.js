@@ -23,7 +23,7 @@ const AlternateContactSection = () => {
               id='alt_first_name'
               label='First Name'
               fieldName='alternate_contact.first_name'
-              maxLength={maxLengthMap['first_name']}
+              maxLength={maxLengthMap.first_name}
             />
           </div>
           <div className='small-4 columns'>
@@ -31,7 +31,7 @@ const AlternateContactSection = () => {
               id='alt_middle_name'
               label='Middle Name'
               fieldName='alternate_contact.middle_name'
-              maxLength={maxLengthMap['middle_name']}
+              maxLength={maxLengthMap.middle_name}
             />
           </div>
           <div className='small-4 columns'>
@@ -39,7 +39,7 @@ const AlternateContactSection = () => {
               id='alt_last_name'
               label='Last Name'
               fieldName='alternate_contact.last_name'
-              maxLength={maxLengthMap['last_name']}
+              maxLength={maxLengthMap.last_name}
             />
           </div>
         </div>
@@ -55,14 +55,14 @@ const AlternateContactSection = () => {
           <label>Alternate Contact Type Other</label>
           <InputField
             fieldName='alternate_contact.alternate_contact_type_other'
-            maxLength={maxLengthMap['alternate_contact_type_other']}
+            maxLength={maxLengthMap.alternate_contact_type_other}
           />
         </div>
         <div className='small-4 columns'>
           <label>Agency (if applicable)</label>
           <InputField
             fieldName='alternate_contact.agency_name'
-            maxLength={maxLengthMap['agency_name']}
+            maxLength={maxLengthMap.agency_name}
           />
         </div>
       </div>
@@ -72,14 +72,14 @@ const AlternateContactSection = () => {
             id='email'
             label='Email'
             fieldName='alternate_contact.email'
-            maxLength={maxLengthMap['email']}
+            maxLength={maxLengthMap.email}
           />
         </div>
         <div className='small-4 columns'>
           <InputField
             label='Phone'
             fieldName='alternate_contact.phone'
-            maxLength={maxLengthMap['phone']}
+            maxLength={maxLengthMap.phone}
           />
         </div>
         <div className='small-4 columns'>

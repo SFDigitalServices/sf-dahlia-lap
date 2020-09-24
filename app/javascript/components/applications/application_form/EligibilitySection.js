@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import { useEffectOnMount } from '~/utils/customHooks'
 import PropTypes from 'prop-types'
 import { CheckboxField, SelectField } from '~/utils/form/final_form/Field'
 import { map, each, some } from 'lodash'
@@ -9,12 +10,12 @@ const checkboxErrorMessage = 'The applicant cannot qualify for the listing unles
 const EligibilitySection = ({ listing, lendingInstitutions, form }) => {
   const [lenders, setLenders] = useState([])
 
-  const loadOnMount = () => {
+  useEffectOnMount(() => {
     let mappedLenders = []
 
     if (form.getState().values.lending_agent) {
       each(lendingInstitutions, (agents, institution) => {
-        if (some(agents, { 'Id': form.getState().values.lending_agent })) {
+        if (some(agents, { Id: form.getState().values.lending_agent })) {
           mappedLenders = map(agents, (lender) => ({ label: `${lender.FirstName} ${lender.LastName}`, value: lender.Id }))
           form.change('lending_institution', institution)
         }
@@ -22,12 +23,7 @@ const EligibilitySection = ({ listing, lendingInstitutions, form }) => {
     }
 
     setLenders(mappedLenders)
-  }
-  // With the empty array passed as the second argument
-  // this useEffect call acts like a componentDidMount call
-  useEffect(() => {
-    loadOnMount()
-  }, [])
+  })
 
   const handleSelectInstitution = (event) => {
     const mappedLenders = map(lendingInstitutions[event.target.value], (lender) => ({ label: `${lender.FirstName} ${lender.LastName}`, value: lender.Id }))

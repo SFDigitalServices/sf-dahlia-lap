@@ -38,4 +38,4 @@ export class Request {
   }
 }
 
-export let request = new Request()
+export const request = new Request()

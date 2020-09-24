@@ -69,8 +69,8 @@ export const buildFieldEntry = (item, spec, options = {}) => {
     value = spec.value(value)
   }
 
-  let label = utils.cleanField(spec.label)
-  let renderType = spec.renderType || getRenderType(value)
+  const label = utils.cleanField(spec.label)
+  const renderType = spec.renderType || getRenderType(value)
 
   value = formatValue(value, spec.formatType)
 
@@ -82,7 +82,7 @@ export const buildFieldEntry = (item, spec, options = {}) => {
 }
 
 export const buildFieldSpecs = (entry) => {
-  let specs = isString(entry) ? { field: entry } : entry
+  const specs = isString(entry) ? { field: entry } : entry
 
   if (!specs.label) {
     specs.label = formatLabel(specs.field)

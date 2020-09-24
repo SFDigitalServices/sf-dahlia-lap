@@ -66,25 +66,25 @@ describe('ConfirmationModal', () => {
     test('should trigger the onClose listener when close is clicked', () => {
       wrapper.find(Modal).prop('handleClose')()
 
-      expect(ON_CLOSE.mock.calls.length).toEqual(1)
-      expect(ON_PRIMARY_CLICK.mock.calls.length).toEqual(0)
-      expect(ON_SECONDARY_CLICK.mock.calls.length).toEqual(0)
+      expect(ON_CLOSE.mock.calls).toHaveLength(1)
+      expect(ON_PRIMARY_CLICK.mock.calls).toHaveLength(0)
+      expect(ON_SECONDARY_CLICK.mock.calls).toHaveLength(0)
     })
 
     test('should trigger the onPrimaryClick listener when primary button is clicked', () => {
       findWithText(wrapper, 'button', PRIMARY_TEXT).simulate('click')
 
-      expect(ON_CLOSE.mock.calls.length).toEqual(0)
-      expect(ON_PRIMARY_CLICK.mock.calls.length).toEqual(1)
-      expect(ON_SECONDARY_CLICK.mock.calls.length).toEqual(0)
+      expect(ON_CLOSE.mock.calls).toHaveLength(0)
+      expect(ON_PRIMARY_CLICK.mock.calls).toHaveLength(1)
+      expect(ON_SECONDARY_CLICK.mock.calls).toHaveLength(0)
     })
 
     test('should trigger the onSecondaryClick listener when secondary button is clicked', () => {
       findWithText(wrapper, 'button', SECONDARY_TEXT).simulate('click')
 
-      expect(ON_CLOSE.mock.calls.length).toEqual(0)
-      expect(ON_PRIMARY_CLICK.mock.calls.length).toEqual(0)
-      expect(ON_SECONDARY_CLICK.mock.calls.length).toEqual(1)
+      expect(ON_CLOSE.mock.calls).toHaveLength(0)
+      expect(ON_PRIMARY_CLICK.mock.calls).toHaveLength(0)
+      expect(ON_SECONDARY_CLICK.mock.calls).toHaveLength(1)
     })
   })
 
@@ -144,9 +144,9 @@ describe('ConfirmationModal', () => {
     test('should trigger the onPrimaryClick listener when primary button is clicked', () => {
       findWithText(wrapper, 'a', PRIMARY_TEXT).simulate('click')
 
-      expect(ON_CLOSE.mock.calls.length).toEqual(0)
-      expect(ON_PRIMARY_CLICK.mock.calls.length).toEqual(1)
-      expect(ON_SECONDARY_CLICK.mock.calls.length).toEqual(0)
+      expect(ON_CLOSE.mock.calls).toHaveLength(0)
+      expect(ON_PRIMARY_CLICK.mock.calls).toHaveLength(1)
+      expect(ON_SECONDARY_CLICK.mock.calls).toHaveLength(0)
     })
   })
 })

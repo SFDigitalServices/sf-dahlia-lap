@@ -51,7 +51,7 @@ class EagerPagination {
       this.server.currentPage = newServerPage
       const result = await fetchPage(this.server.currentPage)
       this.records = result.records
-      let totalNumberOfApplications = result.pages * this.server.size
+      const totalNumberOfApplications = result.pages * this.server.size
       // We only need to calculate the page size on the initial load.
       if (this.server.currentPage === 0) { this.pages = Math.ceil(totalNumberOfApplications / this.eager.size) }
     }

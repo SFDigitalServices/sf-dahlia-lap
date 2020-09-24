@@ -10,7 +10,7 @@ export const naturalKeyFromMember = (member) => {
 }
 
 export const memberNameFromPref = (id, householdMembers) => {
-  let member = find(householdMembers, { 'id': id })
+  const member = find(householdMembers, { id: id })
   if (member) {
     return `${member.first_name} ${member.last_name}`
   } else { return '' }
@@ -21,7 +21,7 @@ export const FIELD_NAME = 'preferences'
 export const buildFieldId = (i, field) => `${FIELD_NAME}.${i}.${field}`
 
 export const addNaturalKeyToPreference = (p) => {
-  p['naturalKey'] = naturalKeyFromPreference(p)
+  p.naturalKey = naturalKeyFromPreference(p)
 }
 
 export const buildHouseholdMembersOptions = (applicationMembers) => {

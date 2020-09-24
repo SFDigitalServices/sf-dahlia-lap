@@ -9,7 +9,7 @@ let testBrowser
 
 describe('SupplementalApplicationPage status history', () => {
   test('should allow status updates via the Add a Comment button in the status history section', async () => {
-    let { browser, page } = await SetupBrowserAndPage()
+    const { browser, page } = await SetupBrowserAndPage()
     testBrowser = browser
 
     await sharedSteps.loginAsAgent(page)
@@ -24,7 +24,7 @@ describe('SupplementalApplicationPage status history', () => {
 
 describe('SupplementalApplicationPage action buttons', () => {
   test('should allow status updates via the status dropdown in the sidebar', async () => {
-    let { page } = await SetupBrowserAndPage(testBrowser, true)
+    const { page } = await SetupBrowserAndPage(testBrowser, true)
 
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 

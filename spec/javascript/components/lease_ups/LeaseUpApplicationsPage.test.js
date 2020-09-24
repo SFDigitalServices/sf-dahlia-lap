@@ -17,7 +17,7 @@ jest.mock('apiService', () => {
   return {
     fetchLeaseUpApplications: async (data) => {
       mockfetchLeaseUpApplications(data)
-      return Promise.resolve({ 'records': mockApplications })
+      return Promise.resolve({ records: mockApplications })
     },
     createFieldUpdateComment: async (data) => {
       var response = mockCreateFieldUpdateComment(data)
@@ -28,23 +28,23 @@ jest.mock('apiService', () => {
 
 const buildMockApplicationWithPreference = (uniqId, prefOrder, prefRank) => {
   return {
-    'id': uniqId,
-    'processing_status': 'processing',
-    'preference_order': prefOrder,
-    'preference_lottery_rank': prefRank,
-    'record_type_for_app_preferences': 'COP',
-    'application': {
-      'id': 1000 + uniqId,
-      'name': `Application Name ${uniqId}`,
-      'status_last_updated': '2018-04-26T12:31:39.000+0000',
-      'has_ada_priorities_selected': { 'vision_impairments': true },
-      'applicant': {
-        'id': '1',
-        'residence_address': `1316 BURNETT ${uniqId}`,
-        'first_name': `some first name ${uniqId}`,
-        'last_name': `some last name ${uniqId}`,
-        'phone': 'some phone',
-        'email': `some email ${uniqId}`
+    id: uniqId,
+    processing_status: 'processing',
+    preference_order: prefOrder,
+    preference_lottery_rank: prefRank,
+    record_type_for_app_preferences: 'COP',
+    application: {
+      id: 1000 + uniqId,
+      name: `Application Name ${uniqId}`,
+      status_last_updated: '2018-04-26T12:31:39.000+0000',
+      has_ada_priorities_selected: { vision_impairments: true },
+      applicant: {
+        id: '1',
+        residence_address: `1316 BURNETT ${uniqId}`,
+        first_name: `some first name ${uniqId}`,
+        last_name: `some last name ${uniqId}`,
+        phone: 'some phone',
+        email: `some email ${uniqId}`
       }
     }
   }
@@ -85,7 +85,7 @@ describe('LeaseUpApplicationsPage', () => {
 
   test('status modal can be opened and closed', () => {
     expect(wrapper.find(rowSelector).first().find('button').exists()).toBeTruthy()
-    wrapper.find(rowSelector).first().find('Select').instance().props.onChange({ 'value': 'Appealed' })
+    wrapper.find(rowSelector).first().find('Select').instance().props.onChange({ value: 'Appealed' })
     wrapper.update()
     expect(wrapper.find(StatusModalWrapper).props().isOpen).toBeTruthy()
 

@@ -17,8 +17,8 @@ const formatValue = (value, type) => {
 
 export const buildFieldEntry = (item, entry) => {
   let value = get(item, entry.field)
-  let label = utils.cleanField(entry.label)
-  let renderType = entry.renderType || getRenderType(value)
+  const label = utils.cleanField(entry.label)
+  const renderType = entry.renderType || getRenderType(value)
 
   value = formatValue(value, entry.formatType)
 

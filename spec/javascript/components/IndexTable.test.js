@@ -14,9 +14,9 @@ describe('IndexTable', () => {
     { first_name: undefined, last_name: undefined, lottery_date: undefined }
   ]
 
-  const fields = { 'first_name': null, 'last_name': null }
+  const fields = { first_name: null, last_name: null }
 
-  const fieldsForEmptyResults = { 'first_name': null, 'last_name': null, 'lottery_date': null }
+  const fieldsForEmptyResults = { first_name: null, last_name: null, lottery_date: null }
 
   // Jest Snapshot
   test('should render IndexTable', () => {
@@ -24,7 +24,7 @@ describe('IndexTable', () => {
       <IndexTable results={results} fields={fields} />
     )
 
-    let tree = component.toJSON()
+    const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
   })
 

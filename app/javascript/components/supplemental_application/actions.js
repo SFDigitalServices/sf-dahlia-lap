@@ -132,7 +132,7 @@ export const getAMIAction = async ({ chartType, chartYear }) => {
   if (response === false) {
     Alerts.error()
   }
-  return response['ami']
+  return response.ami
 }
 
 export const updatePreference = async (preference) => {

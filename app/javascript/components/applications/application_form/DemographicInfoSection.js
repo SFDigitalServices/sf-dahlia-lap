@@ -4,7 +4,7 @@ import { SelectField, InputField } from '~/utils/form/final_form/Field'
 import { maxLengthMap } from '~/utils/formUtils'
 import validate from '~/utils/form/validations'
 
-let {
+const {
   genderOptions,
   sexualOrientationOptions,
   raceOptions,
@@ -45,7 +45,7 @@ const DemographicInfoSection = ({ values: { demographics }, genderSpecifyRequire
             fieldName='demographics.gender_other'
             label='Gender Specify (if not listed)'
             blockNote={genderSpecifyRequired ? '(required)' : null}
-            maxLength={maxLengthMap['gender_other']} />
+            maxLength={maxLengthMap.gender_other} />
         </div>
         <div className='small-6 columns'>
           <SelectField
@@ -60,7 +60,7 @@ const DemographicInfoSection = ({ values: { demographics }, genderSpecifyRequire
             fieldName='demographics.sexual_orientation_other'
             label='Sexual Orientation (if not listed)'
             blockNote={orientationOtherRequired ? '(required)' : null}
-            maxLength={maxLengthMap['sexual_orientation_other']} />
+            maxLength={maxLengthMap.sexual_orientation_other} />
         </div>
       </div>
       <div className='row' />

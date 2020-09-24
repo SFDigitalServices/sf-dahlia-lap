@@ -7,7 +7,7 @@ import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
 import { mailingAddressFieldMap } from './utils'
 import { maxLengthMap } from '~/utils/formUtils'
 
-let { phoneTypeOptions } = formOptions
+const { phoneTypeOptions } = formOptions
 
 const PrimaryApplicantSection = ({ form }) => {
   return (
@@ -24,7 +24,7 @@ const PrimaryApplicantSection = ({ form }) => {
               label='First Name'
               blockNote='(required)'
               validation={validate.isPresent('Please enter a First Name')}
-              maxLength={maxLengthMap['first_name']}
+              maxLength={maxLengthMap.first_name}
             />
           </div>
           <div className='small-4 columns'>
@@ -32,7 +32,7 @@ const PrimaryApplicantSection = ({ form }) => {
               fieldName='applicant.middle_name'
               id='middle_name'
               label='Middle Name'
-              maxLength={maxLengthMap['middle_name']}
+              maxLength={maxLengthMap.middle_name}
             />
           </div>
           <div className='small-4 columns'>
@@ -42,7 +42,7 @@ const PrimaryApplicantSection = ({ form }) => {
               label='Last Name'
               blockNote='(required)'
               validation={validate.isPresent('Please enter a Last Name')}
-              maxLength={maxLengthMap['last_name']}
+              maxLength={maxLengthMap.last_name}
             />
           </div>
         </div>
@@ -55,7 +55,7 @@ const PrimaryApplicantSection = ({ form }) => {
             id='email'
             fieldName='applicant.email'
             validation={validate.isValidEmail('Please enter a valid Email')}
-            maxLength={maxLengthMap['email']}
+            maxLength={maxLengthMap.email}
           />
         </div>
         <div className='small-4 columns'>
@@ -63,7 +63,7 @@ const PrimaryApplicantSection = ({ form }) => {
             fieldName='applicant.phone'
             id='phone'
             label='Primary Phone Number'
-            maxLength={maxLengthMap['phone']} />
+            maxLength={maxLengthMap.phone} />
         </div>
         <div className='small-4 columns'>
           <SelectField
@@ -88,7 +88,7 @@ const PrimaryApplicantSection = ({ form }) => {
             label='Second Phone Number'
             fieldName='applicant.second_phone'
             id='second_phone'
-            maxLength={maxLengthMap['phone']} />
+            maxLength={maxLengthMap.phone} />
         </div>
         <div className='small-4 columns'>
           <SelectField

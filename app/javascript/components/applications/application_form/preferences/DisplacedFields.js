@@ -20,7 +20,7 @@ const DisplacedFields = ({ householdMembers, i }) => {
         <InputField
           fieldName={buildFieldId(i, 'certificate_number')}
           label='DTHP Certificate Number'
-          maxLength={maxLengthMap['certificate_number']}
+          maxLength={maxLengthMap.certificate_number}
         />
       </div>
       <div className='small-12 columns'>

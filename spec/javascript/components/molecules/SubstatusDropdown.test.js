@@ -7,7 +7,7 @@ import { LEASE_UP_SUBSTATUS_OPTIONS } from '~/utils/statusUtils'
 import Dropdown from '~/components/molecules/Dropdown'
 
 const ON_CHANGE = jest.fn()
-const APPEALED_SUBSTATUS = LEASE_UP_SUBSTATUS_OPTIONS['Appealed'][0].value
+const APPEALED_SUBSTATUS = LEASE_UP_SUBSTATUS_OPTIONS.Appealed[0].value
 
 const getWrapper = (propOverrides = {}) => mount(
   <SubstatusDropdown
@@ -37,7 +37,7 @@ describe('SubstatusDropdown', () => {
     wrapper = getWrapper({ status: 'Appealed' })
 
     const dropdownProps = wrapper.find(Dropdown).props()
-    expect(dropdownProps.items).toEqual(LEASE_UP_SUBSTATUS_OPTIONS['Appealed'])
+    expect(dropdownProps.items).toEqual(LEASE_UP_SUBSTATUS_OPTIONS.Appealed)
   })
 
   describe('toggle', () => {
@@ -65,7 +65,7 @@ describe('SubstatusDropdown', () => {
 
     test('renders additional styles when provided', () => {
       wrapper = getWrapper({ expand: true, hasError: true })
-      let toggleButton = wrapper.find(Select).find('.substatus-dropdown__control').find('button')
+      const toggleButton = wrapper.find(Select).find('.substatus-dropdown__control').find('button')
       expect(toggleButton.hasClass('expand')).toBe(true)
       expect(toggleButton.hasClass('error')).toBe(true)
     })
