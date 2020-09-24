@@ -9,4 +9,5 @@ import { useEffect } from 'react'
  *
  * @param {() => Any} f The effect function to perform once on component mount.
  */
-export const useEffectOnMount = (f) => useEffect(f, [f])
+// eslint-disable-next-line react-hooks/exhaustive-deps
+export const useEffectOnMount = (f) => useEffect(f, [])
