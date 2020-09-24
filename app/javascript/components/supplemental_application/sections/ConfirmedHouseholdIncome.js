@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import { useEffectOnMount } from '~/utils/customHooks'
 import { isNil, isString } from 'lodash'
 
 import FormGrid from '~/components/molecules/FormGrid'
@@ -44,7 +45,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
   const [amiChartTypes, setAmiChartTypes] = useState([])
   const [amiChartYears, setAmiChartYears] = useState([])
 
-  useEffect(() => {
+  useEffectOnMount(() => {
     const getAmiCharts = async () => {
       if (listingAmiCharts.length > 0) {
         setAmiChartYears(
@@ -57,7 +58,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
     }
 
     getAmiCharts()
-  }, [])
+  })
 
   return (
     <>

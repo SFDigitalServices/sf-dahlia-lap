@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import { useEffectOnMount } from '~/utils/customHooks'
+
 import { forEach, isEmpty } from 'lodash'
 import PreferenceForm from './PreferenceForm'
 import { naturalKeyFromPreference, getFullHousehold } from './utils'
 import { FieldArray } from 'react-final-form-arrays'
 
 const PreferencesSection = ({ form, editValues, listingPreferences }) => {
-  const loadOnMount = () => {
+  useEffectOnMount(() => {
     const autofillPreferences = []
 
     if (!isEmpty(editValues) && editValues.preferences) {
@@ -18,12 +20,7 @@ const PreferencesSection = ({ form, editValues, listingPreferences }) => {
       })
       form.change('preferences', autofillPreferences)
     }
-  }
-  // With the empty array passed as the second argument
-  // this useEffect call acts like a componentDidMount call
-  useEffect(() => {
-    loadOnMount()
-  }, [])
+  })
 
   const allPreferencesSelected = () => {
     if (form.getState().values && !isEmpty(form.getState().values.preferences) && listingPreferences) {

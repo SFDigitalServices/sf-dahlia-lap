@@ -7,7 +7,8 @@ module.exports = {
     'standard',
     'plugin:jest/recommended',
     'plugin:jest/style',
-    'plugin:react/recommended'
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended'
   ],
   globals: {
     Atomics: 'readonly',
@@ -31,10 +32,6 @@ module.exports = {
     'react'
   ],
   rules: {
-    /*
-     * TODO: Add react-hooks library for the react-hooks/exhaustive-deps lint
-     * rule which will catch and fix unnecessarily expensive useEffect hooks.
-     */
     'jest/no-disabled-tests': 'error',
     'jest/no-focused-tests': 'error',
     'jest/no-identical-title': 'error',
@@ -47,6 +44,9 @@ module.exports = {
 
     // Ensure you're actually asserting something when calling expect
     'jest/valid-expect': 'error',
+
+    // Ensure we don't cause infinite state update loops with useEffect hooks.
+    'react-hooks/exhaustive-deps': 'error',
 
     // Don't always require expects, some of our frontend integration tests
     // should pass as long as they don't timeout
