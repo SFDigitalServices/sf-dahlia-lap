@@ -35,6 +35,7 @@ Cross-browser testing done with <a href="https://www.browserstack.com/"><img src
 To lint Ruby code run: `rubocop`
 
 To lint the React code run: `yarn lint`
+
 To fix any auto-fixable linting errors run: `yarn lint:fix`
 
 ## Visual Studio setup
