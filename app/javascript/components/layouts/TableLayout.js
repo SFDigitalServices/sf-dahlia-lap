@@ -1,5 +1,5 @@
 import React from 'react'
-import useEffectOnMount from '~/utils/customHooks'
+import { useEffectOnMount } from '~/utils/customHooks'
 
 import PageHeader from '../organisms/PageHeader'
 import TabsSection from '../organisms/TabsSection'
