@@ -6,12 +6,16 @@ import { InputField, SelectField } from '~/utils/form/final_form/Field'
 import formUtils from '~/utils/formUtils'
 import Loading from '~/components/molecules/Loading'
 
-const submissionTypeOptions = formUtils.toOptions([formUtils.toEmptyOption('Any type'), 'Paper', 'Electronic'])
+const submissionTypeOptions = formUtils.toOptions([
+  formUtils.toEmptyOption('Any type'),
+  'Paper',
+  'Electronic'
+])
 
 const buildListingOptions = (listings) => {
   return formUtils.toOptions([
     formUtils.toEmptyOption('Any Listing'),
-    ...map(listings, i => [i.id, i.name])
+    ...map(listings, (i) => [i.id, i.name])
   ])
 }
 
@@ -39,9 +43,7 @@ const ApplicationsFilter = ({ onSubmit, listings = [], loading = false }) => {
                 <div className='filter-group_item'>
                   <InputField fieldName='application_number' placeholder='Application Number' />
                 </div>
-                <div className='filter-group_item'>
-                  {listingIdField}
-                </div>
+                <div className='filter-group_item'>{listingIdField}</div>
                 <div className='filter-group_item'>
                   <InputField fieldName='first_name' placeholder='First Name' />
                 </div>
@@ -49,7 +51,11 @@ const ApplicationsFilter = ({ onSubmit, listings = [], loading = false }) => {
                   <InputField fieldName='last_name' placeholder='Last Name' />
                 </div>
                 <div className='filter-group_item'>
-                  <SelectField fieldName='submission_type' options={submissionTypeOptions} placeholder='Submission Type' />
+                  <SelectField
+                    fieldName='submission_type'
+                    options={submissionTypeOptions}
+                    placeholder='Submission Type'
+                  />
                 </div>
                 <div className='filter-group_action'>
                   <button className='small'>Filter</button>
@@ -57,7 +63,8 @@ const ApplicationsFilter = ({ onSubmit, listings = [], loading = false }) => {
               </div>
             </div>
           </form>
-        )} />
+        )}
+      />
     </Loading>
   )
 }

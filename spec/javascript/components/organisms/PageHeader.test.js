@@ -5,7 +5,12 @@ import PageHeader from 'components/organisms/PageHeader'
 describe('PageHeader', () => {
   const title = 'title1'
   const content = 'content1'
-  const breadcrumbs = [{ title: 'Alpha', link: '/alpah' }, { title: 'Beta', link: '/beta' }, { title: 'Gama', link: '/gama' }, { title: 'Pi', link: '/pi' }]
+  const breadcrumbs = [
+    { title: 'Alpha', link: '/alpah' },
+    { title: 'Beta', link: '/beta' },
+    { title: 'Gama', link: '/gama' },
+    { title: 'Pi', link: '/pi' }
+  ]
   const action = { link: '/export', title: 'Export' }
 
   test('should render succesfully', () => {

@@ -14,21 +14,18 @@ const CardLayout = ({ children, pageHeader, tabSection, toolbar }) => {
   return (
     <>
       <PageHeader {...pageHeader} background='snow' />
-      { tabSection
-        ? (
-          <TabsSection {...tabSection} padding='false'>
-            {children}
-          </TabsSection>
-        )
-        : (
-          <>
-            { toolbar && toolbar() }
-            <TabCard padding>
-              <AppCard>{children}</AppCard>
-            </TabCard>
-          </>
-        )
-      }
+      {tabSection ? (
+        <TabsSection {...tabSection} padding='false'>
+          {children}
+        </TabsSection>
+      ) : (
+        <>
+          {toolbar && toolbar()}
+          <TabCard padding>
+            <AppCard>{children}</AppCard>
+          </TabCard>
+        </>
+      )}
     </>
   )
 }

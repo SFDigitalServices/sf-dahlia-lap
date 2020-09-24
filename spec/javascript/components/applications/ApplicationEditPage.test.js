@@ -40,7 +40,8 @@ describe('ApplicationEditPage', () => {
           listing={listing}
           application={mockApplication}
           lendingInstitutions={lendingInstitutions}
-          editPage />
+          editPage
+        />
       )
     })
     await act(async () => {
@@ -69,7 +70,8 @@ describe('ApplicationEditPage', () => {
           listing={listing}
           application={applicationWithInvalidPrefs}
           lendingInstitutions={lendingInstitutions}
-          editPage />
+          editPage
+        />
       )
     })
     await act(async () => {
@@ -95,7 +97,8 @@ describe('ApplicationEditPage', () => {
           listing={listing}
           application={applicationWithInvalidDemo}
           lendingInstitutions={lendingInstitutions}
-          editPage />
+          editPage
+        />
       )
     })
     await act(async () => {
@@ -112,7 +115,8 @@ describe('ApplicationEditPage', () => {
           listing={listing}
           application={mockApplication}
           lendingInstitutions={lendingInstitutions}
-          editPage />
+          editPage
+        />
       )
 
       expect(wrapper.toJSON()).toMatchSnapshot()
@@ -140,7 +144,8 @@ describe('ApplicationEditPage', () => {
           listing={listing}
           application={mockApplication}
           lendingInstitutions={lendingInstitutions}
-          editPage />
+          editPage
+        />
       )
 
       expect(wrapper.toJSON()).toMatchSnapshot()

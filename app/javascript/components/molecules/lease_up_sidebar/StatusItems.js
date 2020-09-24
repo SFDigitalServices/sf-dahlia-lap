@@ -19,10 +19,7 @@ const StatusItems = ({ statusItems, limit }) => {
   return (
     <div className='status-items'>
       {limitedItems.map((item, idx) => (
-        <StatusItem
-          key={idx}
-          statusItem={item}
-        />
+        <StatusItem key={idx} statusItem={item} />
       ))}
     </div>
   )

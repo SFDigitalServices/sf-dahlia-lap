@@ -9,12 +9,8 @@ import Dropdown from '~/components/molecules/Dropdown'
 const ON_CHANGE = jest.fn()
 const APPEALED_SUBSTATUS = LEASE_UP_SUBSTATUS_OPTIONS.Appealed[0].value
 
-const getWrapper = (propOverrides = {}) => mount(
-  <SubstatusDropdown
-    onChange={ON_CHANGE}
-    {...propOverrides}
-  />
-)
+const getWrapper = (propOverrides = {}) =>
+  mount(<SubstatusDropdown onChange={ON_CHANGE} {...propOverrides} />)
 
 describe('SubstatusDropdown', () => {
   let wrapper
@@ -90,9 +86,8 @@ describe('SubstatusDropdown', () => {
   })
 
   describe('renderSubstatusOption', () => {
-    const getStatusOptionWrapper = (option, selectedValue) => shallow(
-      renderSubstatusOption(option, { selectValue: [{ value: selectedValue }] })
-    )
+    const getStatusOptionWrapper = (option, selectedValue) =>
+      shallow(renderSubstatusOption(option, { selectValue: [{ value: selectedValue }] }))
     const testValue = 'testValue'
     const testLabel = 'testLabel'
     const sampleOption = {
@@ -100,7 +95,7 @@ describe('SubstatusDropdown', () => {
       label: testLabel
     }
 
-    test('renders a value that\'s not selected as expected', () => {
+    test("renders a value that's not selected as expected", () => {
       wrapper = getStatusOptionWrapper(sampleOption, 'otherValue')
       expect(wrapper.find('li').prop('aria-selected')).toEqual(false)
       expect(wrapper.text()).toEqual(testLabel)

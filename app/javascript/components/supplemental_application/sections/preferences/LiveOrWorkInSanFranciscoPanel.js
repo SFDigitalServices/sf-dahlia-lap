@@ -9,10 +9,7 @@ import { buildFieldId } from '~/components/applications/application_form/prefere
 import { statusOptions } from '~/components/supplemental_application/sections/preferences/utils'
 const { labelize } = formOptions
 
-const {
-  preferenceProofOptionsLiveSf,
-  preferenceProofOptionsWorkInSf
-} = formOptions
+const { preferenceProofOptionsLiveSf, preferenceProofOptionsWorkInSf } = formOptions
 
 const individualPreferenceOptions = formUtils.toOptions(['Live in SF', 'Work in SF'])
 
@@ -24,8 +21,15 @@ const getLWPrefProofTypeOptions = (individualPrefName) => {
   }
 }
 
-const LiveOrWorkInSanFranciscoPanel = ({ form, preference, preferenceIndex, applicationMembersOptions }) => {
-  const [prefProofTypeOptions, setProofTypeOptions] = useState(getLWPrefProofTypeOptions(preference.individual_preference))
+const LiveOrWorkInSanFranciscoPanel = ({
+  form,
+  preference,
+  preferenceIndex,
+  applicationMembersOptions
+}) => {
+  const [prefProofTypeOptions, setProofTypeOptions] = useState(
+    getLWPrefProofTypeOptions(preference.individual_preference)
+  )
 
   const updatePrefProofOptions = (event) => {
     // This is a SyntheticEvent. We can access event.target.value without persisting the event
@@ -41,9 +45,7 @@ const LiveOrWorkInSanFranciscoPanel = ({ form, preference, preferenceIndex, appl
     <>
       <FormGrid.Row expand={false}>
         <FormItem label='Preference Name'>
-          <div className='text-value'>
-            Live or Work in San Francisco Preference
-          </div>
+          <div className='text-value'>Live or Work in San Francisco Preference</div>
         </FormItem>
         <FormItem>
           <SelectField
@@ -51,20 +53,23 @@ const LiveOrWorkInSanFranciscoPanel = ({ form, preference, preferenceIndex, appl
             options={labelize(individualPreferenceOptions, { disableEmpty: true })}
             label='Individual Preference Name'
             className='individual-preference-select'
-            onChange={updatePrefProofOptions} />
+            onChange={updatePrefProofOptions}
+          />
         </FormItem>
         <FormItem>
           <SelectField
             fieldName={buildFieldId(preferenceIndex, 'application_member_id')}
             options={labelize(applicationMembersOptions, { disableEmpty: true })}
-            label='HH Member on Proof' />
+            label='HH Member on Proof'
+          />
         </FormItem>
         <FormItem>
           <SelectField
             fieldName={buildFieldId(preferenceIndex, 'lw_type_of_proof')}
             options={prefProofTypeOptions}
             label='Type of Proof'
-            className='type-of-proof-select' />
+            className='type-of-proof-select'
+          />
         </FormItem>
       </FormGrid.Row>
       <FormGrid.Row expand={false}>
@@ -73,7 +78,8 @@ const LiveOrWorkInSanFranciscoPanel = ({ form, preference, preferenceIndex, appl
             fieldName={buildFieldId(preferenceIndex, 'post_lottery_validation')}
             options={labelize(statusOptions, { disableEmpty: true })}
             label='Status'
-            className='preference-status-select' />
+            className='preference-status-select'
+          />
         </FormItem>
       </FormGrid.Row>
       <FormGrid.Row expand={false}>
@@ -86,7 +92,8 @@ const LiveOrWorkInSanFranciscoPanel = ({ form, preference, preferenceIndex, appl
           </div>
         </div>
       </FormGrid.Row>
-    </>)
+    </>
+  )
 }
 
 export default LiveOrWorkInSanFranciscoPanel

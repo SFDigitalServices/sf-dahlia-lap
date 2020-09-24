@@ -20,7 +20,11 @@ const ListingApplicationsPage = ({ listing }) => {
 
   return (
     <TableLayout pageHeader={pageHeader} tabSection={tabs}>
-      <ApplicationsTableContainer listings={[listing]} onFetchData={fetchApplications} filters={filters} />
+      <ApplicationsTableContainer
+        listings={[listing]}
+        onFetchData={fetchApplications}
+        filters={filters}
+      />
     </TableLayout>
   )
 }

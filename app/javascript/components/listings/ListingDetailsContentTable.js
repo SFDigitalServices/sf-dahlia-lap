@@ -2,25 +2,19 @@ import React from 'react'
 import { map } from 'lodash'
 import { buildFieldSpecs, buildFieldEntry } from '~/utils/fieldSpecs'
 
-const getRow = (row, entries) => map(entries, (entry, idx) => (
-  <td key={idx}>
-    {entry.value}
-  </td>
-))
+const getRow = (row, entries) => map(entries, (entry, idx) => <td key={idx}>{entry.value}</td>)
 
-const getRows = (items, fieldSpecs) => map(items, (row, idx) => {
-  const entries = map(fieldSpecs, (f) => buildFieldEntry(row, f))
+const getRows = (items, fieldSpecs) =>
+  map(items, (row, idx) => {
+    const entries = map(fieldSpecs, (f) => buildFieldEntry(row, f))
 
-  return <tr key={idx}>{getRow(row, entries)}</tr>
-})
+    return <tr key={idx}>{getRow(row, entries)}</tr>
+  })
 
-const getColums = (entries) => map(entries, (entry, idx) => {
-  return (
-    <th key={idx}>
-      {entry.label}
-    </th>
-  )
-})
+const getColums = (entries) =>
+  map(entries, (entry, idx) => {
+    return <th key={idx}>{entry.label}</th>
+  })
 
 const ListingDetailsContentTable = ({ listing, title, table, fields }) => {
   const fieldSpecs = map(fields, (f) => buildFieldSpecs(f))
@@ -32,13 +26,9 @@ const ListingDetailsContentTable = ({ listing, title, table, fields }) => {
       <h4 className='content-card_title t-serif'>{title}</h4>
       <table>
         <thead>
-          <tr>
-            {columns}
-          </tr>
+          <tr>{columns}</tr>
         </thead>
-        <tbody>
-          {rows}
-        </tbody>
+        <tbody>{rows}</tbody>
       </table>
     </div>
   )

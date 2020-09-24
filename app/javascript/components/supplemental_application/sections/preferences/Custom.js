@@ -7,36 +7,35 @@ import formOptions from '~/components/applications/application_form/formOptions'
 import { buildFieldId } from '~/components/applications/application_form/preferences/utils'
 import { statusOptions } from '~/components/supplemental_application/sections/preferences/utils'
 const { labelize } = formOptions
-const {
-  preferenceProofOptionsDefault
-} = formOptions
+const { preferenceProofOptionsDefault } = formOptions
 
 export const Custom = ({ preferenceIndex, preference, applicationMembersOptions }) => {
   return (
     <>
       <FormGrid.Row expand={false}>
         <FormItem label='Preference Name'>
-          <div className='text-value'>
-            {preference.preference_name}
-          </div>
+          <div className='text-value'>{preference.preference_name}</div>
         </FormItem>
         <FormItem>
           <SelectField
             fieldName={buildFieldId(preferenceIndex, 'application_member_id')}
             options={labelize(applicationMembersOptions, { disableEmpty: true })}
-            label='HH Member on Proof' />
+            label='HH Member on Proof'
+          />
         </FormItem>
         <FormItem>
           <SelectField
             fieldName={buildFieldId(preferenceIndex, 'type_of_proof')}
             options={preferenceProofOptionsDefault}
-            label='Type of Proof' />
+            label='Type of Proof'
+          />
         </FormItem>
         <FormItem>
           <SelectField
             fieldName={buildFieldId(preferenceIndex, 'post_lottery_validation')}
             options={labelize(statusOptions, { disableEmpty: true })}
-            label='Status' />
+            label='Status'
+          />
         </FormItem>
       </FormGrid.Row>
       <FormGrid.Row expand={false}>
@@ -49,7 +48,8 @@ export const Custom = ({ preferenceIndex, preference, applicationMembersOptions 
           </div>
         </div>
       </FormGrid.Row>
-    </>)
+    </>
+  )
 }
 
 export default Custom

@@ -8,7 +8,9 @@ const IndexTableCell = ({ attrs, val, editVal, editing, onChange }) => {
       let i = 0
       _.each(attrs.editable_options, (option) => {
         options.push(
-          <option value={option} key={i++}>{option}</option>
+          <option value={option} key={i++}>
+            {option}
+          </option>
         )
       })
       return (

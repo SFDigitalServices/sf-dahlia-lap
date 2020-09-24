@@ -25,30 +25,29 @@ const ListingDetails = ({ listing }) => {
     <div>
       <Card title='Details' fields={detailsFields} />
       <Card title='Building Information' fields={buildingInformationFields} />
-      { !isEmpty(listing.listing_lottery_preferences) && (
-        <Table title='Listing Preferences'
+      {!isEmpty(listing.listing_lottery_preferences) && (
+        <Table
+          title='Listing Preferences'
           table='listing_lottery_preferences'
-          fields={lotteryPreferencesFields} />
-      )
-      }
+          fields={lotteryPreferencesFields}
+        />
+      )}
       <Card title='Accessibility, Amenities, Fees' fields={aafFields} />
       <Card title='Lottery Information' fields={lotteryInfoFields} />
       <Card title='Application Information' fields={appInfoFields} />
       <Card title='Leasing Agent and Developer Information' fields={agentDevInfoFields} />
       <Card title='Additional Eligibility Rules' fields={eligibilityRulesFields} />
       <Card title='Additional Information' fields={additionalInfoFields} />
-      { !isEmpty(listing.open_houses) && (
-        <Table title='Open Houses'
-          table='open_houses'
-          fields={openHousesFields} />
-      )
-      }
-      { !isEmpty(listing.information_sessions) && (
-        <Table title='Information Sessions'
+      {!isEmpty(listing.open_houses) && (
+        <Table title='Open Houses' table='open_houses' fields={openHousesFields} />
+      )}
+      {!isEmpty(listing.information_sessions) && (
+        <Table
+          title='Information Sessions'
           table='information_sessions'
-          fields={infoSessionsFields} />
-      )
-      }
+          fields={infoSessionsFields}
+        />
+      )}
     </div>
   )
 }

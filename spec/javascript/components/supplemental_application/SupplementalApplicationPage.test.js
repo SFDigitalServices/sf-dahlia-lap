@@ -35,7 +35,9 @@ jest.mock('apiService', () => {
       return true
     },
     getAMI: async (data) => {
-      return { ami: [{ chartType: data.chartType, year: data.chartYear, amount: 100, numOfHousehold: 1 }] }
+      return {
+        ami: [{ chartType: data.chartType, year: data.chartYear, amount: 100, numOfHousehold: 1 }]
+      }
     },
     createLease: async (lease, contact, applicationId) => {
       const leaseWithNewFields = {
@@ -93,7 +95,8 @@ describe('SupplementalApplicationPage', () => {
         <SupplementalApplicationPage
           application={getMockApplication()}
           units={units}
-          availableUnits={[]} />
+          availableUnits={[]}
+        />
       )
     })
 
@@ -109,10 +112,13 @@ describe('SupplementalApplicationPage', () => {
           application={getMockApplication()}
           statusHistory={statusHistory}
           units={units}
-          availableUnits={[]} />
+          availableUnits={[]}
+        />
       )
     })
-    await act(async () => { wrapper.find('form').first().simulate('submit') })
+    await act(async () => {
+      wrapper.find('form').first().simulate('submit')
+    })
     expect(mockSubmitApplication.mock.calls).toHaveLength(0)
   })
 
@@ -125,11 +131,14 @@ describe('SupplementalApplicationPage', () => {
           application={getMockApplication()}
           statusHistory={statusHistory}
           units={units}
-          availableUnits={[]} />
+          availableUnits={[]}
+        />
       )
     })
     wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
-    await act(async () => { wrapper.find('form').first().simulate('submit') })
+    await act(async () => {
+      wrapper.find('form').first().simulate('submit')
+    })
     expect(mockSubmitApplication.mock.calls).toHaveLength(1)
     expect(mockSubmitApplication).toHaveBeenCalledWith({ id: payload.id, number_of_dependents: 2 })
   })
@@ -148,16 +157,21 @@ describe('SupplementalApplicationPage', () => {
           application={getMockApplication()}
           statusHistory={statusHistory}
           units={units}
-          availableUnits={[]} />
+          availableUnits={[]}
+        />
       )
     })
 
     wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
     wrapper.find('#demographics-seniors select option[value=3]').simulate('change')
     wrapper.find('#demographics-minors select option[value=0]').simulate('change')
-    wrapper.find('#demographics-marital-status select option[value="Domestic Partner"]').simulate('change')
+    wrapper
+      .find('#demographics-marital-status select option[value="Domestic Partner"]')
+      .simulate('change')
 
-    await act(async () => { wrapper.find('form').first().simulate('submit') })
+    await act(async () => {
+      wrapper.find('form').first().simulate('submit')
+    })
 
     expect(mockSubmitApplication.mock.calls).toHaveLength(1)
     expect(mockSubmitApplication.mock.calls[0][0]).toMatchObject(expectedDemographics)
@@ -192,7 +206,9 @@ describe('SupplementalApplicationPage', () => {
       // Click edit to open up the panel
       await wrapper.find('.preferences-table .action-link').first().simulate('click')
       // Save the preference panel without making updates
-      await act(async () => { wrapper.find('.preferences-table .save-panel-btn').first().simulate('click') })
+      await act(async () => {
+        wrapper.find('.preferences-table .save-panel-btn').first().simulate('click')
+      })
 
       const expectedPreferencePayload = {
         id: 'preference_id',
@@ -206,7 +222,9 @@ describe('SupplementalApplicationPage', () => {
       expect(mockUpdateApplication.mock.calls).toHaveLength(0)
       expect(mockUpdatePreference.mock.calls).toHaveLength(1)
       // Additional fields are sent to the API, but these are the fields that we care about.
-      expect(mockUpdatePreference).toHaveBeenCalledWith(expect.objectContaining(expectedPreferencePayload))
+      expect(mockUpdatePreference).toHaveBeenCalledWith(
+        expect.objectContaining(expectedPreferencePayload)
+      )
     })
 
     test('it updates total monthly rent when saving a rent burdened preference panel', async () => {
@@ -241,7 +259,9 @@ describe('SupplementalApplicationPage', () => {
       // Click edit to open up the panel
       await wrapper.find('.preferences-table .action-link').first().simulate('click')
       // Save the preference panel without making updates
-      await act(async () => { wrapper.find('.preferences-table .save-panel-btn').first().simulate('click') })
+      await act(async () => {
+        wrapper.find('.preferences-table .save-panel-btn').first().simulate('click')
+      })
 
       const expectedPreferencePayload = {
         application_member_id: 'xxx',
@@ -259,8 +279,13 @@ describe('SupplementalApplicationPage', () => {
       }
       expect(mockUpdateApplication.mock.calls).toHaveLength(1)
       expect(mockUpdatePreference.mock.calls).toHaveLength(1)
-      expect(mockUpdatePreference).toHaveBeenCalledWith(expect.objectContaining(expectedPreferencePayload))
-      expect(mockUpdateApplication).toHaveBeenCalledWith({ id: 'application_id', total_monthly_rent: '50' })
+      expect(mockUpdatePreference).toHaveBeenCalledWith(
+        expect.objectContaining(expectedPreferencePayload)
+      )
+      expect(mockUpdateApplication).toHaveBeenCalledWith({
+        id: 'application_id',
+        total_monthly_rent: '50'
+      })
     })
   })
 
@@ -274,13 +299,18 @@ describe('SupplementalApplicationPage', () => {
             application={application}
             statusHistory={statusHistory}
             units={units}
-            availableUnits={[]} />
+            availableUnits={[]}
+          />
         )
       })
-      wrapper.find('input#form-confirmed_household_annual_income').simulate('change', { target: { value: '1234' } })
+      wrapper
+        .find('input#form-confirmed_household_annual_income')
+        .simulate('change', { target: { value: '1234' } })
       wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
 
-      await act(async () => { wrapper.find('form').first().simulate('submit') })
+      await act(async () => {
+        wrapper.find('form').first().simulate('submit')
+      })
 
       const expectedApplication = { id: application.id }
       expectedApplication.confirmed_household_annual_income = 1234.0
@@ -298,16 +328,21 @@ describe('SupplementalApplicationPage', () => {
             application={application}
             statusHistory={statusHistory}
             units={units}
-            availableUnits={[]} />
+            availableUnits={[]}
+          />
         )
       })
-      wrapper.find('input#form-confirmed_household_annual_income').simulate('change', { target: { value: '' } })
+      wrapper
+        .find('input#form-confirmed_household_annual_income')
+        .simulate('change', { target: { value: '' } })
       wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
 
       const expectedApplication = { id: application.id }
       expectedApplication.confirmed_household_annual_income = null
 
-      await act(async () => { wrapper.find('form').first().simulate('submit') })
+      await act(async () => {
+        wrapper.find('form').first().simulate('submit')
+      })
       expect(mockSubmitApplication.mock.calls).toHaveLength(1)
       expect(mockSubmitApplication).toHaveBeenCalledWith(expectedApplication)
     })
@@ -335,7 +370,8 @@ describe('SupplementalApplicationPage', () => {
           <SupplementalApplicationPage
             application={mockApplication}
             statusHistory={statusHistory}
-            availableUnits={mockAvailableUnits} />
+            availableUnits={mockAvailableUnits}
+          />
         )
       })
     })
@@ -351,15 +387,26 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('#lease_start_date_year input').simulate('change', { target: { value: '2019' } })
 
       // Preference used
-      wrapper.find('[name="lease.preference_used"] select option[value="testValidPref"]').simulate('change')
+      wrapper
+        .find('[name="lease.preference_used"] select option[value="testValidPref"]')
+        .simulate('change')
 
       // Costs
-      wrapper.find('[name="lease.total_monthly_rent_without_parking"] input').simulate('change', { target: { value: '$1' } })
-      wrapper.find('[name="lease.monthly_parking_rent"] input').at(0).simulate('change', { target: { value: '$2' } })
-      wrapper.find('[name="lease.monthly_tenant_contribution"] input').simulate('change', { target: { value: '$3' } })
+      wrapper
+        .find('[name="lease.total_monthly_rent_without_parking"] input')
+        .simulate('change', { target: { value: '$1' } })
+      wrapper
+        .find('[name="lease.monthly_parking_rent"] input')
+        .at(0)
+        .simulate('change', { target: { value: '$2' } })
+      wrapper
+        .find('[name="lease.monthly_tenant_contribution"] input')
+        .simulate('change', { target: { value: '$3' } })
 
       // Assert that they're sent to the API
-      await act(async () => { wrapper.find('form').first().simulate('submit') })
+      await act(async () => {
+        wrapper.find('form').first().simulate('submit')
+      })
 
       const expectedLease = {
         id: 'a130P000005TeZrQAK',
@@ -387,7 +434,9 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('[name="lease.unit"] select option[value=""]').simulate('change')
 
       // Hit save
-      await act(async () => { wrapper.find('form').first().simulate('submit') })
+      await act(async () => {
+        wrapper.find('form').first().simulate('submit')
+      })
 
       // Verify that the API was called with null unit value
       expect(mockCreateLease.mock.calls).toHaveLength(0)
@@ -403,7 +452,8 @@ describe('SupplementalApplicationPage', () => {
             application={getMockApplication()}
             statusHistory={statusHistory}
             units={[]}
-            availableUnits={[]} />
+            availableUnits={[]}
+          />
         )
       })
       const unitSelect = await wrapper.find('#lease_assigned_unit').first()
@@ -446,7 +496,10 @@ describe('SupplementalApplicationPage', () => {
     })
 
     // Fill in letters in lease date month - which are invalid values
-    wrapper.find('#lease_start_date_month').first().simulate('change', { target: { value: 'AB' } })
+    wrapper
+      .find('#lease_start_date_month')
+      .first()
+      .simulate('change', { target: { value: 'AB' } })
     wrapper.find('#save-supplemental-application').first().simulate('click')
 
     // alert box to display

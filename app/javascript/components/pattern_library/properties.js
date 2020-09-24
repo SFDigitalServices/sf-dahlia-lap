@@ -38,8 +38,8 @@ const Properties = ({ payload }) => {
   const toggleExpand = () => setExpanded(!expanded)
 
   return expanded ? (
-    <div style={style} >
-      <a onClick={toggleExpand} >Hide Properties</a>
+    <div style={style}>
+      <a onClick={toggleExpand}>Hide Properties</a>
       <JSONTree data={payload} invertTheme theme={theme} hideRoot shouldExpandNode={() => true} />
     </div>
   ) : (

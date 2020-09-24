@@ -6,8 +6,6 @@ const HomePageHeader = () => (
   <PageHeader title='Welcome to DAHLIA Partners.' content='We hope you enjoy your stay here.' />
 )
 
-const HomePage = () => (
-  <HomePageHeader />
-)
+const HomePage = () => <HomePageHeader />
 
 export default HomePage

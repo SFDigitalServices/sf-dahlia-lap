@@ -11,10 +11,7 @@ describe('LeaveConfirmationModal', () => {
 
   test('it should render successfully', () => {
     const wrapper = mount(
-      <LeaveConfirmationModal
-        isOpen={isOpen}
-        handleClose={handleClose}
-        destination={destination} />
+      <LeaveConfirmationModal isOpen={isOpen} handleClose={handleClose} destination={destination} />
     )
 
     expect(wrapper).toMatchSnapshot()
@@ -22,10 +19,7 @@ describe('LeaveConfirmationModal', () => {
 
   test('it should close when the appropriate buttons are clicked', () => {
     const wrapper = mount(
-      <LeaveConfirmationModal
-        isOpen={isOpen}
-        handleClose={handleClose}
-        destination={destination} />
+      <LeaveConfirmationModal isOpen={isOpen} handleClose={handleClose} destination={destination} />
     )
 
     wrapper.find('.modal-button_secondary button').simulate('click')

@@ -16,12 +16,10 @@ import {
 } from '~/utils/form/final_form/Field.js'
 import validate from '~/utils/form/validations'
 
-const validateIncomeCurrency = value => {
+const validateIncomeCurrency = (value) => {
   return (
     validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
-    validate.isUnderMaxValue(Math.pow(10, 15))(
-      'Please enter a smaller number.'
-    )(value)
+    validate.isUnderMaxValue(Math.pow(10, 15))('Please enter a smaller number.')(value)
   )
 }
 
@@ -32,9 +30,7 @@ export const getAmiPercent = ({ income, ami }) => {
   if (isNil(ami)) {
     return 'Missing AMI Chart'
   }
-  const incomeFloat = isString(income)
-    ? Number(income.replace(/[$,]+/g, ''))
-    : income
+  const incomeFloat = isString(income) ? Number(income.replace(/[$,]+/g, '')) : income
   if (Number.isNaN(incomeFloat)) {
     return 'Fix HH Income'
   }
@@ -48,12 +44,8 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
   useEffectOnMount(() => {
     const getAmiCharts = async () => {
       if (listingAmiCharts.length > 0) {
-        setAmiChartYears(
-          formUtils.toOptions(getAmiChartYears(listingAmiCharts))
-        )
-        setAmiChartTypes(
-          formUtils.toOptions(listingAmiCharts.map(x => x.ami_chart_type))
-        )
+        setAmiChartYears(formUtils.toOptions(getAmiChartYears(listingAmiCharts)))
+        setAmiChartTypes(formUtils.toOptions(listingAmiCharts.map((x) => x.ami_chart_type)))
       }
     }
 
@@ -110,9 +102,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
               id='ami_percentage'
               label='Household AMI Percentage'
               fieldName='ami_percentage'
-              validation={validate.isValidPercent(
-                'Please enter a valid percent.'
-              )}
+              validation={validate.isValidPercent('Please enter a valid percent.')}
               isDirty={visited && visited.ami_percentage}
             />
           </FormGrid.Item>

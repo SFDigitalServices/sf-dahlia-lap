@@ -26,13 +26,13 @@ class SpreadsheetIndexTable extends React.Component {
       if (toLower(field) === 'application') return
       const column = {
         id: field,
-        accessor: (row) => (
-          row[field]
-        ),
+        accessor: (row) => row[field],
         Cell: (cellInfo) => {
           // we are "editing" this row if we have expanded it
           let editing = this.state.expanded[cellInfo.viewIndex]
-          const lotteryStatus = this.state.persistedData[cellInfo.index]['Flagged_Record_Set.Listing.Lottery_Status']
+          const lotteryStatus = this.state.persistedData[cellInfo.index][
+            'Flagged_Record_Set.Listing.Lottery_Status'
+          ]
           if (includes(['In Progress', 'Lottery Complete'], lotteryStatus)) {
             // don't allow editing based on certain lotteryStatus values
             editing = false
@@ -41,9 +41,7 @@ class SpreadsheetIndexTable extends React.Component {
           const val = this.state.persistedData[cellInfo.index][cellInfo.column.id]
           const editVal = this.state.editData[cellInfo.index][cellInfo.column.id] || ''
           const props = { attrs, val, editVal, editing, onChange }
-          return (
-            <IndexTableCell {...props} />
-          )
+          return <IndexTableCell {...props} />
         }
       }
       if (attrs.minWidth) {
@@ -103,7 +101,7 @@ class SpreadsheetIndexTable extends React.Component {
     }
   }
 
-  render () {
+  render() {
     var getTrProps = (state, rowInfo, column, instance) => {
       return {
         onClick: (e, handleOriginal) => {
@@ -138,12 +136,20 @@ class SpreadsheetIndexTable extends React.Component {
         <ul className='subcomponent button-radio-group segmented-radios inline-group'>
           {viewApplicationLink}
           <li>
-            <button disabled={this.state.loading[row.index]} onClick={this.closeRow(row, true)} className='button secondary tiny'>
+            <button
+              disabled={this.state.loading[row.index]}
+              onClick={this.closeRow(row, true)}
+              className='button secondary tiny'
+            >
               Save Changes
             </button>
           </li>
           <li>
-            <button disabled={this.state.loading[row.index]} onClick={this.closeRow(row)} className='button secondary tiny'>
+            <button
+              disabled={this.state.loading[row.index]}
+              onClick={this.closeRow(row)}
+              className='button secondary tiny'
+            >
               Cancel
             </button>
           </li>

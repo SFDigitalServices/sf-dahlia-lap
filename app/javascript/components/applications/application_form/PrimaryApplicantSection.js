@@ -63,14 +63,16 @@ const PrimaryApplicantSection = ({ form }) => {
             fieldName='applicant.phone'
             id='phone'
             label='Primary Phone Number'
-            maxLength={maxLengthMap.phone} />
+            maxLength={maxLengthMap.phone}
+          />
         </div>
         <div className='small-4 columns'>
           <SelectField
             fieldName='applicant.phone_type'
             id='phone_type'
             label='Primary Phone Number- Type'
-            options={phoneTypeOptions} />
+            options={phoneTypeOptions}
+          />
         </div>
       </div>
       <div className='row'>
@@ -88,20 +90,19 @@ const PrimaryApplicantSection = ({ form }) => {
             label='Second Phone Number'
             fieldName='applicant.second_phone'
             id='second_phone'
-            maxLength={maxLengthMap.phone} />
+            maxLength={maxLengthMap.phone}
+          />
         </div>
         <div className='small-4 columns'>
           <SelectField
             fieldName='applicant.second_phone_type'
             id='second_phone_type'
             label='Second Phone Number- Type'
-            options={phoneTypeOptions} />
+            options={phoneTypeOptions}
+          />
         </div>
       </div>
-      <AddressForm
-        title='Home Address'
-        fieldName='applicant'
-      />
+      <AddressForm title='Home Address' fieldName='applicant' />
       <AddressForm
         title='Mailing Address'
         fieldName='applicant'

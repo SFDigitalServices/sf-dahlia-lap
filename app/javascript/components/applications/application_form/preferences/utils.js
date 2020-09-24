@@ -13,7 +13,9 @@ export const memberNameFromPref = (id, householdMembers) => {
   const member = find(householdMembers, { id: id })
   if (member) {
     return `${member.first_name} ${member.last_name}`
-  } else { return '' }
+  } else {
+    return ''
+  }
 }
 
 export const FIELD_NAME = 'preferences'
@@ -35,8 +37,10 @@ export const buildHouseholdMembersOptions = (applicationMembers) => {
 
 export const getFullHousehold = (application) => {
   const fullHousehold = concat([application.applicant], application.household_members || [])
-  return pickBy(fullHousehold, m => (
-    // can only select someone for preference if they have name + DOB
-    m && m.first_name && m.last_name && m.date_of_birth
-  ))
+  return pickBy(
+    fullHousehold,
+    (m) =>
+      // can only select someone for preference if they have name + DOB
+      m && m.first_name && m.last_name && m.date_of_birth
+  )
 }

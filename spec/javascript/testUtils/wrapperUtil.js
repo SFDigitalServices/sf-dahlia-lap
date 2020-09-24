@@ -7,26 +7,14 @@ const formNode = (application, formToChildrenFunc) => (
   <Form
     onSubmit={() => null}
     initialValues={application}
-    render={({ form }) => (
-      <form noValidate>
-        {formToChildrenFunc(form)}
-      </form>
-    )}
+    render={({ form }) => <form noValidate>{formToChildrenFunc(form)}</form>}
   />
 )
 
-const diveThroughFormWrappers = (wrapper) =>
-  wrapper
-    .find('form')
-    .children()
-    .dive()
+const diveThroughFormWrappers = (wrapper) => wrapper.find('form').children().dive()
 
 const shallowWithForm = (application, formToChildrenFunc) =>
-  diveThroughFormWrappers(
-    shallow(
-      formNode(application, formToChildrenFunc)
-    )
-  )
+  diveThroughFormWrappers(shallow(formNode(application, formToChildrenFunc)))
 
 const mountWithForm = (application, formToChildrenFunc) =>
   mount(formNode(application, formToChildrenFunc))
@@ -51,7 +39,8 @@ export const withForm = (application, formToChildrenFunc, shouldMount = false) =
  * you have to dive() twice on the wrapper to actually get to the component you're trying to test.
  * @param {} shallowWrapperWithContext
  */
-const diveThroughContextWrappers = (shallowWrapperWithContext) => shallowWrapperWithContext.dive().dive()
+const diveThroughContextWrappers = (shallowWrapperWithContext) =>
+  shallowWrapperWithContext.dive().dive()
 
 /**
  * Return a component wrapper for any component that uses react-final-form and useContext()
@@ -74,12 +63,13 @@ export const shallowWithFormAndContext = (context, formToChildrenFunc) => {
 }
 
 export const findByNameAndProps = (wrapper, name, props) => {
-  const predicate = n => n.name() === name && Object.keys(props).every(k => n.prop(k) === props[k])
+  const predicate = (n) =>
+    n.name() === name && Object.keys(props).every((k) => n.prop(k) === props[k])
 
   return wrapper.findWhere(predicate)
 }
 
 export const findWithText = (wrapper, nodeName, text) => {
-  const predicate = n => n.name() === nodeName && n.text() === text
+  const predicate = (n) => n.name() === nodeName && n.text() === text
   return wrapper.findWhere(predicate)
 }

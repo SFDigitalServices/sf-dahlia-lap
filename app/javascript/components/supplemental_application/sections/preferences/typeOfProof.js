@@ -2,28 +2,23 @@ import React from 'react'
 import { filter, some, overSome } from 'lodash'
 
 import appPaths from '~/utils/appPaths'
-import {
-  isCOP,
-  isDTHP
-} from './utils'
+import { isCOP, isDTHP } from './utils'
 
 const ProofFilesList = ({ proofFiles, fileBaseUrl }) => {
   return (
     <ul>
-      {
-        proofFiles.map(file => (
-          <li key={file.id}>
-            <a
-              href={appPaths.toAttachmentDownload(fileBaseUrl, file)}
-              className='block-link'
-              target='_blank'
-              rel='noreferrer'
-            >
-              {file.document_type}
-            </a>
-          </li>
-        ))
-      }
+      {proofFiles.map((file) => (
+        <li key={file.id}>
+          <a
+            href={appPaths.toAttachmentDownload(fileBaseUrl, file)}
+            className='block-link'
+            target='_blank'
+            rel='noreferrer'
+          >
+            {file.document_type}
+          </a>
+        </li>
+      ))}
     </ul>
   )
 }
@@ -31,17 +26,21 @@ const ProofFilesList = ({ proofFiles, fileBaseUrl }) => {
 const TypeOfProofWithoutFile = ({ type }) => {
   return (
     <ul>
-      <li>
-        {type}
-      </li>
+      <li>{type}</li>
     </ul>
   )
 }
 
 const getAttachments = (preference, proofFiles, fileBaseUrl) => {
-  const proofFilesForPreference = filter(proofFiles, { related_application_preference: preference.id })
-  const typeOfProof = preference.recordtype_developername === 'L_W' ? preference.lw_type_of_proof : preference.type_of_proof
-  const typeOfProofMatchesFileType = some(proofFilesForPreference) && typeOfProof === proofFilesForPreference[0].document_type
+  const proofFilesForPreference = filter(proofFiles, {
+    related_application_preference: preference.id
+  })
+  const typeOfProof =
+    preference.recordtype_developername === 'L_W'
+      ? preference.lw_type_of_proof
+      : preference.type_of_proof
+  const typeOfProofMatchesFileType =
+    some(proofFilesForPreference) && typeOfProof === proofFilesForPreference[0].document_type
   const isRentBurdened = preference.recordtype_developername === 'RB_AHP'
 
   if (typeOfProof && !typeOfProofMatchesFileType && !isRentBurdened) {
@@ -52,5 +51,9 @@ const getAttachments = (preference, proofFiles, fileBaseUrl) => {
 }
 
 export const getTypeOfProof = (preference, proofFiles, fileBaseUrl) => {
-  if (overSome(isCOP, isDTHP)(preference.preference_name)) { return preference.certificate_number } else { return getAttachments(preference, proofFiles, fileBaseUrl) }
+  if (overSome(isCOP, isDTHP)(preference.preference_name)) {
+    return preference.certificate_number
+  } else {
+    return getAttachments(preference, proofFiles, fileBaseUrl)
+  }
 }

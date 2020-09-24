@@ -11,7 +11,7 @@ const ApplicationsPage = (props) => {
   }
 
   return (
-    <TableLayout pageHeader={pageHeader} >
+    <TableLayout pageHeader={pageHeader}>
       <ApplicationsTableContainer {...props} />
     </TableLayout>
   )

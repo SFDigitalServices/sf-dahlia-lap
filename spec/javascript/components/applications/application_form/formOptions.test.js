@@ -1,7 +1,5 @@
 import formOptions from 'components/applications/application_form/formOptions'
-const {
-  labelize
-} = formOptions
+const { labelize } = formOptions
 const emptyOption = { label: 'Select One...', value: '' }
 
 describe('labelize', () => {

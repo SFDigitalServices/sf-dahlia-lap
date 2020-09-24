@@ -23,6 +23,8 @@ describe('PreferencesTable', () => {
     )
     // application is receives preference == false for NRHP, and true fpr Alice Griffith
     expect(wrapper.find('#alice-griffith-housing-development-resident-row').exists()).toBeTruthy()
-    expect(wrapper.find('#neighborhood-resident-housing-preference-(nrhp)-row').exists()).toBeFalsy()
+    expect(
+      wrapper.find('#neighborhood-resident-housing-preference-(nrhp)-row').exists()
+    ).toBeFalsy()
   })
 })

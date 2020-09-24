@@ -14,11 +14,7 @@ const TabCard = ({ children, padding }) => {
     },
     'bg-white'
   )
-  return (
-    <section className={sectionClassName}>
-      {children}
-    </section>
-  )
+  return <section className={sectionClassName}>{children}</section>
 }
 
 TabCard.defaultProps = {

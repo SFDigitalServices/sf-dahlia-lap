@@ -14,7 +14,8 @@ const ContentSectionWrapper = ({ title, titleDesc, subtitle, subtitleDesc }) => 
           placeholder='Enter text'
           describeId='label'
           note='More text'
-          error='Please enter a First Name' />
+          error='Please enter a First Name'
+        />
       </ContentSection.Sub>
     </ContentSection>
   )

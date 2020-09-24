@@ -232,7 +232,14 @@ describe('updateApplicationAndAddComment', () => {
   describe('when the request should also create a lease', () => {
     let response
     beforeEach(async () => {
-      response = await updateApplicationAndAddComment(application, prevApp, newStatus, null, null, true)
+      response = await updateApplicationAndAddComment(
+        application,
+        prevApp,
+        newStatus,
+        null,
+        null,
+        true
+      )
     })
 
     test('it should return the correct response', async () => {
@@ -258,7 +265,14 @@ describe('updateApplicationAndAddComment', () => {
   describe('when the request should not also create a lease', () => {
     let response
     beforeEach(async () => {
-      response = await updateApplicationAndAddComment(application, prevApp, newStatus, null, null, false)
+      response = await updateApplicationAndAddComment(
+        application,
+        prevApp,
+        newStatus,
+        null,
+        null,
+        false
+      )
     })
 
     test('it should return the correct response', async () => {
@@ -579,7 +593,10 @@ describe('saveLeaseAndAssistances', () => {
   })
 
   describe('when the current application has an edited assistance', () => {
-    const currentApp = appWith({ lease: leaseWithId, assistances: [{ ...assistance1, newField: 'newFieldValue' }] })
+    const currentApp = appWith({
+      lease: leaseWithId,
+      assistances: [{ ...assistance1, newField: 'newFieldValue' }]
+    })
     const prevApp = appWith({ lease: leaseWithId, assistances: [assistance1] })
     let response
 

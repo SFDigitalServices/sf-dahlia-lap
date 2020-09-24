@@ -23,34 +23,50 @@ const PreferencesSection = ({ form, editValues, listingPreferences }) => {
   })
 
   const allPreferencesSelected = () => {
-    if (form.getState().values && !isEmpty(form.getState().values.preferences) && listingPreferences) {
+    if (
+      form.getState().values &&
+      !isEmpty(form.getState().values.preferences) &&
+      listingPreferences
+    ) {
       return form.getState().values.preferences.length === listingPreferences.length
     }
   }
 
   const hasHouseholdMembers = () => {
-    const hasPrimaryApplicant = !isEmpty(form.getState().values) && !isEmpty(form.getState().values.applicant) && form.getState().values.applicant.first_name
-    const hasHouseholdMembers = !isEmpty(form.getState().values) && !isEmpty(form.getState().values.household_members)
-    return (hasHouseholdMembers || hasPrimaryApplicant)
+    const hasPrimaryApplicant =
+      !isEmpty(form.getState().values) &&
+      !isEmpty(form.getState().values.applicant) &&
+      form.getState().values.applicant.first_name
+    const hasHouseholdMembers =
+      !isEmpty(form.getState().values) && !isEmpty(form.getState().values.household_members)
+    return hasHouseholdMembers || hasPrimaryApplicant
   }
 
   const disableAddPreference = () => {
-    return (allPreferencesSelected() || !hasHouseholdMembers())
+    return allPreferencesSelected() || !hasHouseholdMembers()
   }
 
   return (
     <div className='border-bottom margin-bottom--2x'>
       <h3>Preferences</h3>
       <FieldArray name='preferences'>
-        {({ fields }) =>
+        {({ fields }) => (
           <>
-            { fields.map((name, i) => {
+            {fields.map((name, i) => {
               return (
                 <div className='border-bottom margin-bottom--2x' key={name}>
-                  <PreferenceForm {...{ i, name, form, listingPreferences, fullHousehold: getFullHousehold(form.getState().values) }} />
-                </div>)
-            })
-            }
+                  <PreferenceForm
+                    {...{
+                      i,
+                      name,
+                      form,
+                      listingPreferences,
+                      fullHousehold: getFullHousehold(form.getState().values)
+                    }}
+                  />
+                </div>
+              )
+            })}
             <div className='row'>
               <div className='form-group'>
                 <div className='small-4 columns'>
@@ -59,14 +75,15 @@ const PreferencesSection = ({ form, editValues, listingPreferences }) => {
                     disabled={disableAddPreference()}
                     type='button'
                     className='mb-4 mr-4 btn btn-success'
-                    id='add-preference-button'>
-                      + Add Preference
+                    id='add-preference-button'
+                  >
+                    + Add Preference
                   </button>
                 </div>
               </div>
             </div>
           </>
-        }
+        )}
       </FieldArray>
     </div>
   )

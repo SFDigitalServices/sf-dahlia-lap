@@ -15,9 +15,7 @@ describe('ApplicationPage', () => {
       const fileBaseUrl = 'http://www.someurl.com'
 
       const wrapper = renderer.create(
-        <ApplicationPage
-          application={application}
-          file_base_url={fileBaseUrl} />
+        <ApplicationPage application={application} file_base_url={fileBaseUrl} />
       )
       // TODO: Expand test coverage on this page to the point that we do not need this snapshot check.
       expect(wrapper.toJSON()).toMatchSnapshot()
@@ -28,9 +26,7 @@ describe('ApplicationPage', () => {
       expect(application.flagged_applications).toHaveLength(0)
 
       const wrapper = mount(
-        <ApplicationPage
-          application={application}
-          file_base_url={fileBaseUrl} />
+        <ApplicationPage application={application} file_base_url={fileBaseUrl} />
       )
       // Flagged application content card should not render
       expect(wrapper.exists(flaggedAppCardSelector)).toEqual(false)
@@ -38,26 +34,27 @@ describe('ApplicationPage', () => {
 
     test('application with flagged applications', () => {
       const applicationWithFlagged = clone(application)
-      applicationWithFlagged.flagged_applications = [{
-        flagged_record:
-          {
+      applicationWithFlagged.flagged_applications = [
+        {
+          flagged_record: {
             id: 'a0r0P00002X4r08QAB',
             rule_name: 'Name + DOB',
             total_number_of_pending_review: 51
           }
-      }]
+        }
+      ]
 
       const fileBaseUrl = 'http://www.someurl.com'
       const wrapper = mount(
-        <ApplicationPage
-          application={applicationWithFlagged}
-          file_base_url={fileBaseUrl} />
+        <ApplicationPage application={applicationWithFlagged} file_base_url={fileBaseUrl} />
       )
       // Flagged application content card should render
       expect(wrapper.exists(flaggedAppCardSelector)).toEqual(true)
       // Check that the row is there and contains the right rule name.
       expect(wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr`)).toHaveLength(1)
-      expect(wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr > td`).first().text()).toEqual('Name + DOB')
+      expect(
+        wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr > td`).first().text()
+      ).toEqual('Name + DOB')
     })
 
     test('sale application', () => {
@@ -66,10 +63,7 @@ describe('ApplicationPage', () => {
 
       const fileBaseUrl = 'http://www.someurl.com'
       const wrapper = mount(
-        <ApplicationPage
-          application={saleAppt}
-          file_base_url={fileBaseUrl}
-          fields={fields} />
+        <ApplicationPage application={saleAppt} file_base_url={fileBaseUrl} fields={fields} />
       )
       // Should have Eligibility section
       expect(wrapper.find('.content-card_title').at(2).text()).toEqual('Eligibility')

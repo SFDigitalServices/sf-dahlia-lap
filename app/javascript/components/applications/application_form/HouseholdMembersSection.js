@@ -6,9 +6,11 @@ import validate from '~/utils/form/validations'
 const memberValidate = (values) => {
   if (!values || !values.length) return
   const membersErrors = []
-  values.forEach(value => {
+  values.forEach((value) => {
     const memberError = { date_of_birth: {} }
-    validate.isValidDate(value.date_of_birth, memberError.date_of_birth, { errorMessage: 'Please enter a Date of Birth' })
+    validate.isValidDate(value.date_of_birth, memberError.date_of_birth, {
+      errorMessage: 'Please enter a Date of Birth'
+    })
     membersErrors.push(memberError)
   })
 
@@ -22,17 +24,18 @@ const HouseholdMembersSection = ({ form }) => {
         <h3>Household Members</h3>
       </div>
       <FieldArray name='household_members' validate={memberValidate}>
-        {({ fields }) =>
+        {({ fields }) => (
           <>
-            { fields.map((name, i) => {
+            {fields.map((name, i) => {
               return (
                 <div key={name}>
                   <HouseholdMemberForm form={form} i={i} />
                   <button
                     onClick={() => fields.remove(i)}
                     type='button'
-                    className='mb-4 btn btn-danger'>
-                      Remove
+                    className='mb-4 btn btn-danger'
+                  >
+                    Remove
                   </button>
                 </div>
               )
@@ -44,14 +47,15 @@ const HouseholdMembersSection = ({ form }) => {
                     onClick={() => form.mutators.push('household_members', {})}
                     type='button'
                     className='mb-4 mr-4 btn btn-success'
-                    id='add-additional-member'>
-                      + Additional Member
+                    id='add-additional-member'
+                  >
+                    + Additional Member
                   </button>
                 </div>
               </div>
             </div>
           </>
-        }
+        )}
       </FieldArray>
     </div>
   )

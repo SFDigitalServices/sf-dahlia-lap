@@ -17,9 +17,7 @@ const IndexTable = ({ fields, results, links, page }) => {
       if (field === 'Id' || field === 'id') return
       const column = {
         id: field,
-        accessor: (row) => (
-          row[field]
-        ),
+        accessor: (row) => row[field],
         Cell: (cellInfo) => {
           let val = results[cellInfo.index][cellInfo.column.id]
           if (cellInfo.column.Header.includes('Date')) {
@@ -72,9 +70,12 @@ const IndexTable = ({ fields, results, links, page }) => {
           return row[filter.id] === filter.value
         }
         column.Filter = ({ filter, onChange }) => {
-          const uniqListings = uniqBy(map(results, (result) => {
-            return { name: result['listing.name'] || result.listing_name }
-          }), 'name')
+          const uniqListings = uniqBy(
+            map(results, (result) => {
+              return { name: result['listing.name'] || result.listing_name }
+            }),
+            'name'
+          )
           const sortedUniqListings = sortBy(uniqListings, (listing) => {
             return listing.name
           })
@@ -82,13 +83,15 @@ const IndexTable = ({ fields, results, links, page }) => {
           const listingOptions = []
           each(sortedUniqListings, (listing, i) => {
             listingOptions.push(
-              <option value={listing.name} key={i}>{listing.name}</option>
+              <option value={listing.name} key={i}>
+                {listing.name}
+              </option>
             )
           })
 
           return (
             <select
-              onChange={event => onChange(event.target.value)}
+              onChange={(event) => onChange(event.target.value)}
               style={{ width: '100%' }}
               value={filter ? filter.value : 'all'}
             >
@@ -116,7 +119,7 @@ const IndexTable = ({ fields, results, links, page }) => {
     <ReactTable
       columns={columnData()}
       data={results}
-      SubComponent={row => {
+      SubComponent={(row) => {
         const linkTags = []
         each(links, (link, i) => {
           let href = ''

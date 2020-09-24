@@ -23,8 +23,17 @@ const InputField = ({ type, fieldName, validation, placeholder, maxLength, id, d
   </Field>
 )
 
-export const MultiDateField = ({ form, fieldName, formName, index, label, blockNote, id, disabled }) => {
-  const touched = every(['.day', '.month', '.year'], type => {
+export const MultiDateField = ({
+  form,
+  fieldName,
+  formName,
+  index,
+  label,
+  blockNote,
+  id,
+  disabled
+}) => {
+  const touched = every(['.day', '.month', '.year'], (type) => {
     return form.getState().touched[fieldName + type]
   })
   let errorField
@@ -34,7 +43,8 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
     errorField = form.getState().errors[fieldName.split('.')[0]]
   }
   const baseFieldName = last(fieldName.split('.'))
-  const error = form && touched && errorField && errorField[baseFieldName] && errorField[baseFieldName].all
+  const error =
+    form && touched && errorField && errorField[baseFieldName] && errorField[baseFieldName].all
   return (
     <div className={classNames('form-group', (error && 'error') || '')}>
       <label className='form-label' htmlFor={id || `form-${fieldName}`}>
@@ -74,9 +84,7 @@ export const MultiDateField = ({ form, fieldName, formName, index, label, blockN
           disabled={disabled}
         />
       </div>
-      <div className='d-inline-block'>
-        { error && <span className='small error'>{error}</span> }
-      </div>
+      <div className='d-inline-block'>{error && <span className='small error'>{error}</span>}</div>
     </div>
   )
 }

@@ -9,9 +9,7 @@ import {
   shallowWithFormAndContext,
   findByNameAndProps
 } from '../../../testUtils/wrapperUtil'
-import {
-  InputField
-} from '~/utils/form/final_form/Field'
+import { InputField } from '~/utils/form/final_form/Field'
 import ExpandableTable from '~/components/molecules/ExpandableTable'
 
 const baseContext = {
@@ -27,10 +25,8 @@ const rentalAssistance = {
 }
 
 describe('RentalAssistance', () => {
-  const getWrapper = (context) => shallowWithFormAndContext(
-    context,
-    (form) => <RentalAssistance form={form} />
-  )
+  const getWrapper = (context) =>
+    shallowWithFormAndContext(context, (form) => <RentalAssistance form={form} />)
 
   test('matches snapshot', () => {
     const context = cloneDeep(baseContext)
@@ -79,7 +75,9 @@ describe('RentalAssistance', () => {
     test('should hide the new rental assistance form after cancel is clicked', () => {
       wrapper.find(RentalAssistanceForm).prop('onClose')()
       expect(wrapper.find(RentalAssistanceForm)).toHaveLength(0)
-      expect(findByNameAndProps(wrapper, 'Button', { text: 'Add Rental Assistance' })).toHaveLength(1)
+      expect(findByNameAndProps(wrapper, 'Button', { text: 'Add Rental Assistance' })).toHaveLength(
+        1
+      )
     })
   })
 })
@@ -89,17 +87,14 @@ describe('RentalAssistanceTable', () => {
     const context = cloneDeep(baseContext)
     context.application.rental_assistances = [rentalAssistance]
 
-    return withForm(
-      context,
-      (form) => (
-        <RentalAssistanceTable
-          form={form}
-          rentalAssistances={[rentalAssistance]}
-          applicationMembers={[]}
-          disabled={disabled}
-        />
-      )
-    )
+    return withForm(context, (form) => (
+      <RentalAssistanceTable
+        form={form}
+        rentalAssistances={[rentalAssistance]}
+        applicationMembers={[]}
+        disabled={disabled}
+      />
+    ))
   }
 
   test('should render an ExpanderTable', () => {
@@ -206,8 +201,10 @@ describe('RentalAssistanceForm', () => {
     })
 
     test('should call the save callback when clicked', () => {
-      findByNameAndProps(wrapper, 'SelectField', { label: 'Type of Assistance' })
-        .simulate('change', { target: { value: 'Catholic Charities' } })
+      findByNameAndProps(wrapper, 'SelectField', { label: 'Type of Assistance' }).simulate(
+        'change',
+        { target: { value: 'Catholic Charities' } }
+      )
 
       expect(mockSaveCallback.mock.calls).toHaveLength(0)
       expect(mockCloseCallback.mock.calls).toHaveLength(0)
@@ -261,8 +258,10 @@ describe('RentalAssistanceForm', () => {
     })
 
     test('should call the save callback when clicked', () => {
-      findByNameAndProps(wrapper, 'SelectField', { label: 'Type of Assistance' })
-        .simulate('change', { target: { value: 'Catholic Charities' } })
+      findByNameAndProps(wrapper, 'SelectField', { label: 'Type of Assistance' }).simulate(
+        'change',
+        { target: { value: 'Catholic Charities' } }
+      )
 
       expect(mockSaveCallback.mock.calls).toHaveLength(0)
       expect(mockCloseCallback.mock.calls).toHaveLength(0)

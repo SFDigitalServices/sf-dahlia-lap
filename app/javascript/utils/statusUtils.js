@@ -1,11 +1,26 @@
 import { find, map } from 'lodash'
 
 export const LEASE_UP_STATUS_OPTIONS = [
-  { value: 'Processing', label: 'Processing', statusClassName: 'is-processing', commentRequired: true },
+  {
+    value: 'Processing',
+    label: 'Processing',
+    statusClassName: 'is-processing',
+    commentRequired: true
+  },
   { value: 'Withdrawn', label: 'Withdrawn', statusClassName: 'is-withdrawn' },
   { value: 'Appealed', label: 'Appealed', statusClassName: 'is-appealed', commentRequired: true },
-  { value: 'Waitlisted', label: 'Waitlisted', statusClassName: 'is-waitlisted', commentRequired: true },
-  { value: 'Disqualified', label: 'Disqualified', statusClassName: 'is-disqualified', commentRequired: true },
+  {
+    value: 'Waitlisted',
+    label: 'Waitlisted',
+    statusClassName: 'is-waitlisted',
+    commentRequired: true
+  },
+  {
+    value: 'Disqualified',
+    label: 'Disqualified',
+    statusClassName: 'is-disqualified',
+    commentRequired: true
+  },
   { value: 'Approved', label: 'Approved', statusClassName: 'is-approved', commentRequired: true },
   { value: 'Lease Signed', label: 'Lease Signed', statusClassName: 'is-leased' }
 ]
@@ -14,11 +29,20 @@ export const LEASE_UP_SUBSTATUS_OPTIONS = {
   Withdrawn: [
     { value: 'Written withdrawal', label: 'Written withdrawal' },
     { value: 'Verbal withdrawal', label: 'Verbal withdrawal', commentRequired: true },
-    { value: 'Letter sent to applicant confirming withdrawal', label: 'Letter sent to applicant confirming withdrawal' }
+    {
+      value: 'Letter sent to applicant confirming withdrawal',
+      label: 'Letter sent to applicant confirming withdrawal'
+    }
   ],
   Appealed: [
-    { value: 'Pending documentation from applicant to support request', label: 'Pending documentation from applicant to support request' },
-    { value: 'Pending documentation from third party', label: 'Pending documentation from third party' },
+    {
+      value: 'Pending documentation from applicant to support request',
+      label: 'Pending documentation from applicant to support request'
+    },
+    {
+      value: 'Pending documentation from third party',
+      label: 'Pending documentation from third party'
+    },
     { value: 'Appeal meeting scheduled', label: 'Appeal meeting scheduled' },
     { value: 'None of the above', label: 'None of the above' }
   ],
@@ -27,7 +51,10 @@ export const LEASE_UP_SUBSTATUS_OPTIONS = {
     { value: 'None of the above', label: 'None of the above' }
   ],
   Disqualified: [
-    { value: 'No response after two or more attempts', label: 'No response after two or more attempts' },
+    {
+      value: 'No response after two or more attempts',
+      label: 'No response after two or more attempts'
+    },
     { value: 'Missed 2 or more appointments', label: 'Missed 2 or more appointments' },
     { value: 'Under occupancy', label: 'Under occupancy' },
     { value: 'Over occupancy', label: 'Over occupancy' },
@@ -36,8 +63,14 @@ export const LEASE_UP_SUBSTATUS_OPTIONS = {
     { value: 'Over income', label: 'Over income' },
     { value: 'Does not meet credit standards', label: 'Does not meet credit standards' },
     { value: 'Does not meet criminal background', label: 'Does not meet criminal background' },
-    { value: 'Does not meet other building restrictions', label: 'Does not meet other building restrictions' },
-    { value: 'Unit did not pass subsidy inspection', label: 'Unit did not pass subsidy inspection' },
+    {
+      value: 'Does not meet other building restrictions',
+      label: 'Does not meet other building restrictions'
+    },
+    {
+      value: 'Unit did not pass subsidy inspection',
+      label: 'Unit did not pass subsidy inspection'
+    },
     { value: 'Does not meet age restrictions', label: 'Does not meet age restrictions' }
   ],
   Approved: [
@@ -47,22 +80,22 @@ export const LEASE_UP_SUBSTATUS_OPTIONS = {
   ]
 }
 
-export const LEASE_UP_STATUS_VALUES = LEASE_UP_STATUS_OPTIONS.map(option => option.value)
-export const LEASE_UP_SUBSTATUS_VALUES =
-  map(LEASE_UP_SUBSTATUS_OPTIONS, (substatusList) => map(substatusList, 'value'))
-    .flat()
+export const LEASE_UP_STATUS_VALUES = LEASE_UP_STATUS_OPTIONS.map((option) => option.value)
+export const LEASE_UP_SUBSTATUS_VALUES = map(LEASE_UP_SUBSTATUS_OPTIONS, (substatusList) =>
+  map(substatusList, 'value')
+).flat()
 
-export const getLeaseUpStatusClass = status => {
+export const getLeaseUpStatusClass = (status) => {
   const statusOption = find(LEASE_UP_STATUS_OPTIONS, { value: status })
   return statusOption ? statusOption.statusClassName : 'tertiary'
 }
 
-export const getStatusPillClass = status => {
+export const getStatusPillClass = (status) => {
   const statusOption = find(LEASE_UP_STATUS_OPTIONS, { value: status })
   return statusOption ? statusOption.statusClassName : 'is-no-status'
 }
 
-export const getStatusPillLabel = status => {
+export const getStatusPillLabel = (status) => {
   const statusOption = find(LEASE_UP_STATUS_OPTIONS, { value: status })
   return statusOption ? statusOption.label : null
 }
@@ -83,7 +116,7 @@ export const statusRequiresComments = (status, substatus) => {
   return false
 }
 
-export const validateStatusForm = values => {
+export const validateStatusForm = (values) => {
   if (statusRequiresComments(values.status, values.subStatus) && values.comment.length) {
     return true
   } else if (values.status && !statusRequiresComments(values.status, values.subStatus)) {
