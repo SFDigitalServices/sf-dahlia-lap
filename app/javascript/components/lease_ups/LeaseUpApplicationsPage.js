@@ -115,16 +115,15 @@ const LeaseUpApplicationsPage = ({ listingId }) => {
     })
   }
 
-  const handleOnFetchData = (state, instance) => {
-    const { filters } = state
-    if (eagerPagination.isOverLimit(state.page)) {
+  const handleOnFetchData = ({ filters, page }, _) => {
+    if (eagerPagination.isOverLimit(page)) {
       setState({
         applications: [],
         loading: false,
         atMaxPages: true
       })
     } else {
-      loadPage(state.page, filters)
+      loadPage(page, filters)
     }
   }
 
@@ -134,8 +133,7 @@ const LeaseUpApplicationsPage = ({ listingId }) => {
     loadPage(0, filters)
   }
 
-  const handleCreateStatusUpdate = async (data) => {
-    const { applicationId, comment, status, subStatus } = data
+  const handleCreateStatusUpdate = async ({ applicationId, comment, status, subStatus }) => {
     const { applications } = state
 
     createFieldUpdateComment(applicationId, status, comment, subStatus)
