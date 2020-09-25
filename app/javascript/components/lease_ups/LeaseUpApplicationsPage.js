@@ -1,23 +1,43 @@
 /* global SALESFORCE_BASE_URL */
 
-import React from 'react'
+import React, { useState } from 'react'
 import { map, each, set, clone } from 'lodash'
 import moment from 'moment'
+import { getApplications } from './leaseUpActions'
 
 import { createFieldUpdateComment } from '../supplemental_application/actions'
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
 import TableLayout from '../layouts/TableLayout'
-import { buildLeaseUpAppPrefModel } from './leaseUpAppPrefModel'
 import appPaths from '~/utils/appPaths'
-import apiService from '~/apiService'
 import { EagerPagination, SERVER_PAGE_SIZE } from '~/utils/EagerPagination'
 import Context from './context'
 import { SALESFORCE_DATE_FORMAT } from '~/utils/utils'
 
 const ROWS_PER_PAGE = 20
+const BASE_URL = typeof SALESFORCE_BASE_URL !== 'undefined' ? SALESFORCE_BASE_URL : ''
 
-class LeaseUpApplicationsPage extends React.Component {
-  state = {
+const getPageHeaderData = (listing) => {
+  const exportButtonAction = {
+    title: 'Export',
+    link: `${BASE_URL}/${listing.report_id}?csv=1`
+  }
+
+  return {
+    title: listing.name,
+    content: listing.building_street_address,
+    action: listing.report_id ? exportButtonAction : null,
+    breadcrumbs: [
+      { title: 'Lease Ups', link: appPaths.toLeaseUps() },
+      { title: listing.name, link: appPaths.toLeaseUpApplications(listing.id) }
+    ]
+  }
+}
+
+const getPreferences = (listing) =>
+  map(listing.listing_lottery_preferences, (pref) => pref.lottery_preference.name)
+
+const LeaseUpApplicationsPage = ({ listing }) => {
+  const [state, overrideEntireState] = useState({
     loading: false,
     applications: [],
     pages: 0,
@@ -30,63 +50,79 @@ class LeaseUpApplicationsPage extends React.Component {
       showAlert: null,
       loading: false
     }
+  })
+
+  const setState = (newState) =>
+    overrideEntireState((prevState) => ({
+      ...prevState,
+      ...newState
+    }))
+
+  const setStateWithPrev = (newState) =>
+    overrideEntireState((prevState) => ({
+      ...prevState,
+      ...newState(prevState)
+    }))
+
+  const eagerPagination = new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
+
+  const performAsyncRequest = (initialState, promiseFunc, stateFromResponse) => {
+    setState({
+      ...initialState,
+      loading: true
+    })
+
+    promiseFunc()
+      .then((r) => setState({ ...stateFromResponse(r) }))
+      .finally(() => setState({ loading: false }))
   }
 
-  eagerPagination = new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
-
-  fetchApplications = async (page, filters) => {
-    let { records, pages } = await apiService.fetchLeaseUpApplications(
-      this.props.listing.id,
-      page,
-      { filters }
+  const loadPage = async (page, filters) => {
+    const fetcher = (p) => getApplications(listing.id, p, filters)
+    performAsyncRequest(
+      { page },
+      () => eagerPagination.getPage(page, fetcher),
+      ({ records, pages }) => ({
+        applications: records,
+        pages: pages,
+        atMaxPages: false
+      })
     )
-    records = map(records, buildLeaseUpAppPrefModel)
-    return { records, pages }
   }
 
-  loadPage = async (page, filters) => {
-    const fetcher = (p) => this.fetchApplications(p, filters)
-    this.setState({ loading: true, page: page })
-    const { records, pages } = await this.eagerPagination.getPage(page, fetcher)
-    this.setState({ applications: records, loading: false, pages: pages, atMaxPages: false })
-  }
-
-  handleOnFetchData = (state, instance) => {
-    const { filters } = this.state
-    if (this.eagerPagination.isOverLimit(state.page)) {
-      this.setState({
+  const handleOnFetchData = (state, instance) => {
+    const { filters } = state
+    if (eagerPagination.isOverLimit(state.page)) {
+      setState({
         applications: [],
         loading: false,
         atMaxPages: true
       })
     } else {
-      this.loadPage(state.page, filters)
+      loadPage(state.page, filters)
     }
   }
 
-  handleOnFilter = (filters) => {
-    this.setState({ filters })
-    this.eagerPagination.reset()
-    this.loadPage(0, filters)
+  const handleOnFilter = (filters) => {
+    setState({ filters })
+    eagerPagination.reset()
+    loadPage(0, filters)
   }
 
-  handleCreateStatusUpdate = async (data) => {
+  const handleCreateStatusUpdate = async (data) => {
     const { applicationId, comment, status, subStatus } = data
-    const { applications } = this.state
+    const { applications } = state
 
     createFieldUpdateComment(applicationId, status, comment, subStatus)
       .then((response) => {
         each(applications, (app, index) => {
           if (app.application_id === applicationId) {
-            this.updateResults(`[${index}]['lease_up_status']`, status)
-            this.updateResults(
-              `[${index}]['status_updated']`,
-              moment().format(SALESFORCE_DATE_FORMAT)
-            )
+            updateResults(`[${index}]['lease_up_status']`, status)
+            updateResults(`[${index}]['status_updated']`, moment().format(SALESFORCE_DATE_FORMAT))
           }
         })
 
-        this.updateStatusModal({
+        updateStatusModal({
           applicationId: null,
           isOpen: false,
           loading: false,
@@ -95,82 +131,52 @@ class LeaseUpApplicationsPage extends React.Component {
         })
       })
       .catch(() => {
-        this.updateStatusModal({
+        updateStatusModal({
           loading: false,
           showAlert: true,
           alertMsg: 'We were unable to make the update, please try again.',
-          onAlertCloseClick: () => this.updateStatusModal({ showAlert: false })
+          onAlertCloseClick: () => updateStatusModal({ showAlert: false })
         })
       })
   }
 
-  updateStatusModal = (values) => {
-    this.setState((prevState) => {
-      return {
-        statusModal: {
-          ...clone(prevState.statusModal),
-          ...values
-        }
+  const updateStatusModal = (values) => {
+    setStateWithPrev((prevState) => ({
+      statusModal: {
+        ...clone(prevState.statusModal),
+        ...values
       }
-    })
+    }))
   }
 
-  updateResults = (path, value) => {
-    this.setState((prevState) => {
-      return {
-        applications: set(clone(prevState.applications), path, value)
-      }
-    })
+  const updateResults = (path, value) => {
+    setStateWithPrev((prevState) => ({
+      applications: set(clone(prevState.applications), path, value)
+    }))
   }
 
-  render() {
-    const listing = this.props.listing
-
-    const baseUrl = typeof SALESFORCE_BASE_URL !== 'undefined' ? SALESFORCE_BASE_URL : ''
-
-    const exportButtonAction = {
-      title: 'Export',
-      link: `${baseUrl}/${listing.report_id}?csv=1`
-    }
-
-    const preferences = map(
-      listing.listing_lottery_preferences,
-      (pref) => pref.lottery_preference.name
-    )
-
-    const pageHeader = {
-      title: listing.name,
-      content: listing.building_street_address,
-      action: listing.report_id ? exportButtonAction : null,
-      breadcrumbs: [
-        { title: 'Lease Ups', link: appPaths.toLeaseUps() },
-        { title: listing.name, link: appPaths.toLeaseUpApplications(listing.id) }
-      ]
-    }
-
-    const context = {
-      applications: this.state.applications,
-      listing: listing,
-      preferences: preferences,
-      handleOnFetchData: this.handleOnFetchData,
-      handleCreateStatusUpdate: this.handleCreateStatusUpdate,
-      handleOnFilter: this.handleOnFilter,
-      loading: this.state.loading,
-      pages: this.state.pages,
-      rowsPerPage: ROWS_PER_PAGE,
-      updateStatusModal: this.updateStatusModal,
-      statusModal: this.state.statusModal,
-      atMaxPages: this.state.atMaxPages
-    }
-
-    return (
-      <Context.Provider value={context}>
-        <TableLayout pageHeader={pageHeader}>
-          <LeaseUpApplicationsTableContainer />
-        </TableLayout>
-      </Context.Provider>
-    )
+  const context = {
+    applications: state.applications,
+    listing: listing,
+    preferences: getPreferences(listing),
+    handleOnFetchData: handleOnFetchData,
+    handleCreateStatusUpdate: handleCreateStatusUpdate,
+    handleOnFilter: handleOnFilter,
+    loading: state.loading,
+    pages: state.pages,
+    rowsPerPage: ROWS_PER_PAGE,
+    updateStatusModal: updateStatusModal,
+    statusModal: state.statusModal,
+    atMaxPages: state.atMaxPages
   }
+
+  return (
+    <Context.Provider value={context}>
+      <TableLayout pageHeader={getPageHeaderData(listing)}>
+        <LeaseUpApplicationsTableContainer />
+      </TableLayout>
+    </Context.Provider>
+  )
 }
 
 export default LeaseUpApplicationsPage
