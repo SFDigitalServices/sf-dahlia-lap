@@ -1,10 +1,12 @@
 /* eslint-disable jest/no-conditional-expect */
 import React from 'react'
 import { mount } from 'enzyme'
+import { act } from 'react-dom/test-utils'
 import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 
-const mockfetchLeaseUpApplications = jest.fn()
+const mockGetLeaseUpListing = jest.fn()
+const mockFetchLeaseUpApplications = jest.fn()
 const mockCreateFieldUpdateComment = jest.fn()
 
 const tick = () => {
@@ -15,8 +17,12 @@ const tick = () => {
 
 jest.mock('apiService', () => {
   return {
+    getLeaseUpListing: async (id) => {
+      mockGetLeaseUpListing(id)
+      return Promise.resolve({ ...mockListing })
+    },
     fetchLeaseUpApplications: async (data) => {
-      mockfetchLeaseUpApplications(data)
+      mockFetchLeaseUpApplications(data)
       return Promise.resolve({ records: mockApplications })
     },
     createFieldUpdateComment: async (data) => {
@@ -50,6 +56,13 @@ const buildMockApplicationWithPreference = (uniqId, prefOrder, prefRank) => {
   }
 }
 
+const mockListing = {
+  id: 'listingId',
+  name: 'listingName',
+  building_street_address: 'buildingAddress',
+  report_id: 'REPORT_ID'
+}
+
 const mockApplications = [
   buildMockApplicationWithPreference(1, '2', '2'),
   buildMockApplicationWithPreference(2, '2', '1'),
@@ -58,42 +71,43 @@ const mockApplications = [
   buildMockApplicationWithPreference(5, '1', '1')
 ]
 
-const listing = {
-  id: 'listingId',
-  name: 'listingName',
-  building_street_address: 'buildingAddress',
-  report_id: 'REPORT_ID'
-}
-
 const rowSelector = 'div.rt-tbody .rt-tr-group'
 let wrapper
 
 describe('LeaseUpApplicationsPage', () => {
   beforeEach(async () => {
-    wrapper = await mount(<LeaseUpApplicationsPage listing={listing} />)
-    await tick()
+    wrapper = mount(<LeaseUpApplicationsPage listingId={mockListing.id} />)
+    await act(tick)
     wrapper.update()
   })
+
   test('should render LeaseUpTable', async () => {
     expect(wrapper).toMatchSnapshot()
   })
+
   test('should render accessibility requests when present', async () => {
     expect(wrapper.find(rowSelector).first().text()).toContain('Vision')
   })
 
   test('status modal can be opened and closed', () => {
     expect(wrapper.find(rowSelector).first().find('button').exists()).toBeTruthy()
-    wrapper
-      .find(rowSelector)
-      .first()
-      .find('Select')
-      .instance()
-      .props.onChange({ value: 'Appealed' })
+    act(() => {
+      wrapper
+        .find(rowSelector)
+        .first()
+        .find('Select')
+        .instance()
+        .props.onChange({ value: 'Appealed' })
+    })
     wrapper.update()
     expect(wrapper.find(StatusModalWrapper).props().isOpen).toBeTruthy()
 
-    // Click the close button
-    wrapper.find('.close-reveal-modal').simulate('click')
+    act(() => {
+      // Click the close button
+      wrapper.find('.close-reveal-modal').simulate('click')
+    })
+
+    wrapper.update()
 
     // Expect the modal to be closed
     expect(wrapper.find(StatusModalWrapper).props().isOpen).toBeFalsy()

@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { map, each, set, clone } from 'lodash'
 import moment from 'moment'
-import { getApplications } from './leaseUpActions'
+import { getApplications, getListing } from './leaseUpActions'
 
 import { createFieldUpdateComment } from '../supplemental_application/actions'
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
@@ -17,29 +17,41 @@ const ROWS_PER_PAGE = 20
 const BASE_URL = typeof SALESFORCE_BASE_URL !== 'undefined' ? SALESFORCE_BASE_URL : ''
 
 const getPageHeaderData = (listing) => {
-  const exportButtonAction = {
-    title: 'Export',
-    link: `${BASE_URL}/${listing.report_id}?csv=1`
-  }
+  const exportButtonAction = listing?.report_id
+    ? {
+        title: 'Export',
+        link: `${BASE_URL}/${listing?.report_id}?csv=1`
+      }
+    : null
+
+  const levelAboveBreadcrumb = { title: 'Lease Ups', link: appPaths.toLeaseUps() }
+
+  const breadcrumbs = listing
+    ? [
+        levelAboveBreadcrumb,
+        { title: listing?.name, link: appPaths.toLeaseUpApplications(listing.id) }
+      ]
+    : [levelAboveBreadcrumb]
 
   return {
-    title: listing.name,
-    content: listing.building_street_address,
-    action: listing.report_id ? exportButtonAction : null,
-    breadcrumbs: [
-      { title: 'Lease Ups', link: appPaths.toLeaseUps() },
-      { title: listing.name, link: appPaths.toLeaseUpApplications(listing.id) }
-    ]
+    title: listing?.name || '',
+    content: listing?.building_street_address || '',
+    action: exportButtonAction,
+    breadcrumbs
   }
 }
 
-const getPreferences = (listing) =>
-  map(listing.listing_lottery_preferences, (pref) => pref.lottery_preference.name)
+const getPreferences = (listing) => {
+  if (!listing) return []
+  return map(listing.listing_lottery_preferences, (pref) => pref.lottery_preference.name)
+}
 
-const LeaseUpApplicationsPage = ({ listing }) => {
+const LeaseUpApplicationsPage = ({ listingId }) => {
   const [state, overrideEntireState] = useState({
     loading: false,
     applications: [],
+    filters: {},
+    page: 0,
     pages: 0,
     atMaxPages: false,
     statusModal: {
@@ -49,8 +61,24 @@ const LeaseUpApplicationsPage = ({ listing }) => {
       applicationId: null,
       showAlert: null,
       loading: false
-    }
+    },
+    listing: null
   })
+
+  const performAsyncRequest = ({
+    initialState = {},
+    promiseFunc = async () => {},
+    stateFromResponse = {}
+  }) => {
+    setState({
+      ...initialState,
+      loading: true
+    })
+
+    promiseFunc()
+      .then((r) => setState({ ...stateFromResponse(r) }))
+      .finally(() => setState({ loading: false }))
+  }
 
   const setState = (newState) =>
     overrideEntireState((prevState) => ({
@@ -66,28 +94,25 @@ const LeaseUpApplicationsPage = ({ listing }) => {
 
   const eagerPagination = new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
 
-  const performAsyncRequest = (initialState, promiseFunc, stateFromResponse) => {
-    setState({
-      ...initialState,
-      loading: true
-    })
-
-    promiseFunc()
-      .then((r) => setState({ ...stateFromResponse(r) }))
-      .finally(() => setState({ loading: false }))
-  }
-
   const loadPage = async (page, filters) => {
-    const fetcher = (p) => getApplications(listing.id, p, filters)
-    performAsyncRequest(
-      { page },
-      () => eagerPagination.getPage(page, fetcher),
-      ({ records, pages }) => ({
+    const { listing: listingFromState } = state
+
+    const getStateOrFetchListing = () =>
+      listingFromState ? Promise.resolve(listingFromState) : getListing(listingId)
+
+    const fetcher = (p) => getApplications(listingId, p, filters)
+
+    performAsyncRequest({
+      initialState: { page },
+      promiseFunc: () =>
+        Promise.all([getStateOrFetchListing(), eagerPagination.getPage(page, fetcher)]),
+      stateFromResponse: ([listing, { records, pages }]) => ({
+        listing,
         applications: records,
         pages: pages,
         atMaxPages: false
       })
-    )
+    })
   }
 
   const handleOnFetchData = (state, instance) => {
@@ -157,8 +182,8 @@ const LeaseUpApplicationsPage = ({ listing }) => {
 
   const context = {
     applications: state.applications,
-    listing: listing,
-    preferences: getPreferences(listing),
+    listingId: listingId,
+    preferences: getPreferences(state.listing),
     handleOnFetchData: handleOnFetchData,
     handleCreateStatusUpdate: handleCreateStatusUpdate,
     handleOnFilter: handleOnFilter,
@@ -172,7 +197,7 @@ const LeaseUpApplicationsPage = ({ listing }) => {
 
   return (
     <Context.Provider value={context}>
-      <TableLayout pageHeader={getPageHeaderData(listing)}>
+      <TableLayout pageHeader={getPageHeaderData(state.listing)}>
         <LeaseUpApplicationsTableContainer />
       </TableLayout>
     </Context.Provider>

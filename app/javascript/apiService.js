@@ -1,8 +1,10 @@
 import { request } from '~/api/request'
 import { isLeaseAlreadyCreated } from './utils/leaseUtils'
 
-const getLeaseUpListings = async () =>
-  request.get('/lease-ups/listings').then((result) => result.listings)
+const getLeaseUpListings = async () => request.get('/lease-ups/listings').then((r) => r.listings)
+
+const getLeaseUpListing = async (listingId) =>
+  request.get(`/lease-ups/listings/${listingId}`).then((r) => r.listing)
 
 const updateFlaggedApplication = async (data) => {
   const putData = {
@@ -154,6 +156,7 @@ export default {
   fetchApplications,
   fetchLeaseUpApplications,
   getAMI,
+  getLeaseUpListing,
   getLeaseUpListings,
   updatePreference,
   createFieldUpdateComment,

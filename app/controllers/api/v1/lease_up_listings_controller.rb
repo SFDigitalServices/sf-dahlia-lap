@@ -8,6 +8,11 @@ module Api::V1
       render json: { listings: listings }
     end
 
+    def show
+      listing = soql_listing_service.listing(params[:id])
+      render json: { listing: listing }
+    end
+
     private
 
     def soql_listing_service

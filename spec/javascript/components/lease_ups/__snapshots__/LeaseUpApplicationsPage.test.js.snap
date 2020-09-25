@@ -2,14 +2,7 @@
 
 exports[`LeaseUpApplicationsPage should render LeaseUpTable 1`] = `
 <LeaseUpApplicationsPage
-  listing={
-    Object {
-      "building_street_address": "buildingAddress",
-      "id": "listingId",
-      "name": "listingName",
-      "report_id": "REPORT_ID",
-    }
-  }
+  listingId="listingId"
 >
   <TableLayout
     pageHeader={
@@ -294,12 +287,7 @@ exports[`LeaseUpApplicationsPage should render LeaseUpTable 1`] = `
                 "handleCreateStatusUpdate": [Function],
                 "handleOnFetchData": [Function],
                 "handleOnFilter": [Function],
-                "listing": Object {
-                  "building_street_address": "buildingAddress",
-                  "id": "listingId",
-                  "name": "listingName",
-                  "report_id": "REPORT_ID",
-                },
+                "listingId": "listingId",
                 "loading": false,
                 "pages": NaN,
                 "preferences": Array [],
