@@ -1,0 +1,149 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 28 Sep 2020 20:36:54 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      X-Robots-Tag:
+      - none
+      X-B3-Traceid:
+      - 43499a5c5ffafc1f
+      X-B3-Spanid:
+      - 43499a5c5ffafc1f
+      X-B3-Sampled:
+      - '0'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=WKXipAHKEeuwtZEMsgyZTQ; domain=.salesforce.com; path=/; expires=Tue,
+        28-Sep-2021 20:36:54 GMT; Max-Age=31536000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1601325415026","signature":"KTA50QioWE6HxHg8jO8jxZOJpmSN1pUoGaRV89hnWJM="}'
+    http_version: null
+  recorded_at: Mon, 28 Sep 2020 20:36:55 GMT
+- request:
+    method: get
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Lottery_Date__c,%20Lottery_Results_Date__c,%20In_Lottery__c,%20Units_Available__c,%20Lease_Signed_Application__c,%20LastModifiedDate%0A%20%20%20%20%20%20%20%20%20%20FROM%20Listing__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Status__c%20=%20%27Lease%20Up%27%20AND%20Is_Applicant_List_for_Leaseup__c%20=%20FALSE%0A%20%20%20%20%20%20%20%20%20%20ORDER%20BY%20Name%0A%20%20%20%20%20%20%20%20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 28 Sep 2020 20:36:55 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      X-Robots-Tag:
+      - none
+      X-B3-Traceid:
+      - c83830d7f2862305
+      X-B3-Spanid:
+      - c83830d7f2862305
+      X-B3-Sampled:
+      - '0'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=WQYEAgHKEeu5sPsrG1B1mw; domain=.salesforce.com; path=/; expires=Tue,
+        28-Sep-2021 20:36:55 GMT; Max-Age=31536000
+      Sforce-Limit-Info:
+      - api-usage=10804/400000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":32,"done":true,"records":[{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HbtLhUAJ"},"Id":"a0W0P00000HbtLhUAJ","Name":"1015
+        Shotwell Units 1, 3, 4, 10","Lottery_Date__c":"2019-11-22T19:30:00.000+0000","Lottery_Results_Date__c":"2019-11-25","In_Lottery__c":344.0,"Units_Available__c":4.0,"Lease_Signed_Application__c":2.0,"LastModifiedDate":"2020-09-28T17:25:21.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HcC9SUAV"},"Id":"a0W0P00000HcC9SUAV","Name":"1400
+        Mission Unit 1100","Lottery_Date__c":"2020-04-16T21:30:00.000+0000","Lottery_Results_Date__c":"2020-04-20","In_Lottery__c":101.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-09-17T20:47:13.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HbwkzUAB"},"Id":"a0W0P00000HbwkzUAB","Name":"1601
+        Mariposa","Lottery_Date__c":"2020-01-16T23:30:00.000+0000","Lottery_Results_Date__c":"2020-01-23","In_Lottery__c":5885.0,"Units_Available__c":59.0,"Lease_Signed_Application__c":6.0,"LastModifiedDate":"2020-08-19T19:33:34.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HcALKUA3"},"Id":"a0W0P00000HcALKUA3","Name":"2000
+        Post Unit 286","Lottery_Date__c":"2020-04-03T20:30:00.000+0000","Lottery_Results_Date__c":"2020-04-06","In_Lottery__c":1245.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-08-19T19:33:17.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HbvrbUAB"},"Id":"a0W0P00000HbvrbUAB","Name":"2100
+        Market","Lottery_Date__c":"2020-01-07T20:00:00.000+0000","Lottery_Results_Date__c":"2020-01-14","In_Lottery__c":4094.0,"Units_Available__c":8.0,"Lease_Signed_Application__c":4.0,"LastModifiedDate":"2020-08-19T19:33:34.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HbtUyUAJ"},"Id":"a0W0P00000HbtUyUAJ","Name":"308
+        Turk Unit 1, 14","Lottery_Date__c":"2019-11-26T19:00:00.000+0000","Lottery_Results_Date__c":"2019-12-02","In_Lottery__c":203.0,"Units_Available__c":2.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-09-04T22:28:34.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000Hc14vUAB"},"Id":"a0W0P00000Hc14vUAB","Name":"3182
+        24th Street Units 3, 4, 6","Lottery_Date__c":"2020-02-21T20:00:00.000+0000","Lottery_Results_Date__c":"2020-02-24","In_Lottery__c":316.0,"Units_Available__c":3.0,"Lease_Signed_Application__c":1.0,"LastModifiedDate":"2020-08-19T19:33:06.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HbvV8UAJ"},"Id":"a0W0P00000HbvV8UAJ","Name":"3280
+        17th Street Units 4 6","Lottery_Date__c":"2019-12-20T22:00:00.000+0000","Lottery_Results_Date__c":"2019-12-23","In_Lottery__c":271.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":1.0,"LastModifiedDate":"2020-08-19T19:33:06.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000Hc3yCUAR"},"Id":"a0W0P00000Hc3yCUAR","Name":"33
+        Tehama Unit 7D","Lottery_Date__c":"2020-02-28T21:30:00.000+0000","Lottery_Results_Date__c":"2020-03-02","In_Lottery__c":1763.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":2.0,"LastModifiedDate":"2020-08-19T19:33:06.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HbsqSUAR"},"Id":"a0W0P00000HbsqSUAR","Name":"38
+        Harriet Street","Lottery_Date__c":"2019-11-21T18:00:00.000+0000","Lottery_Results_Date__c":"2019-11-27","In_Lottery__c":3221.0,"Units_Available__c":5.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-08-19T19:33:17.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HcHCmUAN"},"Id":"a0W0P00000HcHCmUAN","Name":"3840
+        Folsom Street Unit 3","Lottery_Date__c":"2020-05-27T19:00:00.000+0000","Lottery_Results_Date__c":"2020-05-28","In_Lottery__c":228.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-09-04T18:13:58.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HcF1aUAF"},"Id":"a0W0P00000HcF1aUAF","Name":"388
+        Beale Unit 909","Lottery_Date__c":"2020-05-05T20:30:00.000+0000","Lottery_Results_Date__c":"2020-05-06","In_Lottery__c":175.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-09-04T20:15:15.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HcA4EUAV"},"Id":"a0W0P00000HcA4EUAV","Name":"462
+        Green Unit 9","Lottery_Date__c":"2020-04-08T18:00:00.000+0000","Lottery_Results_Date__c":"2020-04-10","In_Lottery__c":390.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-08-19T19:33:06.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000Hc311UAB"},"Id":"a0W0P00000Hc311UAB","Name":"534B
+        Natoma Street","Lottery_Date__c":"2020-02-27T19:30:00.000+0000","Lottery_Results_Date__c":"2020-02-28","In_Lottery__c":133.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":1.0,"LastModifiedDate":"2020-08-19T19:33:06.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HcCHCUA3"},"Id":"a0W0P00000HcCHCUA3","Name":"568A
+        Natoma","Lottery_Date__c":"2020-06-01T20:30:00.000+0000","Lottery_Results_Date__c":"2020-04-27","In_Lottery__c":649.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-08-19T19:33:17.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HcEQNUA3"},"Id":"a0W0P00000HcEQNUA3","Name":"570
+        Jessie Units 21 22 57","Lottery_Date__c":"2020-05-01T20:30:00.000+0000","Lottery_Results_Date__c":"2020-05-04","In_Lottery__c":2172.0,"Units_Available__c":3.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-08-19T19:33:06.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000Hc8UcUAJ"},"Id":"a0W0P00000Hc8UcUAJ","Name":"682
+        Page","Lottery_Date__c":"2020-04-14T18:30:00.000+0000","Lottery_Results_Date__c":"2020-04-21","In_Lottery__c":2906.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-08-19T19:33:34.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HbxRfUAJ"},"Id":"a0W0P00000HbxRfUAJ","Name":"72B
+        Belcher Street","Lottery_Date__c":"2020-01-17T21:30:00.000+0000","Lottery_Results_Date__c":"2020-01-21","In_Lottery__c":135.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-08-19T19:33:34.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HcH4sUAF"},"Id":"a0W0P00000HcH4sUAF","Name":"77
+        Bluxome Units 510 516","Lottery_Date__c":"2020-05-15T20:30:00.000+0000","Lottery_Results_Date__c":"2020-05-18","In_Lottery__c":1304.0,"Units_Available__c":2.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-08-19T19:33:17.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HbtWzUAJ"},"Id":"a0W0P00000HbtWzUAJ","Name":"777
+        Tenn","Lottery_Date__c":"2019-12-09T20:00:00.000+0000","Lottery_Results_Date__c":"2019-12-16","In_Lottery__c":4666.0,"Units_Available__c":8.0,"Lease_Signed_Application__c":5.0,"LastModifiedDate":"2020-08-19T19:33:06.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HbvJFUAZ"},"Id":"a0W0P00000HbvJFUAZ","Name":"Alexander
+        Residence","Lottery_Date__c":"2020-02-26T18:00:00.000+0000","Lottery_Results_Date__c":"2020-03-04","In_Lottery__c":1536.0,"Units_Available__c":2.0,"Lease_Signed_Application__c":3.0,"LastModifiedDate":"2020-08-19T19:33:06.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HbxmYUAR"},"Id":"a0W0P00000HbxmYUAR","Name":"Ava
+        55 Ninth Unit 517,  803","Lottery_Date__c":"2020-01-28T19:30:00.000+0000","Lottery_Results_Date__c":"2020-01-29","In_Lottery__c":1799.0,"Units_Available__c":2.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-08-19T19:33:17.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HbwpUUAR"},"Id":"a0W0P00000HbwpUUAR","Name":"DAHLIA
+        Gardens (training)","Lottery_Date__c":"2019-11-18T22:00:00.000+0000","Lottery_Results_Date__c":"2020-11-25","In_Lottery__c":22.0,"Units_Available__c":9.0,"Lease_Signed_Application__c":3.0,"LastModifiedDate":"2020-09-21T21:21:20.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000Hc9ENUAZ"},"Id":"a0W0P00000Hc9ENUAZ","Name":"Fifteen
+        Fifty","Lottery_Date__c":"2020-04-15T17:00:00.000+0000","Lottery_Results_Date__c":"2020-04-22","In_Lottery__c":7442.0,"Units_Available__c":110.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-08-19T19:33:34.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Id":"a0W0P00000GbyuQUAR","Name":"Partners
+        Test Listing (do not modify) - Yellow Acres","Lottery_Date__c":"2018-06-01T22:30:00.000+0000","Lottery_Results_Date__c":"2018-06-05","In_Lottery__c":27.0,"Units_Available__c":6.0,"Lease_Signed_Application__c":2.0,"LastModifiedDate":"2020-09-28T17:26:42.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HcHUUUA3"},"Id":"a0W0P00000HcHUUUA3","Name":"Potrero
+        1010 Unit L20","Lottery_Date__c":"2020-05-28T21:30:00.000+0000","Lottery_Results_Date__c":"2020-05-29","In_Lottery__c":1837.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-08-19T19:33:06.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HcCHgUAN"},"Id":"a0W0P00000HcCHgUAN","Name":"The
+        Civic Unit 105","Lottery_Date__c":"2020-04-17T20:30:00.000+0000","Lottery_Results_Date__c":"2020-04-20","In_Lottery__c":1390.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-08-19T19:33:06.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000Hc2BBUAZ"},"Id":"a0W0P00000Hc2BBUAZ","Name":"The
+        Gantry Unit 209","Lottery_Date__c":"2020-02-14T20:00:00.000+0000","Lottery_Results_Date__c":"2020-02-17","In_Lottery__c":1838.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":1.0,"LastModifiedDate":"2020-08-19T19:33:17.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HbvWuUAJ"},"Id":"a0W0P00000HbvWuUAJ","Name":"The
+        Lofts at One Powell Unit 509","Lottery_Date__c":"2019-12-16T19:30:00.000+0000","Lottery_Results_Date__c":"2019-12-17","In_Lottery__c":1154.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":0.0,"LastModifiedDate":"2020-09-11T00:40:15.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HbxSEUAZ"},"Id":"a0W0P00000HbxSEUAZ","Name":"Trinity
+        Phase I Unit 804","Lottery_Date__c":"2020-01-15T20:00:00.000+0000","Lottery_Results_Date__c":"2020-01-16","In_Lottery__c":1140.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":1.0,"LastModifiedDate":"2020-08-19T19:33:06.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HbvEyUAJ"},"Id":"a0W0P00000HbvEyUAJ","Name":"Trinity
+        Phase II Units 502, 1321, 221, 1102, 424","Lottery_Date__c":"2019-12-11T21:30:00.000+0000","Lottery_Results_Date__c":"2019-12-12","In_Lottery__c":2093.0,"Units_Available__c":3.0,"Lease_Signed_Application__c":2.0,"LastModifiedDate":"2020-08-19T19:33:17.000+0000"},{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HbwFJUAZ"},"Id":"a0W0P00000HbwFJUAZ","Name":"Trinity
+        Phase III Unit 328","Lottery_Date__c":"2019-12-20T21:30:00.000+0000","Lottery_Results_Date__c":"2019-12-23","In_Lottery__c":1756.0,"Units_Available__c":1.0,"Lease_Signed_Application__c":1.0,"LastModifiedDate":"2020-08-19T19:33:17.000+0000"}]}'
+    http_version: null
+  recorded_at: Mon, 28 Sep 2020 20:36:55 GMT
+recorded_with: VCR 5.1.0
