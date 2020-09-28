@@ -62,7 +62,8 @@ const LeaseUpApplicationsPage = ({ listingId }) => {
       showAlert: null,
       loading: false
     },
-    listing: null
+    listing: null,
+    eagerPagination: new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
   })
 
   const performAsyncRequest = ({
@@ -92,8 +93,6 @@ const LeaseUpApplicationsPage = ({ listingId }) => {
       ...newState(prevState)
     }))
 
-  const eagerPagination = new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
-
   const loadPage = async (page, filters) => {
     const { listing: listingFromState } = state
 
@@ -105,7 +104,7 @@ const LeaseUpApplicationsPage = ({ listingId }) => {
     performAsyncRequest({
       initialState: { page },
       promiseFunc: () =>
-        Promise.all([getStateOrFetchListing(), eagerPagination.getPage(page, fetcher)]),
+        Promise.all([getStateOrFetchListing(), state.eagerPagination.getPage(page, fetcher)]),
       stateFromResponse: ([listing, { records, pages }]) => ({
         listing,
         applications: records,
@@ -116,7 +115,7 @@ const LeaseUpApplicationsPage = ({ listingId }) => {
   }
 
   const handleOnFetchData = ({ filters, page }, _) => {
-    if (eagerPagination.isOverLimit(page)) {
+    if (state.eagerPagination.isOverLimit(page)) {
       setState({
         applications: [],
         loading: false,
@@ -129,7 +128,7 @@ const LeaseUpApplicationsPage = ({ listingId }) => {
 
   const handleOnFilter = (filters) => {
     setState({ filters })
-    eagerPagination.reset()
+    state.eagerPagination.reset()
     loadPage(0, filters)
   }
 
