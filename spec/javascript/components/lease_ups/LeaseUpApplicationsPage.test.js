@@ -191,7 +191,7 @@ describe('LeaseUpApplicationsPage (shallow)', () => {
 
       describe('when a second page is loaded', () => {
         beforeEach(() => {
-          wrapper.find(Context.Provider).props().value.handleOnFetchData({ page: 1, filters: {} })
+          wrapper.find(Context.Provider).props().value.handleOnFetchData({ page: 6, filters: {} })
         })
 
         test('only called getListing once (from the initial page load)', () => {
@@ -203,8 +203,8 @@ describe('LeaseUpApplicationsPage (shallow)', () => {
           expect(mockFetchLeaseUpApplications.mock.calls[1][0]).toEqual(mockListing.id)
 
           // It's confusing but this page param is actually the server page, so even though
-          // the client, "eager" page is 1 the server page is still 0.
-          expect(mockFetchLeaseUpApplications.mock.calls[1][1]).toEqual(0)
+          // the client, "eager" page is 6 the server page is only 1.
+          expect(mockFetchLeaseUpApplications.mock.calls[1][1]).toEqual(1)
         })
       })
     })
