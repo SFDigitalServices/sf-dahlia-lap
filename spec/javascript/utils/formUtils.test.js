@@ -91,10 +91,13 @@ describe('scrubEmptyValues', () => {
     })
 
     test('removes empty entries', async () => {
-      expect(formUtils.scrubEmptyValues({ 1: null })).toEqual({ })
-      expect(formUtils.scrubEmptyValues({ 1: undefined })).toEqual({ })
-      expect(formUtils.scrubEmptyValues({ 1: null, 2: undefined })).toEqual({ })
-      expect(formUtils.scrubEmptyValues({ 1: null, 2: undefined, 3: 'a', 4: '' })).toEqual({ 3: 'a', 4: '' })
+      expect(formUtils.scrubEmptyValues({ 1: null })).toEqual({})
+      expect(formUtils.scrubEmptyValues({ 1: undefined })).toEqual({})
+      expect(formUtils.scrubEmptyValues({ 1: null, 2: undefined })).toEqual({})
+      expect(formUtils.scrubEmptyValues({ 1: null, 2: undefined, 3: 'a', 4: '' })).toEqual({
+        3: 'a',
+        4: ''
+      })
     })
 
     test('does not modify object with empty nested values', async () => {
@@ -119,19 +122,23 @@ describe('scrubEmptyValues', () => {
     })
 
     test('removes empty strings as if they were null', async () => {
-      expect(formUtils.scrubEmptyValues({ 1: '' }, true)).toEqual({ })
+      expect(formUtils.scrubEmptyValues({ 1: '' }, true)).toEqual({})
       expect(formUtils.scrubEmptyValues({ 1: 2, 3: 4, 4: '' }, true)).toEqual({ 1: 2, 3: 4 })
-      expect(formUtils.scrubEmptyValues({ 1: null, 2: undefined, 3: 'a', 4: '' }, true)).toEqual({ 3: 'a' })
+      expect(formUtils.scrubEmptyValues({ 1: null, 2: undefined, 3: 'a', 4: '' }, true)).toEqual({
+        3: 'a'
+      })
     })
 
     test('removes empty entries', async () => {
-      expect(formUtils.scrubEmptyValues({ 1: null }, true)).toEqual({ })
-      expect(formUtils.scrubEmptyValues({ 1: undefined }, true)).toEqual({ })
-      expect(formUtils.scrubEmptyValues({ 1: null, 2: undefined }, true)).toEqual({ })
+      expect(formUtils.scrubEmptyValues({ 1: null }, true)).toEqual({})
+      expect(formUtils.scrubEmptyValues({ 1: undefined }, true)).toEqual({})
+      expect(formUtils.scrubEmptyValues({ 1: null, 2: undefined }, true)).toEqual({})
     })
 
     test('does not modify object with empty nested values', async () => {
-      expect(formUtils.scrubEmptyValues({ 1: { 2: undefined } }, true)).toEqual({ 1: { 2: undefined } })
+      expect(formUtils.scrubEmptyValues({ 1: { 2: undefined } }, true)).toEqual({
+        1: { 2: undefined }
+      })
     })
   })
 

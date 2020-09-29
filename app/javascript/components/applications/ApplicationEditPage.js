@@ -16,7 +16,8 @@ const ApplicationEditPageForm = ({ listing, application, editPage, lendingInstit
       application={application}
       editPage={editPage}
       onSubmit={saveEditApplication}
-      lendingInstitutions={lendingInstitutions} />
+      lendingInstitutions={lendingInstitutions}
+    />
   )
 }
 
@@ -32,7 +33,8 @@ const ApplicationEditPage = ({ listing, application, editPage, lendingInstitutio
         listing={listing}
         application={application}
         editPage={editPage}
-        lendingInstitutions={lendingInstitutions} />
+        lendingInstitutions={lendingInstitutions}
+      />
     </CardLayout>
   )
 }

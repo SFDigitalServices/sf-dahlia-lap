@@ -4,14 +4,15 @@ import validate from '~/utils/form/validations'
 
 const AgreeToTerms = () => (
   <div className='checkbox-group' role='group'>
-    <div className='form-item' >
+    <div className='form-item'>
       <div className='checkbox'>
         <CheckboxField
           fieldName='terms_acknowledged'
           id='agreeToTerms'
           label='Signature on Terms of Agreement'
           blockNote='(required)'
-          validation={validate.isChecked('Signature on Terms of Agreement is required')} />
+          validation={validate.isChecked('Signature on Terms of Agreement is required')}
+        />
       </div>
     </div>
   </div>

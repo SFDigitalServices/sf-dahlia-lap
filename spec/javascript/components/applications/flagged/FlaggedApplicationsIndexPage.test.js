@@ -9,10 +9,7 @@ describe('FlaggedApplicationsIndexPage', () => {
     const title = 'Flagged Applications - Pending Review'
 
     const wrapper = renderer.create(
-      <FlaggedApplicationsIndexPage
-        title={title}
-        type='pending'
-        flaggedRecords={flaggedRecords} />
+      <FlaggedApplicationsIndexPage title={title} type='pending' flaggedRecords={flaggedRecords} />
     )
 
     expect(wrapper.toJSON()).toMatchSnapshot()

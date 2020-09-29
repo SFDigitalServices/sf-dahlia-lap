@@ -34,11 +34,11 @@ const getRangeOfAmiYears = (yearOptions, currentYear) => {
  * @param {*} currentYear optional param primarily used for stubbing in tests. You should probably just use the default
  *   value, which is the system's current year.
  */
-const getAmiChartYears = (listingAmiCharts, currentYear = (new Date()).getFullYear()) => {
+const getAmiChartYears = (listingAmiCharts, currentYear = new Date().getFullYear()) => {
   const fourDigitYearOptions = []
   const otherYearOptions = []
 
-  forEach(listingAmiCharts, chart => {
+  forEach(listingAmiCharts, (chart) => {
     const yearOption = chart.ami_chart_year
 
     if (isRecentFourDigitYear(yearOption, currentYear)) {

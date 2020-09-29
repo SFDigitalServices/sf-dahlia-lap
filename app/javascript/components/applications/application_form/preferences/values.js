@@ -1,4 +1,3 @@
-
 export const recordTypeMap = {
   'Certificate of Preference (COP)': 'COP',
   'Displaced Tenant Housing Preference (DTHP)': 'DTHP',

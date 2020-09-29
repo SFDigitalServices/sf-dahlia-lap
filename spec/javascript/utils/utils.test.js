@@ -51,7 +51,7 @@ describe('isChanged', () => {
 describe('convertCurrency', () => {
   test('should convert currency values to float from form object', async () => {
     const updatedFormValues = convertCurrency(defaultFormObject)
-    expect(updatedFormValues.applicant.annual_income).toEqual(25000.00)
+    expect(updatedFormValues.applicant.annual_income).toEqual(25000.0)
     expect(updatedFormValues.lease.monthly_rent).toEqual(598.65)
     expect(updatedFormValues.lease.another_nested_level.additional_rent).toEqual(425.99)
   })
@@ -183,9 +183,9 @@ describe('filterChanged', () => {
   })
 
   test('should work with empty objects', async () => {
-    const prevApp = { }
-    const newApp = { }
-    const expectedFilteredApp = { }
+    const prevApp = {}
+    const newApp = {}
+    const expectedFilteredApp = {}
     const diff = filterChanged(prevApp, newApp)
     expect(diff).toEqual(expectedFilteredApp)
   })
@@ -193,7 +193,7 @@ describe('filterChanged', () => {
   test('should handle object without id and no changes', async () => {
     const prevApp = { a: '1' }
     const newApp = { a: '1' }
-    const expectedFilteredApp = { }
+    const expectedFilteredApp = {}
     const diff = filterChanged(prevApp, newApp)
     expect(diff).toEqual(expectedFilteredApp)
   })

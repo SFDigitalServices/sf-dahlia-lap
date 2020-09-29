@@ -8,36 +8,39 @@ import { buildFieldId } from '~/components/applications/application_form/prefere
 import { statusOptions } from '~/components/supplemental_application/sections/preferences/utils'
 const { labelize } = formOptions
 
-const {
-  preferenceProofOptionsDefault
-} = formOptions
+const { preferenceProofOptionsDefault } = formOptions
 
-export const AntiDisplacementHousingPanel = ({ preferenceIndex, preference, applicationMembersOptions }) => {
+export const AntiDisplacementHousingPanel = ({
+  preferenceIndex,
+  preference,
+  applicationMembersOptions
+}) => {
   return (
     <>
       <FormGrid.Row expand={false}>
         <FormItem label='Preference Name'>
-          <div className='text-value'>
-          Anti-Displacement Housing Preference
-          </div>
+          <div className='text-value'>Anti-Displacement Housing Preference</div>
         </FormItem>
         <FormItem>
           <SelectField
             fieldName={buildFieldId(preferenceIndex, 'application_member_id')}
             options={labelize(applicationMembersOptions, { disableEmpty: true })}
-            label='HH Member on Proof' />
+            label='HH Member on Proof'
+          />
         </FormItem>
         <FormItem>
           <SelectField
             fieldName={buildFieldId(preferenceIndex, 'type_of_proof')}
             options={preferenceProofOptionsDefault}
-            label='Type of Proof' />
+            label='Type of Proof'
+          />
         </FormItem>
         <FormItem>
           <SelectField
             fieldName={buildFieldId(preferenceIndex, 'post_lottery_validation')}
             options={labelize(statusOptions, { disableEmpty: true })}
-            label='Status' />
+            label='Status'
+          />
         </FormItem>
       </FormGrid.Row>
       <FormGrid.Row expand={false}>
@@ -48,14 +51,15 @@ export const AntiDisplacementHousingPanel = ({ preferenceIndex, preference, appl
               if no proof document is provided, do not confirm this preference.
             </Comment>
             <Comment>
-              If the HH member name on the proof is not the primary applicant,
-              their residence address must have been provided at time of the original application.
-              MOHCD will verify that their address qualifies for this preference.
+              If the HH member name on the proof is not the primary applicant, their residence
+              address must have been provided at time of the original application. MOHCD will verify
+              that their address qualifies for this preference.
             </Comment>
           </div>
         </div>
       </FormGrid.Row>
-    </>)
+    </>
+  )
 }
 
 export default AntiDisplacementHousingPanel

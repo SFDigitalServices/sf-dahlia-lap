@@ -3,9 +3,19 @@ import PropTypes from 'prop-types'
 
 const Item = ({ item, current }) => {
   if (current) {
-    return <li className='current'><a href={item.link} aria-current='page'>{item.title}</a></li>
+    return (
+      <li className='current'>
+        <a href={item.link} aria-current='page'>
+          {item.title}
+        </a>
+      </li>
+    )
   } else {
-    return <li><a href={item.link}>{item.title}</a></li>
+    return (
+      <li>
+        <a href={item.link}>{item.title}</a>
+      </li>
+    )
   }
 }
 
@@ -16,7 +26,9 @@ const BreadCrumbs = ({ items }) => {
   return (
     <nav aria-label='breadcrumb'>
       <ol className='breadcrumbs'>
-        {items.slice(0, items.length - 1).map(item => <Item key={item.title} item={item} />)}
+        {items.slice(0, items.length - 1).map((item) => (
+          <Item key={item.title} item={item} />
+        ))}
         <Item key={lastItem.name} item={lastItem} current />
       </ol>
     </nav>

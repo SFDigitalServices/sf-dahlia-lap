@@ -42,9 +42,7 @@ const tableFields = {
 const FlaggedApplicationsShowPageTable = ({ flaggedApplications }) => {
   return (
     /* TODO: could render normal IndexTable for this record set if Lottery Complete, so not editable */
-    <SpreadsheetIndexTable
-      results={flaggedApplications}
-      fields={tableFields} />
+    <SpreadsheetIndexTable results={flaggedApplications} fields={tableFields} />
   )
 }
 
@@ -66,13 +64,14 @@ const buildFlaggedApplicationModel = (flaggedApplication) => {
     application: flaggedApplication.application.id,
     application_name: flaggedApplication.application.name,
     flagged_record_set_rule_name: flaggedApplication.flagged_record.rule_name,
-    flagged_record_set_listing_lottery_status: flaggedApplication.flagged_record.listing.lottery_status
+    flagged_record_set_listing_lottery_status:
+      flaggedApplication.flagged_record.listing.lottery_status
   }
 }
 
 const mapProperties = ({ flaggedApplications }) => {
   return {
-    flaggedApplications: flaggedApplications.map(i => buildFlaggedApplicationModel(i))
+    flaggedApplications: flaggedApplications.map((i) => buildFlaggedApplicationModel(i))
   }
 }
 

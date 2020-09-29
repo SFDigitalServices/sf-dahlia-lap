@@ -11,9 +11,7 @@ const SupplementalApplicationHeader = ({ applicationNumber, applicantName, listi
     { title: applicationNumber, link: '#' }
   ]
 
-  return (
-    <PageHeader title={title} breadcrumbs={breadcrumbs} />
-  )
+  return <PageHeader title={title} breadcrumbs={breadcrumbs} />
 }
 
 export default SupplementalApplicationHeader

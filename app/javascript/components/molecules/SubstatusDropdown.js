@@ -43,10 +43,7 @@ const SubstatusDropdown = ({
     const val = getValue()[0]
 
     return (
-      <button
-        className={classNames(buttonClasses)}
-        type='button'
-        disabled={disabled}>
+      <button className={classNames(buttonClasses)} type='button' disabled={disabled}>
         <Icon icon='arrow-down' />
         {val?.label ? val.label : placeholder}
         <div className='ui-icon ui-small'>
@@ -64,10 +61,11 @@ const SubstatusDropdown = ({
       items={LEASE_UP_SUBSTATUS_OPTIONS[status] || []}
       value={subStatus}
       placeholder={placeholder}
-      onChange={val => onChange(val, 'subStatus')}
+      onChange={(val) => onChange(val, 'subStatus')}
       renderToggle={renderStatusToggle}
       renderOption={renderSubstatusOption}
-      disabled={disabled} />
+      disabled={disabled}
+    />
   )
 }
 

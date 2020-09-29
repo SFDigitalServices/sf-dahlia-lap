@@ -18,8 +18,7 @@ const MAX_UPDATES_TO_SHOW_DEFAULT = 4
 const StatusHistoryContainer = ({ statusItems }) => {
   const [showingAllStatuses, setShowingAllStatuses] = useState(false)
 
-  const onShowHideStatusesToggled = () =>
-    setShowingAllStatuses(!showingAllStatuses)
+  const onShowHideStatusesToggled = () => setShowingAllStatuses(!showingAllStatuses)
 
   const numberOfStatusesToDisplay = showingAllStatuses
     ? statusItems.length
@@ -33,19 +32,14 @@ const StatusHistoryContainer = ({ statusItems }) => {
       <div className='padding-top--half hide-large-up'>
         <ContentSection.Header title='Status History' />
       </div>
-      <StatusItems
-        statusItems={statusItems}
-        limit={numberOfStatusesToDisplay}
-      />
+      <StatusItems statusItems={statusItems} limit={numberOfStatusesToDisplay} />
       {statusItems.length > MAX_UPDATES_TO_SHOW_DEFAULT && (
         <button
           className={classNames('button-link', 't-tiny', 'show-all-updates-toggle')}
           type='button'
           onClick={onShowHideStatusesToggled}
         >
-          {showingAllStatuses
-            ? 'Show only recent status updates'
-            : 'Show all status updates'}
+          {showingAllStatuses ? 'Show only recent status updates' : 'Show all status updates'}
         </button>
       )}
     </>

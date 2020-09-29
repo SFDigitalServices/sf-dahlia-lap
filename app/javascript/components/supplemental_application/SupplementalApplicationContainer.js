@@ -32,7 +32,14 @@ const ConfirmedPreferencesSection = ({
 }) => (
   <ContentSection
     title='Preferences and Priorities'
-    description={<>Complete this section first. <b>You must confirm claimed preferences before sending out a post-lottery letter.</b> Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.</>}
+    description={
+      <>
+        Complete this section first.{' '}
+        <b>You must confirm claimed preferences before sending out a post-lottery letter.</b> Please
+        allow the applicant 24 hours to provide appropriate preference proof if not previously
+        supplied.
+      </>
+    }
   >
     <ContentSection.Sub title='Confirmed Preferences'>
       {confirmedPreferencesFailed && (
@@ -63,25 +70,23 @@ const Income = ({ listingAmiCharts, visited, form }) => (
     title='Income'
     description='Complete this section after MOHCD has confirmed the household’s income eligibility. You must complete this section even if the household is over or under income eligibility.'
   >
-    <ConfirmedHouseholdIncome
-      listingAmiCharts={listingAmiCharts}
-      visited={visited}
-    />
+    <ConfirmedHouseholdIncome listingAmiCharts={listingAmiCharts} visited={visited} />
   </ContentSection>
 )
 
 const LeaseSection = ({ form, values, onCreateLeaseClick, showLeaseSection }) => (
   <ContentSection
     title='Lease'
-    description={!showLeaseSection && 'Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.'}
-  >
-    { showLeaseSection ? (
-      <Lease
-        form={form}
-        values={values}
-      />
-    ) : <Button id='create-lease' text='Create Lease' small onClick={onCreateLeaseClick} />
+    description={
+      !showLeaseSection &&
+      'Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.'
     }
+  >
+    {showLeaseSection ? (
+      <Lease form={form} values={values} />
+    ) : (
+      <Button id='create-lease' text='Create Lease' small onClick={onCreateLeaseClick} />
+    )}
   </ContentSection>
 )
 
@@ -95,12 +100,7 @@ const DemographicsSection = () => (
 )
 
 const Sidebar = withContext(
-  ({
-    store: { statusHistory, loading },
-    onChangeStatus,
-    onAddCommentClicked,
-    onSaveClicked
-  }) => {
+  ({ store: { statusHistory, loading }, onChangeStatus, onAddCommentClicked, onSaveClicked }) => {
     return (
       <div className='sticky-sidebar-large-up'>
         <LeaseUpSidebar
@@ -118,15 +118,12 @@ const Sidebar = withContext(
 const SupplementalApplicationContainer = ({ store }) => {
   const [failed, setFailed] = useState(false)
 
-  const validateForm = values => {
+  const validateForm = (values) => {
     const errors = { lease: {} }
     // only validate lease_start_date when any of the fields is present
     if (!isEmpty(values.lease) && !isEmpty(values.lease.lease_start_date)) {
       errors.lease = { lease_start_date: {} }
-      validate.isValidDate(
-        values.lease.lease_start_date,
-        errors.lease.lease_start_date
-      )
+      validate.isValidDate(values.lease.lease_start_date, errors.lease.lease_start_date)
     }
     return errors
   }
@@ -164,26 +161,18 @@ const SupplementalApplicationContainer = ({ store }) => {
     !checkForValidationErrors(form, touched) ? openAddStatusCommentModal() : null
 
   const onChangeStatus = (form, touched, value) =>
-    !checkForValidationErrors(form, touched)
-      ? openUpdateStatusModal(value)
-      : null
+    !checkForValidationErrors(form, touched) ? openUpdateStatusModal(value) : null
 
   return (
     <Form
-      onSubmit={values => onSubmit(convertPercentAndCurrency(values))}
+      onSubmit={(values) => onSubmit(convertPercentAndCurrency(values))}
       initialValues={application}
       // Keep dirty on reinitialize ensures the whole form doesn't refresh
       // when only a piece of it is saved (eg. when the lease is saved)
       keepDirtyOnReinitialize
       validate={validateForm}
       mutators={{ ...arrayMutators }}
-      render={({
-        handleSubmit,
-        form,
-        touched,
-        values,
-        visited
-      }) => (
+      render={({ handleSubmit, form, touched, values, visited }) => (
         <>
           {failed && (
             <AlertBox
@@ -200,7 +189,6 @@ const SupplementalApplicationContainer = ({ store }) => {
             noValidate
           >
             <AsymColumnLayout.Container>
-
               <AsymColumnLayout.MainContent>
                 <ConfirmedPreferencesSection
                   application={application}
@@ -211,11 +199,7 @@ const SupplementalApplicationContainer = ({ store }) => {
                   confirmedPreferencesFailed={confirmedPreferencesFailed}
                   form={form}
                 />
-                <Income
-                  listingAmiCharts={listingAmiCharts}
-                  visited={visited}
-                  form={form}
-                />
+                <Income listingAmiCharts={listingAmiCharts} visited={visited} form={form} />
                 <LeaseSection
                   form={form}
                   values={values}
@@ -236,7 +220,7 @@ const SupplementalApplicationContainer = ({ store }) => {
           <StatusModalWrapper
             {...statusModal}
             onClose={handleStatusModalClose}
-            onSubmit={submittedValues =>
+            onSubmit={(submittedValues) =>
               handleStatusModalSubmit(
                 submittedValues,
                 convertPercentAndCurrency(form.getState().values)

@@ -8,7 +8,11 @@ const monthlyRentFieldName = 'lease.monthly_parking_rent'
 const Yes = 'Yes'
 const No = 'No'
 
-const ParkingInformationInputs = ({ form: { change, getFieldState }, values: { lease }, disabled = false }) => {
+const ParkingInformationInputs = ({
+  form: { change, getFieldState },
+  values: { lease },
+  disabled = false
+}) => {
   const onChangeHasParkingSpace = ({ target: { value } }) => {
     if (value !== Yes) {
       change(monthlyRentFieldName, null)
@@ -37,7 +41,8 @@ const ParkingInformationInputs = ({ form: { change, getFieldState }, values: { l
             fieldName={monthlyRentFieldName}
             validation={validateLeaseCurrency}
             disabled={disabled || !hasParkingSpace}
-            isDirty={monthlyRentVisited} />
+            isDirty={monthlyRentVisited}
+          />
         </FormGrid.Item>
       </FormGrid.Row>
     </>

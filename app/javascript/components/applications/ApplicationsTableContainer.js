@@ -7,7 +7,7 @@ import { EagerPagination, SERVER_PAGE_SIZE } from '~/utils/EagerPagination'
 const ROWS_PER_PAGE = 20
 
 class ApplicationsTableContainer extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.eagerPagination = new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
     this.state = {
@@ -20,7 +20,7 @@ class ApplicationsTableContainer extends React.Component {
 
   loadPage = (page, filters) => {
     const { onFetchData } = this.props
-    const fetcher = p => onFetchData(p, { filters })
+    const fetcher = (p) => onFetchData(p, { filters })
     this.setState({ loading: true, page: page })
     this.eagerPagination.getPage(page, fetcher).then(({ records, pages }) => {
       this.setState({ applications: records, loading: false, pages: pages, atMaxPages: false })
@@ -42,7 +42,7 @@ class ApplicationsTableContainer extends React.Component {
     this.loadPage(0, filters)
   }
 
-  render () {
+  render() {
     const { listings } = this.props
     const { loading, applications, pages, atMaxPages } = this.state
     return (

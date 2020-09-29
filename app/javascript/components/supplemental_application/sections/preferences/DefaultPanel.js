@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const DefaultPanel = () => {
-  return (<div />)
+  return <div />
 }
 
 export default DefaultPanel

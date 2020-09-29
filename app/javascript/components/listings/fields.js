@@ -82,11 +82,7 @@ export const additionalInfoFields = [
   'pet_policy'
 ]
 
-export const openHousesFields = [
-  'date',
-  'start_time',
-  'end_time'
-]
+export const openHousesFields = ['date', 'start_time', 'end_time']
 
 export const infoSessionsFields = [
   'date',

@@ -7,10 +7,16 @@ import StatusHistoryContainer from './StatusHistoryContainer'
 
 import StatusItemShape from '../../../utils/shapes/StatusItemShape'
 
-const getMostRecentStatus = statusHistory =>
+const getMostRecentStatus = (statusHistory) =>
   statusHistory && statusHistory[0] ? statusHistory[0].status : null
 
-const LeaseUpSidebar = ({ isLoading, statusItems, onSaveClicked, onChangeStatus, onAddCommentClicked }) => {
+const LeaseUpSidebar = ({
+  isLoading,
+  statusItems,
+  onSaveClicked,
+  onChangeStatus,
+  onAddCommentClicked
+}) => {
   const currentStatus = getMostRecentStatus(statusItems)
 
   const saveButton = (
@@ -40,9 +46,7 @@ const LeaseUpSidebar = ({ isLoading, statusItems, onSaveClicked, onChangeStatus,
         {saveButton}
         {statusButtons}
       </div>
-      {!isEmpty(statusItems) && (
-        <StatusHistoryContainer statusItems={statusItems} />
-      )}
+      {!isEmpty(statusItems) && <StatusHistoryContainer statusItems={statusItems} />}
       <div className={'hide-large-up'}>
         {statusButtons}
         {saveButton}

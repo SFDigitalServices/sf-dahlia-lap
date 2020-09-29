@@ -1,7 +1,4 @@
-import React, {
-  useEffect,
-  useState
-} from 'react'
+import React, { useEffect, useState } from 'react'
 import { isEmpty, findIndex } from 'lodash'
 
 import TableWrapper from '~/components/atoms/TableWrapper'
@@ -64,7 +61,7 @@ export const RentalAssistanceTable = ({
   ]
 
   const expanderRenderer = (row, expanded, expandedRowToggler) => {
-    return (!expanded && !disabled && <ExpanderButton label='Edit' onClick={expandedRowToggler} />)
+    return !expanded && !disabled && <ExpanderButton label='Edit' onClick={expandedRowToggler} />
   }
 
   const expandedRowRenderer = (rentalAssistances, form) => (row, toggle, original) => {
@@ -72,11 +69,10 @@ export const RentalAssistanceTable = ({
 
     // Run the async function, if the result doesn't throw an error and returned a
     // truthy response, toggle the panel to show/hide
-    const toggleIfSuccessful = (asyncFunc) =>
-      (...args) => asyncFunc(...args)
-        .then(result => {
-          if (result) toggle()
-        })
+    const toggleIfSuccessful = (asyncFunc) => (...args) =>
+      asyncFunc(...args).then((result) => {
+        if (result) toggle()
+      })
 
     const handleClose = () => {
       onCancelEdit(index)
@@ -101,17 +97,18 @@ export const RentalAssistanceTable = ({
     )
   }
 
-  const buildRows = () => rentalAssistances.map(ra => {
-    const appMember = applicationMembers.find(m => m.id === ra.recipient)
-    const appMemberName = appMember ? `${appMember.first_name} ${appMember.last_name}` : ''
+  const buildRows = () =>
+    rentalAssistances.map((ra) => {
+      const appMember = applicationMembers.find((m) => m.id === ra.recipient)
+      const appMemberName = appMember ? `${appMember.first_name} ${appMember.last_name}` : ''
 
-    return [
-      { content: appMemberName },
-      { content: ra.other_assistance_name || ra.type_of_assistance },
-      { content: ra.assistance_amount ? ra.assistance_amount : '', formatType: 'currency' },
-      { content: ra.recurring_assistance }
-    ]
-  })
+      return [
+        { content: appMemberName },
+        { content: ra.other_assistance_name || ra.type_of_assistance },
+        { content: ra.assistance_amount ? ra.assistance_amount : '', formatType: 'currency' },
+        { content: ra.recurring_assistance }
+      ]
+    })
 
   const rows = buildRows()
 
@@ -143,8 +140,10 @@ export const RentalAssistanceForm = ({
   visited
 }) => {
   const validateAssistanceAmount = (value) => {
-    return validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
+    return (
+      validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
       validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(value)
+    )
   }
 
   const isFormValid = () => {
@@ -156,12 +155,10 @@ export const RentalAssistanceForm = ({
     return isValid
   }
 
-  const applicationMembersOptions = applicationMembers.map(member => (
-    {
-      label: `${member.first_name} ${member.last_name}`,
-      value: member.id
-    }
-  ))
+  const applicationMembersOptions = applicationMembers.map((member) => ({
+    label: `${member.first_name} ${member.last_name}`,
+    value: member.id
+  }))
 
   const handleSave = () => {
     if (isFormValid()) {
@@ -174,7 +171,7 @@ export const RentalAssistanceForm = ({
   const modalId = isNew ? 'rental-assistance-new-form' : `rental-assistance-edit-form-${index}`
 
   return (
-    <InlineModal whiteBackground marginBottom={isNew} id={modalId} >
+    <InlineModal whiteBackground marginBottom={isNew} id={modalId}>
       <FormGrid.Row>
         <FormGrid.Item>
           <SelectField
@@ -212,7 +209,7 @@ export const RentalAssistanceForm = ({
           <YesNoRadioGroup
             label='Recurring Assistance'
             fieldName={getField('recurring_assistance')}
-            uniqId={(values?.id) || 'new'}
+            uniqId={values?.id || 'new'}
             trueValue='Yes'
             falseValue='No'
             className='rental-assistance-recurring'
@@ -224,7 +221,8 @@ export const RentalAssistanceForm = ({
           <FormGrid.Item>
             <InputField
               label='Other Assistance Name'
-              fieldName={getField('other_assistance_name')} />
+              fieldName={getField('other_assistance_name')}
+            />
           </FormGrid.Item>
         </FormGrid.Row>
       )}
@@ -265,12 +263,7 @@ export const RentalAssistanceForm = ({
   )
 }
 
-const RentalAssistance = ({
-  store,
-  form,
-  visited,
-  disabled
-}) => {
+const RentalAssistance = ({ store, form, visited, disabled }) => {
   const {
     application,
     applicationMembers,
@@ -312,8 +305,7 @@ const RentalAssistance = ({
   }
 
   const handleSaveNewAssistance = async (index) =>
-    handleSave(index, 'create')
-      .then(() => setIsEditingNewAssistance(false))
+    handleSave(index, 'create').then(() => setIsEditingNewAssistance(false))
 
   const handleDelete = async (rentalAssistance) =>
     handleDeleteRentalAssistance(rentalAssistance, form.getState().values)
@@ -361,9 +353,7 @@ const RentalAssistance = ({
               />
             )}
             <div className={disabled ? 'margin-top' : 'margin-top--half'} />
-            <HelpText
-              note='Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.'
-            />
+            <HelpText note='Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.' />
           </FormGrid.Item>
         </FormGrid.Row>
       )}

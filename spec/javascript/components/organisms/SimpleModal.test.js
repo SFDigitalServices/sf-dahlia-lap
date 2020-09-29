@@ -24,9 +24,11 @@ describe('SimpleModal', () => {
         alert={{
           title: "This change will affect this application's preferences",
           subtitle: 'This application would no longer be eligible for Live Work Preference',
-          message: 'Note, you will have the opportunity to grant another household member this preference',
+          message:
+            'Note, you will have the opportunity to grant another household member this preference',
           invert: false
-        }}>
+        }}
+      >
         <div>content</div>
       </SimpleModal>
     )
@@ -48,7 +50,8 @@ describe('SimpleModal', () => {
         handleClose={onCloseClick}
         onPrimaryClick={onPrimaryClick}
         onSecondaryClick={onSecondaryClick}
-        type='status'>
+        type='status'
+      >
         <div>content</div>
       </SimpleModal>
     )

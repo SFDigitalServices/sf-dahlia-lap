@@ -24,14 +24,15 @@ const defaultToggleRenderer = ({ children, getValue, ...props }) => {
   )
 }
 
-const getWrapper = (propOverrides = {}) => shallow(
-  <Dropdown
-    renderOption={defaultOptionRenderer}
-    renderToggle={defaultToggleRenderer}
-    onChange={jest.fn()}
-    {...propOverrides}
-  />
-)
+const getWrapper = (propOverrides = {}) =>
+  shallow(
+    <Dropdown
+      renderOption={defaultOptionRenderer}
+      renderToggle={defaultToggleRenderer}
+      onChange={jest.fn()}
+      {...propOverrides}
+    />
+  )
 
 describe('Dropdown', () => {
   let wrapper

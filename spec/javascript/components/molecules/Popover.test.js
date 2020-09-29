@@ -10,12 +10,12 @@ const sampleButtonElement = ({ onClick, ref }) => (
   </button>
 )
 
-const getWrapper = () => shallow(
-  <Popover buttonElement={sampleButtonElement}>
-    <p>
-      popover content
-    </p>
-  </Popover>)
+const getWrapper = () =>
+  shallow(
+    <Popover buttonElement={sampleButtonElement}>
+      <p>popover content</p>
+    </Popover>
+  )
 
 describe('Popover', () => {
   it('should be closed by default', () => {
@@ -46,23 +46,24 @@ describe('Popover', () => {
       map[event] = cb
     })
 
-    const getWrapperWithOutsideElement = () => mount(
-      <div>
-        <Popover buttonElement={sampleButtonElement}>
-          <p>
-        popover content
-          </p>
-        </Popover>
-        <a id='something_else' />
-      </div>
-    )
+    const getWrapperWithOutsideElement = () =>
+      mount(
+        <div>
+          <Popover buttonElement={sampleButtonElement}>
+            <p>popover content</p>
+          </Popover>
+          <a id='something_else' />
+        </div>
+      )
     it('should close the tooltip with outside elements are clicked', () => {
       const wrapper = getWrapperWithOutsideElement()
       // Open the popover
       wrapper.find('button').simulate('click')
       expect(wrapper.find('p').exists()).toBeTruthy()
       // Click on something outside of the popover
-      act(() => { map.click({ target: wrapper.find('#something_else').getDOMNode() }) })
+      act(() => {
+        map.click({ target: wrapper.find('#something_else').getDOMNode() })
+      })
       wrapper.update()
       expect(wrapper.find('p').exists()).toBeFalsy()
     })
@@ -73,7 +74,9 @@ describe('Popover', () => {
       wrapper.find('button').simulate('click')
       expect(wrapper.find('p').exists()).toBeTruthy()
       // Click on something inside of the popover
-      act(() => { map.click({ target: wrapper.find('p').getDOMNode() }) })
+      act(() => {
+        map.click({ target: wrapper.find('p').getDOMNode() })
+      })
       wrapper.update()
       expect(wrapper.find('p').exists()).toBeTruthy()
     })

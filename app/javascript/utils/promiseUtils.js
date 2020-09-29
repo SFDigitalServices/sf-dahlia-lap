@@ -10,9 +10,7 @@
  * @return a promise that resolves to an array with each promise result in order.
  */
 export const performInSequence = (promiseFunc1, promiseFunc2) =>
-  promiseFunc1()
-    .then(result1 =>
-      promiseFunc2().then(result2 => [result1, result2]))
+  promiseFunc1().then((result1) => promiseFunc2().then((result2) => [result1, result2]))
 
 /**
  * Given a list of functions that resolve to promises, resolve them sequentially and
@@ -28,7 +26,10 @@ export const performAllInSequence = (promiseFuncs) => {
     performInSequence(
       () => accumulatorPromise,
       promiseFunc
-    ).then(([completedPromisesArr, currPromiseResult]) => [...completedPromisesArr, currPromiseResult])
+    ).then(([completedPromisesArr, currPromiseResult]) => [
+      ...completedPromisesArr,
+      currPromiseResult
+    ])
 
   return promiseFuncs.reduce(reducer, Promise.resolve([]))
 }

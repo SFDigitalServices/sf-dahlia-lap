@@ -9,7 +9,8 @@ const labelize = (options, attrs = {}, noPlaceholder = false) => {
     noPlaceholder ||
     isEmpty(options) ||
     options[0] === '' ||
-    (Object.prototype.hasOwnProperty.call(options[0], 'value') && isNullOrEmptyString(options[0].value))
+    (Object.prototype.hasOwnProperty.call(options[0], 'value') &&
+      isNullOrEmptyString(options[0].value))
 
   const labelizedOptions = []
   if (!emptyInitialOptionPresent) {
@@ -21,7 +22,7 @@ const labelize = (options, attrs = {}, noPlaceholder = false) => {
   }
 
   return labelizedOptions.concat(
-    options.map(option => {
+    options.map((option) => {
       return {
         value: Object.prototype.hasOwnProperty.call(option, 'value') ? option.value : option,
         label: Object.prototype.hasOwnProperty.call(option, 'label') ? option.label : option,
@@ -34,18 +35,9 @@ const labelize = (options, attrs = {}, noPlaceholder = false) => {
 // TODO: Remove the use of labelize on all the below options arrays once the
 // migration to react-final-form is complete. labelize is already being called
 // by the new react-final-form-based SelectField component.
-const applicationLanguageOptions = labelize([
-  'English',
-  'Chinese',
-  'Spanish',
-  'Filipino'
-])
+const applicationLanguageOptions = labelize(['English', 'Chinese', 'Spanish', 'Filipino'])
 
-const phoneTypeOptions = labelize([
-  'Home',
-  'Cell',
-  'Work'
-])
+const phoneTypeOptions = labelize(['Home', 'Cell', 'Work'])
 
 const alternateContactOptions = labelize([
   'Family Member',
@@ -82,11 +74,7 @@ const relationshipOptions = labelize([
   'Other'
 ])
 
-const ethnicityOptions = labelize([
-  'Hispanic/Latino',
-  'Not Hispanic/Latino',
-  'Decline to state'
-])
+const ethnicityOptions = labelize(['Hispanic/Latino', 'Not Hispanic/Latino', 'Decline to state'])
 
 const raceOptions = labelize([
   'American Indian/Alaskan Native',
@@ -167,11 +155,7 @@ const preferenceProofOptionsWorkInSf = labelize([
   'Letter from employer'
 ])
 
-const priorityOptions = [
-  'Mobility impairments',
-  'Vision impairments',
-  'Hearing impairments'
-]
+const priorityOptions = ['Mobility impairments', 'Vision impairments', 'Hearing impairments']
 
 const listingReferralOptions = labelize([
   'Newspaper',
@@ -198,11 +182,7 @@ const adaPriorityValueToLabelMap = {
   hearing_impairments: 'Hearing impairments'
 }
 
-const yesNoOptions = labelize([
-  'Yes',
-  'No',
-  'Left Blank'
-])
+const yesNoOptions = labelize(['Yes', 'No', 'Left Blank'])
 
 export default {
   applicationLanguageOptions,

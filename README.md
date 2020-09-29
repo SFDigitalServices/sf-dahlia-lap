@@ -36,6 +36,21 @@ To lint Ruby code run: `rubocop`
 
 To lint the React code run: `yarn lint`
 
+To fix any auto-fixable linting errors run: `yarn lint:fix`
+
+## Visual Studio setup
+Install the following extensions:
+- [EsLint](https://github.com/Microsoft/vscode-eslint)
+- [Prettier](https://github.com/prettier/prettier-vscode)
+
+To automatically fix linting errors on save, add this to your VSCode workspace settings:
+```
+"editor.codeActionsOnSave": {
+    // For ESLint
+    "source.fixAll.eslint": true,
+},
+```
+
 
 ## Rails tests
 

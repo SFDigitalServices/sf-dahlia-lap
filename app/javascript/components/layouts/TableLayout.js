@@ -13,18 +13,13 @@ const TableLayout = ({ children, pageHeader, tabSection }) => {
   return (
     <>
       <PageHeader {...pageHeader} background='dust' />
-      { tabSection
-        ? (
-          <TabsSection {...tabSection} background='dust' padding>
-            {children}
-          </TabsSection>
-        )
-        : (
-          <TabCard padding>
-            {children}
-          </TabCard>
-        )
-      }
+      {tabSection ? (
+        <TabsSection {...tabSection} background='dust' padding>
+          {children}
+        </TabsSection>
+      ) : (
+        <TabCard padding>{children}</TabCard>
+      )}
     </>
   )
 }

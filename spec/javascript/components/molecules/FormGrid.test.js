@@ -15,11 +15,7 @@ describe('FormGrid.Item', () => {
   })
 
   test('renders the FormGrid.Item properly with small = true', () => {
-    const wrapper = shallow(
-      <FormGrid.Item small>
-        ABC
-      </FormGrid.Item>
-    )
+    const wrapper = shallow(<FormGrid.Item small>ABC</FormGrid.Item>)
     expect(wrapper.find('.form-grid_item')).toHaveLength(1)
     expect(wrapper.find('.small-3')).toHaveLength(1)
   })

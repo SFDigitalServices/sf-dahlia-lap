@@ -6,9 +6,7 @@ import IndexTableCell from 'components/IndexTableCell'
 describe('IndexTableCell', () => {
   test('should return null if val is undefined', () => {
     const val = null
-    const component = renderer.create(
-      <IndexTableCell {...{ val }} />
-    )
+    const component = renderer.create(<IndexTableCell {...{ val }} />)
 
     expect(component.toJSON()).toBeNull()
   })
@@ -16,9 +14,7 @@ describe('IndexTableCell', () => {
   test('should return string value if cell is not being edited', () => {
     const val = 'test'
     const editing = false
-    const component = renderer.create(
-      <IndexTableCell {...{ val, editing }} />
-    )
+    const component = renderer.create(<IndexTableCell {...{ val, editing }} />)
 
     expect(component.toJSON()).toEqual(val)
   })

@@ -5,12 +5,8 @@ import LeaseUpStatusButtons from 'components/molecules/lease_up_sidebar/LeaseUpS
 import StatusHistoryContainer from 'components/molecules/lease_up_sidebar/StatusHistoryContainer'
 import { mockStatusItem, mockStatusItems, mockManyStatusItems } from '../../../mocks/statusItemMock'
 
-const getWrapper = (items, isLoading = false) => shallow(
-  <LeaseUpSidebar
-    statusItems={items}
-    isLoading={isLoading}
-  />
-)
+const getWrapper = (items, isLoading = false) =>
+  shallow(<LeaseUpSidebar statusItems={items} isLoading={isLoading} />)
 
 describe('LeaseUpSidebar', () => {
   describe('when not loading', () => {

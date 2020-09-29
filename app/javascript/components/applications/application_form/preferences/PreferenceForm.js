@@ -13,8 +13,10 @@ const buildListingPreferencesOptions = (form, listingPreferences, selectedId) =>
   // Exclude preferences that are already present in application elsewhere
   // The currently selected preference is a valid option
   const preferenceOptions = omitBy(listingPreferences, (listingPref) => {
-    const isSelected = find(form.getState().values.preferences, { listing_preference_id: listingPref.id })
-    return (isSelected && isSelected.listing_preference_id !== selectedId)
+    const isSelected = find(form.getState().values.preferences, {
+      listing_preference_id: listingPref.id
+    })
+    return isSelected && isSelected.listing_preference_id !== selectedId
   })
 
   const listingPrefOptions = map(preferenceOptions, (listingPref) => {
@@ -24,7 +26,7 @@ const buildListingPreferencesOptions = (form, listingPreferences, selectedId) =>
       order: listingPref.order
     }
   })
-  return sortBy(listingPrefOptions, opt => opt.order)
+  return sortBy(listingPrefOptions, (opt) => opt.order)
 }
 
 const removePreference = (form, i) => {
@@ -52,8 +54,12 @@ const clearPreference = (form, i, target) => {
 
 const PreferenceForm = ({ i, name, form, listingPreferences, fullHousehold }) => {
   const selectedId = (form.getState().values.preferences[i] || {}).listing_preference_id
-  const selectedPreference = find(listingPreferences, pref => pref.id === selectedId)
-  const listingPreferencesOptions = buildListingPreferencesOptions(form, listingPreferences, selectedId)
+  const selectedPreference = find(listingPreferences, (pref) => pref.id === selectedId)
+  const listingPreferencesOptions = buildListingPreferencesOptions(
+    form,
+    listingPreferences,
+    selectedId
+  )
 
   // Set the hidden recordType DeveloperName value
   if (!!selectedPreference && selectedPreference.lottery_preference) {
@@ -86,8 +92,9 @@ const PreferenceForm = ({ i, name, form, listingPreferences, fullHousehold }) =>
           <button
             onClick={() => removePreference(form, i)}
             type='button'
-            className='mb-4 btn btn-danger'>
-              Remove
+            className='mb-4 btn btn-danger'
+          >
+            Remove
           </button>
         </Column>
       </Row>

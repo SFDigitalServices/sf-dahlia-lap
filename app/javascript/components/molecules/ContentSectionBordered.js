@@ -1,7 +1,19 @@
 import React from 'react'
 import FormGridRow from '../molecules/FormGridRow'
 
-const ContentSectionBordered = ({ title, subtitle, titleDescription, subtitleDescription, label, id, name, placeholder, describeId, note, error }) => {
+const ContentSectionBordered = ({
+  title,
+  subtitle,
+  titleDescription,
+  subtitleDescription,
+  label,
+  id,
+  name,
+  placeholder,
+  describeId,
+  note,
+  error
+}) => {
   return (
     <div className='content-section'>
       <div className='app-inner header-wide'>
@@ -13,7 +25,15 @@ const ContentSectionBordered = ({ title, subtitle, titleDescription, subtitleDes
         <p className='form-note max-width'>{subtitleDescription}</p>
       </div>
       <div className='app-inner inset-wide has-border margin-top'>
-        <FormGridRow label={label} id={id} name={name} placeholder={placeholder} describeId={describeId} note={note} error={error} />
+        <FormGridRow
+          label={label}
+          id={id}
+          name={name}
+          placeholder={placeholder}
+          describeId={describeId}
+          note={note}
+          error={error}
+        />
       </div>
     </div>
   )

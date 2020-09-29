@@ -15,11 +15,8 @@ const LeaseUpListingsPage = ({ listings }) => {
   }
 
   return (
-    <TableLayout pageHeader={pageHeader} >
-      <LeaseUpListingsTable
-        listings={listings}
-        onCellClick={onCellClick}
-      />
+    <TableLayout pageHeader={pageHeader}>
+      <LeaseUpListingsTable listings={listings} onCellClick={onCellClick} />
     </TableLayout>
   )
 }

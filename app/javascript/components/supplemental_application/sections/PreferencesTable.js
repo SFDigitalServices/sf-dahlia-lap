@@ -5,12 +5,7 @@ import TableWrapper from '~/components/atoms/TableWrapper'
 import PreferenceIcon from './preferences/PreferenceIcon'
 import ExpandableTable from '~/components/molecules/ExpandableTable'
 import Panel from './preferences/Panel'
-import {
-  isCOP,
-  isDTHP,
-  isAliceGriffith,
-  getPreferenceName
-} from './preferences/utils'
+import { isCOP, isDTHP, isAliceGriffith, getPreferenceName } from './preferences/utils'
 import { getTypeOfProof } from './preferences/typeOfProof'
 import { withContext } from '../context'
 import { memberNameFromPref } from '~/components/applications/application_form/preferences/utils'
@@ -31,7 +26,7 @@ const matchingPreference = (row) => (preference) => {
 
 /** Presenter **/
 
-const buildRow = (proofFiles, applicationMembers, fileBaseUrl) => preference => {
+const buildRow = (proofFiles, applicationMembers, fileBaseUrl) => (preference) => {
   return [
     { content: <PreferenceIcon status={preference.post_lottery_validation} /> },
     { content: getPreferenceName(preference) },
@@ -59,7 +54,14 @@ const columns = [
   { content: '' }
 ]
 
-const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClose, form, visited) => (row, toggle) => {
+const expandedRowRenderer = (
+  application,
+  applicationMembers,
+  onSave,
+  onPanelClose,
+  form,
+  visited
+) => (row, toggle) => {
   const preferenceIndex = findIndex(application.preferences, matchingPreference(row))
   const handleOnClose = (preferenceIndex) => {
     toggle()
@@ -85,11 +87,27 @@ const expandedRowRenderer = (application, applicationMembers, onSave, onPanelClo
 
 const expanderAction = (row, expanded, expandedRowToggler) => {
   const prefName = row[1].content
-  return (!expanded && hasExpanderButton(prefName) &&
-    <ExpanderButton label='Edit' onClick={expandedRowToggler} id={`${kebabCase(prefName)}-edit`} />)
+  return (
+    !expanded &&
+    hasExpanderButton(prefName) && (
+      <ExpanderButton
+        label='Edit'
+        onClick={expandedRowToggler}
+        id={`${kebabCase(prefName)}-edit`}
+      />
+    )
+  )
 }
 
-const PreferencesTable = ({ application, applicationMembers, fileBaseUrl, onSave, onPanelClose, form, visited }) => {
+const PreferencesTable = ({
+  application,
+  applicationMembers,
+  fileBaseUrl,
+  onSave,
+  onPanelClose,
+  form,
+  visited
+}) => {
   const rows = buildRows(application, applicationMembers, fileBaseUrl)
   return (
     <div className='preferences-table'>
@@ -99,10 +117,18 @@ const PreferencesTable = ({ application, applicationMembers, fileBaseUrl, onSave
           rows={rows}
           rowKeyIndex={1}
           expanderRenderer={expanderAction}
-          expandedRowRenderer={expandedRowRenderer(application, applicationMembers, onSave, onPanelClose, form, visited)}
+          expandedRowRenderer={expandedRowRenderer(
+            application,
+            applicationMembers,
+            onSave,
+            onPanelClose,
+            form,
+            visited
+          )}
         />
       </TableWrapper>
-    </div>)
+    </div>
+  )
 }
 
 export default withContext(PreferencesTable)

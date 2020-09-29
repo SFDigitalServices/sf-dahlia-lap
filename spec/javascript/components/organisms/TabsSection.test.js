@@ -10,9 +10,7 @@ describe('TabsMenu', () => {
       { title: 'Supplemental Information', url: '/url2', active: true }
     ]
 
-    const wrapper = mount(
-      <TabsSection items={items} currentUrl={'/url1'} />
-    )
+    const wrapper = mount(<TabsSection items={items} currentUrl={'/url1'} />)
 
     expect(wrapper).toMatchSnapshot()
   })

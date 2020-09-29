@@ -1,11 +1,12 @@
-
 import apiService from '~/apiService'
 
 export const saveApplication = async (submitType, submittedValues, listing, editPage) => {
   const response = await apiService.submitApplication(submittedValues)
 
   if (!response) {
-    window.alert('An error has occurred. Please try to save again. Contact MOHCD if you still have problems.')
+    window.alert(
+      'An error has occurred. Please try to save again. Contact MOHCD if you still have problems.'
+    )
     return response
   }
 

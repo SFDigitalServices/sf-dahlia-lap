@@ -105,9 +105,11 @@ const Lease = ({ form, values, store }) => {
     map(availableUnits, pluck('id', 'unit_number', 'priority_type'))
   )
 
-  const accessibilityUnits = availableUnits && availableUnits.filter((unit) => {
-    return unit.priority_type && unit.priority_type.match(/Mobility|Hearing|Vision/)
-  })
+  const accessibilityUnits =
+    availableUnits &&
+    availableUnits.filter((unit) => {
+      return unit.priority_type && unit.priority_type.match(/Mobility|Hearing|Vision/)
+    })
 
   const noUnitsOptions = [{ value: '', label: 'No Units Available' }]
   const confirmedPreferences = filter(application.preferences, {
@@ -121,9 +123,7 @@ const Lease = ({ form, values, store }) => {
     )
   )
 
-  const getVisited = (fieldName) => (
-    form.getFieldState(fieldName)?.visited
-  )
+  const getVisited = (fieldName) => form.getFieldState(fieldName)?.visited
 
   const openDeleteLeaseConfirmation = () => setShowDeleteConfirmation(true)
   const closeDeleteLeaseConfirmation = () => setShowDeleteConfirmation(false)
@@ -158,18 +158,24 @@ const Lease = ({ form, values, store }) => {
         <FormGrid.Row>
           <FormGrid.Item>
             <div className='margin-bottom'>
-              <strong className='form-note max-width'>Remaining Available Units and Set-Asides</strong>
+              <strong className='form-note max-width'>
+                Remaining Available Units and Set-Asides
+              </strong>
             </div>
           </FormGrid.Item>
         </FormGrid.Row>
         <FormGrid.Row>
           <FormGrid.Item small>
             <strong className='form-note micro h-caps'>Total</strong>
-            <p className='margin-top'><strong className='form-note'>{availableUnits.length}</strong></p>
+            <p className='margin-top'>
+              <strong className='form-note'>{availableUnits.length}</strong>
+            </p>
           </FormGrid.Item>
           <FormGrid.Item small>
             <strong className='form-note micro h-caps'>Accessibility</strong>
-            <p className='margin-top'><span className='form-note'>{accessibilityUnits.length}</span></p>
+            <p className='margin-top'>
+              <span className='form-note'>{accessibilityUnits.length}</span>
+            </p>
           </FormGrid.Item>
         </FormGrid.Row>
         <FormGrid.Row>
@@ -182,11 +188,15 @@ const Lease = ({ form, values, store }) => {
         <FormGrid.Row>
           <FormGrid.Item small>
             <strong className='form-note micro h-caps'>Members</strong>
-            <p className='margin-top'><strong className='form-note'>{application.household_members.length + 1}</strong></p>
+            <p className='margin-top'>
+              <strong className='form-note'>{application.household_members.length + 1}</strong>
+            </p>
           </FormGrid.Item>
           <FormGrid.Item small>
             <strong className='form-note micro h-caps'>Accessibility Requests</strong>
-            <p className='margin-top'><span className='form-note'>{accesibilityRequests.join(', ')}</span></p>
+            <p className='margin-top'>
+              <span className='form-note'>{accesibilityRequests.join(', ')}</span>
+            </p>
           </FormGrid.Item>
         </FormGrid.Row>
         <FormGrid.Row>
@@ -201,24 +211,16 @@ const Lease = ({ form, values, store }) => {
             />
           </FormGrid.Item>
         </FormGrid.Row>
-        <ParkingInformationInputs
-          form={form}
-          values={values}
-          disabled={disabled}
-        />
+        <ParkingInformationInputs form={form} values={values} disabled={disabled} />
       </ContentSection.Sub>
-      <ContentSection.Sub
-        title='Rent and Assistance'
-      >
+      <ContentSection.Sub title='Rent and Assistance'>
         <FormGrid.Row>
           <FormGrid.Item>
             <CurrencyField
               label='Monthly Rent'
               fieldName='lease.total_monthly_rent_without_parking'
               validation={validateLeaseCurrency}
-              isDirty={
-                getVisited('lease.total_monthly_rent_without_parking')
-              }
+              isDirty={getVisited('lease.total_monthly_rent_without_parking')}
               disabled={disabled}
             />
           </FormGrid.Item>
@@ -228,11 +230,7 @@ const Lease = ({ form, values, store }) => {
             <Label label='Rental Assistance' />
           </FormGrid.Item>
         </FormGrid.Row>
-        <RentalAssistance
-          form={form}
-          disabled={disabled}
-          loading={loading}
-        />
+        <RentalAssistance form={form} disabled={disabled} loading={loading} />
         <FormGrid.Row>
           <FormGrid.Item>
             <CurrencyField
@@ -262,7 +260,7 @@ const Lease = ({ form, values, store }) => {
           <FormGrid.Item>
             <SelectField
               label='Preference Used'
-              onChange={value => toggleNoPreferenceUsed(form, value)}
+              onChange={(value) => toggleNoPreferenceUsed(form, value)}
               fieldName='lease.preference_used'
               options={confirmedPreferenceOptions}
               disabled={disabled}

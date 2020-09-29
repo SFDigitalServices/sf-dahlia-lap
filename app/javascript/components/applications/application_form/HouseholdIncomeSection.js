@@ -4,9 +4,7 @@ import { maxLengthMap } from '~/utils/formUtils'
 import formOptions from './formOptions'
 import validate from '~/utils/form/validations'
 
-const {
-  householdVouchersSubsidiesOptions
-} = formOptions
+const { householdVouchersSubsidiesOptions } = formOptions
 
 const HouseholdIncomeSection = ({ visited }) => {
   return (
@@ -27,7 +25,8 @@ const HouseholdIncomeSection = ({ visited }) => {
           <SelectField
             fieldName='housing_voucher_or_subsidy'
             label='Housing Voucher/ Subsidy'
-            options={householdVouchersSubsidiesOptions} />
+            options={householdVouchersSubsidiesOptions}
+          />
         </div>
       </div>
     </div>

@@ -16,7 +16,10 @@ const EligibilitySection = ({ listing, lendingInstitutions, form }) => {
     if (form.getState().values.lending_agent) {
       each(lendingInstitutions, (agents, institution) => {
         if (some(agents, { Id: form.getState().values.lending_agent })) {
-          mappedLenders = map(agents, (lender) => ({ label: `${lender.FirstName} ${lender.LastName}`, value: lender.Id }))
+          mappedLenders = map(agents, (lender) => ({
+            label: `${lender.FirstName} ${lender.LastName}`,
+            value: lender.Id
+          }))
           form.change('lending_institution', institution)
         }
       })
@@ -26,7 +29,10 @@ const EligibilitySection = ({ listing, lendingInstitutions, form }) => {
   })
 
   const handleSelectInstitution = (event) => {
-    const mappedLenders = map(lendingInstitutions[event.target.value], (lender) => ({ label: `${lender.FirstName} ${lender.LastName}`, value: lender.Id }))
+    const mappedLenders = map(lendingInstitutions[event.target.value], (lender) => ({
+      label: `${lender.FirstName} ${lender.LastName}`,
+      value: lender.Id
+    }))
     // reset lending_agent select
     form.change('lending_agent', null)
     setLenders(mappedLenders)
@@ -40,7 +46,9 @@ const EligibilitySection = ({ listing, lendingInstitutions, form }) => {
       <div className='row'>
         <div className='form-group'>
           <div className='columns'>
-            <strong className='t-small c-steel' id='prereqs'>The applicant has&hellip;</strong>
+            <strong className='t-small c-steel' id='prereqs'>
+              The applicant has&hellip;
+            </strong>
           </div>
         </div>
         <div className='form-group'>
@@ -57,7 +65,7 @@ const EligibilitySection = ({ listing, lendingInstitutions, form }) => {
           <div className='small-12 columns'>
             <CheckboxField
               id='has_completed_homebuyer_education'
-              label={'Completed homebuyers\' education'}
+              label={"Completed homebuyers' education"}
               blockNote='(required)'
               fieldName='has_completed_homebuyer_education'
               ariaLabelledby='prereqs'

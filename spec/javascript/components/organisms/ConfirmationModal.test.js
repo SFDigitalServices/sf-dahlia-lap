@@ -15,18 +15,19 @@ const ON_CLOSE = jest.fn()
 const ON_PRIMARY_CLICK = jest.fn()
 const ON_SECONDARY_CLICK = jest.fn()
 
-const getWrapper = (propOverrides = {}) => shallow(
-  <ConfirmationModal
-    onPrimaryClick={ON_PRIMARY_CLICK}
-    onSecondaryClick={ON_SECONDARY_CLICK}
-    onCloseClick={ON_CLOSE}
-    primaryText={PRIMARY_TEXT}
-    secondaryText={SECONDARY_TEXT}
-    subtitle={SUBTITLE}
-    title={TITLE}
-    {...propOverrides}
-  />
-)
+const getWrapper = (propOverrides = {}) =>
+  shallow(
+    <ConfirmationModal
+      onPrimaryClick={ON_PRIMARY_CLICK}
+      onSecondaryClick={ON_SECONDARY_CLICK}
+      onCloseClick={ON_CLOSE}
+      primaryText={PRIMARY_TEXT}
+      secondaryText={SECONDARY_TEXT}
+      subtitle={SUBTITLE}
+      title={TITLE}
+      {...propOverrides}
+    />
+  )
 
 describe('ConfirmationModal', () => {
   describe('with default props', () => {

@@ -41,11 +41,18 @@ class PaperApplicationForm extends React.Component {
   saveSubmitType = (type, form) => {
     const failed = form.getState().invalid
     this.setState({ submitType: type, failed: failed })
-    if (failed) { window.scrollTo(0, 0) }
+    if (failed) {
+      window.scrollTo(0, 0)
+    }
   }
 
   checkNotListed = (demographics, key) => {
-    if (demographics && demographics[key] && demographics[key].toLowerCase() === 'not listed' && !demographics[`${key}_other`]) {
+    if (
+      demographics &&
+      demographics[key] &&
+      demographics[key].toLowerCase() === 'not listed' &&
+      !demographics[`${key}_other`]
+    ) {
       return true
     }
     return false
@@ -55,27 +62,34 @@ class PaperApplicationForm extends React.Component {
     const errors = { applicant: { date_of_birth: {} } }
     // applicant needs to be initialized for date validation to run on 'required'
     if (!values.applicant) values.applicant = {}
-    validate.isValidDate(values.applicant.date_of_birth, errors.applicant.date_of_birth, { errorMessage: 'Please enter a Date of Birth', isPrimaryApplicant: true })
+    validate.isValidDate(values.applicant.date_of_birth, errors.applicant.date_of_birth, {
+      errorMessage: 'Please enter a Date of Birth',
+      isPrimaryApplicant: true
+    })
     // Only validate alternate contacts that are present and not-empty
     if (values.alternate_contact && !_values(values.alternate_contact).every(isEmpty)) {
       errors.alternate_contact = {}
-      errors.alternate_contact.first_name = validate.isPresent('Please enter a First Name')(values.alternate_contact.first_name)
-      errors.alternate_contact.last_name = validate.isPresent('Please enter a Last Name')(values.alternate_contact.last_name)
-      errors.alternate_contact.email = validate.isValidEmail('Please enter a valid Email')(values.alternate_contact.email)
+      errors.alternate_contact.first_name = validate.isPresent('Please enter a First Name')(
+        values.alternate_contact.first_name
+      )
+      errors.alternate_contact.last_name = validate.isPresent('Please enter a Last Name')(
+        values.alternate_contact.last_name
+      )
+      errors.alternate_contact.email = validate.isValidEmail('Please enter a valid Email')(
+        values.alternate_contact.email
+      )
     }
 
     // Secondary preference application member validation: Check if selected app member value is still a valid natural key.
     if (values.preferences) {
       const naturalKeys = map(getFullHousehold(values), (member) => naturalKeyFromMember(member))
       errors.preferences = []
-      values.preferences.map(
-        (pref, i) => {
-          errors.preferences = errors.preferences.concat({})
-          if (pref.naturalKey && !includes(naturalKeys, pref.naturalKey)) {
-            errors.preferences[i].naturalKey = 'This field is required'
-          }
+      values.preferences.map((pref, i) => {
+        errors.preferences = errors.preferences.concat({})
+        if (pref.naturalKey && !includes(naturalKeys, pref.naturalKey)) {
+          errors.preferences[i].naturalKey = 'This field is required'
         }
-      )
+      })
     }
 
     // Demographics section
@@ -86,19 +100,24 @@ class PaperApplicationForm extends React.Component {
       const isGenderSpecifyRequired = this.checkNotListed(demographics, 'gender')
       const isOrientationOtherRequired = this.checkNotListed(demographics, 'sexual_orientation')
       errors.demographics.gender_other = isGenderSpecifyRequired ? 'Gender is required' : undefined
-      errors.demographics.sexual_orientation_other = isOrientationOtherRequired ? 'Sexual Orientation is required' : undefined
-      this.setState({ genderSpecifyRequired: isGenderSpecifyRequired, orientationOtherRequired: isOrientationOtherRequired })
+      errors.demographics.sexual_orientation_other = isOrientationOtherRequired
+        ? 'Sexual Orientation is required'
+        : undefined
+      this.setState({
+        genderSpecifyRequired: isGenderSpecifyRequired,
+        orientationOtherRequired: isOrientationOtherRequired
+      })
     }
     return errors
   }
 
-  render () {
+  render() {
     const { listing, application, lendingInstitutions } = this.props
     const { loading, failed } = this.state
     return (
       <div>
         <Form
-          onSubmit={values => this.submitShortForm(convertCurrency(values))}
+          onSubmit={(values) => this.submitShortForm(convertCurrency(values))}
           initialValues={application}
           validate={this.validateForm}
           mutators={{
@@ -108,14 +127,19 @@ class PaperApplicationForm extends React.Component {
             <form onSubmit={handleSubmit} id='shortForm' noValidate>
               <div className='app-card form-card medium-centered'>
                 <div className='app-inner inset'>
-                  { failed && (
+                  {failed && (
                     <AlertBox
                       invert
                       onCloseClick={() => this.setState({ failed: false })}
-                      message='Please resolve any errors before saving the application.' />
+                      message='Please resolve any errors before saving the application.'
+                    />
                   )}
                   <ApplicationLanguageSection />
-                  <EligibilitySection listing={listing} lendingInstitutions={lendingInstitutions} form={form} />
+                  <EligibilitySection
+                    listing={listing}
+                    lendingInstitutions={lendingInstitutions}
+                    form={form}
+                  />
                   <PrimaryApplicantSection form={form} />
                   <AlternateContactSection />
                   <HouseholdMembersSection editValues={application} form={form} />
@@ -135,15 +159,27 @@ class PaperApplicationForm extends React.Component {
                 </div>
                 <div className='button-pager'>
                   <div className='button-pager_row primary'>
-                    <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save', form)} disabled={loading}>
+                    <button
+                      className='primary radius margin-right save-btn'
+                      type='submit'
+                      onClick={() => this.saveSubmitType('Save', form)}
+                      disabled={loading}
+                    >
                       {loading ? 'Saving…' : 'Save'}
                     </button>
-                    <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew', form)} disabled={loading}>
+                    <button
+                      className='primary radius'
+                      type='submit'
+                      onClick={() => this.saveSubmitType('SaveAndNew', form)}
+                      disabled={loading}
+                    >
                       Save and New
                     </button>
                   </div>
                   <div className='button-pager_row primary'>
-                    <a className='primary radius' href='/listings'>Cancel</a>
+                    <a className='primary radius' href='/listings'>
+                      Cancel
+                    </a>
                   </div>
                 </div>
               </div>

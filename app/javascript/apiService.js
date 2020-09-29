@@ -10,8 +10,7 @@ const updateFlaggedApplication = async (data) => {
     }
   }
 
-  return request.put('/flagged-applications/update', putData)
-    .then(response => response.result)
+  return request.put('/flagged-applications/update', putData).then((response) => response.result)
 }
 
 const submitApplication = async (application, isSupplemental = false) => {
@@ -21,7 +20,7 @@ const submitApplication = async (application, isSupplemental = false) => {
     ? request.put('/short-form/submit?supplemental=true', requestData, true)
     : request.post('/short-form/submit', requestData, true)
 
-  return promise.then(response => response.application)
+  return promise.then((response) => response.application)
 }
 
 const fetchApplications = async ({ page, filters }) =>
@@ -62,8 +61,9 @@ const createFieldUpdateComment = async (applicationId, status, comment, substatu
     }
   }
 
-  return request.post('/field-update-comments/create', postData, true)
-    .then(response => response.result)
+  return request
+    .post('/field-update-comments/create', postData, true)
+    .then((response) => response.result)
 }
 
 const updatePreference = async (preference) =>
@@ -82,7 +82,8 @@ const createRentalAssistance = async (rentalAssistance, applicationId) => {
 }
 
 const getRentalAssistances = async (applicationId) =>
-  request.get('/rental-assistances', { params: { application_id: applicationId } }, true)
+  request
+    .get('/rental-assistances', { params: { application_id: applicationId } }, true)
     .then((response) => response.rental_assistances)
 
 const updateRentalAssistance = async (rentalAssistance, applicationId) => {
@@ -116,8 +117,9 @@ export const updateLease = async (leaseToUpdate, primaryApplicantContact, applic
   const data = getLeaseRequestData(leaseToUpdate, primaryApplicantContact)
 
   const leaseId = leaseToUpdate.id
-  return request.put(`/applications/${applicationId}/leases/${leaseId}`, data, true)
-    .then(response => response.lease)
+  return request
+    .put(`/applications/${applicationId}/leases/${leaseId}`, data, true)
+    .then((response) => response.lease)
 }
 
 export const createLease = async (leaseToCreate, primaryApplicantContact, applicationId) => {
@@ -127,8 +129,9 @@ export const createLease = async (leaseToCreate, primaryApplicantContact, applic
 
   const data = getLeaseRequestData(leaseToCreate, primaryApplicantContact)
 
-  return request.post(`/applications/${applicationId}/leases`, data, true)
-    .then(response => response.lease)
+  return request
+    .post(`/applications/${applicationId}/leases`, data, true)
+    .then((response) => response.lease)
 }
 
 /**

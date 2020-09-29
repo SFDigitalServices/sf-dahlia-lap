@@ -21,10 +21,7 @@ const StatusItems = ({ statusItems, limit, height }) => {
   return (
     <div className='status-items' style={itemBoxStyles}>
       {limitedItems.map((item, idx) => (
-        <StatusItem
-          key={idx}
-          statusItem={item}
-        />
+        <StatusItem key={idx} statusItem={item} />
       ))}
     </div>
   )

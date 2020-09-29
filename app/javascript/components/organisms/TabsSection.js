@@ -8,9 +8,7 @@ const TabsSection = ({ children, background, padding, ...props }) => {
       <div className={`tabs-section tabs-row full-width inner--3x bg-${background}`}>
         <TabsMenu {...props} />
       </div>
-      <TabCard padding={padding}>
-        {children}
-      </TabCard>
+      <TabCard padding={padding}>{children}</TabCard>
     </>
   )
 }

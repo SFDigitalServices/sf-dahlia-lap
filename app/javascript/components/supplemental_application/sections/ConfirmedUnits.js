@@ -12,13 +12,16 @@ const ConfirmedUnits = ({ form }) => {
             <div className='checkbox-group form-checkbox-item' role='group'>
               <CheckboxField
                 fieldName='has_ada_priorities_selected.mobility_impairments'
-                label='Mobility Impairments' />
+                label='Mobility Impairments'
+              />
               <CheckboxField
                 fieldName='has_ada_priorities_selected.vision_impairments'
-                label='Vision Impairments' />
+                label='Vision Impairments'
+              />
               <CheckboxField
                 fieldName='has_ada_priorities_selected.hearing_impairments'
-                label='Hearing Impairments' />
+                label='Hearing Impairments'
+              />
             </div>
           </FormGrid.Group>
         </FormGrid.Item>
@@ -29,17 +32,20 @@ const ConfirmedUnits = ({ form }) => {
                 fieldName='reserved_senior'
                 label='Senior in Household'
                 initialValue='No'
-                form={form} />
+                form={form}
+              />
               <TextCheckboxField
                 fieldName='has_military_service'
                 label='Veteran in Household'
                 initialValue='No'
-                form={form} />
+                form={form}
+              />
               <TextCheckboxField
                 fieldName='has_developmental_disability'
                 label='Person with Developmental Disability in Household'
                 initialValue='No'
-                form={form} />
+                form={form}
+              />
             </div>
           </FormGrid.Group>
         </FormGrid.Item>

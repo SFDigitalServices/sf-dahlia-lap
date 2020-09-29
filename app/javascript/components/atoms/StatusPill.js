@@ -2,7 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import { LEASE_UP_STATUS_VALUES, getStatusPillClass, getStatusPillLabel } from '../../utils/statusUtils'
+import {
+  LEASE_UP_STATUS_VALUES,
+  getStatusPillClass,
+  getStatusPillLabel
+} from '../../utils/statusUtils'
 
 const StatusPill = ({ status }) => (
   <div className={classNames('status-pill', getStatusPillClass(status))}>

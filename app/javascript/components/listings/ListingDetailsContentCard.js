@@ -6,11 +6,10 @@ import arrayUtils from '~/utils/arrayUtils'
 
 export const generateContent = (listing, entry, i) => {
   const { label, value, renderType } = entry
-  if (!value) { return null } else {
-    return <Field key={i}
-      label={label}
-      value={value}
-      type={renderType} />
+  if (!value) {
+    return null
+  } else {
+    return <Field key={i} label={label} value={value} type={renderType} />
   }
 }
 
@@ -25,14 +24,10 @@ const ListingDetailsContentCard = ({ listing, title, fields }) => {
 
       <ul className='content-grid'>
         <li className='content-item'>
-          <div className='content-card'>
-            {firstHalf}
-          </div>
+          <div className='content-card'>{firstHalf}</div>
         </li>
         <li className='content-item'>
-          <div className='content-card'>
-            {secondHalf}
-          </div>
+          <div className='content-card'>{secondHalf}</div>
         </li>
       </ul>
     </div>

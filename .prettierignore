@@ -1,0 +1,5 @@
+node_modules/*
+spec/javascript/fixtures/*
+app/assets/javascripts/cable.js
+app/assets/stylesheets/*.scss
+public/**/*

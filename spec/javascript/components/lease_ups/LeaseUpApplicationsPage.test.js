@@ -8,7 +8,7 @@ const mockfetchLeaseUpApplications = jest.fn()
 const mockCreateFieldUpdateComment = jest.fn()
 
 const tick = () => {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(resolve, 0)
   })
 }
@@ -70,9 +70,7 @@ let wrapper
 
 describe('LeaseUpApplicationsPage', () => {
   beforeEach(async () => {
-    wrapper = await mount(
-      <LeaseUpApplicationsPage listing={listing} />
-    )
+    wrapper = await mount(<LeaseUpApplicationsPage listing={listing} />)
     await tick()
     wrapper.update()
   })
@@ -85,7 +83,12 @@ describe('LeaseUpApplicationsPage', () => {
 
   test('status modal can be opened and closed', () => {
     expect(wrapper.find(rowSelector).first().find('button').exists()).toBeTruthy()
-    wrapper.find(rowSelector).first().find('Select').instance().props.onChange({ value: 'Appealed' })
+    wrapper
+      .find(rowSelector)
+      .first()
+      .find('Select')
+      .instance()
+      .props.onChange({ value: 'Appealed' })
     wrapper.update()
     expect(wrapper.find(StatusModalWrapper).props().isOpen).toBeTruthy()
 

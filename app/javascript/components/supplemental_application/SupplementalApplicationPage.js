@@ -36,13 +36,17 @@ const getApplicationWithEmptyLease = (application) => ({
 })
 
 const getListingAmiCharts = (units) => {
-  return uniqBy(units, u => [u.ami_chart_type, u.ami_chart_year].join())
+  return uniqBy(units, (u) => [u.ami_chart_type, u.ami_chart_year].join())
 }
 
 const setApplicationsDefaults = (application) => {
   const applicationWithDefaults = cloneDeep(application)
   // Logic in Lease Section in order to show 'Select One' placeholder on Preference Used if a selection was never made
-  if (applicationWithDefaults.lease && !applicationWithDefaults.lease.no_preference_used && applicationWithDefaults.lease.preference_used == null) {
+  if (
+    applicationWithDefaults.lease &&
+    !applicationWithDefaults.lease.no_preference_used &&
+    applicationWithDefaults.lease.preference_used == null
+  ) {
     delete applicationWithDefaults.lease.preference_used
   }
   return applicationWithDefaults
@@ -73,10 +77,7 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleSaveApplication = async (formApplication) => {
-    const {
-      application: prevApplication,
-      leaseSectionState
-    } = this.state
+    const { application: prevApplication, leaseSectionState } = this.state
 
     this.setLoading(true)
 
@@ -84,17 +85,19 @@ class SupplementalApplicationPage extends React.Component {
       formApplication,
       prevApplication,
       shouldSaveLeaseOnApplicationSave(leaseSectionState)
-    ).then(responseApplication => {
-      this.updateApplicationStateAfterRequest(
-        responseApplication,
-        {},
-        this.handleCloseRentalAssistancePanel
-      )
-    }).catch((e) => {
-      console.log(e)
-      Alerts.error()
-      this.setLoading(false)
-    })
+    )
+      .then((responseApplication) => {
+        this.updateApplicationStateAfterRequest(
+          responseApplication,
+          {},
+          this.handleCloseRentalAssistancePanel
+        )
+      })
+      .catch((e) => {
+        console.log(e)
+        Alerts.error()
+        this.setLoading(false)
+      })
   }
 
   handleSavePreference = async (preferenceIndex, formApplicationValues) => {
@@ -103,11 +106,13 @@ class SupplementalApplicationPage extends React.Component {
     // If updating a rent burdened preference, we need to independently
     // update the rent on the application.
     if (preference.individual_preference === 'Rent Burdened') {
-      updates.push(updateTotalHouseholdRent(formApplicationValues.id, formApplicationValues.total_monthly_rent))
+      updates.push(
+        updateTotalHouseholdRent(formApplicationValues.id, formApplicationValues.total_monthly_rent)
+      )
     }
 
     const responses = await Promise.all(updates)
-    const failed = some(responses, response => response === false)
+    const failed = some(responses, (response) => response === false)
 
     if (!failed) {
       this.setState({
@@ -126,7 +131,7 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   updateStatusModal = (values) => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return {
         statusModal: {
           ...clone(prevState.statusModal),
@@ -169,26 +174,28 @@ class SupplementalApplicationPage extends React.Component {
     })
   }
 
-  updateApplicationStateAfterRequest = (applicationResponse, additionalFieldsToUpdate = {}, setStateCallback = () => {}) => {
+  updateApplicationStateAfterRequest = (
+    applicationResponse,
+    additionalFieldsToUpdate = {},
+    setStateCallback = () => {}
+  ) => {
     const leaveEditMode = (currentLeaseSectionState) =>
-      currentLeaseSectionState === EDIT_LEASE_STATE
-        ? SHOW_LEASE_STATE
-        : currentLeaseSectionState
+      currentLeaseSectionState === EDIT_LEASE_STATE ? SHOW_LEASE_STATE : currentLeaseSectionState
 
-    this.setState((prevState) => ({
-      application: setApplicationsDefaults(applicationResponse),
-      loading: false,
-      supplementalAppTouched: false,
-      leaseSectionState: leaveEditMode(prevState.leaseSectionState),
-      ...additionalFieldsToUpdate
-    }), setStateCallback)
+    this.setState(
+      (prevState) => ({
+        application: setApplicationsDefaults(applicationResponse),
+        loading: false,
+        supplementalAppTouched: false,
+        leaseSectionState: leaveEditMode(prevState.leaseSectionState),
+        ...additionalFieldsToUpdate
+      }),
+      setStateCallback
+    )
   }
 
   handleStatusModalSubmit = async (submittedValues, formApplication) => {
-    const {
-      application: prevApplication,
-      leaseSectionState
-    } = this.state
+    const { application: prevApplication, leaseSectionState } = this.state
     const { status, subStatus, comment } = submittedValues
     this.setState({ loading: true })
     this.updateStatusModal({ loading: true })
@@ -201,21 +208,22 @@ class SupplementalApplicationPage extends React.Component {
       comment,
       subStatus,
       shouldSaveLeaseOnApplicationSave(leaseSectionState)
-    ).then(({ application, statusHistory }) => {
-      this.updateApplicationStateAfterRequest(
-        application,
-        { statusHistory },
-        () => this.updateStatusModal({ loading: false, isOpen: false })
-      )
-    }).catch((e) => {
-      this.setState({ loading: false })
-      this.updateStatusModal({
-        loading: false,
-        showAlert: true,
-        alertMsg: 'We were unable to make the update, please try again.',
-        onAlertCloseClick: () => this.updateStatusModal({ showAlert: false })
+    )
+      .then(({ application, statusHistory }) => {
+        this.updateApplicationStateAfterRequest(application, { statusHistory }, () =>
+          this.updateStatusModal({ loading: false, isOpen: false })
+        )
       })
-    }).finally(this.handleCloseRentalAssistancePanel)
+      .catch((e) => {
+        this.setState({ loading: false })
+        this.updateStatusModal({
+          loading: false,
+          showAlert: true,
+          alertMsg: 'We were unable to make the update, please try again.',
+          onAlertCloseClick: () => this.updateStatusModal({ showAlert: false })
+        })
+      })
+      .finally(this.handleCloseRentalAssistancePanel)
   }
 
   handleCreateLeaseClick = () => {
@@ -242,8 +250,8 @@ class SupplementalApplicationPage extends React.Component {
 
     this.setState({ loading: true })
     saveLeaseAndAssistances(formApplication, prevApplication)
-      .then(response => {
-        this.setState(prevState => ({
+      .then((response) => {
+        this.setState((prevState) => ({
           application: {
             ...prevState.application,
             lease: response.lease,
@@ -251,8 +259,9 @@ class SupplementalApplicationPage extends React.Component {
           },
           leaseSectionState: SHOW_LEASE_STATE
         }))
-      }).finally(() => this.setState({ loading: false }))
-      // TODO: catch and handle errors
+      })
+      .finally(() => this.setState({ loading: false }))
+    // TODO: catch and handle errors
   }
 
   handleDeleteLease = () => {
@@ -261,12 +270,13 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ loading: true })
 
     deleteLease(application)
-      .then(response => {
-        this.setState(prevState => ({
+      .then((response) => {
+        this.setState((prevState) => ({
           application: getApplicationWithEmptyLease(prevState.application),
           leaseSectionState: NO_LEASE_STATE
         }))
-      }).finally(() => this.setState({ loading: false }))
+      })
+      .finally(() => this.setState({ loading: false }))
     // TODO: catch and handle errors
   }
 
@@ -274,14 +284,16 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ loading: true })
 
     return (...args) => {
-      return action(...args).then(response => {
-        if (response) {
-          return response
-        } else {
-          Alerts.error()
-          return false
-        }
-      }).finally(() => this.setState({ loading: false }))
+      return action(...args)
+        .then((response) => {
+          if (response) {
+            return response
+          } else {
+            Alerts.error()
+            return false
+          }
+        })
+        .finally(() => this.setState({ loading: false }))
     }
   }
 
@@ -309,7 +321,7 @@ class SupplementalApplicationPage extends React.Component {
     rentalAssistance.assistance_amount = formUtils.formatPrice(rentalAssistance.assistance_amount)
 
     if (response) {
-      this.setState(prev => {
+      this.setState((prev) => {
         const rentalAssistances = cloneDeep(prev.application.rental_assistances)
 
         if (action === 'update') {
@@ -338,7 +350,7 @@ class SupplementalApplicationPage extends React.Component {
     )
 
     if (response) {
-      this.setState(prev => {
+      this.setState((prev) => {
         const rentalAssistances = cloneDeep(prev.application.rental_assistances)
         const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
         rentalAssistances.splice(idx, 1)
@@ -370,7 +382,7 @@ class SupplementalApplicationPage extends React.Component {
     this.setState({ leaveConfirmationModal: { isOpen: false } })
   }
 
-  render () {
+  render() {
     const { fileBaseUrl, availableUnits, listing } = this.props
     const { leaveConfirmationModal, application, statusHistory } = this.state
 
@@ -433,7 +445,8 @@ class SupplementalApplicationPage extends React.Component {
         <LeaveConfirmationModal
           isOpen={leaveConfirmationModal.isOpen}
           handleClose={this.handleLeaveModalClose}
-          destination={appPaths.toLeaseUpShortForm(application.id)} />
+          destination={appPaths.toLeaseUpShortForm(application.id)}
+        />
       </Context.Provider>
     )
   }

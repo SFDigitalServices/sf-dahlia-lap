@@ -16,16 +16,17 @@ const ON_SUBMIT = jest.fn()
 const ON_ALERT_CLOSE_CLICK = jest.fn()
 const HEADER = 'Heading'
 
-const getWrapper = (propOverrides = {}) => mount(
-  <StatusModalWrapper
-    header={HEADER}
-    onSubmit={ON_SUBMIT}
-    onAlertCloseClick={ON_ALERT_CLOSE_CLICK}
-    loading={false}
-    submitButton='Update'
-    {...propOverrides}
-  />
-).update()
+const getWrapper = (propOverrides = {}) =>
+  mount(
+    <StatusModalWrapper
+      header={HEADER}
+      onSubmit={ON_SUBMIT}
+      onAlertCloseClick={ON_ALERT_CLOSE_CLICK}
+      loading={false}
+      submitButton='Update'
+      {...propOverrides}
+    />
+  ).update()
 
 describe('StatusModalWrapper', () => {
   let wrapper
@@ -62,7 +63,9 @@ describe('StatusModalWrapper', () => {
 
     expect(wrapper.find(SubstatusDropdown).exists()).toBeTruthy()
     const expectedAppealedItems = LEASE_UP_SUBSTATUS_OPTIONS.Appealed
-    expect(wrapper.find(SubstatusDropdown).find('Dropdown').props().items).toEqual(expect.arrayContaining(expectedAppealedItems))
+    expect(wrapper.find(SubstatusDropdown).find('Dropdown').props().items).toEqual(
+      expect.arrayContaining(expectedAppealedItems)
+    )
   })
 
   test('should not display sub status dropdown if substatuses are not available', () => {
@@ -110,7 +113,11 @@ describe('StatusModalWrapper', () => {
 
       // Fill out the fields and verify that the errors go away
       act(() => {
-        wrapper.find(SubstatusDropdown).find('Select').instance().props.onChange({ value: LEASE_UP_SUBSTATUS_OPTIONS.Appealed[0].value })
+        wrapper
+          .find(SubstatusDropdown)
+          .find('Select')
+          .instance()
+          .props.onChange({ value: LEASE_UP_SUBSTATUS_OPTIONS.Appealed[0].value })
       })
       wrapper.update()
       expect(wrapper.find(SubstatusDropdown).props().hasError).toBe(false)

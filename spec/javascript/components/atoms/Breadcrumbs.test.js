@@ -11,9 +11,7 @@ describe('BreadCrumbs', () => {
   ]
 
   test('should render succesfully', () => {
-    const component = renderer.create(
-      <BreadCrumbs items={items} />
-    )
+    const component = renderer.create(<BreadCrumbs items={items} />)
 
     const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
