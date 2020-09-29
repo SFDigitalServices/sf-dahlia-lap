@@ -1,11 +1,29 @@
 import React, { useState, useRef } from 'react'
 import { usePopper } from 'react-popper'
 
+// Source: https://www.30secondsofcode.org/react/s/use-click-outside
+const useClickOutside = (ref, callback) => {
+  const handleClick = e => {
+    if (ref.current && !ref.current.contains(e.target)) {
+      callback()
+    }
+  }
+
+  React.useEffect(() => {
+    document.addEventListener('click', handleClick)
+    return () => {
+      document.removeEventListener('click', handleClick)
+    }
+  })
+}
+
 const Popover = ({ buttonElement, children, statusItems }) => {
   const [showPopper, setShowPopper] = useState(false)
 
   const buttonRef = useRef(null)
   const popperRef = useRef(null)
+
+  useClickOutside(popperRef, () => setShowPopper(false))
   // the ref for the arrow must be a callback ref
   const [arrowRef, setArrowRef] = useState(null)
 
