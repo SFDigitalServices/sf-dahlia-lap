@@ -94,34 +94,3 @@
 .button.has-icon--right {
   padding-left: 1rem;
 }
-
-.popper-container {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  background-color: white;
-  padding: 20px;
-  border-radius: 4px;
-  z-index: 1;
-  width: 22rem;
-
-  #arrow {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    z-index: -1;
-    content: '';
-    transform: rotate(45deg) skew(15deg, 15deg);
-    background: white;
-    box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
-  }
-
-  &[data-popper-placement^='top'] > #arrow {
-    bottom: -16px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-    border-bottom-right-radius: 4px;
-  }
-
-  &[data-popper-placement^='bottom'] > #arrow {
-    top: -16px;
-    border-top-left-radius: 4px;
-  }
-}
