@@ -46,8 +46,6 @@ describe('Popover', () => {
       map[event] = cb
     })
 
-    // render component
-
     const getWrapperWithOutsideElement = () => mount(
       <div>
         <Popover buttonElement={sampleButtonElement}>
