@@ -17,7 +17,7 @@ const useClickOutside = (ref, callback) => {
   })
 }
 
-const Popover = ({ buttonElement, children, statusItems }) => {
+const Popover = ({ buttonElement, children }) => {
   const [showPopper, setShowPopper] = useState(false)
 
   const buttonRef = useRef(null)

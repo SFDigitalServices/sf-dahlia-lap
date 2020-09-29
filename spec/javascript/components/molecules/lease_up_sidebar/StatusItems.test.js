@@ -4,10 +4,11 @@ import { mockManyStatusItems, mockStatusItem, mockStatusItems } from '../../../m
 import StatusItems from 'components/molecules/lease_up_sidebar/StatusItems'
 import StatusItem from 'components/molecules/lease_up_sidebar/StatusItem'
 
-const getWrapper = (items, limit = undefined) => shallow(
+const getWrapper = (items, limit = undefined, height = null) => shallow(
   <StatusItems
     statusItems={items}
     limit={limit}
+    height={height}
   />
 )
 
@@ -45,6 +46,18 @@ describe('StatusItems', () => {
       const wrapper = getWrapper(mockStatusItems(), 100)
       expect(wrapper).toMatchSnapshot()
     })
+  })
+
+  it('should not set a height if height is not provided', () => {
+    const wrapper = getWrapper(mockStatusItems(), 4)
+    const styles = wrapper.find('.status-items').props().style
+    expect(styles).toEqual({})
+  })
+
+  it('should limit the height of the list if provided', () => {
+    const wrapper = getWrapper(mockStatusItems(), 4, '20rem')
+    const styles = wrapper.find('.status-items').props().style
+    expect(styles).toEqual({ height: '20rem', overflow: 'scroll' })
   })
 
   describe('with an empty status items list', () => {

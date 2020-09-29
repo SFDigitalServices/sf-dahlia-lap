@@ -3,6 +3,7 @@
 exports[`StatusItems snapshot tests should render a single status item correctly 1`] = `
 <div
   className="status-items"
+  style={Object {}}
 >
   <StatusItem
     key="0"
@@ -21,12 +22,14 @@ exports[`StatusItems snapshot tests should render a single status item correctly
 exports[`StatusItems snapshot tests should render empty status items correctly 1`] = `
 <div
   className="status-items"
+  style={Object {}}
 />
 `;
 
 exports[`StatusItems snapshot tests should render multiple status items correctly 1`] = `
 <div
   className="status-items"
+  style={Object {}}
 >
   <StatusItem
     key="0"
@@ -100,12 +103,14 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
 exports[`StatusItems snapshot tests should render multiple status items with limit 0 correctly 1`] = `
 <div
   className="status-items"
+  style={Object {}}
 />
 `;
 
 exports[`StatusItems snapshot tests should render multiple status items with limit 1 correctly 1`] = `
 <div
   className="status-items"
+  style={Object {}}
 >
   <StatusItem
     key="0"
@@ -124,6 +129,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
 exports[`StatusItems snapshot tests should render multiple status items with limit 100 correctly 1`] = `
 <div
   className="status-items"
+  style={Object {}}
 >
   <StatusItem
     key="0"
