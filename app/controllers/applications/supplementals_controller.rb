@@ -6,6 +6,7 @@ module Applications
     before_action :authenticate_user!
 
     def index
+      @application_id = params[:application_id]
       @application = soql_application_service.application(params[:application_id])
       @status_history = field_update_comment_service.status_history_by_application(@application.id)
       @file_base_url = file_base_url
