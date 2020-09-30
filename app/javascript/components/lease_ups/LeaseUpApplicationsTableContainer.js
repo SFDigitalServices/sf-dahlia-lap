@@ -10,7 +10,7 @@ import { withContext } from './context'
 
 const LeaseUpTableContainer = ({
   store: {
-    listing,
+    listingId,
     applications,
     statusModal,
     preferences,
@@ -88,7 +88,7 @@ const LeaseUpTableContainer = ({
       />
       <LeaseUpApplicationsTable
         dataSet={rowsData(applications)}
-        listingId={listing.id}
+        listingId={listingId}
         onLeaseUpStatusChange={leaseUpStatusChangeHandler}
         onCellClick={goToSupplementaryInfo}
         loading={loading}
