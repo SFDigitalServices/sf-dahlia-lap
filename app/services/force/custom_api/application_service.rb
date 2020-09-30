@@ -61,7 +61,7 @@ module Force
       def update_application(custom_api_attrs)
         application_params = custom_api_attrs
         application_params = application_params.except('primaryApplicant') if application_params['primaryApplicant'].blank?
-        api_post('/LeasingAgentPortal/shortForm', application_params)
+        api_put('/LeasingAgentPortal/shortForm', application_params)
       end
 
       def create_application(custom_api_attrs)
