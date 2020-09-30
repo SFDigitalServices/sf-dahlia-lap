@@ -116,7 +116,6 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
           end
           expect(response).to have_http_status(:success)
           json = JSON.parse(response.body)
-          puts json['application']
           expect(json['application']['listing_id']).to eq('a0W0P00000GbyuQUAR')
         end
       end
