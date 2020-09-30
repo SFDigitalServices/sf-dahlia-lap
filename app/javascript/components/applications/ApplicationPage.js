@@ -42,10 +42,9 @@ const buildActionLinkIfNecessary = (app, showAddBtn) => {
 const ApplicationPage = ({ applicationId, showAddBtn, isLeaseUp }) => {
   const [application, setApplication] = useState(null)
   const [fileBaseUrl, setFileBaseUrl] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffectOnMount(() => {
-    setLoading(true)
     getShortFormApplication(applicationId)
       .then((response) => {
         setApplication(response.application)
