@@ -66,6 +66,7 @@ describe('ApplicationNewPage', () => {
       await page.waitForNavigation()
       await sharedSteps.waitForApp(page)
 
+      await page.waitForSelector('.application-details')
       const hasApplicationDetails = await utils.isPresent(page, '.application-details')
       expect(hasApplicationDetails).toBe(true)
 
@@ -124,6 +125,7 @@ describe('ApplicationNewPage', () => {
       await page.waitForNavigation()
       await sharedSteps.waitForApp(page)
 
+      await page.waitForSelector('.application-details')
       const hasApplicationDetails = await utils.isPresent(page, '.application-details')
       expect(hasApplicationDetails).toBe(true)
 
@@ -210,6 +212,7 @@ describe('ApplicationNewPage', () => {
 
       await page.waitForNavigation()
       await sharedSteps.waitForApp(page)
+      await page.waitForSelector('.application-details')
 
       // Find the live/work table row, then check its content
       const tableRows = await page.$$eval('#content-card-preferences table tr', (trs) =>
@@ -297,6 +300,7 @@ describe('ApplicationNewPage', () => {
       await page.waitForNavigation()
       await sharedSteps.waitForApp(page)
 
+      await page.waitForSelector('.application-details')
       const hasApplicationDetails = await utils.isPresent(page, '.application-details')
       expect(hasApplicationDetails).toBe(true)
     },
@@ -344,6 +348,7 @@ describe('ApplicationNewPage', () => {
       await page.waitForNavigation()
       await sharedSteps.waitForApp(page)
 
+      await page.waitForSelector('.application-details')
       const hasApplicationDetails = await utils.isPresent(page, '.application-details')
       expect(hasApplicationDetails).toBe(true)
 
