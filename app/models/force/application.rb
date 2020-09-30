@@ -38,6 +38,7 @@ module Force
       { custom_api: 'householdVouchersSubsidies', domain: 'housing_voucher_or_subsidy', salesforce: 'Housing_Voucher_or_Subsidy' },
       { custom_api: 'housingCounselingAgency', domain: '', salesforce: 'Which_One' },
       { custom_api: 'id', domain: 'id', salesforce: 'Id' },
+      { custom_api: 'imputedIncomeFromAssets', domain: 'imputed_income_from_assets', salesforce: 'Imputed_Income_from_Assets' },
       { custom_api: 'isFirstTimeHomebuyer', domain: 'is_first_time_homebuyer', salesforce: '?' },
       { custom_api: 'interviewScheduledDate', domain: '', salesforce: 'Interview_Scheduled_Date' },
       { custom_api: 'lendingAgent', domain: 'lending_agent', salesforce: '?' },
