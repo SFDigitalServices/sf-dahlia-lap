@@ -85,7 +85,6 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
         end
 
         it 'does not override type when it is not provided' do
-
           # First reset the application to make sure it has type = electronic and old submitted date
           VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param') do
             put :submit, params: { application: application, supplemental: true }, as: :json
@@ -105,6 +104,20 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
           json = JSON.parse(response.body)
           expect(json['application']['application_submission_type']).to eq('Electronic')
           expect(json['application']['application_submitted_date']).to eq('2019-03-12')
+        end
+
+        it 'does not override the listing id when one is provided' do
+          application_with_listing_id = application.clone
+          application_with_listing_id['listing_id'] = "invalidID"
+
+          # First reset the application to make sure it has type = electronic and old submitted date
+          VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param-and-listing-id') do
+            put :submit, params: { application: application_with_listing_id, supplemental: true }, as: :json
+          end
+          expect(response).to have_http_status(:success)
+          json = JSON.parse(response.body)
+          puts json['application']
+          expect(json['application']['listing_id']).to eq('a0W0P00000GbyuQUAR')
         end
       end
     end
