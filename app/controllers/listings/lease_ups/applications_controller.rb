@@ -6,22 +6,7 @@ module Listings::LeaseUps
     before_action :authenticate_user!
 
     def index
-      full_listing = soql_listing_service.listing(params[:lease_up_id])
-
-      raise Force::RecordNotFound, "Listing #{params[:lease_up_id]} not found" unless full_listing.present?
-      @listing = compacted_listing(full_listing)
-    end
-
-    def lease_up_service
-      Force::LeaseUpService.new(current_user)
-    end
-
-    def soql_listing_service
-      Force::Soql::ListingService.new(current_user)
-    end
-
-    def compacted_listing(full_listing)
-      full_listing.slice('id', 'name', 'building_street_address', 'listing_lottery_preferences', 'report_id')
+      @listing_id = params[:lease_up_id]
     end
   end
 end
