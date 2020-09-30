@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { usePopper } from 'react-popper'
 
 // Source: https://www.30secondsofcode.org/react/s/use-click-outside
@@ -9,7 +9,7 @@ const useClickOutside = (ref, callback) => {
     }
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.addEventListener('click', handleClick)
     return () => {
       document.removeEventListener('click', handleClick)
@@ -48,7 +48,7 @@ const Popover = ({ buttonElement, children }) => {
   return (
     <>
       {buttonElement({ ref: buttonRef, onClick: () => setShowPopper(!showPopper) })}
-      {showPopper ? (
+      {showPopper && (
         <div
           className='popper-container'
           ref={popperRef}
@@ -58,7 +58,7 @@ const Popover = ({ buttonElement, children }) => {
           <div ref={setArrowRef} id='arrow' />
           {children}
         </div>
-      ) : null}
+      )}
     </>
   )
 }
