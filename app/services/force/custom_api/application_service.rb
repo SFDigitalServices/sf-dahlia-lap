@@ -65,6 +65,7 @@ module Force
       end
 
       def create_application(custom_api_attrs)
+        # comment that we won't merge
         application_params = application_defaults.merge(custom_api_attrs)
         application_params = application_params.except('primaryApplicant') if application_params['primaryApplicant'].blank?
         api_post('/LeasingAgentPortal/shortForm', application_params)
