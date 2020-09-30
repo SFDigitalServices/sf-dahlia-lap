@@ -15,8 +15,11 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
     has_military_service: 'Yes',
     reserved_senior: 'Yes',
     has_ada_priorities_selected: {vision_impairments: true},
+    application_submitted_date: '2019-03-12',
+    application_submission_type: 'Electronic',
     id: 'a0o0P00000JQawYQAT'
   }
+
   pre_lottery_listing_id = 'a0W0P00000F8YG4UAN' # Automated Test Listing
   new_application = {
     application_submission_type: 'Paper',
@@ -71,7 +74,7 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
           expect(response).to have_http_status(:success)
           json = JSON.parse(response.body)
           expect(json['application']).not_to be_empty
-          expect(json['application']['application_submission_type']).to eq('Paper')
+          expect(json['application']['application_submission_type']).to eq('Electronic')
         end
 
         it 'calls put method' do
@@ -79,6 +82,29 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
           VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param') do
             put :submit, params: { application: application, supplemental: true }, as: :json
           end
+        end
+
+        it 'does not override type when it is not provided' do
+
+          # First reset the application to make sure it has type = electronic and old submitted date
+          VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param') do
+            put :submit, params: { application: application, supplemental: true }, as: :json
+          end
+          expect(response).to have_http_status(:success)
+          json = JSON.parse(response.body)
+          expect(json['application']['application_submission_type']).to eq('Electronic')
+
+
+          # Then call put again without type or date to make sure thos fields aren't overridden
+          application_without_type_or_date = application.except('application_submitted_date', 'application_submission_type')
+          VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param-no-type') do
+            put :submit, params: { application: application_without_type_or_date, supplemental: true }, as: :json
+          end
+
+          expect(response).to have_http_status(:success)
+          json = JSON.parse(response.body)
+          expect(json['application']['application_submission_type']).to eq('Electronic')
+          expect(json['application']['application_submitted_date']).to eq('2019-03-12')
         end
       end
     end
