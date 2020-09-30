@@ -4,7 +4,6 @@ import ApplicationPage from 'components/applications/ApplicationPage'
 import application from '../../fixtures/application'
 import saleApplication from '../../fixtures/sale_application'
 import { mount } from 'enzyme'
-import renderer from 'react-test-renderer'
 import ApplicationDetails from '~/components/applications/application_details/ApplicationDetails'
 
 import Loading from '~/components/molecules/Loading'
@@ -58,33 +57,49 @@ jest.mock('apiService', () => {
   }
 })
 
+// we need to define these separate from the import so we can use them in the
+// jest block.
 const mockApplication = application
 const mockSaleApplication = saleApplication
 
+const getWrapper = async (applicationId, waitForLoadingFinish = false) => {
+  let wrapper
+
+  // have to wrap in await act so that all useEffectOnMount updates finish.
+  await act(async () => {
+    wrapper = mount(<ApplicationPage applicationId={applicationId} />)
+  })
+
+  if (waitForLoadingFinish) {
+    await act(tick)
+    wrapper.update()
+  }
+
+  return wrapper
+}
+
 describe('ApplicationPage', () => {
-  beforeAll(() => {})
-  describe('before application is loaded', () => {
-    let wrapper
-    beforeEach(async () => {
-      wrapper = mount(
-        <div>
-          <ApplicationPage applicationId={REGULAR_APP_ID} />
-        </div>
-      )
-    })
+  describe('with regular application', () => {
+    const appId = REGULAR_APP_ID
+    describe('before application is loaded', () => {
+      let wrapper
+      beforeEach(async () => {
+        wrapper = await getWrapper(appId)
+      })
 
-    test('should be loading', () => {
-      expect(wrapper.find(Loading).prop('isLoading')).toBeTruthy()
-    })
+      test('should be loading', () => {
+        expect(wrapper.find(Loading).prop('isLoading')).toBeTruthy()
+      })
 
-    test('does not render ApplicationDetails', () => {
-      expect(wrapper.find(ApplicationDetails)).toHaveLength(0)
+      test('does not render ApplicationDetails', () => {
+        expect(wrapper.find(ApplicationDetails)).toHaveLength(0)
+      })
     })
 
     describe('After the application finishes loading', () => {
+      let wrapper
       beforeEach(async () => {
-        await act(tick)
-        wrapper.update()
+        wrapper = await getWrapper(appId, true)
       })
 
       test('should no longer be loading', () => {
@@ -94,47 +109,55 @@ describe('ApplicationPage', () => {
       test('renders ApplicationDetails', () => {
         expect(wrapper.find(ApplicationDetails)).toHaveLength(1)
       })
-    })
-  })
 
-  describe('should render', () => {
-    test('without error and as expected', async () => {
-      const wrapper = renderer.create(<ApplicationPage applicationId={REGULAR_APP_ID} />)
-      await act(tick)
-      wrapper.update()
-      // TODO: Expand test coverage on this page to the point that we do not need this snapshot check.
-      expect(wrapper.toJSON()).toMatchSnapshot()
+      test('should match snapshot', () => {
+        // TODO: Expand test coverage on this page to the point that we do not need this snapshot check.
+        expect(wrapper).toMatchSnapshot()
+      })
     })
 
-    test('application without flagged applications', async () => {
-      const wrapper = mount(<ApplicationPage applicationId={NO_FLAGS_ID} />)
-      await act(tick)
-      wrapper.update()
-      // Flagged application content card should not render
-      expect(wrapper.exists(flaggedAppCardSelector)).toEqual(false)
+    describe('with sale application', () => {
+      let wrapper
+      beforeEach(async () => {
+        wrapper = await getWrapper(SALE_APP_ID, true)
+      })
+
+      test('renders Eligibility section', async () => {
+        expect(wrapper.find('.content-card_title').at(2).text()).toEqual('Eligibility')
+      })
+
+      test('renders name of lender', async () => {
+        expect(wrapper.find('.application-details').childAt(2).text()).toContain('Jason Lockhart')
+      })
     })
 
-    test('application with flagged applications', async () => {
-      const wrapper = mount(<ApplicationPage applicationId={FLAGGED_APP_ID} />)
-      await act(tick)
-      wrapper.update()
-      // Flagged application content card should render
-      expect(wrapper.exists(flaggedAppCardSelector)).toEqual(true)
-      // Check that the row is there and contains the right rule name.
-      expect(wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr`)).toHaveLength(1)
-      expect(
-        wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr > td`).first().text()
-      ).toEqual('Name + DOB')
+    describe('with application that has no flags', () => {
+      let wrapper
+      beforeEach(async () => {
+        wrapper = await getWrapper(NO_FLAGS_ID, true)
+      })
+
+      test('does not render flagged app content card', async () => {
+        expect(wrapper.exists(flaggedAppCardSelector)).toEqual(false)
+      })
     })
 
-    test('sale application', async () => {
-      const wrapper = mount(<ApplicationPage applicationId={SALE_APP_ID} />)
-      await act(tick)
-      wrapper.update()
-      // Should have Eligibility section
-      expect(wrapper.find('.content-card_title').at(2).text()).toEqual('Eligibility')
-      // Should fill in Name of Lender
-      expect(wrapper.find('.application-details').childAt(2).text()).toContain('Jason Lockhart')
+    describe('with flagged application', () => {
+      let wrapper
+      beforeEach(async () => {
+        wrapper = await getWrapper(FLAGGED_APP_ID, true)
+      })
+
+      test('renders flagged app content card', async () => {
+        expect(wrapper.exists(flaggedAppCardSelector)).toEqual(true)
+      })
+
+      test('renders the correct rule name', () => {
+        expect(wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr`)).toHaveLength(1)
+        expect(
+          wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr > td`).first().text()
+        ).toEqual('Name + DOB')
+      })
     })
   })
 })
