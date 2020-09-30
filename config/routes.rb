@@ -53,6 +53,8 @@ Rails.application.routes.draw do
 
       resources :rental_assistances, path: '/rental-assistances', only: %w[index create update destroy]
 
+      resources :short_form, path: '/short-form', only: %w[show]
+
       scope '/short-form' do
         match 'submit', to: 'short_form#submit', via: [:put, :post]
       end

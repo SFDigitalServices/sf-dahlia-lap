@@ -6,6 +6,12 @@ const getLeaseUpListings = async () => request.get('/lease-ups/listings').then((
 const getLeaseUpListing = async (listingId) =>
   request.get(`/lease-ups/listings/${listingId}`).then((r) => r.listing)
 
+const getShortFormApplication = async (applicationId) =>
+  request.get(`/short-form/${applicationId}`).then((response) => ({
+    application: response.application,
+    fileBaseUrl: response.file_base_url
+  }))
+
 const updateFlaggedApplication = async (data) => {
   const putData = {
     flagged_application: {
@@ -158,6 +164,7 @@ export default {
   getAMI,
   getLeaseUpListing,
   getLeaseUpListings,
+  getShortFormApplication,
   updatePreference,
   createFieldUpdateComment,
   getRentalAssistances,
