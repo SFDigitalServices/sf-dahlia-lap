@@ -133,11 +133,8 @@ const Lease = ({ form, values, store }) => {
 
   const validateAndSaveLease = (form) => {
     if (areLeaseAndRentalAssistancesValid(form)) {
-      console.log('leaser valid')
       handleSaveLease(convertPercentAndCurrency(form.getState().values))
     } else {
-      console.log('leaser NOT valid')
-
       // submit to force errors to display
       form.submit()
     }

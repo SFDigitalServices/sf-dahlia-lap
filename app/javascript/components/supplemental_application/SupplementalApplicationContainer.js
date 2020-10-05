@@ -172,7 +172,6 @@ const SupplementalApplicationContainer = ({ store }) => {
   return (
     <Form
       onSubmit={values => {
-        console.log('in form onsubmit')
         return onSubmit(convertPercentAndCurrency(values))
       }}
       initialValues={application}

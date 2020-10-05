@@ -78,8 +78,6 @@ class SupplementalApplicationPage extends React.Component {
       leaseSectionState
     } = this.state
 
-    console.log('IN HANDLE SAVE APPLICATION')
-
     this.setLoading(true)
 
     updateApplication(
