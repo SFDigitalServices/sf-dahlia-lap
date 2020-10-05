@@ -1,4 +1,5 @@
 import {
+  isLeaseValid,
   isSingleRentalAssistanceValid,
   areAllRentalAssistancesValid,
   areLeaseAndRentalAssistancesValid
@@ -20,6 +21,19 @@ const mockFormErrors = ({ assistanceErrors, leaseErrors }) => ({
 })
 
 const mockFormWithAssistanceErrors = (errors) => mockFormErrors({ assistanceErrors: errors })
+
+describe('isLeaseValid', () => {
+  test('should return true with empty errors', () => {
+    expect(isLeaseValid(mockFormErrors({ leaseErrors: undefined }))).toBeTruthy()
+    expect(isLeaseValid(mockFormErrors({ leaseErrors: {} }))).toBeTruthy()
+  })
+
+  test('should return false with non-empty errors', () => {
+    expect(isLeaseValid(mockFormErrors({ leaseErrors: ERROR }))).toBeFalsy()
+    expect(isLeaseValid(mockFormErrors({ leaseErrors: { lease_start_date: ERROR } }))).toBeFalsy()
+    expect(isLeaseValid(mockFormErrors({ leaseErrors: { lease_start_date: { all: ERROR } } }))).toBeFalsy()
+  })
+})
 
 describe('isSingleRentalAssistanceValid', () => {
   test('should return true when rental assistance errors are null', () => {
@@ -92,6 +106,7 @@ describe('areLeaseAndRentalAssistancesValid', () => {
 
     return areLeaseAndRentalAssistancesValid(form)
   }
+
   describe('with undefined rental assistances', () => {
     const assistanceErrors = undefined
 
