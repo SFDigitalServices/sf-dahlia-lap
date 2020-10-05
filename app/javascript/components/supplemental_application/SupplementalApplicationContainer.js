@@ -122,11 +122,12 @@ const SupplementalApplicationContainer = ({ store }) => {
     const errors = { lease: {} }
     // only validate lease_start_date when any of the fields is present
     if (!isEmpty(values.lease) && !isEmpty(values.lease.lease_start_date)) {
-      errors.lease = { lease_start_date: {} }
-      validate.isValidDate(
-        values.lease.lease_start_date,
-        errors.lease.lease_start_date
-      )
+      const dateErrors = validate.isValidDate(values.lease.lease_start_date, {})
+
+      // only set any error fields if there were actually any date errors.
+      if (dateErrors?.all || dateErrors?.day || dateErrors?.month || dateErrors?.year) {
+        errors.lease.lease_start_date = dateErrors
+      }
     }
     return errors
   }
@@ -170,7 +171,10 @@ const SupplementalApplicationContainer = ({ store }) => {
 
   return (
     <Form
-      onSubmit={values => onSubmit(convertPercentAndCurrency(values))}
+      onSubmit={values => {
+        console.log('in form onsubmit')
+        return onSubmit(convertPercentAndCurrency(values))
+      }}
       initialValues={application}
       // Keep dirty on reinitialize ensures the whole form doesn't refresh
       // when only a piece of it is saved (eg. when the lease is saved)

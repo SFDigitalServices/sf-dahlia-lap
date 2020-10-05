@@ -125,7 +125,8 @@ describe('RentalAssistanceForm', () => {
     onSave = () => {},
     onClose = () => {},
     onDelete = () => {},
-    shouldMount = false
+    shouldMount = false,
+    loading = false
   }) => {
     const context = cloneDeep(baseContext)
     context.application.rental_assistances = assistance ? [assistance] : []
@@ -142,6 +143,7 @@ describe('RentalAssistanceForm', () => {
           onSave={onSave}
           onClose={onClose}
           onDelete={onDelete}
+          loading={loading}
         />
       ),
       shouldMount
@@ -171,6 +173,62 @@ describe('RentalAssistanceForm', () => {
 
     findByNameAndProps(wrapper, 'Button', { text: 'Save' }).simulate('click')
     expect(wrapper.find('.rental-assistance-type.error').exists()).toBeTruthy()
+  })
+
+  describe('when not loading', () => {
+    let wrapper
+    let saveButtonWrapper
+    let cancelButtonWrapper
+    let deleteButtonWrapper
+
+    beforeEach(() => {
+      wrapper = getWrapper({
+        assistance: rentalAssistance,
+        loading: false
+      })
+
+      saveButtonWrapper = findByNameAndProps(wrapper, 'Button', { id: 'rental-assistance-save' })
+      cancelButtonWrapper = findByNameAndProps(wrapper, 'Button', { id: 'rental-assistance-cancel' })
+      deleteButtonWrapper = findByNameAndProps(wrapper, 'Button', { id: 'rental-assistance-delete' })
+    })
+
+    test('should disable the action buttons', () => {
+      expect(saveButtonWrapper.props().disabled).toEqual(false)
+      expect(cancelButtonWrapper.props().disabled).toEqual(false)
+      expect(deleteButtonWrapper.props().disabled).toEqual(false)
+    })
+
+    test('should update the save button to say Saving...', () => {
+      expect(saveButtonWrapper.props().text).toEqual('Save')
+    })
+  })
+
+  describe('when loading', () => {
+    let wrapper
+    let saveButtonWrapper
+    let cancelButtonWrapper
+    let deleteButtonWrapper
+
+    beforeEach(() => {
+      wrapper = getWrapper({
+        assistance: rentalAssistance,
+        loading: true
+      })
+
+      saveButtonWrapper = findByNameAndProps(wrapper, 'Button', { id: 'rental-assistance-save' })
+      cancelButtonWrapper = findByNameAndProps(wrapper, 'Button', { id: 'rental-assistance-cancel' })
+      deleteButtonWrapper = findByNameAndProps(wrapper, 'Button', { id: 'rental-assistance-delete' })
+    })
+
+    test('should disable the action buttons', () => {
+      expect(saveButtonWrapper.props().disabled).toEqual(true)
+      expect(cancelButtonWrapper.props().disabled).toEqual(true)
+      expect(deleteButtonWrapper.props().disabled).toEqual(true)
+    })
+
+    test('should update the save button to say Saving...', () => {
+      expect(saveButtonWrapper.props().text).toEqual('Saving...')
+    })
   })
 
   describe('when it is new', () => {
