@@ -145,9 +145,9 @@ describe('apiService', () => {
       var result = await apiService.deleteRentalAssistance(fakeRentalAssistanceId)
       expect(result).toEqual(true)
       expect(mockDestroyFn.mock.calls).toHaveLength(1)
-      expect(mockDestroyFn.mock.calls[0][0]).toEqual([
+      expect(mockDestroyFn.mock.calls[0][0]).toEqual(
         `/rental-assistances/${fakeRentalAssistanceId}`
-      ])
+      )
     })
   })
 
