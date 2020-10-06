@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { isEmpty } from 'lodash'
+import { useEffectOnMount } from '~/utils/customHooks'
+import { getShortFormApplication } from '~/components/lease_ups/shortFormActions'
 import ApplicationDetails from './application_details/ApplicationDetails'
 import CardLayout from '../layouts/CardLayout'
 import appPaths from '~/utils/appPaths'
-import mapProps from '~/utils/mapProps'
+import Loading from '~/components/molecules/Loading'
+
 import labelMapperFields from './application_details/applicationDetailsFieldsDesc'
 
 const buildActionLinkIfNecessary = (app, showAddBtn) => {
@@ -36,8 +39,25 @@ const buildActionLinkIfNecessary = (app, showAddBtn) => {
   return actions
 }
 
-const ApplicationPage = (props) => {
-  const { application, showAddBtn, isLeaseUp } = props
+const ApplicationPage = ({ applicationId, showAddBtn, isLeaseUp }) => {
+  const [application, setApplication] = useState(null)
+  const [fileBaseUrl, setFileBaseUrl] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffectOnMount(() => {
+    getShortFormApplication(applicationId)
+      .then((response) => {
+        setApplication(response.application)
+        setFileBaseUrl(response.fileBaseUrl)
+      })
+      .catch((e) => {
+        // Alert window pauses state updates so we set loading to false instead of
+        // waiting for the finally block
+        setLoading(false)
+        window.alert('The application you requested could not be found.')
+      })
+      .finally(() => setLoading(false))
+  })
 
   let pageHeader = {}
   let tabSection = false
@@ -88,23 +108,19 @@ const ApplicationPage = (props) => {
     }
   }
 
-  if (!application) window.alert('The application you requested could not be found.')
-
   return (
-    <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
-      {!isEmpty(application) && <ApplicationDetails {...props} />}
-    </CardLayout>
+    <Loading isLoading={loading}>
+      <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
+        {!isEmpty(application) && (
+          <ApplicationDetails
+            application={application}
+            fileBaseUrl={fileBaseUrl}
+            fields={labelMapperFields}
+          />
+        )}
+      </CardLayout>
+    </Loading>
   )
 }
 
-const mapProperties = ({ application, showAddBtn, fileBaseUrl, isLeaseUp }) => {
-  return {
-    application: application,
-    fields: labelMapperFields,
-    showAddBtn: showAddBtn,
-    fileBaseUrl: fileBaseUrl,
-    isLeaseUp: isLeaseUp
-  }
-}
-
-export default mapProps(mapProperties)(ApplicationPage)
+export default ApplicationPage

@@ -1,74 +1,163 @@
 import React from 'react'
-import { clone } from 'lodash'
+import { act } from 'react-dom/test-utils'
 import ApplicationPage from 'components/applications/ApplicationPage'
 import application from '../../fixtures/application'
 import saleApplication from '../../fixtures/sale_application'
 import { mount } from 'enzyme'
-import renderer from 'react-test-renderer'
-import labelMapperFields from 'components/applications/application_details/applicationDetailsFieldsDesc'
+import ApplicationDetails from '~/components/applications/application_details/ApplicationDetails'
+
+import Loading from '~/components/molecules/Loading'
+
+const flaggedAppCardSelector = '#content-card-flagged_applications'
+
+const FLAGGED_APP_ID = 'flagged_app_id'
+const NO_FLAGS_ID = 'no_flags_id'
+const SALE_APP_ID = 'sale_app_id'
+const REGULAR_APP_ID = 'regular_app_id'
+
+const mockGetShortFormApplication = jest.fn()
+
+const tick = () => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, 0)
+  })
+}
+
+jest.mock('apiService', () => {
+  const FLAGGED_APP_ID = 'flagged_app_id'
+  const NO_FLAGS_ID = 'no_flags_id'
+  const SALE_APP_ID = 'sale_app_id'
+  return {
+    getShortFormApplication: async (id) => {
+      mockGetShortFormApplication(id)
+      let responseApp
+      if (id === FLAGGED_APP_ID) {
+        responseApp = {
+          ...mockApplication,
+          flagged_applications: [
+            {
+              flagged_record: {
+                id: 'a0r0P00002X4r08QAB',
+                rule_name: 'Name + DOB',
+                total_number_of_pending_review: 51
+              }
+            }
+          ]
+        }
+      } else if (id === SALE_APP_ID) {
+        responseApp = { ...mockSaleApplication }
+      } else if (id === NO_FLAGS_ID) {
+        responseApp = { ...mockApplication, flagged_applications: [] }
+      } else {
+        responseApp = { ...mockApplication }
+      }
+
+      return Promise.resolve({ application: responseApp, fileBaseUrl: 'test_file_url' })
+    }
+  }
+})
+
+// we need to define these separate from the import so we can use them in the
+// jest block.
+const mockApplication = application
+const mockSaleApplication = saleApplication
+
+const getWrapper = async (applicationId, waitForLoadingFinish = false) => {
+  let wrapper
+
+  // have to wrap in await act so that all useEffectOnMount updates finish.
+  await act(async () => {
+    wrapper = mount(<ApplicationPage applicationId={applicationId} />)
+  })
+
+  if (waitForLoadingFinish) {
+    await act(tick)
+    wrapper.update()
+  }
+
+  return wrapper
+}
 
 describe('ApplicationPage', () => {
-  describe('should render', () => {
-    const flaggedAppCardSelector = '#content-card-flagged_applications'
+  describe('with regular application', () => {
+    const appId = REGULAR_APP_ID
+    describe('before application is loaded', () => {
+      let wrapper
+      beforeEach(async () => {
+        wrapper = await getWrapper(appId)
+      })
 
-    test('without error and as expected', () => {
-      const fileBaseUrl = 'http://www.someurl.com'
+      test('should be loading', () => {
+        expect(wrapper.find(Loading).prop('isLoading')).toBeTruthy()
+      })
 
-      const wrapper = renderer.create(
-        <ApplicationPage application={application} file_base_url={fileBaseUrl} />
-      )
-      // TODO: Expand test coverage on this page to the point that we do not need this snapshot check.
-      expect(wrapper.toJSON()).toMatchSnapshot()
+      test('does not render ApplicationDetails', () => {
+        expect(wrapper.find(ApplicationDetails)).toHaveLength(0)
+      })
     })
 
-    test('application without flagged applications', () => {
-      const fileBaseUrl = 'http://www.someurl.com'
-      expect(application.flagged_applications).toHaveLength(0)
+    describe('After the application finishes loading', () => {
+      let wrapper
+      beforeEach(async () => {
+        wrapper = await getWrapper(appId, true)
+      })
 
-      const wrapper = mount(
-        <ApplicationPage application={application} file_base_url={fileBaseUrl} />
-      )
-      // Flagged application content card should not render
-      expect(wrapper.exists(flaggedAppCardSelector)).toEqual(false)
+      test('should no longer be loading', () => {
+        expect(wrapper.find(Loading).prop('isLoading')).toBeFalsy()
+      })
+
+      test('renders ApplicationDetails', () => {
+        expect(wrapper.find(ApplicationDetails)).toHaveLength(1)
+      })
+
+      test('should match snapshot', () => {
+        // TODO: Expand test coverage on this page to the point that we do not need this snapshot check.
+        expect(wrapper).toMatchSnapshot()
+      })
     })
 
-    test('application with flagged applications', () => {
-      const applicationWithFlagged = clone(application)
-      applicationWithFlagged.flagged_applications = [
-        {
-          flagged_record: {
-            id: 'a0r0P00002X4r08QAB',
-            rule_name: 'Name + DOB',
-            total_number_of_pending_review: 51
-          }
-        }
-      ]
+    describe('with sale application', () => {
+      let wrapper
+      beforeEach(async () => {
+        wrapper = await getWrapper(SALE_APP_ID, true)
+      })
 
-      const fileBaseUrl = 'http://www.someurl.com'
-      const wrapper = mount(
-        <ApplicationPage application={applicationWithFlagged} file_base_url={fileBaseUrl} />
-      )
-      // Flagged application content card should render
-      expect(wrapper.exists(flaggedAppCardSelector)).toEqual(true)
-      // Check that the row is there and contains the right rule name.
-      expect(wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr`)).toHaveLength(1)
-      expect(
-        wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr > td`).first().text()
-      ).toEqual('Name + DOB')
+      test('renders Eligibility section', async () => {
+        expect(wrapper.find('.content-card_title').at(2).text()).toEqual('Eligibility')
+      })
+
+      test('renders name of lender', async () => {
+        expect(wrapper.find('.application-details').childAt(2).text()).toContain('Jason Lockhart')
+      })
     })
 
-    test('sale application', () => {
-      const saleAppt = clone(saleApplication)
-      const fields = clone(labelMapperFields)
+    describe('with application that has no flags', () => {
+      let wrapper
+      beforeEach(async () => {
+        wrapper = await getWrapper(NO_FLAGS_ID, true)
+      })
 
-      const fileBaseUrl = 'http://www.someurl.com'
-      const wrapper = mount(
-        <ApplicationPage application={saleAppt} file_base_url={fileBaseUrl} fields={fields} />
-      )
-      // Should have Eligibility section
-      expect(wrapper.find('.content-card_title').at(2).text()).toEqual('Eligibility')
-      // Should fill in Name of Lender
-      expect(wrapper.find('.application-details').childAt(2).text()).toContain('Jason Lockhart')
+      test('does not render flagged app content card', async () => {
+        expect(wrapper.exists(flaggedAppCardSelector)).toEqual(false)
+      })
+    })
+
+    describe('with flagged application', () => {
+      let wrapper
+      beforeEach(async () => {
+        wrapper = await getWrapper(FLAGGED_APP_ID, true)
+      })
+
+      test('renders flagged app content card', async () => {
+        expect(wrapper.exists(flaggedAppCardSelector)).toEqual(true)
+      })
+
+      test('renders the correct rule name', () => {
+        expect(wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr`)).toHaveLength(1)
+        expect(
+          wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr > td`).first().text()
+        ).toEqual('Name + DOB')
+      })
     })
   })
 })
