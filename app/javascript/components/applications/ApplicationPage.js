@@ -50,7 +50,12 @@ const ApplicationPage = ({ applicationId, showAddBtn, isLeaseUp }) => {
         setApplication(response.application)
         setFileBaseUrl(response.fileBaseUrl)
       })
-      .catch(() => window.alert('The application you requested could not be found.'))
+      .catch((e) => {
+        // Alert window pauses state updates so we set loading to false instead of
+        // waiting for the finally block
+        setLoading(false)
+        window.alert('The application you requested could not be found.')
+      })
       .finally(() => setLoading(false))
   })
 
