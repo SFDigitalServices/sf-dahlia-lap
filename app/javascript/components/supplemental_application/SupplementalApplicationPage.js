@@ -355,7 +355,10 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleLeaveSuppAppTab = () => {
-    if (this.state.supplementalAppTouched) {
+    const { application, supplementalAppTouched, leaseSectionState } = this.state
+
+    const hasStartedNewLease = leaseSectionState === EDIT_LEASE_STATE && !doesApplicationHaveLease(application)
+    if (supplementalAppTouched || hasStartedNewLease) {
       this.setState({ leaveConfirmationModal: { isOpen: true } })
     } else {
       window.location.href = appPaths.toLeaseUpShortForm(this.state.application.id)
@@ -411,7 +414,6 @@ class SupplementalApplicationPage extends React.Component {
       handleDeleteLease: this.handleDeleteLease,
       handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,
       handleDeleteRentalAssistance: this.handleDeleteRentalAssistance,
-      handleOpenRentalAssistancePanel: this.handleOpenRentalAssistancePanel,
       handleSaveRentalAssistance: this.handleSaveRentalAssistance,
       handleStatusModalClose: this.handleStatusModalClose,
       handleStatusModalStatusChange: this.handleStatusModalStatusChange,
