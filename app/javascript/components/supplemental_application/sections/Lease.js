@@ -20,6 +20,8 @@ import { EDIT_LEASE_STATE } from '../SupplementalApplicationPage'
 import { doesApplicationHaveLease } from '~/utils/leaseUtils'
 import { areLeaseAndRentalAssistancesValid } from '~/utils/form/formSectionValidations'
 
+const NONE_PREFERENCE_LABEL = 'None'
+
 const toggleNoPreferenceUsed = (form, event) => {
   // lease.preference_used need to be reset, otherwise SF validation fails
   if (isEmpty(event.target.value)) {
@@ -27,6 +29,7 @@ const toggleNoPreferenceUsed = (form, event) => {
   }
   form.change('lease.no_preference_used', isEmpty(event.target.value))
 }
+
 const LeaseActions = ({
   onEditLeaseClick,
   onSave,
@@ -111,17 +114,14 @@ const Lease = ({ form, values, store }) => {
       return unit.priority_type && unit.priority_type.match(/Mobility|Hearing|Vision/)
     })
 
-  const noUnitsOptions = [{ value: '', label: 'No Units Available' }]
+  const noUnitsOptions = [formUtils.toEmptyOption('No Units Available')]
   const confirmedPreferences = filter(application.preferences, {
     post_lottery_validation: 'Confirmed'
   })
-
-  const confirmedPreferenceOptions = formUtils.toOptions(
-    map(
-      [{ id: null, preference_name: 'None' }, ...confirmedPreferences],
-      pluck('id', 'preference_name')
-    )
-  )
+  const confirmedPreferenceOptions = formUtils.toOptions([
+    formUtils.toEmptyOption(NONE_PREFERENCE_LABEL),
+    ...map(confirmedPreferences, pluck('id', 'preference_name'))
+  ])
 
   const getVisited = (fieldName) => form.getFieldState(fieldName)?.visited
 
@@ -261,6 +261,7 @@ const Lease = ({ form, values, store }) => {
             <SelectField
               label='Preference Used'
               onChange={(value) => toggleNoPreferenceUsed(form, value)}
+              selectValue={values.lease.preference_used || NONE_PREFERENCE_LABEL}
               fieldName='lease.preference_used'
               options={confirmedPreferenceOptions}
               disabled={disabled}

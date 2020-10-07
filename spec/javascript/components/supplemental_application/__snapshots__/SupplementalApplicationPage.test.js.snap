@@ -4717,7 +4717,7 @@ Array [
                         value="a0w0P00000MOzyXQAT"
                       >
                         <option
-                          value={null}
+                          value=""
                         >
                           None
                         </option>
