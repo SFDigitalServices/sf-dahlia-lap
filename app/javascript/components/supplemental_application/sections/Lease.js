@@ -60,7 +60,7 @@ const LeaseActions = ({
         onClick={onSave}
         disabled={loading}
         noBottomMargin
-        text='Save Lease'
+        text={loading ? 'Saving...' : 'Save Lease'}
       />
       <Button
         classes='secondary'
