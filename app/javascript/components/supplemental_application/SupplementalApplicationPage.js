@@ -251,13 +251,13 @@ class SupplementalApplicationPage extends React.Component {
           },
           leaseSectionState: SHOW_LEASE_STATE
         }))
-      }).finally(() => this.setState({ loading: false }))
-      // TODO: catch and handle errors
+      })
+      .catch(() => Alerts.error())
+      .finally(() => this.setState({ loading: false }))
   }
 
   handleDeleteLease = () => {
     const { application } = this.state
-
     this.setState({ loading: true })
 
     deleteLease(application)
@@ -266,8 +266,9 @@ class SupplementalApplicationPage extends React.Component {
           application: getApplicationWithEmptyLease(prevState.application),
           leaseSectionState: NO_LEASE_STATE
         }))
-      }).finally(() => this.setState({ loading: false }))
-    // TODO: catch and handle errors
+      })
+      .catch(() => Alerts.error())
+      .finally(() => this.setState({ loading: false }))
   }
 
   handleRentalAssistanceAction = (action) => {
