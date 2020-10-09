@@ -21,11 +21,11 @@ import ContentCard from 'components/molecules/ContentCard'
 import ContentCardGrid from 'components/molecules/ContentCardGrid'
 import ContentSection from 'components/molecules/ContentSection'
 import ContentSectionBordered from 'components/molecules/ContentSectionBordered'
-import Dropdown from 'components/molecules/Dropdown'
 import FormGridRow from 'components/molecules/FormGridRow'
 import FormGridTable from 'components/molecules/FormGridTable'
 import LeaseUpSidebar from 'components/molecules/lease_up_sidebar/LeaseUpSidebar'
 import Loading from 'components/molecules/Loading'
+import Popover from 'components/molecules/Popover'
 import StatusItems from 'components/molecules/lease_up_sidebar/StatusItems'
 import TablePagination from 'components/molecules/TablePagination'
 import TableSimple from 'components/molecules/TableSimple'
@@ -38,9 +38,9 @@ import TabsSection from 'components/organisms/TabsSection'
 // Pattern Library Wrappers
 import ContentSectionWrapper from 'components/pattern_library/wrappers/ContentSectionWrapper'
 import InlineModalWrapper from 'components/pattern_library/wrappers/InlineModalWrapper'
-import DropdownWrapper from 'components/pattern_library/wrappers/DropdownWrapper'
 import ExpandableTableWrapper from 'components/pattern_library/wrappers/ExpandableTableWrapper'
 import ModalWrapper from 'components/pattern_library/wrappers/ModalWrapper'
+import PopoverWrapper from 'components/pattern_library/wrappers/PopoverWrapper'
 import TabCardWrapper from 'components/pattern_library/wrappers/TabCardWrapper'
 
 Turbolinks.start()
@@ -65,11 +65,11 @@ WebpackerReact.setup({ ContentCard })
 WebpackerReact.setup({ ContentCardGrid })
 WebpackerReact.setup({ ContentSection })
 WebpackerReact.setup({ ContentSectionBordered })
-WebpackerReact.setup({ Dropdown })
 WebpackerReact.setup({ FormGridRow })
 WebpackerReact.setup({ FormGridTable })
 WebpackerReact.setup({ LeaseUpSidebar })
 WebpackerReact.setup({ Loading })
+WebpackerReact.setup({ Popover })
 WebpackerReact.setup({ StatusItems })
 WebpackerReact.setup({ TablePagination })
 WebpackerReact.setup({ TableSimple })
@@ -82,7 +82,7 @@ WebpackerReact.setup({ TabsSection })
 // Pattern Library Wrappers
 WebpackerReact.setup({ ContentSectionWrapper })
 WebpackerReact.setup({ InlineModalWrapper })
-WebpackerReact.setup({ DropdownWrapper })
 WebpackerReact.setup({ ExpandableTableWrapper })
 WebpackerReact.setup({ ModalWrapper })
+WebpackerReact.setup({ PopoverWrapper })
 WebpackerReact.setup({ TabCardWrapper })

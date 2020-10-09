@@ -1,0 +1,35 @@
+// Styles for the Popover.js component
+$popover-border-radius: 4px;
+$arrow-size: 32px;
+$arrow-offset: (-$arrow-size / 2);
+
+.popper-container {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  padding: 20px;
+  border-radius: $popover-border-radius;
+  z-index: 1;
+  width: 22rem;
+
+  #arrow {
+    position: absolute;
+    width: $arrow-size;
+    height: $arrow-size;
+    z-index: -1;
+    content: '';
+    transform: rotate(45deg) skew(15deg, 15deg);
+    background: white;
+    box-shadow: -1px -1px 1px rgba(0, 0, 0, .15);
+  }
+
+  &[data-popper-placement^='top'] > #arrow {
+    bottom: $arrow-offset;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .15);
+    border-bottom-right-radius: $popover-border-radius;
+  }
+
+  &[data-popper-placement^='bottom'] > #arrow {
+    top: $arrow-offset;
+    border-top-left-radius: $popover-border-radius;
+  }
+}

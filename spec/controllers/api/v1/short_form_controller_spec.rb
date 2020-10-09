@@ -15,8 +15,11 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
     has_military_service: 'Yes',
     reserved_senior: 'Yes',
     has_ada_priorities_selected: {vision_impairments: true},
+    application_submitted_date: '2019-03-12',
+    application_submission_type: 'Electronic',
     id: 'a0o0P00000JQawYQAT'
   }
+
   pre_lottery_listing_id = 'a0W0P00000F8YG4UAN' # Automated Test Listing
   new_application = {
     application_submission_type: 'Paper',
@@ -45,6 +48,61 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
     shortForm_preferences: [],
   }
 
+  describe '#show' do
+    context 'with a lease up application' do
+      let(:expected_lease_up_app) { fixture('controllers/applications/lease_up_application_domain.json') }
+
+      it 'should return a domain application snapshot' do
+        VCR.use_cassette('api/v1/short-form/show/lease_up_application') do
+          get :show, params: { id: lease_up_application_id }
+        end
+
+        expect(response).to have_http_status(:success)
+        json = JSON.parse(response.body)
+
+        domain_application = json['application']
+        expect(domain_application['preferences']).to eq(expected_lease_up_app['preferences'])
+        expect(domain_application).to eq(expected_lease_up_app)
+        expect(domain_application['is_snapshot']).to be true
+      end
+    end
+
+    context 'with a non lease up application' do
+      let(:expected_non_lease_up_app) { fixture('controllers/applications/non_lease_up_application_domain.json') }
+
+      it 'should return a domain application' do
+        VCR.use_cassette('api/v1/short-form/show/non_lease_up_application') do
+          get :show, params: { id: non_lease_up_application_id }
+        end
+
+
+        expect(response).to have_http_status(:success)
+        json = JSON.parse(response.body)
+        domain_application = json['application']
+        expect(domain_application['preferences']).to eq(expected_non_lease_up_app['preferences'])
+        expect(domain_application).to eq(expected_non_lease_up_app)
+        expect(domain_application['is_snapshot']).to be false
+      end
+    end
+
+    context 'with a sale application' do
+      let(:expected_sale_app) { fixture('controllers/applications/sale_application_domain.json') }
+
+      it 'should return a domain application' do
+        VCR.use_cassette('api/v1/short-form/show/sale_application') do
+          get :show, params: { id: sale_application_id }
+        end
+
+        expect(response).to have_http_status(:success)
+        json = JSON.parse(response.body)
+        domain_application = json['application']
+        expect(domain_application['preferences']).to eq(expected_sale_app['preferences'])
+        expect(domain_application).to eq(expected_sale_app)
+        expect(domain_application['listing']['is_sale']).to be_truthy
+      end
+    end
+  end
+
   describe '#submit' do
     describe 'application to pre-lottery listing' do
       it 'receives a successful response from Salesforce' do
@@ -71,7 +129,7 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
           expect(response).to have_http_status(:success)
           json = JSON.parse(response.body)
           expect(json['application']).not_to be_empty
-          expect(json['application']['application_submission_type']).to eq('Paper')
+          expect(json['application']['application_submission_type']).to eq('Electronic')
         end
 
         it 'calls put method' do
@@ -79,6 +137,41 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
           VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param') do
             put :submit, params: { application: application, supplemental: true }, as: :json
           end
+        end
+
+        it 'does not override type when it is not provided' do
+          # First reset the application to make sure it has type = electronic and old submitted date
+          VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param') do
+            put :submit, params: { application: application, supplemental: true }, as: :json
+          end
+          expect(response).to have_http_status(:success)
+          json = JSON.parse(response.body)
+          expect(json['application']['application_submission_type']).to eq('Electronic')
+
+
+          # Then call put again without type or date to make sure thos fields aren't overridden
+          application_without_type_or_date = application.except('application_submitted_date', 'application_submission_type')
+          VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param-no-type') do
+            put :submit, params: { application: application_without_type_or_date, supplemental: true }, as: :json
+          end
+
+          expect(response).to have_http_status(:success)
+          json = JSON.parse(response.body)
+          expect(json['application']['application_submission_type']).to eq('Electronic')
+          expect(json['application']['application_submitted_date']).to eq('2019-03-12')
+        end
+
+        it 'does not override the listing id when one is provided' do
+          application_with_listing_id = application.clone
+          application_with_listing_id['listing_id'] = "invalidID"
+
+          # First reset the application to make sure it has type = electronic and old submitted date
+          VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param-and-listing-id') do
+            put :submit, params: { application: application_with_listing_id, supplemental: true }, as: :json
+          end
+          expect(response).to have_http_status(:success)
+          json = JSON.parse(response.body)
+          expect(json['application']['listing_id']).to eq('a0W0P00000GbyuQUAR')
         end
       end
     end

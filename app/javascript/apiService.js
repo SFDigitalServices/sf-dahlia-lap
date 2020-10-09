@@ -1,6 +1,18 @@
 import { request } from '~/api/request'
 import { isLeaseAlreadyCreated } from './utils/leaseUtils'
 
+const getLeaseUpListings = async () =>
+  request.get('/lease-ups/listings', null, true).then((r) => r.listings)
+
+const getLeaseUpListing = async (listingId) =>
+  request.get(`/lease-ups/listings/${listingId}`, null, true).then((r) => r.listing)
+
+const getShortFormApplication = async (applicationId) =>
+  request.get(`/short-form/${applicationId}`, null, true).then((response) => ({
+    application: response.application,
+    fileBaseUrl: response.file_base_url
+  }))
+
 const updateFlaggedApplication = async (data) => {
   const putData = {
     flagged_application: {
@@ -10,7 +22,9 @@ const updateFlaggedApplication = async (data) => {
     }
   }
 
-  return request.put('/flagged-applications/update', putData).then((response) => response.result)
+  return request
+    .put('/flagged-applications/update', putData, true)
+    .then((response) => response.result)
 }
 
 const submitApplication = async (application, isSupplemental = false) => {
@@ -24,22 +38,30 @@ const submitApplication = async (application, isSupplemental = false) => {
 }
 
 const fetchApplications = async ({ page, filters }) =>
-  request.get('/applications', {
-    params: {
-      page,
-      ...filters
-    }
-  })
+  request.get(
+    '/applications',
+    {
+      params: {
+        page,
+        ...filters
+      }
+    },
+    true
+  )
 
 const fetchLeaseUpApplications = async (listingId, page, { filters }) => {
   // Fetch applications associated with a lease up listing.
-  return request.get('/lease-ups/applications', {
-    params: {
-      listing_id: listingId,
-      page: page,
-      ...filters
-    }
-  })
+  return request.get(
+    '/lease-ups/applications',
+    {
+      params: {
+        listing_id: listingId,
+        page: page,
+        ...filters
+      }
+    },
+    true
+  )
 }
 
 const getAMI = async ({ chartType, chartYear }) =>
@@ -78,7 +100,7 @@ const createRentalAssistance = async (rentalAssistance, applicationId) => {
     application_id: applicationId
   }
 
-  return request.post('/rental-assistances', postData)
+  return request.post('/rental-assistances', postData, true)
 }
 
 const getRentalAssistances = async (applicationId) =>
@@ -92,11 +114,11 @@ const updateRentalAssistance = async (rentalAssistance, applicationId) => {
     application_id: applicationId
   }
 
-  return request.put(`/rental-assistances/${rentalAssistance.id}`, putData)
+  return request.put(`/rental-assistances/${rentalAssistance.id}`, putData, true)
 }
 
 const deleteRentalAssistance = async (rentalAssistanceId) =>
-  request.destroy(`/rental-assistances/${rentalAssistanceId}`)
+  request.destroy(`/rental-assistances/${rentalAssistanceId}`, null, true)
 
 const getLeaseRequestData = (rawLeaseObject, primaryApplicantContact) => ({
   lease: {
@@ -151,6 +173,9 @@ export default {
   fetchApplications,
   fetchLeaseUpApplications,
   getAMI,
+  getLeaseUpListing,
+  getLeaseUpListings,
+  getShortFormApplication,
   updatePreference,
   createFieldUpdateComment,
   getRentalAssistances,

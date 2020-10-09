@@ -1,0 +1,712 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Sep 2020 22:31:26 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      X-Robots-Tag:
+      - none
+      X-B3-Traceid:
+      - 75b66165522cdbe9
+      X-B3-Spanid:
+      - 75b66165522cdbe9
+      X-B3-Sampled:
+      - '0'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=gwxUbQKjEeuVjF1kJWRtEQ; domain=.salesforce.com; path=/; expires=Wed,
+        29-Sep-2021 22:31:26 GMT; Max-Age=31536000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1601418687983","signature":"stS3J1IcruDFmaWm9E8sq7GBu8xB65IxJb+XAg+DXUE="}'
+    http_version: null
+  recorded_at: Tue, 29 Sep 2020 22:31:28 GMT
+- request:
+    method: get
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Listing__r.Id,%20Listing__r.Name,%20Listing__r.Status__c,%20Listing__r.Tenure__c,%20Listing__r.Lottery_Status__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id%20=%20%27a0o0P00000Fv20MQAR%27%0A%20%20%20%20%20%20%20%20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Sep 2020 22:31:28 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      X-Robots-Tag:
+      - none
+      X-B3-Traceid:
+      - 8e6738f6c3ec597f
+      X-B3-Spanid:
+      - 8e6738f6c3ec597f
+      X-B3-Sampled:
+      - '0'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=hBHc_QKjEeuCWs_UUWxGpw; domain=.salesforce.com; path=/; expires=Wed,
+        29-Sep-2021 22:31:28 GMT; Max-Age=31536000
+      Sforce-Limit-Info:
+      - api-usage=14774/400000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Fv20MQAR"},"Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000F8YG4UAN"},"Id":"a0W0P00000F8YG4UAN","Name":"Automated
+        Test Listing (do not modify)","Status__c":"Active","Tenure__c":"Re-rental","Lottery_Status__c":"Not
+        Yet Run"}}]}'
+    http_version: null
+  recorded_at: Tue, 29 Sep 2020 22:31:28 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Sep 2020 22:31:28 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      X-Robots-Tag:
+      - none
+      X-B3-Traceid:
+      - d0d39e44ed1d4480
+      X-B3-Spanid:
+      - d0d39e44ed1d4480
+      X-B3-Sampled:
+      - '0'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=hEC1KgKjEeu1aSnHlLFpqA; domain=.salesforce.com; path=/; expires=Wed,
+        29-Sep-2021 22:31:28 GMT; Max-Age=31536000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1601418688874","signature":"bbdiRRqUyTCqhflcBnWIrn0m9dts7z1U22MRG8fEIwI="}'
+    http_version: null
+  recorded_at: Tue, 29 Sep 2020 22:31:28 GMT
+- request:
+    method: get
+    uri: https://<<SALESFORCE_HOST>>/services/apexrest/LeasingAgentPortal/shortForm/a0o0P00000Fv20MQAR
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Sep 2020 22:31:29 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      X-Robots-Tag:
+      - none
+      X-B3-Traceid:
+      - 0c51d4a19eaf9b15
+      X-B3-Spanid:
+      - 0c51d4a19eaf9b15
+      X-B3-Sampled:
+      - '0'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=hIDymAKjEeuCWs_UUWxGpw; domain=.salesforce.com; path=/; expires=Wed,
+        29-Sep-2021 22:31:29 GMT; Max-Age=31536000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalMonthlyRent":600,"subStatus":null,"status":"Submitted","snapshotId":null,"shortFormPreferences":[{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000N1bbAQAR","requiresProof":false,"recordTypeDevName":"COP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XKQAZ","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000Fv20MQAR","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000N1bbBQAR","requiresProof":false,"recordTypeDevName":"RB_AHP","preferenceProof":null,"postLotteryValidation":null,"optOut":true,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XZQAZ","individualPreference":"Assisted
+        Housing","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000Fv20MQAR","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000N1bbCQAR","requiresProof":false,"recordTypeDevName":"DTHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XPQAZ","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000Fv20MQAR","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000N1bbDQAR","requiresProof":false,"recordTypeDevName":"NRHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XUQAZ","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000Fv20MQAR","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000N1bbEQAR","requiresProof":false,"recordTypeDevName":"L_W","preferenceProof":null,"postLotteryValidation":null,"optOut":true,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XeQAJ","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000Fv20MQAR","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000OWWYeQAP","requiresProof":false,"recordTypeDevName":"AG","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001PsqDoQAJ","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000Fv20MQAR","address":null}],"referral":"Newspaper;MOHCD
+        Website","processingStatus":null,"primaryApplicant":{"zip":"75540-0667","yCoordinate":"4545683.891332","xCoordinate":"-13629293.1193475","workInSf":"true","whiteOther":null,"whichComponentOfLocatorWasUsed":"eas","webAppID":"1","state":"Ne","sexualOrientationOther":"Ziggy
+        Stardust","sexualOrientation":"Not listed","sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":"Other/Multiracial","primaryLanguage":null,"preferenceStatus":null,"preferenceAddressMatch":"Not
+        Matched","phoneType":"Home","phone":"08659515165","pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":null,"menaOther":null,"maritalStatus":null,"mailingZip":"35248","mailingState":"No","mailingCity":"Williamshire","mailingAddress":"0845
+        Snow Village","lendingAgentStatus":null,"latinoOther":null,"lastName":"Murphy","indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasAltMailingAddress":false,"genderOther":"Dothraki","gender":"Not
+        Listed","firstName":"Cynthia","ethnicity":"Not Hispanic/Latino","email":"robinsonrichard@example.org","DOB":"1990-02-22","contactId":"0030P00002ETZfRQAX","city":"SAN
+        FRANCISCO","candidateScore":100,"blackOther":null,"asianOther":null,"appMemberType":"Primary
+        Applicant","appMemberId":"a0n0P00000BEG2sQAH","applicationId":"a0o0P00000Fv20MQAR","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":"76096
+        Johnson Points"},"otherHousingCounselingAgency":null,"numberOfSeniors":null,"numberOfMinors":null,"numberOfDependents":null,"name":"APP-00191015","monthlyIncome":null,"lotteryNumberManual":null,"lotteryNumber":"00191015","listingID":"a0W0P00000F8YG4UAN","lendingAgent":null,"isFirstTimeHomebuyer":false,"interviewScheduledDate":null,"imputedIncomeFromAssets":null,"id":"a0o0P00000Fv20MQAR","housingCounselingAgency":null,"householdVouchersSubsidies":"true","householdMembers":[],"householdAssets":null,"HHTotalIncomeWithAssets":null,"hasSenior":null,"hasPublicHousing":"Yes","hasMilitaryService":null,"hasLoanPreapproval":false,"hasDevelopmentalDisability":null,"hasCompletedHomebuyerEducation":false,"formMetadata":"{\"completedSections\":{\"Intro\":true,\"You\":true,\"Household\":true,\"Income\":true,\"Preferences\":false},\"session_uid\":\"e0284782-a93d-42e7-9236-25342519c6f5-37891a3c-0493-4398-a559-2762e125161d\",\"lastPage\":\"confirmation\",\"groupedHouseholdAddresses\":[]}","externalSessionId":"e0284782-a93d-42e7-9236-25342519c6f5-37891a3c-0493-4398-a559-2762e125161d","didApplicantUseHousingCounselingAgency":"No","confirmedHouseholdAnnualIncome":null,"appRTType":"Rental_Short_Form","applicationSubmittedDate":"2018-04-14","applicationSubmissionType":"Electronic","applicationLanguage":"English","answeredCommunityScreening":null,"annualIncome":25000.00,"amiPercentage":null,"amiChartYear":null,"amiChartType":null,"alternateContact":null,"agreeToTerms":true,"adaPrioritiesSelected":"None"}'
+    http_version: null
+  recorded_at: Tue, 29 Sep 2020 22:31:29 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Sep 2020 22:31:29 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      X-Robots-Tag:
+      - none
+      X-B3-Traceid:
+      - 256267f2fea54887
+      X-B3-Spanid:
+      - 256267f2fea54887
+      X-B3-Sampled:
+      - '0'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=hQn4igKjEeuVjF1kJWRtEQ; domain=.salesforce.com; path=/; expires=Wed,
+        29-Sep-2021 22:31:29 GMT; Max-Age=31536000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1601418690082","signature":"5haKZF87iMfZb9Gcn++REgeVVZA5qMUWhAfNX58QhiI="}'
+    http_version: null
+  recorded_at: Tue, 29 Sep 2020 22:31:30 GMT
+- request:
+    method: get
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Preference_Name__c,%20Person_who_claimed_Name__c,%20Type_of_proof__c,%20Opt_Out__c,%20Lottery_Status__c,%20Preference_Lottery_Rank__c,%20Listing_Preference_ID__c,%20Receives_Preference__c,%20Application_Member__c,%20Application_Member__r.First_Name__c,%20Application_Member__r.Last_Name__c,%20Application_Member__r.Date_of_Birth__c,%20Application_Member__r.Id,%20Individual_preference__c,%20Certificate_Number__c,%20Preference_Order__c,%20RecordType.DeveloperName,%20LW_Type_of_Proof__c,%20City__c,%20State__c,%20Street__c,%20Zip_Code__c,%20Post_Lottery_Validation__c,%20Total_Household_Rent__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o0P00000Fv20MQAR%27%0A%20%20%20%20%20%20%20%20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Sep 2020 22:31:30 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      X-Robots-Tag:
+      - none
+      X-B3-Traceid:
+      - c7cf9c6ff9a0e7fb
+      X-B3-Spanid:
+      - c7cf9c6ff9a0e7fb
+      X-B3-Sampled:
+      - '0'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=hT7rgAKjEeu1aSnHlLFpqA; domain=.salesforce.com; path=/; expires=Wed,
+        29-Sep-2021 22:31:30 GMT; Max-Age=31536000
+      Sforce-Limit-Info:
+      - api-usage=14776/400000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":6,"done":true,"records":[{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000N1bbAQAR"},"Id":"a0w0P00000N1bbAQAR","Name":"AP-0000613829","Preference_Name__c":"Certificate
+        of Preference (COP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XKQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":1.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BHQA0"},"DeveloperName":"COP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000N1bbEQAR"},"Id":"a0w0P00000N1bbEQAR","Name":"AP-0000613833","Preference_Name__c":"Live
+        or Work in San Francisco Preference","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":true,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XeQAJ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":5.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"},"DeveloperName":"L_W"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000N1bbCQAR"},"Id":"a0w0P00000N1bbCQAR","Name":"AP-0000613831","Preference_Name__c":"Displaced
+        Tenant Housing Preference (DTHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XPQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":3.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BJQA0"},"DeveloperName":"DTHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000N1bbDQAR"},"Id":"a0w0P00000N1bbDQAR","Name":"AP-0000613832","Preference_Name__c":"Neighborhood
+        Resident Housing Preference (NRHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XUQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":4.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BLQA0"},"DeveloperName":"NRHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000N1bbBQAR"},"Id":"a0w0P00000N1bbBQAR","Name":"AP-0000613830","Preference_Name__c":"Rent
+        Burdened / Assisted Housing Preference","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":true,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XZQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":"Assisted
+        Housing","Certificate_Number__c":null,"Preference_Order__c":2.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BMQA0"},"DeveloperName":"RB_AHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OWWYeQAP"},"Id":"a0w0P00000OWWYeQAP","Name":"AP-0000798994","Preference_Name__c":"Alice
+        Griffith Housing Development Resident","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001PsqDoQAJ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":6.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000NHVqQAO"},"DeveloperName":"AG"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0}]}'
+    http_version: null
+  recorded_at: Tue, 29 Sep 2020 22:31:30 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Sep 2020 22:31:30 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      X-Robots-Tag:
+      - none
+      X-B3-Traceid:
+      - 919bd0b502ca7193
+      X-B3-Spanid:
+      - 919bd0b502ca7193
+      X-B3-Sampled:
+      - '0'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=hWhFbQKjEeudllHaKerxCw; domain=.salesforce.com; path=/; expires=Wed,
+        29-Sep-2021 22:31:30 GMT; Max-Age=31536000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1601418690795","signature":"G3mzhL9jMjT9V+lHbzH+wqJosfTzFHUrMsSMhnFsGR8="}'
+    http_version: null
+  recorded_at: Tue, 29 Sep 2020 22:31:30 GMT
+- request:
+    method: get
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Document_Type__c,%20Related_Application__c,%20Related_Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Attachment__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Related_Application__c%20=%20%27a0o0P00000Fv20MQAR%27%0A%20%20%20%20%20%20%20%20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Sep 2020 22:31:31 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      X-Robots-Tag:
+      - none
+      X-B3-Traceid:
+      - 3bcebffc20202cc2
+      X-B3-Spanid:
+      - 3bcebffc20202cc2
+      X-B3-Sampled:
+      - '0'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=hafmkwKjEeudllHaKerxCw; domain=.salesforce.com; path=/; expires=Wed,
+        29-Sep-2021 22:31:31 GMT; Max-Age=31536000
+      Sforce-Limit-Info:
+      - api-usage=14777/400000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":0,"done":true,"records":[]}'
+    http_version: null
+  recorded_at: Tue, 29 Sep 2020 22:31:31 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Sep 2020 22:31:31 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      X-Robots-Tag:
+      - none
+      X-B3-Traceid:
+      - f787cc63d6621c8e
+      X-B3-Spanid:
+      - f787cc63d6621c8e
+      X-B3-Sampled:
+      - '0'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=hcfKpQKjEeudllHaKerxCw; domain=.salesforce.com; path=/; expires=Wed,
+        29-Sep-2021 22:31:31 GMT; Max-Age=31536000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1601418691335","signature":"dcFC+WgsWG3NNOE24UcuVUwcsL4Bz9sTQQPieGvI79I="}'
+    http_version: null
+  recorded_at: Tue, 29 Sep 2020 22:31:31 GMT
+- request:
+    method: get
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20SELECT%20Flagged_Record_Set__c,%20Flagged_Record_Set__r.Id,%20Flagged_Record_Set__r.Rule_Name__c,%20Flagged_Record_Set__r.Total_Number_of_Pending_Review__c%0A%20%20%20%20%20%20%20%20FROM%20Flagged_Application__c%0A%20%20%20%20%20%20%20%20WHERE%20Application__c%20%20=%20%27a0o0P00000Fv20MQAR%27%0A%20%20%20%20%20%20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Sep 2020 22:31:31 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      X-Robots-Tag:
+      - none
+      X-B3-Traceid:
+      - d60177aa883a8dfb
+      X-B3-Spanid:
+      - d60177aa883a8dfb
+      X-B3-Sampled:
+      - '0'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=hfZ72QKjEeu1aSnHlLFpqA; domain=.salesforce.com; path=/; expires=Wed,
+        29-Sep-2021 22:31:31 GMT; Max-Age=31536000
+      Sforce-Limit-Info:
+      - api-usage=14777/400000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":2,"done":true,"records":[{"attributes":{"type":"Flagged_Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Flagged_Application__c/a0q0P00000NfYPwQAN"},"Flagged_Record_Set__c":"a0r0P000024EwFdQAK","Flagged_Record_Set__r":{"attributes":{"type":"Flagged_Record_Set__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Flagged_Record_Set__c/a0r0P000024EwFdQAK"},"Id":"a0r0P000024EwFdQAK","Rule_Name__c":"Residence
+        Address","Total_Number_of_Pending_Review__c":42.0}},{"attributes":{"type":"Flagged_Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Flagged_Application__c/a0q0P00000NhxcMQAR"},"Flagged_Record_Set__c":"a0r0P00002X4r08QAB","Flagged_Record_Set__r":{"attributes":{"type":"Flagged_Record_Set__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Flagged_Record_Set__c/a0r0P00002X4r08QAB"},"Id":"a0r0P00002X4r08QAB","Rule_Name__c":"Name
+        + DOB","Total_Number_of_Pending_Review__c":54.0}}]}'
+    http_version: null
+  recorded_at: Tue, 29 Sep 2020 22:31:31 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Sep 2020 22:31:31 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      X-Robots-Tag:
+      - none
+      X-B3-Traceid:
+      - f89ad1c6e5316265
+      X-B3-Spanid:
+      - f89ad1c6e5316265
+      X-B3-Sampled:
+      - '0'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=hiMxGwKjEeu14cWSV5KPlg; domain=.salesforce.com; path=/; expires=Wed,
+        29-Sep-2021 22:31:31 GMT; Max-Age=31536000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1601418692014","signature":"26HbHz0hYM8ZJvRtw1S5BPovLP8S8Wv3fDH2W2UH21o="}'
+    http_version: null
+  recorded_at: Tue, 29 Sep 2020 22:31:32 GMT
+- request:
+    method: get
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Preference_Name__c,%20Person_who_claimed_Name__c,%20Type_of_proof__c,%20Opt_Out__c,%20Lottery_Status__c,%20Preference_Lottery_Rank__c,%20Listing_Preference_ID__c,%20Receives_Preference__c,%20Application_Member__c,%20Application_Member__r.First_Name__c,%20Application_Member__r.Last_Name__c,%20Application_Member__r.Date_of_Birth__c,%20Application_Member__r.Id,%20Individual_preference__c,%20Certificate_Number__c,%20Preference_Order__c,%20RecordType.DeveloperName,%20LW_Type_of_Proof__c,%20City__c,%20State__c,%20Street__c,%20Zip_Code__c,%20Post_Lottery_Validation__c,%20Total_Household_Rent__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o0P00000Fv20MQAR%27%0A%20%20%20%20%20%20%20%20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Sep 2020 22:31:32 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      X-Robots-Tag:
+      - none
+      X-B3-Traceid:
+      - 16e37a191266f1b2
+      X-B3-Spanid:
+      - 16e37a191266f1b2
+      X-B3-Sampled:
+      - '0'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=hnT6CgKjEeuLnSGOflt-WQ; domain=.salesforce.com; path=/; expires=Wed,
+        29-Sep-2021 22:31:32 GMT; Max-Age=31536000
+      Sforce-Limit-Info:
+      - api-usage=14777/400000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":6,"done":true,"records":[{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000N1bbAQAR"},"Id":"a0w0P00000N1bbAQAR","Name":"AP-0000613829","Preference_Name__c":"Certificate
+        of Preference (COP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XKQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":1.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BHQA0"},"DeveloperName":"COP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000N1bbEQAR"},"Id":"a0w0P00000N1bbEQAR","Name":"AP-0000613833","Preference_Name__c":"Live
+        or Work in San Francisco Preference","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":true,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XeQAJ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":5.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"},"DeveloperName":"L_W"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000N1bbCQAR"},"Id":"a0w0P00000N1bbCQAR","Name":"AP-0000613831","Preference_Name__c":"Displaced
+        Tenant Housing Preference (DTHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XPQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":3.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BJQA0"},"DeveloperName":"DTHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000N1bbDQAR"},"Id":"a0w0P00000N1bbDQAR","Name":"AP-0000613832","Preference_Name__c":"Neighborhood
+        Resident Housing Preference (NRHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XUQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":4.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BLQA0"},"DeveloperName":"NRHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000N1bbBQAR"},"Id":"a0w0P00000N1bbBQAR","Name":"AP-0000613830","Preference_Name__c":"Rent
+        Burdened / Assisted Housing Preference","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":true,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XZQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":"Assisted
+        Housing","Certificate_Number__c":null,"Preference_Order__c":2.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BMQA0"},"DeveloperName":"RB_AHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OWWYeQAP"},"Id":"a0w0P00000OWWYeQAP","Name":"AP-0000798994","Preference_Name__c":"Alice
+        Griffith Housing Development Resident","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001PsqDoQAJ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":6.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000NHVqQAO"},"DeveloperName":"AG"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0}]}'
+    http_version: null
+  recorded_at: Tue, 29 Sep 2020 22:31:32 GMT
+recorded_with: VCR 5.1.0

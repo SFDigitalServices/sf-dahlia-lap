@@ -47,10 +47,13 @@ Rails.application.routes.draw do
       end
 
       resources :lease_up_applications, path: 'lease-ups/applications', only: %w[index]
+      resources :lease_up_listings, path: 'lease-ups/listings', only: %w[index show]
 
       resources :preferences, only: %w[update]
 
       resources :rental_assistances, path: '/rental-assistances', only: %w[index create update destroy]
+
+      resources :short_form, path: '/short-form', only: %w[show]
 
       scope '/short-form' do
         match 'submit', to: 'short_form#submit', via: [:put, :post]
