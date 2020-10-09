@@ -114,7 +114,7 @@ describe('apiService', () => {
 
       expect(result).toEqual(true)
       expect(mockPostFn.mock.calls).toHaveLength(1)
-      expect(mockPostFn.mock.calls[0]).toEqual(['/rental-assistances', expectedData])
+      expect(mockPostFn.mock.calls[0]).toEqual(['/rental-assistances', expectedData, true])
     })
   })
   describe('updateRentalAssistance', () => {
@@ -133,7 +133,8 @@ describe('apiService', () => {
       expect(mockPutFn.mock.calls).toHaveLength(1)
       expect(mockPutFn.mock.calls[0]).toEqual([
         `/rental-assistances/${fakeRentalAssistanceId}`,
-        expectedData
+        expectedData,
+        true
       ])
     })
   })
@@ -144,7 +145,9 @@ describe('apiService', () => {
       var result = await apiService.deleteRentalAssistance(fakeRentalAssistanceId)
       expect(result).toEqual(true)
       expect(mockDestroyFn.mock.calls).toHaveLength(1)
-      expect(mockDestroyFn.mock.calls[0]).toEqual([`/rental-assistances/${fakeRentalAssistanceId}`])
+      expect(mockDestroyFn.mock.calls[0][0]).toEqual(
+        `/rental-assistances/${fakeRentalAssistanceId}`
+      )
     })
   })
 
