@@ -12,7 +12,7 @@ describe('AlertNotice', () => {
   })
 
   test('it returns null if dismiss has a value', () => {
-    const wrapper = shallow(<AlertNotice dismiss='true' />)
+    const wrapper = shallow(<AlertNotice dismiss />)
     expect(wrapper.isEmptyRender()).toBe(true)
   })
 })
