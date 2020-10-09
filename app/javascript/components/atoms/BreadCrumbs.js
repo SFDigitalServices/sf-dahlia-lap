@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Item = ({ item, current }) => {
+// Visible for testing only.
+export const Item = ({ item, current }) => {
   if (current) {
     return (
       <li className='current'>
@@ -22,28 +23,28 @@ const Item = ({ item, current }) => {
 const BreadCrumbs = ({ items }) => {
   if (!items || items.length === 0) return null
 
-  const lastItem = items[items.length - 1]
   return (
     <nav aria-label='breadcrumb'>
       <ol className='breadcrumbs'>
-        {items.slice(0, items.length - 1).map((item) => (
-          <Item key={item.title} item={item} />
+        {items.map((item, idx) => (
+          <Item key={idx} item={item} current={idx === items.length - 1} />
         ))}
-        <Item key={lastItem.name} item={lastItem} current />
       </ol>
     </nav>
   )
 }
 
+const itemShape = PropTypes.shape({
+  title: PropTypes.node.isRequired,
+  link: PropTypes.string.isRequired
+})
+
 Item.propTypes = {
-  item: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired
-  })
+  item: itemShape
 }
 
 BreadCrumbs.propTypes = {
-  items: PropTypes.array.isRequired
+  items: PropTypes.arrayOf(itemShape)
 }
 
 export default BreadCrumbs

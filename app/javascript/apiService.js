@@ -13,6 +13,9 @@ const getShortFormApplication = async (applicationId) =>
     fileBaseUrl: response.file_base_url
   }))
 
+const getSupplementalPageData = async (applicationId) =>
+  request.get(`/supplementals/${applicationId}`, null, true)
+
 const updateFlaggedApplication = async (data) => {
   const putData = {
     flagged_application: {
@@ -176,6 +179,7 @@ export default {
   getLeaseUpListing,
   getLeaseUpListings,
   getShortFormApplication,
+  getSupplementalPageData,
   updatePreference,
   createFieldUpdateComment,
   getRentalAssistances,

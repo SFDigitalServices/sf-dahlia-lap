@@ -21,6 +21,9 @@ const defaultLeaseResponse = (application) => ({
   rentalAssistances: application?.rental_assistances
 })
 
+export const getSupplementalPageData = async (applicationId) =>
+  apiService.getSupplementalPageData(applicationId)
+
 /**
  * Update any fields on the application that have been changed from
  * prevApplication. This action triggers multiple separate requests:

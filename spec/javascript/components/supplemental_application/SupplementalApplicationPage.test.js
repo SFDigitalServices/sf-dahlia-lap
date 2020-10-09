@@ -1,12 +1,11 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
 import { act } from 'react-dom/test-utils'
 import { cloneDeep, merge } from 'lodash'
 import { mount } from 'enzyme'
 import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
 import supplementalApplication from '../../fixtures/supplemental_application'
-import units from '../../fixtures/units'
 
+const mockInitialLoad = jest.fn()
 const mockSubmitApplication = jest.fn()
 const mockUpdateApplication = jest.fn()
 const mockUpdatePreference = jest.fn()
@@ -19,9 +18,41 @@ const getMockApplication = () => cloneDeep(supplementalApplication)
 
 jest.mock('apiService', () => {
   const mockedApplication = require('../../fixtures/supplemental_application').default
+  const mockedUnits = require('../../fixtures/units').default
   const _merge = require('lodash').merge
   const _cloneDeep = require('lodash').cloneDeep
   return {
+    getSupplementalPageData: async (applicationId) => {
+      mockInitialLoad(applicationId)
+
+      const appWithPrefs = _cloneDeep(mockedApplication)
+      _merge(appWithPrefs.preferences[0], {
+        preference_name: 'Rent Burdened Assisted Housing',
+        individual_preference: 'Rent Burdened',
+        receives_preference: true,
+        type_of_proof: 'Lease and rent proof',
+        application_member_id: 'xxx',
+        id: 'preference_id',
+        post_lottery_validation: 'Unconfirmed',
+        name: 'AP-1234',
+        recordtype_developername: 'RB_AHP'
+      })
+
+      _merge(appWithPrefs.preferences[1], {
+        id: 'testValidPref',
+        post_lottery_validation: 'Confirmed'
+      })
+      return {
+        application: appWithPrefs,
+        statusHistory: [],
+        fileBaseUrl: 'fileBaseUrl',
+        units: _cloneDeep(mockedUnits),
+        availableUnits: [
+          { unit_number: 1, id: 'id1' },
+          { unit_number: 2, id: 'id2' }
+        ]
+      }
+    },
     submitApplication: async (application) => {
       mockSubmitApplication(application)
       return _merge(_cloneDeep(mockedApplication), application)
@@ -66,10 +97,16 @@ jest.mock('apiService', () => {
   }
 })
 
-const statusHistory = [
-  { status: 'Approved', comment: 'xxxx1', date: '2018-05-10T19:54:11.000+0000' },
-  { status: 'Withdrawn', comment: 'xxxx2', date: '2018-05-10T19:54:11.000+0000' }
-]
+const getWrapper = async () => {
+  let wrapper
+  await act(async () => {
+    wrapper = mount(<SupplementalApplicationPage applicationId={getMockApplication().id} />)
+  })
+
+  wrapper.update()
+
+  return wrapper
+}
 
 describe('SupplementalApplicationPage', () => {
   const originalLocation = window.location
@@ -89,52 +126,22 @@ describe('SupplementalApplicationPage', () => {
   })
 
   test('it should render as expected', async () => {
-    let component
-    await renderer.act(async () => {
-      component = renderer.create(
-        <SupplementalApplicationPage
-          application={getMockApplication()}
-          units={units}
-          availableUnits={[]}
-        />
-      )
-    })
-
-    const tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
+    expect(await getWrapper()).toMatchSnapshot()
   })
 
-  test('it doesnt send a request if nothing is changed', async () => {
-    let wrapper
-    await act(async () => {
-      wrapper = mount(
-        <SupplementalApplicationPage
-          application={getMockApplication()}
-          statusHistory={statusHistory}
-          units={units}
-          availableUnits={[]}
-        />
-      )
-    })
+  test('it only performs initial load request if nothing is changed', async () => {
+    const wrapper = await getWrapper()
     await act(async () => {
       wrapper.find('form').first().simulate('submit')
     })
+
+    expect(mockInitialLoad.mock.calls).toHaveLength(1)
     expect(mockSubmitApplication.mock.calls).toHaveLength(0)
   })
 
   test('it only updates changed fields', async () => {
     const payload = getMockApplication()
-    let wrapper
-    await act(async () => {
-      wrapper = mount(
-        <SupplementalApplicationPage
-          application={getMockApplication()}
-          statusHistory={statusHistory}
-          units={units}
-          availableUnits={[]}
-        />
-      )
-    })
+    const wrapper = await getWrapper()
     wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
     await act(async () => {
       wrapper.find('form').first().simulate('submit')
@@ -150,17 +157,8 @@ describe('SupplementalApplicationPage', () => {
       number_of_minors: 0,
       applicant: { marital_status: 'Domestic Partner' }
     }
-    let wrapper
-    await act(async () => {
-      wrapper = mount(
-        <SupplementalApplicationPage
-          application={getMockApplication()}
-          statusHistory={statusHistory}
-          units={units}
-          availableUnits={[]}
-        />
-      )
-    })
+
+    const wrapper = await getWrapper()
 
     wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
     wrapper.find('#demographics-seniors select option[value=3]').simulate('change')
@@ -179,29 +177,25 @@ describe('SupplementalApplicationPage', () => {
 
   describe('preference panel', () => {
     test('it saves a live/work application preference panel', async () => {
-      const withValidPreferences = getMockApplication()
-      merge(withValidPreferences.preferences[0], {
-        preference_name: 'Live or Work in San Francisco Preference',
-        individual_preference: 'Live in SF',
-        receives_preference: true,
-        recordtype_developername: 'L_W',
-        lw_type_of_proof: 'Water bill',
-        application_member_id: 'xxx',
-        id: 'preference_id',
-        post_lottery_validation: 'Unconfirmed',
-        name: 'AP-1234'
-      })
+      const wrapper = await getWrapper()
 
-      let wrapper
-      await act(async () => {
-        wrapper = mount(
-          <SupplementalApplicationPage
-            application={withValidPreferences}
-            statusHistory={statusHistory}
-            availableUnits={[]}
-          />
-        )
-      })
+      wrapper.setState((prevState) => ({
+        application: {
+          ...prevState.application,
+          preferences: [
+            merge(prevState.application.preferences[0], {
+              id: 'preference_id',
+              application_member_id: 'xxx',
+              individual_preference: 'Live in SF',
+              type_of_proof: null,
+              lw_type_of_proof: 'Water bill',
+              post_lottery_validation: 'Unconfirmed'
+            })
+          ]
+        }
+      }))
+
+      wrapper.update()
 
       // Click edit to open up the panel
       await wrapper.find('.preferences-table .action-link').first().simulate('click')
@@ -228,33 +222,14 @@ describe('SupplementalApplicationPage', () => {
     })
 
     test('it updates total monthly rent when saving a rent burdened preference panel', async () => {
-      const withValidPreferences = getMockApplication()
+      const wrapper = await getWrapper()
 
-      merge(withValidPreferences.preferences[0], {
-        preference_name: 'Rent Burdened Assisted Housing',
-        individual_preference: 'Rent Burdened',
-        receives_preference: true,
-        type_of_proof: 'Lease and rent proof',
-        application_member_id: 'xxx',
-        id: 'preference_id',
-        post_lottery_validation: 'Unconfirmed',
-        name: 'AP-1234',
-        recordtype_developername: 'RB_AHP'
+      act(() => {
+        wrapper.setState((prevState) => ({
+          application: { ...prevState.application, total_monthly_rent: '50' }
+        }))
       })
-
-      withValidPreferences.id = 'application_id'
-      withValidPreferences.total_monthly_rent = '50'
-
-      let wrapper
-      await act(async () => {
-        wrapper = mount(
-          <SupplementalApplicationPage
-            application={withValidPreferences}
-            statusHistory={statusHistory}
-            availableUnits={[]}
-          />
-        )
-      })
+      wrapper.update()
 
       // Click edit to open up the panel
       await wrapper.find('.preferences-table .action-link').first().simulate('click')
@@ -283,7 +258,7 @@ describe('SupplementalApplicationPage', () => {
         expect.objectContaining(expectedPreferencePayload)
       )
       expect(mockUpdateApplication).toHaveBeenCalledWith({
-        id: 'application_id',
+        id: getMockApplication().id,
         total_monthly_rent: '50'
       })
     })
@@ -292,17 +267,7 @@ describe('SupplementalApplicationPage', () => {
   describe('confirmed income section', () => {
     test('currencies are converted to floats on save', async () => {
       const application = getMockApplication()
-      let wrapper
-      await act(async () => {
-        wrapper = mount(
-          <SupplementalApplicationPage
-            application={application}
-            statusHistory={statusHistory}
-            units={units}
-            availableUnits={[]}
-          />
-        )
-      })
+      const wrapper = await getWrapper()
       wrapper
         .find('input#form-confirmed_household_annual_income')
         .simulate('change', { target: { value: '1234' } })
@@ -321,17 +286,7 @@ describe('SupplementalApplicationPage', () => {
 
     test('converts empty values to null when touched', async () => {
       const application = getMockApplication()
-      let wrapper
-      await act(async () => {
-        wrapper = mount(
-          <SupplementalApplicationPage
-            application={application}
-            statusHistory={statusHistory}
-            units={units}
-            availableUnits={[]}
-          />
-        )
-      })
+      const wrapper = await getWrapper()
       wrapper
         .find('input#form-confirmed_household_annual_income')
         .simulate('change', { target: { value: '' } })
@@ -359,21 +314,7 @@ describe('SupplementalApplicationPage', () => {
         post_lottery_validation: 'Confirmed'
       })
 
-      // Add available units
-      const mockAvailableUnits = [
-        { unit_number: 1, id: 'id1' },
-        { unit_number: 2, id: 'id2' }
-      ]
-
-      await act(async () => {
-        wrapper = mount(
-          <SupplementalApplicationPage
-            application={mockApplication}
-            statusHistory={statusHistory}
-            availableUnits={mockAvailableUnits}
-          />
-        )
-      })
+      wrapper = await getWrapper()
     })
 
     test('should save a lease object', async () => {
@@ -445,17 +386,11 @@ describe('SupplementalApplicationPage', () => {
     })
 
     test('it displays "No Units Available" when no units available', async () => {
-      let wrapper
-      await act(async () => {
-        wrapper = mount(
-          <SupplementalApplicationPage
-            application={getMockApplication()}
-            statusHistory={statusHistory}
-            units={[]}
-            availableUnits={[]}
-          />
-        )
+      const wrapper = await getWrapper()
+      act(() => {
+        wrapper.setState({ availableUnits: [] })
       })
+      wrapper.update()
       const unitSelect = await wrapper.find('#lease_assigned_unit').first()
 
       expect(unitSelect.exists()).toBeTruthy()
@@ -465,16 +400,7 @@ describe('SupplementalApplicationPage', () => {
 
   describe('Status Sidebar', () => {
     test('should render the LeaseUpSidebar', async () => {
-      let wrapper
-      await act(async () => {
-        wrapper = mount(
-          <SupplementalApplicationPage
-            application={getMockApplication()}
-            statusHistory={statusHistory}
-            availableUnits={[]}
-          />
-        )
-      })
+      const wrapper = await getWrapper()
 
       // Check that the page matches the snapshot that we have stored
       // of how the dropdown button and dropdown menu should render
@@ -484,16 +410,7 @@ describe('SupplementalApplicationPage', () => {
   })
 
   test('should display alert box when form is invalid on submit', async () => {
-    let wrapper
-    await act(async () => {
-      wrapper = mount(
-        <SupplementalApplicationPage
-          application={getMockApplication()}
-          statusHistory={statusHistory}
-          availableUnits={[]}
-        />
-      )
-    })
+    const wrapper = await getWrapper()
 
     // Fill in letters in lease date month - which are invalid values
     wrapper

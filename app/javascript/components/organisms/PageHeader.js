@@ -4,13 +4,15 @@ import BreadCrumbs from '../atoms/BreadCrumbs'
 
 import { map, has, isArray } from 'lodash'
 
-const DefaultAction = ({ action }) => (
+// Visible for testing
+export const DefaultAction = ({ action }) => (
   <a href={action.link} className='alt-caps'>
     {action.title}
   </a>
 )
 
-const Actions = ({ actions }) => {
+// Visible for testing
+export const Actions = ({ actions }) => {
   if (actions) {
     const cleanedActions = isArray(actions) ? actions : [actions]
     const actionsList = map(cleanedActions, (action, idx) =>
@@ -28,15 +30,16 @@ const Actions = ({ actions }) => {
 }
 
 const PageHeader = ({ title, content, action, breadcrumbs, background }) => {
+  const hasBreadcrumbs = breadcrumbs && breadcrumbs.length > 0
   return (
     <header
       className={`lead-header short ${breadcrumbs ? 'has-breadcrumbs' : ''} bg-${background}`}
     >
       <div className='row full-width inner--3x'>
         <div className='large-12 columns'>
-          {breadcrumbs && <BreadCrumbs items={breadcrumbs} />}
+          {hasBreadcrumbs && <BreadCrumbs items={breadcrumbs} />}
           <hgroup className='lead-header_group'>
-            <h1 className={`lead-header_title ${breadcrumbs ? 'small' : 'small-serif'} c-oil`}>
+            <h1 className={`lead-header_title ${hasBreadcrumbs ? 'small' : 'small-serif'} c-oil`}>
               {title}
             </h1>
             {content && (
@@ -57,7 +60,7 @@ PageHeader.defaultProps = {
 }
 
 PageHeader.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.node.isRequired,
   content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   action: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   breadcrumbs: PropTypes.array
