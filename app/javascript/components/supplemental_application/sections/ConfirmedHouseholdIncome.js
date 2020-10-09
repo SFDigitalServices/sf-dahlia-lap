@@ -66,7 +66,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
           <FormGrid.Item>
             <CurrencyField
               fieldName='imputed_income_from_assets'
-              label='Total Household Liquid Assets'
+              label='Imputed Income from Assets'
               validation={validateIncomeCurrency}
               isDirty={visited && visited.imputed_income_from_assets}
             />
@@ -76,7 +76,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
           <FormGrid.Item>
             <CurrencyField
               fieldName='household_assets'
-              label='Imputed Income from Assets'
+              label='Total Household Liquid Assets'
               validation={validateIncomeCurrency}
               isDirty={visited && visited.household_assets}
             />

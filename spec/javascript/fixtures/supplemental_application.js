@@ -65,6 +65,7 @@ const application = {
   ],
   "housing_voucher_or_subsidy": "true",
   "id": "a0o0P00000GZazOQAT",
+  "imputed_income_from_assets": 123.25,
   "is_first_time_homebuyer": false,
   "lease": {
     "bmr_parking_space_assigned": null,
