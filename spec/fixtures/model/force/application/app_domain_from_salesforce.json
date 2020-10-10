@@ -67,8 +67,9 @@
   },
   "has_developmental_disability": null,
   "has_military_service": null,
-  "hh_total_income_with_assets_annual": null,
-  "household_assets": null,
+  "hh_total_income_with_assets_annual": 111,
+  "household_assets": 456,
+  "imputed_income_from_assets": 123,
   "household_members": [
     {
       "id":"a0n0U0000030tBhQAI",
