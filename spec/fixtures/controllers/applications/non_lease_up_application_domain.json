@@ -3,7 +3,7 @@
   "ami_chart_type": null,
   "ami_chart_year": null,
   "ami_percentage": null,
-  "annual_income": 25000,
+  "annual_income": 25000.0,
   "answered_community_screening": null,
   "applicant": {
     "agency_name": null,
@@ -84,6 +84,7 @@
   ],
   "housing_voucher_or_subsidy": "true",
   "id": "a0o0P00000Fv20MQAR",
+  "imputed_income_from_assets": null,
   "is_first_time_homebuyer": false,
   "is_snapshot": false,
   "lending_agent": null,
