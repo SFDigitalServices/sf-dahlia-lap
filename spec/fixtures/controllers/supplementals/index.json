@@ -52,9 +52,10 @@
     "name": "DAHLIA API"
   },
   "annual_income": 5000,
-  "confirmed_household_annual_income": 711.62,
-  "household_assets": 786.97,
-  "hh_total_income_with_assets_annual": 375.19,
+  "confirmed_household_annual_income": 409.38,
+  "household_assets": 224.03,
+  "hh_total_income_with_assets_annual": 143.22,
+  "imputed_income_from_assets": 938.11,
   "monthly_income": null,
   "housing_voucher_or_subsidy": "true",
   "referral_source": null,

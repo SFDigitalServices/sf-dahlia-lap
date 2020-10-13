@@ -3,7 +3,7 @@
   "ami_chart_type": null,
   "ami_chart_year": null,
   "ami_percentage": null,
-  "annual_income": 5000,
+  "annual_income": 5000.0,
   "answered_community_screening": null,
   "applicant": {
     "agency_name": null,
@@ -55,8 +55,7 @@
     "sexual_orientation": null,
     "sexual_orientation_other": null
   },
-  "flagged_applications": [
-  ],
+  "flagged_applications": [],
   "has_ada_priorities_selected": {
     "mobility_impairments": true
   },
@@ -66,10 +65,10 @@
   "has_military_service": "Yes",
   "hh_total_income_with_assets_annual": 966.64,
   "household_assets": 484.51,
-  "household_members": [
-  ],
+  "household_members": [],
   "housing_voucher_or_subsidy": "true",
   "id": "a0o0P00000GZazOQAT",
+  "imputed_income_from_assets": null,
   "is_first_time_homebuyer": false,
   "is_snapshot": true,
   "lending_agent": null,
@@ -84,7 +83,7 @@
   "lottery_number_manual": null,
   "monthly_income": null,
   "name": "APP-00243697",
-  "number_of_dependents": 1,
+  "number_of_dependents": 1.0,
   "number_of_minors": null,
   "number_of_seniors": null,
   "preferences": [
@@ -103,7 +102,7 @@
       "post_lottery_validation": null,
       "preference_lottery_rank": null,
       "preference_name": "Certificate of Preference (COP)",
-      "preference_order": 1,
+      "preference_order": 1.0,
       "receives_preference": false,
       "recordtype_developername": "COP",
       "state": null,
@@ -114,11 +113,7 @@
     },
     {
       "application_member": {
-        "date_of_birth": {
-          "day": "05",
-          "month": "01",
-          "year": "1989"
-        },
+        "date_of_birth": { "day": "05", "month": "01", "year": "1989" },
         "first_name": "Christopher",
         "id": "a0n0P00000D3qIZQAZ",
         "last_name": "Mcdonald",
@@ -130,23 +125,23 @@
       "certificate_number": null,
       "city": null,
       "id": "a0w0P00000OUJc3QAH",
-      "individual_preference": "Work in SF",
+      "individual_preference": "Live in SF",
       "listing_preference_id": "a0l0P00001Q1w1BQAR",
       "lottery_status": "None",
-      "lw_type_of_proof": "Paystub with employer address",
+      "lw_type_of_proof": "Telephone bill",
       "name": "AP-0000826199",
       "opt_out": false,
       "person_who_claimed_name": "Christopher Mcdonald",
-      "post_lottery_validation": "Unconfirmed",
-      "preference_lottery_rank": 4,
+      "post_lottery_validation": "Confirmed",
+      "preference_lottery_rank": 4.0,
       "preference_name": "Live or Work in San Francisco Preference",
-      "preference_order": 4,
+      "preference_order": 4.0,
       "receives_preference": true,
       "recordtype_developername": "L_W",
       "state": null,
       "street": null,
       "total_household_rent": "0.0",
-      "type_of_proof": "Paystub with employer address",
+      "type_of_proof": "Telephone bill",
       "zip_code": null
     },
     {
@@ -164,7 +159,7 @@
       "post_lottery_validation": null,
       "preference_lottery_rank": null,
       "preference_name": "Displaced Tenant Housing Preference (DTHP)",
-      "preference_order": 2,
+      "preference_order": 2.0,
       "receives_preference": false,
       "recordtype_developername": "DTHP",
       "state": null,
@@ -188,7 +183,7 @@
       "post_lottery_validation": null,
       "preference_lottery_rank": null,
       "preference_name": "Neighborhood Resident Housing Preference (NRHP)",
-      "preference_order": 6,
+      "preference_order": 6.0,
       "receives_preference": false,
       "recordtype_developername": "NRHP",
       "state": null,
@@ -212,7 +207,7 @@
       "post_lottery_validation": null,
       "preference_lottery_rank": null,
       "preference_name": "Anti-Displacement Housing Preference (ADHP)",
-      "preference_order": 8,
+      "preference_order": 8.0,
       "receives_preference": false,
       "recordtype_developername": "ADHP",
       "state": null,
@@ -223,11 +218,7 @@
     },
     {
       "application_member": {
-        "date_of_birth": {
-          "day": "05",
-          "month": "01",
-          "year": "1989"
-        },
+        "date_of_birth": { "day": "05", "month": "01", "year": "1989" },
         "first_name": "Christopher",
         "id": "a0n0P00000D3qIZQAZ",
         "last_name": "Mcdonald",
@@ -247,9 +238,9 @@
       "opt_out": false,
       "person_who_claimed_name": "Christopher Mcdonald",
       "post_lottery_validation": "Unconfirmed",
-      "preference_lottery_rank": 1,
+      "preference_lottery_rank": 1.0,
       "preference_name": "Rent Burdened / Assisted Housing Preference",
-      "preference_order": 3,
+      "preference_order": 3.0,
       "receives_preference": true,
       "recordtype_developername": "RB_AHP",
       "state": null,
@@ -273,7 +264,7 @@
       "post_lottery_validation": null,
       "preference_lottery_rank": null,
       "preference_name": "Alice Griffith Housing Development Resident",
-      "preference_order": 5,
+      "preference_order": 5.0,
       "receives_preference": false,
       "recordtype_developername": "AG",
       "state": null,

@@ -50,7 +50,7 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
 
   describe '#show' do
     context 'with a lease up application' do
-      let(:expected_lease_up_app) { fixture('controllers/applications/lease_up_application_domain.json') }
+      let(:expected_lease_up_snapshot) { fixture('controllers/applications/lease_up_application_snapshot_domain.json') }
 
       it 'should return a domain application snapshot' do
         VCR.use_cassette('api/v1/short-form/show/lease_up_application') do
@@ -61,8 +61,8 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
         json = JSON.parse(response.body)
 
         domain_application = json['application']
-        expect(domain_application['preferences']).to eq(expected_lease_up_app['preferences'])
-        expect(domain_application).to eq(expected_lease_up_app)
+        expect(domain_application['preferences']).to eq(expected_lease_up_snapshot['preferences'])
+        expect(domain_application).to eq(expected_lease_up_snapshot)
         expect(domain_application['is_snapshot']).to be true
       end
     end

@@ -101,6 +101,7 @@ applications:
     Confirmed_Household_Annual_Income__c:
     Household_Assets__c:
     HH_Total_Income_with_Assets_Annual__c:
+    Imputed_Income_from_Assets__c:
     Monthly_Income__c:
     Housing_Voucher_or_Subsidy__c:
     Referral_Source__c:
