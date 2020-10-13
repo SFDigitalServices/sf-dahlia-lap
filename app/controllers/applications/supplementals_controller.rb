@@ -12,29 +12,5 @@ module Applications
     def update
       application_service.update
     end
-
-    def field_update_comment_service
-      Force::FieldUpdateCommentService.new(current_user)
-    end
-
-    def soql_application_service
-      Force::Soql::ApplicationService.new(current_user)
-    end
-
-    def soql_preference_service
-      Force::Soql::PreferenceService.new(current_user)
-    end
-
-    def units_service
-      Force::UnitsService.new(current_user)
-    end
-
-    def soql_listing_service
-      Force::Soql::ListingService.new(current_user)
-    end
-
-    def soql_rental_assistance_service
-      Force::Soql::RentalAssistanceService.new(current_user)
-    end
   end
 end
