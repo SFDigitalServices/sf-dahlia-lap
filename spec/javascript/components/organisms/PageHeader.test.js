@@ -20,14 +20,18 @@ describe('PageHeader', () => {
     )
   }
 
-  describe('with null breadcrumbs', () => {
+  describe('with breadcrumbs not specified', () => {
     let wrapper
     beforeEach(() => {
-      wrapper = getWrapper(null)
+      wrapper = getWrapper(undefined)
     })
 
     test('should not render BreadCrumbs when empty', () => {
       expect(wrapper.find(BreadCrumbs)).toHaveLength(0)
+    })
+
+    test('should not render the header with has-breadcrumbs style', () => {
+      expect(wrapper.find('header.has-breadcrumbs')).toHaveLength(0)
     })
 
     test('should render the header with serif', () => {
@@ -40,6 +44,10 @@ describe('PageHeader', () => {
     let wrapper
     beforeEach(() => {
       wrapper = getWrapper([])
+    })
+
+    test('should not render the header with has-breadcrumbs style', () => {
+      expect(wrapper.find('header.has-breadcrumbs')).toHaveLength(0)
     })
 
     test('should not render BreadCrumbs when empty', () => {
@@ -56,6 +64,10 @@ describe('PageHeader', () => {
     let wrapper
     beforeEach(() => {
       wrapper = getWrapper([CRUMB_A])
+    })
+
+    test('should not render the header with has-breadcrumbs style', () => {
+      expect(wrapper.find('header.has-breadcrumbs')).toHaveLength(1)
     })
 
     test('should render BreadCrumbs', () => {

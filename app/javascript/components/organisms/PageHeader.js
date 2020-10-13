@@ -33,7 +33,7 @@ const PageHeader = ({ title, content, action, breadcrumbs, background }) => {
   const hasBreadcrumbs = breadcrumbs.length > 0
   return (
     <header
-      className={`lead-header short ${breadcrumbs ? 'has-breadcrumbs' : ''} bg-${background}`}
+      className={`lead-header short ${hasBreadcrumbs ? 'has-breadcrumbs' : ''} bg-${background}`}
     >
       <div className='row full-width inner--3x'>
         <div className='large-12 columns'>
