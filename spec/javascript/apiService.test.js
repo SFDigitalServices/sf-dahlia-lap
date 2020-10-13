@@ -1,9 +1,26 @@
 import apiService from '~/apiService'
 import { request } from '~/api/request'
 
+const mockFailedFn = jest.fn(() =>
+  Promise.resolve({ lease: true }).then(() => {
+    throw new Error('Promise failed')
+  })
+)
 const mockLeasePostFn = jest.fn(() => Promise.resolve({ lease: true }))
 const mockLeaseDeleteFn = jest.fn(() => Promise.resolve(true))
 const mockLeasePutFn = jest.fn(() => Promise.resolve({ lease: true }))
+const mockSuppAppGetFn = jest.fn(() =>
+  Promise.resolve({
+    application: {
+      id: 'applicationId',
+      child_snake_case_key: 'someValue'
+    },
+    status_history: [{ id: 'statusHistoryId' }],
+    file_base_url: 'file base url',
+    available_units: [{ id: 'availableUnitId' }],
+    units: [{ id: 'unitId' }]
+  })
+)
 const mockPostFn = jest.fn(() => Promise.resolve(true))
 const mockPutFn = jest.fn(() => Promise.resolve(true))
 const mockDestroyFn = jest.fn(() => Promise.resolve(true))
@@ -20,6 +37,57 @@ const getExpectedLeaseResponse = (lease, contact = undefined, leaseStartDate = {
 describe('apiService', () => {
   const fakeAppId = 'fake_application_id'
   const fakeContact = 'fake_contact'
+
+  describe('getSupplementalPageData', () => {
+    describe('when the request succeeds', () => {
+      let result
+      let errorCaught
+      beforeEach(async () => {
+        request.get = mockSuppAppGetFn
+        result = await apiService.getSupplementalPageData('applicationId').catch(() => {
+          errorCaught = true
+        })
+      })
+
+      test('does not fail', () => {
+        expect(errorCaught).toBeFalsy()
+      })
+
+      test('calls with the correct params', () => {
+        expect(mockSuppAppGetFn.mock.calls).toHaveLength(1)
+        expect(mockSuppAppGetFn.mock.calls[0]).toEqual(['/supplementals/applicationId', null, true])
+      })
+
+      test('converts the top-level response params to camelcase', () => {
+        expect(result).toEqual({
+          application: {
+            id: 'applicationId',
+            child_snake_case_key: 'someValue'
+          },
+          statusHistory: [{ id: 'statusHistoryId' }],
+          fileBaseUrl: 'file base url',
+          availableUnits: [{ id: 'availableUnitId' }],
+          units: [{ id: 'unitId' }]
+        })
+      })
+    })
+
+    describe('when the request fails', () => {
+      beforeEach(async () => {
+        request.get = mockFailedFn
+      })
+
+      test('calls with the correct params', async () => {
+        let errorCaught = false
+
+        await apiService.getSupplementalPageData('applicationId').catch(() => {
+          errorCaught = true
+        })
+
+        expect(errorCaught).toBeTruthy()
+      })
+    })
+  })
 
   describe('createLease', () => {
     beforeAll(() => {

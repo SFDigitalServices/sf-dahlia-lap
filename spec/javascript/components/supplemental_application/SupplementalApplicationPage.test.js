@@ -1,4 +1,5 @@
 import React from 'react'
+import renderer from 'react-test-renderer'
 import { act } from 'react-dom/test-utils'
 import { cloneDeep, merge } from 'lodash'
 import { mount } from 'enzyme'
@@ -126,7 +127,15 @@ describe('SupplementalApplicationPage', () => {
   })
 
   test('it should render as expected', async () => {
-    expect(await getWrapper()).toMatchSnapshot()
+    let component
+    await renderer.act(async () => {
+      component = renderer.create(
+        <SupplementalApplicationPage applicationId={getMockApplication().id} />
+      )
+    })
+
+    const tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
   })
 
   test('it only performs initial load request if nothing is changed', async () => {

@@ -13,9 +13,9 @@ module Api
 
         render json: {
           application: application,
-          statusHistory: field_update_comment_service.status_history_by_application(id),
-          fileBaseUrl: current_user.admin ? ENV['SALESFORCE_INSTANCE_URL'] : ENV['COMMUNITY_LOGIN_URL'],
-          availableUnits: units_service.available_units_for_application(application[:listing_id], id),
+          status_history: field_update_comment_service.status_history_by_application(id),
+          file_base_url: current_user.admin ? ENV['SALESFORCE_INSTANCE_URL'] : ENV['COMMUNITY_LOGIN_URL'],
+          available_units: units_service.available_units_for_application(application[:listing_id], id),
           units: soql_listing_service.units(application[:listing_id])
         }
       end
