@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmedHouseholdIncome it matches snapshot when all values are empty 1`] = `
+<Fragment>
+  <Component
+    title="Confirmed Household Income"
+  >
+    <Component
+      expand={true}
+    >
+      <Component>
+        <Component
+          label="Household claimed a recurring voucher or subsidy"
+        >
+          <YesNoRadioGroup
+            fieldName="housing_voucher_or_subsidy"
+          />
+        </Component>
+      </Component>
+    </Component>
+    <Component
+      expand={true}
+    >
+      <Component>
+        <CurrencyField
+          fieldName="imputed_income_from_assets"
+          label="Imputed Income from Assets"
+          validation={[Function]}
+        />
+      </Component>
+    </Component>
+    <Component
+      expand={true}
+    >
+      <Component>
+        <CurrencyField
+          fieldName="household_assets"
+          label="Total Household Liquid Assets"
+          validation={[Function]}
+        />
+      </Component>
+    </Component>
+    <Component
+      expand={true}
+    >
+      <Component>
+        <CurrencyField
+          fieldName="confirmed_household_annual_income"
+          helpText="Not including imputed income from assets"
+          label="Total Household Annual Income"
+          validation={[Function]}
+        />
+      </Component>
+    </Component>
+    <Component
+      expand={true}
+    >
+      <Component>
+        <CurrencyField
+          fieldName="hh_total_income_with_assets_annual"
+          helpText="Includes imputed income from assets, if applicable"
+          label="Final Household Annual Income"
+          validation={[Function]}
+        />
+      </Component>
+    </Component>
+  </Component>
+  <Component
+    title="Area Median Income"
+  >
+    <Component
+      expand={true}
+    >
+      <Component>
+        <PercentField
+          fieldName="ami_percentage"
+          id="ami_percentage"
+          label="Household AMI Percentage"
+          validation={[Function]}
+        />
+      </Component>
+    </Component>
+    <Component
+      expand={true}
+    >
+      <Component>
+        <SelectField
+          fieldName="ami_chart_type"
+          id="ami_chart_type"
+          label="AMI Chart Type"
+          noPlaceholder={true}
+          options={Array []}
+        />
+      </Component>
+    </Component>
+    <Component
+      expand={true}
+    >
+      <Component>
+        <SelectField
+          fieldName="ami_chart_year"
+          id="ami_chart_year"
+          label="AMI Chart Year"
+          noPlaceholder={true}
+          options={Array []}
+        />
+      </Component>
+    </Component>
+  </Component>
+</Fragment>
+`;

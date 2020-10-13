@@ -16,6 +16,7 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
       await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
       const hhAssetsSelector = '#form-household_assets'
+      const hhImputedAssetsSelector = '#form-imputed_income_from_assets'
       const confirmedAnnualSelector = '#form-confirmed_household_annual_income'
       const finalHHAnnualSelector = '#form-hh_total_income_with_assets_annual'
       const amiPercentageSelector = '#ami_percentage'
@@ -24,11 +25,13 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
 
       // Generate the values (with currency and non-currency strings)
       const hhAssetsValue = supplementalApplicationSteps.generateRandomCurrency()
+      const hhImputedAssetsValue = supplementalApplicationSteps.generateRandomCurrency()
       const confirmedAnnualValue = supplementalApplicationSteps.generateRandomCurrency()
       const finalHHAnnualValue = supplementalApplicationSteps.generateRandomCurrency()
 
       // Enter them
       await sharedSteps.enterValue(page, hhAssetsSelector, hhAssetsValue.currency)
+      await sharedSteps.enterValue(page, hhImputedAssetsSelector, hhImputedAssetsValue.currency)
       await sharedSteps.enterValue(page, confirmedAnnualSelector, confirmedAnnualValue.currency)
       await sharedSteps.enterValue(page, finalHHAnnualSelector, finalHHAnnualValue.currency)
 
@@ -41,6 +44,9 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
       // Verify that the values are there (as numbers, not currency)
       expect(await sharedSteps.getInputValue(page, hhAssetsSelector)).toEqual(
         '$' + String(hhAssetsValue.float.toFixed(2))
+      )
+      expect(await sharedSteps.getInputValue(page, hhImputedAssetsSelector)).toEqual(
+        '$' + String(hhImputedAssetsValue.float.toFixed(2))
       )
       expect(await sharedSteps.getInputValue(page, confirmedAnnualSelector)).toEqual(
         '$' + String(confirmedAnnualValue.float.toFixed(2))

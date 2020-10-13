@@ -49,8 +49,9 @@
       "Name":"Prod Vertiba"
    },
    "Annual_Income":null,
-   "Household_Assets":null,
-   "HH_Total_Income_with_Assets_Annual":null,
+   "Household_Assets":456,
+   "HH_Total_Income_with_Assets_Annual":111,
+   "Imputed_Income_from_Assets":123,
    "Monthly_Income":null,
    "Housing_Voucher_or_Subsidy":"true",
    "Referral_Source":null,

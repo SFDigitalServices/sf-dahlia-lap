@@ -1108,10 +1108,40 @@ Array [
                   >
                     <label
                       className="form-label"
+                      htmlFor="form-imputed_income_from_assets"
+                      id="label-imputed_income_from_assets"
+                    >
+                      Imputed Income from Assets
+                    </label>
+                    <input
+                      className=""
+                      id="form-imputed_income_from_assets"
+                      name="imputed_income_from_assets"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      placeholder="Enter Amount"
+                      type="text"
+                      value="$123.25"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                className="form-grid row expand"
+              >
+                <div
+                  className="form-grid_item column small-6"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="form-label"
                       htmlFor="form-household_assets"
                       id="label-household_assets"
                     >
-                      Household Assets
+                      Total Household Liquid Assets
                     </label>
                     <input
                       className=""
@@ -1141,7 +1171,7 @@ Array [
                       htmlFor="form-confirmed_household_annual_income"
                       id="label-confirmed_household_annual_income"
                     >
-                      Confirmed Annual Income
+                      Total Household Annual Income
                     </label>
                     <input
                       className=""
@@ -1158,7 +1188,7 @@ Array [
                       className="form-note shift-up"
                       id="describe-confirmed_household_annual_income"
                     >
-                      Not Including % of Assets
+                      Not including imputed income from assets
                     </span>
                   </div>
                 </div>
@@ -1194,7 +1224,7 @@ Array [
                       className="form-note shift-up"
                       id="describe-hh_total_income_with_assets_annual"
                     >
-                      Includes % of assets if applicable
+                      Includes imputed income from assets, if applicable
                     </span>
                   </div>
                 </div>

@@ -113,7 +113,6 @@ RSpec.describe Force::Preference do
         pref_with_id_hash = {
           'Listing_Preference_ID' => { 'Record_Type_For_App_Preferences' => 'COP' }
         }
-        puts mock_salesforce_pref.merge(pref_with_id_hash)
         mock_salesforce_pref.merge(pref_with_id_hash)
       end
 

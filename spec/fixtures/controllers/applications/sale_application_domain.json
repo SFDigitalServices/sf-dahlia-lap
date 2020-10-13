@@ -75,6 +75,7 @@
   ],
   "housing_voucher_or_subsidy": null,
   "id": "a0o0P00000IWVdaQAH",
+  "imputed_income_from_assets": null,
   "is_first_time_homebuyer": true,
   "is_snapshot": false,
   "lending_agent": "0030P00002LBbKWQA1",

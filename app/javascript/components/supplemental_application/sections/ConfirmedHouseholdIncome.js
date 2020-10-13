@@ -65,8 +65,18 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
         <FormGrid.Row>
           <FormGrid.Item>
             <CurrencyField
+              fieldName='imputed_income_from_assets'
+              label='Imputed Income from Assets'
+              validation={validateIncomeCurrency}
+              isDirty={visited && visited.imputed_income_from_assets}
+            />
+          </FormGrid.Item>
+        </FormGrid.Row>
+        <FormGrid.Row>
+          <FormGrid.Item>
+            <CurrencyField
               fieldName='household_assets'
-              label='Household Assets'
+              label='Total Household Liquid Assets'
               validation={validateIncomeCurrency}
               isDirty={visited && visited.household_assets}
             />
@@ -76,10 +86,10 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
           <FormGrid.Item>
             <CurrencyField
               fieldName='confirmed_household_annual_income'
-              label='Confirmed Annual Income'
+              label='Total Household Annual Income'
               validation={validateIncomeCurrency}
               isDirty={visited && visited.confirmed_household_annual_income}
-              helpText='Not Including % of Assets'
+              helpText='Not including imputed income from assets'
             />
           </FormGrid.Item>
         </FormGrid.Row>
@@ -90,7 +100,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
               label='Final Household Annual Income'
               validation={validateIncomeCurrency}
               isDirty={visited && visited.hh_total_income_with_assets_annual}
-              helpText='Includes % of assets if applicable'
+              helpText='Includes imputed income from assets, if applicable'
             />
           </FormGrid.Item>
         </FormGrid.Row>
