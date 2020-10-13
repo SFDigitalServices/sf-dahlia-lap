@@ -77,7 +77,7 @@ describe('apiService', () => {
         request.get = mockFailedFn
       })
 
-      test('calls with the correct params', async () => {
+      test('propagates the error', async () => {
         let errorCaught = false
 
         await apiService.getSupplementalPageData('applicationId').catch(() => {
