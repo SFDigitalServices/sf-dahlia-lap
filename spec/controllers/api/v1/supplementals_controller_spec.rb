@@ -7,7 +7,7 @@ RSpec.describe Api::V1::SupplementalsController, type: :controller do
   login_admin
 
   describe '#show' do
-    let(:expected_supplemental_lease_up_app) { fixture('controllers/supplementals/index.json') }
+    let(:expected_supplemental_lease_up_app) { fixture('controllers/api/v1/supplementals/show.json') }
 
     it 'should return a supplemental application' do
       VCR.use_cassette('api/supplementals_controller/show/supplemental_application') do
