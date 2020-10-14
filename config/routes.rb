@@ -34,6 +34,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'ami' => 'ami#get'
 
+      resources :supplementals, only: %w[show]
+
       resources :applications, only: %w[index update] do
         resources :leases, only: %w[create update destroy]
       end

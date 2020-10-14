@@ -14,6 +14,7 @@ describe('SupplementalApplicationPage lease section', () => {
 
       await sharedSteps.loginAsAgent(page)
       await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await page.waitForSelector('button#save-supplemental-application')
       await page.click('button#edit-lease-button')
 
       const rentSelector = '#form-lease\\.total_monthly_rent_without_parking'

@@ -3,11 +3,11 @@ import { uniqBy, cloneDeep, clone, some, findIndex } from 'lodash'
 
 import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
-import mapProps from '~/utils/mapProps'
 import CardLayout from '../layouts/CardLayout'
 import Alerts from '~/components/Alerts'
 import {
   deleteLease,
+  getSupplementalPageData,
   saveLeaseAndAssistances,
   updateApplicationAndAddComment,
   updateApplication,
@@ -19,6 +19,7 @@ import LeaveConfirmationModal from '~/components/organisms/LeaveConfirmationModa
 import Context from './context'
 import formUtils from '~/utils/formUtils'
 import { doesApplicationHaveLease } from '~/utils/leaseUtils'
+import Loading from '~/components/molecules/Loading'
 
 export const SHOW_LEASE_STATE = 'show_lease'
 export const NO_LEASE_STATE = 'no_lease'
@@ -28,6 +29,36 @@ const getInitialLeaseState = (application) =>
   doesApplicationHaveLease(application) ? SHOW_LEASE_STATE : NO_LEASE_STATE
 
 const shouldSaveLeaseOnApplicationSave = (leaseState) => leaseState === EDIT_LEASE_STATE
+
+const getPageHeader = (application, listing) => {
+  const rootBreadcrumb = { title: 'Lease Ups', link: appPaths.toLeaseUps() }
+
+  if (!application || !listing) {
+    const emptyBreadCrumb = {
+      title: '',
+      link: '#'
+    }
+
+    return {
+      // making this a div with a non-blocking space allows us to keep the header height
+      // without actually rendering any text.
+      title: <div>&nbsp;</div>,
+      breadcrumbs: [rootBreadcrumb, emptyBreadCrumb, emptyBreadCrumb]
+    }
+  }
+
+  return {
+    title: `${application.name}: ${application.applicant?.name}`,
+    breadcrumbs: [
+      rootBreadcrumb,
+      {
+        title: listing.name,
+        link: appPaths.toListingLeaseUps(application?.listing_id)
+      },
+      { title: application.name, link: '#' }
+    ]
+  }
+}
 
 const getApplicationWithEmptyLease = (application) => ({
   ...application,
@@ -54,22 +85,46 @@ const setApplicationsDefaults = (application) => {
 
 class SupplementalApplicationPage extends React.Component {
   state = {
-    application: this.props.application,
-    statusHistory: this.props.statusHistory,
+    application: null,
     confirmedPreferencesFailed: false,
-    supplementalAppTouched: false,
-    listingAmiCharts: getListingAmiCharts(this.props.units),
-    loading: false,
-    statusModal: {
-      loading: false,
-      status: this.props.application.processing_status
-    },
+    leaseSectionState: null,
     leaveConfirmationModal: {
       isOpen: false
     },
-    // Only show lease section on load if there's a lease on the application.
-    leaseSectionState: getInitialLeaseState(this.props.application),
-    rentalAssistances: this.props.rentalAssistances
+    listing: null,
+    listingAmiCharts: null,
+    loading: false,
+    rentalAssistances: null,
+    statusHistory: null,
+    statusModal: {
+      loading: false,
+      status: null
+    },
+    supplementalAppTouched: false
+  }
+
+  componentDidMount = () => {
+    const { applicationId } = this.props
+
+    getSupplementalPageData(applicationId)
+      .then(({ application, statusHistory, fileBaseUrl, units, availableUnits }) => {
+        this.setState({
+          application: setApplicationsDefaults(application),
+          availableUnits,
+          fileBaseUrl,
+          // Only show lease section on load if there's a lease on the application.
+          leaseSectionState: getInitialLeaseState(application),
+          listing: application.listing,
+          listingAmiCharts: getListingAmiCharts(units),
+          rentalAssistances: application.rental_assistances,
+          statusHistory,
+          statusModal: {
+            loading: false,
+            status: application.processing_status
+          }
+        })
+      })
+      .catch(() => Alerts.error())
   }
 
   setLoading = (loading) => {
@@ -383,17 +438,15 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   render() {
-    const { fileBaseUrl, availableUnits, listing } = this.props
-    const { leaveConfirmationModal, application, statusHistory } = this.state
-
-    const pageHeader = {
-      title: `${application.name}: ${application.applicant.name}`,
-      breadcrumbs: [
-        { title: 'Lease Ups', link: appPaths.toLeaseUps() },
-        { title: listing.name, link: appPaths.toListingLeaseUps(application.listing_id) },
-        { title: application.name, link: '#' }
-      ]
-    }
+    const { applicationId } = this.props
+    const {
+      application,
+      availableUnits,
+      fileBaseUrl,
+      leaveConfirmationModal,
+      listing,
+      statusHistory
+    } = this.state
 
     const tabSection = {
       items: [
@@ -403,7 +456,7 @@ class SupplementalApplicationPage extends React.Component {
         },
         {
           title: 'Supplemental Information',
-          url: appPaths.toApplicationSupplementals(application.id),
+          url: appPaths.toApplicationSupplementals(applicationId),
           active: true
         }
       ]
@@ -412,7 +465,7 @@ class SupplementalApplicationPage extends React.Component {
     const context = {
       ...this.state,
       application: application,
-      applicationMembers: [application.applicant, ...(application.household_members || [])],
+      applicationMembers: [application?.applicant, ...(application?.household_members || [])],
       assignSupplementalAppTouched: this.assignSupplementalAppTouched,
       availableUnits: availableUnits,
       fileBaseUrl: fileBaseUrl,
@@ -439,36 +492,23 @@ class SupplementalApplicationPage extends React.Component {
 
     return (
       <Context.Provider value={context}>
-        <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
-          <SupplementalApplicationContainer />
+        <CardLayout pageHeader={getPageHeader(application, listing)} tabSection={tabSection}>
+          {application ? (
+            <SupplementalApplicationContainer />
+          ) : (
+            <div style={{ height: '100vh' }}>
+              <Loading isLoading />
+            </div>
+          )}
         </CardLayout>
         <LeaveConfirmationModal
           isOpen={leaveConfirmationModal.isOpen}
           handleClose={this.handleLeaveModalClose}
-          destination={appPaths.toLeaseUpShortForm(application.id)}
+          destination={appPaths.toLeaseUpShortForm(applicationId)}
         />
       </Context.Provider>
     )
   }
 }
 
-const mapProperties = ({
-  application,
-  availableUnits,
-  fileBaseUrl,
-  leaseSectionState,
-  statusHistory,
-  units
-}) => {
-  return {
-    application: setApplicationsDefaults(application),
-    listing: application.listing,
-    statusHistory: statusHistory,
-    onSubmit: (values) => this.handleSaveApplication(values),
-    fileBaseUrl: fileBaseUrl,
-    units: units,
-    availableUnits: availableUnits
-  }
-}
-
-export default mapProps(mapProperties)(SupplementalApplicationPage)
+export default SupplementalApplicationPage

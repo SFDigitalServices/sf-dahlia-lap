@@ -13,6 +13,17 @@ const getShortFormApplication = async (applicationId) =>
     fileBaseUrl: response.file_base_url
   }))
 
+const getSupplementalPageData = async (applicationId) =>
+  request
+    .get(`/supplementals/${applicationId}`, null, true)
+    .then(({ application, available_units, file_base_url, status_history, units }) => ({
+      application,
+      availableUnits: available_units,
+      statusHistory: status_history,
+      fileBaseUrl: file_base_url,
+      units
+    }))
+
 const updateFlaggedApplication = async (data) => {
   const putData = {
     flagged_application: {
@@ -176,6 +187,7 @@ export default {
   getLeaseUpListing,
   getLeaseUpListings,
   getShortFormApplication,
+  getSupplementalPageData,
   updatePreference,
   createFieldUpdateComment,
   getRentalAssistances,

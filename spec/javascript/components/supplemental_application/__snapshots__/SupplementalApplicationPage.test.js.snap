@@ -225,6 +225,189 @@ Array [
                           <tr
                             aria-expanded={false}
                             className="tr-expand"
+                            id="rent-burdened-assisted-housing-row"
+                          >
+                            <td
+                              className=""
+                            />
+                            <td
+                              className=""
+                            >
+                              Rent Burdened Assisted Housing
+                            </td>
+                            <td
+                              className=""
+                            >
+                              
+                            </td>
+                            <td
+                              className="text-right"
+                            />
+                            <td
+                              className=""
+                            >
+                              <ul />
+                            </td>
+                            <td
+                              className=""
+                            >
+                              Unconfirmed
+                            </td>
+                            <td>
+                              <button
+                                className="button button-link action-link"
+                                id="rent-burdened-assisted-housing-edit"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                Edit
+                              </button>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-hidden={true}
+                            className="tr-expand-content"
+                            id="rent-burdened-assisted-housing-panel"
+                          >
+                            <td
+                              className="td-expand-nested no-padding"
+                              colSpan={7}
+                            >
+                              <div
+                                className="inline-modal padding-left--2x padding-right--2x"
+                              >
+                                <div
+                                  className="form-grid row margin-left-none margin-right-none"
+                                >
+                                  <div
+                                    className="form-grid_item column small-6"
+                                  >
+                                    <div
+                                      className="form-group"
+                                    >
+                                      <label
+                                        htmlFor=""
+                                      >
+                                        Preference Name
+                                      </label>
+                                      <div
+                                        className="text-value"
+                                      >
+                                        Rent Burdened Housing Preference
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div
+                                    className="form-grid_item column small-6"
+                                  >
+                                    <div
+                                      className="form-group"
+                                    >
+                                      <div
+                                        className="form-group"
+                                      >
+                                        <label
+                                          className="form-label"
+                                          htmlFor="form-total_monthly_rent"
+                                          id="label-total_monthly_rent"
+                                        >
+                                          Total Household Monthly Rent
+                                        </label>
+                                        <input
+                                          className=""
+                                          id="form-total_monthly_rent"
+                                          name="total_monthly_rent"
+                                          onBlur={[Function]}
+                                          onChange={[Function]}
+                                          onFocus={[Function]}
+                                          placeholder="Enter Amount"
+                                          type="text"
+                                          value=""
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div
+                                    className="form-grid_item column small-6"
+                                  >
+                                    <div
+                                      className="form-group"
+                                    >
+                                      <div
+                                        className="form-group"
+                                      >
+                                        <label
+                                          className="form-label"
+                                          htmlFor="form-preferences.0.post_lottery_validation"
+                                          id="label-preferences-0.post_lottery_validation"
+                                        >
+                                          Status
+                                        </label>
+                                        <select
+                                          className="preference-status-select"
+                                          id="form-preferences.0.post_lottery_validation"
+                                          name="preferences.0.post_lottery_validation"
+                                          onBlur={[Function]}
+                                          onChange={[Function]}
+                                          onFocus={[Function]}
+                                          value="Unconfirmed"
+                                        >
+                                          <option
+                                            disabled="disabled"
+                                            value=""
+                                          >
+                                            Select One...
+                                          </option>
+                                          <option
+                                            value="Unconfirmed"
+                                          >
+                                            Unconfirmed
+                                          </option>
+                                          <option
+                                            value="Confirmed"
+                                          >
+                                            Confirmed
+                                          </option>
+                                          <option
+                                            value="Invalid"
+                                          >
+                                            Invalid
+                                          </option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  className="form-grid row margin-left-none margin-right-none"
+                                >
+                                  <div
+                                    className="form-grid_item column"
+                                  >
+                                    <button
+                                      className="button primary tiny margin-right margin-bottom-none save-panel-btn"
+                                      disabled={false}
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Save
+                                    </button>
+                                    <button
+                                      className="button secondary tiny margin-bottom-none"
+                                      disabled={false}
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      Cancel
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr
+                            aria-expanded={false}
+                            className="tr-expand"
                             id="assisted-housing-preference-row"
                           >
                             <td
@@ -252,7 +435,7 @@ Array [
                                 <li>
                                   <a
                                     className="block-link"
-                                    href="undefined/servlet/servlet.FileDownload?file=00P0P00000t0P3vUAE"
+                                    href="fileBaseUrl/servlet/servlet.FileDownload?file=00P0P00000t0P3vUAE"
                                     rel="noreferrer"
                                     target="_blank"
                                   >
@@ -1441,7 +1624,7 @@ Array [
                       <strong
                         className="form-note"
                       >
-                        0
+                        2
                       </strong>
                     </p>
                   </div>
@@ -1550,7 +1733,17 @@ Array [
                         <option
                           value=""
                         >
-                          No Units Available
+                          Select One...
+                        </option>
+                        <option
+                          value="id1"
+                        >
+                          1
+                        </option>
+                        <option
+                          value="id2"
+                        >
+                          2
                         </option>
                       </select>
                     </div>
@@ -4752,7 +4945,7 @@ Array [
                           None
                         </option>
                         <option
-                          value="a0w0P00000OUJc3QAH"
+                          value="testValidPref"
                         >
                           Live or Work in San Francisco Preference
                         </option>
