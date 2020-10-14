@@ -208,7 +208,7 @@ const Lease = ({ form, values, store }) => {
               component={({ input: { onChange }, meta, ...rest }) => {
                 const hasError = !values.unit && meta.touched && meta.error
                 return (
-                  <div className={classNames('form-group', hasError && 'error')}>
+                  <div className={classNames('form-group margin-bottom', hasError && 'error')}>
                     <Label label='Assigned Unit Number' />
                     <UnitDropdown
                       availableUnits={availableUnits}

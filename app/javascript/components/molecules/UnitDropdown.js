@@ -16,22 +16,26 @@ export const renderUnitOption = (
   if (id) {
     body = (
       <>
-        <p>
+        <div className='columns small-2'>
           <strong>{unit_number}</strong>
-          <strong>{unit_type}</strong>
-          {priority_type}
-        </p>
-        <p>
-          {max_ami_for_qualifying_unit}% ({ami_chart_type})
-        </p>
+        </div>
+        <div className='columns small-10'>
+          <div>
+            <strong className='padding-right'>{unit_type}</strong>
+            {priority_type}
+          </div>
+          <div>
+            {max_ami_for_qualifying_unit}% ({ami_chart_type})
+          </div>
+        </div>
       </>
     )
   } else {
-    body = <p>Select One...</p>
+    body = <p className='padding-left padding-right margin-bottom-none'>Select One...</p>
   }
 
   return (
-    <li className='dropdown-menu_item' aria-selected={isSelected}>
+    <li className='dropdown-menu_item dropdown-menu_unit row' aria-selected={isSelected}>
       <a>{body}</a>
     </li>
   )
@@ -39,12 +43,11 @@ export const renderUnitOption = (
 
 const UnitDropdown = ({ unit, availableUnits, onChange, disabled, placeholder }) => {
   const buttonClasses = [
-    'button',
     'dropdown-button',
+    'dropdown-select',
     'has-icon--right',
     'text-align-left',
-    'expand',
-    'tertiary'
+    'expand'
   ]
   const renderUnitToggle = ({ children, getValue, ...props }) => {
     const val = getValue()[0]
@@ -68,7 +71,7 @@ const UnitDropdown = ({ unit, availableUnits, onChange, disabled, placeholder })
 
   return (
     <Dropdown
-      classNamePrefix='status-dropdown'
+      classNamePrefix='unit-dropdown'
       items={mappedUnits}
       value={unit}
       placeholder={placeholder}
