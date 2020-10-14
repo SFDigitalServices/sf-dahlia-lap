@@ -45,13 +45,13 @@
     "is_rental": true
   },
   "status": "Submitted",
-  "total_household_size": 1,
+  "total_household_size": 1.0,
   "application_submission_type": "Paper",
   "application_submitted_date": "2020-10-13",
   "createdby": {
     "name": "DAHLIA API"
   },
-  "annual_income": 5000,
+  "annual_income": 5000.0,
   "confirmed_household_annual_income": 409.38,
   "household_assets": 224.03,
   "hh_total_income_with_assets_annual": 143.22,
@@ -73,7 +73,7 @@
     "mobility_impairments": true
   },
   "terms_acknowledged": true,
-  "number_of_dependents": 1,
+  "number_of_dependents": 1.0,
   "number_of_seniors": null,
   "number_of_minors": null,
   "processing_status": "Processing",
@@ -108,7 +108,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 1,
+      "preference_order": 1.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -126,7 +126,7 @@
       "type_of_proof": "Paystub with employer address",
       "opt_out": false,
       "lottery_status": "None",
-      "preference_lottery_rank": 4,
+      "preference_lottery_rank": 4.0,
       "listing_preference_id": "a0l0P00001Q1w1BQAR",
       "receives_preference": true,
       "application_member": {
@@ -144,7 +144,7 @@
       },
       "individual_preference": "Work in SF",
       "certificate_number": null,
-      "preference_order": 4,
+      "preference_order": 4.0,
       "lw_type_of_proof": "Paystub with employer address",
       "city": null,
       "state": null,
@@ -169,7 +169,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 2,
+      "preference_order": 2.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -193,7 +193,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 6,
+      "preference_order": 6.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -217,7 +217,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 8,
+      "preference_order": 8.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -235,7 +235,7 @@
       "type_of_proof": "Lease and rent proof",
       "opt_out": false,
       "lottery_status": "None",
-      "preference_lottery_rank": 1,
+      "preference_lottery_rank": 1.0,
       "listing_preference_id": "a0l0P00001Q1w0mQAB",
       "receives_preference": true,
       "application_member": {
@@ -253,7 +253,7 @@
       },
       "individual_preference": "Assisted Housing",
       "certificate_number": null,
-      "preference_order": 3,
+      "preference_order": 3.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -278,7 +278,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 5,
+      "preference_order": 5.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -317,7 +317,7 @@
   },
   "rental_assistances": [
     {
-      "assistance_amount": 1100,
+      "assistance_amount": 1100.0,
       "id": "a151F000001B89RQAS",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
@@ -326,7 +326,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": 1100,
+      "assistance_amount": 1100.0,
       "id": "a151F000001B8AAQA0",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
@@ -335,7 +335,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": 1100,
+      "assistance_amount": 1100.0,
       "id": "a151F000001B8AZQA0",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
@@ -344,7 +344,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": 1100,
+      "assistance_amount": 1100.0,
       "id": "a151F000001B8B8QAK",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
@@ -353,7 +353,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": 1100,
+      "assistance_amount": 1100.0,
       "id": "a151F000001B8BXQA0",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
@@ -362,7 +362,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": 1100,
+      "assistance_amount": 1100.0,
       "id": "a151F000001B8KVQA0",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
@@ -371,7 +371,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": 1100,
+      "assistance_amount": 1100.0,
       "id": "a151F000001B8KzQAK",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
@@ -380,7 +380,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": 1100,
+      "assistance_amount": 1100.0,
       "id": "a151F000001BApDQAW",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
@@ -389,7 +389,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": 1100,
+      "assistance_amount": 1100.0,
       "id": "a151F000001BHURQA4",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
@@ -398,7 +398,7 @@
       "type_of_assistance": "Catholic Charities"
     },
     {
-      "assistance_amount": 1100,
+      "assistance_amount": 1100.0,
       "id": "a151F000001BHWrQAO",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
