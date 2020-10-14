@@ -17,6 +17,7 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
       await sharedSteps.loginAsAgent(page)
       await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
 
+      await page.waitForSelector('button#save-supplemental-application')
       await page.click('button#edit-lease-button')
 
       // Click on the Add Rental Assistance button in the Rental Assistance section
@@ -108,6 +109,7 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
       const { page } = await SetupBrowserAndPage(testBrowser)
 
       await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await page.waitForSelector('button#save-supplemental-application')
       await page.click('button#edit-lease-button')
 
       // Click the Edit button on the first rental assistance
@@ -161,6 +163,7 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
       const { page } = await SetupBrowserAndPage(testBrowser)
 
       await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await page.waitForSelector('button#save-supplemental-application')
       await page.click('button#edit-lease-button')
 
       // Change a value on the supp app form outside of the rental assistance panels
@@ -205,6 +208,7 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
       const { page } = await SetupBrowserAndPage(testBrowser)
 
       await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await page.waitForSelector('button#save-supplemental-application')
       await page.click('button#edit-lease-button')
 
       // Record how many rental assistances are in the table before we attempt our delete

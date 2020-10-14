@@ -16,6 +16,7 @@ describe('SupplementalApplicationPage status history', () => {
 
       await sharedSteps.loginAsAgent(page)
       await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await page.waitForSelector('button#save-supplemental-application')
 
       // Click on the "Add a Comment" button in the Status History sidebar
       await page.click('#add-status-history-comment')
@@ -33,6 +34,7 @@ describe('SupplementalApplicationPage action buttons', () => {
       const { page } = await SetupBrowserAndPage(testBrowser, true)
 
       await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await page.waitForSelector('button#save-supplemental-application')
 
       // Click on the status dropdown button at the bottom of the page
       await page.click('.status-history-buttons button.dropdown-button ')

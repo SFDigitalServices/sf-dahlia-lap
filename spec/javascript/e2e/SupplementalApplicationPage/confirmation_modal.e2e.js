@@ -17,6 +17,7 @@ describe('SupplementalApplicationPage confirm modal', () => {
 
       await sharedSteps.loginAsAgent(page)
       await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await page.waitForSelector('button#save-supplemental-application')
 
       // Change value for ada priorities, mobility impairments
       await page.click('input#form-has_ada_priorities_selected\\.mobility_impairments')
@@ -35,6 +36,7 @@ describe('SupplementalApplicationPage confirm modal', () => {
       const { page } = await SetupBrowserAndPage(testBrowser, true)
 
       await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await page.waitForSelector('button#save-supplemental-application')
 
       await page.waitForSelector('.tabs').then(() => page.click('.tabs li:nth-child(1)'))
       await page.waitForNavigation()
@@ -56,6 +58,7 @@ describe('SupplementalApplicationPage confirm modal', () => {
 
       await sharedSteps.loginAsAgent(page)
       await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await page.waitForSelector('button#save-supplemental-application')
 
       // Change value for ada priorities, mobility impairments
       await page.click('input#form-has_ada_priorities_selected\\.mobility_impairments')
