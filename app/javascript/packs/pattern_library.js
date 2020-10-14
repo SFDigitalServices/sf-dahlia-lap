@@ -28,9 +28,9 @@ import DropdownMenu from 'components/molecules/DropdownMenu'
 import DropdownMenuMultiSelect from 'components/molecules/DropdownMenuMultiSelect'
 import FormGridRow from 'components/molecules/FormGridRow'
 import FormGridTable from 'components/molecules/FormGridTable'
-import LeaseUpSidebar from 'components/molecules/LeaseUpSidebar'
+import LeaseUpSidebar from 'components/molecules/lease_up_sidebar/LeaseUpSidebar'
 import Loading from 'components/molecules/Loading'
-import StatusItems from 'components/molecules/StatusItems'
+import StatusItems from 'components/molecules/lease_up_sidebar/StatusItems'
 import TablePagination from 'components/molecules/TablePagination'
 import TableSimple from 'components/molecules/TableSimple'
 import TabsMenu from 'components/molecules/TabsMenu'
@@ -41,6 +41,7 @@ import TabCard from 'components/organisms/TabCard'
 import TabsSection from 'components/organisms/TabsSection'
 // Pattern Library Wrappers
 import ContentSectionWrapper from 'components/pattern_library/wrappers/ContentSectionWrapper'
+import InlineModalWrapper from 'components/pattern_library/wrappers/InlineModalWrapper'
 import DropdownWrapper from 'components/pattern_library/wrappers/DropdownWrapper'
 import ExpandableTableWrapper from 'components/pattern_library/wrappers/ExpandableTableWrapper'
 import ModalWrapper from 'components/pattern_library/wrappers/ModalWrapper'
@@ -88,6 +89,7 @@ WebpackerReact.setup({ TabCard })
 WebpackerReact.setup({ TabsSection })
 // Pattern Library Wrappers
 WebpackerReact.setup({ ContentSectionWrapper })
+WebpackerReact.setup({ InlineModalWrapper })
 WebpackerReact.setup({ DropdownWrapper })
 WebpackerReact.setup({ ExpandableTableWrapper })
 WebpackerReact.setup({ ModalWrapper })

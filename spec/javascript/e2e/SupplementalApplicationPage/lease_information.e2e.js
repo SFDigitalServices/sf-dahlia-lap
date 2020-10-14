@@ -12,8 +12,10 @@ describe('SupplementalApplicationPage lease section', () => {
 
     await sharedSteps.loginAsAgent(page)
     await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+    await page.click('button#edit-lease-button')
 
     const rentSelector = '#form-lease\\.total_monthly_rent_without_parking'
+    const parkingDropdownSelector = '#form-lease\\.bmr_parking_space_assigned'
     const parkingRentSelector = '#form-lease\\.monthly_parking_rent'
     const tenantContributionSelector = '#form-lease\\.monthly_tenant_contribution'
 
@@ -23,6 +25,7 @@ describe('SupplementalApplicationPage lease section', () => {
     const tenantContributionValue = supplementalApplicationSteps.generateRandomCurrency()
 
     // Enter them
+    await sharedSteps.enterValue(page, parkingDropdownSelector, 'Yes')
     await sharedSteps.enterValue(page, rentSelector, rentValue.currency)
     await sharedSteps.enterValue(page, parkingRentSelector, parkingRentValue.currency)
     await sharedSteps.enterValue(page, tenantContributionSelector, tenantContributionValue.currency)

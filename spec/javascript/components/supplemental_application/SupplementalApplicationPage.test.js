@@ -10,17 +10,21 @@ import units from '../../fixtures/units'
 const mockSubmitApplication = jest.fn()
 const mockUpdateApplication = jest.fn()
 const mockUpdatePreference = jest.fn()
-const mockCreateOrUpdateLease = jest.fn()
+const mockCreateLease = jest.fn()
+const mockUpdateLease = jest.fn()
 const mockGetRentalAssistances = jest.fn()
 window.scrollTo = jest.fn()
+
+const getMockApplication = () => cloneDeep(supplementalApplication)
 
 jest.mock('apiService', () => {
   const mockedApplication = require('../../fixtures/supplemental_application').default
   const _merge = require('lodash').merge
+  const _cloneDeep = require('lodash').cloneDeep
   return {
     submitApplication: async (application) => {
       mockSubmitApplication(application)
-      return _merge(mockedApplication, application)
+      return _merge(_cloneDeep(mockedApplication), application)
     },
     updateApplication: async (data) => {
       mockUpdateApplication(data)
@@ -33,14 +37,30 @@ jest.mock('apiService', () => {
     getAMI: async (data) => {
       return { ami: [{ chartType: data.chartType, year: data.chartYear, amount: 100, numOfHousehold: 1 }] }
     },
-    createOrUpdateLease: async (lease) => {
-      mockCreateOrUpdateLease(lease)
-      return lease
+    createLease: async (lease, contact, applicationId) => {
+      const leaseWithNewFields = {
+        ...lease,
+        primary_applicant_contact: contact
+      }
+
+      mockCreateLease(leaseWithNewFields)
+      return leaseWithNewFields
+    },
+    updateLease: async (lease, contact, applicationId) => {
+      const leaseWithNewFields = {
+        ...lease,
+        primary_applicant_contact: contact
+      }
+
+      mockUpdateLease(leaseWithNewFields)
+      return leaseWithNewFields
     },
     getRentalAssistances: async (applicationId) => {
       mockGetRentalAssistances(applicationId)
       return []
-    }
+    },
+    createRentalAssistance: async (applicationId) => ({}),
+    updateRentalAssistance: async (applicationId) => ({})
   }
 })
 
@@ -71,7 +91,7 @@ describe('SupplementalApplicationPage', () => {
     await renderer.act(async () => {
       component = renderer.create(
         <SupplementalApplicationPage
-          application={supplementalApplication}
+          application={getMockApplication()}
           units={units} />
       )
     })
@@ -80,20 +100,35 @@ describe('SupplementalApplicationPage', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  test('it doesnt send field that are not changed', async () => {
-    const payload = supplementalApplication
+  test('it doesnt send a request if nothing is changed', async () => {
     let wrapper
     await act(async () => {
       wrapper = mount(
         <SupplementalApplicationPage
-          application={supplementalApplication}
+          application={getMockApplication()}
           statusHistory={statusHistory}
           units={units} />
       )
     })
     await act(async () => { wrapper.find('form').first().simulate('submit') })
+    expect(mockSubmitApplication.mock.calls.length).toBe(0)
+  })
+
+  test('it only updates changed fields', async () => {
+    const payload = getMockApplication()
+    let wrapper
+    await act(async () => {
+      wrapper = mount(
+        <SupplementalApplicationPage
+          application={getMockApplication()}
+          statusHistory={statusHistory}
+          units={units} />
+      )
+    })
+    wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
+    await act(async () => { wrapper.find('form').first().simulate('submit') })
     expect(mockSubmitApplication.mock.calls.length).toBe(1)
-    expect(mockSubmitApplication).toHaveBeenCalledWith({ id: payload.id })
+    expect(mockSubmitApplication).toHaveBeenCalledWith({ id: payload.id, number_of_dependents: 2 })
   })
 
   test('it saves demographics correctly', async () => {
@@ -107,7 +142,7 @@ describe('SupplementalApplicationPage', () => {
     await act(async () => {
       wrapper = mount(
         <SupplementalApplicationPage
-          application={supplementalApplication}
+          application={getMockApplication()}
           statusHistory={statusHistory}
           units={units} />
       )
@@ -126,7 +161,7 @@ describe('SupplementalApplicationPage', () => {
 
   describe('preference panel', () => {
     test('it saves a live/work application preference panel', async () => {
-      const withValidPreferences = cloneDeep(supplementalApplication)
+      const withValidPreferences = getMockApplication()
       merge(withValidPreferences.preferences[0], {
         preference_name: 'Live or Work in San Francisco Preference',
         individual_preference: 'Live in SF',
@@ -170,7 +205,7 @@ describe('SupplementalApplicationPage', () => {
     })
 
     test('it updates total monthly rent when saving a rent burdened preference panel', async () => {
-      const withValidPreferences = cloneDeep(supplementalApplication)
+      const withValidPreferences = getMockApplication()
 
       merge(withValidPreferences.preferences[0], {
         preference_name: 'Rent Burdened Assisted Housing',
@@ -225,11 +260,12 @@ describe('SupplementalApplicationPage', () => {
 
   describe('confirmed income section', () => {
     test('currencies are converted to floats on save', async () => {
+      const application = getMockApplication()
       let wrapper
       await act(async () => {
         wrapper = mount(
           <SupplementalApplicationPage
-            application={supplementalApplication}
+            application={application}
             statusHistory={statusHistory}
             units={units} />
         )
@@ -239,7 +275,7 @@ describe('SupplementalApplicationPage', () => {
 
       await act(async () => { wrapper.find('form').first().simulate('submit') })
 
-      const expectedApplication = { id: supplementalApplication.id }
+      const expectedApplication = { id: application.id }
       expectedApplication['confirmed_household_annual_income'] = 1234.0
 
       expect(mockSubmitApplication.mock.calls.length).toBe(1)
@@ -247,11 +283,12 @@ describe('SupplementalApplicationPage', () => {
     })
 
     test('converts empty values to null when touched', async () => {
+      const application = getMockApplication()
       let wrapper
       await act(async () => {
         wrapper = mount(
           <SupplementalApplicationPage
-            application={supplementalApplication}
+            application={application}
             statusHistory={statusHistory}
             units={units} />
         )
@@ -259,7 +296,7 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('input#form-confirmed_household_annual_income').simulate('change', { target: { value: '' } })
       wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
 
-      const expectedApplication = { id: supplementalApplication.id }
+      const expectedApplication = { id: application.id }
       expectedApplication['confirmed_household_annual_income'] = null
 
       await act(async () => { wrapper.find('form').first().simulate('submit') })
@@ -271,7 +308,7 @@ describe('SupplementalApplicationPage', () => {
   describe('Lease Section', () => {
     let wrapper, mockApplication
     beforeEach(async () => {
-      mockApplication = cloneDeep(supplementalApplication)
+      mockApplication = getMockApplication()
 
       // Add a valid preference for preference used
       merge(mockApplication.preferences[0], {
@@ -296,6 +333,7 @@ describe('SupplementalApplicationPage', () => {
     })
 
     test('should save a lease object', async () => {
+      wrapper.find('#edit-lease-button').first().simulate('click')
       // Fill out lease fields
       // Assigned Unit number
       wrapper.find('[name="lease.unit"] select option[value="id1"]').simulate('change')
@@ -329,11 +367,14 @@ describe('SupplementalApplicationPage', () => {
         'primary_applicant_contact': mockApplication['applicant']['id']
       }
 
-      expect(mockCreateOrUpdateLease.mock.calls.length).toBe(1)
-      expect(mockCreateOrUpdateLease).toHaveBeenCalledWith(expectedLease)
+      expect(mockCreateLease.mock.calls.length).toBe(0)
+      expect(mockUpdateLease.mock.calls.length).toBe(1)
+      expect(mockUpdateLease).toHaveBeenCalledWith(expectedLease)
     })
 
     test('should send a null value for unit to API if selected', async () => {
+      wrapper.find('#edit-lease-button').first().simulate('click')
+
       // Select the value from the dropdown
       wrapper.find('[name="lease.unit"] select option[value=""]').simulate('change')
 
@@ -341,8 +382,9 @@ describe('SupplementalApplicationPage', () => {
       await act(async () => { wrapper.find('form').first().simulate('submit') })
 
       // Verify that the API was called with null unit value
-      expect(mockCreateOrUpdateLease.mock.calls.length).toBe(1)
-      expect(mockCreateOrUpdateLease).toHaveBeenCalledWith(expect.objectContaining({ 'unit': '' }))
+      expect(mockCreateLease.mock.calls.length).toBe(0)
+      expect(mockUpdateLease.mock.calls.length).toBe(1)
+      expect(mockUpdateLease).toHaveBeenCalledWith(expect.objectContaining({ 'unit': '' }))
     })
 
     test('it displays "No Units Available" when no units available', async () => {
@@ -350,7 +392,7 @@ describe('SupplementalApplicationPage', () => {
       await act(async () => {
         wrapper = mount(
           <SupplementalApplicationPage
-            application={supplementalApplication}
+            application={getMockApplication()}
             statusHistory={statusHistory}
             units={[]} />
         )
@@ -368,7 +410,7 @@ describe('SupplementalApplicationPage', () => {
       await act(async () => {
         wrapper = mount(
           <SupplementalApplicationPage
-            application={supplementalApplication}
+            application={getMockApplication()}
             statusHistory={statusHistory}
           />
         )
@@ -378,7 +420,6 @@ describe('SupplementalApplicationPage', () => {
       // of how the dropdown button and dropdown menu should render
       // when the dropdown menu is open
       expect(wrapper.find('.sidebar-content')).toHaveLength(1)
-      expect(wrapper).toMatchSnapshot()
     })
   })
 
@@ -387,7 +428,7 @@ describe('SupplementalApplicationPage', () => {
     await act(async () => {
       wrapper = mount(
         <SupplementalApplicationPage
-          application={supplementalApplication}
+          application={getMockApplication()}
           statusHistory={statusHistory}
         />
       )

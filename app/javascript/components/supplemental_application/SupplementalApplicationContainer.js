@@ -3,22 +3,22 @@ import { Form } from 'react-final-form'
 import arrayMutators from 'final-form-arrays'
 import { isEmpty } from 'lodash'
 
+import Button from '~/components/atoms/Button'
 import ContentSection from '../molecules/ContentSection'
 import DemographicsInputs from './sections/DemographicsInputs'
 import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import PreferencesTable from './sections/PreferencesTable'
 import AlertBox from '~/components/molecules/AlertBox'
-import LeaseInformationInputs from './sections/LeaseInformationInputs'
-import RentalAssistance from './sections/RentalAssistance'
+import Lease from './sections/Lease'
 import { withContext } from './context'
 import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
 
 import validate, { touchAllFields } from '~/utils/form/validations'
-import ParkingInformationInputs from './sections/ParkingInformationInputs'
 import { convertPercentAndCurrency } from '../../utils/form/validations'
 import AsymColumnLayout from '../organisms/AsymColumnLayout'
-import LeaseUpSidebar from '../molecules/LeaseUpSidebar'
+import LeaseUpSidebar from '../molecules/lease_up_sidebar/LeaseUpSidebar'
+import { NO_LEASE_STATE } from './SupplementalApplicationPage'
 
 const ConfirmedPreferencesSection = ({
   application,
@@ -70,26 +70,18 @@ const Income = ({ listingAmiCharts, visited, form }) => (
   </ContentSection>
 )
 
-const LeaseInformationSection = ({ form, submitting, values, visited }) => (
+const LeaseSection = ({ form, values, onCreateLeaseClick, showLeaseSection }) => (
   <ContentSection
     title='Lease'
-    description='Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.'
+    description={!showLeaseSection && 'Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.'}
   >
-    <ContentSection.Sub title='Unit'>
-      <LeaseInformationInputs form={form} visited={visited} />
-    </ContentSection.Sub>
-    <ContentSection.Sub
-      title='Parking'
-      description='If the applicant will receive a below market rate parking space, indicate the monthly cost.'
-    >
-      <ParkingInformationInputs form={form} values={values} visited={visited} />
-    </ContentSection.Sub>
-    <ContentSection.Sub
-      title='Rental Assistance Information'
-      description='Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.'
-    >
-      <RentalAssistance form={form} submitting={submitting} />
-    </ContentSection.Sub>
+    { showLeaseSection ? (
+      <Lease
+        form={form}
+        values={values}
+      />
+    ) : <Button id='create-lease' text='Create Lease' small onClick={onCreateLeaseClick} />
+    }
   </ContentSection>
 )
 
@@ -130,11 +122,12 @@ const SupplementalApplicationContainer = ({ store }) => {
     const errors = { lease: {} }
     // only validate lease_start_date when any of the fields is present
     if (!isEmpty(values.lease) && !isEmpty(values.lease.lease_start_date)) {
-      errors.lease = { lease_start_date: {} }
-      validate.isValidDate(
-        values.lease.lease_start_date,
-        errors.lease.lease_start_date
-      )
+      const dateErrors = validate.isValidDate(values.lease.lease_start_date, {})
+
+      // only set any error fields if there were actually any date errors.
+      if (dateErrors?.all || dateErrors?.day || dateErrors?.month || dateErrors?.year) {
+        errors.lease.lease_start_date = dateErrors
+      }
     }
     return errors
   }
@@ -159,11 +152,13 @@ const SupplementalApplicationContainer = ({ store }) => {
     listingAmiCharts,
     onSubmit,
     statusModal,
+    handleCreateLeaseClick,
     handleStatusModalClose,
     handleStatusModalSubmit,
     assignSupplementalAppTouched,
     openAddStatusCommentModal,
-    openUpdateStatusModal
+    openUpdateStatusModal,
+    leaseSectionState
   } = store
 
   const onAddCommentClicked = (form, touched) =>
@@ -176,15 +171,19 @@ const SupplementalApplicationContainer = ({ store }) => {
 
   return (
     <Form
-      onSubmit={values => onSubmit(convertPercentAndCurrency(values))}
+      onSubmit={values => {
+        return onSubmit(convertPercentAndCurrency(values))
+      }}
       initialValues={application}
+      // Keep dirty on reinitialize ensures the whole form doesn't refresh
+      // when only a piece of it is saved (eg. when the lease is saved)
+      keepDirtyOnReinitialize
       validate={validateForm}
       mutators={{ ...arrayMutators }}
       render={({
         handleSubmit,
         form,
         touched,
-        submitting,
         values,
         visited
       }) => (
@@ -220,11 +219,11 @@ const SupplementalApplicationContainer = ({ store }) => {
                     visited={visited}
                     form={form}
                   />
-                  <LeaseInformationSection
+                  <LeaseSection
                     form={form}
                     values={values}
-                    submitting={submitting}
-                    visited={visited}
+                    showLeaseSection={leaseSectionState !== NO_LEASE_STATE}
+                    onCreateLeaseClick={handleCreateLeaseClick}
                   />
                   <DemographicsSection />
                 </AsymColumnLayout.MainContent>

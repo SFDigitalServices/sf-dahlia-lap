@@ -1,39 +1,92 @@
 import apiService from '~/apiService'
 import Alerts from '~/components/Alerts'
-import { isEmpty, find, isEqual, every, reject } from 'lodash'
+import { isEmpty, find, isEqual, reject } from 'lodash'
 import { convertCurrency } from '~/utils/form/validations'
-import { filterChanged } from '~/utils/utils'
+import { isChanged, filterChanged } from '~/utils/utils'
+import { isLeaseAlreadyCreated } from '~/utils/leaseUtils'
+import {
+  performOrDefault,
+  performInSequence
+} from '~/utils/promiseUtils'
 
-export const updateApplication = async (application, prevApplication) => {
-  const primaryApplicantContact = application.applicant && application.applicant.id
-  const applicationId = application['id']
+/**
+ * Combine lease, application, and rental assistances responses into a single
+ * application object.
+ */
+const transformApplicationResponses = (lease, application, rentalAssistances) => ({
+  ...application,
+  lease,
+  rental_assistances: rentalAssistances || []
+})
+
+const defaultLeaseResponse = (application) => ({
+  lease: application?.lease,
+  rentalAssistances: application?.rental_assistances
+})
+
+/**
+ * Update any fields on the application that have been changed from
+ * prevApplication. This action triggers multiple separate requests:
+ * 1. An application update request
+ * 2. A lease create or update request
+ * 3. Multiple rental assistance create/update requests
+ * 4. A rental assistance get request
+ */
+export const updateApplication = async (application, prevApplication, alsoSaveLease) => {
   const changedFields = filterChanged(prevApplication, application)
+  const isApplicationChanged = isChanged(prevApplication, application)
 
-  // await lease and base application updates first
-  const initialResponses = await Promise.all([
-    updateLease(application['lease'], primaryApplicantContact, applicationId),
-    apiService.submitApplication(changedFields, true)
-  ])
-  // next we update rental assistances if applicable
-  await Promise.all(updateUnsavedRentalAssistances(application, prevApplication))
-  // then retrieve all rental assistances together instead of on each create/update
-  const rentalAssistances = await apiService.getRentalAssistances(applicationId)
-  // then combine our responses to rebuild the structure in the UI
-  if (every(initialResponses, (promise) => promise !== false)) {
-    const [lease, application] = initialResponses
-    if (application) {
-      application.lease = lease
-      application.rental_assistances = rentalAssistances || []
-      return application
-    }
-  }
-  return false
+  const updateApplicationIfChanged = performOrDefault(
+    isApplicationChanged,
+    () => apiService.submitApplication(changedFields, true),
+    application
+  )
+
+  const saveLease = performOrDefault(
+    alsoSaveLease,
+    () => saveLeaseAndAssistances(application, prevApplication),
+    defaultLeaseResponse(prevApplication)
+  )
+
+  return Promise.all([saveLease, updateApplicationIfChanged])
+    .then(([{ lease, rentalAssistances }, responseApplication]) => {
+      return transformApplicationResponses(lease, responseApplication, rentalAssistances)
+    })
 }
 
-const updateUnsavedRentalAssistances = (application, prevApplication) => {
+export const createFieldUpdateComment = async (applicationId, status, comment, substatus) =>
+  apiService.createFieldUpdateComment(applicationId, status, comment, substatus)
+
+export const updateApplicationAndAddComment = async (application, prevApplication, status, comment, substatus, alsoSaveLease) => {
+  const packageResponseData = (appResponse, statusHistory) => ({
+    application: appResponse,
+    statusHistory
+  })
+
+  return performInSequence(
+    () => updateApplication(application, prevApplication, alsoSaveLease),
+    () => createFieldUpdateComment(prevApplication.id, status, comment, substatus)
+  ).then(([appResponse, statusHistory]) => packageResponseData(appResponse, statusHistory))
+}
+
+export const saveLeaseAndAssistances = async (application, prevApplication) => {
+  return performInSequence(
+    () => createOrUpdateLease(
+      application.lease,
+      prevApplication?.lease,
+      application.applicant?.id,
+      application.id
+    ),
+    () => updateUnsavedRentalAssistances(application, prevApplication)
+  ).then(([lease, rentalAssistances]) => ({
+    lease,
+    rentalAssistances
+  }))
+}
+
+const updateUnsavedRentalAssistances = async (application, prevApplication) => {
   // remove any canceled or non filled out rental assistances. i.e. {}
   const rentalAssistances = reject(application.rental_assistances, isEmpty)
-  if (isEmpty(rentalAssistances)) return []
   const promises = []
 
   rentalAssistances.forEach(rentalAssistance => {
@@ -46,26 +99,33 @@ const updateUnsavedRentalAssistances = (application, prevApplication) => {
       promises.push(apiService.updateRentalAssistance(rentalAssistance, application.id))
     }
   })
-  // if no promises have been pushed then we are not updating
-  // anything but already have the data we need so return the assistances
-  if (promises.length === 0) {
-    return [Promise.resolve({ rental_assistances: rentalAssistances })]
-  }
 
-  return promises
+  return performOrDefault(
+    !isEmpty(promises),
+    () => Promise.all(promises).then(() => apiService.getRentalAssistances(application.id)),
+    rentalAssistances
+  )
 }
 
-const updateLease = async (lease, primaryApplicantContact, applicationId) => {
-  if (!isEmpty(lease)) {
-    // TODO: We should consider setting the Tenant on a Lease more explicitly
-    // either via a non-interactable form element or using Salesforce
-    lease['primary_applicant_contact'] = primaryApplicantContact
-    const newOrUpdatedLease = await apiService.createOrUpdateLease(lease, applicationId)
-    return newOrUpdatedLease
-  } else {
-    return lease
-  }
+const createOrUpdateLease = async (lease, prevLease, primaryApplicantContactId, applicationId) => {
+  const isNewLease = !isLeaseAlreadyCreated(lease)
+
+  const saveLeasePromise = isNewLease
+    ? () => apiService.createLease(lease, primaryApplicantContactId, applicationId)
+    : () => apiService.updateLease(lease, primaryApplicantContactId, applicationId)
+
+  const isNewOrChangedLease = isNewLease || isChanged(prevLease, lease)
+  return performOrDefault(isNewOrChangedLease, saveLeasePromise, lease)
 }
+
+/**
+ * Delete a lease associated with an application.
+ * Additionally, delete any rental assistances associated with that lease.
+ *
+ * @param {Number} application the application object (must contain a lease)
+ */
+export const deleteLease = async (application) =>
+  apiService.deleteLease(application.id, application.lease.id)
 
 export const getAMIAction = async ({ chartType, chartYear }) => {
   const response = await apiService.getAMI({ chartType, chartYear })

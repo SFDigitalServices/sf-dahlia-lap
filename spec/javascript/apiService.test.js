@@ -2,47 +2,95 @@ import apiService from '~/apiService'
 import { request } from '~/api/request'
 
 const mockLeasePostFn = jest.fn(() => Promise.resolve({ lease: true }))
+const mockLeaseDeleteFn = jest.fn(() => Promise.resolve(true))
 const mockLeasePutFn = jest.fn(() => Promise.resolve({ lease: true }))
 const mockPostFn = jest.fn(() => Promise.resolve(true))
 const mockPutFn = jest.fn(() => Promise.resolve(true))
 const mockDestroyFn = jest.fn(() => Promise.resolve(true))
 request.destroy = mockDestroyFn
 
+const getExpectedLeaseResponse = (lease, contact = undefined, leaseStartDate = {}) => ({
+  'lease': {
+    ...lease,
+    lease_start_date: leaseStartDate,
+    primary_applicant_contact: contact
+  }
+})
+
 describe('apiService', () => {
   const fakeAppId = 'fake_application_id'
+  const fakeContact = 'fake_contact'
 
-  describe('createOrUpdateLease', () => {
+  describe('createLease', () => {
+    beforeAll(() => {
+      request.post = mockLeasePostFn
+      request.put = mockLeasePutFn
+    })
+
+    test('should submit post request to create lease properly', async () => {
+      var lease = {
+        'monthly_parking_rent': 100
+      }
+      var expectedData = getExpectedLeaseResponse(lease, fakeContact)
+
+      var result = await apiService.createLease(lease, fakeContact, fakeAppId)
+
+      expect(result).toEqual(true)
+      expect(mockLeasePostFn.mock.calls.length).toEqual(1)
+      expect(mockLeasePostFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases`, expectedData, true])
+    })
+
+    test('should fail if the lease already contains a salesforce ID', async () => {
+      var lease = {
+        'id': 'lease_id',
+        'monthly_parking_rent': 100
+      }
+      let throwsError = false
+      await apiService.createLease(lease, fakeContact, fakeAppId)
+        .catch(err => {
+          throwsError = true
+          expect(err.message).toEqual('Trying to create a lease that already exists.')
+        })
+
+      expect(mockLeasePostFn.mock.calls.length).toEqual(0)
+      expect(throwsError).toBeTruthy()
+    })
+  })
+
+  describe('updateLease', () => {
     beforeAll(() => {
       request.post = mockLeasePostFn
       request.put = mockLeasePutFn
     })
     const fakeLeaseId = 'fake_lease_id'
 
-    test('should submit put request to update lease if id is provided', async () => {
+    test('should submit put request to update lease correctly', async () => {
       var lease = {
         'id': fakeLeaseId,
         'monthly_parking_rent': 100
       }
-      var expectedData = { 'lease': lease }
+      var expectedData = getExpectedLeaseResponse(lease, fakeContact)
 
-      var result = await apiService.createOrUpdateLease(lease, fakeAppId)
+      var result = await apiService.updateLease(lease, fakeContact, fakeAppId)
 
       expect(result).toEqual(true)
       expect(mockLeasePutFn.mock.calls.length).toEqual(1)
-      expect(mockLeasePutFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases/${fakeLeaseId}`, expectedData])
+      expect(mockLeasePutFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases/${fakeLeaseId}`, expectedData, true])
     })
 
-    test('should submit post request to create lease if no id is provided', async () => {
+    test('should fail if the lease doesn’t have an id', async () => {
       var lease = {
         'monthly_parking_rent': 100
       }
-      var expectedData = { 'lease': lease }
+      let throwsError = false
+      await apiService.updateLease(lease, fakeContact, fakeAppId)
+        .catch(err => {
+          throwsError = true
+          expect(err.message).toEqual('Trying to update a lease that doesn’t yet exist.')
+        })
 
-      var result = await apiService.createOrUpdateLease(lease, fakeAppId)
-
-      expect(result).toEqual(true)
-      expect(mockLeasePostFn.mock.calls.length).toEqual(1)
-      expect(mockLeasePostFn.mock.calls[0]).toEqual([`/applications/${fakeAppId}/leases`, expectedData])
+      expect(mockLeasePutFn.mock.calls.length).toEqual(0)
+      expect(throwsError).toBeTruthy()
     })
   })
 
@@ -88,6 +136,24 @@ describe('apiService', () => {
       expect(result).toEqual(true)
       expect(mockDestroyFn.mock.calls.length).toEqual(1)
       expect(mockDestroyFn.mock.calls[0]).toEqual([`/rental-assistances/${fakeRentalAssistanceId}`])
+    })
+  })
+
+  describe('deleteLease', () => {
+    const applicationId = 'applicationId'
+    const leaseId = 'leaseId'
+
+    beforeEach(async () => {
+      request.destroy = mockLeaseDeleteFn
+      await apiService.deleteLease(applicationId, leaseId)
+    })
+
+    test('calls request.delete', async () => {
+      expect(mockLeaseDeleteFn.mock.calls.length).toEqual(1)
+    })
+
+    test('calls request.delete with the correct params', async () => {
+      expect(mockLeaseDeleteFn.mock.calls[0]).toEqual(['/applications/applicationId/leases/leaseId', null, true])
     })
   })
 })

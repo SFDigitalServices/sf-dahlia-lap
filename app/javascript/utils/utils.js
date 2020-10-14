@@ -21,6 +21,10 @@ export const formatPercent = (value) => {
   return ((value * 100).toFixed(0) + '%')
 }
 
+export const isChanged = (prev, current) => {
+  return !isEqual(prev, current)
+}
+
 export const filterChanged = (prev, current) => {
   if (!prev) {
     return current
