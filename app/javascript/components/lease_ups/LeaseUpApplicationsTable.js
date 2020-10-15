@@ -8,6 +8,7 @@ import appPaths from '~/utils/appPaths'
 import { cellFormat } from '~/utils/reactTableUtils'
 import classNames from 'classnames'
 import { MAX_SERVER_LIMIT } from '~/utils/EagerPagination'
+import StatusHistoryPopover from '../organisms/StatusHistoryPopover'
 
 const LeaseUpStatusCell = ({ cell, onChange }) => {
   const applicationId = cell.original.application_id
@@ -15,11 +16,14 @@ const LeaseUpStatusCell = ({ cell, onChange }) => {
 
   const value = cell.value || null
   return (
-    <StatusDropdown
-      status={value}
-      size='tiny'
-      onChange={(val) => onChange(applicationPreferenceId, applicationId, val)}
-    />
+    <div style={{ display: 'flex', position: 'absolute' }}>
+      <StatusDropdown
+        status={value}
+        size='tiny'
+        onChange={(val) => onChange(applicationPreferenceId, applicationId, val)}
+      />
+      <StatusHistoryPopover statusItems={[]} />
+    </div>
   )
 }
 
@@ -70,6 +74,7 @@ const LeaseUpApplicationsTable = ({
       Header: 'Preference Rank',
       accessor: 'rankOrder',
       headerClassName: 'td-min-narrow',
+      className: 'td-min-narrow',
       Cell: (cell) => <PreferenceRankCell cell={cell} />
     },
     {
@@ -99,31 +104,32 @@ const LeaseUpApplicationsTable = ({
       Header: 'Status Updated',
       accessor: 'status_last_updated',
       headerClassName: 'td-offset-right text-right',
+      className: 'td-offset-right text-right',
       Cell: cellFormat.date
     },
     {
       Header: 'Lease Up Status',
       accessor: 'lease_up_status',
       headerClassName: 'td-min-wide tr-fixed-right',
+      className: 'td-min-wide td-status td-fixed-right',
       Cell: (cell) => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} />
     }
+    // {
+    //   Header: '',
+    //   accessor: 'field_update_comments',
+    //   headerClassName: 'td-min-wide tr-fixed-right',
+    //   className: 'td-min-wide td-fixed-right',
+    //   Cell: (cell) => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} />
+    // }
   ]
 
   const getTdProps = (state, rowInfo, column, instance) => {
     const attrs = {}
 
     // classes and onClick actions vary depending on the type of column
-    if (column.id === 'lease_up_status') {
-      attrs.className = 'td-min-wide td-status td-fixed-right'
-    } else if (column.id !== 'application_number') {
+    if (column.id !== 'application_number' && column.id !== 'lease_up_status') {
       attrs.onClick = (e, handleOriginal) => {
         if (rowInfo) onCellClick(listingId, rowInfo)
-      }
-
-      if (column.id === 'status_last_updated') {
-        attrs.className = 'td-offset-right text-right'
-      } else if (column.id === 'rankOrder') {
-        attrs.className = 'td-min-narrow'
       }
     }
 
