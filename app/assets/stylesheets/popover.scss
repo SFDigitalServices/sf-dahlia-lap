@@ -11,25 +11,36 @@ $arrow-offset: (-$arrow-size / 2);
   z-index: 1;
   width: 22rem;
 
-  #arrow {
+  #arrow,
+  #arrow::before {
     position: absolute;
     width: $arrow-size;
     height: $arrow-size;
     z-index: -1;
+  }
+
+  #arrow::before {
     content: '';
-    transform: rotate(45deg) skew(15deg, 15deg);
     background: white;
     box-shadow: -1px -1px 1px rgba(0, 0, 0, .15);
+    transform: rotate(45deg) skew(15deg, 15deg);
   }
 
   &[data-popper-placement^='top'] > #arrow {
     bottom: $arrow-offset;
+  }
+
+  &[data-popper-placement^='top'] > #arrow::before {
     box-shadow: 1px 1px 1px rgba(0, 0, 0, .15);
     border-bottom-right-radius: $popover-border-radius;
   }
 
   &[data-popper-placement^='bottom'] > #arrow {
     top: $arrow-offset;
+  }
+
+  &[data-popper-placement^='bottom'] > #arrow::before {
     border-top-left-radius: $popover-border-radius;
   }
+
 }

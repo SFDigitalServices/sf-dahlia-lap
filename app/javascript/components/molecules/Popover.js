@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { usePopper } from 'react-popper'
 
 // Source: https://www.30secondsofcode.org/react/s/use-click-outside
 const useClickOutside = (ref, callback) => {
   const handleClick = (e) => {
-    if (ref.current && !ref.current.contains(e.target)) {
+    if (ref && !ref.contains(e.target)) {
       callback()
     }
   }
@@ -19,21 +19,19 @@ const useClickOutside = (ref, callback) => {
 
 const Popover = ({ buttonElement, children }) => {
   const [showPopper, setShowPopper] = useState(false)
+  const [referenceElement, setReferenceElement] = useState(null)
+  const [popperElement, setPopperElement] = useState(null)
+  const [arrowElement, setArrowElement] = useState(null)
 
-  const buttonRef = useRef(null)
-  const popperRef = useRef(null)
+  useClickOutside(popperElement, () => setShowPopper(false))
 
-  useClickOutside(popperRef, () => setShowPopper(false))
-  // the ref for the arrow must be a callback ref
-  const [arrowRef, setArrowRef] = useState(null)
-
-  const { styles, attributes } = usePopper(buttonRef.current, popperRef.current, {
-    placement: 'bottom-end',
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    placement: 'bottom',
     modifiers: [
       {
         name: 'arrow',
         options: {
-          element: arrowRef
+          element: arrowElement
         }
       },
       {
@@ -47,15 +45,15 @@ const Popover = ({ buttonElement, children }) => {
 
   return (
     <>
-      {buttonElement({ ref: buttonRef, onClick: () => setShowPopper(!showPopper) })}
+      {buttonElement({ ref: setReferenceElement, onClick: () => setShowPopper(!showPopper) })}
       {showPopper && (
         <div
           className='popper-container'
-          ref={popperRef}
+          ref={setPopperElement}
           style={styles.popper}
           {...attributes.popper}
         >
-          <div ref={setArrowRef} id='arrow' />
+          <div ref={setArrowElement} style={styles.arrow} id='arrow' />
           {children}
         </div>
       )}
