@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { isEmpty } from 'lodash'
-import { useEffectOnMount } from '~/utils/customHooks'
+import { useEffectOnMount, useQueryParamBoolean } from '~/utils/customHooks'
 import { getShortFormApplication } from '~/components/lease_ups/shortFormActions'
 import ApplicationDetails from './application_details/ApplicationDetails'
 import CardLayout from '../layouts/CardLayout'
@@ -24,7 +25,7 @@ const buildActionLinkIfNecessary = (app, showAddBtn) => {
     )
   }
 
-  if (showAddBtn === 'true') {
+  if (showAddBtn) {
     actions.push(
       <a
         key='add-new-application'
@@ -39,10 +40,14 @@ const buildActionLinkIfNecessary = (app, showAddBtn) => {
   return actions
 }
 
-const ApplicationPage = ({ applicationId, showAddBtn, isLeaseUp }) => {
+const ApplicationPage = () => {
   const [application, setApplication] = useState(null)
   const [fileBaseUrl, setFileBaseUrl] = useState(null)
   const [loading, setLoading] = useState(true)
+
+  const { applicationId } = useParams()
+  const isLeaseUp = useQueryParamBoolean('lease_up')
+  const showAddBtn = useQueryParamBoolean('showAddBtn')
 
   useEffectOnMount(() => {
     getShortFormApplication(applicationId)

@@ -9,6 +9,7 @@ import ApplicationsPage from 'components/applications/ApplicationsPage'
 import FlaggedApplicationsIndexPage from 'components/applications/flagged/FlaggedApplicationsIndexPage'
 import FlaggedApplicationsShowPage from 'components/applications/flagged/FlaggedApplicationsShowPage'
 
+import LeaseUpApp from 'routes/LeaseUpApp'
 import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
 import LeaseUpListingsPage from 'components/lease_ups/LeaseUpListingsPage'
 import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
@@ -35,6 +36,7 @@ WebpackerReact.setup({ ListingPage })
 WebpackerReact.setup({ ListingsPage })
 WebpackerReact.setup({ HomePage })
 WebpackerReact.setup({ LeaseUpApplicationsPage })
+WebpackerReact.setup({ LeaseUpApp })
 WebpackerReact.setup({ LeaseUpListingsPage })
 
 window.onload = () => {
