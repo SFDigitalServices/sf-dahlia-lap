@@ -9,14 +9,6 @@ class ApplicationsController < ApplicationController
     @listings = soql_listing_service.pre_lottery_listings
   end
 
-  def show
-    # TODO: Move these fields into the frontend code
-    # once react-routing is set up.
-    @application_id = params[:id]
-    @is_lease_up = params[:lease_up] == 'true'
-    @show_add_btn = params[:showAddBtn]
-  end
-
   def edit
     @application = soql_application_service.application(params[:id])
     @listing = soql_listing_service.listing(@application[:listing_id])

@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ApplicationPage with regular application After the application finishes loading should match snapshot 1`] = `
-<ApplicationPage
-  applicationId="regular_app_id"
->
+<ApplicationPage>
   <Loading
     isLoading={false}
   >

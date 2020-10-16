@@ -7,10 +7,13 @@ RSpec.describe Applications::SupplementalsController, type: :controller do
   login_admin
 
   describe '#index' do
-    it 'should pass the application ID to the frontend' do
-      get :index, params: { application_id: lease_up_application_id }
-      application_id = assigns(:application_id)
-      expect(application_id).to eq(lease_up_application_id)
+    it 'should render the page successfully' do
+      VCR.use_cassette('controllers/supplementals/index') do
+        get :index, params: { application_id: lease_up_application_id }
+      end
+
+      expect(response.body).to have_react_component('LeaseUpApp')
+      expect(response).to have_http_status(:success)
     end
   end
 end
