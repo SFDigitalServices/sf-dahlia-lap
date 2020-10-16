@@ -10,6 +10,7 @@ $arrow-offset: (-$arrow-size / 2);
   border-radius: $popover-border-radius;
   z-index: 1;
   width: 22rem;
+  white-space: normal;
 
   #arrow,
   #arrow::before {

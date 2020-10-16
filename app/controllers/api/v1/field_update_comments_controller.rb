@@ -4,6 +4,14 @@
 class Api::V1::FieldUpdateCommentsController < ApiController
   before_action :authenticate_user!
 
+  def show
+    id = params[:id]
+
+    render json: {
+      data: service.status_history_by_application(id),
+    }
+  end
+
   def create
     service.create(field_update_comment_params)
     result = service.status_history_by_application(field_update_comment_params[:application])

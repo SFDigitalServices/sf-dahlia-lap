@@ -18,7 +18,7 @@ const Icon = ({ icon, size = 'small', alert, success }) => {
 
 Icon.propTypes = {
   icon: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(['small', 'tiny']),
+  size: PropTypes.oneOf(['small', 'medium', 'tiny']),
   alert: PropTypes.bool,
   success: PropTypes.bool
 }

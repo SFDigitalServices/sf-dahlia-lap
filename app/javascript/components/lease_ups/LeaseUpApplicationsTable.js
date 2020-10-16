@@ -22,7 +22,7 @@ const LeaseUpStatusCell = ({ cell, onChange }) => {
         size='tiny'
         onChange={(val) => onChange(applicationPreferenceId, applicationId, val)}
       />
-      <StatusHistoryPopover statusItems={[]} />
+      <StatusHistoryPopover applicationId={applicationId} />
     </div>
   )
 }

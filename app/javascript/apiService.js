@@ -84,6 +84,12 @@ const getAMI = async ({ chartType, chartYear }) =>
     }
   })
 
+const getFieldUpdateComments = async (applicationId) => {
+  return request
+    .get(`/field-update-comments/${applicationId}`, null, true)
+    .then((response) => response.data)
+}
+
 const createFieldUpdateComment = async (applicationId, status, comment, substatus) => {
   const postData = {
     field_update_comment: {
@@ -189,6 +195,7 @@ export default {
   getShortFormApplication,
   getSupplementalPageData,
   updatePreference,
+  getFieldUpdateComments,
   createFieldUpdateComment,
   getRentalAssistances,
   createRentalAssistance,
