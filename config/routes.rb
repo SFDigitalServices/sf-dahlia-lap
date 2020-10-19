@@ -29,6 +29,18 @@ Rails.application.routes.draw do
     resources :supplementals, only: %w[index], module: 'applications'
   end
 
+  scope '/lease-ups' do
+    resources :applications, only: %w[show] do
+      resources :supplementals, :path => '/supplemental', module: 'applications', only: %w[index]
+    end
+
+    scope module: 'listings' do
+        resources :lease_ups, :path => '/listings', only: %w[index] do
+          resources :applications, :path => '', module: 'lease_ups', only: %w[index]
+        end
+    end
+  end
+
   # API namespacing
   namespace :api do
     namespace :v1 do

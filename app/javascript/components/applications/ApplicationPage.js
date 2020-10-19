@@ -7,6 +7,7 @@ import ApplicationDetails from './application_details/ApplicationDetails'
 import CardLayout from '../layouts/CardLayout'
 import appPaths from '~/utils/appPaths'
 import Loading from '~/components/molecules/Loading'
+import PropTypes from 'prop-types'
 
 import labelMapperFields from './application_details/applicationDetailsFieldsDesc'
 
@@ -40,13 +41,12 @@ const buildActionLinkIfNecessary = (app, showAddBtn) => {
   return actions
 }
 
-const ApplicationPage = () => {
+const ApplicationPage = ({ isLeaseUp = false }) => {
   const [application, setApplication] = useState(null)
   const [fileBaseUrl, setFileBaseUrl] = useState(null)
   const [loading, setLoading] = useState(true)
 
   const { applicationId } = useParams()
-  const isLeaseUp = useQueryParamBoolean('lease_up')
   const showAddBtn = useQueryParamBoolean('showAddBtn')
 
   useEffectOnMount(() => {
@@ -126,6 +126,10 @@ const ApplicationPage = () => {
       </CardLayout>
     </Loading>
   )
+}
+
+ApplicationPage.propTypes = {
+  isLeaseUp: PropTypes.bool
 }
 
 export default ApplicationPage

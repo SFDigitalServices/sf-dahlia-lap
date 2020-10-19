@@ -1,5 +1,4 @@
 import React from 'react'
-// import ReactDOM from 'react-dom'
 import { Switch, Route } from 'react-router-dom'
 
 import LeaseUpApplicationsPage from '~/components/lease_ups/LeaseUpApplicationsPage'
@@ -9,21 +8,24 @@ import ApplicationPage from '~/components/applications/ApplicationPage'
 
 const LeaseUpRoutes = () => (
   <Switch>
-    <Route exact path='/listings/lease-ups/:listingId/applications'>
+    <Route exact path='/lease-ups/listings/:listingId'>
       <LeaseUpApplicationsPage />
     </Route>
-    <Route exact path='/listings/lease-ups'>
+    <Route exact path='/lease-ups/listings'>
       <LeaseUpListingsPage />
     </Route>
     <Route
       exact
-      path='/applications/:applicationId/supplementals'
+      path='/lease-ups/applications/:applicationId/supplemental'
       render={({ match }) => (
         // TODO: Convert SupplementalApplicationPage to functional components and use
         // hooks to get path params.
         <SupplementalApplicationPage applicationId={match.params.applicationId} />
       )}
     />
+    <Route exact path='/lease-ups/applications/:applicationId'>
+      <ApplicationPage isLeaseUp />
+    </Route>
     <Route exact path='/applications/:applicationId'>
       <ApplicationPage />
     </Route>

@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme'
 import Context from '~/components/supplemental_application/context'
 import { Form } from 'react-final-form'
 import { MemoryRouter as Router, Switch, Route } from 'react-router-dom'
+import LeaseUpRoutes from '~/routes/LeaseUpRoutes'
 
 const formNode = (application, formToChildrenFunc) => (
   <Form
@@ -81,6 +82,14 @@ export const withRouter = (urlWithParamPlaceholders, url, children) => {
       <Switch>
         <Route path={urlWithParamPlaceholders}>{children}</Route>
       </Switch>
+    </Router>
+  )
+}
+
+export const mountAppWithUrl = (url) => {
+  return mount(
+    <Router initialEntries={[url]}>
+      <LeaseUpRoutes />
     </Router>
   )
 }

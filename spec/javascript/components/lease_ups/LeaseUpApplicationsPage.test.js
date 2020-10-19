@@ -1,7 +1,5 @@
 /* eslint-disable jest/no-conditional-expect */
-import React from 'react'
-import { mount } from 'enzyme'
-import { withRouter } from '../../testUtils/wrapperUtil'
+import { mountAppWithUrl } from '../../testUtils/wrapperUtil'
 import { act } from 'react-dom/test-utils'
 import LeaseUpApplicationsPage from '~/components/lease_ups/LeaseUpApplicationsPage'
 import Loading from '~/components/molecules/Loading'
@@ -75,13 +73,7 @@ const rowSelector = 'div.rt-tbody .rt-tr-group'
 const getWrapper = async () => {
   let wrapper
   await act(async () => {
-    wrapper = mount(
-      withRouter(
-        '/listings/lease-ups/:listingId/applications',
-        `/listings/lease-ups/${mockListing.id}/applications`,
-        <LeaseUpApplicationsPage />
-      )
-    )
+    wrapper = mountAppWithUrl(`/lease-ups/listings/${mockListing.id}`)
   })
 
   wrapper.update()

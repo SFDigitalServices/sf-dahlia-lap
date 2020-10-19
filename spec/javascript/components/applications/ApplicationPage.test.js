@@ -1,10 +1,8 @@
-import React from 'react'
 import { act } from 'react-dom/test-utils'
-import { withRouter } from '../../testUtils/wrapperUtil'
+import { mountAppWithUrl } from '../../testUtils/wrapperUtil'
 import ApplicationPage from 'components/applications/ApplicationPage'
 import application from '../../fixtures/application'
 import saleApplication from '../../fixtures/sale_application'
-import { mount } from 'enzyme'
 import ApplicationDetails from '~/components/applications/application_details/ApplicationDetails'
 
 import Loading from '~/components/molecules/Loading'
@@ -63,18 +61,21 @@ jest.mock('apiService', () => {
 const mockApplication = application
 const mockSaleApplication = saleApplication
 
-const getWrapper = async ({ applicationId, waitForLoadingFinish = false, queryParams = '' }) => {
+const getWrapper = async ({
+  applicationId,
+  withLeaseUpUrl = false,
+  waitForLoadingFinish = false,
+  queryParams = ''
+}) => {
+  const url = withLeaseUpUrl
+    ? `/lease-ups/applications/${applicationId}${queryParams}`
+    : `/applications/${applicationId}${queryParams}`
+
   let wrapper
 
   // have to wrap in await act so that all useEffectOnMount updates finish.
   await act(async () => {
-    wrapper = mount(
-      withRouter(
-        '/applications/:applicationId',
-        `/applications/${applicationId}${queryParams}`,
-        <ApplicationPage />
-      )
-    )
+    wrapper = mountAppWithUrl(url)
   })
 
   if (waitForLoadingFinish) {
@@ -209,13 +210,13 @@ describe('ApplicationPage', () => {
     })
   })
 
-  describe('with leaseUp query param = true', () => {
+  describe('with leaseUp url', () => {
     let wrapper
     beforeEach(async () => {
       wrapper = await getWrapper({
         applicationId: REGULAR_APP_ID,
-        waitForLoadingFinish: true,
-        queryParams: '?lease_up=true'
+        withLeaseUpUrl: true,
+        waitForLoadingFinish: true
       })
     })
 
@@ -255,13 +256,14 @@ describe('ApplicationPage', () => {
     })
   })
 
-  describe('with showAppBtn and lease_up query params = true', () => {
+  describe('with leaseup url and showAppBtn', () => {
     let wrapper
     beforeEach(async () => {
       wrapper = await getWrapper({
         applicationId: REGULAR_APP_ID,
+        withLeaseUpUrl: true,
         waitForLoadingFinish: true,
-        queryParams: '?showAddBtn=true&lease_up=true'
+        queryParams: '?showAddBtn=true'
       })
     })
 
