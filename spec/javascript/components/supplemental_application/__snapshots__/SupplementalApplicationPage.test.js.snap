@@ -19,14 +19,14 @@ Array [
           >
             <li>
               <a
-                href="/listings/lease-ups"
+                href="/lease-ups/listings"
               >
                 Lease Ups
               </a>
             </li>
             <li>
               <a
-                href="/listings/lease-ups/a0W0P00000GbyuQUAR/applications"
+                href="/lease-ups/listings/a0W0P00000GbyuQUAR"
               >
                 Partners Test Listing (do not modify) - Yellow Acres
               </a>
@@ -85,7 +85,7 @@ Array [
         <a
           aria-selected={true}
           className="button-unstyled"
-          href="/applications/a0o0P00000GZazOQAT/supplementals"
+          href="/lease-ups/applications/a0o0P00000GZazOQAT/supplemental"
           onFocus={[Function]}
           onKeyDown={[Function]}
           role="menuitem"

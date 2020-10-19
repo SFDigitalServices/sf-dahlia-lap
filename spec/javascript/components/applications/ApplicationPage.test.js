@@ -194,13 +194,12 @@ describe('ApplicationPage', () => {
     })
   })
 
-  describe('with leaseUp query param = false', () => {
+  describe('without lease-up URL', () => {
     let wrapper
     beforeEach(async () => {
       wrapper = await getWrapper({
         applicationId: REGULAR_APP_ID,
-        waitForLoadingFinish: true,
-        queryParams: '?lease_up=false'
+        waitForLoadingFinish: true
       })
     })
 

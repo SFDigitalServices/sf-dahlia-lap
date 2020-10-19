@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { each, includes, last, cloneDeep, toLower } from 'lodash'
 import ReactTable from 'react-table'
 import utils from '~/utils/utils'
+import appPaths from '~/utils/appPaths'
 import apiService from '~/apiService'
 import IndexTableCell from './IndexTableCell'
 
@@ -120,7 +121,10 @@ class SpreadsheetIndexTable extends React.Component {
       const lotteryStatus = row.original.flagged_record.listing.lottery_status
       const viewApplicationLink = (
         <li>
-          <a className='button secondary tiny' href={`/applications/${row.original.application}`}>
+          <a
+            className='button secondary tiny'
+            href={appPaths.toApplication(row.original.application)}
+          >
             View Application
           </a>
         </li>

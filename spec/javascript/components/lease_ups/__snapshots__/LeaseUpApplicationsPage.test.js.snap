@@ -11,11 +11,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
         },
         "breadcrumbs": Array [
           Object {
-            "link": "/listings/lease-ups",
+            "link": "/lease-ups/listings",
             "title": "Lease Ups",
           },
           Object {
-            "link": "/listings/lease-ups/listingId/applications",
+            "link": "/lease-ups/listings/listingId",
             "title": "listingName",
           },
         ],
@@ -35,11 +35,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
       breadcrumbs={
         Array [
           Object {
-            "link": "/listings/lease-ups",
+            "link": "/lease-ups/listings",
             "title": "Lease Ups",
           },
           Object {
-            "link": "/listings/lease-ups/listingId/applications",
+            "link": "/lease-ups/listings/listingId",
             "title": "listingName",
           },
         ]
@@ -60,11 +60,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
               items={
                 Array [
                   Object {
-                    "link": "/listings/lease-ups",
+                    "link": "/lease-ups/listings",
                     "title": "Lease Ups",
                   },
                   Object {
-                    "link": "/listings/lease-ups/listingId/applications",
+                    "link": "/lease-ups/listings/listingId",
                     "title": "listingName",
                   },
                 ]
@@ -80,7 +80,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     current={false}
                     item={
                       Object {
-                        "link": "/listings/lease-ups",
+                        "link": "/lease-ups/listings",
                         "title": "Lease Ups",
                       }
                     }
@@ -88,7 +88,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                   >
                     <li>
                       <a
-                        href="/listings/lease-ups"
+                        href="/lease-ups/listings"
                       >
                         Lease Ups
                       </a>
@@ -98,7 +98,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     current={true}
                     item={
                       Object {
-                        "link": "/listings/lease-ups/listingId/applications",
+                        "link": "/lease-ups/listings/listingId",
                         "title": "listingName",
                       }
                     }
@@ -109,7 +109,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     >
                       <a
                         aria-current="page"
-                        href="/listings/lease-ups/listingId/applications"
+                        href="/lease-ups/listings/listingId"
                       >
                         listingName
                       </a>
@@ -2328,7 +2328,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                       >
                                         <a
                                           className="has-border"
-                                          href="/applications/1001/supplementals"
+                                          href="/lease-ups/applications/1001/supplemental"
                                         >
                                           Application Name 1
                                         </a>
@@ -5678,7 +5678,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                       >
                                         <a
                                           className="has-border"
-                                          href="/applications/1002/supplementals"
+                                          href="/lease-ups/applications/1002/supplemental"
                                         >
                                           Application Name 2
                                         </a>
@@ -9028,7 +9028,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                       >
                                         <a
                                           className="has-border"
-                                          href="/applications/1003/supplementals"
+                                          href="/lease-ups/applications/1003/supplemental"
                                         >
                                           Application Name 3
                                         </a>
@@ -12378,7 +12378,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                       >
                                         <a
                                           className="has-border"
-                                          href="/applications/1004/supplementals"
+                                          href="/lease-ups/applications/1004/supplemental"
                                         >
                                           Application Name 4
                                         </a>
@@ -15728,7 +15728,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                       >
                                         <a
                                           className="has-border"
-                                          href="/applications/1005/supplementals"
+                                          href="/lease-ups/applications/1005/supplemental"
                                         >
                                           Application Name 5
                                         </a>

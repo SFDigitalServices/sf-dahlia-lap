@@ -5,28 +5,29 @@ import LeaseUpApplicationsPage from '~/components/lease_ups/LeaseUpApplicationsP
 import SupplementalApplicationPage from '~/components/supplemental_application/SupplementalApplicationPage'
 import LeaseUpListingsPage from '~/components/lease_ups/LeaseUpListingsPage'
 import ApplicationPage from '~/components/applications/ApplicationPage'
+import appPaths from '~/utils/appPaths'
 
 const LeaseUpRoutes = () => (
   <Switch>
-    <Route exact path='/lease-ups/listings/:listingId'>
+    <Route exact path={appPaths.toListingLeaseUps(':listingId')}>
       <LeaseUpApplicationsPage />
     </Route>
-    <Route exact path='/lease-ups/listings'>
+    <Route exact path={appPaths.toLeaseUps()}>
       <LeaseUpListingsPage />
     </Route>
     <Route
       exact
-      path='/lease-ups/applications/:applicationId/supplemental'
+      path={appPaths.toApplicationSupplementals(':applicationId')}
       render={({ match }) => (
         // TODO: Convert SupplementalApplicationPage to functional components and use
         // hooks to get path params.
         <SupplementalApplicationPage applicationId={match.params.applicationId} />
       )}
     />
-    <Route exact path='/lease-ups/applications/:applicationId'>
+    <Route exact path={appPaths.toLeaseUpShortForm(':applicationId')}>
       <ApplicationPage isLeaseUp />
     </Route>
-    <Route exact path='/applications/:applicationId'>
+    <Route exact path={appPaths.toApplication(':applicationId')}>
       <ApplicationPage />
     </Route>
   </Switch>
