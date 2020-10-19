@@ -15,7 +15,7 @@ const StatusHistoryPopover = ({ applicationId }) => {
 
   const StatusIconButton = ({ onClick, ref }) => (
     <button ref={ref} onClick={onClick} className='tiny icon margin-left--half'>
-      <Icon icon='arrow-down' size='small' />
+      <Icon icon='list2' size='medium' />
     </button>
   )
   const [data, setData] = useState({ statusItems: [], loading: false })
