@@ -3785,6 +3785,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                 placeholder={null}
                                                 styles={
                                                   Object {
+                                                    "control": [Function],
                                                     "option": [Function],
                                                   }
                                                 }
@@ -3883,6 +3884,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                   screenReaderStatus={[Function]}
                                                   styles={
                                                     Object {
+                                                      "control": [Function],
                                                       "option": [Function],
                                                     }
                                                   }
@@ -4042,6 +4044,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                         "placeholder": null,
                                                         "screenReaderStatus": [Function],
                                                         "styles": Object {
+                                                          "control": [Function],
                                                           "option": [Function],
                                                         },
                                                         "tabIndex": "0",
@@ -4252,6 +4255,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               "placeholder": null,
                                                               "screenReaderStatus": [Function],
                                                               "styles": Object {
+                                                                "control": [Function],
                                                                 "option": [Function],
                                                               },
                                                               "tabIndex": "0",
@@ -4294,35 +4298,12 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                             __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Control"
                                                             __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
                                                             className="status-dropdown__control"
-                                                            css={
-                                                              Object {
-                                                                "&:hover": Object {
-                                                                  "borderColor": "hsl(0, 0%, 70%)",
-                                                                },
-                                                                "alignItems": "center",
-                                                                "backgroundColor": "hsl(0, 0%, 100%)",
-                                                                "borderColor": "hsl(0, 0%, 80%)",
-                                                                "borderRadius": 4,
-                                                                "borderStyle": "solid",
-                                                                "borderWidth": 1,
-                                                                "boxShadow": null,
-                                                                "boxSizing": "border-box",
-                                                                "cursor": "default",
-                                                                "display": "flex",
-                                                                "flexWrap": "wrap",
-                                                                "justifyContent": "space-between",
-                                                                "label": "control",
-                                                                "minHeight": 38,
-                                                                "outline": "0 !important",
-                                                                "position": "relative",
-                                                                "transition": "all 100ms",
-                                                              }
-                                                            }
+                                                            css={Object {}}
                                                             onMouseDown={[Function]}
                                                             onTouchEnd={[Function]}
                                                           >
                                                             <div
-                                                              className="status-dropdown__control css-yk16xz-control"
+                                                              className="status-dropdown__control css-1g8ily9-Control"
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
@@ -4470,6 +4451,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     "placeholder": null,
                                                                     "screenReaderStatus": [Function],
                                                                     "styles": Object {
+                                                                      "control": [Function],
                                                                       "option": [Function],
                                                                     },
                                                                     "tabIndex": "0",
@@ -4674,6 +4656,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                           "placeholder": null,
                                                                           "screenReaderStatus": [Function],
                                                                           "styles": Object {
+                                                                            "control": [Function],
                                                                             "option": [Function],
                                                                           },
                                                                           "tabIndex": "0",
@@ -4879,6 +4862,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                 "placeholder": null,
                                                                                 "screenReaderStatus": [Function],
                                                                                 "styles": Object {
+                                                                                  "control": [Function],
                                                                                   "option": [Function],
                                                                                 },
                                                                                 "tabIndex": "0",
@@ -5137,6 +5121,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     "placeholder": null,
                                                                     "screenReaderStatus": [Function],
                                                                     "styles": Object {
+                                                                      "control": [Function],
                                                                       "option": [Function],
                                                                     },
                                                                     "tabIndex": "0",
@@ -7135,6 +7120,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                 placeholder={null}
                                                 styles={
                                                   Object {
+                                                    "control": [Function],
                                                     "option": [Function],
                                                   }
                                                 }
@@ -7233,6 +7219,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                   screenReaderStatus={[Function]}
                                                   styles={
                                                     Object {
+                                                      "control": [Function],
                                                       "option": [Function],
                                                     }
                                                   }
@@ -7392,6 +7379,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                         "placeholder": null,
                                                         "screenReaderStatus": [Function],
                                                         "styles": Object {
+                                                          "control": [Function],
                                                           "option": [Function],
                                                         },
                                                         "tabIndex": "0",
@@ -7602,6 +7590,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               "placeholder": null,
                                                               "screenReaderStatus": [Function],
                                                               "styles": Object {
+                                                                "control": [Function],
                                                                 "option": [Function],
                                                               },
                                                               "tabIndex": "0",
@@ -7644,35 +7633,12 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                             __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Control"
                                                             __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
                                                             className="status-dropdown__control"
-                                                            css={
-                                                              Object {
-                                                                "&:hover": Object {
-                                                                  "borderColor": "hsl(0, 0%, 70%)",
-                                                                },
-                                                                "alignItems": "center",
-                                                                "backgroundColor": "hsl(0, 0%, 100%)",
-                                                                "borderColor": "hsl(0, 0%, 80%)",
-                                                                "borderRadius": 4,
-                                                                "borderStyle": "solid",
-                                                                "borderWidth": 1,
-                                                                "boxShadow": null,
-                                                                "boxSizing": "border-box",
-                                                                "cursor": "default",
-                                                                "display": "flex",
-                                                                "flexWrap": "wrap",
-                                                                "justifyContent": "space-between",
-                                                                "label": "control",
-                                                                "minHeight": 38,
-                                                                "outline": "0 !important",
-                                                                "position": "relative",
-                                                                "transition": "all 100ms",
-                                                              }
-                                                            }
+                                                            css={Object {}}
                                                             onMouseDown={[Function]}
                                                             onTouchEnd={[Function]}
                                                           >
                                                             <div
-                                                              className="status-dropdown__control css-yk16xz-control"
+                                                              className="status-dropdown__control css-1g8ily9-Control"
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
@@ -7820,6 +7786,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     "placeholder": null,
                                                                     "screenReaderStatus": [Function],
                                                                     "styles": Object {
+                                                                      "control": [Function],
                                                                       "option": [Function],
                                                                     },
                                                                     "tabIndex": "0",
@@ -8024,6 +7991,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                           "placeholder": null,
                                                                           "screenReaderStatus": [Function],
                                                                           "styles": Object {
+                                                                            "control": [Function],
                                                                             "option": [Function],
                                                                           },
                                                                           "tabIndex": "0",
@@ -8229,6 +8197,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                 "placeholder": null,
                                                                                 "screenReaderStatus": [Function],
                                                                                 "styles": Object {
+                                                                                  "control": [Function],
                                                                                   "option": [Function],
                                                                                 },
                                                                                 "tabIndex": "0",
@@ -8487,6 +8456,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     "placeholder": null,
                                                                     "screenReaderStatus": [Function],
                                                                     "styles": Object {
+                                                                      "control": [Function],
                                                                       "option": [Function],
                                                                     },
                                                                     "tabIndex": "0",
@@ -10485,6 +10455,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                 placeholder={null}
                                                 styles={
                                                   Object {
+                                                    "control": [Function],
                                                     "option": [Function],
                                                   }
                                                 }
@@ -10583,6 +10554,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                   screenReaderStatus={[Function]}
                                                   styles={
                                                     Object {
+                                                      "control": [Function],
                                                       "option": [Function],
                                                     }
                                                   }
@@ -10742,6 +10714,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                         "placeholder": null,
                                                         "screenReaderStatus": [Function],
                                                         "styles": Object {
+                                                          "control": [Function],
                                                           "option": [Function],
                                                         },
                                                         "tabIndex": "0",
@@ -10952,6 +10925,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               "placeholder": null,
                                                               "screenReaderStatus": [Function],
                                                               "styles": Object {
+                                                                "control": [Function],
                                                                 "option": [Function],
                                                               },
                                                               "tabIndex": "0",
@@ -10994,35 +10968,12 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                             __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Control"
                                                             __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
                                                             className="status-dropdown__control"
-                                                            css={
-                                                              Object {
-                                                                "&:hover": Object {
-                                                                  "borderColor": "hsl(0, 0%, 70%)",
-                                                                },
-                                                                "alignItems": "center",
-                                                                "backgroundColor": "hsl(0, 0%, 100%)",
-                                                                "borderColor": "hsl(0, 0%, 80%)",
-                                                                "borderRadius": 4,
-                                                                "borderStyle": "solid",
-                                                                "borderWidth": 1,
-                                                                "boxShadow": null,
-                                                                "boxSizing": "border-box",
-                                                                "cursor": "default",
-                                                                "display": "flex",
-                                                                "flexWrap": "wrap",
-                                                                "justifyContent": "space-between",
-                                                                "label": "control",
-                                                                "minHeight": 38,
-                                                                "outline": "0 !important",
-                                                                "position": "relative",
-                                                                "transition": "all 100ms",
-                                                              }
-                                                            }
+                                                            css={Object {}}
                                                             onMouseDown={[Function]}
                                                             onTouchEnd={[Function]}
                                                           >
                                                             <div
-                                                              className="status-dropdown__control css-yk16xz-control"
+                                                              className="status-dropdown__control css-1g8ily9-Control"
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
@@ -11170,6 +11121,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     "placeholder": null,
                                                                     "screenReaderStatus": [Function],
                                                                     "styles": Object {
+                                                                      "control": [Function],
                                                                       "option": [Function],
                                                                     },
                                                                     "tabIndex": "0",
@@ -11374,6 +11326,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                           "placeholder": null,
                                                                           "screenReaderStatus": [Function],
                                                                           "styles": Object {
+                                                                            "control": [Function],
                                                                             "option": [Function],
                                                                           },
                                                                           "tabIndex": "0",
@@ -11579,6 +11532,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                 "placeholder": null,
                                                                                 "screenReaderStatus": [Function],
                                                                                 "styles": Object {
+                                                                                  "control": [Function],
                                                                                   "option": [Function],
                                                                                 },
                                                                                 "tabIndex": "0",
@@ -11837,6 +11791,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     "placeholder": null,
                                                                     "screenReaderStatus": [Function],
                                                                     "styles": Object {
+                                                                      "control": [Function],
                                                                       "option": [Function],
                                                                     },
                                                                     "tabIndex": "0",
@@ -13835,6 +13790,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                 placeholder={null}
                                                 styles={
                                                   Object {
+                                                    "control": [Function],
                                                     "option": [Function],
                                                   }
                                                 }
@@ -13933,6 +13889,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                   screenReaderStatus={[Function]}
                                                   styles={
                                                     Object {
+                                                      "control": [Function],
                                                       "option": [Function],
                                                     }
                                                   }
@@ -14092,6 +14049,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                         "placeholder": null,
                                                         "screenReaderStatus": [Function],
                                                         "styles": Object {
+                                                          "control": [Function],
                                                           "option": [Function],
                                                         },
                                                         "tabIndex": "0",
@@ -14302,6 +14260,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               "placeholder": null,
                                                               "screenReaderStatus": [Function],
                                                               "styles": Object {
+                                                                "control": [Function],
                                                                 "option": [Function],
                                                               },
                                                               "tabIndex": "0",
@@ -14344,35 +14303,12 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                             __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Control"
                                                             __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
                                                             className="status-dropdown__control"
-                                                            css={
-                                                              Object {
-                                                                "&:hover": Object {
-                                                                  "borderColor": "hsl(0, 0%, 70%)",
-                                                                },
-                                                                "alignItems": "center",
-                                                                "backgroundColor": "hsl(0, 0%, 100%)",
-                                                                "borderColor": "hsl(0, 0%, 80%)",
-                                                                "borderRadius": 4,
-                                                                "borderStyle": "solid",
-                                                                "borderWidth": 1,
-                                                                "boxShadow": null,
-                                                                "boxSizing": "border-box",
-                                                                "cursor": "default",
-                                                                "display": "flex",
-                                                                "flexWrap": "wrap",
-                                                                "justifyContent": "space-between",
-                                                                "label": "control",
-                                                                "minHeight": 38,
-                                                                "outline": "0 !important",
-                                                                "position": "relative",
-                                                                "transition": "all 100ms",
-                                                              }
-                                                            }
+                                                            css={Object {}}
                                                             onMouseDown={[Function]}
                                                             onTouchEnd={[Function]}
                                                           >
                                                             <div
-                                                              className="status-dropdown__control css-yk16xz-control"
+                                                              className="status-dropdown__control css-1g8ily9-Control"
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
@@ -14520,6 +14456,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     "placeholder": null,
                                                                     "screenReaderStatus": [Function],
                                                                     "styles": Object {
+                                                                      "control": [Function],
                                                                       "option": [Function],
                                                                     },
                                                                     "tabIndex": "0",
@@ -14724,6 +14661,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                           "placeholder": null,
                                                                           "screenReaderStatus": [Function],
                                                                           "styles": Object {
+                                                                            "control": [Function],
                                                                             "option": [Function],
                                                                           },
                                                                           "tabIndex": "0",
@@ -14929,6 +14867,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                 "placeholder": null,
                                                                                 "screenReaderStatus": [Function],
                                                                                 "styles": Object {
+                                                                                  "control": [Function],
                                                                                   "option": [Function],
                                                                                 },
                                                                                 "tabIndex": "0",
@@ -15187,6 +15126,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     "placeholder": null,
                                                                     "screenReaderStatus": [Function],
                                                                     "styles": Object {
+                                                                      "control": [Function],
                                                                       "option": [Function],
                                                                     },
                                                                     "tabIndex": "0",
@@ -17185,6 +17125,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                 placeholder={null}
                                                 styles={
                                                   Object {
+                                                    "control": [Function],
                                                     "option": [Function],
                                                   }
                                                 }
@@ -17283,6 +17224,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                   screenReaderStatus={[Function]}
                                                   styles={
                                                     Object {
+                                                      "control": [Function],
                                                       "option": [Function],
                                                     }
                                                   }
@@ -17442,6 +17384,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                         "placeholder": null,
                                                         "screenReaderStatus": [Function],
                                                         "styles": Object {
+                                                          "control": [Function],
                                                           "option": [Function],
                                                         },
                                                         "tabIndex": "0",
@@ -17652,6 +17595,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               "placeholder": null,
                                                               "screenReaderStatus": [Function],
                                                               "styles": Object {
+                                                                "control": [Function],
                                                                 "option": [Function],
                                                               },
                                                               "tabIndex": "0",
@@ -17694,35 +17638,12 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                             __EMOTION_LABEL_PLEASE_DO_NOT_USE__="Control"
                                                             __EMOTION_TYPE_PLEASE_DO_NOT_USE__="div"
                                                             className="status-dropdown__control"
-                                                            css={
-                                                              Object {
-                                                                "&:hover": Object {
-                                                                  "borderColor": "hsl(0, 0%, 70%)",
-                                                                },
-                                                                "alignItems": "center",
-                                                                "backgroundColor": "hsl(0, 0%, 100%)",
-                                                                "borderColor": "hsl(0, 0%, 80%)",
-                                                                "borderRadius": 4,
-                                                                "borderStyle": "solid",
-                                                                "borderWidth": 1,
-                                                                "boxShadow": null,
-                                                                "boxSizing": "border-box",
-                                                                "cursor": "default",
-                                                                "display": "flex",
-                                                                "flexWrap": "wrap",
-                                                                "justifyContent": "space-between",
-                                                                "label": "control",
-                                                                "minHeight": 38,
-                                                                "outline": "0 !important",
-                                                                "position": "relative",
-                                                                "transition": "all 100ms",
-                                                              }
-                                                            }
+                                                            css={Object {}}
                                                             onMouseDown={[Function]}
                                                             onTouchEnd={[Function]}
                                                           >
                                                             <div
-                                                              className="status-dropdown__control css-yk16xz-control"
+                                                              className="status-dropdown__control css-1g8ily9-Control"
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
@@ -17870,6 +17791,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     "placeholder": null,
                                                                     "screenReaderStatus": [Function],
                                                                     "styles": Object {
+                                                                      "control": [Function],
                                                                       "option": [Function],
                                                                     },
                                                                     "tabIndex": "0",
@@ -18074,6 +17996,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                           "placeholder": null,
                                                                           "screenReaderStatus": [Function],
                                                                           "styles": Object {
+                                                                            "control": [Function],
                                                                             "option": [Function],
                                                                           },
                                                                           "tabIndex": "0",
@@ -18279,6 +18202,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                 "placeholder": null,
                                                                                 "screenReaderStatus": [Function],
                                                                                 "styles": Object {
+                                                                                  "control": [Function],
                                                                                   "option": [Function],
                                                                                 },
                                                                                 "tabIndex": "0",
@@ -18537,6 +18461,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     "placeholder": null,
                                                                     "screenReaderStatus": [Function],
                                                                     "styles": Object {
+                                                                      "control": [Function],
                                                                       "option": [Function],
                                                                     },
                                                                     "tabIndex": "0",

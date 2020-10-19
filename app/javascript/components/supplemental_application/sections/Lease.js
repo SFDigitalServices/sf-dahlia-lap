@@ -209,7 +209,7 @@ const Lease = ({ form, values, store }) => {
                 const hasError = !values.unit && meta.touched && meta.error
                 return (
                   <div className={classNames('form-group margin-bottom', hasError && 'error')}>
-                    <Label label='Assigned Unit Number' />
+                    <Label label='Assigned Unit Number' fieldName='lease_unit' />
                     <UnitDropdown
                       availableUnits={availableUnits}
                       unit={values.lease.unit}

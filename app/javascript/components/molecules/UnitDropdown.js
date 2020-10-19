@@ -41,7 +41,7 @@ export const renderUnitOption = (
   )
 }
 
-const UnitDropdown = ({ unit, availableUnits, onChange, disabled, placeholder }) => {
+const UnitDropdown = ({ unit, availableUnits, onChange, disabled, placeholder, id }) => {
   const buttonClasses = [
     'dropdown-button',
     'dropdown-select',
@@ -52,10 +52,11 @@ const UnitDropdown = ({ unit, availableUnits, onChange, disabled, placeholder })
   const renderUnitToggle = ({ children, getValue, ...props }) => {
     const val = getValue()[0]
 
+    const callToAction = availableUnits.length > 0 ? placeholder : 'No Units Available'
     return (
-      <button className={classNames(buttonClasses)} type='button' disabled={disabled}>
+      <button className={classNames(buttonClasses)} type='button' disabled={disabled} id={id}>
         <Icon icon='arrow-down' />
-        {val?.unit_number ? val.unit_number : placeholder}
+        {val?.unit_number ? val.unit_number : callToAction}
         <div className='ui-icon ui-small'>
           <components.ValueContainer getValue={getValue} {...props}>
             {children}
@@ -88,14 +89,16 @@ UnitDropdown.propTypes = {
   disabled: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
-  unit: PropTypes.string
+  unit: PropTypes.string,
+  id: PropTypes.string
 }
 
 UnitDropdown.defaultProps = {
   availableUnits: null,
   disabled: false,
   placeholder: 'Select One...',
-  unit: null
+  unit: null,
+  id: 'form-lease_unit'
 }
 
 export default UnitDropdown

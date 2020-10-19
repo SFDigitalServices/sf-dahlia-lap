@@ -1711,41 +1711,66 @@ Array [
                     className="form-grid_item column small-6"
                   >
                     <div
-                      className="form-group"
+                      className="form-group margin-bottom"
                     >
                       <label
                         className="form-label"
-                        htmlFor="lease_assigned_unit"
-                        id="label-lease-unit"
+                        htmlFor="form-lease_unit"
+                        id="label-lease_unit"
                       >
                         Assigned Unit Number
                       </label>
-                      <select
-                        className=""
-                        disabled={true}
-                        id="lease_assigned_unit"
-                        name="lease.unit"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        onFocus={[Function]}
-                        value="a0b0P00001HIHrnQAH"
+                      <div
+                        className="dropdown unit-dropdown--is-disabled css-14jk2my-container"
+                        onKeyDown={[Function]}
                       >
-                        <option
-                          value=""
+                        <div
+                          className="unit-dropdown__control unit-dropdown__control--is-disabled css-1g8ily9-Control"
+                          onMouseDown={[Function]}
+                          onTouchEnd={[Function]}
                         >
-                          Select One...
-                        </option>
-                        <option
-                          value="id1"
-                        >
-                          1
-                        </option>
-                        <option
-                          value="id2"
-                        >
-                          2
-                        </option>
-                      </select>
+                          <button
+                            className="dropdown-button dropdown-select has-icon--right text-align-left expand"
+                            disabled={true}
+                            id="form-lease_unit"
+                            type="button"
+                          >
+                            <span
+                              className="ui-icon ui-small"
+                            >
+                              <svg>
+                                <use
+                                  xlinkHref="#i-arrow-down"
+                                />
+                              </svg>
+                            </span>
+                            Select One...
+                            <div
+                              className="ui-icon ui-small"
+                            >
+                              <div
+                                className="unit-dropdown__value-container css-g1d714-ValueContainer"
+                              >
+                                <div
+                                  className="unit-dropdown__placeholder css-1wa3eu0-placeholder"
+                                />
+                                <input
+                                  aria-autocomplete="list"
+                                  className="css-62g3xt-dummyInput"
+                                  disabled={true}
+                                  id="react-select-5-input"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onFocus={[Function]}
+                                  readOnly={true}
+                                  tabIndex="0"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -5324,7 +5349,7 @@ Array [
                     onKeyDown={[Function]}
                   >
                     <div
-                      className="status-dropdown__control css-yk16xz-control"
+                      className="status-dropdown__control css-1g8ily9-Control"
                       onMouseDown={[Function]}
                       onTouchEnd={[Function]}
                     >
@@ -5356,7 +5381,7 @@ Array [
                               aria-autocomplete="list"
                               className="css-62g3xt-dummyInput"
                               disabled={false}
-                              id="react-select-2-input"
+                              id="react-select-3-input"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
@@ -5390,7 +5415,7 @@ Array [
                     onKeyDown={[Function]}
                   >
                     <div
-                      className="status-dropdown__control css-yk16xz-control"
+                      className="status-dropdown__control css-1g8ily9-Control"
                       onMouseDown={[Function]}
                       onTouchEnd={[Function]}
                     >
@@ -5422,7 +5447,7 @@ Array [
                               aria-autocomplete="list"
                               className="css-62g3xt-dummyInput"
                               disabled={false}
-                              id="react-select-3-input"
+                              id="react-select-4-input"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onFocus={[Function]}
