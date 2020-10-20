@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ListingApplicationsPage should render succesfully 1`] = `
+exports[`ListingApplicationsPage should render successfully 1`] = `
 Array [
   <header
     className="lead-header short  bg-dust"
@@ -70,7 +70,7 @@ Array [
       className="loading-panel loading"
     >
       <div
-        style={Object {}}
+        style={null}
       >
         <div
           className="spinner sk-fading-circle"
