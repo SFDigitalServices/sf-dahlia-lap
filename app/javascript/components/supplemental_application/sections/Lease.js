@@ -205,7 +205,7 @@ const Lease = ({ form, values, store }) => {
           <FormGrid.Item>
             <Field
               name='lease.unit'
-              component={({ input: { onChange }, meta, ...rest }) => {
+              component={({ input: { onChange }, meta }) => {
                 const hasError = !values.unit && meta.touched && meta.error
                 return (
                   <div className={classNames('form-group margin-bottom', hasError && 'error')}>

@@ -56,7 +56,7 @@ const UnitDropdown = ({ unit, availableUnits, onChange, disabled, placeholder, i
     return (
       <button className={classNames(buttonClasses)} type='button' disabled={disabled} id={id}>
         <Icon icon='arrow-down' />
-        {val?.unit_number ? val.unit_number : callToAction}
+        {val?.unit_number ?? callToAction}
         <div className='ui-icon ui-small'>
           <components.ValueContainer getValue={getValue} {...props}>
             {children}
@@ -94,7 +94,7 @@ UnitDropdown.propTypes = {
 }
 
 UnitDropdown.defaultProps = {
-  availableUnits: null,
+  availableUnits: [],
   disabled: false,
   placeholder: 'Select One...',
   unit: null,

@@ -21,6 +21,14 @@ const units = [
     priority_type: null,
     max_ami_for_qualifying_unit: 50,
     ami_chart_type: 'HUD'
+  },
+  {
+    id: '0',
+    unit_number: '0',
+    unit_type: 'studio',
+    priority_type: null,
+    max_ami_for_qualifying_unit: 50,
+    ami_chart_type: 'HUD'
   }
 ]
 
@@ -91,6 +99,13 @@ describe('UnitDropdown', () => {
       wrapper = getUnitOptionWrapper({}, units[1].id)
       expect(wrapper.find('li').hasClass('dropdown-menu_unit')).toEqual(true)
       expect(wrapper.text()).toEqual('Select One...')
+    })
+
+    test('renders unit with number `0`', () => {
+      wrapper = getUnitOptionWrapper(units[2], units[2].id)
+      expect(wrapper.find('li').hasClass('dropdown-menu_unit')).toEqual(true)
+      expect(wrapper.find('li').prop('aria-selected')).toEqual(true)
+      expect(wrapper.text()).toEqual('0studio50% (HUD)')
     })
   })
 })
