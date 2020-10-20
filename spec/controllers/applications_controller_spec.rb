@@ -12,7 +12,7 @@ RSpec.describe ApplicationsController, type: :controller do
         get :show, params: { id: non_lease_up_application_id }
       end
 
-      expect(response.body).to have_react_component('ApplicationPage')
+      expect(response.body).to have_react_component('LeaseUpApp')
       expect(response).to have_http_status(:success)
     end
   end

@@ -2,6 +2,7 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import Context from '~/components/supplemental_application/context'
 import { Form } from 'react-final-form'
+import { MemoryRouter as Router, Switch, Route } from 'react-router-dom'
 
 const formNode = (application, formToChildrenFunc) => (
   <Form
@@ -72,4 +73,14 @@ export const findByNameAndProps = (wrapper, name, props) => {
 export const findWithText = (wrapper, nodeName, text) => {
   const predicate = (n) => n.name() === nodeName && n.text() === text
   return wrapper.findWhere(predicate)
+}
+
+export const withRouter = (urlWithParamPlaceholders, url, children) => {
+  return (
+    <Router initialEntries={[url]}>
+      <Switch>
+        <Route path={urlWithParamPlaceholders}>{children}</Route>
+      </Switch>
+    </Router>
+  )
 }
