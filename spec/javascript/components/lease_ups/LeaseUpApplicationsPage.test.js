@@ -63,11 +63,11 @@ const mockListing = {
 }
 
 const mockApplications = [
-  buildMockApplicationWithPreference(1, '2', '2'),
-  buildMockApplicationWithPreference(2, '2', '1'),
-  buildMockApplicationWithPreference(3, '3', '1'),
-  buildMockApplicationWithPreference(4, '1', '2'),
-  buildMockApplicationWithPreference(5, '1', '1')
+  buildMockApplicationWithPreference('1', '2', '2'),
+  buildMockApplicationWithPreference('2', '2', '1'),
+  buildMockApplicationWithPreference('3', '3', '1'),
+  buildMockApplicationWithPreference('4', '1', '2'),
+  buildMockApplicationWithPreference('5', '1', '1')
 ]
 
 const rowSelector = 'div.rt-tbody .rt-tr-group'
