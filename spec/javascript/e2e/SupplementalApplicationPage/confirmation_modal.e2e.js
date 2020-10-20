@@ -44,11 +44,13 @@ describe('SupplementalApplicationPage confirm modal', () => {
       )
       await page.waitForSelector('button#save-supplemental-application')
 
-      await page.waitForSelector('.tabs').then(() => page.click('.tabs li:nth-child(1)'))
-      await page.waitForNavigation()
+      const url = await page.waitForSelector('.tabs').then(async () => {
+        await page.click('.tabs li:nth-child(1)')
+        return page.url()
+      })
 
       // Verify that we're now on the application snapshot page
-      expect(page.url()).toBe(
+      expect(url).toBe(
         `http://localhost:3000/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`
       )
 
