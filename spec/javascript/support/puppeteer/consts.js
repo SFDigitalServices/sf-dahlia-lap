@@ -8,7 +8,8 @@ export const LEASE_UP_LISTING_ID = process.env.E2E_LEASE_UP_LISTING_ID || 'a0W0P
 // Default to an application from Yellow Acres on Full
 export const LEASE_UP_LISTING_APPLICATION_ID =
   process.env.E2E_LEASE_UP_LISTING_APPLICATION_ID || 'a0o0P00000GZazOQAT'
-
+export const FIRST_ROW_LEASE_UP_APPLICATION_ID =
+  process.env.FIRST_ROW_LEASE_UP_APPLICATION_ID || 'a0o0P00000IvWgcQAF'
 export const DEFAULT_E2E_TIME_OUT = 120000 // 2 minutes
 
 // Default to Sale Test Listing Homeownership Acres on Full
