@@ -1725,7 +1725,7 @@ Array [
                         onKeyDown={[Function]}
                       >
                         <div
-                          className="unit-dropdown__control unit-dropdown__control--is-disabled css-1g8ily9-Control"
+                          className="unit-dropdown__control unit-dropdown__control--is-disabled css-uuqjpg-Control"
                           onMouseDown={[Function]}
                           onTouchEnd={[Function]}
                         >
@@ -5349,7 +5349,7 @@ Array [
                     onKeyDown={[Function]}
                   >
                     <div
-                      className="status-dropdown__control css-1g8ily9-Control"
+                      className="status-dropdown__control css-uuqjpg-Control"
                       onMouseDown={[Function]}
                       onTouchEnd={[Function]}
                     >
@@ -5415,7 +5415,7 @@ Array [
                     onKeyDown={[Function]}
                   >
                     <div
-                      className="status-dropdown__control css-1g8ily9-Control"
+                      className="status-dropdown__control css-uuqjpg-Control"
                       onMouseDown={[Function]}
                       onTouchEnd={[Function]}
                     >
