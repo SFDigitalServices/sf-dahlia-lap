@@ -38,7 +38,7 @@ describe('FlaggedApplicationsShowPage', () => {
       await saveButtonList[0].click()
 
       // Expect the row to be closed
-      await page.waitForFunction(() => !document.querySelector('.rt-expander.-open'))
+      await page.waitFor(() => !document.querySelector('.rt-expander.-open'))
       expect(await utils.isPresent(page, openRowSelector)).toBe(false)
 
       // Refresh the page to make sure the values stuck
