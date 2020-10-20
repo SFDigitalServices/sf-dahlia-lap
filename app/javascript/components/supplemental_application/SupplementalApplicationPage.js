@@ -503,13 +503,13 @@ class SupplementalApplicationPage extends React.Component {
     return (
       <Context.Provider value={context}>
         <CardLayout pageHeader={getPageHeader(application, listing)} tabSection={tabSection}>
-          {application ? (
+          <Loading
+            isLoading={!application}
+            renderChildrenWhileLoading={false}
+            loaderViewHeight='100vh'
+          >
             <SupplementalApplicationContainer />
-          ) : (
-            <div style={{ height: '100vh' }}>
-              <Loading isLoading />
-            </div>
-          )}
+          </Loading>
         </CardLayout>
         <LeaveConfirmationModal
           isOpen={leaveConfirmationModal.isOpen}

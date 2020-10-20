@@ -137,7 +137,7 @@ const ApplicationPage = ({ isLeaseUp = false }) => {
 
   return (
     <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
-      <Loading isLoading={loading}>
+      <Loading isLoading={loading} renderChildrenWhileLoading={false} loaderViewHeight='100vh'>
         {!isEmpty(application) && (
           <ApplicationDetails
             application={application}
