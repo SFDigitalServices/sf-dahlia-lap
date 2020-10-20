@@ -10,6 +10,7 @@ import ReservedPrioritySection from './ReservedPrioritySection'
 import HouseholdIncomeSection from './HouseholdIncomeSection'
 import DemographicInfoSection from './DemographicInfoSection'
 import AgreeToTerms from './AgreeToTerms'
+import appPaths from '~/utils/appPaths'
 import AlertBox from '~/components/molecules/AlertBox'
 import validate, { convertCurrency } from '~/utils/form/validations'
 import { Form } from 'react-final-form'
@@ -177,7 +178,7 @@ class PaperApplicationForm extends React.Component {
                     </button>
                   </div>
                   <div className='button-pager_row primary'>
-                    <a className='primary radius' href='/listings'>
+                    <a className='primary radius' href={appPaths.toListings()}>
                       Cancel
                     </a>
                   </div>

@@ -25,12 +25,20 @@ const getPageHeaderData = (listing) => {
       }
     : null
 
-  const levelAboveBreadcrumb = { title: 'Lease Ups', link: appPaths.toLeaseUps() }
+  const levelAboveBreadcrumb = {
+    title: 'Lease Ups',
+    link: appPaths.toLeaseUps(),
+    renderAsRouterLink: true
+  }
 
   const breadcrumbs = listing
     ? [
         levelAboveBreadcrumb,
-        { title: listing?.name, link: appPaths.toLeaseUpApplications(listing.id) }
+        {
+          title: listing?.name,
+          link: appPaths.toLeaseUpApplications(listing.id),
+          renderAsRouterLink: true
+        }
       ]
     : [levelAboveBreadcrumb]
 

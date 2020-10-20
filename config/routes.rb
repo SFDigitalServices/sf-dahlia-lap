@@ -15,18 +15,24 @@ Rails.application.routes.draw do
   # Salesforce resources
   resources :listings, only: %w[index show] do
     resources :applications, only: %w[new index], module: 'listings'
-    collection do
-      resources :lease_ups, path: '/lease-ups', only: %w[index], module: 'listings' do
-        resources :applications, module: 'lease_ups', only: %w[index]
-      end
-    end
   end
 
   resources :applications, only: %w[index show edit] do
     collection do
       resources :flagged, module: 'applications', only: %w[index show]
     end
-    resources :supplementals, only: %w[index], module: 'applications'
+  end
+
+  scope '/lease-ups' do
+    resources :applications, as: 'application_lease_up', only: %w[show] do
+      get 'supplemental', :to => 'applications/supplementals#show'
+    end
+
+    scope module: 'listings' do
+        resources :lease_ups, :path => '/listings', only: %w[index] do
+          resources :applications, :path => '', module: 'lease_ups', only: %w[index]
+        end
+    end
   end
 
   # API namespacing

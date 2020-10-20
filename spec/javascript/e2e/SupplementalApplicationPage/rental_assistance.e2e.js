@@ -15,7 +15,10 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
       testBrowser = browser
 
       await sharedSteps.loginAsAgent(page)
-      await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await sharedSteps.goto(
+        page,
+        `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplemental`
+      )
 
       await page.waitForSelector('button#save-supplemental-application')
       await page.click('button#edit-lease-button')
@@ -108,7 +111,10 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
     async () => {
       const { page } = await SetupBrowserAndPage(testBrowser)
 
-      await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await sharedSteps.goto(
+        page,
+        `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplemental`
+      )
       await page.waitForSelector('button#save-supplemental-application')
       await page.click('button#edit-lease-button')
 
@@ -162,7 +168,10 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
     async () => {
       const { page } = await SetupBrowserAndPage(testBrowser)
 
-      await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await sharedSteps.goto(
+        page,
+        `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplemental`
+      )
       await page.waitForSelector('button#save-supplemental-application')
       await page.click('button#edit-lease-button')
 
@@ -207,7 +216,10 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
     async () => {
       const { page } = await SetupBrowserAndPage(testBrowser)
 
-      await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await sharedSteps.goto(
+        page,
+        `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplemental`
+      )
       await page.waitForSelector('button#save-supplemental-application')
       await page.click('button#edit-lease-button')
 

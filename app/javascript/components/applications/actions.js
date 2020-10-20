@@ -1,4 +1,5 @@
 import apiService from '~/apiService'
+import appPaths from '~/utils/appPaths'
 
 export const saveApplication = async (submitType, submittedValues, listing, editPage) => {
   const response = await apiService.submitApplication(submittedValues)
@@ -11,10 +12,9 @@ export const saveApplication = async (submitType, submittedValues, listing, edit
   }
 
   if (submitType === 'Save') {
-    const showAddBtn = editPage ? '' : '?showAddBtn=true'
-    window.location.href = `/applications/${response.id}${showAddBtn}`
+    window.location.href = appPaths.toApplication(response.id, !editPage)
   } else {
-    window.location.href = `/listings/${listing.id}/applications/new`
+    window.location.href = appPaths.toApplicationNew(listing.id)
   }
   return response
 }

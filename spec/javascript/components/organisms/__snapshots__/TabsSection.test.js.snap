@@ -46,8 +46,12 @@ exports[`TabsMenu it should render correctly 1`] = `
           linkRefs={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
-          title="Short Form Application"
-          url="/url1"
+          tabItem={
+            Object {
+              "title": "Short Form Application",
+              "url": "/url1",
+            }
+          }
         >
           <li
             className="tab-title"
@@ -66,13 +70,17 @@ exports[`TabsMenu it should render correctly 1`] = `
           </li>
         </Tab>
         <Tab
-          active={true}
           key="Supplemental Information"
           linkRefs={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
-          title="Supplemental Information"
-          url="/url2"
+          tabItem={
+            Object {
+              "active": true,
+              "title": "Supplemental Information",
+              "url": "/url2",
+            }
+          }
         >
           <li
             className="tab-title active"

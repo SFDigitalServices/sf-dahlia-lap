@@ -125,11 +125,11 @@ const IndexTable = ({ fields, results, links, page }) => {
           let href = ''
           const originalId = row.original.Id || row.original.id
           if (link === 'View Listing') {
-            href = `/listings/${originalId}`
+            href = appPaths.toListing(originalId)
           } else if (link === 'Add Application' && row.row.lottery_status === 'Not Yet Run') {
-            href = `/listings/${originalId}/applications/new`
+            href = appPaths.toApplicationNew(originalId)
           } else if (link === 'View Application') {
-            href = `/applications/${originalId}`
+            href = appPaths.toApplication(originalId)
           } else if (link === 'View Flagged Applications') {
             href = appPaths.toApplicationsFlagged(originalId)
           }

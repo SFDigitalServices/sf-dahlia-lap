@@ -2,6 +2,7 @@ import React from 'react'
 
 import ListingDetails from './ListingDetails'
 import CardLayout from '../layouts/CardLayout'
+import appPaths from '~/utils/appPaths'
 
 const ListingPageDetails = ({ listing }) => {
   return <ListingDetails listing={listing} />
@@ -10,8 +11,8 @@ const ListingPageDetails = ({ listing }) => {
 const ListingPage = ({ listing }) => {
   const tabs = {
     items: [
-      { title: 'Listing Details', url: `/listings/${listing.id}`, active: true },
-      { title: 'Applications', url: `/listings/${listing.id}/applications` }
+      { title: 'Listing Details', url: appPaths.toListing(listing.id), active: true },
+      { title: 'Applications', url: appPaths.toApplications(listing.id) }
     ]
   }
 
