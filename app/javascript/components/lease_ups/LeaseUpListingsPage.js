@@ -6,8 +6,9 @@ import { getLeaseUpListings } from './leaseUpActions'
 
 import TableLayout from '../layouts/TableLayout'
 import LeaseUpListingsTable from './LeaseUpListingsTable'
+import { withRouter } from 'react-router-dom'
 
-const LeaseUpListingsPage = () => {
+const LeaseUpListingsPage = ({ history }) => {
   const [loading, setLoading] = useState(true)
   const [listings, setListings] = useState(true)
 
@@ -22,7 +23,7 @@ const LeaseUpListingsPage = () => {
   }
 
   const onCellClick = (rowInfo) => {
-    window.location.href = appPaths.toLeaseUpApplications(rowInfo.original.id)
+    history.push(appPaths.toLeaseUpApplications(rowInfo.original.id))
   }
 
   return (
@@ -36,4 +37,4 @@ const LeaseUpListingsPage = () => {
   )
 }
 
-export default LeaseUpListingsPage
+export default withRouter(LeaseUpListingsPage)

@@ -1,23 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { NavLink } from 'react-router-dom'
+import classNames from 'classnames'
 
 // Visible for testing only.
 export const Item = ({ item, current }) => {
-  if (current) {
-    return (
-      <li className='current'>
-        <a href={item.link} aria-current='page'>
+  const ariaCurrentValue = current ? 'page' : undefined
+
+  return (
+    <li className={classNames({ current: current })}>
+      {item.renderAsRouterLink ? (
+        <NavLink to={item.link} aria-current={ariaCurrentValue}>
+          {item.title}
+        </NavLink>
+      ) : (
+        <a href={item.link} aria-current={ariaCurrentValue}>
           {item.title}
         </a>
-      </li>
-    )
-  } else {
-    return (
-      <li>
-        <a href={item.link}>{item.title}</a>
-      </li>
-    )
-  }
+      )}
+    </li>
+  )
 }
 
 const BreadCrumbs = ({ items }) => {
@@ -36,7 +38,8 @@ const BreadCrumbs = ({ items }) => {
 
 const itemShape = PropTypes.shape({
   title: PropTypes.node.isRequired,
-  link: PropTypes.string.isRequired
+  link: PropTypes.node.isRequired,
+  renderAsRouterLink: PropTypes.bool
 })
 
 Item.propTypes = {

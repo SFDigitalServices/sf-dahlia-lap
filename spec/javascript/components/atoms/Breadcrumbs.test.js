@@ -1,18 +1,21 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import { NavLink } from 'react-router-dom'
 import BreadCrumbs, { Item } from 'components/atoms/BreadCrumbs'
 import { findByNameAndProps } from '../../testUtils/wrapperUtil'
 import { uniq } from 'lodash'
 
-const mockCrumb = (title, link) => ({
+const mockCrumb = (title, link, renderAsRouterLink = undefined) => ({
   title,
-  link
+  link,
+  renderAsRouterLink
 })
 
 const CRUMB_A = mockCrumb('A', '/a')
 const CRUMB_B = mockCrumb('B', '/b')
 const CRUMB_C = mockCrumb('C', '/c')
 const CRUMB_D = mockCrumb('D', '/d')
+const CRUMB_ROUTED = mockCrumb('E', '/routed_link', true)
 const EMPTY_CRUMB = mockCrumb('', '#')
 
 describe('BreadCrumbs', () => {
@@ -152,6 +155,31 @@ describe('Item', () => {
       expect(wrapper.find('a')).toHaveLength(1)
       expect(wrapper.find('a').props().href).toEqual('#')
       expect(wrapper.text()).toEqual('')
+    })
+  })
+  describe('when renderAsRouterLink is true', () => {
+    let wrapper
+    beforeEach(() => {
+      wrapper = shallow(<Item item={CRUMB_ROUTED} />)
+    })
+
+    test('renders a NavLink with the correct props', () => {
+      expect(wrapper.find(NavLink)).toHaveLength(1)
+      expect(wrapper.find(NavLink).props().to).toEqual(CRUMB_ROUTED.link)
+      expect(wrapper.find(NavLink).prop('aria-current')).toBeUndefined()
+    })
+  })
+
+  describe('when renderAsRouterLink is true and item is current', () => {
+    let wrapper
+    beforeEach(() => {
+      wrapper = shallow(<Item item={CRUMB_ROUTED} current />)
+    })
+
+    test('renders a NavLink with the correct props', () => {
+      expect(wrapper.find(NavLink)).toHaveLength(1)
+      expect(wrapper.find(NavLink).props().to).toEqual(CRUMB_ROUTED.link)
+      expect(wrapper.find(NavLink).prop('aria-current')).toEqual('page')
     })
   })
 })

@@ -72,16 +72,36 @@ const ApplicationPage = ({ isLeaseUp = false }) => {
       title: 'Application',
       content: <span>Name of Listing:</span>
     }
+
+    if (isLeaseUp) {
+      tabSection = {
+        items: [
+          {
+            title: 'Short Form Application',
+            url: appPaths.toLeaseUpShortForm(applicationId),
+            active: true,
+            renderAsRouterLink: true
+          },
+          {
+            title: 'Supplemental Information',
+            url: appPaths.toApplicationSupplementals(applicationId),
+            renderAsRouterLink: true
+          }
+        ]
+      }
+    }
+
     // If the lease_up=true param is passed in the url, then we should display the application as if it's
     // a part of the lease up section.
   } else if (isLeaseUp) {
     pageHeader = {
       title: `${application.name}: ${application.applicant.name}`,
       breadcrumbs: [
-        { title: 'Lease Ups', link: appPaths.toLeaseUps() },
+        { title: 'Lease Ups', link: appPaths.toLeaseUps(), renderAsRouterLink: true },
         {
           title: application.listing.name,
-          link: appPaths.toListingLeaseUps(application.listing.id)
+          link: appPaths.toListingLeaseUps(application.listing.id),
+          renderAsRouterLink: true
         },
         { title: application.name, link: '#' }
       ]
@@ -92,11 +112,13 @@ const ApplicationPage = ({ isLeaseUp = false }) => {
         {
           title: 'Short Form Application',
           url: appPaths.toLeaseUpShortForm(application.id),
-          active: true
+          active: true,
+          renderAsRouterLink: true
         },
         {
           title: 'Supplemental Information',
-          url: appPaths.toApplicationSupplementals(application.id)
+          url: appPaths.toApplicationSupplementals(application.id),
+          renderAsRouterLink: true
         }
       ]
     }
@@ -114,8 +136,8 @@ const ApplicationPage = ({ isLeaseUp = false }) => {
   }
 
   return (
-    <Loading isLoading={loading}>
-      <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
+    <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
+      <Loading isLoading={loading}>
         {!isEmpty(application) && (
           <ApplicationDetails
             application={application}
@@ -123,8 +145,8 @@ const ApplicationPage = ({ isLeaseUp = false }) => {
             fields={labelMapperFields}
           />
         )}
-      </CardLayout>
-    </Loading>
+      </Loading>
+    </CardLayout>
   )
 }
 

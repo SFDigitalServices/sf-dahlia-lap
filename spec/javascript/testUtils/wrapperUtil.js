@@ -86,10 +86,10 @@ export const withRouter = (urlWithParamPlaceholders, url, children) => {
   )
 }
 
-export const mountAppWithUrl = (url) => {
-  return mount(
-    <Router initialEntries={[url]}>
-      <LeaseUpRoutes />
-    </Router>
-  )
-}
+export const leaseUpAppWithUrl = (url) => (
+  <Router initialEntries={[url]}>
+    <LeaseUpRoutes />
+  </Router>
+)
+
+export const mountAppWithUrl = (url) => mount(leaseUpAppWithUrl(url))

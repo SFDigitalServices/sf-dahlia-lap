@@ -1,5 +1,6 @@
 import React from 'react'
 import { uniqBy, cloneDeep, clone, some, findIndex } from 'lodash'
+import { withRouter } from 'react-router-dom'
 
 import apiService from '~/apiService'
 import appPaths from '~/utils/appPaths'
@@ -31,7 +32,11 @@ const getInitialLeaseState = (application) =>
 const shouldSaveLeaseOnApplicationSave = (leaseState) => leaseState === EDIT_LEASE_STATE
 
 const getPageHeader = (application, listing) => {
-  const rootBreadcrumb = { title: 'Lease Ups', link: appPaths.toLeaseUps() }
+  const rootBreadcrumb = {
+    title: 'Lease Ups',
+    link: appPaths.toLeaseUps(),
+    renderAsRouterLink: true
+  }
 
   if (!application || !listing) {
     const emptyBreadCrumb = {
@@ -53,7 +58,8 @@ const getPageHeader = (application, listing) => {
       rootBreadcrumb,
       {
         title: listing.name,
-        link: appPaths.toListingLeaseUps(application?.listing_id)
+        link: appPaths.toListingLeaseUps(application?.listing_id),
+        renderAsRouterLink: true
       },
       { title: application.name, link: '#' }
     ]
@@ -422,10 +428,13 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleLeaveSuppAppTab = () => {
-    if (this.state.supplementalAppTouched) {
+    const { supplementalAppTouched } = this.state
+    const { applicationId, history } = this.props
+
+    if (supplementalAppTouched) {
       this.setState({ leaveConfirmationModal: { isOpen: true } })
     } else {
-      window.location.href = appPaths.toLeaseUpShortForm(this.state.application.id)
+      history.push(appPaths.toLeaseUpShortForm(applicationId))
     }
   }
 
@@ -457,7 +466,8 @@ class SupplementalApplicationPage extends React.Component {
         {
           title: 'Supplemental Information',
           url: appPaths.toApplicationSupplementals(applicationId),
-          active: true
+          active: true,
+          renderAsRouterLink: true
         }
       ]
     }
@@ -505,10 +515,11 @@ class SupplementalApplicationPage extends React.Component {
           isOpen={leaveConfirmationModal.isOpen}
           handleClose={this.handleLeaveModalClose}
           destination={appPaths.toLeaseUpShortForm(applicationId)}
+          routedDestination
         />
       </Context.Provider>
     )
   }
 }
 
-export default SupplementalApplicationPage
+export default withRouter(SupplementalApplicationPage)

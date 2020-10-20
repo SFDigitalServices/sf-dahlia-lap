@@ -12,10 +12,12 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
         "breadcrumbs": Array [
           Object {
             "link": "/lease-ups/listings",
+            "renderAsRouterLink": true,
             "title": "Lease Ups",
           },
           Object {
             "link": "/lease-ups/listings/listingId",
+            "renderAsRouterLink": true,
             "title": "listingName",
           },
         ],
@@ -36,10 +38,12 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
         Array [
           Object {
             "link": "/lease-ups/listings",
+            "renderAsRouterLink": true,
             "title": "Lease Ups",
           },
           Object {
             "link": "/lease-ups/listings/listingId",
+            "renderAsRouterLink": true,
             "title": "listingName",
           },
         ]
@@ -61,10 +65,12 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                 Array [
                   Object {
                     "link": "/lease-ups/listings",
+                    "renderAsRouterLink": true,
                     "title": "Lease Ups",
                   },
                   Object {
                     "link": "/lease-ups/listings/listingId",
+                    "renderAsRouterLink": true,
                     "title": "listingName",
                   },
                 ]
@@ -81,17 +87,50 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     item={
                       Object {
                         "link": "/lease-ups/listings",
+                        "renderAsRouterLink": true,
                         "title": "Lease Ups",
                       }
                     }
                     key="0"
                   >
-                    <li>
-                      <a
-                        href="/lease-ups/listings"
+                    <li
+                      className=""
+                    >
+                      <NavLink
+                        to="/lease-ups/listings"
                       >
-                        Lease Ups
-                      </a>
+                        <Link
+                          aria-current="page"
+                          className="active"
+                          style={Object {}}
+                          to={
+                            Object {
+                              "hash": "",
+                              "pathname": "/lease-ups/listings",
+                              "search": "",
+                              "state": null,
+                            }
+                          }
+                        >
+                          <LinkAnchor
+                            aria-current="page"
+                            className="active"
+                            href="/lease-ups/listings"
+                            navigate={[Function]}
+                            style={Object {}}
+                          >
+                            <a
+                              aria-current="page"
+                              className="active"
+                              href="/lease-ups/listings"
+                              onClick={[Function]}
+                              style={Object {}}
+                            >
+                              Lease Ups
+                            </a>
+                          </LinkAnchor>
+                        </Link>
+                      </NavLink>
                     </li>
                   </Item>
                   <Item
@@ -99,6 +138,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     item={
                       Object {
                         "link": "/lease-ups/listings/listingId",
+                        "renderAsRouterLink": true,
                         "title": "listingName",
                       }
                     }
@@ -107,12 +147,42 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     <li
                       className="current"
                     >
-                      <a
+                      <NavLink
                         aria-current="page"
-                        href="/lease-ups/listings/listingId"
+                        to="/lease-ups/listings/listingId"
                       >
-                        listingName
-                      </a>
+                        <Link
+                          aria-current="page"
+                          className="active"
+                          style={Object {}}
+                          to={
+                            Object {
+                              "hash": "",
+                              "pathname": "/lease-ups/listings/listingId",
+                              "search": "",
+                              "state": null,
+                            }
+                          }
+                        >
+                          <LinkAnchor
+                            aria-current="page"
+                            className="active"
+                            href="/lease-ups/listings/listingId"
+                            navigate={[Function]}
+                            style={Object {}}
+                          >
+                            <a
+                              aria-current="page"
+                              className="active"
+                              href="/lease-ups/listings/listingId"
+                              onClick={[Function]}
+                              style={Object {}}
+                            >
+                              listingName
+                            </a>
+                          </LinkAnchor>
+                        </Link>
+                      </NavLink>
                     </li>
                   </Item>
                 </ol>

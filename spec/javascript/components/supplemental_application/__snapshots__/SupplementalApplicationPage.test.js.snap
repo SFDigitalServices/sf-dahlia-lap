@@ -17,16 +17,24 @@ Array [
           <ol
             className="breadcrumbs"
           >
-            <li>
+            <li
+              className=""
+            >
               <a
+                aria-current={null}
                 href="/lease-ups/listings"
+                onClick={[Function]}
               >
                 Lease Ups
               </a>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <a
+                aria-current={null}
                 href="/lease-ups/listings/a0W0P00000GbyuQUAR"
+                onClick={[Function]}
               >
                 Partners Test Listing (do not modify) - Yellow Acres
               </a>
@@ -86,6 +94,7 @@ Array [
           aria-selected={true}
           className="button-unstyled"
           href="/lease-ups/applications/a0o0P00000GZazOQAT/supplemental"
+          onClick={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
           role="menuitem"
