@@ -16,7 +16,7 @@ describe('LeaseUpPage', () => {
 
       await sharedSteps.loginAsAgent(page)
 
-      await sharedSteps.goto(page, `/listings/lease-ups/${LEASE_UP_LISTING_ID}/applications`)
+      await sharedSteps.goto(page, `/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
       await page.waitForSelector('#root')
       await page.waitForSelector('.dropdown')
 

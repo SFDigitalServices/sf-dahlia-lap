@@ -7,6 +7,7 @@ import ApplicationDetails from './application_details/ApplicationDetails'
 import CardLayout from '../layouts/CardLayout'
 import appPaths from '~/utils/appPaths'
 import Loading from '~/components/molecules/Loading'
+import PropTypes from 'prop-types'
 
 import labelMapperFields from './application_details/applicationDetailsFieldsDesc'
 
@@ -40,13 +41,12 @@ const buildActionLinkIfNecessary = (app, showAddBtn) => {
   return actions
 }
 
-const ApplicationPage = () => {
+const ApplicationPage = ({ isLeaseUp = false }) => {
   const [application, setApplication] = useState(null)
   const [fileBaseUrl, setFileBaseUrl] = useState(null)
   const [loading, setLoading] = useState(true)
 
   const { applicationId } = useParams()
-  const isLeaseUp = useQueryParamBoolean('lease_up')
   const showAddBtn = useQueryParamBoolean('showAddBtn')
 
   useEffectOnMount(() => {
@@ -72,16 +72,36 @@ const ApplicationPage = () => {
       title: 'Application',
       content: <span>Name of Listing:</span>
     }
+
+    if (isLeaseUp) {
+      tabSection = {
+        items: [
+          {
+            title: 'Short Form Application',
+            url: appPaths.toLeaseUpShortForm(applicationId),
+            active: true,
+            renderAsRouterLink: true
+          },
+          {
+            title: 'Supplemental Information',
+            url: appPaths.toApplicationSupplementals(applicationId),
+            renderAsRouterLink: true
+          }
+        ]
+      }
+    }
+
     // If the lease_up=true param is passed in the url, then we should display the application as if it's
     // a part of the lease up section.
   } else if (isLeaseUp) {
     pageHeader = {
       title: `${application.name}: ${application.applicant.name}`,
       breadcrumbs: [
-        { title: 'Lease Ups', link: appPaths.toLeaseUps() },
+        { title: 'Lease Ups', link: appPaths.toLeaseUps(), renderAsRouterLink: true },
         {
           title: application.listing.name,
-          link: appPaths.toListingLeaseUps(application.listing.id)
+          link: appPaths.toListingLeaseUps(application.listing.id),
+          renderAsRouterLink: true
         },
         { title: application.name, link: '#' }
       ]
@@ -92,11 +112,13 @@ const ApplicationPage = () => {
         {
           title: 'Short Form Application',
           url: appPaths.toLeaseUpShortForm(application.id),
-          active: true
+          active: true,
+          renderAsRouterLink: true
         },
         {
           title: 'Supplemental Information',
-          url: appPaths.toApplicationSupplementals(application.id)
+          url: appPaths.toApplicationSupplementals(application.id),
+          renderAsRouterLink: true
         }
       ]
     }
@@ -114,8 +136,8 @@ const ApplicationPage = () => {
   }
 
   return (
-    <Loading isLoading={loading}>
-      <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
+    <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
+      <Loading isLoading={loading} renderChildrenWhileLoading={false} loaderViewHeight='100vh'>
         {!isEmpty(application) && (
           <ApplicationDetails
             application={application}
@@ -123,9 +145,13 @@ const ApplicationPage = () => {
             fields={labelMapperFields}
           />
         )}
-      </CardLayout>
-    </Loading>
+      </Loading>
+    </CardLayout>
   )
+}
+
+ApplicationPage.propTypes = {
+  isLeaseUp: PropTypes.bool
 }
 
 export default ApplicationPage

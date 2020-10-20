@@ -13,6 +13,7 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
     primaryButtonDestination="/applications/asdf1234"
     primaryButtonIsAlert={true}
     primaryText="Discard Changes"
+    routedPrimaryButtonDestination={false}
     secondaryText="Keep Editing"
     subtitle="You will lose your unsaved changes."
     title="Are you sure you want to leave this page?"

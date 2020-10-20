@@ -1,9 +1,7 @@
-import React from 'react'
 import renderer from 'react-test-renderer'
 import { act } from 'react-dom/test-utils'
 import { cloneDeep, merge } from 'lodash'
-import { mount } from 'enzyme'
-import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
+import { leaseUpAppWithUrl, mountAppWithUrl } from '../../testUtils/wrapperUtil'
 import supplementalApplication from '../../fixtures/supplemental_application'
 
 const mockInitialLoad = jest.fn()
@@ -16,6 +14,8 @@ const mockGetRentalAssistances = jest.fn()
 window.scrollTo = jest.fn()
 
 const getMockApplication = () => cloneDeep(supplementalApplication)
+
+const WINDOW_URL = `/lease-ups/applications/${getMockApplication().id}/supplemental`
 
 jest.mock('apiService', () => {
   const mockedApplication = require('../../fixtures/supplemental_application').default
@@ -115,12 +115,20 @@ jest.mock('apiService', () => {
 const getWrapper = async () => {
   let wrapper
   await act(async () => {
-    wrapper = mount(<SupplementalApplicationPage applicationId={getMockApplication().id} />)
+    wrapper = mountAppWithUrl(WINDOW_URL)
   })
 
   wrapper.update()
 
   return wrapper
+}
+
+const setStateOnWrapper = async (wrapper, prevStateToNewStateFunction) => {
+  await act(async () => {
+    wrapper.find('SupplementalApplicationPage').setState(prevStateToNewStateFunction)
+  })
+
+  wrapper.update()
 }
 
 describe('SupplementalApplicationPage', () => {
@@ -143,9 +151,7 @@ describe('SupplementalApplicationPage', () => {
   test('it should render as expected', async () => {
     let component
     await renderer.act(async () => {
-      component = renderer.create(
-        <SupplementalApplicationPage applicationId={getMockApplication().id} />
-      )
+      component = renderer.create(leaseUpAppWithUrl(WINDOW_URL))
     })
 
     const tree = component.toJSON()
@@ -202,7 +208,7 @@ describe('SupplementalApplicationPage', () => {
     test('it saves a live/work application preference panel', async () => {
       const wrapper = await getWrapper()
 
-      wrapper.setState((prevState) => ({
+      await setStateOnWrapper(wrapper, (prevState) => ({
         application: {
           ...prevState.application,
           preferences: [
@@ -217,8 +223,6 @@ describe('SupplementalApplicationPage', () => {
           ]
         }
       }))
-
-      wrapper.update()
 
       // Click edit to open up the panel
       await wrapper.find('.preferences-table .action-link').first().simulate('click')
@@ -247,12 +251,9 @@ describe('SupplementalApplicationPage', () => {
     test('it updates total monthly rent when saving a rent burdened preference panel', async () => {
       const wrapper = await getWrapper()
 
-      act(() => {
-        wrapper.setState((prevState) => ({
-          application: { ...prevState.application, total_monthly_rent: '50' }
-        }))
-      })
-      wrapper.update()
+      await setStateOnWrapper(wrapper, (prevState) => ({
+        application: { ...prevState.application, total_monthly_rent: '50' }
+      }))
 
       // Click edit to open up the panel
       await wrapper.find('.preferences-table .action-link').first().simulate('click')
@@ -412,10 +413,7 @@ describe('SupplementalApplicationPage', () => {
 
     test('it displays "No Units Available" when no units available', async () => {
       const wrapper = await getWrapper()
-      act(() => {
-        wrapper.setState({ availableUnits: [] })
-      })
-      wrapper.update()
+      await setStateOnWrapper(wrapper, (prevState) => ({ availableUnits: [] }))
       const unitSelect = await wrapper.find('#form-lease_unit').first()
 
       expect(unitSelect.exists()).toBeTruthy()

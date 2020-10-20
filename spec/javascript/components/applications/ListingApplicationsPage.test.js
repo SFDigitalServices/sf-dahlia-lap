@@ -18,7 +18,7 @@ describe('ListingApplicationsPage', () => {
     lottery_date: '2017-03-22T18:00:00.000+0000'
   }
 
-  test('should render succesfully', () => {
+  test('should render successfully', () => {
     const wrapper = renderer.create(<ListingApplicationsPage listing={listing} />)
     expect(wrapper.toJSON()).toMatchSnapshot()
   })

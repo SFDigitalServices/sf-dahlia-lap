@@ -11,11 +11,13 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
         },
         "breadcrumbs": Array [
           Object {
-            "link": "/listings/lease-ups",
+            "link": "/lease-ups/listings",
+            "renderAsRouterLink": true,
             "title": "Lease Ups",
           },
           Object {
-            "link": "/listings/lease-ups/listingId/applications",
+            "link": "/lease-ups/listings/listingId",
+            "renderAsRouterLink": true,
             "title": "listingName",
           },
         ],
@@ -35,11 +37,13 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
       breadcrumbs={
         Array [
           Object {
-            "link": "/listings/lease-ups",
+            "link": "/lease-ups/listings",
+            "renderAsRouterLink": true,
             "title": "Lease Ups",
           },
           Object {
-            "link": "/listings/lease-ups/listingId/applications",
+            "link": "/lease-ups/listings/listingId",
+            "renderAsRouterLink": true,
             "title": "listingName",
           },
         ]
@@ -60,11 +64,13 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
               items={
                 Array [
                   Object {
-                    "link": "/listings/lease-ups",
+                    "link": "/lease-ups/listings",
+                    "renderAsRouterLink": true,
                     "title": "Lease Ups",
                   },
                   Object {
-                    "link": "/listings/lease-ups/listingId/applications",
+                    "link": "/lease-ups/listings/listingId",
+                    "renderAsRouterLink": true,
                     "title": "listingName",
                   },
                 ]
@@ -80,25 +86,59 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     current={false}
                     item={
                       Object {
-                        "link": "/listings/lease-ups",
+                        "link": "/lease-ups/listings",
+                        "renderAsRouterLink": true,
                         "title": "Lease Ups",
                       }
                     }
                     key="0"
                   >
-                    <li>
-                      <a
-                        href="/listings/lease-ups"
+                    <li
+                      className=""
+                    >
+                      <NavLink
+                        to="/lease-ups/listings"
                       >
-                        Lease Ups
-                      </a>
+                        <Link
+                          aria-current="page"
+                          className="active"
+                          style={Object {}}
+                          to={
+                            Object {
+                              "hash": "",
+                              "pathname": "/lease-ups/listings",
+                              "search": "",
+                              "state": null,
+                            }
+                          }
+                        >
+                          <LinkAnchor
+                            aria-current="page"
+                            className="active"
+                            href="/lease-ups/listings"
+                            navigate={[Function]}
+                            style={Object {}}
+                          >
+                            <a
+                              aria-current="page"
+                              className="active"
+                              href="/lease-ups/listings"
+                              onClick={[Function]}
+                              style={Object {}}
+                            >
+                              Lease Ups
+                            </a>
+                          </LinkAnchor>
+                        </Link>
+                      </NavLink>
                     </li>
                   </Item>
                   <Item
                     current={true}
                     item={
                       Object {
-                        "link": "/listings/lease-ups/listingId/applications",
+                        "link": "/lease-ups/listings/listingId",
+                        "renderAsRouterLink": true,
                         "title": "listingName",
                       }
                     }
@@ -107,12 +147,42 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     <li
                       className="current"
                     >
-                      <a
+                      <NavLink
                         aria-current="page"
-                        href="/listings/lease-ups/listingId/applications"
+                        to="/lease-ups/listings/listingId"
                       >
-                        listingName
-                      </a>
+                        <Link
+                          aria-current="page"
+                          className="active"
+                          style={Object {}}
+                          to={
+                            Object {
+                              "hash": "",
+                              "pathname": "/lease-ups/listings/listingId",
+                              "search": "",
+                              "state": null,
+                            }
+                          }
+                        >
+                          <LinkAnchor
+                            aria-current="page"
+                            className="active"
+                            href="/lease-ups/listings/listingId"
+                            navigate={[Function]}
+                            style={Object {}}
+                          >
+                            <a
+                              aria-current="page"
+                              className="active"
+                              href="/lease-ups/listings/listingId"
+                              onClick={[Function]}
+                              style={Object {}}
+                            >
+                              listingName
+                            </a>
+                          </LinkAnchor>
+                        </Link>
+                      </NavLink>
                     </li>
                   </Item>
                 </ol>
@@ -2331,7 +2401,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                       >
                                         <a
                                           className="has-border"
-                                          href="/applications/10001/supplementals"
+                                          href="/lease-ups/applications/10001/supplemental"
                                         >
                                           Application Name 1
                                         </a>
@@ -5708,7 +5778,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                       >
                                         <a
                                           className="has-border"
-                                          href="/applications/10002/supplementals"
+                                          href="/lease-ups/applications/10002/supplemental"
                                         >
                                           Application Name 2
                                         </a>
@@ -9085,7 +9155,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                       >
                                         <a
                                           className="has-border"
-                                          href="/applications/10003/supplementals"
+                                          href="/lease-ups/applications/10003/supplemental"
                                         >
                                           Application Name 3
                                         </a>
@@ -12462,7 +12532,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                       >
                                         <a
                                           className="has-border"
-                                          href="/applications/10004/supplementals"
+                                          href="/lease-ups/applications/10004/supplemental"
                                         >
                                           Application Name 4
                                         </a>
@@ -15839,7 +15909,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                       >
                                         <a
                                           className="has-border"
-                                          href="/applications/10005/supplementals"
+                                          href="/lease-ups/applications/10005/supplemental"
                                         >
                                           Application Name 5
                                         </a>

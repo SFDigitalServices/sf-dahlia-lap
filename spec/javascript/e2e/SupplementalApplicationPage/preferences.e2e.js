@@ -18,7 +18,10 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
 
       // The application used here must include a claimed live/work
       // preference for this test to be able to pass.
-      await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await sharedSteps.goto(
+        page,
+        `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplemental`
+      )
 
       const liveWorkEditSelector = '[id$=in-san-francisco-preference-edit]'
       const liveWorkRowSelector = '[id$=in-san-francisco-preference-row]'
@@ -85,7 +88,10 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
       expect(liveWorkRowValues[5]).toBe(prefStatusToSetName)
 
       // Reload the page
-      await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await sharedSteps.goto(
+        page,
+        `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplemental`
+      )
 
       // Open the same preference edit panel as before
       await page.waitForSelector(`${liveWorkRowSelector}`)
@@ -122,7 +128,10 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
 
       // The application used here must include a claimed assisted housing
       // preference for this test to be able to pass.
-      await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await sharedSteps.goto(
+        page,
+        `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplemental`
+      )
 
       const assistedHousingEditSelector = '#assisted-housing-preference-edit'
       const assistedHousingRowSelector = '#assisted-housing-preference-row'
@@ -166,7 +175,10 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
       expect(assistedHousingRowValues[5]).toBe(prefStatusToSetName)
 
       // Reload the page
-      await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await sharedSteps.goto(
+        page,
+        `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplemental`
+      )
 
       // Open the same preference edit panel as before
       await page.waitForSelector(`${assistedHousingRowSelector}`)
@@ -188,7 +200,10 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     async () => {
       const { page } = await SetupBrowserAndPage(testBrowser)
 
-      await sharedSteps.goto(page, `/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplementals`)
+      await sharedSteps.goto(
+        page,
+        `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplemental`
+      )
 
       // Change a value on the supp app form outside of the confirmed preference panels
       // (and also outside of the rental assistance panels)
