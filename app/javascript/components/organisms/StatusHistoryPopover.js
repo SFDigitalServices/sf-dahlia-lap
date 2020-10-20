@@ -36,15 +36,16 @@ const StatusHistoryPopover = ({ applicationId }) => {
     ? state.statusItems.length
     : MAX_UPDATES_TO_SHOW_DEFAULT
 
+  const showShowMoreToggler = state.statusItems.length > MAX_UPDATES_TO_SHOW_DEFAULT
   return (
     <Popover buttonElement={StatusIconButton} onButtonClick={onClick}>
       <Loading isLoading={state.loading}>
         <StatusItems
           statusItems={state.statusItems}
           limit={numberOfStatusesToDisplay}
-          height='20rem'
+          height={showShowMoreToggler ? '20rem' : null}
         />
-        {state.statusItems.length > MAX_UPDATES_TO_SHOW_DEFAULT && (
+        {showShowMoreToggler && (
           <button
             className={classNames('button-link', 't-tiny')}
             type='button'

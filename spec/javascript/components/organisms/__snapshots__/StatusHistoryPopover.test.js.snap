@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`StatusHistoryPopover it matches snapshot when open 1`] = `
+exports[`StatusHistoryPopover when there are fewer than 4 status items it matches snapshot when open 1`] = `
 <StatusHistoryPopover
   applicationId="app_id"
 >
@@ -61,7 +61,7 @@ exports[`StatusHistoryPopover it matches snapshot when open 1`] = `
           className="loading-panel"
         >
           <StatusItems
-            height="20rem"
+            height={null}
             limit={4}
             statusItems={
               Array [
@@ -82,12 +82,7 @@ exports[`StatusHistoryPopover it matches snapshot when open 1`] = `
           >
             <div
               className="status-items"
-              style={
-                Object {
-                  "height": "20rem",
-                  "overflow": "scroll",
-                }
-              }
+              style={Object {}}
             >
               <StatusItem
                 key="0"
