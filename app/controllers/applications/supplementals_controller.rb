@@ -8,8 +8,5 @@ module Applications
     def update
       application_service.update
     end
-
-    def show
-    end
   end
 end
