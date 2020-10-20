@@ -38,6 +38,7 @@ Rails.application.routes.draw do
 
       resources :applications, only: %w[index update] do
         resources :leases, only: %w[create update destroy]
+        resources :field_update_comments, only: %w[index create]
       end
 
       scope '/flagged-applications' do
@@ -53,7 +54,6 @@ Rails.application.routes.draw do
 
       resources :short_form, path: '/short-form', only: %w[show]
 
-      resources :field_update_comments, path: '/field-update-comments', only: %w[show create]
 
       scope '/short-form' do
         match 'submit', to: 'short_form#submit', via: [:put, :post]

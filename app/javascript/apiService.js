@@ -86,7 +86,7 @@ const getAMI = async ({ chartType, chartYear }) =>
 
 const getFieldUpdateComments = async (applicationId) => {
   return request
-    .get(`/field-update-comments/${applicationId}`, null, true)
+    .get(`/applications/${applicationId}/field_update_comments/`, null, true)
     .then((response) => response.data)
 }
 
@@ -101,7 +101,7 @@ const createFieldUpdateComment = async (applicationId, status, comment, substatu
   }
 
   return request
-    .post('/field-update-comments/create', postData, true)
+    .post(`/applications/${applicationId}/field_update_comments`, postData, true)
     .then((response) => response.result)
 }
 
