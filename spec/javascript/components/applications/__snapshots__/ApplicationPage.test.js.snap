@@ -97,6 +97,8 @@ exports[`ApplicationPage with regular application After the application finishes
           >
             <Loading
               isLoading={false}
+              loaderViewHeight="100vh"
+              renderChildrenWhileLoading={false}
             >
               <div
                 className="loading-panel"
