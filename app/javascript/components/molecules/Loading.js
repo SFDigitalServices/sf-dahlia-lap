@@ -7,7 +7,7 @@ const Loading = ({
   renderChildrenWhileLoading = true,
   loaderViewHeight = null
 }) => {
-  const loaderHeightWrapperStyle = { ...(loaderViewHeight && { height: loaderViewHeight }) }
+  const loaderHeightWrapperStyle = loaderViewHeight ? { height: loaderViewHeight } : null
   const renderChildren = !isLoading || renderChildrenWhileLoading
   return (
     <div className={'loading-panel' + (isLoading ? ' loading' : '')}>
