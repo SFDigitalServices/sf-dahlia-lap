@@ -5336,7 +5336,7 @@ Array [
                       onKeyDown={[Function]}
                     >
                       <div
-                        className="status-dropdown__control css-yk16xz-control"
+                        className="status-dropdown__control css-1tzh0tv-control"
                         onMouseDown={[Function]}
                         onTouchEnd={[Function]}
                       >
@@ -5402,7 +5402,7 @@ Array [
                       onKeyDown={[Function]}
                     >
                       <div
-                        className="status-dropdown__control css-yk16xz-control"
+                        className="status-dropdown__control css-1tzh0tv-control"
                         onMouseDown={[Function]}
                         onTouchEnd={[Function]}
                       >
