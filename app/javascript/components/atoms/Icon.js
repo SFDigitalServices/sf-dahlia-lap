@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 
-const Icon = ({ icon, size = 'small', alert, success }) => {
+const Icon = ({ icon, size = 'small', alert = false, success = false }) => {
   const spanClassName = classNames('ui-icon', `ui-${size}`, {
     'i-alert': alert,
     'i-success': success
@@ -21,10 +21,6 @@ Icon.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'tiny']),
   alert: PropTypes.bool,
   success: PropTypes.bool
-}
-
-Icon.defaultProps = {
-  size: 'small'
 }
 
 export default Icon

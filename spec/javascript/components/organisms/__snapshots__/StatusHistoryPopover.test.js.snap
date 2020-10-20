@@ -54,133 +54,141 @@ exports[`StatusHistoryPopover it matches snapshot when open 1`] = `
           }
         }
       />
-      <StatusItems
-        height="20rem"
-        limit={4}
-        statusItems={
-          Array [
-            Object {
-              "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-              "status": "Approved",
-              "substatus": "Approval letter sent",
-              "timestamp": 1598385600,
-            },
-            Object {
-              "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-              "status": "Approved",
-              "substatus": "Approval letter sent",
-              "timestamp": 1598385600,
-            },
-          ]
-        }
+      <Loading
+        isLoading={false}
       >
         <div
-          className="status-items"
-          style={
-            Object {
-              "height": "20rem",
-              "overflow": "scroll",
-            }
-          }
+          className="loading-panel"
         >
-          <StatusItem
-            key="0"
-            statusItem={
-              Object {
-                "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-                "status": "Approved",
-                "substatus": "Approval letter sent",
-                "timestamp": 1598385600,
-              }
+          <StatusItems
+            height="20rem"
+            limit={4}
+            statusItems={
+              Array [
+                Object {
+                  "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+                  "status": "Approved",
+                  "substatus": "Approval letter sent",
+                  "timestamp": 1598385600,
+                },
+                Object {
+                  "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+                  "status": "Approved",
+                  "substatus": "Approval letter sent",
+                  "timestamp": 1598385600,
+                },
+              ]
             }
           >
             <div
-              className="status-item"
-            >
-              <div
-                className="status-item-header"
-              >
-                <StatusPill
-                  status="Approved"
-                >
-                  <div
-                    className="status-pill is-approved"
-                  >
-                    Approved
-                  </div>
-                </StatusPill>
-                <StatusDate
-                  timestamp={1598385600}
-                >
-                  <div
-                    className="status-item-date"
-                  >
-                    Aug 25, 2020
-                  </div>
-                </StatusDate>
-              </div>
-              <div
-                className="item-substatus-text"
-              >
-                Approval letter sent
-              </div>
-              <div
-                className="status-item-text"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-              </div>
-            </div>
-          </StatusItem>
-          <StatusItem
-            key="1"
-            statusItem={
-              Object {
-                "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-                "status": "Approved",
-                "substatus": "Approval letter sent",
-                "timestamp": 1598385600,
+              className="status-items"
+              style={
+                Object {
+                  "height": "20rem",
+                  "overflow": "scroll",
+                }
               }
-            }
-          >
-            <div
-              className="status-item"
             >
-              <div
-                className="status-item-header"
+              <StatusItem
+                key="0"
+                statusItem={
+                  Object {
+                    "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+                    "status": "Approved",
+                    "substatus": "Approval letter sent",
+                    "timestamp": 1598385600,
+                  }
+                }
               >
-                <StatusPill
-                  status="Approved"
+                <div
+                  className="status-item"
                 >
                   <div
-                    className="status-pill is-approved"
+                    className="status-item-header"
                   >
-                    Approved
+                    <StatusPill
+                      status="Approved"
+                    >
+                      <div
+                        className="status-pill is-approved"
+                      >
+                        Approved
+                      </div>
+                    </StatusPill>
+                    <StatusDate
+                      timestamp={1598385600}
+                    >
+                      <div
+                        className="status-item-date"
+                      >
+                        Aug 25, 2020
+                      </div>
+                    </StatusDate>
                   </div>
-                </StatusPill>
-                <StatusDate
-                  timestamp={1598385600}
+                  <div
+                    className="item-substatus-text"
+                  >
+                    Approval letter sent
+                  </div>
+                  <div
+                    className="status-item-text"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+                  </div>
+                </div>
+              </StatusItem>
+              <StatusItem
+                key="1"
+                statusItem={
+                  Object {
+                    "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+                    "status": "Approved",
+                    "substatus": "Approval letter sent",
+                    "timestamp": 1598385600,
+                  }
+                }
+              >
+                <div
+                  className="status-item"
                 >
                   <div
-                    className="status-item-date"
+                    className="status-item-header"
                   >
-                    Aug 25, 2020
+                    <StatusPill
+                      status="Approved"
+                    >
+                      <div
+                        className="status-pill is-approved"
+                      >
+                        Approved
+                      </div>
+                    </StatusPill>
+                    <StatusDate
+                      timestamp={1598385600}
+                    >
+                      <div
+                        className="status-item-date"
+                      >
+                        Aug 25, 2020
+                      </div>
+                    </StatusDate>
                   </div>
-                </StatusDate>
-              </div>
-              <div
-                className="item-substatus-text"
-              >
-                Approval letter sent
-              </div>
-              <div
-                className="status-item-text"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-              </div>
+                  <div
+                    className="item-substatus-text"
+                  >
+                    Approval letter sent
+                  </div>
+                  <div
+                    className="status-item-text"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+                  </div>
+                </div>
+              </StatusItem>
             </div>
-          </StatusItem>
+          </StatusItems>
         </div>
-      </StatusItems>
+      </Loading>
     </div>
   </Popover>
 </StatusHistoryPopover>

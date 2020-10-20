@@ -18,48 +18,42 @@ const StatusHistoryPopover = ({ applicationId }) => {
       <Icon icon='list-unordered' size='medium' />
     </button>
   )
-  const [data, setData] = useState({ statusItems: [], loading: false })
+  const [state, setState] = useState({ statusItems: [], loading: false })
 
-  const fetchStatusHistory = async () => {
-    try {
-      setData({ statusItems: data.statusItems, loading: true })
-      const items = await apiService.getFieldUpdateComments(applicationId)
-      setData({ statusItems: items, loading: false })
-    } catch (e) {
-      setData({ statusItems: data.statusItems, loading: false })
-    }
+  const fetchStatusHistory = () => {
+    setState({ statusItems: state.statusItems, loading: true })
+    apiService
+      .getFieldUpdateComments(applicationId)
+      .then((items) => setState({ statusItems: items, loading: false }))
+      .catch(() => setState({ statusItems: state.statusItems, loading: false }))
   }
 
-  const onClick = async () => {
-    data.statusItems.length === 0 && (await fetchStatusHistory())
+  const onClick = () => {
+    state.statusItems.length === 0 && fetchStatusHistory()
   }
 
   const numberOfStatusesToDisplay = showingAllStatuses
-    ? data.statusItems.length
+    ? state.statusItems.length
     : MAX_UPDATES_TO_SHOW_DEFAULT
 
   return (
     <Popover buttonElement={StatusIconButton} onButtonClick={onClick}>
-      {data.loading ? (
-        <Loading isLoading />
-      ) : (
-        <>
-          <StatusItems
-            statusItems={data.statusItems}
-            limit={numberOfStatusesToDisplay}
-            height='20rem'
-          />
-          {data.statusItems.length > MAX_UPDATES_TO_SHOW_DEFAULT && (
-            <button
-              className={classNames('button-link', 't-tiny')}
-              type='button'
-              onClick={onShowHideStatusesToggled}
-            >
-              {showingAllStatuses ? 'Show only recent status updates' : 'Show all status updates'}
-            </button>
-          )}
-        </>
-      )}
+      <Loading isLoading={state.loading}>
+        <StatusItems
+          statusItems={state.statusItems}
+          limit={numberOfStatusesToDisplay}
+          height='20rem'
+        />
+        {state.statusItems.length > MAX_UPDATES_TO_SHOW_DEFAULT && (
+          <button
+            className={classNames('button-link', 't-tiny')}
+            type='button'
+            onClick={onShowHideStatusesToggled}
+          >
+            {showingAllStatuses ? 'Show only recent status updates' : 'Show all status updates'}
+          </button>
+        )}
+      </Loading>
     </Popover>
   )
 }

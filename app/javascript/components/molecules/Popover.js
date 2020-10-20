@@ -18,15 +18,15 @@ const useClickOutside = (ref, callback) => {
   })
 }
 
-const Popover = ({ buttonElement, children, onButtonClick }) => {
+const Popover = ({ buttonElement, children = null, onButtonClick = null }) => {
   const [showPopper, setShowPopper] = useState(false)
-  const [referenceElement, setReferenceElement] = useState(null)
+  const [buttonElementRef, setButtonElementRef] = useState(null)
   const [popperElement, setPopperElement] = useState(null)
   const [arrowElement, setArrowElement] = useState(null)
 
   useClickOutside(popperElement, () => setShowPopper(false))
 
-  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+  const { styles, attributes } = usePopper(buttonElementRef, popperElement, {
     placement: 'bottom',
     modifiers: [
       {
@@ -47,7 +47,7 @@ const Popover = ({ buttonElement, children, onButtonClick }) => {
   return (
     <>
       {buttonElement({
-        ref: setReferenceElement,
+        ref: setButtonElementRef,
         onClick: () => {
           setShowPopper(!showPopper)
           onButtonClick && onButtonClick()
@@ -70,7 +70,7 @@ const Popover = ({ buttonElement, children, onButtonClick }) => {
 
 Popover.propTypes = {
   buttonElement: PropTypes.func.isRequired,
-  children: PropTypes.element,
+  children: PropTypes.node,
   onButtonClick: PropTypes.func
 }
 

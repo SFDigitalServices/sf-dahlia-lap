@@ -114,19 +114,12 @@ const LeaseUpApplicationsTable = ({
       className: 'td-min-wide td-status td-fixed-right',
       Cell: (cell) => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} />
     }
-    // {
-    //   Header: '',
-    //   accessor: 'field_update_comments',
-    //   headerClassName: 'td-min-wide tr-fixed-right',
-    //   className: 'td-min-wide td-fixed-right',
-    //   Cell: (cell) => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} />
-    // }
   ]
 
-  const getTdProps = (state, rowInfo, column, instance) => {
+  const getTdProps = (state, rowInfo, column) => {
     const attrs = {}
 
-    // classes and onClick actions vary depending on the type of column
+    // onClick actions vary depending on the type of column
     if (column.id !== 'application_number' && column.id !== 'lease_up_status') {
       attrs.onClick = (e, handleOriginal) => {
         if (rowInfo) onCellClick(listingId, rowInfo)
