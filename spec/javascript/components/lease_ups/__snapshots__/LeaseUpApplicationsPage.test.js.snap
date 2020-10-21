@@ -4382,34 +4382,14 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               className="status-dropdown__control"
                                                               css={
                                                                 Object {
-                                                                  "&:hover": Object {
-                                                                    "borderColor": "hsl(0, 0%, 70%)",
-                                                                  },
-                                                                  "alignItems": "center",
-                                                                  "backgroundColor": "hsl(0, 0%, 100%)",
                                                                   "border": "none",
-                                                                  "borderColor": "hsl(0, 0%, 80%)",
-                                                                  "borderRadius": 4,
-                                                                  "borderStyle": "solid",
-                                                                  "borderWidth": 1,
-                                                                  "boxShadow": null,
-                                                                  "boxSizing": "border-box",
-                                                                  "cursor": "default",
-                                                                  "display": "flex",
-                                                                  "flexWrap": "wrap",
-                                                                  "justifyContent": "space-between",
-                                                                  "label": "control",
-                                                                  "minHeight": 38,
-                                                                  "outline": "0 !important",
-                                                                  "position": "relative",
-                                                                  "transition": "all 100ms",
                                                                 }
                                                               }
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
                                                               <div
-                                                                className="status-dropdown__control css-1tzh0tv-control"
+                                                                className="status-dropdown__control css-uuqjpg-Control"
                                                                 onMouseDown={[Function]}
                                                                 onTouchEnd={[Function]}
                                                               >
@@ -7779,34 +7759,14 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               className="status-dropdown__control"
                                                               css={
                                                                 Object {
-                                                                  "&:hover": Object {
-                                                                    "borderColor": "hsl(0, 0%, 70%)",
-                                                                  },
-                                                                  "alignItems": "center",
-                                                                  "backgroundColor": "hsl(0, 0%, 100%)",
                                                                   "border": "none",
-                                                                  "borderColor": "hsl(0, 0%, 80%)",
-                                                                  "borderRadius": 4,
-                                                                  "borderStyle": "solid",
-                                                                  "borderWidth": 1,
-                                                                  "boxShadow": null,
-                                                                  "boxSizing": "border-box",
-                                                                  "cursor": "default",
-                                                                  "display": "flex",
-                                                                  "flexWrap": "wrap",
-                                                                  "justifyContent": "space-between",
-                                                                  "label": "control",
-                                                                  "minHeight": 38,
-                                                                  "outline": "0 !important",
-                                                                  "position": "relative",
-                                                                  "transition": "all 100ms",
                                                                 }
                                                               }
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
                                                               <div
-                                                                className="status-dropdown__control css-1tzh0tv-control"
+                                                                className="status-dropdown__control css-uuqjpg-Control"
                                                                 onMouseDown={[Function]}
                                                                 onTouchEnd={[Function]}
                                                               >
@@ -11176,34 +11136,14 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               className="status-dropdown__control"
                                                               css={
                                                                 Object {
-                                                                  "&:hover": Object {
-                                                                    "borderColor": "hsl(0, 0%, 70%)",
-                                                                  },
-                                                                  "alignItems": "center",
-                                                                  "backgroundColor": "hsl(0, 0%, 100%)",
                                                                   "border": "none",
-                                                                  "borderColor": "hsl(0, 0%, 80%)",
-                                                                  "borderRadius": 4,
-                                                                  "borderStyle": "solid",
-                                                                  "borderWidth": 1,
-                                                                  "boxShadow": null,
-                                                                  "boxSizing": "border-box",
-                                                                  "cursor": "default",
-                                                                  "display": "flex",
-                                                                  "flexWrap": "wrap",
-                                                                  "justifyContent": "space-between",
-                                                                  "label": "control",
-                                                                  "minHeight": 38,
-                                                                  "outline": "0 !important",
-                                                                  "position": "relative",
-                                                                  "transition": "all 100ms",
                                                                 }
                                                               }
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
                                                               <div
-                                                                className="status-dropdown__control css-1tzh0tv-control"
+                                                                className="status-dropdown__control css-uuqjpg-Control"
                                                                 onMouseDown={[Function]}
                                                                 onTouchEnd={[Function]}
                                                               >
@@ -14573,34 +14513,14 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               className="status-dropdown__control"
                                                               css={
                                                                 Object {
-                                                                  "&:hover": Object {
-                                                                    "borderColor": "hsl(0, 0%, 70%)",
-                                                                  },
-                                                                  "alignItems": "center",
-                                                                  "backgroundColor": "hsl(0, 0%, 100%)",
                                                                   "border": "none",
-                                                                  "borderColor": "hsl(0, 0%, 80%)",
-                                                                  "borderRadius": 4,
-                                                                  "borderStyle": "solid",
-                                                                  "borderWidth": 1,
-                                                                  "boxShadow": null,
-                                                                  "boxSizing": "border-box",
-                                                                  "cursor": "default",
-                                                                  "display": "flex",
-                                                                  "flexWrap": "wrap",
-                                                                  "justifyContent": "space-between",
-                                                                  "label": "control",
-                                                                  "minHeight": 38,
-                                                                  "outline": "0 !important",
-                                                                  "position": "relative",
-                                                                  "transition": "all 100ms",
                                                                 }
                                                               }
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
                                                               <div
-                                                                className="status-dropdown__control css-1tzh0tv-control"
+                                                                className="status-dropdown__control css-uuqjpg-Control"
                                                                 onMouseDown={[Function]}
                                                                 onTouchEnd={[Function]}
                                                               >
@@ -17970,34 +17890,14 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               className="status-dropdown__control"
                                                               css={
                                                                 Object {
-                                                                  "&:hover": Object {
-                                                                    "borderColor": "hsl(0, 0%, 70%)",
-                                                                  },
-                                                                  "alignItems": "center",
-                                                                  "backgroundColor": "hsl(0, 0%, 100%)",
                                                                   "border": "none",
-                                                                  "borderColor": "hsl(0, 0%, 80%)",
-                                                                  "borderRadius": 4,
-                                                                  "borderStyle": "solid",
-                                                                  "borderWidth": 1,
-                                                                  "boxShadow": null,
-                                                                  "boxSizing": "border-box",
-                                                                  "cursor": "default",
-                                                                  "display": "flex",
-                                                                  "flexWrap": "wrap",
-                                                                  "justifyContent": "space-between",
-                                                                  "label": "control",
-                                                                  "minHeight": 38,
-                                                                  "outline": "0 !important",
-                                                                  "position": "relative",
-                                                                  "transition": "all 100ms",
                                                                 }
                                                               }
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
                                                               <div
-                                                                className="status-dropdown__control css-1tzh0tv-control"
+                                                                className="status-dropdown__control css-uuqjpg-Control"
                                                                 onMouseDown={[Function]}
                                                                 onTouchEnd={[Function]}
                                                               >

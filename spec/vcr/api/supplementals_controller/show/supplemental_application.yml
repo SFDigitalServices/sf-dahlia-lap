@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:16 GMT
+      - Tue, 20 Oct 2020 16:10:50 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -33,16 +33,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - c89c65672ca7951e
+      - 9b29713642697608
       X-B3-Spanid:
-      - c89c65672ca7951e
+      - 9b29713642697608
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=cnG1Xw2tEeuV4Aer7ql5xQ; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:16 GMT; Max-Age=31536000
+      - BrowserId=0mRYmhLuEeum6b84i34S_g; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:10:50 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -55,9 +55,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1602632416705","signature":"6QAwn9Q+p86CDI3tT9U/CDD8htyE+0fzUfqIs8JTrW0="}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:16 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1603210252267","signature":"Jwobn6nXVqWscYNG6pjvIFUd+6YjIRjM/TJbbv8ffbA="}'
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:10:52 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Applicant__c,%20Primary_Applicant__c,%20Alternate_Contact__c,%20Listing__c,%20Listing__r.Name,%20Listing__r.Id,%20Status__c,%20Listing__r.Reserved_community_type__c,%20Total_Household_Size__c,%20Application_Submission_Type__c,%20Application_Submitted_Date__c,%20CreatedBy.Name,%20Annual_Income__c,%20Confirmed_Household_Annual_Income__c,%20Household_Assets__c,%20HH_Total_Income_with_Assets_Annual__c,%20Imputed_Income_from_Assets__c,%20Monthly_Income__c,%20Housing_Voucher_or_Subsidy__c,%20Referral_Source__c,%20Application_Language__c,%20Lottery_Number_Manual__c,%20Lottery_Number__c,%20Total_Monthly_Rent__c,%20General_Lottery__c,%20General_Lottery_Rank__c,%20Answered_Community_Screening__c,%20Has_Military_Service__c,%20Reserved_Senior__c,%20Has_DevelopmentalDisability__c,%20Has_ADA_Priorities_Selected__c,%20Terms_Acknowledged__c,%20Applicant__r.Id,%20Applicant__r.First_Name__c,%20Applicant__r.Last_Name__c,%20Applicant__r.Middle_Name__c,%20Applicant__r.Name__c,%20Applicant__r.Date_of_Birth__c,%20Applicant__r.Phone_Type__c,%20Applicant__r.Phone__c,%20Applicant__r.Second_Phone_Type__c,%20Applicant__r.Second_Phone__c,%20Applicant__r.Email__c,%20Applicant__r.Primary_Language__c,%20Applicant__r.Residence_Address__c,%20Applicant__r.Street__c,%20Applicant__r.City__c,%20Applicant__r.State__c,%20Applicant__r.Zip_Code__c,%20Applicant__r.Mailing_Address__c,%20Applicant__r.Mailing_Street__c,%20Applicant__r.Mailing_City__c,%20Applicant__r.Mailing_State__c,%20Applicant__r.Mailing_Zip_Code__c,%20Applicant__r.Marital_Status__c,%20Applicant__r.Ethnicity__c,%20Applicant__r.Race__c,%20Applicant__r.Gender__c,%20Applicant__r.Gender_Other__c,%20Applicant__r.Sexual_Orientation__c,%20Applicant__r.Sexual_Orientation_Other__c,%20Alternate_Contact__r.Id,%20Alternate_Contact__r.First_Name__c,%20Alternate_Contact__r.Middle_Name__c,%20Alternate_Contact__r.Last_Name__c,%20Alternate_Contact__r.Phone_Type__c,%20Alternate_Contact__r.Phone__c,%20Alternate_Contact__r.Email__c,%20Alternate_Contact__r.Agency_Name__c,%20Alternate_Contact__r.Alternate_Contact_Type__c,%20Alternate_Contact__r.Alternate_Contact_Type_Other__c,%20Number_of_Dependents__c,%20Number_of_Seniors__c,%20Number_of_Minors__c,%20Alternate_Contact__r.Residence_Address__c,%20Alternate_Contact__r.Street__c,%20Alternate_Contact__r.City__c,%20Alternate_Contact__r.State__c,%20Alternate_Contact__r.Zip_Code__c,%20Alternate_Contact__r.Mailing_Address__c,%20Alternate_Contact__r.Mailing_Street__c,%20Alternate_Contact__r.Mailing_City__c,%20Alternate_Contact__r.Mailing_State__c,%20Alternate_Contact__r.Mailing_Zip_Code__c,%20Alternate_Contact__r.Marital_Status__c,%20Processing_Status__c,%20Is_First_Time_Homebuyer__c,%20Has_Completed_Homebuyer_Education__c,%20Has_Loan_Pre_approval__c,%20Lending_Agent__c,%20AMI_Percentage__c,%20AMI_Chart_Type__c,%20AMI_Chart_Year__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id%20=%20%27a0o0P00000GZazOQAT%27%0A%20%20%20%20%20%20%20%20%20%20AND%20Status__c%20!=%20%27Draft%27%0A%20%20%20%20%20%20%20%20%20%20LIMIT%201%0A%20%20%20%20%20%20%20%20
@@ -79,7 +79,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:17 GMT
+      - Tue, 20 Oct 2020 16:10:53 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -91,18 +91,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 6e3968df9592839d
+      - 8e6e8f765a04b9cc
       X-B3-Spanid:
-      - 6e3968df9592839d
+      - 8e6e8f765a04b9cc
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=csEODg2tEeuu1GHD9CTv7g; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:17 GMT; Max-Age=31536000
+      - BrowserId=0-CYKBLuEeuxig0SdRsSlA; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:10:53 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12323/400000
+      - api-usage=18460/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -112,16 +112,16 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZazOQAT"},"Id":"a0o0P00000GZazOQAT","Name":"APP-00243697","Applicant__c":"a0n0P00000D3qIZQAZ","Primary_Applicant__c":"0030P00002HAKDJQA5","Alternate_Contact__c":null,"Listing__c":"a0W0P00000GbyuQUAR","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Name":"Partners
-        Test Listing (do not modify) - Yellow Acres","Id":"a0W0P00000GbyuQUAR","Reserved_community_type__c":null},"Status__c":"Submitted","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Paper","Application_Submitted_Date__c":"2020-10-13","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/0050P000007QAY9QAO"},"Name":"DAHLIA
-        API"},"Annual_Income__c":5000.0,"Confirmed_Household_Annual_Income__c":409.38,"Household_Assets__c":224.03,"HH_Total_Income_with_Assets_Annual__c":143.22,"Imputed_Income_from_Assets__c":938.11,"Monthly_Income__c":null,"Housing_Voucher_or_Subsidy__c":"true","Referral_Source__c":null,"Application_Language__c":"English","Lottery_Number_Manual__c":null,"Lottery_Number__c":"00243697","Total_Monthly_Rent__c":null,"General_Lottery__c":false,"General_Lottery_Rank__c":null,"Answered_Community_Screening__c":null,"Has_Military_Service__c":"Yes","Reserved_Senior__c":"Yes","Has_DevelopmentalDisability__c":"Yes","Has_ADA_Priorities_Selected__c":"Mobility
+        Test Listing (do not modify) - Yellow Acres","Id":"a0W0P00000GbyuQUAR","Reserved_community_type__c":null},"Status__c":"Submitted","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Paper","Application_Submitted_Date__c":"2020-10-19","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/0050P000007QAY9QAO"},"Name":"DAHLIA
+        API"},"Annual_Income__c":5000.0,"Confirmed_Household_Annual_Income__c":784.28,"Household_Assets__c":382.55,"HH_Total_Income_with_Assets_Annual__c":664.15,"Imputed_Income_from_Assets__c":382.55,"Monthly_Income__c":null,"Housing_Voucher_or_Subsidy__c":"true","Referral_Source__c":null,"Application_Language__c":"English","Lottery_Number_Manual__c":null,"Lottery_Number__c":"00243697","Total_Monthly_Rent__c":null,"General_Lottery__c":false,"General_Lottery_Rank__c":null,"Answered_Community_Screening__c":null,"Has_Military_Service__c":"Yes","Reserved_Senior__c":"Yes","Has_DevelopmentalDisability__c":"Yes","Has_ADA_Priorities_Selected__c":"Mobility
         impairments","Terms_Acknowledged__c":true,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qIZQAZ"},"Id":"a0n0P00000D3qIZQAZ","First_Name__c":"Christopher","Last_Name__c":"Mcdonald","Middle_Name__c":null,"Name__c":"Christopher
         Mcdonald","Date_of_Birth__c":"1989-01-05","Phone_Type__c":null,"Phone__c":null,"Second_Phone_Type__c":null,"Second_Phone__c":null,"Email__c":"kgarcia@example.com","Primary_Language__c":null,"Residence_Address__c":"3198
         Robert Crescent, Testville, Ne, 39020","Street__c":"3198 Robert Crescent","City__c":"Testville","State__c":"Ne","Zip_Code__c":"39020","Mailing_Address__c":"2219
         Cooper Way, Jacobsmouth, No, 94126-8528","Mailing_Street__c":"2219 Cooper
         Way","Mailing_City__c":"Jacobsmouth","Mailing_State__c":"No","Mailing_Zip_Code__c":"94126-8528","Marital_Status__c":"Single","Ethnicity__c":"Not
         Hispanic/Latino","Race__c":"Other/Multiracial","Gender__c":null,"Gender_Other__c":null,"Sexual_Orientation__c":null,"Sexual_Orientation_Other__c":null},"Alternate_Contact__r":null,"Number_of_Dependents__c":1.0,"Number_of_Seniors__c":null,"Number_of_Minors__c":null,"Processing_Status__c":"Processing","Is_First_Time_Homebuyer__c":false,"Has_Completed_Homebuyer_Education__c":false,"Has_Loan_Pre_approval__c":false,"Lending_Agent__c":null,"AMI_Percentage__c":5.55,"AMI_Chart_Type__c":null,"AMI_Chart_Year__c":"2018"}]}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:17 GMT
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:10:53 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -143,7 +143,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:17 GMT
+      - Tue, 20 Oct 2020 16:10:54 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -155,16 +155,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - ea96ea790ea5fa49
+      - e9e224714c565f87
       X-B3-Spanid:
-      - ea96ea790ea5fa49
+      - e9e224714c565f87
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=cwNuZA2tEeu0Cvep16jEyA; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:17 GMT; Max-Age=31536000
+      - BrowserId=1ItXHhLuEeuTH6n7GGP-aA; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:10:54 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -177,9 +177,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1602632417618","signature":"TfmUQp0ArsuWUvFdjJBm0WP1KLoYAD8QLEKOmSelGQA="}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:17 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1603210254341","signature":"OZcsPtUMcuyYEkzUKsieJy9VTbXYpyIL9bN+ltGxH64="}'
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:10:54 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Preference_Name__c,%20Person_who_claimed_Name__c,%20Type_of_proof__c,%20Opt_Out__c,%20Lottery_Status__c,%20Preference_Lottery_Rank__c,%20Listing_Preference_ID__c,%20Receives_Preference__c,%20Application_Member__c,%20Application_Member__r.First_Name__c,%20Application_Member__r.Last_Name__c,%20Application_Member__r.Date_of_Birth__c,%20Application_Member__r.Id,%20Individual_preference__c,%20Certificate_Number__c,%20Preference_Order__c,%20RecordType.DeveloperName,%20LW_Type_of_Proof__c,%20City__c,%20State__c,%20Street__c,%20Zip_Code__c,%20Post_Lottery_Validation__c,%20Total_Household_Rent__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o0P00000GZazOQAT%27%0A%20%20%20%20%20%20%20%20
@@ -201,7 +201,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:17 GMT
+      - Tue, 20 Oct 2020 16:10:55 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -213,18 +213,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 91ba242e828a0c99
+      - fece450bffaa9121
       X-B3-Spanid:
-      - 91ba242e828a0c99
+      - fece450bffaa9121
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=c0BQeg2tEeu6YblaZd2LwQ; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:17 GMT; Max-Age=31536000
+      - BrowserId=1Qn8oBLuEeu05ye3VIFJEg; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:10:55 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12323/400000
+      - api-usage=18460/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -236,9 +236,9 @@ http_interactions:
       string: '{"totalSize":7,"done":true,"records":[{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJc0QAH"},"Id":"a0w0P00000OUJc0QAH","Name":"AP-0000826196","Preference_Name__c":"Certificate
         of Preference (COP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Q1vxUQAR","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":1.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BHQA0"},"DeveloperName":"COP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJc3QAH"},"Id":"a0w0P00000OUJc3QAH","Name":"AP-0000826199","Preference_Name__c":"Live
         or Work in San Francisco Preference","Person_who_claimed_Name__c":"Christopher
-        Mcdonald","Type_of_proof__c":"Paystub with employer address","Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":4.0,"Listing_Preference_ID__c":"a0l0P00001Q1w1BQAR","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000D3qIZQAZ","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qIZQAZ"},"First_Name__c":"Christopher","Last_Name__c":"Mcdonald","Date_of_Birth__c":"1989-01-05","Id":"a0n0P00000D3qIZQAZ"},"Individual_preference__c":"Work
-        in SF","Certificate_Number__c":null,"Preference_Order__c":4.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"},"DeveloperName":"L_W"},"LW_Type_of_Proof__c":"Paystub
-        with employer address","City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Unconfirmed","Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJc1QAH"},"Id":"a0w0P00000OUJc1QAH","Name":"AP-0000826197","Preference_Name__c":"Displaced
+        Mcdonald","Type_of_proof__c":"Telephone bill","Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":4.0,"Listing_Preference_ID__c":"a0l0P00001Q1w1BQAR","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000D3qIZQAZ","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qIZQAZ"},"First_Name__c":"Christopher","Last_Name__c":"Mcdonald","Date_of_Birth__c":"1989-01-05","Id":"a0n0P00000D3qIZQAZ"},"Individual_preference__c":"Live
+        in SF","Certificate_Number__c":null,"Preference_Order__c":4.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"},"DeveloperName":"L_W"},"LW_Type_of_Proof__c":"Telephone
+        bill","City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Confirmed","Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJc1QAH"},"Id":"a0w0P00000OUJc1QAH","Name":"AP-0000826197","Preference_Name__c":"Displaced
         Tenant Housing Preference (DTHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Q1vxyQAB","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":2.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BJQA0"},"DeveloperName":"DTHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000Oqew3QAB"},"Id":"a0w0P00000Oqew3QAB","Name":"AP-0000919888","Preference_Name__c":"Neighborhood
         Resident Housing Preference (NRHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001QRQGzQAP","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":6.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BLQA0"},"DeveloperName":"NRHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PC8JoQAL"},"Id":"a0w0P00000PC8JoQAL","Name":"AP-0001011481","Preference_Name__c":"Anti-Displacement
         Housing Preference (ADHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001RbKCJQA3","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":8.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BGQA0"},"DeveloperName":"ADHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OUJc2QAH"},"Id":"a0w0P00000OUJc2QAH","Name":"AP-0000826198","Preference_Name__c":"Rent
@@ -246,8 +246,8 @@ http_interactions:
         Mcdonald","Type_of_proof__c":"Lease and rent proof","Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":1.0,"Listing_Preference_ID__c":"a0l0P00001Q1w0mQAB","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000D3qIZQAZ","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qIZQAZ"},"First_Name__c":"Christopher","Last_Name__c":"Mcdonald","Date_of_Birth__c":"1989-01-05","Id":"a0n0P00000D3qIZQAZ"},"Individual_preference__c":"Assisted
         Housing","Certificate_Number__c":null,"Preference_Order__c":3.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BMQA0"},"DeveloperName":"RB_AHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Unconfirmed","Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000Oqew2QAB"},"Id":"a0w0P00000Oqew2QAB","Name":"AP-0000919887","Preference_Name__c":"Alice
         Griffith Housing Development Resident","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001QRPiaQAH","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":5.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000NHVqQAO"},"DeveloperName":"AG"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0}]}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:18 GMT
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:10:55 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -269,7 +269,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:18 GMT
+      - Tue, 20 Oct 2020 16:10:55 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -281,16 +281,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 311517e6802ba33d
+      - a93d8752d1dbde21
       X-B3-Spanid:
-      - 311517e6802ba33d
+      - a93d8752d1dbde21
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=c3CIOA2tEeu0Cvep16jEyA; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:18 GMT; Max-Age=31536000
+      - BrowserId=1ZBENRLuEeuTH6n7GGP-aA; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:10:55 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -303,9 +303,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1602632418355","signature":"izfnlTHyxlHCY7bxWR80qV0NeD7bl7KxpPK7/UTKvuE="}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:18 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1603210256054","signature":"oMAaABhUB6E7+cmtFfmNePnNZcXzEkoJ/yq8M44Rrys="}'
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:10:56 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Document_Type__c,%20Related_Application__c,%20Related_Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Attachment__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Related_Application__c%20=%20%27a0o0P00000GZazOQAT%27%0A%20%20%20%20%20%20%20%20
@@ -327,7 +327,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:18 GMT
+      - Tue, 20 Oct 2020 16:10:56 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -339,18 +339,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - fc5b0f0c1376f9cb
+      - 84e96d3a472913db
       X-B3-Spanid:
-      - fc5b0f0c1376f9cb
+      - 84e96d3a472913db
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=c6lyfg2tEeuu1GHD9CTv7g; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:18 GMT; Max-Age=31536000
+      - BrowserId=1g-GXxLuEeuSefk-8W2bXQ; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:10:56 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12324/400000
+      - api-usage=18460/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -361,8 +361,8 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Attachment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Attachment__c/a0x1F000002KlTSQA0"},"Id":"a0x1F000002KlTSQA0","Document_Type__c":"Cable
         and internet bill","Related_Application__c":"a0o0P00000GZazOQAT","Related_Application_Preference__c":"a0w0P00000QGONUQA5"}]}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:18 GMT
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:10:56 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id%0A%20%20%20%20%20%20%20%20%20%20FROM%20Attachment%0A%20%20%20%20%20%20%20%20%20%20WHERE%20ParentId%20=%20%27a0x1F000002KlTSQA0%27%0A%20%20%20%20%20%20%20%20
@@ -384,7 +384,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:18 GMT
+      - Tue, 20 Oct 2020 16:10:57 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -396,18 +396,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 10769411bc2f43de
+      - 0613b839e997a944
       X-B3-Spanid:
-      - 10769411bc2f43de
+      - 0613b839e997a944
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=c9FGAA2tEeu6YblaZd2LwQ; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:18 GMT; Max-Age=31536000
+      - BrowserId=1ofq4RLuEeuTH6n7GGP-aA; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:10:57 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12324/400000
+      - api-usage=18460/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -417,8 +417,8 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":0,"done":true,"records":[]}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:18 GMT
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:10:57 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,LinkedEntityId,ContentDocumentId,ContentDocument.LatestPublishedVersionId%0A%20%20%20%20%20%20%20%20%20%20FROM%20ContentDocumentLink%0A%20%20%20%20%20%20%20%20%20%20WHERE%20LinkedEntityId%20=%20%27a0x1F000002KlTSQA0%27
@@ -440,7 +440,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:19 GMT
+      - Tue, 20 Oct 2020 16:10:58 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -452,18 +452,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - e32df79e7e2546d7
+      - 3ee5fece76d0dfcc
       X-B3-Spanid:
-      - e32df79e7e2546d7
+      - 3ee5fece76d0dfcc
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=c_zp4w2tEeuEyT1gq8LUTA; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:19 GMT; Max-Age=31536000
+      - BrowserId=1vwJQxLuEeu_s0kpQl36KA; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:10:58 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12323/400000
+      - api-usage=18460/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -473,8 +473,8 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":0,"done":true,"records":[]}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:19 GMT
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:10:58 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name__c,%20First_Name__c,%20Last_Name__c,%20Middle_Name__c,%20Relationship_to_Applicant__c,%20Date_of_Birth__c,%20Street__c,%20City__c,%20State__c,%20Zip_Code__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Member__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o0P00000GZazOQAT%27%0A%20%20%20%20%20%20%20%20%20%20AND%20Id%20!=%20%27a0n0P00000D3qIZQAZ%27%0A%20%20%20%20%20%20%20%20%20%20AND%20Id%20!=%20%27%27%0A%20%20%20%20%20%20%20%20
@@ -496,7 +496,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:19 GMT
+      - Tue, 20 Oct 2020 16:10:59 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -508,18 +508,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 98dde1ff45a2c0ed
+      - 7e7a58c0fbacaba0
       X-B3-Spanid:
-      - 98dde1ff45a2c0ed
+      - 7e7a58c0fbacaba0
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=dCRH1A2tEeuV4Aer7ql5xQ; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:19 GMT; Max-Age=31536000
+      - BrowserId=127vBRLuEeuqjgkBrf1buA; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:10:59 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12323/400000
+      - api-usage=18460/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -529,8 +529,8 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":0,"done":true,"records":[]}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:19 GMT
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:10:59 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -552,7 +552,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:19 GMT
+      - Tue, 20 Oct 2020 16:10:59 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -564,16 +564,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 65fedd1b8543a6ec
+      - 073cd210e67eb0a3
       X-B3-Spanid:
-      - 65fedd1b8543a6ec
+      - 073cd210e67eb0a3
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=dE0FdA2tEeuLrI9FZRTsqg; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:19 GMT; Max-Age=31536000
+      - BrowserId=1_jftBLuEeuXhcUPVYvEtg; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:10:59 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -586,9 +586,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1602632420021","signature":"8i4vJk3oxK+XqZO3BZyRHt4Uxhs2k63Q/FU8z+O/bXw="}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:20 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1603210260275","signature":"KtqvQJGjUnALFN4SjmKon+NqHYC2+dkWLRvHwImwXpA="}'
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:11:00 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Unit__c,%20Lease_Start_Date__c,%20Lease_Status__c,%20Monthly_Parking_Rent__c,%20BMR_Parking_Space_Assigned__c,%20Preference_Used__c,%20No_Preference_Used__c,%20Total_Monthly_Rent_without_Parking__c,%20Monthly_Tenant_Contribution__c%20FROM%20Lease__c%20WHERE%20(Application__c%20=%20%27a0o0P00000GZazOQAT%27)
@@ -610,7 +610,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:20 GMT
+      - Tue, 20 Oct 2020 16:11:01 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -622,18 +622,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 9751efb0d5437b8b
+      - 9c7f4cae927aeb7f
       X-B3-Spanid:
-      - 9751efb0d5437b8b
+      - 9c7f4cae927aeb7f
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=dLVkOg2tEeu51GufbV0afw; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:20 GMT; Max-Age=31536000
+      - BrowserId=2J35bRLuEeuqjgkBrf1buA; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:11:01 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12323/400000
+      - api-usage=18461/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -642,9 +642,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6tkQAC"},"Id":"a130P000007U6tkQAC","Unit__c":"a0b0P00001HIHrnQAH","Lease_Start_Date__c":"2019-01-01","Lease_Status__c":"Draft","Monthly_Parking_Rent__c":302.69,"BMR_Parking_Space_Assigned__c":"Yes","Preference_Used__c":null,"No_Preference_Used__c":false,"Total_Monthly_Rent_without_Parking__c":531.84,"Monthly_Tenant_Contribution__c":761.47}]}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:20 GMT
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6tkQAC"},"Id":"a130P000007U6tkQAC","Unit__c":"a0b0P00001HIHrnQAH","Lease_Start_Date__c":"2019-01-01","Lease_Status__c":"Draft","Monthly_Parking_Rent__c":612.12,"BMR_Parking_Space_Assigned__c":"Yes","Preference_Used__c":null,"No_Preference_Used__c":false,"Total_Monthly_Rent_without_Parking__c":894.02,"Monthly_Tenant_Contribution__c":155.42}]}'
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:11:01 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Lease__c%20WHERE%20(Application__c%20=%20%27a0o0P00000GZazOQAT%27)
@@ -666,7 +666,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:20 GMT
+      - Tue, 20 Oct 2020 16:11:02 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -678,18 +678,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 4851ebcf56186644
+      - f0ebe482fc09cee6
       X-B3-Spanid:
-      - 4851ebcf56186644
+      - f0ebe482fc09cee6
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=dN_P1A2tEeuV4Aer7ql5xQ; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:20 GMT; Max-Age=31536000
+      - BrowserId=2S88yhLuEeuxig0SdRsSlA; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:11:02 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12324/400000
+      - api-usage=18461/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -699,8 +699,8 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[]}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:20 GMT
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:11:02 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -722,7 +722,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:20 GMT
+      - Tue, 20 Oct 2020 16:11:02 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -734,16 +734,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 9b9845c2a4f6c879
+      - bd047f829fcecbf4
       X-B3-Spanid:
-      - 9b9845c2a4f6c879
+      - bd047f829fcecbf4
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=dQZC5g2tEeu6YblaZd2LwQ; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:20 GMT; Max-Age=31536000
+      - BrowserId=2bTAoxLuEeueTz2lnOt0Ng; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:11:02 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -756,9 +756,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1602632420989","signature":"QmI4w4BmQEGkmKSHxTcSgapPNbS12L6T/zECz4QnGFM="}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:21 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1603210263109","signature":"ryOcxB3zJnw6ujUqhyaMo9nIyGRhMmcfOyMxuI6ZzAE="}'
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:11:03 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Assistance_Amount__c,%20Id,%20Lease__c,%20Other_Assistance_Name__c,%20Household_Member__c,%20Recurring_Assistance__c,%20Type_of_Assistance__c%20FROM%20Rental_Assistance__c%20WHERE%20(Lease__r.Application__c%20=%20%27a0o0P00000GZazOQAT%27)
@@ -780,7 +780,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:21 GMT
+      - Tue, 20 Oct 2020 16:11:04 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -792,18 +792,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 86fdd3668f082af3
+      - c39de6585034e415
       X-B3-Spanid:
-      - 86fdd3668f082af3
+      - c39de6585034e415
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=dTwgAg2tEeu6YblaZd2LwQ; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:21 GMT; Max-Age=31536000
+      - BrowserId=2nCWYBLuEeu_s0kpQl36KA; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:11:04 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12325/400000
+      - api-usage=18461/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -812,19 +812,21 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"totalSize":10,"done":true,"records":[{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001B89RQAS"},"Assistance_Amount__c":1100.0,"Id":"a151F000001B89RQAS","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001B8AAQA0"},"Assistance_Amount__c":1100.0,"Id":"a151F000001B8AAQA0","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001B8AZQA0"},"Assistance_Amount__c":1100.0,"Id":"a151F000001B8AZQA0","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001B8B8QAK"},"Assistance_Amount__c":1100.0,"Id":"a151F000001B8B8QAK","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001B8BXQA0"},"Assistance_Amount__c":1100.0,"Id":"a151F000001B8BXQA0","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001B8KVQA0"},"Assistance_Amount__c":1100.0,"Id":"a151F000001B8KVQA0","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001B8KzQAK"},"Assistance_Amount__c":1100.0,"Id":"a151F000001B8KzQAK","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BApDQAW"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BApDQAW","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BHURQA4"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BHURQA4","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BHWrQAO"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BHWrQAO","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+      string: '{"totalSize":12,"done":true,"records":[{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BVc9QAG"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BVc9QAG","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BYokQAG"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BYokQAG","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BYqCQAW"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BYqCQAW","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BZy9QAG"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BZy9QAG","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BZyxQAG"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BZyxQAG","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001Ba0tQAC"},"Assistance_Amount__c":1100.0,"Id":"a151F000001Ba0tQAC","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BaBGQA0"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BaBGQA0","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BaC2QAK"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BaC2QAK","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BaD0QAK"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BaD0QAK","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BaDZQA0"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BaDZQA0","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BbWMQA0"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BbWMQA0","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BbZDQA0"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BbZDQA0","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
         Charities"}]}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:21 GMT
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:11:04 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Rental_Assistance__c%20WHERE%20(Lease__r.Application__c%20=%20%27a0o0P00000GZazOQAT%27)
@@ -846,7 +848,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:21 GMT
+      - Tue, 20 Oct 2020 16:11:05 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -858,18 +860,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - f7edb1896ff27bc8
+      - ea957d077a4728ff
       X-B3-Spanid:
-      - f7edb1896ff27bc8
+      - ea957d077a4728ff
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=dWRCSw2tEeuu1GHD9CTv7g; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:21 GMT; Max-Age=31536000
+      - BrowserId=2v9CIxLuEeuSefk-8W2bXQ; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:11:05 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12325/400000
+      - api-usage=18461/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -878,9 +880,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"totalSize":10,"done":true,"records":[]}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:21 GMT
+      string: '{"totalSize":12,"done":true,"records":[]}'
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:11:05 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -902,7 +904,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:21 GMT
+      - Tue, 20 Oct 2020 16:11:05 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -914,16 +916,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - a27ae565eac53ae6
+      - 1b5b708e435a484e
       X-B3-Spanid:
-      - a27ae565eac53ae6
+      - 1b5b708e435a484e
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=dY0m-g2tEeuV4Aer7ql5xQ; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:21 GMT; Max-Age=31536000
+      - BrowserId=23RxVBLuEeuTH6n7GGP-aA; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:11:05 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -936,9 +938,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1602632421928","signature":"BGVZFtVJMnw4U7Jlprs3TKRyKGP3/jGgT/dABP5ymdY="}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:22 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1603210265965","signature":"vN5yRYMGGzoEtmXtogXecxd5/rXwUbLbcSmsWczNAC4="}'
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:11:06 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Assistance_Amount__c,%20Id,%20Lease__c,%20Other_Assistance_Name__c,%20Household_Member__c,%20Recurring_Assistance__c,%20Type_of_Assistance__c%20FROM%20Rental_Assistance__c%20WHERE%20(Lease__r.Application__c%20=%20%27a0o0P00000GZazOQAT%27)
@@ -960,7 +962,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:22 GMT
+      - Tue, 20 Oct 2020 16:11:06 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -972,18 +974,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 58ba1d4c9162df0b
+      - b8f1f4c7a12f018a
       X-B3-Spanid:
-      - 58ba1d4c9162df0b
+      - b8f1f4c7a12f018a
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=ddxYSw2tEeu51GufbV0afw; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:22 GMT; Max-Age=31536000
+      - BrowserId=2_FCjhLuEeuTH6n7GGP-aA; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:11:06 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12324/400000
+      - api-usage=18461/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -992,19 +994,21 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"totalSize":10,"done":true,"records":[{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001B89RQAS"},"Assistance_Amount__c":1100.0,"Id":"a151F000001B89RQAS","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001B8AAQA0"},"Assistance_Amount__c":1100.0,"Id":"a151F000001B8AAQA0","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001B8AZQA0"},"Assistance_Amount__c":1100.0,"Id":"a151F000001B8AZQA0","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001B8B8QAK"},"Assistance_Amount__c":1100.0,"Id":"a151F000001B8B8QAK","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001B8BXQA0"},"Assistance_Amount__c":1100.0,"Id":"a151F000001B8BXQA0","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001B8KVQA0"},"Assistance_Amount__c":1100.0,"Id":"a151F000001B8KVQA0","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001B8KzQAK"},"Assistance_Amount__c":1100.0,"Id":"a151F000001B8KzQAK","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BApDQAW"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BApDQAW","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BHURQA4"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BHURQA4","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
-        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BHWrQAO"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BHWrQAO","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+      string: '{"totalSize":12,"done":true,"records":[{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BVc9QAG"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BVc9QAG","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BYokQAG"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BYokQAG","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BYqCQAW"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BYqCQAW","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BZy9QAG"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BZy9QAG","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BZyxQAG"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BZyxQAG","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001Ba0tQAC"},"Assistance_Amount__c":1100.0,"Id":"a151F000001Ba0tQAC","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BaBGQA0"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BaBGQA0","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BaC2QAK"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BaC2QAK","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BaD0QAK"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BaD0QAK","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BaDZQA0"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BaDZQA0","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BbWMQA0"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BbWMQA0","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
+        Charities"},{"attributes":{"type":"Rental_Assistance__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Rental_Assistance__c/a151F000001BbZDQA0"},"Assistance_Amount__c":1100.0,"Id":"a151F000001BbZDQA0","Lease__c":"a130P000007U6tkQAC","Other_Assistance_Name__c":null,"Household_Member__c":"a0n0P00000D3qIZQAZ","Recurring_Assistance__c":"Yes","Type_of_Assistance__c":"Catholic
         Charities"}]}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:22 GMT
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:11:06 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Rental_Assistance__c%20WHERE%20(Lease__r.Application__c%20=%20%27a0o0P00000GZazOQAT%27)
@@ -1026,7 +1030,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:22 GMT
+      - Tue, 20 Oct 2020 16:11:07 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -1038,18 +1042,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 9f1ec8fbb8ea0199
+      - 0be335a9526e1bc0
       X-B3-Spanid:
-      - 9f1ec8fbb8ea0199
+      - 0be335a9526e1bc0
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=dgNodg2tEeuLrI9FZRTsqg; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:22 GMT; Max-Age=31536000
+      - BrowserId=3GLwPBLuEeuTH6n7GGP-aA; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:11:07 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12323/400000
+      - api-usage=18462/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -1058,9 +1062,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"totalSize":10,"done":true,"records":[]}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:22 GMT
+      string: '{"totalSize":12,"done":true,"records":[]}'
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:11:07 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -1082,7 +1086,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:22 GMT
+      - Tue, 20 Oct 2020 16:11:08 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -1094,16 +1098,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - a129d0f89e3cd70a
+      - 0e305b97a936f1a0
       X-B3-Spanid:
-      - a129d0f89e3cd70a
+      - 0e305b97a936f1a0
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=di2FAw2tEeu0Cvep16jEyA; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:22 GMT; Max-Age=31536000
+      - BrowserId=3M-8XRLuEeu05ye3VIFJEg; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:11:08 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -1116,9 +1120,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1602632422948","signature":"m/FjTbTOTcYPPk0YTy93QhVLkwHRuEdEP4hpSiehVK4="}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:22 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1603210268231","signature":"vRuzw0giXkUqLJu97LbFOyn3pb6U0R9MjD+yklg5KFU="}'
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:11:08 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Application__c,%20Processing_Comment__c,%20Processing_Date_Updated__c,%20Processing_Status__c,%20Sub_Status__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Field_Update_Comment__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o0P00000GZazOQAT%27%0A%20%20%20%20%20%20%20%20%20%20ORDER%20BY%20Processing_Date_Updated__c%20DESC%0A%20%20%20%20%20%20%20%20
@@ -1140,7 +1144,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:23 GMT
+      - Tue, 20 Oct 2020 16:11:08 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -1152,18 +1156,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 9ead4ef1d2d15d61
+      - 35a3759fe3c00ac2
       X-B3-Spanid:
-      - 9ead4ef1d2d15d61
+      - 35a3759fe3c00ac2
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=dmsqrQ2tEeurF18GTBXDUw; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:23 GMT; Max-Age=31536000
+      - BrowserId=3VD6OBLuEeuqjgkBrf1buA; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:11:08 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12323/400000
+      - api-usage=18462/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -1172,7 +1176,80 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"totalSize":1119,"done":true,"records":[{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054R2EQAU"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+      string: '{"totalSize":1169,"done":true,"records":[{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000056LFXQA2"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-20T15:52:26.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000056LFSQA2"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-20T15:52:16.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000056L5SQAU"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-20T15:16:01.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000056L5NQAU"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-20T15:15:51.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F00000563SGQAY"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-20T01:09:22.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F00000563SBQAY"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-20T01:09:11.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F00000563R9QAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-20T01:03:53.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F00000563PxQAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-20T00:59:33.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F00000563PsQAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-20T00:59:16.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F00000563POQAY"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-20T00:56:07.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F00000563PJQAY"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-20T00:55:52.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F00000563OcQAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-20T00:45:30.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F00000563OXQAY"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-20T00:45:19.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F00000563N0QAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-20T00:27:45.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F00000563MvQAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-20T00:27:35.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F000005631sQAA"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-19T21:58:10.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F000005631oQAA"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-19T21:57:59.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F000005631iQAA"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-19T21:04:14.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F000005631dQAA"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-19T21:04:03.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F000005630yQAA"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-19T20:55:59.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F000005630TQAQ"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-19T20:55:49.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054uaoQAA"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-16T21:48:12.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054uY4QAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-16T21:48:01.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054jX0QAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-16T18:24:41.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054jWvQAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-16T18:24:31.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054jWqQAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-16T18:23:45.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054jWlQAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-16T18:23:34.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054jWbQAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-16T18:22:42.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054jWSQAY"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-16T18:22:32.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054jW2QAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-16T17:22:24.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054jVsQAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-16T17:22:14.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054jQUQAY"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-16T13:52:42.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054jQPQAY"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-16T13:52:11.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054hYmQAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-15T23:50:<<SALESFORCE_API_VERSION>>00+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054hYXQAY"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-15T23:50:33.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054hXyQAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-15T23:42:21.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054hXoQAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-15T23:42:10.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054hWvQAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-15T23:35:51.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054hWqQAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-15T23:35:42.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054h68QAA"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-15T16:57:59.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054h5oQAA"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-15T16:57:37.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054gTGQAY"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-15T15:25:55.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054gSwQAI"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-15T15:25:45.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054ewxQAA"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-14T22:24:15.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054ewsQAA"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-14T22:24:05.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054ewdQAA"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-14T22:03:15.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054ewYQAQ"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-14T22:03:05.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Written
+        withdrawal"},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054ewOQAQ"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-14T21:40:58.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054R4rQAE"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-13T23:56:44.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054R3tQAE"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
+        is a comment.","Processing_Date_Updated__c":"2020-10-13T23:47:07.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054R2EQAU"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
         is a comment.","Processing_Date_Updated__c":"2020-10-13T23:29:15.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054Qz0QAE"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
         is a comment.","Processing_Date_Updated__c":"2020-10-13T23:20:46.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054QnTQAU"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
         is a comment.","Processing_Date_Updated__c":"2020-10-13T19:57:14.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F0000054QnOQAU"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
@@ -2789,8 +2866,8 @@ http_interactions:
         is a comment.","Processing_Date_Updated__c":"2018-11-30T21:55:41.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a120P00000cif2XQAQ"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
         is a comment.","Processing_Date_Updated__c":"2018-11-30T21:55:23.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a120P00000cif2NQAQ"},"Application__c":"a0o0P00000GZazOQAT","Processing_Comment__c":"This
         is a comment.","Processing_Date_Updated__c":"2018-11-30T21:52:24.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":null}]}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:23 GMT
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:11:09 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -2812,7 +2889,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:23 GMT
+      - Tue, 20 Oct 2020 16:11:10 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -2824,16 +2901,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - dbcf377c857d5789
+      - 7f0efb538ce7aa36
       X-B3-Spanid:
-      - dbcf377c857d5789
+      - 7f0efb538ce7aa36
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=dtaXDA2tEeu51GufbV0afw; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:23 GMT; Max-Age=31536000
+      - BrowserId=3g4H8hLuEeuXhcUPVYvEtg; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:11:10 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -2846,12 +2923,12 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1602632424013","signature":"ZCotPRf95xf80mJEqkDdVbfTOR4RcAaE5xhoj5ASces="}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:24 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1603210270404","signature":"JHqhn8jb5p8JmCgwKbBlkR3dyePdqOZkgbKspSiYAmo="}'
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:11:10 GMT
 - request:
     method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Unit_Number__c,%20Priority_Type__c%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000GbyuQUAR%27)%20AND%20(Id%20NOT%20IN%20(SELECT%20Unit__c%20FROM%20Lease__c%20WHERE%20(Application__r.Listing__c%20=%20%27a0W0P00000GbyuQUAR%27)%20AND%20(Application__c%20!=%20%27a0o0P00000GZazOQAT%27)))
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Priority_Type__c,%20AMI_chart_type__c,%20Max_AMI_for_Qualifying_Unit__c,%20Unit_Number__c,%20Unit_Type__c%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000GbyuQUAR%27)%20AND%20(Id%20NOT%20IN%20(SELECT%20Unit__c%20FROM%20Lease__c%20WHERE%20(Application__r.Listing__c%20=%20%27a0W0P00000GbyuQUAR%27)%20AND%20(Application__c%20!=%20%27a0o0P00000GZazOQAT%27)))
     body:
       encoding: US-ASCII
       string: ''
@@ -2870,7 +2947,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:24 GMT
+      - Tue, 20 Oct 2020 16:11:11 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -2882,18 +2959,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 879f809cd2f4ae6b
+      - 6939bbfc607162b7
       X-B3-Spanid:
-      - 879f809cd2f4ae6b
+      - 6939bbfc607162b7
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=dwh8Aw2tEeuEyT1gq8LUTA; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:24 GMT; Max-Age=31536000
+      - BrowserId=3p1PqRLuEeuqjgkBrf1buA; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:11:11 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12324/400000
+      - api-usage=18463/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -2902,10 +2979,13 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"totalSize":2,"done":true,"records":[{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrnQAH"},"Id":"a0b0P00001HIHrnQAH","Unit_Number__c":"105","Priority_Type__c":"Mobility/Hearing/Vision
-        impairments"},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrxQAH"},"Id":"a0b0P00001HIHrxQAH","Unit_Number__c":"305","Priority_Type__c":null}]}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:24 GMT
+      string: '{"totalSize":2,"done":true,"records":[{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrnQAH"},"Id":"a0b0P00001HIHrnQAH","Priority_Type__c":"Mobility/Hearing/Vision
+        impairments","AMI_chart_type__c":"HUD Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"105","Unit_Type__c":"3
+        BR"},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrxQAH"},"Id":"a0b0P00001HIHrxQAH","Priority_Type__c":null,"AMI_chart_type__c":"HUD
+        Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"305","Unit_Type__c":"3
+        BR"}]}'
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:11:11 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000GbyuQUAR%27)%20AND%20(Id%20NOT%20IN%20(SELECT%20Unit__c%20FROM%20Lease__c%20WHERE%20(Application__r.Listing__c%20=%20%27a0W0P00000GbyuQUAR%27)%20AND%20(Application__c%20!=%20%27a0o0P00000GZazOQAT%27)))
@@ -2927,7 +3007,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:24 GMT
+      - Tue, 20 Oct 2020 16:11:11 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -2939,18 +3019,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 56675e00db9668d4
+      - d383b16509ba4e9f
       X-B3-Spanid:
-      - 56675e00db9668d4
+      - d383b16509ba4e9f
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=dzFg0w2tEeu6YblaZd2LwQ; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:24 GMT; Max-Age=31536000
+      - BrowserId=3yMh3BLuEeum6b84i34S_g; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:11:12 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12326/400000
+      - api-usage=18460/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -2960,8 +3040,8 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":2,"done":true,"records":[]}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:24 GMT
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:11:12 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -2983,7 +3063,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:24 GMT
+      - Tue, 20 Oct 2020 16:11:12 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -2995,16 +3075,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 529851e24d8f50a4
+      - 435fbdd7a0867f28
       X-B3-Spanid:
-      - 529851e24d8f50a4
+      - 435fbdd7a0867f28
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=d1xowg2tEeurF18GTBXDUw; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:24 GMT; Max-Age=31536000
+      - BrowserId=35fczRLuEeum6b84i34S_g; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:11:12 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -3017,9 +3097,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1602632424889","signature":"wkOuaypzMM8xp85RlQnxy//rXSrqItmw8U1SAoBVncw="}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:24 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1603210272863","signature":"/OLMApzf3zyyizCkj1xdp5rBtaf1HkM7oZhvtlbdncs="}'
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:11:12 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Unit_Type__c,%20BMR_Rent_Monthly__c,%20BMR_Rental_Minimum_Monthly_Income_Needed__c,%20Status__c,%20Property_Type__c,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20AMI_chart_type__c,%20AMI_chart_year__c,%20Max_AMI_for_Qualifying_Unit__c,%20Reserved_Type__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Unit__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Listing__c%20=%20%27a0W0P00000GbyuQUAR%27%0A%20%20%20%20%20%20%20%20
@@ -3041,7 +3121,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 13 Oct 2020 23:40:25 GMT
+      - Tue, 20 Oct 2020 16:11:13 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -3053,18 +3133,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 5afa93e806db6442
+      - e16b0741407fc156
       X-B3-Spanid:
-      - 5afa93e806db6442
+      - e16b0741407fc156
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=d484gg2tEeuzIs3WXW8-CQ; domain=.salesforce.com; path=/; expires=Wed,
-        13-Oct-2021 23:40:25 GMT; Max-Age=31536000
+      - BrowserId=4BIVoxLuEeuKSx9DDvd5qg; domain=.salesforce.com; path=/; expires=Wed,
+        20-Oct-2021 16:11:13 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12323/400000
+      - api-usage=18462/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -3092,6 +3172,6 @@ http_interactions:
         Unadjusted","AMI_chart_year__c":2018.0,"Max_AMI_for_Qualifying_Unit__c":55.0,"Reserved_Type__c":null},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrxQAH"},"Unit_Type__c":"3
         BR","BMR_Rent_Monthly__c":1628.0,"BMR_Rental_Minimum_Monthly_Income_Needed__c":3256.0,"Status__c":"Available","Property_Type__c":null,"AMI_chart_type__c":"HUD
         Unadjusted","AMI_chart_year__c":2018.0,"Max_AMI_for_Qualifying_Unit__c":55.0,"Reserved_Type__c":null}]}'
-    http_version: null
-  recorded_at: Tue, 13 Oct 2020 23:40:25 GMT
+    http_version:
+  recorded_at: Tue, 20 Oct 2020 16:11:13 GMT
 recorded_with: VCR 5.1.0

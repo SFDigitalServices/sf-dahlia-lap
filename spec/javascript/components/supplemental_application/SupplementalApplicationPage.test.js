@@ -49,8 +49,22 @@ jest.mock('apiService', () => {
         fileBaseUrl: 'fileBaseUrl',
         units: _cloneDeep(mockedUnits),
         availableUnits: [
-          { unit_number: 1, id: 'id1' },
-          { unit_number: 2, id: 'id2' }
+          {
+            id: 'id1',
+            unit_number: '123',
+            unit_type: 'studio',
+            priority_type: null,
+            max_ami_for_qualifying_unit: 50,
+            ami_chart_type: 'HUD'
+          },
+          {
+            id: 'id2',
+            unit_number: '100',
+            unit_type: 'studio',
+            priority_type: null,
+            max_ami_for_qualifying_unit: 50,
+            ami_chart_type: 'HUD'
+          }
         ]
       }
     },
@@ -331,7 +345,8 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('#edit-lease-button').first().simulate('click')
       // Fill out lease fields
       // Assigned Unit number
-      wrapper.find('[name="lease.unit"] select option[value="id1"]').simulate('change')
+      wrapper.find('#form-lease_unit').find('Select').instance().props.onChange({ value: 'id1' })
+      wrapper.update()
       // Lease start date
       wrapper.find('#lease_start_date_month input').simulate('change', { target: { value: '1' } })
       wrapper.find('#lease_start_date_day input').simulate('change', { target: { value: '12' } })
@@ -382,7 +397,8 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('#edit-lease-button').first().simulate('click')
 
       // Select the value from the dropdown
-      wrapper.find('[name="lease.unit"] select option[value=""]').simulate('change')
+      wrapper.find('#form-lease_unit').find('Select').instance().props.onChange({ value: null })
+      wrapper.update()
 
       // Hit save
       await act(async () => {
@@ -392,13 +408,13 @@ describe('SupplementalApplicationPage', () => {
       // Verify that the API was called with null unit value
       expect(mockCreateLease.mock.calls).toHaveLength(0)
       expect(mockUpdateLease.mock.calls).toHaveLength(1)
-      expect(mockUpdateLease).toHaveBeenCalledWith(expect.objectContaining({ unit: '' }))
+      expect(mockUpdateLease).toHaveBeenCalledWith(expect.objectContaining({ unit: null }))
     })
 
     test('it displays "No Units Available" when no units available', async () => {
       const wrapper = await getWrapper()
       await setStateOnWrapper(wrapper, (prevState) => ({ availableUnits: [] }))
-      const unitSelect = await wrapper.find('#lease_assigned_unit').first()
+      const unitSelect = await wrapper.find('#form-lease_unit').first()
 
       expect(unitSelect.exists()).toBeTruthy()
       expect(unitSelect.html().includes('No Units Available')).toBeTruthy()

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { capitalize, each, filter, map, isEmpty } from 'lodash'
+import classNames from 'classnames'
 
 import Button from '~/components/atoms/Button'
 import ContentSection from '~/components/molecules/ContentSection'
@@ -8,12 +9,14 @@ import InlineModal from '~/components/molecules/InlineModal'
 import formUtils from '~/utils/formUtils'
 import ParkingInformationInputs from './ParkingInformationInputs'
 import RentalAssistance from './RentalAssistance'
+import UnitDropdown from '../../molecules/UnitDropdown'
 import { convertPercentAndCurrency } from '../../../utils/form/validations'
 import ConfirmationModal from '~/components/organisms/ConfirmationModal'
 
+import { Field } from 'react-final-form'
 import { pluck } from '~/utils/utils'
 import { withContext } from '../context'
-import { CurrencyField, Label, SelectField } from '~/utils/form/final_form/Field.js'
+import { CurrencyField, FieldError, Label, SelectField } from '~/utils/form/final_form/Field.js'
 import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
 import { validateLeaseCurrency } from '~/utils/form/validations'
 import { EDIT_LEASE_STATE } from '../SupplementalApplicationPage'
@@ -111,7 +114,6 @@ const Lease = ({ form, values, store }) => {
       return unit.priority_type && unit.priority_type.match(/Mobility|Hearing|Vision/)
     })
 
-  const noUnitsOptions = [{ value: '', label: 'No Units Available' }]
   const confirmedPreferences = filter(application.preferences, {
     post_lottery_validation: 'Confirmed'
   })
@@ -201,13 +203,23 @@ const Lease = ({ form, values, store }) => {
         </FormGrid.Row>
         <FormGrid.Row>
           <FormGrid.Item>
-            <SelectField
-              id='lease_assigned_unit'
-              label='Assigned Unit Number'
-              fieldName='lease.unit'
-              options={availableUnitsOptions}
-              disabled={disabled || areNoUnitsAvailable}
-              disabledOptions={areNoUnitsAvailable && noUnitsOptions}
+            <Field
+              name='lease.unit'
+              component={({ input: { onChange }, meta }) => {
+                const hasError = !values.unit && meta.touched && meta.error
+                return (
+                  <div className={classNames('form-group margin-bottom', hasError && 'error')}>
+                    <Label label='Assigned Unit Number' fieldName='lease_unit' />
+                    <UnitDropdown
+                      availableUnits={availableUnits}
+                      unit={values.lease.unit}
+                      onChange={onChange}
+                      disabled={disabled || areNoUnitsAvailable}
+                    />
+                    <FieldError meta={meta} />
+                  </div>
+                )
+              }}
             />
           </FormGrid.Item>
         </FormGrid.Row>
