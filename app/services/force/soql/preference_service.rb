@@ -34,13 +34,27 @@ module Force
 
         filters = ''
         filters += "and Preference_All_Name__c like '%#{opts[:preference]}' " if opts[:preference].present?
-        filters += "and Application__r.Name like '%#{opts[:application_number]}%' " if opts[:application_number].present?
-        filters += "and Application__r.Applicant__r.First_Name__c like '%#{opts[:first_name]}%' " if opts[:first_name].present?
-        filters += "and Application__r.Applicant__r.Last_Name__c like '%#{opts[:last_name]}%' " if opts[:last_name].present?
         filters += "and Application__r.Processing_Status__c = " + (opts[:status] == 'No Status' ? 'NULL' : "'#{opts[:status]}'") if opts[:status].present?
         filters += "and Application__r.Has_ADA_Priorities_Selected__c INCLUDES (#{accessibility_string}) " if opts[:accessibility].present?
 
         filters
+    end
+
+    def buildAppPreferencesSearch(search_terms_string)
+      # This builds the syntax need for soql to do an
+      # OR statement when passing the option of `Vision/Hearing`
+      # https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_querying_multiselect_picklists.htm
+      search_terms = search_terms_string.split(',')
+
+      search = []
+      for search_term in search_terms
+        search.push("Application__r.Name like '%#{search_term}%' ")
+        search.push("Application__r.Applicant__r.First_Name__c like '%#{search_term}%'")
+        search.push("Application__r.Applicant__r.Last_Name__c like '%#{search_term}%'")
+        search.push("Application__r.Applicant__r.Email__c like '%#{search_term}%'")
+      end
+      puts 'searches', search
+      search.join(' OR ')
     end
 
     private
@@ -52,12 +66,14 @@ module Force
       # complexity of the query we are dynamically adding filters
       # within the WHERE clause with the helper function above. The
       # Preference_All_Name and Preference_All_Lottery_Rank fields
-      # were added to bring all prefernces into the same query.
+      # were added to bring all preferences into the same query.
       filters = buildAppPreferencesFilters(opts)
+      search = opts[:search] ? buildAppPreferencesSearch(opts[:search]) : nil
       builder.from(:Application_Preference__c)
              .select(query_fields(:app_preferences_for_listing))
              .where(%(
                 Listing_ID__c = '#{opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]}'
+                #{search ? 'AND (' + search + ')' : ''}
                 #{filters}
                 and \(\(Preference_Lottery_Rank__c != null and Receives_Preference__c = true\)
                 or \(Preference_Name__c = 'Live or Work in San Francisco Preference' and Application__r.General_Lottery_Rank__c != null\)\)
