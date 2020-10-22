@@ -35,20 +35,17 @@ const LeaseUpApplicationsFilter = ({ onSubmit, preferences = [], loading = false
             <div className='filter-row'>
               <div className='filter-group'>
                 <div className='filter-group_item'>
+                  <InputField
+                    fieldName='search'
+                    placeholder='Application, First Name, Last Name...'
+                  />
+                </div>
+                <div className='filter-group_item'>
                   <SelectField
                     fieldName='preference'
                     options={preferenceOptions}
                     placeholder='Preference'
                   />
-                </div>
-                <div className='filter-group_item'>
-                  <InputField fieldName='application_number' placeholder='Application Number' />
-                </div>
-                <div className='filter-group_item'>
-                  <InputField fieldName='first_name' placeholder='First Name' />
-                </div>
-                <div className='filter-group_item'>
-                  <InputField fieldName='last_name' placeholder='Last Name' />
                 </div>
                 <div className='filter-group_item'>
                   <SelectField fieldName='status' options={StatusOptions} placeholder='Status' />
