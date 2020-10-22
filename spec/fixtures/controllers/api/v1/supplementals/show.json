@@ -46,10 +46,10 @@
   "application_submitted_date": "2020-10-19",
   "createdby": { "name": "DAHLIA API" },
   "annual_income": 5000.0,
-  "confirmed_household_annual_income": 784.28,
-  "household_assets": 382.55,
-  "hh_total_income_with_assets_annual": 664.15,
-  "imputed_income_from_assets": 382.55,
+  "confirmed_household_annual_income": 544.17,
+  "household_assets": 170.49,
+  "hh_total_income_with_assets_annual": 20.85,
+  "imputed_income_from_assets": 170.49,
   "monthly_income": null,
   "housing_voucher_or_subsidy": "true",
   "referral_source": null,
@@ -115,7 +115,7 @@
       "name": "AP-0000826199",
       "preference_name": "Live or Work in San Francisco Preference",
       "person_who_claimed_name": "Christopher Mcdonald",
-      "type_of_proof": "Telephone bill",
+      "type_of_proof": "Paystub with employer address",
       "opt_out": false,
       "lottery_status": "None",
       "preference_lottery_rank": 4.0,
@@ -130,15 +130,15 @@
         "residence_address": "",
         "mailing_address": ""
       },
-      "individual_preference": "Live in SF",
+      "individual_preference": "Work in SF",
       "certificate_number": null,
       "preference_order": 4.0,
-      "lw_type_of_proof": "Telephone bill",
+      "lw_type_of_proof": "Paystub with employer address",
       "city": null,
       "state": null,
       "street": null,
       "zip_code": null,
-      "post_lottery_validation": "Confirmed",
+      "post_lottery_validation": "Unconfirmed",
       "total_household_rent": "0.0",
       "recordtype_developername": "L_W",
       "application_member_id": "a0n0P00000D3qIZQAZ"
@@ -288,17 +288,18 @@
     "unit": "a0b0P00001HIHrnQAH",
     "lease_start_date": { "year": "2019", "month": "01", "day": "01" },
     "lease_status": "Draft",
-    "monthly_parking_rent": 612.12,
+    "monthly_parking_rent": 100.0,
     "bmr_parking_space_assigned": "Yes",
     "preference_used": null,
     "no_preference_used": false,
-    "total_monthly_rent_without_parking": 894.02,
-    "monthly_tenant_contribution": 155.42
+    "total_monthly_rent_without_parking": 665.67,
+    "monthly_tenant_contribution": 328.14,
+    "parking_spot_number": null
   },
   "rental_assistances": [
     {
       "assistance_amount": 1100.0,
-      "id": "a151F000001BVc9QAG",
+      "id": "a151F000001BbtmQAC",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -307,7 +308,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151F000001BYokQAG",
+      "id": "a151F000001Bbu6QAC",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -316,7 +317,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151F000001BYqCQAW",
+      "id": "a151F000001BbupQAC",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -325,7 +326,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151F000001BZy9QAG",
+      "id": "a151F000001BbxNQAS",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -334,7 +335,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151F000001BZyxQAG",
+      "id": "a151F000001BbxPQAS",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -343,7 +344,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151F000001Ba0tQAC",
+      "id": "a151F000001Bby2QAC",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -352,7 +353,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151F000001BaBGQA0",
+      "id": "a151F000001BbycQAC",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -361,7 +362,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151F000001BaC2QAK",
+      "id": "a151F000001BbyrQAC",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -370,7 +371,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151F000001BaD0QAK",
+      "id": "a151F000001Biz8QAC",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -379,7 +380,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151F000001BaDZQA0",
+      "id": "a151F000001BjqYQAS",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -388,7 +389,7 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151F000001BbWMQA0",
+      "id": "a151F000001BkYmQAK",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",
@@ -397,7 +398,16 @@
     },
     {
       "assistance_amount": 1100.0,
-      "id": "a151F000001BbZDQA0",
+      "id": "a151F000001BnMWQA0",
+      "lease": "a130P000007U6tkQAC",
+      "other_assistance_name": null,
+      "recipient": "a0n0P00000D3qIZQAZ",
+      "recurring_assistance": "Yes",
+      "type_of_assistance": "Catholic Charities"
+    },
+    {
+      "assistance_amount": 1100.0,
+      "id": "a151F000001BnQ9QAK",
       "lease": "a130P000007U6tkQAC",
       "other_assistance_name": null,
       "recipient": "a0n0P00000D3qIZQAZ",

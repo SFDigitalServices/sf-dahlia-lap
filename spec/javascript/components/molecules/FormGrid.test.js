@@ -19,4 +19,10 @@ describe('FormGrid.Item', () => {
     expect(wrapper.find('.form-grid_item')).toHaveLength(1)
     expect(wrapper.find('.small-3')).toHaveLength(1)
   })
+
+  test('renders the FormGrid.Item properly with medium = true', () => {
+    const wrapper = shallow(<FormGrid.Item medium>ABC</FormGrid.Item>)
+    expect(wrapper.find('.form-grid_item')).toHaveLength(1)
+    expect(wrapper.find('.small-4')).toHaveLength(1)
+  })
 })

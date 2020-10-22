@@ -22,12 +22,13 @@ FormGrid.Row.defaultProps = {
 
 // Wrapper for each form field.
 // NOTE: Grid is hardcoded. This should not be generic element
-FormGrid.Item = ({ children, small = false, fullWidth = false }) => (
+FormGrid.Item = ({ children, small = false, fullWidth = false, medium = false }) => (
   <div
     className={classNames(
       'form-grid_item column',
-      { 'small-6': !(small || fullWidth) },
+      { 'small-6': !(small || fullWidth || medium) },
       { 'small-3': small },
+      { 'small-4': medium },
       { 'small-12': fullWidth }
     )}
   >

@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 12 Sep 2020 16:22:18 GMT
+      - Thu, 22 Oct 2020 18:09:25 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -33,16 +33,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - c901a7f9b791358e
+      - 6c56ff3ab28013c2
       X-B3-Spanid:
-      - c901a7f9b791358e
+      - 6c56ff3ab28013c2
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=IGrDa_UUEeq5FQmhGTi2eA; domain=.salesforce.com; path=/; expires=Sun,
-        12-Sep-2021 16:22:18 GMT; Max-Age=31536000
+      - BrowserId=uCB0aBSREeuWcQXNr3ttZQ; domain=.salesforce.com; path=/; expires=Fri,
+        22-Oct-2021 18:09:25 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -55,12 +55,12 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1599927738158","signature":"Xt7zDc7vW0DObUzLR8S9OimywN4Gwqg8ittstFTNA2w="}'
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1603390165806","signature":"QDRSqjiSqYV6beUVE5GtXU3GaSCcV091x9daRH+Z6rc="}'
     http_version:
-  recorded_at: Sat, 12 Sep 2020 16:22:18 GMT
+  recorded_at: Thu, 22 Oct 2020 18:09:25 GMT
 - request:
     method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Unit__c,%20Lease_Start_Date__c,%20Lease_Status__c,%20Monthly_Parking_Rent__c,%20BMR_Parking_Space_Assigned__c,%20Preference_Used__c,%20No_Preference_Used__c,%20Total_Monthly_Rent_without_Parking__c,%20Monthly_Tenant_Contribution__c%20FROM%20Lease__c%20WHERE%20(Application__c%20=%20%27a0o0P00000ItlpiQAB%27)
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Unit__c,%20Lease_Start_Date__c,%20Lease_Status__c,%20Monthly_Parking_Rent__c,%20BMR_Parking_Space_Assigned__c,%20Preference_Used__c,%20No_Preference_Used__c,%20Total_Monthly_Rent_without_Parking__c,%20Monthly_Tenant_Contribution__c,%20Parking_Spot_Number__c%20FROM%20Lease__c%20WHERE%20(Application__c%20=%20%27a0o0P00000ItlpiQAB%27)
     body:
       encoding: US-ASCII
       string: ''
@@ -79,7 +79,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 12 Sep 2020 16:22:18 GMT
+      - Thu, 22 Oct 2020 18:09:26 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -91,18 +91,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 62d7a95f55e9e99b
+      - 979f5f815a949da6
       X-B3-Spanid:
-      - 62d7a95f55e9e99b
+      - 979f5f815a949da6
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=IPau8_UUEeqACknynkr8Hw; domain=.salesforce.com; path=/; expires=Sun,
-        12-Sep-2021 16:22:18 GMT; Max-Age=31536000
+      - BrowserId=uKsAcRSREeu9Kjf1AiSG_g; domain=.salesforce.com; path=/; expires=Fri,
+        22-Oct-2021 18:09:26 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=13122/400000
+      - api-usage=9982/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -111,9 +111,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"totalSize":0,"done":true,"records":[]}'
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a131F000002QrGOQA0"},"Id":"a131F000002QrGOQA0","Unit__c":null,"Lease_Start_Date__c":null,"Lease_Status__c":"Draft","Monthly_Parking_Rent__c":null,"BMR_Parking_Space_Assigned__c":null,"Preference_Used__c":null,"No_Preference_Used__c":false,"Total_Monthly_Rent_without_Parking__c":null,"Monthly_Tenant_Contribution__c":null,"Parking_Spot_Number__c":null}]}'
     http_version:
-  recorded_at: Sat, 12 Sep 2020 16:22:19 GMT
+  recorded_at: Thu, 22 Oct 2020 18:09:26 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Lease__c%20WHERE%20(Application__c%20=%20%27a0o0P00000ItlpiQAB%27)
@@ -135,7 +135,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 12 Sep 2020 16:22:19 GMT
+      - Thu, 22 Oct 2020 18:09:27 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -147,18 +147,20 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - d086eae84175cfd1
+      - df129c48a3e22796
       X-B3-Spanid:
-      - d086eae84175cfd1
+      - c2c26644748daa81
+      X-B3-Parentspanid:
+      - df129c48a3e22796
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=IW6d8vUUEeqgoC_nvzOdxQ; domain=.salesforce.com; path=/; expires=Sun,
-        12-Sep-2021 16:22:19 GMT; Max-Age=31536000
+      - BrowserId=uRqyCBSREeu3vdsZ8zmYzQ; domain=.salesforce.com; path=/; expires=Fri,
+        22-Oct-2021 18:09:27 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=13122/400000
+      - api-usage=9983/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -167,9 +169,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"totalSize":0,"done":true,"records":[]}'
+      string: '{"totalSize":1,"done":true,"records":[]}'
     http_version:
-  recorded_at: Sat, 12 Sep 2020 16:22:19 GMT
+  recorded_at: Thu, 22 Oct 2020 18:09:27 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -191,7 +193,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 12 Sep 2020 16:22:20 GMT
+      - Thu, 22 Oct 2020 18:09:28 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -203,16 +205,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - c1d65a9828151674
+      - 3e63a2c7632245d1
       X-B3-Spanid:
-      - c1d65a9828151674
+      - 3e63a2c7632245d1
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=IeiJRvUUEeqACknynkr8Hw; domain=.salesforce.com; path=/; expires=Sun,
-        12-Sep-2021 16:22:20 GMT; Max-Age=31536000
+      - BrowserId=uYkrcxSREeuWcQXNr3ttZQ; domain=.salesforce.com; path=/; expires=Fri,
+        22-Oct-2021 18:09:28 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -225,15 +227,15 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1599927740659","signature":"YAu2E1PRwxASX5/YQJWZzhDXPsE9Fof71ejzqqj30nM="}'
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1603390168160","signature":"uw8eo+xxGivzdfUMeFv1k2R7HnoVHR2XkDESW2ftVX0="}'
     http_version:
-  recorded_at: Sat, 12 Sep 2020 16:22:20 GMT
+  recorded_at: Thu, 22 Oct 2020 18:09:28 GMT
 - request:
-    method: post
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c
+    method: patch
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a131F000002QrGOQA0
     body:
       encoding: UTF-8
-      string: '{"Monthly_Parking_Rent__c":"100","Application__c":"a0o0P00000ItlpiQAB","No_Preference_Used__c":false}'
+      string: '{"Monthly_Parking_Rent__c":"100","No_Preference_Used__c":false}'
     headers:
       User-Agent:
       - Faraday v0.17.3
@@ -247,11 +249,11 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 201
-      message: Created
+      code: 204
+      message: No Content
     headers:
       Date:
-      - Sat, 12 Sep 2020 16:22:21 GMT
+      - Thu, 22 Oct 2020 18:09:28 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -263,31 +265,23 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 60f7a52d4b78f01e
+      - c2b587e963b56aa9
       X-B3-Spanid:
-      - 60f7a52d4b78f01e
+      - c2b587e963b56aa9
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=ImvqAfUUEeqR_e-lLuCthQ; domain=.salesforce.com; path=/; expires=Sun,
-        12-Sep-2021 16:22:21 GMT; Max-Age=31536000
+      - BrowserId=ughG4BSREeuAZdmMlwUEwA; domain=.salesforce.com; path=/; expires=Fri,
+        22-Oct-2021 18:09:28 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=13122/400000
-      Location:
-      - "/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a131F000002QkrBQAS"
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
+      - api-usage=9982/400000
     body:
-      encoding: ASCII-8BIT
-      string: '{"id":"a131F000002QkrBQAS","success":true,"errors":[]}'
+      encoding: UTF-8
+      string: ''
     http_version:
-  recorded_at: Sat, 12 Sep 2020 16:22:25 GMT
+  recorded_at: Thu, 22 Oct 2020 18:09:29 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -309,7 +303,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 12 Sep 2020 16:22:26 GMT
+      - Thu, 22 Oct 2020 18:09:29 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -321,16 +315,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 8a7b3600648670c1
+      - ac79be577a0deea2
       X-B3-Spanid:
-      - 8a7b3600648670c1
+      - ac79be577a0deea2
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=JUndRPUUEeqksgkUSBHPng; domain=.salesforce.com; path=/; expires=Sun,
-        12-Sep-2021 16:22:26 GMT; Max-Age=31536000
+      - BrowserId=uq2u-RSREeusqyvt9sQbKg; domain=.salesforce.com; path=/; expires=Fri,
+        22-Oct-2021 18:09:29 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -343,12 +337,12 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1599927746332","signature":"QiGAvxP9VD16o33ucdCQtbmJJCC0Sdr6kvZXjJ3xPy0="}'
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1603390170090","signature":"vAvmL3uJsutGj0rFo+/AE1QXxYQtz2jeF+IlgyKbZW8="}'
     http_version:
-  recorded_at: Sat, 12 Sep 2020 16:22:26 GMT
+  recorded_at: Thu, 22 Oct 2020 18:09:30 GMT
 - request:
     method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Unit__c,%20Lease_Start_Date__c,%20Lease_Status__c,%20Monthly_Parking_Rent__c,%20BMR_Parking_Space_Assigned__c,%20Preference_Used__c,%20No_Preference_Used__c,%20Total_Monthly_Rent_without_Parking__c,%20Monthly_Tenant_Contribution__c%20FROM%20Lease__c%20WHERE%20(Application__c%20=%20%27a0o0P00000ItlpiQAB%27)
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Unit__c,%20Lease_Start_Date__c,%20Lease_Status__c,%20Monthly_Parking_Rent__c,%20BMR_Parking_Space_Assigned__c,%20Preference_Used__c,%20No_Preference_Used__c,%20Total_Monthly_Rent_without_Parking__c,%20Monthly_Tenant_Contribution__c,%20Parking_Spot_Number__c%20FROM%20Lease__c%20WHERE%20(Application__c%20=%20%27a0o0P00000ItlpiQAB%27)
     body:
       encoding: US-ASCII
       string: ''
@@ -367,7 +361,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 12 Sep 2020 16:22:27 GMT
+      - Thu, 22 Oct 2020 18:09:30 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -379,18 +373,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - dc546cca37a710b7
+      - 8c926f63fbb8e754
       X-B3-Spanid:
-      - dc546cca37a710b7
+      - 8c926f63fbb8e754
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=JcwFVvUUEeq4Vksgd6raAg; domain=.salesforce.com; path=/; expires=Sun,
-        12-Sep-2021 16:22:27 GMT; Max-Age=31536000
+      - BrowserId=uy0-3hSREeuWcQXNr3ttZQ; domain=.salesforce.com; path=/; expires=Fri,
+        22-Oct-2021 18:09:30 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=13123/400000
+      - api-usage=9985/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -399,9 +393,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a131F000002QkrBQAS"},"Id":"a131F000002QkrBQAS","Unit__c":null,"Lease_Start_Date__c":null,"Lease_Status__c":null,"Monthly_Parking_Rent__c":100.0,"BMR_Parking_Space_Assigned__c":null,"Preference_Used__c":null,"No_Preference_Used__c":false,"Total_Monthly_Rent_without_Parking__c":null,"Monthly_Tenant_Contribution__c":null}]}'
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a131F000002QrGOQA0"},"Id":"a131F000002QrGOQA0","Unit__c":null,"Lease_Start_Date__c":null,"Lease_Status__c":"Draft","Monthly_Parking_Rent__c":100.0,"BMR_Parking_Space_Assigned__c":null,"Preference_Used__c":null,"No_Preference_Used__c":false,"Total_Monthly_Rent_without_Parking__c":null,"Monthly_Tenant_Contribution__c":null,"Parking_Spot_Number__c":null}]}'
     http_version:
-  recorded_at: Sat, 12 Sep 2020 16:22:27 GMT
+  recorded_at: Thu, 22 Oct 2020 18:09:30 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Lease__c%20WHERE%20(Application__c%20=%20%27a0o0P00000ItlpiQAB%27)
@@ -423,7 +417,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 12 Sep 2020 16:22:27 GMT
+      - Thu, 22 Oct 2020 18:09:31 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -435,18 +429,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - a1d173dd0db1b188
+      - 2fe85ac718c38cc5
       X-B3-Spanid:
-      - a1d173dd0db1b188
+      - 2fe85ac718c38cc5
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=JkCYbvUUEeqB_lW9CYAEdA; domain=.salesforce.com; path=/; expires=Sun,
-        12-Sep-2021 16:22:27 GMT; Max-Age=31536000
+      - BrowserId=u5qm9RSREeuAZdmMlwUEwA; domain=.salesforce.com; path=/; expires=Fri,
+        22-Oct-2021 18:09:31 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=13122/400000
+      - api-usage=9983/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -457,5 +451,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[]}'
     http_version:
-  recorded_at: Sat, 12 Sep 2020 16:22:27 GMT
+  recorded_at: Thu, 22 Oct 2020 18:09:31 GMT
 recorded_with: VCR 5.1.0
