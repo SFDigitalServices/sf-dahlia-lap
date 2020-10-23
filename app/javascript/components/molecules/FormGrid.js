@@ -22,19 +22,26 @@ FormGrid.Row.defaultProps = {
 
 // Wrapper for each form field.
 // NOTE: Grid is hardcoded. This should not be generic element
-FormGrid.Item = ({ children, small = false, fullWidth = false, medium = false }) => (
-  <div
-    className={classNames(
-      'form-grid_item column',
-      { 'small-6': !(small || fullWidth || medium) },
-      { 'small-3': small },
-      { 'small-4': medium },
-      { 'small-12': fullWidth }
-    )}
-  >
-    {children}
-  </div>
-)
+FormGrid.Item = ({ children, width }) => {
+  let widthStyle
+
+  switch (width) {
+    case '25%':
+      widthStyle = 'small-3'
+      break
+    case '33%':
+      widthStyle = 'small-4'
+      break
+    case '100%':
+      widthStyle = 'small-12'
+      break
+    default:
+      widthStyle = 'small-6'
+      break
+  }
+
+  return <div className={classNames('form-grid_item column', widthStyle)}>{children}</div>
+}
 
 // Use for form fields that have a shared label.
 FormGrid.Group = ({ children, label }) => (

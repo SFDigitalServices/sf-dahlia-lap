@@ -5,6 +5,7 @@ import { CurrencyField, SelectField, InputField } from '~/utils/form/final_form/
 import { validateLeaseCurrency } from '~/utils/form/validations'
 
 const monthlyRentFieldName = 'lease.monthly_parking_rent'
+const parkingSpotFieldName = 'lease.parking_spot_number'
 const Yes = 'Yes'
 const No = 'No'
 const Waitlist = 'Waitlist'
@@ -17,6 +18,7 @@ const ParkingInformationInputs = ({
   const onChangeHasParkingSpace = ({ target: { value } }) => {
     if (value !== Yes) {
       change(monthlyRentFieldName, null)
+      change(parkingSpotFieldName, null)
     }
   }
 
@@ -27,7 +29,7 @@ const ParkingInformationInputs = ({
   return (
     <>
       <FormGrid.Row>
-        <FormGrid.Item medium>
+        <FormGrid.Item>
           <SelectField
             label='BMR Parking Space Assigned?'
             onChange={onChangeHasParkingSpace}
@@ -36,7 +38,7 @@ const ParkingInformationInputs = ({
             disabled={disabled}
           />
         </FormGrid.Item>
-        <FormGrid.Item medium>
+        <FormGrid.Item width='25%'>
           <CurrencyField
             label='Monthly Parking Cost'
             fieldName={monthlyRentFieldName}
@@ -45,10 +47,10 @@ const ParkingInformationInputs = ({
             isDirty={monthlyRentVisited}
           />
         </FormGrid.Item>
-        <FormGrid.Item medium>
+        <FormGrid.Item width='25%'>
           <InputField
             label='Space Assigned'
-            fieldName='lease.parking_spot_number'
+            fieldName={parkingSpotFieldName}
             disabled={disabled || !hasParkingSpace}
             isDirty={monthlyRentVisited}
             placeholder='Enter Space Assigned'

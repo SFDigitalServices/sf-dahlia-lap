@@ -1790,7 +1790,7 @@ Array [
                     className="form-grid row expand"
                   >
                     <div
-                      className="form-grid_item column small-4"
+                      className="form-grid_item column small-6"
                     >
                       <div
                         className="form-group"
@@ -1836,7 +1836,7 @@ Array [
                       </div>
                     </div>
                     <div
-                      className="form-grid_item column small-4"
+                      className="form-grid_item column small-3"
                     >
                       <div
                         className="form-group"
@@ -1863,7 +1863,7 @@ Array [
                       </div>
                     </div>
                     <div
-                      className="form-grid_item column small-4"
+                      className="form-grid_item column small-3"
                     >
                       <div
                         className="form-group"
