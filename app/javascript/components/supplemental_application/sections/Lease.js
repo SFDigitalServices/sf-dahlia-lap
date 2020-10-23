@@ -168,13 +168,13 @@ const Lease = ({ form, values, store }) => {
           </FormGrid.Item>
         </FormGrid.Row>
         <FormGrid.Row>
-          <FormGrid.Item small>
+          <FormGrid.Item width='25%'>
             <strong className='form-note micro h-caps'>Total</strong>
             <p className='margin-top'>
               <strong className='form-note'>{availableUnits.length}</strong>
             </p>
           </FormGrid.Item>
-          <FormGrid.Item small>
+          <FormGrid.Item width='25%'>
             <strong className='form-note micro h-caps'>Accessibility</strong>
             <p className='margin-top'>
               <span className='form-note'>{accessibilityUnits.length}</span>
@@ -189,13 +189,13 @@ const Lease = ({ form, values, store }) => {
           </FormGrid.Item>
         </FormGrid.Row>
         <FormGrid.Row>
-          <FormGrid.Item small>
+          <FormGrid.Item width='25%'>
             <strong className='form-note micro h-caps'>Members</strong>
             <p className='margin-top'>
               <strong className='form-note'>{application.household_members.length + 1}</strong>
             </p>
           </FormGrid.Item>
-          <FormGrid.Item small>
+          <FormGrid.Item width='25%'>
             <strong className='form-note micro h-caps'>Accessibility Requests</strong>
             <p className='margin-top'>
               <span className='form-note'>{accesibilityRequests.join(', ')}</span>

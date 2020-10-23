@@ -358,6 +358,13 @@ describe('SupplementalApplicationPage', () => {
         .simulate('change')
 
       // Costs
+
+      // need to set this to "Yes" first to be able to access the other parking cost fields.
+      wrapper
+        .find('[name="lease.bmr_parking_space_assigned"] select')
+        .at(0)
+        .simulate('change', { target: { value: 'Yes' } })
+
       wrapper
         .find('[name="lease.total_monthly_rent_without_parking"] input')
         .simulate('change', { target: { value: '$1' } })
@@ -376,7 +383,7 @@ describe('SupplementalApplicationPage', () => {
 
       const expectedLease = {
         id: 'a130P000005TeZrQAK',
-        bmr_parking_space_assigned: null,
+        bmr_parking_space_assigned: 'Yes',
         unit: 'id1',
         lease_start_date: { year: '2019', month: '1', day: '12' },
         lease_status: 'Draft',

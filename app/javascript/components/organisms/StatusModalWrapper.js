@@ -59,7 +59,7 @@ const StatusModalWrapper = ({
     {(values, changeFieldValue) => (
       <div className={'form-group'}>
         <FormGrid.Row paddingBottom>
-          <FormGrid.Item fullWidth>
+          <FormGrid.Item width='100%'>
             <Field
               name='status'
               validate={validate.isPresent('Status is required')}
@@ -86,7 +86,7 @@ const StatusModalWrapper = ({
         </FormGrid.Row>
         {values.status && LEASE_UP_SUBSTATUS_OPTIONS[values.status] && (
           <FormGrid.Row paddingBottom>
-            <FormGrid.Item fullWidth>
+            <FormGrid.Item width='100%'>
               <Field
                 name='subStatus'
                 component={({ input: { onChange }, meta }) => {
@@ -110,7 +110,7 @@ const StatusModalWrapper = ({
           </FormGrid.Row>
         )}
         <FormGrid.Row>
-          <FormGrid.Item fullWidth>
+          <FormGrid.Item width='100%'>
             <TextAreaField
               label={'Comment'}
               blockNote={statusRequiresComments(values.status, values.subStatus) && '(required)'}
