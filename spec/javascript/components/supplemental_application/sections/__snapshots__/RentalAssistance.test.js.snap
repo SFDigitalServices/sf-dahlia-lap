@@ -208,7 +208,6 @@ exports[`RentalAssistanceForm when it already exists on salesforce matches snaps
     >
       <Button
         classes="primary margin-right"
-        disabled={false}
         id="rental-assistance-save"
         noBottomMargin={true}
         onClick={[Function]}
@@ -218,7 +217,6 @@ exports[`RentalAssistanceForm when it already exists on salesforce matches snaps
       />
       <Button
         classes="secondary"
-        disabled={false}
         id="rental-assistance-cancel"
         noBottomMargin={true}
         onClick={[MockFunction]}
@@ -228,7 +226,6 @@ exports[`RentalAssistanceForm when it already exists on salesforce matches snaps
       />
       <Button
         classes="alert-fill right"
-        disabled={false}
         id="rental-assistance-delete"
         noBottomMargin={true}
         onClick={[MockFunction]}
@@ -376,7 +373,6 @@ exports[`RentalAssistanceForm when it is new matches snapshot 1`] = `
     >
       <Button
         classes="primary margin-right"
-        disabled={false}
         id="rental-assistance-save"
         noBottomMargin={true}
         onClick={[Function]}
@@ -386,7 +382,6 @@ exports[`RentalAssistanceForm when it is new matches snapshot 1`] = `
       />
       <Button
         classes="secondary"
-        disabled={false}
         id="rental-assistance-cancel"
         noBottomMargin={true}
         onClick={[MockFunction]}
