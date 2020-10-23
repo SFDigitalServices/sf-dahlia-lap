@@ -65,73 +65,67 @@ const ApplicationPage = ({ isLeaseUp = false }) => {
   })
 
   let pageHeader = {}
-  let tabSection = false
+  let tabSection
 
-  if (!application) {
-    pageHeader = {
-      title: 'Application',
-      content: <span>Name of Listing:</span>
-    }
-
-    if (isLeaseUp) {
-      tabSection = {
-        items: [
+  if (isLeaseUp) {
+    if (application) {
+      pageHeader = {
+        title: `${application.name}: ${application.applicant.name}`,
+        breadcrumbs: [
+          { title: 'Lease Ups', link: appPaths.toLeaseUps(), renderAsRouterLink: true },
           {
-            title: 'Short Form Application',
-            url: appPaths.toLeaseUpShortForm(applicationId),
-            active: true,
+            title: application.listing.name,
+            link: appPaths.toListingLeaseUps(application.listing.id),
             renderAsRouterLink: true
           },
-          {
-            title: 'Supplemental Information',
-            url: appPaths.toApplicationSupplementals(applicationId),
-            renderAsRouterLink: true
-          }
+          { title: application.name, link: '#' }
         ]
       }
-    }
+    } else {
+      const emptyBreadCrumb = {
+        title: '',
+        link: '#'
+      }
 
-    // If the lease_up=true param is passed in the url, then we should display the application as if it's
-    // a part of the lease up section.
-  } else if (isLeaseUp) {
-    pageHeader = {
-      title: `${application.name}: ${application.applicant.name}`,
-      breadcrumbs: [
-        { title: 'Lease Ups', link: appPaths.toLeaseUps(), renderAsRouterLink: true },
-        {
-          title: application.listing.name,
-          link: appPaths.toListingLeaseUps(application.listing.id),
-          renderAsRouterLink: true
-        },
-        { title: application.name, link: '#' }
-      ]
+      pageHeader = {
+        // making this a div with a non-blocking space allows us to keep the header height
+        // without actually rendering any text.
+        title: <div>&nbsp;</div>,
+        breadcrumbs: [
+          { title: 'Lease Ups', link: appPaths.toLeaseUps(), renderAsRouterLink: true },
+          emptyBreadCrumb,
+          emptyBreadCrumb
+        ]
+      }
     }
 
     tabSection = {
       items: [
         {
           title: 'Short Form Application',
-          url: appPaths.toLeaseUpShortForm(application.id),
+          url: appPaths.toLeaseUpShortForm(applicationId),
           active: true,
           renderAsRouterLink: true
         },
         {
           title: 'Supplemental Information',
-          url: appPaths.toApplicationSupplementals(application.id),
+          url: appPaths.toApplicationSupplementals(applicationId),
           renderAsRouterLink: true
         }
       ]
     }
   } else {
     pageHeader = {
-      title: `Application ${application.name}`,
+      title: `Application ${application?.name ?? ''}`,
       content: (
         <span>
           Name of Listing:{' '}
-          <a href={appPaths.toListing(application.listing.id)}>{application.listing.name}</a>
+          {application && (
+            <a href={appPaths.toListing(application.listing.id)}>{application.listing.name}</a>
+          )}
         </span>
       ),
-      action: buildActionLinkIfNecessary(application, showAddBtn)
+      action: application && buildActionLinkIfNecessary(application, showAddBtn)
     }
   }
 

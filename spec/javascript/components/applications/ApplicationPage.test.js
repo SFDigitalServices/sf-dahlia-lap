@@ -1,4 +1,5 @@
 import { act } from 'react-dom/test-utils'
+import { shallow } from 'enzyme'
 import { mountAppWithUrl } from '../../testUtils/wrapperUtil'
 import ApplicationPage from 'components/applications/ApplicationPage'
 import application from '../../fixtures/application'
@@ -6,6 +7,7 @@ import saleApplication from '../../fixtures/sale_application'
 import ApplicationDetails from '~/components/applications/application_details/ApplicationDetails'
 
 import Loading from '~/components/molecules/Loading'
+import CardLayout from '~/components/layouts/CardLayout'
 
 const flaggedAppCardSelector = '#content-card-flagged_applications'
 
@@ -99,6 +101,17 @@ describe('ApplicationPage', () => {
         expect(wrapper.find(Loading).prop('isLoading')).toBeTruthy()
       })
 
+      test('renders the correct header title and content', () => {
+        expect(wrapper.find(CardLayout).props().pageHeader.title).toEqual('Application ')
+
+        const headerContentWrapper = shallow(wrapper.find(CardLayout).props().pageHeader.content)
+        expect(headerContentWrapper.text()).toEqual('Name of Listing: ')
+      })
+
+      test('does not render the tab section', () => {
+        expect(wrapper.find(CardLayout).props().tabSection).toBeUndefined()
+      })
+
       test('does not render ApplicationDetails', () => {
         expect(wrapper.find(ApplicationDetails)).toHaveLength(0)
       })
@@ -121,6 +134,19 @@ describe('ApplicationPage', () => {
 
       test('renders ApplicationDetails', () => {
         expect(wrapper.find(ApplicationDetails)).toHaveLength(1)
+      })
+
+      test('populates the header title and content with application details', () => {
+        expect(wrapper.find(CardLayout).props().pageHeader.title).toEqual(
+          'Application APP-00191270'
+        )
+
+        const headerContentWrapper = shallow(wrapper.find(CardLayout).props().pageHeader.content)
+        expect(headerContentWrapper.text()).toEqual('Name of Listing: Test 5/30')
+      })
+
+      test('does not render the tab section', () => {
+        expect(wrapper.find(CardLayout).props().tabSection).toBeUndefined()
       })
 
       test('should match snapshot', () => {
@@ -256,24 +282,92 @@ describe('ApplicationPage', () => {
   })
 
   describe('with leaseup url and showAppBtn', () => {
-    let wrapper
-    beforeEach(async () => {
-      wrapper = await getWrapper({
-        applicationId: REGULAR_APP_ID,
-        withLeaseUpUrl: true,
-        waitForLoadingFinish: true,
-        queryParams: '?showAddBtn=true'
+    describe('before app is loaded', () => {
+      let wrapper
+      beforeEach(async () => {
+        wrapper = await getWrapper({
+          applicationId: REGULAR_APP_ID,
+          withLeaseUpUrl: true,
+          waitForLoadingFinish: false,
+          queryParams: '?showAddBtn=true'
+        })
+      })
+
+      test('renders the correct header title and content', () => {
+        const titleText = shallow(wrapper.find(CardLayout).props().pageHeader.title)
+        const nbspUnicode = '\u00a0'
+        expect(titleText.text()).toEqual(nbspUnicode)
+
+        expect(
+          wrapper
+            .find(CardLayout)
+            .props()
+            .pageHeader.breadcrumbs.map((crumb) => crumb.title)
+        ).toEqual(['Lease Ups', '', ''])
+      })
+
+      test('renders the tab section', () => {
+        expect(
+          wrapper
+            .find(CardLayout)
+            .props()
+            .tabSection.items.map((i) => i.title)
+        ).toEqual(['Short Form Application', 'Supplemental Information'])
+      })
+
+      test('does not render add button link', async () => {
+        // add button link behavior isn't possible with lease up view
+        expect(wrapper.text()).not.toContain('Add new application')
+      })
+
+      test('renders the tab headers', async () => {
+        expect(wrapper.text()).toContain('Supplemental Information')
+        expect(wrapper.text()).toContain('Short Form Application')
       })
     })
 
-    test('does not render add button link', async () => {
-      // add button link behavior isn't possible with lease up view
-      expect(wrapper.text()).not.toContain('Add new application')
-    })
+    describe('after loading finish', () => {
+      let wrapper
+      beforeEach(async () => {
+        wrapper = await getWrapper({
+          applicationId: REGULAR_APP_ID,
+          withLeaseUpUrl: true,
+          waitForLoadingFinish: true,
+          queryParams: '?showAddBtn=true'
+        })
+      })
 
-    test('renders the tab headers', async () => {
-      expect(wrapper.text()).toContain('Supplemental Information')
-      expect(wrapper.text()).toContain('Short Form Application')
+      test('renders the correct header title and content', () => {
+        expect(wrapper.find(CardLayout).props().pageHeader.title).toEqual(
+          'APP-00191270: karen elizabeth jones'
+        )
+
+        expect(
+          wrapper
+            .find(CardLayout)
+            .props()
+            .pageHeader.breadcrumbs.map((crumb) => crumb.title)
+        ).toEqual(['Lease Ups', 'Test 5/30', 'APP-00191270'])
+      })
+
+      test('renders the tab section', () => {
+        expect(
+          wrapper
+            .find(CardLayout)
+            .props()
+            .tabSection.items.map((i) => i.title)
+        ).toEqual(['Short Form Application', 'Supplemental Information'])
+      })
+
+      test('does not render add button link', async () => {
+        // add button link behavior isn't possible with lease up view
+        expect(wrapper.text()).not.toContain('Add new application')
+      })
+
+      test('renders the tab headers', async () => {
+        expect(wrapper.text()).toContain('Supplemental Information')
+        expect(wrapper.text()).toContain('Short Form Application')
+      })
     })
   })
 })

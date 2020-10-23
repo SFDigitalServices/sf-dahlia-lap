@@ -18,7 +18,6 @@ exports[`ApplicationPage with regular application After the application finishes
         "title": "Application APP-00191270",
       }
     }
-    tabSection={false}
   >
     <PageHeader
       action={Array []}
