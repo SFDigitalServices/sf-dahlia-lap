@@ -23,7 +23,6 @@ const ParkingInformationInputs = ({
   }
 
   const monthlyRentVisited = getFieldState(monthlyRentFieldName)?.visited
-
   const hasParkingSpace = lease?.bmr_parking_space_assigned === Yes
 
   return (
@@ -38,24 +37,29 @@ const ParkingInformationInputs = ({
             disabled={disabled}
           />
         </FormGrid.Item>
-        <FormGrid.Item width='25%'>
-          <CurrencyField
-            label='Monthly Parking Cost'
-            fieldName={monthlyRentFieldName}
-            validation={validateLeaseCurrency}
-            disabled={disabled || !hasParkingSpace}
-            isDirty={monthlyRentVisited}
-          />
-        </FormGrid.Item>
-        <FormGrid.Item width='25%'>
-          <InputField
-            label='Space Assigned'
-            fieldName={parkingSpotFieldName}
-            disabled={disabled || !hasParkingSpace}
-            isDirty={monthlyRentVisited}
-            placeholder='Enter Space Assigned'
-          />
-        </FormGrid.Item>
+        {hasParkingSpace && (
+          <FormGrid.Item width='25%'>
+            <CurrencyField
+              label='Monthly Cost'
+              fieldName={monthlyRentFieldName}
+              validation={validateLeaseCurrency}
+              disabled={disabled}
+              isDirty={monthlyRentVisited}
+              placeholder='Enter cost...'
+            />
+          </FormGrid.Item>
+        )}
+        {hasParkingSpace && (
+          <FormGrid.Item width='25%'>
+            <InputField
+              label='Space Assigned'
+              fieldName={parkingSpotFieldName}
+              disabled={disabled}
+              isDirty={monthlyRentVisited}
+              placeholder='Enter space...'
+            />
+          </FormGrid.Item>
+        )}
       </FormGrid.Row>
     </>
   )

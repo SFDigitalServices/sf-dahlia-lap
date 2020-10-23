@@ -129,13 +129,14 @@ export const CurrencyField = ({
   maxLength,
   disabled,
   isDirty = true,
-  helpText
+  helpText,
+  placeholder = null
 }) => (
   <InputField
     fieldName={fieldName}
     label={label}
     validation={validation}
-    placeholder='Enter Amount'
+    placeholder={placeholder ?? 'Enter Amount'}
     maxLength={maxLength}
     id={id}
     type='text'

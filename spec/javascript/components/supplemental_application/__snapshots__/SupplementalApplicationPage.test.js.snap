@@ -1835,60 +1835,6 @@ Array [
                         </select>
                       </div>
                     </div>
-                    <div
-                      className="form-grid_item column small-3"
-                    >
-                      <div
-                        className="form-group"
-                      >
-                        <label
-                          className="form-label"
-                          htmlFor="form-lease.monthly_parking_rent"
-                          id="label-lease-monthly_parking_rent"
-                        >
-                          Monthly Parking Cost
-                        </label>
-                        <input
-                          className=""
-                          disabled={true}
-                          id="form-lease.monthly_parking_rent"
-                          name="lease.monthly_parking_rent"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          onFocus={[Function]}
-                          placeholder="Enter Amount"
-                          type="text"
-                          value="$790.49"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      className="form-grid_item column small-3"
-                    >
-                      <div
-                        className="form-group"
-                      >
-                        <label
-                          className="form-label"
-                          htmlFor="form-lease.parking_spot_number"
-                          id="label-lease-parking_spot_number"
-                        >
-                          Space Assigned
-                        </label>
-                        <input
-                          className=""
-                          disabled={true}
-                          id="form-lease.parking_spot_number"
-                          name="lease.parking_spot_number"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          onFocus={[Function]}
-                          placeholder="Enter Space Assigned"
-                          type="text"
-                          value=""
-                        />
-                      </div>
-                    </div>
                   </div>
                 </div>
                 <h3
