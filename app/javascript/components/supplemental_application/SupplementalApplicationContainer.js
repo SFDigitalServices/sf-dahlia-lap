@@ -122,8 +122,12 @@ const SupplementalApplicationContainer = ({ store }) => {
     const errors = { lease: {} }
     // only validate lease_start_date when any of the fields is present
     if (!isEmpty(values.lease) && !isEmpty(values.lease.lease_start_date)) {
-      errors.lease = { lease_start_date: {} }
-      validate.isValidDate(values.lease.lease_start_date, errors.lease.lease_start_date)
+      const dateErrors = validate.isValidDate(values.lease.lease_start_date, {})
+
+      // only set any error fields if there were actually any date errors.
+      if (dateErrors?.all || dateErrors?.day || dateErrors?.month || dateErrors?.year) {
+        errors.lease.lease_start_date = dateErrors
+      }
     }
     return errors
   }

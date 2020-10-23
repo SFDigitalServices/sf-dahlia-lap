@@ -23,6 +23,8 @@ import { EDIT_LEASE_STATE } from '../SupplementalApplicationPage'
 import { doesApplicationHaveLease } from '~/utils/leaseUtils'
 import { areLeaseAndRentalAssistancesValid } from '~/utils/form/formSectionValidations'
 
+const NONE_PREFERENCE_LABEL = 'None'
+
 const toggleNoPreferenceUsed = (form, event) => {
   // lease.preference_used need to be reset, otherwise SF validation fails
   if (isEmpty(event.target.value)) {
@@ -30,6 +32,7 @@ const toggleNoPreferenceUsed = (form, event) => {
   }
   form.change('lease.no_preference_used', isEmpty(event.target.value))
 }
+
 const LeaseActions = ({
   onEditLeaseClick,
   onSave,
@@ -63,7 +66,7 @@ const LeaseActions = ({
         onClick={onSave}
         disabled={loading}
         noBottomMargin
-        text='Save Lease'
+        text={loading ? 'Saving...' : 'Save Lease'}
       />
       <Button
         classes='secondary'
@@ -118,12 +121,10 @@ const Lease = ({ form, values, store }) => {
     post_lottery_validation: 'Confirmed'
   })
 
-  const confirmedPreferenceOptions = formUtils.toOptions(
-    map(
-      [{ id: null, preference_name: 'None' }, ...confirmedPreferences],
-      pluck('id', 'preference_name')
-    )
-  )
+  const confirmedPreferenceOptions = formUtils.toOptions([
+    formUtils.toEmptyOption(NONE_PREFERENCE_LABEL),
+    ...map(confirmedPreferences, pluck('id', 'preference_name'))
+  ])
 
   const getVisited = (fieldName) => form.getFieldState(fieldName)?.visited
 
@@ -272,6 +273,7 @@ const Lease = ({ form, values, store }) => {
           <FormGrid.Item>
             <SelectField
               label='Preference Used'
+              selectValue={values.lease.preference_used || NONE_PREFERENCE_LABEL}
               onChange={(value) => toggleNoPreferenceUsed(form, value)}
               fieldName='lease.preference_used'
               options={confirmedPreferenceOptions}
