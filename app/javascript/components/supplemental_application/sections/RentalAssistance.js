@@ -234,7 +234,7 @@ export const RentalAssistanceForm = ({
             onClick={handleSave}
             disabled={loading}
             noBottomMargin
-            text={loading ? 'Saving...' : 'Save'}
+            text='Save'
             id='rental-assistance-save'
           />
           <Button

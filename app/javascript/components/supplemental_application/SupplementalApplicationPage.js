@@ -321,12 +321,13 @@ class SupplementalApplicationPage extends React.Component {
           leaseSectionState: SHOW_LEASE_STATE
         }))
       })
-      .catch(() => Alerts.error())
       .finally(() => this.setState({ loading: false }))
+    // TODO: catch and handle errors
   }
 
   handleDeleteLease = () => {
     const { application } = this.state
+
     this.setState({ loading: true })
 
     deleteLease(application)
@@ -336,8 +337,8 @@ class SupplementalApplicationPage extends React.Component {
           leaseSectionState: NO_LEASE_STATE
         }))
       })
-      .catch(() => Alerts.error())
       .finally(() => this.setState({ loading: false }))
+    // TODO: catch and handle errors
   }
 
   handleRentalAssistanceAction = (action) => {
@@ -427,12 +428,10 @@ class SupplementalApplicationPage extends React.Component {
   }
 
   handleLeaveSuppAppTab = () => {
-    const { application, leaseSectionState, supplementalAppTouched } = this.state
+    const { supplementalAppTouched } = this.state
     const { applicationId, history } = this.props
 
-    const hasStartedNewLease =
-      leaseSectionState === EDIT_LEASE_STATE && !doesApplicationHaveLease(application)
-    if (supplementalAppTouched || hasStartedNewLease) {
+    if (supplementalAppTouched) {
       this.setState({ leaveConfirmationModal: { isOpen: true } })
     } else {
       history.push(appPaths.toLeaseUpShortForm(applicationId))
@@ -487,6 +486,7 @@ class SupplementalApplicationPage extends React.Component {
       handleDeleteLease: this.handleDeleteLease,
       handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,
       handleDeleteRentalAssistance: this.handleDeleteRentalAssistance,
+      handleOpenRentalAssistancePanel: this.handleOpenRentalAssistancePanel,
       handleSaveRentalAssistance: this.handleSaveRentalAssistance,
       handleStatusModalClose: this.handleStatusModalClose,
       handleStatusModalStatusChange: this.handleStatusModalStatusChange,
