@@ -161,7 +161,7 @@ const Lease = ({ form, values, store }) => {
         <FormGrid.Row>
           <FormGrid.Item>
             <div className='margin-bottom'>
-              <strong className='form-note max-width'>
+              <strong className='form-note small max-width'>
                 Remaining Available Units and Set-Asides
               </strong>
             </div>
@@ -195,7 +195,7 @@ const Lease = ({ form, values, store }) => {
               <strong className='form-note'>{application.household_members.length + 1}</strong>
             </p>
           </FormGrid.Item>
-          <FormGrid.Item width='25%'>
+          <FormGrid.Item width='50%'>
             <strong className='form-note micro h-caps'>Accessibility Requests</strong>
             <p className='margin-top'>
               <span className='form-note'>
