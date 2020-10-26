@@ -1612,7 +1612,7 @@ Array [
                         className="margin-bottom"
                       >
                         <strong
-                          className="form-note max-width"
+                          className="form-note small max-width"
                         >
                           Remaining Available Units and Set-Asides
                         </strong>
@@ -1669,7 +1669,7 @@ Array [
                         className="margin-bottom"
                       >
                         <strong
-                          className="form-note max-width"
+                          className="form-note small max-width"
                         >
                           Household Information
                         </strong>
@@ -1698,7 +1698,7 @@ Array [
                       </p>
                     </div>
                     <div
-                      className="form-grid_item column small-3"
+                      className="form-grid_item column small-6"
                     >
                       <strong
                         className="form-note micro h-caps"
