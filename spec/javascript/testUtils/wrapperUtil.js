@@ -69,13 +69,32 @@ const nameOrTypeMatches = (node, nodeNameOrType) =>
     ? node.name() === nodeNameOrType
     : node.type() === nodeNameOrType
 
-export const findByNameAndProps = (wrapper, nodeNameOrType, props) => {
+/**
+ * Find the child or children that have the given name and props.
+ *
+ * @param {*} wrapper the enzyme wrapper to search through (can be shallow or mounted)
+ * @param {*} nodeNameOrType either a string node name or a component constructor function. Ex. any
+ *                           of the following will work: ['RentalAssistance', RentalAssistance,
+ *                           'a', 'button']. Note that complicated selectors do not work, eg. 'button#button_id'
+ * @param {*} props The props to check equality for. These do not have to be exhaustive, we only check the props
+ *                  that are provided.
+ */
+export const findWithProps = (wrapper, nodeNameOrType, props) => {
   const predicate = (n) =>
     nameOrTypeMatches(n, nodeNameOrType) && Object.keys(props).every((k) => n.prop(k) === props[k])
 
   return wrapper.findWhere(predicate)
 }
 
+/**
+ * Find the child or children that have the given name and text representation.
+ *
+ * @param {*} wrapper the enzyme wrapper to search through (can be shallow or mounted)
+ * @param {*} nodeNameOrType either a string node name or a component constructor function. Ex. any
+ *                           of the following will work: ['RentalAssistance', RentalAssistance,
+ *                           'a', 'button']. Note that complicated selectors do not work, eg. 'button#button_id'
+ * @param {*} text The exact text the child has.
+ */
 export const findWithText = (wrapper, nodeNameOrType, text) => {
   const predicate = (n) => nameOrTypeMatches(n, nodeNameOrType) && n.text() === text
   return wrapper.findWhere(predicate)
