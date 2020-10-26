@@ -1,6 +1,7 @@
 /* eslint-disable jest/no-conditional-expect */
-import { mountAppWithUrl } from '../../testUtils/wrapperUtil'
+import { findWithText, mountAppWithUrl } from '../../testUtils/wrapperUtil'
 import { act } from 'react-dom/test-utils'
+import { Link } from 'react-router-dom'
 import LeaseUpApplicationsPage from '~/components/lease_ups/LeaseUpApplicationsPage'
 import Loading from '~/components/molecules/Loading'
 
@@ -120,6 +121,16 @@ describe('LeaseUpApplicationsPage', () => {
 
   test('should render accessibility requests when present', async () => {
     expect(wrapper.find(rowSelector).first().text()).toContain('Vision')
+  })
+
+  test('should render application links as routed links', () => {
+    const mockAppNames = mockApplications.map((app) => app.application.name)
+    const applicationLinkWrappers = mockAppNames.map((name) => findWithText(wrapper, Link, name))
+
+    // Just double check that our list has the same length as mockApplications, because if
+    // for some reason it had length 0 the .every(..) call would always return true by default
+    expect(applicationLinkWrappers).toHaveLength(5)
+    expect(applicationLinkWrappers.every((w) => w.exists())).toBeTruthy()
   })
 
   test('status modal can be opened and closed', () => {

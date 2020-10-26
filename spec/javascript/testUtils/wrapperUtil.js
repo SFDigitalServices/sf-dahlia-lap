@@ -64,15 +64,20 @@ export const shallowWithFormAndContext = (context, formToChildrenFunc) => {
   return diveThroughContextWrappers(diveThroughFormWrappers(formWrapper))
 }
 
-export const findByNameAndProps = (wrapper, name, props) => {
+const nameOrTypeMatches = (node, nodeNameOrType) =>
+  typeof nodeNameOrType === 'string'
+    ? node.name() === nodeNameOrType
+    : node.type() === nodeNameOrType
+
+export const findByNameAndProps = (wrapper, nodeNameOrType, props) => {
   const predicate = (n) =>
-    n.name() === name && Object.keys(props).every((k) => n.prop(k) === props[k])
+    nameOrTypeMatches(n, nodeNameOrType) && Object.keys(props).every((k) => n.prop(k) === props[k])
 
   return wrapper.findWhere(predicate)
 }
 
-export const findWithText = (wrapper, nodeName, text) => {
-  const predicate = (n) => n.name() === nodeName && n.text() === text
+export const findWithText = (wrapper, nodeNameOrType, text) => {
+  const predicate = (n) => nameOrTypeMatches(n, nodeNameOrType) && n.text() === text
   return wrapper.findWhere(predicate)
 }
 
