@@ -21,10 +21,7 @@ const Dropdown = ({
       padding: 0,
       backgroundColor: (state.isSelected && COLORS.primaryTint) || (state.isFocused && COLORS.vapor)
     }),
-    control: (provided) => ({
-      ...provided,
-      border: 'none'
-    })
+    control: () => ({ border: 'none' })
   }
 
   return (

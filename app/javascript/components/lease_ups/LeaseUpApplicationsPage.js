@@ -31,6 +31,11 @@ const getPageHeaderData = (listing) => {
     renderAsRouterLink: true
   }
 
+  const emptyBreadCrumb = {
+    title: '',
+    link: '#'
+  }
+
   const breadcrumbs = listing
     ? [
         levelAboveBreadcrumb,
@@ -40,7 +45,7 @@ const getPageHeaderData = (listing) => {
           renderAsRouterLink: true
         }
       ]
-    : [levelAboveBreadcrumb]
+    : [levelAboveBreadcrumb, emptyBreadCrumb]
 
   return {
     title: listing?.name || '',
