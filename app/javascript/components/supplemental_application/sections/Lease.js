@@ -147,10 +147,10 @@ const Lease = ({ form, values, store }) => {
     }
   }
 
-  const accesibilityRequests = []
+  const accessibilityRequests = []
   each(application.has_ada_priorities_selected, (value, request) => {
     if (value) {
-      accesibilityRequests.push(capitalize(request.replace('_impairments', '')))
+      accessibilityRequests.push(capitalize(request.replace('_impairments', '')))
     }
   })
 
@@ -198,7 +198,9 @@ const Lease = ({ form, values, store }) => {
           <FormGrid.Item width='25%'>
             <strong className='form-note micro h-caps'>Accessibility Requests</strong>
             <p className='margin-top'>
-              <span className='form-note'>{accesibilityRequests.join(', ')}</span>
+              <span className='form-note'>
+                {isEmpty(accessibilityRequests) ? 'None' : accessibilityRequests.join(', ')}
+              </span>
             </p>
           </FormGrid.Item>
         </FormGrid.Row>
