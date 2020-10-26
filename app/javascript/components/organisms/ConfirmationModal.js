@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import { Link } from 'react-router-dom'
 
 import Modal from './Modal'
 
@@ -11,6 +12,7 @@ const ConfirmationModal = ({
   onSecondaryClick = () => {},
   primaryText,
   primaryButtonDestination = null,
+  routedPrimaryButtonDestination = false,
   primaryButtonIsAlert = false,
   secondaryText,
   subtitle,
@@ -18,6 +20,40 @@ const ConfirmationModal = ({
   titleId = 'confirmation-modal-header'
 }) => {
   const buttonClasses = classNames('button', primaryButtonIsAlert ? 'alert' : 'primary')
+
+  const getPrimaryButton = () => {
+    if (primaryButtonDestination) {
+      if (routedPrimaryButtonDestination) {
+        return (
+          <Link
+            to={primaryButtonDestination}
+            className={buttonClasses}
+            type='button'
+            onClick={onPrimaryClick}
+          >
+            {primaryText}
+          </Link>
+        )
+      } else {
+        return (
+          <a
+            className={buttonClasses}
+            href={primaryButtonDestination}
+            type='button'
+            onClick={onPrimaryClick}
+          >
+            {primaryText}
+          </a>
+        )
+      }
+    } else {
+      return (
+        <button className={buttonClasses} type='button' onClick={onPrimaryClick}>
+          {primaryText}
+        </button>
+      )
+    }
+  }
 
   return (
     <Modal isOpen={isOpen} handleClose={onCloseClick}>
@@ -27,22 +63,7 @@ const ConfirmationModal = ({
           <p>{subtitle}</p>
         </Modal.Content>
         <Modal.Footer>
-          <div className='modal-button_item modal-button_secondary'>
-            {primaryButtonDestination ? (
-              <a
-                className={buttonClasses}
-                href={primaryButtonDestination}
-                type='button'
-                onClick={onPrimaryClick}
-              >
-                {primaryText}
-              </a>
-            ) : (
-              <button className={buttonClasses} type='button' onClick={onPrimaryClick}>
-                {primaryText}
-              </button>
-            )}
-          </div>
+          <div className='modal-button_item modal-button_secondary'>{getPrimaryButton()}</div>
           <div className='modal-button_item modal-button_secondary'>
             <button className='button no-border' onClick={onSecondaryClick} type='button'>
               {secondaryText}
@@ -60,6 +81,7 @@ ConfirmationModal.propTypes = {
   onPrimaryClick: PropTypes.func,
   onSecondaryClick: PropTypes.func,
   primaryButtonDestination: PropTypes.string,
+  routedPrimaryButtonDestination: PropTypes.bool,
   primaryButtonIsAlert: PropTypes.bool,
   primaryText: PropTypes.string,
   secondaryText: PropTypes.string,

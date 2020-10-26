@@ -63,7 +63,8 @@ module Api
           :no_preference_used,
           :preference_used,
           :total_monthly_rent_without_parking,
-          :unit
+          :unit,
+          :parking_spot_number,
         )
       end
 

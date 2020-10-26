@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { map, each, set, clone } from 'lodash'
+import { useParams } from 'react-router-dom'
 import moment from 'moment'
 import { getApplications, getListing } from './leaseUpActions'
 
@@ -24,12 +25,20 @@ const getPageHeaderData = (listing) => {
       }
     : null
 
-  const levelAboveBreadcrumb = { title: 'Lease Ups', link: appPaths.toLeaseUps() }
+  const levelAboveBreadcrumb = {
+    title: 'Lease Ups',
+    link: appPaths.toLeaseUps(),
+    renderAsRouterLink: true
+  }
 
   const breadcrumbs = listing
     ? [
         levelAboveBreadcrumb,
-        { title: listing?.name, link: appPaths.toLeaseUpApplications(listing.id) }
+        {
+          title: listing?.name,
+          link: appPaths.toLeaseUpApplications(listing.id),
+          renderAsRouterLink: true
+        }
       ]
     : [levelAboveBreadcrumb]
 
@@ -46,7 +55,7 @@ const getPreferences = (listing) => {
   return map(listing.listing_lottery_preferences, (pref) => pref.lottery_preference.name)
 }
 
-const LeaseUpApplicationsPage = ({ listingId }) => {
+const LeaseUpApplicationsPage = () => {
   const [state, overrideEntireState] = useState({
     loading: false,
     applications: [],
@@ -65,6 +74,9 @@ const LeaseUpApplicationsPage = ({ listingId }) => {
     listing: null,
     eagerPagination: new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
   })
+
+  // grab the listing id from the url: /lease-ups/listings/:listingId
+  const { listingId } = useParams()
 
   const performAsyncRequest = ({
     initialState = {},

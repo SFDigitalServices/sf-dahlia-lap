@@ -18,6 +18,7 @@ module Force
       { domain: 'primary_applicant_contact', salesforce: 'Tenant' },
       { domain: 'total_monthly_rent_without_parking', salesforce: 'Total_Monthly_Rent_without_Parking' },
       { domain: 'unit', salesforce: 'Unit' },
+      { domain: 'parking_spot_number', salesforce: 'Parking_Spot_Number' },
     ].freeze
 
     def to_salesforce

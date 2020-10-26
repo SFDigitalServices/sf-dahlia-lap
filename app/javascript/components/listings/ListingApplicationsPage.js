@@ -4,6 +4,7 @@ import TableLayout from '../layouts/TableLayout'
 import mapProps from '~/utils/mapProps'
 import { fetchApplications } from '../applications/actions'
 import ApplicationsTableContainer from '../applications/ApplicationsTableContainer'
+import appPaths from '~/utils/appPaths'
 
 const ListingApplicationsPage = ({ listing }) => {
   const filters = { listing_id: listing.id }
@@ -13,8 +14,8 @@ const ListingApplicationsPage = ({ listing }) => {
 
   const tabs = {
     items: [
-      { title: 'Listing Details', url: `/listings/${listing.id}` },
-      { title: 'Applications', url: `/listings/${listing.id}/applications`, active: true }
+      { title: 'Listing Details', url: appPaths.toListing(listing.id) },
+      { title: 'Applications', url: appPaths.toApplications(listing.id), active: true }
     ]
   }
 

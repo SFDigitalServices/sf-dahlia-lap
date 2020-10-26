@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { capitalize, each, filter, map, isEmpty } from 'lodash'
+import classNames from 'classnames'
 
 import Button from '~/components/atoms/Button'
 import ContentSection from '~/components/molecules/ContentSection'
@@ -8,17 +9,21 @@ import InlineModal from '~/components/molecules/InlineModal'
 import formUtils from '~/utils/formUtils'
 import ParkingInformationInputs from './ParkingInformationInputs'
 import RentalAssistance from './RentalAssistance'
+import UnitDropdown from '../../molecules/UnitDropdown'
 import { convertPercentAndCurrency } from '../../../utils/form/validations'
 import ConfirmationModal from '~/components/organisms/ConfirmationModal'
 
+import { Field } from 'react-final-form'
 import { pluck } from '~/utils/utils'
 import { withContext } from '../context'
-import { CurrencyField, Label, SelectField } from '~/utils/form/final_form/Field.js'
+import { CurrencyField, FieldError, Label, SelectField } from '~/utils/form/final_form/Field.js'
 import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
 import { validateLeaseCurrency } from '~/utils/form/validations'
 import { EDIT_LEASE_STATE } from '../SupplementalApplicationPage'
 import { doesApplicationHaveLease } from '~/utils/leaseUtils'
 import { areLeaseAndRentalAssistancesValid } from '~/utils/form/formSectionValidations'
+
+const NONE_PREFERENCE_LABEL = 'None'
 
 const toggleNoPreferenceUsed = (form, event) => {
   // lease.preference_used need to be reset, otherwise SF validation fails
@@ -27,6 +32,7 @@ const toggleNoPreferenceUsed = (form, event) => {
   }
   form.change('lease.no_preference_used', isEmpty(event.target.value))
 }
+
 const LeaseActions = ({
   onEditLeaseClick,
   onSave,
@@ -60,7 +66,7 @@ const LeaseActions = ({
         onClick={onSave}
         disabled={loading}
         noBottomMargin
-        text='Save Lease'
+        text={loading ? 'Saving...' : 'Save Lease'}
       />
       <Button
         classes='secondary'
@@ -111,17 +117,14 @@ const Lease = ({ form, values, store }) => {
       return unit.priority_type && unit.priority_type.match(/Mobility|Hearing|Vision/)
     })
 
-  const noUnitsOptions = [{ value: '', label: 'No Units Available' }]
   const confirmedPreferences = filter(application.preferences, {
     post_lottery_validation: 'Confirmed'
   })
 
-  const confirmedPreferenceOptions = formUtils.toOptions(
-    map(
-      [{ id: null, preference_name: 'None' }, ...confirmedPreferences],
-      pluck('id', 'preference_name')
-    )
-  )
+  const confirmedPreferenceOptions = formUtils.toOptions([
+    formUtils.toEmptyOption(NONE_PREFERENCE_LABEL),
+    ...map(confirmedPreferences, pluck('id', 'preference_name'))
+  ])
 
   const getVisited = (fieldName) => form.getFieldState(fieldName)?.visited
 
@@ -165,13 +168,13 @@ const Lease = ({ form, values, store }) => {
           </FormGrid.Item>
         </FormGrid.Row>
         <FormGrid.Row>
-          <FormGrid.Item small>
+          <FormGrid.Item width='25%'>
             <strong className='form-note micro h-caps'>Total</strong>
             <p className='margin-top'>
               <strong className='form-note'>{availableUnits.length}</strong>
             </p>
           </FormGrid.Item>
-          <FormGrid.Item small>
+          <FormGrid.Item width='25%'>
             <strong className='form-note micro h-caps'>Accessibility</strong>
             <p className='margin-top'>
               <span className='form-note'>{accessibilityUnits.length}</span>
@@ -186,13 +189,13 @@ const Lease = ({ form, values, store }) => {
           </FormGrid.Item>
         </FormGrid.Row>
         <FormGrid.Row>
-          <FormGrid.Item small>
+          <FormGrid.Item width='25%'>
             <strong className='form-note micro h-caps'>Members</strong>
             <p className='margin-top'>
               <strong className='form-note'>{application.household_members.length + 1}</strong>
             </p>
           </FormGrid.Item>
-          <FormGrid.Item small>
+          <FormGrid.Item width='25%'>
             <strong className='form-note micro h-caps'>Accessibility Requests</strong>
             <p className='margin-top'>
               <span className='form-note'>{accesibilityRequests.join(', ')}</span>
@@ -201,13 +204,23 @@ const Lease = ({ form, values, store }) => {
         </FormGrid.Row>
         <FormGrid.Row>
           <FormGrid.Item>
-            <SelectField
-              id='lease_assigned_unit'
-              label='Assigned Unit Number'
-              fieldName='lease.unit'
-              options={availableUnitsOptions}
-              disabled={disabled || areNoUnitsAvailable}
-              disabledOptions={areNoUnitsAvailable && noUnitsOptions}
+            <Field
+              name='lease.unit'
+              component={({ input: { onChange }, meta }) => {
+                const hasError = !values.unit && meta.touched && meta.error
+                return (
+                  <div className={classNames('form-group margin-bottom', hasError && 'error')}>
+                    <Label label='Assigned Unit Number' fieldName='lease_unit' />
+                    <UnitDropdown
+                      availableUnits={availableUnits}
+                      unit={values.lease.unit}
+                      onChange={onChange}
+                      disabled={disabled || areNoUnitsAvailable}
+                    />
+                    <FieldError meta={meta} />
+                  </div>
+                )
+              }}
             />
           </FormGrid.Item>
         </FormGrid.Row>
@@ -260,6 +273,7 @@ const Lease = ({ form, values, store }) => {
           <FormGrid.Item>
             <SelectField
               label='Preference Used'
+              selectValue={values.lease.preference_used || NONE_PREFERENCE_LABEL}
               onChange={(value) => toggleNoPreferenceUsed(form, value)}
               fieldName='lease.preference_used'
               options={confirmedPreferenceOptions}

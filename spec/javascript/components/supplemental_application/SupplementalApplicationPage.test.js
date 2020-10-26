@@ -1,9 +1,7 @@
-import React from 'react'
 import renderer from 'react-test-renderer'
 import { act } from 'react-dom/test-utils'
 import { cloneDeep, merge } from 'lodash'
-import { mount } from 'enzyme'
-import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
+import { leaseUpAppWithUrl, mountAppWithUrl } from '../../testUtils/wrapperUtil'
 import supplementalApplication from '../../fixtures/supplemental_application'
 
 const mockInitialLoad = jest.fn()
@@ -16,6 +14,8 @@ const mockGetRentalAssistances = jest.fn()
 window.scrollTo = jest.fn()
 
 const getMockApplication = () => cloneDeep(supplementalApplication)
+
+const WINDOW_URL = `/lease-ups/applications/${getMockApplication().id}/supplemental`
 
 jest.mock('apiService', () => {
   const mockedApplication = require('../../fixtures/supplemental_application').default
@@ -49,8 +49,22 @@ jest.mock('apiService', () => {
         fileBaseUrl: 'fileBaseUrl',
         units: _cloneDeep(mockedUnits),
         availableUnits: [
-          { unit_number: 1, id: 'id1' },
-          { unit_number: 2, id: 'id2' }
+          {
+            id: 'id1',
+            unit_number: '123',
+            unit_type: 'studio',
+            priority_type: null,
+            max_ami_for_qualifying_unit: 50,
+            ami_chart_type: 'HUD'
+          },
+          {
+            id: 'id2',
+            unit_number: '100',
+            unit_type: 'studio',
+            priority_type: null,
+            max_ami_for_qualifying_unit: 50,
+            ami_chart_type: 'HUD'
+          }
         ]
       }
     },
@@ -101,12 +115,20 @@ jest.mock('apiService', () => {
 const getWrapper = async () => {
   let wrapper
   await act(async () => {
-    wrapper = mount(<SupplementalApplicationPage applicationId={getMockApplication().id} />)
+    wrapper = mountAppWithUrl(WINDOW_URL)
   })
 
   wrapper.update()
 
   return wrapper
+}
+
+const setStateOnWrapper = async (wrapper, prevStateToNewStateFunction) => {
+  await act(async () => {
+    wrapper.find('SupplementalApplicationPage').setState(prevStateToNewStateFunction)
+  })
+
+  wrapper.update()
 }
 
 describe('SupplementalApplicationPage', () => {
@@ -129,9 +151,7 @@ describe('SupplementalApplicationPage', () => {
   test('it should render as expected', async () => {
     let component
     await renderer.act(async () => {
-      component = renderer.create(
-        <SupplementalApplicationPage applicationId={getMockApplication().id} />
-      )
+      component = renderer.create(leaseUpAppWithUrl(WINDOW_URL))
     })
 
     const tree = component.toJSON()
@@ -188,7 +208,7 @@ describe('SupplementalApplicationPage', () => {
     test('it saves a live/work application preference panel', async () => {
       const wrapper = await getWrapper()
 
-      wrapper.setState((prevState) => ({
+      await setStateOnWrapper(wrapper, (prevState) => ({
         application: {
           ...prevState.application,
           preferences: [
@@ -203,8 +223,6 @@ describe('SupplementalApplicationPage', () => {
           ]
         }
       }))
-
-      wrapper.update()
 
       // Click edit to open up the panel
       await wrapper.find('.preferences-table .action-link').first().simulate('click')
@@ -233,12 +251,9 @@ describe('SupplementalApplicationPage', () => {
     test('it updates total monthly rent when saving a rent burdened preference panel', async () => {
       const wrapper = await getWrapper()
 
-      act(() => {
-        wrapper.setState((prevState) => ({
-          application: { ...prevState.application, total_monthly_rent: '50' }
-        }))
-      })
-      wrapper.update()
+      await setStateOnWrapper(wrapper, (prevState) => ({
+        application: { ...prevState.application, total_monthly_rent: '50' }
+      }))
 
       // Click edit to open up the panel
       await wrapper.find('.preferences-table .action-link').first().simulate('click')
@@ -330,7 +345,8 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('#edit-lease-button').first().simulate('click')
       // Fill out lease fields
       // Assigned Unit number
-      wrapper.find('[name="lease.unit"] select option[value="id1"]').simulate('change')
+      wrapper.find('#form-lease_unit').find('Select').instance().props.onChange({ value: 'id1' })
+      wrapper.update()
       // Lease start date
       wrapper.find('#lease_start_date_month input').simulate('change', { target: { value: '1' } })
       wrapper.find('#lease_start_date_day input').simulate('change', { target: { value: '12' } })
@@ -342,6 +358,13 @@ describe('SupplementalApplicationPage', () => {
         .simulate('change')
 
       // Costs
+
+      // need to set this to "Yes" first to be able to access the other parking cost fields.
+      wrapper
+        .find('[name="lease.bmr_parking_space_assigned"] select')
+        .at(0)
+        .simulate('change', { target: { value: 'Yes' } })
+
       wrapper
         .find('[name="lease.total_monthly_rent_without_parking"] input')
         .simulate('change', { target: { value: '$1' } })
@@ -360,7 +383,7 @@ describe('SupplementalApplicationPage', () => {
 
       const expectedLease = {
         id: 'a130P000005TeZrQAK',
-        bmr_parking_space_assigned: null,
+        bmr_parking_space_assigned: 'Yes',
         unit: 'id1',
         lease_start_date: { year: '2019', month: '1', day: '12' },
         lease_status: 'Draft',
@@ -381,7 +404,8 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('#edit-lease-button').first().simulate('click')
 
       // Select the value from the dropdown
-      wrapper.find('[name="lease.unit"] select option[value=""]').simulate('change')
+      wrapper.find('#form-lease_unit').find('Select').instance().props.onChange({ value: null })
+      wrapper.update()
 
       // Hit save
       await act(async () => {
@@ -391,16 +415,13 @@ describe('SupplementalApplicationPage', () => {
       // Verify that the API was called with null unit value
       expect(mockCreateLease.mock.calls).toHaveLength(0)
       expect(mockUpdateLease.mock.calls).toHaveLength(1)
-      expect(mockUpdateLease).toHaveBeenCalledWith(expect.objectContaining({ unit: '' }))
+      expect(mockUpdateLease).toHaveBeenCalledWith(expect.objectContaining({ unit: null }))
     })
 
     test('it displays "No Units Available" when no units available', async () => {
       const wrapper = await getWrapper()
-      act(() => {
-        wrapper.setState({ availableUnits: [] })
-      })
-      wrapper.update()
-      const unitSelect = await wrapper.find('#lease_assigned_unit').first()
+      await setStateOnWrapper(wrapper, (prevState) => ({ availableUnits: [] }))
+      const unitSelect = await wrapper.find('#form-lease_unit').first()
 
       expect(unitSelect.exists()).toBeTruthy()
       expect(unitSelect.html().includes('No Units Available')).toBeTruthy()

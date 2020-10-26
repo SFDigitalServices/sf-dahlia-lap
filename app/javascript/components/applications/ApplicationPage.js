@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { isEmpty } from 'lodash'
-import { useEffectOnMount } from '~/utils/customHooks'
+import { useEffectOnMount, useQueryParamBoolean } from '~/utils/customHooks'
 import { getShortFormApplication } from '~/components/lease_ups/shortFormActions'
 import ApplicationDetails from './application_details/ApplicationDetails'
 import CardLayout from '../layouts/CardLayout'
 import appPaths from '~/utils/appPaths'
 import Loading from '~/components/molecules/Loading'
+import PropTypes from 'prop-types'
 
 import labelMapperFields from './application_details/applicationDetailsFieldsDesc'
 
@@ -24,7 +26,7 @@ const buildActionLinkIfNecessary = (app, showAddBtn) => {
     )
   }
 
-  if (showAddBtn === 'true') {
+  if (showAddBtn) {
     actions.push(
       <a
         key='add-new-application'
@@ -39,10 +41,13 @@ const buildActionLinkIfNecessary = (app, showAddBtn) => {
   return actions
 }
 
-const ApplicationPage = ({ applicationId, showAddBtn, isLeaseUp }) => {
+const ApplicationPage = ({ isLeaseUp = false }) => {
   const [application, setApplication] = useState(null)
   const [fileBaseUrl, setFileBaseUrl] = useState(null)
   const [loading, setLoading] = useState(true)
+
+  const { applicationId } = useParams()
+  const showAddBtn = useQueryParamBoolean('showAddBtn')
 
   useEffectOnMount(() => {
     getShortFormApplication(applicationId)
@@ -60,57 +65,73 @@ const ApplicationPage = ({ applicationId, showAddBtn, isLeaseUp }) => {
   })
 
   let pageHeader = {}
-  let tabSection = false
+  let tabSection
 
-  if (!application) {
-    pageHeader = {
-      title: 'Application',
-      content: <span>Name of Listing:</span>
-    }
-    // If the lease_up=true param is passed in the url, then we should display the application as if it's
-    // a part of the lease up section.
-  } else if (isLeaseUp) {
-    pageHeader = {
-      title: `${application.name}: ${application.applicant.name}`,
-      breadcrumbs: [
-        { title: 'Lease Ups', link: appPaths.toLeaseUps() },
-        {
-          title: application.listing.name,
-          link: appPaths.toListingLeaseUps(application.listing.id)
-        },
-        { title: application.name, link: '#' }
-      ]
+  if (isLeaseUp) {
+    if (application) {
+      pageHeader = {
+        title: `${application.name}: ${application.applicant.name}`,
+        breadcrumbs: [
+          { title: 'Lease Ups', link: appPaths.toLeaseUps(), renderAsRouterLink: true },
+          {
+            title: application.listing.name,
+            link: appPaths.toListingLeaseUps(application.listing.id),
+            renderAsRouterLink: true
+          },
+          { title: application.name, link: '#' }
+        ]
+      }
+    } else {
+      const emptyBreadCrumb = {
+        title: '',
+        link: '#'
+      }
+
+      pageHeader = {
+        // making this a div with a non-blocking space allows us to keep the header height
+        // without actually rendering any text.
+        title: <div>&nbsp;</div>,
+        breadcrumbs: [
+          { title: 'Lease Ups', link: appPaths.toLeaseUps(), renderAsRouterLink: true },
+          emptyBreadCrumb,
+          emptyBreadCrumb
+        ]
+      }
     }
 
     tabSection = {
       items: [
         {
           title: 'Short Form Application',
-          url: appPaths.toLeaseUpShortForm(application.id),
-          active: true
+          url: appPaths.toLeaseUpShortForm(applicationId),
+          active: true,
+          renderAsRouterLink: true
         },
         {
           title: 'Supplemental Information',
-          url: appPaths.toApplicationSupplementals(application.id)
+          url: appPaths.toApplicationSupplementals(applicationId),
+          renderAsRouterLink: true
         }
       ]
     }
   } else {
     pageHeader = {
-      title: `Application ${application.name}`,
+      title: `Application ${application?.name ?? ''}`,
       content: (
         <span>
           Name of Listing:{' '}
-          <a href={appPaths.toListing(application.listing.id)}>{application.listing.name}</a>
+          {application && (
+            <a href={appPaths.toListing(application.listing.id)}>{application.listing.name}</a>
+          )}
         </span>
       ),
-      action: buildActionLinkIfNecessary(application, showAddBtn)
+      action: application && buildActionLinkIfNecessary(application, showAddBtn)
     }
   }
 
   return (
-    <Loading isLoading={loading}>
-      <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
+    <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
+      <Loading isLoading={loading} renderChildrenWhileLoading={false} loaderViewHeight='100vh'>
         {!isEmpty(application) && (
           <ApplicationDetails
             application={application}
@@ -118,9 +139,13 @@ const ApplicationPage = ({ applicationId, showAddBtn, isLeaseUp }) => {
             fields={labelMapperFields}
           />
         )}
-      </CardLayout>
-    </Loading>
+      </Loading>
+    </CardLayout>
   )
+}
+
+ApplicationPage.propTypes = {
+  isLeaseUp: PropTypes.bool
 }
 
 export default ApplicationPage

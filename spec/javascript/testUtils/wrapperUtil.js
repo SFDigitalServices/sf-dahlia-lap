@@ -2,6 +2,8 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import Context from '~/components/supplemental_application/context'
 import { Form } from 'react-final-form'
+import { MemoryRouter as Router, Switch, Route } from 'react-router-dom'
+import LeaseUpRoutes from '~/routes/LeaseUpRoutes'
 
 const formNode = (application, formToChildrenFunc) => (
   <Form
@@ -73,3 +75,21 @@ export const findWithText = (wrapper, nodeName, text) => {
   const predicate = (n) => n.name() === nodeName && n.text() === text
   return wrapper.findWhere(predicate)
 }
+
+export const withRouter = (urlWithParamPlaceholders, url, children) => {
+  return (
+    <Router initialEntries={[url]}>
+      <Switch>
+        <Route path={urlWithParamPlaceholders}>{children}</Route>
+      </Switch>
+    </Router>
+  )
+}
+
+export const leaseUpAppWithUrl = (url) => (
+  <Router initialEntries={[url]}>
+    <LeaseUpRoutes />
+  </Router>
+)
+
+export const mountAppWithUrl = (url) => mount(leaseUpAppWithUrl(url))

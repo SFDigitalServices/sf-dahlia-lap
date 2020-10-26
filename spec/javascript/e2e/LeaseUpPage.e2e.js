@@ -1,5 +1,9 @@
 import sharedSteps from '../support/puppeteer/steps/sharedSteps'
-import { LEASE_UP_LISTING_ID, DEFAULT_E2E_TIME_OUT } from '../support/puppeteer/consts'
+import {
+  DEFAULT_E2E_TIME_OUT,
+  FIRST_ROW_LEASE_UP_APPLICATION_ID,
+  LEASE_UP_LISTING_ID
+} from '../support/puppeteer/consts'
 import supplementalApplicationSteps from '../support/puppeteer/steps/supplementalApplicationSteps'
 import SetupBrowserAndPage from '../utils/SetupBrowserAndPage'
 
@@ -12,7 +16,7 @@ describe('LeaseUpPage', () => {
 
       await sharedSteps.loginAsAgent(page)
 
-      await sharedSteps.goto(page, `/listings/lease-ups/${LEASE_UP_LISTING_ID}/applications`)
+      await sharedSteps.goto(page, `/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
       await page.waitForSelector('#root')
       await page.waitForSelector('.dropdown')
 
@@ -34,7 +38,9 @@ describe('LeaseUpPage', () => {
       await page.click('.form-modal_form_wrapper button.primary')
 
       // Wait for the api call
-      await page.waitForResponse('http://localhost:3000/api/v1/field-update-comments/create')
+      await page.waitForResponse(
+        `http://localhost:3000/api/v1/applications/${FIRST_ROW_LEASE_UP_APPLICATION_ID}/field_update_comments`
+      )
 
       // Get changed status, it should be different
       const currentStatus = await page.$eval(firstRowDropdown, (e) => e.textContent)

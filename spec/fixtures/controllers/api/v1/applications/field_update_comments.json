@@ -1,0 +1,18 @@
+[
+  {
+    "application": "a0o0P00000GZaz9QAD",
+    "comment": "rspec test comment",
+    "date": "2020-10-20T00:05:02.000+0000",
+    "status": "Withdrawn",
+    "substatus": "Verbal withdrawal",
+    "timestamp": 1603152302
+  },
+  {
+    "application": "a0o0P00000GZaz9QAD",
+    "comment": "test",
+    "date": "2019-11-07T18:56:16.000+0000",
+    "status": "Processing",
+    "substatus": null,
+    "timestamp": 1573152976
+  }
+]

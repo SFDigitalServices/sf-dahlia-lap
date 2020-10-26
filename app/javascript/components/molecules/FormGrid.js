@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import classNames from 'classnames'
 
@@ -22,18 +23,31 @@ FormGrid.Row.defaultProps = {
 
 // Wrapper for each form field.
 // NOTE: Grid is hardcoded. This should not be generic element
-FormGrid.Item = ({ children, small = false, fullWidth = false }) => (
-  <div
-    className={classNames(
-      'form-grid_item column',
-      { 'small-6': !(small || fullWidth) },
-      { 'small-3': small },
-      { 'small-12': fullWidth }
-    )}
-  >
-    {children}
-  </div>
-)
+FormGrid.Item = ({ children = null, width = '50%' }) => {
+  let widthStyle
+
+  switch (width) {
+    case '25%':
+      widthStyle = 'small-3'
+      break
+    case '33%':
+      widthStyle = 'small-4'
+      break
+    case '50%':
+      widthStyle = 'small-6'
+      break
+    case '100%':
+      widthStyle = 'small-12'
+      break
+  }
+
+  return <div className={classNames('form-grid_item column', widthStyle)}>{children}</div>
+}
+
+FormGrid.Item.propTypes = {
+  children: PropTypes.node,
+  width: PropTypes.oneOf(['25%', '33%', '50%', '100%'])
+}
 
 // Use for form fields that have a shared label.
 FormGrid.Group = ({ children, label }) => (
