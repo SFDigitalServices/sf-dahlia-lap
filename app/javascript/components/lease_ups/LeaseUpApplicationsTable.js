@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ReactTable from 'react-table'
 import { trim } from 'lodash'
+import { Link } from 'react-router-dom'
 
 import StatusDropdown from '../molecules/StatusDropdown'
 import { getLeaseUpStatusClass } from '~/utils/statusUtils'
@@ -82,12 +83,12 @@ const LeaseUpApplicationsTable = ({
       accessor: 'application_number',
       className: 'text-left',
       Cell: (cell) => (
-        <a
-          href={appPaths.toApplicationSupplementals(cell.original.application_id)}
+        <Link
+          to={appPaths.toApplicationSupplementals(cell.original.application_id)}
           className='has-border'
         >
           {cell.value}
-        </a>
+        </Link>
       )
     },
     { Header: 'First Name', accessor: 'first_name', Cell: resizableCell, className: 'text-left' },

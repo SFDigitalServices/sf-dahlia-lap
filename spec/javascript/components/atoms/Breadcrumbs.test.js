@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { NavLink } from 'react-router-dom'
 import BreadCrumbs, { Item } from 'components/atoms/BreadCrumbs'
-import { findByNameAndProps } from '../../testUtils/wrapperUtil'
+import { findWithProps } from '../../testUtils/wrapperUtil'
 import { uniq } from 'lodash'
 
 const mockCrumb = (title, link, renderAsRouterLink = undefined) => ({
@@ -99,8 +99,8 @@ describe('BreadCrumbs', () => {
     })
 
     test('renders the last item as current', () => {
-      expect(findByNameAndProps(wrapper, 'Item', { current: true })).toHaveLength(1)
-      expect(findByNameAndProps(wrapper, 'Item', { current: true }).props().item).toEqual(CRUMB_D)
+      expect(findWithProps(wrapper, Item, { current: true })).toHaveLength(1)
+      expect(findWithProps(wrapper, Item, { current: true }).props().item).toEqual(CRUMB_D)
     })
   })
 })
