@@ -1,9 +1,11 @@
 import React from 'react'
 import { Form } from 'react-final-form'
-import { InputField, SelectField } from '~/utils/form/final_form/Field'
+import { SelectField } from '~/utils/form/final_form/Field'
+import { SearchField } from '~/utils/form/final_form/SearchField'
 import formUtils from '~/utils/formUtils'
 import LEASE_UP_STATUS_OPTIONS, { LEASE_UP_ACCESSIBILITY_OPTIONS } from '~/utils/statusUtils'
 import Loading from '~/components/molecules/Loading'
+import Button from '~/components/atoms/Button'
 import { clone } from 'lodash'
 
 const statusFilterOptions = [
@@ -30,14 +32,24 @@ const LeaseUpApplicationsFilter = ({ onSubmit, preferences = [], loading = false
     <Loading isLoading={loading}>
       <Form
         onSubmit={(filters) => onSubmit(formUtils.scrubEmptyValues(filters, true))}
-        render={({ handleSubmit }) => (
+        render={({ form, handleSubmit }) => (
           <form onSubmit={handleSubmit} noValidate>
             <div className='filter-row'>
               <div className='filter-group'>
                 <div className='filter-group_item'>
-                  <InputField
+                  <SearchField
+                    onClearClick={() => form.change('search', '')}
                     fieldName='search'
+                    id='test-search'
                     placeholder='Application, First Name, Last Name...'
+                  />
+                </div>
+                <div className='filter-group_action'>
+                  <Button
+                    className='small primary'
+                    disabled={!form.getState().values?.search}
+                    text='Search'
+                    type='submit'
                   />
                 </div>
                 <div className='filter-group_item'>
