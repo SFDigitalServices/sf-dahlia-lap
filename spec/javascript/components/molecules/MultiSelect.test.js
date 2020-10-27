@@ -71,4 +71,26 @@ describe('MultiSelect', () => {
       expect(wrapper.find(Select).props().value).toEqual([mockItems[0]])
     })
   })
+
+  describe('with default height', () => {
+    let wrapper
+    beforeEach(() => {
+      wrapper = shallow(<MultiSelect items={mockItems} />)
+    })
+
+    test('sets height to 45px', () => {
+      expect(wrapper.find(Select).props().styles.control().height).toEqual('45px')
+    })
+  })
+
+  describe('with small height', () => {
+    let wrapper
+    beforeEach(() => {
+      wrapper = shallow(<MultiSelect items={mockItems} height='small' />)
+    })
+
+    test('sets height to 38px', () => {
+      expect(wrapper.find(Select).props().styles.control().height).toEqual('38px')
+    })
+  })
 })

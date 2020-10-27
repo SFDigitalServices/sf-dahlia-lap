@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import MultiSelect from '~/components/molecules/MultiSelect'
 import PropTypes from 'prop-types'
 
-const MultiSelectWrapper = ({ items = [], disabled = false }) => {
+const MultiSelectWrapper = ({ items = [], disabled = false, height = undefined }) => {
   const [selectedItems, setSelectedItems] = useState([])
 
   return (
     <MultiSelect
       items={items}
       disabled={disabled}
+      height={height}
       selectedItems={selectedItems}
       onChangeValues={(values) => setSelectedItems(values)}
     />
@@ -22,7 +23,8 @@ const SelectItemShape = PropTypes.shape({
 
 MultiSelectWrapper.propTypes = {
   items: PropTypes.arrayOf(SelectItemShape),
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  height: PropTypes.oneOf('normal', 'small')
 }
 
 export default MultiSelectWrapper
