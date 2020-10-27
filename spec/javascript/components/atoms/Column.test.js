@@ -6,7 +6,7 @@ describe('Column', () => {
   test('it should render a column with the correct properties', () => {
     const wrapper = shallow(
       <Column span='span-test' end form>
-        <div className='some-div'></div>
+        <div className='some-div' />
       </Column>
     )
     const columnWrapper = wrapper.find('.columns')
