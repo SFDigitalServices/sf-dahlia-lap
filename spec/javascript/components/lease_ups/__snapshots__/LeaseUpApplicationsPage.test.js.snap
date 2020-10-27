@@ -2399,12 +2399,24 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         viewIndex={0}
                                         width={100}
                                       >
-                                        <a
+                                        <Link
                                           className="has-border"
-                                          href="/lease-ups/applications/10001/supplemental"
+                                          to="/lease-ups/applications/10001/supplemental"
                                         >
-                                          Application Name 1
-                                        </a>
+                                          <LinkAnchor
+                                            className="has-border"
+                                            href="/lease-ups/applications/10001/supplemental"
+                                            navigate={[Function]}
+                                          >
+                                            <a
+                                              className="has-border"
+                                              href="/lease-ups/applications/10001/supplemental"
+                                              onClick={[Function]}
+                                            >
+                                              Application Name 1
+                                            </a>
+                                          </LinkAnchor>
+                                        </Link>
                                       </Cell>
                                     </div>
                                   </TdComponent>
@@ -5776,12 +5788,24 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         viewIndex={1}
                                         width={100}
                                       >
-                                        <a
+                                        <Link
                                           className="has-border"
-                                          href="/lease-ups/applications/10002/supplemental"
+                                          to="/lease-ups/applications/10002/supplemental"
                                         >
-                                          Application Name 2
-                                        </a>
+                                          <LinkAnchor
+                                            className="has-border"
+                                            href="/lease-ups/applications/10002/supplemental"
+                                            navigate={[Function]}
+                                          >
+                                            <a
+                                              className="has-border"
+                                              href="/lease-ups/applications/10002/supplemental"
+                                              onClick={[Function]}
+                                            >
+                                              Application Name 2
+                                            </a>
+                                          </LinkAnchor>
+                                        </Link>
                                       </Cell>
                                     </div>
                                   </TdComponent>
@@ -9153,12 +9177,24 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         viewIndex={2}
                                         width={100}
                                       >
-                                        <a
+                                        <Link
                                           className="has-border"
-                                          href="/lease-ups/applications/10003/supplemental"
+                                          to="/lease-ups/applications/10003/supplemental"
                                         >
-                                          Application Name 3
-                                        </a>
+                                          <LinkAnchor
+                                            className="has-border"
+                                            href="/lease-ups/applications/10003/supplemental"
+                                            navigate={[Function]}
+                                          >
+                                            <a
+                                              className="has-border"
+                                              href="/lease-ups/applications/10003/supplemental"
+                                              onClick={[Function]}
+                                            >
+                                              Application Name 3
+                                            </a>
+                                          </LinkAnchor>
+                                        </Link>
                                       </Cell>
                                     </div>
                                   </TdComponent>
@@ -12530,12 +12566,24 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         viewIndex={3}
                                         width={100}
                                       >
-                                        <a
+                                        <Link
                                           className="has-border"
-                                          href="/lease-ups/applications/10004/supplemental"
+                                          to="/lease-ups/applications/10004/supplemental"
                                         >
-                                          Application Name 4
-                                        </a>
+                                          <LinkAnchor
+                                            className="has-border"
+                                            href="/lease-ups/applications/10004/supplemental"
+                                            navigate={[Function]}
+                                          >
+                                            <a
+                                              className="has-border"
+                                              href="/lease-ups/applications/10004/supplemental"
+                                              onClick={[Function]}
+                                            >
+                                              Application Name 4
+                                            </a>
+                                          </LinkAnchor>
+                                        </Link>
                                       </Cell>
                                     </div>
                                   </TdComponent>
@@ -15907,12 +15955,24 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         viewIndex={4}
                                         width={100}
                                       >
-                                        <a
+                                        <Link
                                           className="has-border"
-                                          href="/lease-ups/applications/10005/supplemental"
+                                          to="/lease-ups/applications/10005/supplemental"
                                         >
-                                          Application Name 5
-                                        </a>
+                                          <LinkAnchor
+                                            className="has-border"
+                                            href="/lease-ups/applications/10005/supplemental"
+                                            navigate={[Function]}
+                                          >
+                                            <a
+                                              className="has-border"
+                                              href="/lease-ups/applications/10005/supplemental"
+                                              onClick={[Function]}
+                                            >
+                                              Application Name 5
+                                            </a>
+                                          </LinkAnchor>
+                                        </Link>
                                       </Cell>
                                     </div>
                                   </TdComponent>

@@ -147,10 +147,10 @@ const Lease = ({ form, values, store }) => {
     }
   }
 
-  const accesibilityRequests = []
+  const accessibilityRequests = []
   each(application.has_ada_priorities_selected, (value, request) => {
     if (value) {
-      accesibilityRequests.push(capitalize(request.replace('_impairments', '')))
+      accessibilityRequests.push(capitalize(request.replace('_impairments', '')))
     }
   })
 
@@ -161,7 +161,7 @@ const Lease = ({ form, values, store }) => {
         <FormGrid.Row>
           <FormGrid.Item>
             <div className='margin-bottom'>
-              <strong className='form-note max-width'>
+              <strong className='form-note small max-width'>
                 Remaining Available Units and Set-Asides
               </strong>
             </div>
@@ -184,7 +184,7 @@ const Lease = ({ form, values, store }) => {
         <FormGrid.Row>
           <FormGrid.Item>
             <div className='margin-bottom'>
-              <strong className='form-note max-width'>Household Information</strong>
+              <strong className='form-note small max-width'>Household Information</strong>
             </div>
           </FormGrid.Item>
         </FormGrid.Row>
@@ -195,10 +195,12 @@ const Lease = ({ form, values, store }) => {
               <strong className='form-note'>{application.household_members.length + 1}</strong>
             </p>
           </FormGrid.Item>
-          <FormGrid.Item width='25%'>
+          <FormGrid.Item width='50%'>
             <strong className='form-note micro h-caps'>Accessibility Requests</strong>
             <p className='margin-top'>
-              <span className='form-note'>{accesibilityRequests.join(', ')}</span>
+              <span className='form-note'>
+                {isEmpty(accessibilityRequests) ? 'None' : accessibilityRequests.join(', ')}
+              </span>
             </p>
           </FormGrid.Item>
         </FormGrid.Row>
