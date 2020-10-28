@@ -102,6 +102,12 @@ const LeaseUpApplicationsTable = ({
       className: 'text-left'
     },
     {
+      Header: 'HH',
+      accessor: 'total_household_size',
+      Cell: resizableCell,
+      className: 'text-left'
+    },
+    {
       Header: 'Status Updated',
       accessor: 'status_last_updated',
       headerClassName: 'td-offset-right text-right',
