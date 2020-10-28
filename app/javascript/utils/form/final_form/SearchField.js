@@ -60,6 +60,7 @@ export const SearchField = ({
               <button
                 className='ui-medium i-aluminum button-link search-icon'
                 onClick={onClearClick}
+                type='button'
               >
                 <svg>
                   <use xlinkHref={`#i-close-round`} />

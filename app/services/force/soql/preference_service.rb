@@ -41,9 +41,8 @@ module Force
     end
 
     def buildAppPreferencesSearch(search_terms_string)
-      # This builds the syntax need for soql to do an
-      # OR statement when passing the option of `Vision/Hearing`
-      # https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_querying_multiselect_picklists.htm
+      # This takes a series of search terms and connects them all with 'OR's
+      # Across the provided fields
       search_terms = search_terms_string.split(',')
       search_fields = [
         "Application__r.Name",
