@@ -39,6 +39,7 @@ module Force
         filters += "and Application__r.Applicant__r.Last_Name__c like '%#{opts[:last_name]}%' " if opts[:last_name].present?
         filters += "and Application__r.Processing_Status__c = " + (opts[:status] == 'No Status' ? 'NULL' : "'#{opts[:status]}'") if opts[:status].present?
         filters += "and Application__r.Has_ADA_Priorities_Selected__c INCLUDES (#{accessibility_string}) " if opts[:accessibility].present?
+        filters += "and Application__r.Total_Household_Size__c = #{opts[:total_household_size]} " if opts[:total_household_size].present?
 
         filters
     end
