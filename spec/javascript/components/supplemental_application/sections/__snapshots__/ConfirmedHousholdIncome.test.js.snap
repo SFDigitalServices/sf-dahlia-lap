@@ -46,8 +46,8 @@ exports[`ConfirmedHouseholdIncome it matches snapshot when all values are empty 
       <Component>
         <CurrencyField
           fieldName="confirmed_household_annual_income"
-          helpText="Not including imputed income from assets"
-          label="Total Household Annual Income"
+          helpText="Applicant's confirmed annual income, not including imputed income from assets, from R&A"
+          label="Confirmed Total Household Annual Income"
           validation={[Function]}
         />
       </Component>

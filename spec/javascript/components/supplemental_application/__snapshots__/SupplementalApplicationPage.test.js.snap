@@ -1366,7 +1366,7 @@ Array [
                         htmlFor="form-confirmed_household_annual_income"
                         id="label-confirmed_household_annual_income"
                       >
-                        Total Household Annual Income
+                        Confirmed Total Household Annual Income
                       </label>
                       <input
                         className=""
@@ -1383,7 +1383,7 @@ Array [
                         className="form-note shift-up"
                         id="describe-confirmed_household_annual_income"
                       >
-                        Not including imputed income from assets
+                        Applicant's confirmed annual income, not including imputed income from assets, from R&A
                       </span>
                     </div>
                   </div>
