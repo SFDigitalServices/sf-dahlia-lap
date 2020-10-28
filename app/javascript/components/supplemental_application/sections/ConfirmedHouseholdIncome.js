@@ -89,7 +89,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
               label='Confirmed Total Household Annual Income'
               validation={validateIncomeCurrency}
               isDirty={visited && visited.confirmed_household_annual_income}
-              helpText="Applicant's confirmed annual income, not including imputed income from assets, from R&A"
+              helpText='Not including imputed income from assets'
             />
           </FormGrid.Item>
         </FormGrid.Row>

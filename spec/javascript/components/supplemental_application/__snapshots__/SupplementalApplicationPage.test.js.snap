@@ -1383,7 +1383,7 @@ Array [
                         className="form-note shift-up"
                         id="describe-confirmed_household_annual_income"
                       >
-                        Applicant's confirmed annual income, not including imputed income from assets, from R&A
+                        Not including imputed income from assets
                       </span>
                     </div>
                   </div>
