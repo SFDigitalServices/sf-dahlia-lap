@@ -101,7 +101,7 @@ echo "Paste the following into the release tracker on google sheets:"
 ticket_r='\[?#?DAH[A-Z]*-([0-9]+)\]?'
 title_r='(.*)'
 pr_r='\(#(.*)\)'
-commit_r='([a-z0-9]{7})'
+commit_r='([a-z0-9]{7,})'
 
 pr_re_proper="^$commit_r $title_r $ticket_r $pr_r$"
 pr_re_ticket_first="^$commit_r $ticket_r $title_r $pr_r$"
@@ -143,7 +143,7 @@ function get_title {
   elif [[ $1 =~ $pr_re_release_commit ]] || [[ $1 =~ $pr_re_merge_commit ]] ; then
     echo ""
   elif [[ $1 =~ $pr_re_no_ticket_or_pr ]] ; then
-    echo "${BASH_REMATCH[1]}"
+    echo "${BASH_REMATCH[2]}"
   else
     return
   fi
@@ -197,8 +197,10 @@ function print_release_line {
     return
   fi
 
-  if [ -z "$ticket" ]; then
-    echo -e "- $title, (#$pr)"
+  if [ -z "$ticket" ] && [ -z "$pr" ]; then
+    echo -e "- $title"
+  elif [ -z "$ticket" ]; then
+    echo -e "- $title (#$pr)"
   else
     echo -e "- $title [$ticket] (#$pr)"
   fi
