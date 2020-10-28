@@ -5,13 +5,26 @@ import { performInSequence } from '~/utils/promiseUtils'
 
 export const getLeaseUpListings = async () => apiService.getLeaseUpListings()
 
-export const getApplications = async (listingId, page, filters) =>
-  apiService.fetchLeaseUpApplications(listingId, page, { filters }).then(({ records, pages }) => {
-    return {
-      records: map(records, buildLeaseUpAppPrefModel),
-      pages
-    }
-  })
+export const convertToCommaSeparatedList = (str) =>
+  // Take a series of phrases from the search box and turn it into a comma separated list.
+  str
+    ?.split(/ +/)
+    .filter((x) => x !== '')
+    .join(',')
+
+export const getApplications = async (listingId, page, filters) => {
+  if (filters?.search) {
+    filters = { ...filters, search: convertToCommaSeparatedList(filters?.search) }
+  }
+  return apiService
+    .fetchLeaseUpApplications(listingId, page, { filters })
+    .then(({ records, pages }) => {
+      return {
+        records: map(records, buildLeaseUpAppPrefModel),
+        pages
+      }
+    })
+}
 
 export const getListing = async (listingId) => apiService.getLeaseUpListing(listingId)
 
