@@ -1366,7 +1366,7 @@ Array [
                         htmlFor="form-confirmed_household_annual_income"
                         id="label-confirmed_household_annual_income"
                       >
-                        Total Household Annual Income
+                        Confirmed Total Household Annual Income
                       </label>
                       <input
                         className=""
