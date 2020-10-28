@@ -57,7 +57,6 @@ const LeaseUpTableContainer = ({
   }
 
   const buildRowData = (result) => {
-    console.log(result)
     const rowData = cloneDeep(result)
     // get keys and remove empty values
     const accessibilityKeys = compact(Object.keys(result.has_ada_priorities_selected || []))
@@ -78,8 +77,6 @@ const LeaseUpTableContainer = ({
   const goToSupplementaryInfo = (listingId, rowInfo) => {
     window.location.href = appPaths.toApplicationSupplementals(rowInfo.original.application_id)
   }
-
-  console.log(applications)
 
   const rowsData = (applications) => map(applications, buildRowData)
   return (
