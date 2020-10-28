@@ -45,15 +45,18 @@ module Force
       # OR statement when passing the option of `Vision/Hearing`
       # https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_querying_multiselect_picklists.htm
       search_terms = search_terms_string.split(',')
-
+      search_fields = [
+        "Application__r.Name",
+        "Application__r.Applicant__r.First_Name__c",
+        "Application__r.Applicant__r.Last_Name__c",
+        "Application__r.Applicant__r.Email__c",
+      ]
       search = []
       for search_term in search_terms
-        search.push("Application__r.Name like '%#{search_term}%' ")
-        search.push("Application__r.Applicant__r.First_Name__c like '%#{search_term}%'")
-        search.push("Application__r.Applicant__r.Last_Name__c like '%#{search_term}%'")
-        search.push("Application__r.Applicant__r.Email__c like '%#{search_term}%'")
+        for search_field in search_fields
+          search.push("#{search_field} like '%#{search_term}%'")
+        end
       end
-      puts 'searches', search
       search.join(' OR ')
     end
 
