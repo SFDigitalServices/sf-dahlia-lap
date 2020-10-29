@@ -1,25 +1,24 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import { Field } from 'react-final-form'
 import classNames from 'classnames'
 import { Label, FieldError, HelpText } from './Field'
 
 const SearchField = ({
-  fieldName,
-  label,
   blockNote,
-  validation,
-  placeholder,
-  maxLength,
-  id,
-  type,
-  helpText,
-  parse,
-  format,
   disabled = false,
-  isClearable = false,
+  fieldName,
+  format,
   formatOnBlur = false,
+  helpText,
+  id,
   isDirty = false,
-  onClearClick
+  label,
+  maxLength,
+  onClearClick,
+  placeholder,
+  validation
 }) => (
   <Field
     name={fieldName}
@@ -72,4 +71,19 @@ const SearchField = ({
   </Field>
 )
 
+SearchField.propTypes = {
+  blockNote: PropTypes.string,
+  disabled: PropTypes.bool,
+  fieldName: PropTypes.string.isRequired,
+  format: PropTypes.func,
+  formatOnBlur: PropTypes.bool,
+  helpText: PropTypes.string,
+  id: PropTypes.string,
+  isDirty: PropTypes.bool,
+  label: PropTypes.string,
+  maxLength: PropTypes.number,
+  onClearClick: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  validation: PropTypes.func
+}
 export default SearchField
