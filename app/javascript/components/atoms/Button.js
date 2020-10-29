@@ -2,7 +2,17 @@ import React from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 
-const Button = ({ type, text, small, tiny, tertiary, noBottomMargin, classes, ...rest }) => {
+const Button = ({
+  children = null,
+  classes = null,
+  noBottomMargin = false,
+  small = false,
+  tertiary = false,
+  text = null,
+  tiny = false,
+  type = 'button',
+  ...rest
+}) => {
   const btnClassNames = classNames(classes, 'button', {
     small: small,
     tertiary: tertiary,
@@ -11,19 +21,15 @@ const Button = ({ type, text, small, tiny, tertiary, noBottomMargin, classes, ..
   })
   return (
     <button className={btnClassNames} type={type} {...rest}>
-      {text}
+      {text || children}
     </button>
   )
 }
 
 Button.propTypes = {
   type: PropTypes.oneOf(['button', 'submit']),
-  noBottomMargin: PropTypes.bool
-}
-
-Button.defaultProps = {
-  type: 'button',
-  noBottomMargin: false
+  noBottomMargin: PropTypes.bool,
+  children: PropTypes.node
 }
 
 export default Button

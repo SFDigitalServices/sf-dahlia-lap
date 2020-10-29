@@ -43,6 +43,7 @@ import ModalWrapper from 'components/pattern_library/wrappers/ModalWrapper'
 import PopoverWrapper from 'components/pattern_library/wrappers/PopoverWrapper'
 import TabCardWrapper from 'components/pattern_library/wrappers/TabCardWrapper'
 import MultiSelectWrapper from 'components/pattern_library/wrappers/MultiSelectWrapper'
+import ButtonWrapper from 'components/pattern_library/wrappers/ButtonWrapper'
 
 Turbolinks.start()
 
@@ -88,3 +89,4 @@ WebpackerReact.setup({ ModalWrapper })
 WebpackerReact.setup({ PopoverWrapper })
 WebpackerReact.setup({ TabCardWrapper })
 WebpackerReact.setup({ MultiSelectWrapper })
+WebpackerReact.setup({ ButtonWrapper })
