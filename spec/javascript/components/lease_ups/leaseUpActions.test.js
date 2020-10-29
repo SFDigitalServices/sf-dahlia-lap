@@ -1,4 +1,8 @@
-import { convertToCommaSeparatedList, getApplications } from '~/components/lease_ups/leaseUpActions'
+import {
+  convertToCommaSeparatedList,
+  getApplications,
+  sanitizeAndFormatSearch
+} from '~/components/lease_ups/leaseUpActions'
 
 const mockFetchLeaseUpApplications = jest.fn()
 
@@ -58,6 +62,16 @@ describe('leaseUpActions', () => {
     test("it returns as expected when there's a nullish input", () => {
       expect(convertToCommaSeparatedList('')).toBeFalsy()
       expect(convertToCommaSeparatedList(null)).toBeFalsy()
+    })
+  })
+  describe('sanitizeAndFormatSearch', () => {
+    test('it removes double quotes from search strings', () => {
+      expect(sanitizeAndFormatSearch('"John"')).toEqual('John')
+      expect(sanitizeAndFormatSearch('"John Doe"')).toEqual('John,Doe')
+    })
+    test('it removes single quotes from search strings', () => {
+      expect(sanitizeAndFormatSearch("'John'")).toEqual('John')
+      expect(sanitizeAndFormatSearch("'John Doe'")).toEqual('John,Doe')
     })
   })
   describe('getApplications', () => {

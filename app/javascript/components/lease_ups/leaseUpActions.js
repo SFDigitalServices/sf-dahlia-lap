@@ -12,9 +12,13 @@ export const convertToCommaSeparatedList = (str) =>
     .filter((x) => x !== '')
     .join(',')
 
+export const sanitizeAndFormatSearch = (str) => {
+  return convertToCommaSeparatedList(str.replace(/["']/g, ''))
+}
+
 export const getApplications = async (listingId, page, filters) => {
   if (filters?.search) {
-    filters = { ...filters, search: convertToCommaSeparatedList(filters?.search) }
+    filters = { ...filters, search: sanitizeAndFormatSearch(filters?.search) }
   }
   return apiService
     .fetchLeaseUpApplications(listingId, page, { filters })
