@@ -29,10 +29,11 @@ RSpec.describe Force::Soql::PreferenceService do
       VCR.use_cassette('services/soql/preference_service') do
         filters = subject.buildAppPreferencesSearch('searchString')
         expected_filters = [
+          "(",
           "Application__r.Name like '%searchString%' OR ",
           "Application__r.Applicant__r.First_Name__c like '%searchString%' OR ",
-          "Application__r.Applicant__r.Last_Name__c like '%searchString%' OR ",
-          "Application__r.Applicant__r.Email__c like '%searchString%'"
+          "Application__r.Applicant__r.Last_Name__c like '%searchString%'",
+          ")"
         ].join('')
         expect(filters). to eq(expected_filters)
       end
@@ -41,14 +42,15 @@ RSpec.describe Force::Soql::PreferenceService do
       VCR.use_cassette('services/soql/preference_service') do
         filters = subject.buildAppPreferencesSearch('string1,string2')
         expected_filters = [
+          "(",
           "Application__r.Name like '%string1%' OR ",
           "Application__r.Applicant__r.First_Name__c like '%string1%' OR ",
-          "Application__r.Applicant__r.Last_Name__c like '%string1%' OR ",
-          "Application__r.Applicant__r.Email__c like '%string1%' OR ",
+          "Application__r.Applicant__r.Last_Name__c like '%string1%'",
+          ") AND (",
           "Application__r.Name like '%string2%' OR ",
           "Application__r.Applicant__r.First_Name__c like '%string2%' OR ",
-          "Application__r.Applicant__r.Last_Name__c like '%string2%' OR ",
-          "Application__r.Applicant__r.Email__c like '%string2%'"
+          "Application__r.Applicant__r.Last_Name__c like '%string2%'",
+          ")"
         ].join('')
         expect(filters). to eq(expected_filters)
       end
@@ -57,10 +59,11 @@ RSpec.describe Force::Soql::PreferenceService do
       VCR.use_cassette('services/soql/preference_service') do
         filters = subject.buildAppPreferencesSearch('%"_something')
         expected_filters = [
+          "(",
           "Application__r.Name like '%\\%\"\\_something%' OR ",
           "Application__r.Applicant__r.First_Name__c like '%\\%\"\\_something%' OR ",
-          "Application__r.Applicant__r.Last_Name__c like '%\\%\"\\_something%' OR ",
-          "Application__r.Applicant__r.Email__c like '%\\%\"\\_something%'",
+          "Application__r.Applicant__r.Last_Name__c like '%\\%\"\\_something%'",
+          ")"
         ].join('')
         expect(filters). to eq(expected_filters)
       end
