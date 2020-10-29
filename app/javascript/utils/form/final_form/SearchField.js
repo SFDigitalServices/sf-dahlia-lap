@@ -3,7 +3,7 @@ import { Field } from 'react-final-form'
 import classNames from 'classnames'
 import { Label, FieldError, HelpText } from './Field'
 
-export const SearchField = ({
+const SearchField = ({
   fieldName,
   label,
   blockNote,
@@ -32,11 +32,10 @@ export const SearchField = ({
       return (
         <>
           <div
-            className={classNames(
-              'search',
-              label && 'form-group',
-              (meta.error && meta.touched && 'error') || ''
-            )}
+            className={classNames('search', {
+              'form-group': label,
+              error: meta.error && meta.touched
+            })}
           >
             <Label
               label={label}
@@ -47,12 +46,9 @@ export const SearchField = ({
             <input
               {...input}
               id={id || `form-${fieldName}`}
-              className={
-                classNames(hasValue && 'has-value', meta.error && meta.touched && 'error') || ''
-              }
+              className={classNames({ 'has-value': hasValue, error: meta.error && meta.touched })}
               type='text'
               maxLength={maxLength}
-              // aria-labelledby={ariaLabelledby}
               placeholder={placeholder}
               disabled={disabled}
             />
@@ -75,3 +71,5 @@ export const SearchField = ({
     }}
   </Field>
 )
+
+export default SearchField
