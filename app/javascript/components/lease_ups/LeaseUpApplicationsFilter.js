@@ -28,6 +28,15 @@ const LeaseUpApplicationsFilter = ({ onSubmit, preferences = [], loading = false
     ['general', 'General']
   ])
 
+  const householdSizeOptions = formUtils.toOptions([
+    formUtils.toEmptyOption('Any HH Members'),
+    '1',
+    '2',
+    '3',
+    '4',
+    '5+'
+  ])
+
   return (
     <Loading isLoading={loading}>
       <Form
@@ -61,6 +70,9 @@ const LeaseUpApplicationsFilter = ({ onSubmit, preferences = [], loading = false
                     options={preferenceOptions}
                     placeholder='Preference'
                   />
+                </div>
+                <div className='filter-group_item'>
+                  <SelectField fieldName='total_household_size' options={householdSizeOptions} />
                 </div>
                 <div className='filter-group_item'>
                   <SelectField fieldName='status' options={StatusOptions} placeholder='Status' />

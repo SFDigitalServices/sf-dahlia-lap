@@ -90,6 +90,41 @@ exports[`LeaseUpApplicationsFilter it matches the expected snapshot with default
           className="filter-group_item"
         >
           <SelectField
+            fieldName="total_household_size"
+            options={
+              Array [
+                Object {
+                  "label": "Any HH Members",
+                  "value": "",
+                },
+                Object {
+                  "label": "1",
+                  "value": "1",
+                },
+                Object {
+                  "label": "2",
+                  "value": "2",
+                },
+                Object {
+                  "label": "3",
+                  "value": "3",
+                },
+                Object {
+                  "label": "4",
+                  "value": "4",
+                },
+                Object {
+                  "label": "5+",
+                  "value": "5+",
+                },
+              ]
+            }
+          />
+        </div>
+        <div
+          className="filter-group_item"
+        >
+          <SelectField
             fieldName="status"
             options={
               Array [

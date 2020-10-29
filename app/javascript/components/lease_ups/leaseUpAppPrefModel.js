@@ -28,6 +28,7 @@ export const buildLeaseUpAppPrefModel = (applicationPreference) => {
     preference_lottery_rank:
       applicationPreference.preference_all_lottery_rank ||
       applicationPreference.preference_lottery_rank,
-    post_lottery_validation: applicationPreference.post_lottery_validation
+    post_lottery_validation: applicationPreference.post_lottery_validation,
+    total_household_size: application.total_household_size
   }
 }
