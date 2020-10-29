@@ -31,7 +31,10 @@ const LeaseUpApplicationsFilter = ({ onSubmit, preferences = [], loading = false
   return (
     <Loading isLoading={loading}>
       <Form
-        onSubmit={(filters) => onSubmit(formUtils.scrubEmptyValues(filters, true))}
+        onSubmit={(filters, form) => {
+          onSubmit(formUtils.scrubEmptyValues(filters, true))
+          form.resetFieldState('search')
+        }}
         render={({ form, handleSubmit }) => (
           <form onSubmit={handleSubmit} noValidate>
             <div className='filter-row'>
@@ -47,7 +50,7 @@ const LeaseUpApplicationsFilter = ({ onSubmit, preferences = [], loading = false
                 <div className='filter-group_action'>
                   <Button
                     className='small primary'
-                    disabled={!form.getState().values?.search}
+                    disabled={!form.getFieldState('search')?.modified}
                     text='Search'
                     type='submit'
                   />

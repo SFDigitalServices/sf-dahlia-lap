@@ -30,44 +30,21 @@ describe('LeaseUpApplicationsFilter', () => {
   })
 
   describe('search field', () => {
-    describe('when there is no text in the field', () => {
-      test('it does not show the clear button', () => {
-        const wrapper = getWrapper()
-        expect(wrapper.exists('.search-icon')).toBe(false)
-      })
-      test('the search button is disabled', () => {
-        const wrapper = getShallowWrapper().find('ReactFinalForm').dive()
-        const searchButton = wrapper.find(Button).find({ text: 'Search' })
-        expect(searchButton.props().disabled).toBe(true)
-      })
+    test('it does not show the clear button when there is no text in the field', () => {
+      const wrapper = getWrapper()
+      expect(wrapper.exists('.search-icon')).toBe(false)
     })
-    describe('with text in the field', () => {
-      test('it renders a clear input icon when there is text in the search input', () => {
-        const wrapper = getWrapper()
-        wrapper.find('.search')
-        wrapper
-          .find('.search')
-          .find('input')
-          .simulate('change', { target: { value: 'my search query' } })
-        wrapper.update()
-        expect(wrapper.exists('.search-icon')).toBe(true)
-      })
-      test('the search button is not disabled', () => {
-        const wrapper = getWrapper()
-        wrapper.find('.search')
-        wrapper
-          .find('.search')
-          .find('input')
-          .simulate('change', { target: { value: 'my search query' } })
-        wrapper.update()
-        expect(wrapper.find(Button).find({ text: 'Search' }).find('button').props().disabled).toBe(
-          false
-        )
-      })
+    test('it renders a clear input icon when there is text in the search input', () => {
+      const wrapper = getWrapper()
+      wrapper
+        .find('.search')
+        .find('input')
+        .simulate('change', { target: { value: 'my search query' } })
+      wrapper.update()
+      expect(wrapper.exists('.search-icon')).toBe(true)
     })
     test('the clear input button clears the input', () => {
       const wrapper = getWrapper()
-      wrapper.find('.search')
       wrapper
         .find('.search')
         .find('input')
@@ -77,6 +54,34 @@ describe('LeaseUpApplicationsFilter', () => {
 
       wrapper.find('.search-icon').simulate('click')
       expect(wrapper.find(SearchField).find('input').props().value).toEqual('')
+    })
+    test('the search field is disabled unless the field has been modified', () => {
+      const wrapper = getWrapper()
+      const searchButtonIsDisabled = (wrapper) =>
+        wrapper.find(Button).find({ text: 'Search' }).find('button').props().disabled
+      // search button is disabled on first render
+      expect(searchButtonIsDisabled(wrapper)).toBe(true)
+
+      // search button should be enabled after we modify the field
+      wrapper
+        .find('.search')
+        .find('input')
+        .simulate('change', { target: { value: 'my search query' } })
+      wrapper.update()
+      expect(searchButtonIsDisabled(wrapper)).toBe(false)
+
+      // search button should be disabled after we submit
+      console.log('clicking submit')
+      wrapper.find(Button).find({ text: 'Search' }).find('button').simulate('submit')
+      expect(searchButtonIsDisabled(wrapper)).toBe(true)
+
+      // search button should be re-enabled if we modify after submit
+      wrapper
+        .find('.search')
+        .find('input')
+        .simulate('change', { target: { value: 'my other search query' } })
+      wrapper.update()
+      expect(searchButtonIsDisabled(wrapper)).toBe(false)
     })
   })
 })
