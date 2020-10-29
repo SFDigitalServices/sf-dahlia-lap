@@ -52,8 +52,9 @@ module Force
       ]
       search = []
       for search_term in search_terms
+        sanitized_term = ActiveRecord::Base.sanitize_sql_like search_term
         for search_field in search_fields
-          search.push("#{search_field} like '%#{search_term}%'")
+          search.push("#{search_field} like '%#{sanitized_term}%'")
         end
       end
       search.join(' OR ')

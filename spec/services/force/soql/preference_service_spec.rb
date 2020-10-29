@@ -27,12 +27,12 @@ RSpec.describe Force::Soql::PreferenceService do
   describe 'buildAppPreferencesSearch' do
     it 'creates the expected query string for a single search term' do
       VCR.use_cassette('services/soql/preference_service') do
-        filters = subject.buildAppPreferencesSearch('search_string')
+        filters = subject.buildAppPreferencesSearch('searchString')
         expected_filters = [
-          "Application__r.Name like '%search_string%' OR ",
-          "Application__r.Applicant__r.First_Name__c like '%search_string%' OR ",
-          "Application__r.Applicant__r.Last_Name__c like '%search_string%' OR ",
-          "Application__r.Applicant__r.Email__c like '%search_string%'"
+          "Application__r.Name like '%searchString%' OR ",
+          "Application__r.Applicant__r.First_Name__c like '%searchString%' OR ",
+          "Application__r.Applicant__r.Last_Name__c like '%searchString%' OR ",
+          "Application__r.Applicant__r.Email__c like '%searchString%'"
         ].join('')
         expect(filters). to eq(expected_filters)
       end
@@ -49,6 +49,18 @@ RSpec.describe Force::Soql::PreferenceService do
           "Application__r.Applicant__r.First_Name__c like '%string2%' OR ",
           "Application__r.Applicant__r.Last_Name__c like '%string2%' OR ",
           "Application__r.Applicant__r.Email__c like '%string2%'"
+        ].join('')
+        expect(filters). to eq(expected_filters)
+      end
+    end
+    it 'sanitizes search terms' do
+      VCR.use_cassette('services/soql/preference_service') do
+        filters = subject.buildAppPreferencesSearch('%"_something')
+        expected_filters = [
+          "Application__r.Name like '%\\%\"\\_something%' OR ",
+          "Application__r.Applicant__r.First_Name__c like '%\\%\"\\_something%' OR ",
+          "Application__r.Applicant__r.Last_Name__c like '%\\%\"\\_something%' OR ",
+          "Application__r.Applicant__r.Email__c like '%\\%\"\\_something%'",
         ].join('')
         expect(filters). to eq(expected_filters)
       end
