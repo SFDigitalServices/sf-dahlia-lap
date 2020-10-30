@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const buttonChildrenStyles = {
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'space-between'
 }
 
 const textStyles = (hasLeftIcon, hasRightIcon) => ({
