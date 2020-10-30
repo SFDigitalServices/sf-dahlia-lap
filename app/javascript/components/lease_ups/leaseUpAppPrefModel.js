@@ -21,6 +21,7 @@ export const buildLeaseUpAppPrefModel = (applicationPreference) => {
     residence_address: applicant.residence_address,
     has_ada_priorities_selected: application.has_ada_priorities_selected,
     lease_up_status: application.processing_status,
+    sub_status: application.sub_status,
     status_last_updated: application.status_last_updated,
     preference_order: applicationPreference.preference_order,
     // Application preference names have abbreviations but General does not, here we check if it is general, otherwise use the abbreviation
