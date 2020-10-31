@@ -7,10 +7,11 @@ const createButton = (
   {
     tertiary = false,
     tightPadding = false,
-    tightPaddingVertical = false,
     text = 'Clear Filters',
     showLeftIcon = false,
-    showRightIcon = false
+    showRightIcon = false,
+    heightPx = undefined,
+    widthPx = undefined
   }
 ) => {
   return (
@@ -22,8 +23,9 @@ const createButton = (
           iconRight={showRightIcon && <StyledIcon icon={'list-unordered'} />}
           text={text}
           tightPadding={tightPadding}
-          tightPaddingVertical={tightPaddingVertical}
           tertiary={tertiary}
+          heightPx={heightPx}
+          widthPx={widthPx}
         />
       </div>
     </>
@@ -40,12 +42,14 @@ const buttonVariationSection = (
       {createButton('Primary', { text, showLeftIcon, showRightIcon })}
       {createButton('tertiary', { text, showLeftIcon, showRightIcon, tertiary: true })}
       {createButton('tight padding', { text, showLeftIcon, showRightIcon, tightPadding: true })}
-      {createButton('Tight padding (horizontal and vertical)', {
+      {createButton('custom height and width', {
         text,
         showLeftIcon,
         showRightIcon,
         tightPadding: true,
-        tightPaddingVertical: true
+        heightPx: '48px',
+
+        widthPx: '300px'
       })}
     </>
   )

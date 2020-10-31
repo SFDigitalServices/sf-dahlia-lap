@@ -2,15 +2,40 @@ import React from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 
+import { toPx } from '~/utils/cssUtils'
+
+const buttonSizeStyles = (height, minWidth) => {
+  const widthStyle = minWidth
+    ? {
+        minWidth: toPx(minWidth)
+      }
+    : {}
+
+  const heightStyle = height
+    ? {
+        paddingTop: 0,
+        paddingBottom: 0,
+        height: toPx(height)
+      }
+    : {}
+
+  return {
+    ...heightStyle,
+    ...widthStyle
+  }
+}
+
 const buttonChildrenStyles = {
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between'
+  justifyContent: 'space-between',
+  width: '100%'
 }
 
 const textStyles = (hasLeftIcon, hasRightIcon) => ({
   marginRight: hasRightIcon && '1rem',
-  marginLeft: hasLeftIcon && '1rem'
+  marginLeft: hasLeftIcon && '1rem',
+  flexGrow: 1
 })
 
 const Button = ({
@@ -22,14 +47,15 @@ const Button = ({
   tertiary = false,
   text = null,
   tightPadding,
-  tightPaddingVertical,
   tiny = false,
   type = 'button',
+  heightPx = null,
+  minWidthPx = null,
+  style = {},
   ...rest
 }) => {
   const btnClassNames = classNames(classes, {
     'tight-padding': tightPadding,
-    'tight-padding-vertical': tightPaddingVertical,
     small: small,
     tertiary: tertiary,
     tiny: tiny,
@@ -37,7 +63,12 @@ const Button = ({
   })
 
   return (
-    <button className={btnClassNames} type={type} {...rest}>
+    <button
+      className={btnClassNames}
+      type={type}
+      style={{ ...buttonSizeStyles(heightPx, minWidthPx), ...style }}
+      {...rest}
+    >
       <div style={buttonChildrenStyles}>
         {iconLeft}
         {text && <span style={textStyles(!!iconLeft, !!iconRight)}>{text}</span>}
@@ -51,13 +82,15 @@ Button.propTypes = {
   type: PropTypes.oneOf(['button', 'submit']),
   noBottomMargin: PropTypes.bool,
   classes: PropTypes.string,
+  heightPx: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   iconLeft: PropTypes.node,
   iconRight: PropTypes.node,
+  minWidthPx: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   small: PropTypes.bool,
+  style: PropTypes.object,
   tertiary: PropTypes.bool,
   text: PropTypes.node,
   tightPadding: PropTypes.bool,
-  tightPaddingVertical: PropTypes.bool,
   tiny: PropTypes.bool
 }
 

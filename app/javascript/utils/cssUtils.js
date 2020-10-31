@@ -1,19 +1,23 @@
-export const toRem = (val) => {
-  const valString = `${val}`
-  const stringSplitByRem = valString.split('rem')
+const addUnitToNumber = (val, unitSuffix) => {
+  const valString = `${val}`.toLowerCase()
+  const stringSplitBySuffix = valString.split(unitSuffix)
 
   // catches cases like "1rem2"
-  if (stringSplitByRem.length > 1 && stringSplitByRem[1] !== '') {
+  if (stringSplitBySuffix.length > 1 && stringSplitBySuffix[1] !== '') {
     return null
   }
 
-  const valStringWithoutRem = stringSplitByRem[0]
+  const valStringWithoutSuffix = stringSplitBySuffix[0]
 
   // need to check isNaN(parseInt(valStringWithoutRem)) because isNaN(empty string)
   // returns false but parses to NaN
-  if (isNaN(valStringWithoutRem) || isNaN(parseInt(valStringWithoutRem))) {
+  if (isNaN(valStringWithoutSuffix) || isNaN(parseInt(valStringWithoutSuffix))) {
     return null
   }
 
-  return `${valStringWithoutRem}rem`
+  return `${valStringWithoutSuffix}${unitSuffix}`
 }
+
+export const toRem = (val) => addUnitToNumber(val, 'rem')
+
+export const toPx = (val) => addUnitToNumber(val, 'px')

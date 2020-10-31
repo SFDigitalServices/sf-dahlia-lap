@@ -3,10 +3,6 @@ import PropTypes from 'prop-types'
 import Button from '../atoms/Button'
 import StyledIcon from '../atoms/StyledIcon'
 
-const buttonStyle = (hasTwoIcons) => ({
-  minWidth: hasTwoIcons ? '236px' : '200px'
-})
-
 const getNumFiltersAppliedIcon = (numFiltersApplied) => {
   if (numFiltersApplied < 0 || numFiltersApplied > 9) {
     console.error(`Cannot display a number > 9 or < 0 in filter bubble: ${numFiltersApplied}`)
@@ -16,7 +12,11 @@ const getNumFiltersAppliedIcon = (numFiltersApplied) => {
   return <StyledIcon icon={`filter-qty--${numFiltersApplied}`} />
 }
 
-const ShowHideFiltersButton = ({ isShowingFilters = false, numFiltersApplied = 0 }) => {
+const ShowHideFiltersButton = ({
+  isShowingFilters = false,
+  numFiltersApplied = 0,
+  onClick = () => {}
+}) => {
   const showFiltersCount = numFiltersApplied > 0
   return (
     <Button
@@ -25,14 +25,18 @@ const ShowHideFiltersButton = ({ isShowingFilters = false, numFiltersApplied = 0
       text={isShowingFilters ? 'Hide Filters' : 'Show Filters'}
       tightPadding
       tightPaddingVertical
-      style={buttonStyle(showFiltersCount)}
+      // Set a min width so that there is no jitter when toggling between
+      // show and hide text
+      widthPx={showFiltersCount ? '236px' : '195px'}
+      onClick={onClick}
     />
   )
 }
 
 ShowHideFiltersButton.propTypes = {
   isShowingFilters: PropTypes.bool,
-  numFiltersApplied: PropTypes.number
+  numFiltersApplied: PropTypes.number,
+  onClick: PropTypes.func
 }
 
 export default ShowHideFiltersButton
