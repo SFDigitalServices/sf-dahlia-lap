@@ -4982,6 +4982,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                   >
                                                                     <Icon
                                                                       icon="arrow-down"
+                                                                      size="small"
                                                                     >
                                                                       <span
                                                                         className="ui-icon ui-small"
@@ -8575,6 +8576,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                   >
                                                                     <Icon
                                                                       icon="arrow-down"
+                                                                      size="small"
                                                                     >
                                                                       <span
                                                                         className="ui-icon ui-small"
@@ -12168,6 +12170,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                   >
                                                                     <Icon
                                                                       icon="arrow-down"
+                                                                      size="small"
                                                                     >
                                                                       <span
                                                                         className="ui-icon ui-small"
@@ -15761,6 +15764,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                   >
                                                                     <Icon
                                                                       icon="arrow-down"
+                                                                      size="small"
                                                                     >
                                                                       <span
                                                                         className="ui-icon ui-small"
@@ -19354,6 +19358,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                   >
                                                                     <Icon
                                                                       icon="arrow-down"
+                                                                      size="small"
                                                                     >
                                                                       <span
                                                                         className="ui-icon ui-small"

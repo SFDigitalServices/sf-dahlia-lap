@@ -4,18 +4,17 @@ import PropTypes from 'prop-types'
 
 import { toPx } from '~/utils/cssUtils'
 
-const buttonSizeStyles = (height, minWidth) => {
+const buttonSizeStyles = (clearVerticalPadding, minWidth) => {
   const widthStyle = minWidth
     ? {
         minWidth: toPx(minWidth)
       }
     : {}
 
-  const heightStyle = height
+  const heightStyle = clearVerticalPadding
     ? {
         paddingTop: 0,
-        paddingBottom: 0,
-        height: toPx(height)
+        paddingBottom: 0
       }
     : {}
 
@@ -33,10 +32,18 @@ const buttonChildrenStyles = {
 }
 
 const textStyles = (hasLeftIcon, hasRightIcon) => ({
+  marginTop: '1rem',
+  marginBottom: '1rem',
   marginRight: hasRightIcon && '1rem',
   marginLeft: hasLeftIcon && '1rem',
   flexGrow: 1
 })
+
+const iconWrapperStyles = () => ({
+  flexShrink: 0
+})
+
+const wrapWithStyle = (node, style) => node && <span style={style}>{node}</span>
 
 const Button = ({
   classes = null,
@@ -49,7 +56,6 @@ const Button = ({
   tightPadding,
   tiny = false,
   type = 'button',
-  heightPx = null,
   minWidthPx = null,
   style = {},
   ...rest
@@ -62,17 +68,19 @@ const Button = ({
     'margin-bottom-none': noBottomMargin
   })
 
+  const hasText = !!text
+
   return (
     <button
       className={btnClassNames}
       type={type}
-      style={{ ...buttonSizeStyles(heightPx, minWidthPx), ...style }}
+      style={{ ...buttonSizeStyles(hasText, minWidthPx), ...style }}
       {...rest}
     >
       <div style={buttonChildrenStyles}>
-        {iconLeft}
-        {text && <span style={textStyles(!!iconLeft, !!iconRight)}>{text}</span>}
-        {iconRight}
+        {wrapWithStyle(iconLeft, iconWrapperStyles())}
+        {wrapWithStyle(text, textStyles(!!iconLeft, !!iconRight))}
+        {wrapWithStyle(iconRight, iconWrapperStyles())}
       </div>
     </button>
   )
@@ -81,8 +89,7 @@ const Button = ({
 Button.propTypes = {
   type: PropTypes.oneOf(['button', 'submit']),
   noBottomMargin: PropTypes.bool,
-  classes: PropTypes.string,
-  heightPx: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  classes: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   iconLeft: PropTypes.node,
   iconRight: PropTypes.node,
   minWidthPx: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

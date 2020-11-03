@@ -24,10 +24,9 @@ const ShowHideFiltersButton = ({
       iconRight={showFiltersCount ? getNumFiltersAppliedIcon(numFiltersApplied) : null}
       text={isShowingFilters ? 'Hide Filters' : 'Show Filters'}
       tightPadding
-      tightPaddingVertical
       // Set a min width so that there is no jitter when toggling between
       // show and hide text
-      widthPx={showFiltersCount ? '236px' : '195px'}
+      minWidthPx={showFiltersCount ? '236px' : '195px'}
       onClick={onClick}
     />
   )

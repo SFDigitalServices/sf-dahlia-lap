@@ -10,22 +10,21 @@ const createButton = (
     text = 'Clear Filters',
     showLeftIcon = false,
     showRightIcon = false,
-    heightPx = undefined,
-    widthPx = undefined
+    minWidthPx = undefined,
+    limitParentDivWidth = false
   }
 ) => {
   return (
     <>
       <div>{label}</div>
-      <div>
+      <div style={limitParentDivWidth ? { width: '300px' } : {}}>
         <Button
           iconLeft={showLeftIcon && <StyledIcon icon={'list-unordered'} />}
           iconRight={showRightIcon && <StyledIcon icon={'list-unordered'} />}
           text={text}
           tightPadding={tightPadding}
           tertiary={tertiary}
-          heightPx={heightPx}
-          widthPx={widthPx}
+          minWidthPx={minWidthPx}
         />
       </div>
     </>
@@ -47,10 +46,17 @@ const buttonVariationSection = (
         showLeftIcon,
         showRightIcon,
         tightPadding: true,
-        heightPx: '48px',
-
-        widthPx: '300px'
+        minWidthPx: '300px'
       })}
+      {text &&
+        createButton('button with long text', {
+          text: `${text} Very long text on the button.`,
+          showLeftIcon,
+          showRightIcon,
+          tightPadding: true,
+          minWidthPx: '300px',
+          limitParentDivWidth: true
+        })}
     </>
   )
 }
