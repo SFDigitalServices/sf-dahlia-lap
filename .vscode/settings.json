@@ -10,4 +10,7 @@
     "eslint.format.enable": true,
     "eslint.lintTask.enable": true,
     "jest.runAllTestsFirst": false,
+    "autoimport.sourceRoot": "./app/javascript",
+    "autoimport.semicolon": false,
+    "autoimport.absolute": true,
 }
