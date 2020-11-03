@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { shallow } from 'enzyme'
 
 import ConfirmationModal from 'components/organisms/ConfirmationModal'

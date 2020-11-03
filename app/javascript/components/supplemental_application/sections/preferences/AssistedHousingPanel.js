@@ -1,11 +1,12 @@
 import React from 'react'
 
-import FormGrid from 'components/molecules/FormGrid'
-import { FormItem, Comment, statusOptions } from './utils'
+import formOptions from 'components/applications/application_form/formOptions'
 import { buildFieldId } from 'components/applications/application_form/preferences/utils'
+import FormGrid from 'components/molecules/FormGrid'
 import { SelectField } from 'utils/form/final_form/Field.js'
 
-import formOptions from 'components/applications/application_form/formOptions'
+import { FormItem, Comment, statusOptions } from './utils'
+
 const { labelize } = formOptions
 
 export const AssistedHousingPanel = ({

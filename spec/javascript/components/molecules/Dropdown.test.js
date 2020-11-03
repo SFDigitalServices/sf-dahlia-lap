@@ -1,7 +1,9 @@
 import React from 'react'
+
 import { shallow } from 'enzyme'
-import Dropdown from 'components/molecules/Dropdown'
 import { components } from 'react-select'
+
+import Dropdown from 'components/molecules/Dropdown'
 
 // Use a string selector in these tests to avoid confusion with the StateManager wrapper that exists in react-select
 const selectSelector = 'Select'

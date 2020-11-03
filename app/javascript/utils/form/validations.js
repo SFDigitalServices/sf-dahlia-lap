@@ -1,6 +1,6 @@
-import moment from 'moment'
-import { compact, first, isEmpty, isNil, isString, mapValues, map, toInteger } from 'lodash'
 import flatten, { unflatten } from 'flat'
+import { compact, first, isEmpty, isNil, isString, mapValues, map, toInteger } from 'lodash'
+import moment from 'moment'
 
 import { API_DATE_FORMAT } from 'utils/utils'
 

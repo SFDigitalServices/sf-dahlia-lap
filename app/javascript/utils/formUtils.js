@@ -1,4 +1,5 @@
 import { isObjectLike, isArray, isNaN, toNumber } from 'lodash'
+
 import { isValidPercent, isValidCurrency } from './form/validations'
 
 const toOption = (item) => {

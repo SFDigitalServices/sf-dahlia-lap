@@ -1,7 +1,9 @@
 import React from 'react'
+
 import renderer from 'react-test-renderer'
 
 import ListingsPage from 'components/listings/ListingsPage'
+
 import modelsFactory from '../../factories/models'
 import listings from '../../fixtures/listings'
 

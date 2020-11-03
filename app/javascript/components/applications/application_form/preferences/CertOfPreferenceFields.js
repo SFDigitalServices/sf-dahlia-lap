@@ -1,8 +1,10 @@
 import React from 'react'
-import { buildFieldId } from './utils'
+
 import { InputField, SelectField } from 'utils/form/final_form/Field'
-import { maxLengthMap } from 'utils/formUtils'
 import validate from 'utils/form/validations'
+import { maxLengthMap } from 'utils/formUtils'
+
+import { buildFieldId } from './utils'
 
 const CertOfPreferenceFields = ({ householdMembers, i }) => {
   return (

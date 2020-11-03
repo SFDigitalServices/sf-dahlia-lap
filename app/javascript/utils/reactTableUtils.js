@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 import PrettyTime from 'components/atoms/PrettyTime'
+import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
 const date = (cell) => {
   if (cell.value) {

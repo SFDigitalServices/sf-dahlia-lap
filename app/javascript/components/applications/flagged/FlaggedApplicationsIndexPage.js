@@ -1,9 +1,11 @@
 import React from 'react'
+
 import { get, defaultTo } from 'lodash'
+
+import mapProps from 'utils/mapProps'
 
 import IndexTable from '../../IndexTable'
 import TableLayout from '../../layouts/TableLayout'
-import mapProps from 'utils/mapProps'
 
 const flaggedTableFields = {
   id: null,

@@ -1,11 +1,8 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
 
 import _ from 'lodash'
-import modelsFactory from '../../factories/models'
+import renderer from 'react-test-renderer'
 
-import ListingPage from 'components/listings/ListingPage'
-import ListingDetailsContentCard from 'components/listings/ListingDetailsContentCard'
 import {
   detailsFields,
   buildingInformationFields,
@@ -16,6 +13,10 @@ import {
   eligibilityRulesFields,
   additionalInfoFields
 } from 'components/listings/fields'
+import ListingDetailsContentCard from 'components/listings/ListingDetailsContentCard'
+import ListingPage from 'components/listings/ListingPage'
+
+import modelsFactory from '../../factories/models'
 
 describe('ListingPage', () => {
   const listing = modelsFactory.listingDetail()

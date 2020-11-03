@@ -1,8 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import BreadCrumbs from '../atoms/BreadCrumbs'
 
 import { map, has, isArray } from 'lodash'
+import PropTypes from 'prop-types'
+
+import BreadCrumbs from '../atoms/BreadCrumbs'
 
 // Visible for testing
 export const DefaultAction = ({ action }) => (

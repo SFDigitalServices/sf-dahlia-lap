@@ -1,9 +1,9 @@
-import sharedSteps from '../../support/puppeteer/steps/sharedSteps'
-import supplementalApplicationSteps from '../../support/puppeteer/steps/supplementalApplicationSteps'
 import {
   LEASE_UP_LISTING_APPLICATION_ID,
   DEFAULT_E2E_TIME_OUT
 } from '../../support/puppeteer/consts'
+import sharedSteps from '../../support/puppeteer/steps/sharedSteps'
+import supplementalApplicationSteps from '../../support/puppeteer/steps/supplementalApplicationSteps'
 import SetupBrowserAndPage from '../../utils/SetupBrowserAndPage'
 
 describe('SupplementalApplicationPage confirmed household income section', () => {

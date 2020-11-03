@@ -1,10 +1,11 @@
 import React from 'react'
+
 import { mount, shallow } from 'enzyme'
 import Select from 'react-select'
 
+import Dropdown from 'components/molecules/Dropdown'
 import SubstatusDropdown, { renderSubstatusOption } from 'components/molecules/SubstatusDropdown'
 import { LEASE_UP_SUBSTATUS_OPTIONS } from 'utils/statusUtils'
-import Dropdown from 'components/molecules/Dropdown'
 
 const ON_CHANGE = jest.fn()
 const APPEALED_SUBSTATUS = LEASE_UP_SUBSTATUS_OPTIONS.Appealed[0].value

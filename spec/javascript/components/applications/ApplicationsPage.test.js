@@ -1,7 +1,8 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+
 import { mount } from 'enzyme'
 import moment from 'moment'
+import renderer from 'react-test-renderer'
 
 import ApplicationsPage from 'components/applications/ApplicationsPage'
 import ApplicationsTableContainer from 'components/applications/ApplicationsTableContainer'

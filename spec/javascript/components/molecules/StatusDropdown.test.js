@@ -1,10 +1,11 @@
 import React from 'react'
+
 import { mount, shallow } from 'enzyme'
 import Select from 'react-select'
 
+import Dropdown from 'components/molecules/Dropdown'
 import StatusDropdown, { renderStatusOption } from 'components/molecules/StatusDropdown'
 import { LEASE_UP_STATUS_OPTIONS } from 'utils/statusUtils'
-import Dropdown from 'components/molecules/Dropdown'
 
 const ON_CHANGE = jest.fn()
 

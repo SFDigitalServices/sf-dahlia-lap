@@ -1,8 +1,7 @@
-import WebpackerReact from 'webpacker-react'
 import Turbolinks from 'turbolinks'
+import WebpackerReact from 'webpacker-react'
 
 // All imports for Pattern Library
-import Properties from 'components/pattern_library/properties'
 // Atoms
 import BreadCrumbs from 'components/atoms/BreadCrumbs'
 import Button from 'components/atoms/Button'
@@ -24,9 +23,9 @@ import ContentSectionBordered from 'components/molecules/ContentSectionBordered'
 import FormGridRow from 'components/molecules/FormGridRow'
 import FormGridTable from 'components/molecules/FormGridTable'
 import LeaseUpSidebar from 'components/molecules/lease_up_sidebar/LeaseUpSidebar'
+import StatusItems from 'components/molecules/lease_up_sidebar/StatusItems'
 import Loading from 'components/molecules/Loading'
 import Popover from 'components/molecules/Popover'
-import StatusItems from 'components/molecules/lease_up_sidebar/StatusItems'
 import TablePagination from 'components/molecules/TablePagination'
 import TableSimple from 'components/molecules/TableSimple'
 import TabsMenu from 'components/molecules/TabsMenu'
@@ -35,14 +34,15 @@ import Modal from 'components/organisms/Modal'
 import PageHeader from 'components/organisms/PageHeader'
 import TabCard from 'components/organisms/TabCard'
 import TabsSection from 'components/organisms/TabsSection'
+import Properties from 'components/pattern_library/properties'
 // Pattern Library Wrappers
 import ContentSectionWrapper from 'components/pattern_library/wrappers/ContentSectionWrapper'
-import InlineModalWrapper from 'components/pattern_library/wrappers/InlineModalWrapper'
 import ExpandableTableWrapper from 'components/pattern_library/wrappers/ExpandableTableWrapper'
+import InlineModalWrapper from 'components/pattern_library/wrappers/InlineModalWrapper'
 import ModalWrapper from 'components/pattern_library/wrappers/ModalWrapper'
+import MultiSelectWrapper from 'components/pattern_library/wrappers/MultiSelectWrapper'
 import PopoverWrapper from 'components/pattern_library/wrappers/PopoverWrapper'
 import TabCardWrapper from 'components/pattern_library/wrappers/TabCardWrapper'
-import MultiSelectWrapper from 'components/pattern_library/wrappers/MultiSelectWrapper'
 
 Turbolinks.start()
 

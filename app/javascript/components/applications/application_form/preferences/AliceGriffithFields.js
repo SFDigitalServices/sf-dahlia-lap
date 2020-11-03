@@ -1,12 +1,15 @@
 import React from 'react'
+
 import { map } from 'lodash'
+
+import Column from 'components/atoms/Column'
+import Row from 'components/atoms/Row'
+import { InputField, SelectField } from 'utils/form/final_form/Field'
+import validate from 'utils/form/validations'
+import { maxLengthMap } from 'utils/formUtils'
+
 import { buildFieldId } from './utils'
 import { typeOfProofValues } from './values'
-import Row from 'components/atoms/Row'
-import Column from 'components/atoms/Column'
-import { InputField, SelectField } from 'utils/form/final_form/Field'
-import { maxLengthMap } from 'utils/formUtils'
-import validate from 'utils/form/validations'
 
 const buildTypeOfProofOptions = (values) => {
   return map(values, (option) => ({ value: option, label: option }))

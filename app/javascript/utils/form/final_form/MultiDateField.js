@@ -1,9 +1,11 @@
 import React from 'react'
-import { maxLengthMap } from 'utils/formUtils'
-import { Field } from 'react-final-form'
-import { Input, BlockNote } from 'utils/form/final_form/Field'
-import { every, last } from 'lodash'
+
 import classNames from 'classnames'
+import { every, last } from 'lodash'
+import { Field } from 'react-final-form'
+
+import { Input, BlockNote } from 'utils/form/final_form/Field'
+import { maxLengthMap } from 'utils/formUtils'
 
 const InputField = ({ type, fieldName, validation, placeholder, maxLength, id, disabled }) => (
   <Field name={fieldName} validate={validation}>

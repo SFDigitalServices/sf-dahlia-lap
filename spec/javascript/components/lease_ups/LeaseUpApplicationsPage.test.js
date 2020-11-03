@@ -1,13 +1,14 @@
 /* eslint-disable jest/no-conditional-expect */
-import { findWithText, mountAppWithUrl } from '../../testUtils/wrapperUtil'
 import { act } from 'react-dom/test-utils'
 import { Link } from 'react-router-dom'
-import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
-import Loading from 'components/molecules/Loading'
 
 import TableLayout from 'components/layouts/TableLayout'
+import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
 import LeaseUpApplicationsTableContainer from 'components/lease_ups/LeaseUpApplicationsTableContainer'
+import Loading from 'components/molecules/Loading'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
+
+import { findWithText, mountAppWithUrl } from '../../testUtils/wrapperUtil'
 
 const mockGetLeaseUpListing = jest.fn()
 const mockFetchLeaseUpApplications = jest.fn()

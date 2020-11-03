@@ -1,11 +1,17 @@
 import React from 'react'
+
 import { uniqBy, cloneDeep, clone, some, findIndex } from 'lodash'
 import { withRouter } from 'react-router-dom'
 
 import apiService from 'apiService'
-import appPaths from 'utils/appPaths'
-import CardLayout from '../layouts/CardLayout'
 import Alerts from 'components/Alerts'
+import Loading from 'components/molecules/Loading'
+import LeaveConfirmationModal from 'components/organisms/LeaveConfirmationModal'
+import appPaths from 'utils/appPaths'
+import formUtils from 'utils/formUtils'
+import { doesApplicationHaveLease } from 'utils/leaseUtils'
+
+import CardLayout from '../layouts/CardLayout'
 import {
   deleteLease,
   getSupplementalPageData,
@@ -15,12 +21,8 @@ import {
   updatePreference,
   updateTotalHouseholdRent
 } from './actions'
-import SupplementalApplicationContainer from './SupplementalApplicationContainer'
-import LeaveConfirmationModal from 'components/organisms/LeaveConfirmationModal'
 import Context from './context'
-import formUtils from 'utils/formUtils'
-import { doesApplicationHaveLease } from 'utils/leaseUtils'
-import Loading from 'components/molecules/Loading'
+import SupplementalApplicationContainer from './SupplementalApplicationContainer'
 
 export const SHOW_LEASE_STATE = 'show_lease'
 export const NO_LEASE_STATE = 'no_lease'

@@ -1,10 +1,11 @@
 import React from 'react'
+
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import { components } from 'react-select'
-import classNames from 'classnames'
 
-import Dropdown from '../molecules/Dropdown'
 import Icon from '../atoms/Icon'
+import Dropdown from '../molecules/Dropdown'
 
 export const renderUnitOption = (
   { ami_chart_type, id, max_ami_for_qualifying_unit, priority_type, unit_number, unit_type },

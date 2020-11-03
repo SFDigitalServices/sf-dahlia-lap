@@ -1,9 +1,10 @@
 import React from 'react'
 
 import mapProps from 'utils/mapProps'
+
 import TableLayout from '../layouts/TableLayout'
-import ApplicationsTableContainer from './ApplicationsTableContainer'
 import { fetchApplications } from './actions'
+import ApplicationsTableContainer from './ApplicationsTableContainer'
 
 const ApplicationsPage = (props) => {
   const pageHeader = {

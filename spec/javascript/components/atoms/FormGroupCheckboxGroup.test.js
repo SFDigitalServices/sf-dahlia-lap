@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { shallow } from 'enzyme'
+
 import FormGroupCheckboxGroup from 'components/atoms/FormGroupCheckboxGroup'
 
 describe('FormGroupCheckboxGroup', () => {

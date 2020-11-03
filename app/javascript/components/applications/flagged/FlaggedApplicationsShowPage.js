@@ -1,8 +1,9 @@
 import React from 'react'
 
-import SpreadsheetIndexTable from '../../SpreadsheetIndexTable'
-import TableLayout from '../../layouts/TableLayout'
 import mapProps from 'utils/mapProps'
+
+import TableLayout from '../../layouts/TableLayout'
+import SpreadsheetIndexTable from '../../SpreadsheetIndexTable'
 
 const tableFields = {
   id: {

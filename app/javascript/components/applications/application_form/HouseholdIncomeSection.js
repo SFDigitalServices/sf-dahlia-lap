@@ -1,8 +1,10 @@
 import React from 'react'
+
 import { CurrencyField, SelectField } from 'utils/form/final_form/Field'
-import { maxLengthMap } from 'utils/formUtils'
-import formOptions from './formOptions'
 import validate from 'utils/form/validations'
+import { maxLengthMap } from 'utils/formUtils'
+
+import formOptions from './formOptions'
 
 const { householdVouchersSubsidiesOptions } = formOptions
 

@@ -1,7 +1,9 @@
 import React from 'react'
-import PageHeader, { Actions, DefaultAction } from 'components/organisms/PageHeader'
-import BreadCrumbs from 'components/atoms/BreadCrumbs'
+
 import { shallow } from 'enzyme'
+
+import BreadCrumbs from 'components/atoms/BreadCrumbs'
+import PageHeader, { Actions, DefaultAction } from 'components/organisms/PageHeader'
 
 const mockCrumb = (title, link) => ({
   title,

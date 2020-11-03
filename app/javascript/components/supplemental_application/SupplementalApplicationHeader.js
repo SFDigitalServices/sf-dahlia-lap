@@ -1,7 +1,8 @@
 import React from 'react'
 
-import PageHeader from '../organisms/PageHeader'
 import appPaths from 'utils/appPaths'
+
+import PageHeader from '../organisms/PageHeader'
 
 const SupplementalApplicationHeader = ({ applicationNumber, applicantName, listing }) => {
   const title = `${applicationNumber}: ${applicantName}`

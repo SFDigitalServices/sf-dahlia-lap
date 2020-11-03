@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { shallow } from 'enzyme'
+
 import ParkingInformationInputs from 'components/supplemental_application/sections/ParkingInformationInputs'
 
 const mockChangeFn = jest.fn()

@@ -1,7 +1,8 @@
 import React from 'react'
+
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import { components } from 'react-select'
-import classNames from 'classnames'
 
 import {
   LEASE_UP_STATUS_VALUES,

@@ -1,6 +1,8 @@
 /* global mount */
 import React from 'react'
+
 import renderer from 'react-test-renderer'
+
 import IndexTable from 'components/IndexTable'
 
 // A bit verbose, but just to illustrate how it works

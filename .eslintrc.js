@@ -74,6 +74,26 @@ module.exports = {
     // should pass as long as they don't timeout
     'jest/expect-expect': 'off',
 
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal'],
+        pathGroups: [
+          {
+            pattern: 'react',
+            group: 'external',
+            position: 'before'
+          }
+        ],
+        pathGroupsExcludedImportTypes: ['react'],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true
+        }
+      }
+    ],
+
     'react/prop-types': 'off',
     'react/display-name': 'off',
     'react/state-in-constructor': 0,

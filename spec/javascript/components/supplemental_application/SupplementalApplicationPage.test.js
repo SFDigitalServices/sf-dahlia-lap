@@ -1,8 +1,9 @@
-import renderer from 'react-test-renderer'
-import { act } from 'react-dom/test-utils'
 import { cloneDeep, merge } from 'lodash'
-import { leaseUpAppWithUrl, mountAppWithUrl } from '../../testUtils/wrapperUtil'
+import { act } from 'react-dom/test-utils'
+import renderer from 'react-test-renderer'
+
 import supplementalApplication from '../../fixtures/supplemental_application'
+import { leaseUpAppWithUrl, mountAppWithUrl } from '../../testUtils/wrapperUtil'
 
 const mockInitialLoad = jest.fn()
 const mockSubmitApplication = jest.fn()

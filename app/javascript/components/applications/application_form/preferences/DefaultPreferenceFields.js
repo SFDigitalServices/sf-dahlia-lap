@@ -1,7 +1,9 @@
 import React from 'react'
-import { buildFieldId } from './utils'
+
 import { SelectField } from 'utils/form/final_form/Field'
 import validate from 'utils/form/validations'
+
+import { buildFieldId } from './utils'
 
 const DefaultPreferenceFields = ({ householdMembers, i }) => {
   return (

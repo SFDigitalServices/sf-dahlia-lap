@@ -1,5 +1,8 @@
 import React from 'react'
+
 import { map, isEmpty } from 'lodash'
+
+import appPaths from 'utils/appPaths'
 
 import ApplicationDetailsContentCard from './ApplicationDetailsContentCard'
 import ApplicationDetailsContentTable from './ApplicationDetailsContentTable'
@@ -14,7 +17,6 @@ import {
   reservedAndPriorityFields,
   applicationEligibilityFields
 } from './fields'
-import appPaths from 'utils/appPaths'
 
 const ProofListItems = ({ fileBaseUrl, files }) =>
   map(files, (file) => {

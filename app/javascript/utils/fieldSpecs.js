@@ -1,8 +1,8 @@
 import { each, replace, get, toLower, includes, isString, camelCase, startCase, map } from 'lodash'
 import moment from 'moment'
 
-import utils from 'utils/utils'
 import formUtils from 'utils/formUtils'
+import utils from 'utils/utils'
 
 export const getFormatType = (field) => {
   if (includes(toLower(field), 'date')) {

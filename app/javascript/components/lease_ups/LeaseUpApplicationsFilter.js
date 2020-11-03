@@ -1,12 +1,14 @@
 import React from 'react'
+
+import { clone } from 'lodash'
 import { Form } from 'react-final-form'
+
+import Button from 'components/atoms/Button'
+import Loading from 'components/molecules/Loading'
 import { SelectField } from 'utils/form/final_form/Field'
 import SearchField from 'utils/form/final_form/SearchField'
 import formUtils from 'utils/formUtils'
 import LEASE_UP_STATUS_OPTIONS, { LEASE_UP_ACCESSIBILITY_OPTIONS } from 'utils/statusUtils'
-import Loading from 'components/molecules/Loading'
-import Button from 'components/atoms/Button'
-import { clone } from 'lodash'
 
 const statusFilterOptions = [
   formUtils.toEmptyOption('Any Status'),

@@ -1,5 +1,6 @@
 /* global shallow */
 import React from 'react'
+
 import RentBurdenedPanel from 'components/supplemental_application/sections/preferences/RentBurdenedPanel'
 
 describe('RentBurdenedPanel', () => {

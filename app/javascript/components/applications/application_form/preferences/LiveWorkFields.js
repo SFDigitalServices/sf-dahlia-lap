@@ -1,8 +1,10 @@
 import React from 'react'
-import formOptions from '../formOptions'
-import { buildFieldId } from './utils'
+
 import { SelectField } from 'utils/form/final_form/Field'
 import validate from 'utils/form/validations'
+
+import formOptions from '../formOptions'
+import { buildFieldId } from './utils'
 
 const { preferenceProofOptionsLiveSf, preferenceProofOptionsWorkSf } = formOptions
 

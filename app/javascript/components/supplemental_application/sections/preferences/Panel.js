@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
+
 import { cond, stubTrue, constant, map } from 'lodash'
 
 import FormGrid from 'components/molecules/FormGrid'
 import InlineModal from 'components/molecules/InlineModal'
-import DefaultPanel from './DefaultPanel'
-import RentBurdenedPanel from './RentBurdenedPanel'
-import LiveOrWorkInSanFranciscoPanel from './LiveOrWorkInSanFranciscoPanel'
-import NeighborhoodResidentHousingPanel from './NeighborhoodResidentHousingPanel'
+
 import AntiDisplacementHousingPanel from './AntiDisplacementHousingPanel'
 import AssistedHousingPanel from './AssistedHousingPanel'
 import Custom from './Custom'
+import DefaultPanel from './DefaultPanel'
+import LiveOrWorkInSanFranciscoPanel from './LiveOrWorkInSanFranciscoPanel'
+import NeighborhoodResidentHousingPanel from './NeighborhoodResidentHousingPanel'
+import RentBurdenedPanel from './RentBurdenedPanel'
 
 const isPreference = (recordType, preferenceName) => (pref) => {
   const recordtypeDevelopername = pref.recordtype_developername

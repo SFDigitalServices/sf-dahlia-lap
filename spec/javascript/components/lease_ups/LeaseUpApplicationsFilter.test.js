@@ -1,9 +1,10 @@
 import React from 'react'
+
 import { mount, shallow } from 'enzyme'
 
+import Button from 'components/atoms/Button'
 import LeaseUpApplicationsFilter from 'components/lease_ups/LeaseUpApplicationsFilter'
 import SearchField from 'utils/form/final_form/SearchField'
-import Button from 'components/atoms/Button'
 
 const mockSubmit = jest.fn()
 

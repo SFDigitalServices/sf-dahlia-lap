@@ -1,10 +1,12 @@
 import React from 'react'
-import { useEffectOnMount } from 'utils/customHooks'
 
 import { forEach, isEmpty } from 'lodash'
+import { FieldArray } from 'react-final-form-arrays'
+
+import { useEffectOnMount } from 'utils/customHooks'
+
 import PreferenceForm from './PreferenceForm'
 import { naturalKeyFromPreference, getFullHousehold } from './utils'
-import { FieldArray } from 'react-final-form-arrays'
 
 const PreferencesSection = ({ form, editValues, listingPreferences }) => {
   useEffectOnMount(() => {

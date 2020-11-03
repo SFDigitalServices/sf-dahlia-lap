@@ -1,12 +1,13 @@
 import React from 'react'
+
 import { capitalize, compact, map, cloneDeep } from 'lodash'
 
-import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
-import LeaseUpApplicationsFilter from './LeaseUpApplicationsFilter'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
-
 import appPaths from 'utils/appPaths'
+
 import { withContext } from './context'
+import LeaseUpApplicationsFilter from './LeaseUpApplicationsFilter'
+import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
 
 const LeaseUpTableContainer = ({
   store: {

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import ConfirmedHouseholdIncome, {
   getAmiPercent
 } from 'components/supplemental_application/sections/ConfirmedHouseholdIncome'

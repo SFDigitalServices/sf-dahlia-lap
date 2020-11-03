@@ -1,6 +1,6 @@
-import utils from '../support/puppeteer/utils'
-import sharedSteps from '../support/puppeteer/steps/sharedSteps'
 import { FLAGGED_RECORD_SET_ID, DEFAULT_E2E_TIME_OUT } from '../support/puppeteer/consts'
+import sharedSteps from '../support/puppeteer/steps/sharedSteps'
+import utils from '../support/puppeteer/utils'
 import SetupBrowserAndPage from '../utils/SetupBrowserAndPage'
 
 describe('FlaggedApplicationsShowPage', () => {

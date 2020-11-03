@@ -1,7 +1,9 @@
 import React from 'react'
+
 import { find } from 'lodash'
-import Select from 'react-select'
 import PropTypes from 'prop-types'
+import Select from 'react-select'
+
 import { COLORS } from 'components/atoms/colors'
 
 const Dropdown = ({

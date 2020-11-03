@@ -1,12 +1,14 @@
 import React from 'react'
-import { clone } from 'lodash'
+
 import { mount } from 'enzyme'
+import { clone } from 'lodash'
 import { act } from 'react-dom/test-utils'
 
 import PaperApplicationForm from 'components/applications/application_form/PaperApplicationForm'
-import listing from '../../../fixtures/listing'
+
 import application from '../../../fixtures/application'
 import lendingInstitutions from '../../../fixtures/lending_institutions'
+import listing from '../../../fixtures/listing'
 
 const DECLINE = 'Decline to state'
 const mockSubmitApplication = jest.fn()

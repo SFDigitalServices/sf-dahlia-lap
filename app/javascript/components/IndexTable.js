@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+
 import { each, includes, last, uniqBy, map, sortBy } from 'lodash'
 import moment from 'moment-timezone'
+import PropTypes from 'prop-types'
 import ReactTable from 'react-table'
-import utils from 'utils/utils'
-import IndexTableCell from './IndexTableCell'
+
 import appPaths from 'utils/appPaths'
+import utils from 'utils/utils'
+
+import IndexTableCell from './IndexTableCell'
 
 const IndexTable = ({ fields, results, links, page }) => {
   const [expanded, setExpanded] = useState({})

@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { shallow } from 'enzyme'
+
 import AlertNotice from 'components/molecules/AlertNotice'
 
 describe('AlertNotice', () => {

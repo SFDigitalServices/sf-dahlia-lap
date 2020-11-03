@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { MemoryRouter as Router } from 'react-router-dom'
 import { mount } from 'enzyme'
+import { MemoryRouter as Router } from 'react-router-dom'
+
 import LeaseUpRoutes from 'routes/LeaseUpRoutes'
 
 jest.mock(

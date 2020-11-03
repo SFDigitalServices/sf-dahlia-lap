@@ -1,7 +1,9 @@
 import React from 'react'
-import { Field } from 'react-final-form'
-import formOptions from 'components/applications/application_form/formOptions'
+
 import classNames from 'classnames'
+import { Field } from 'react-final-form'
+
+import formOptions from 'components/applications/application_form/formOptions'
 import formUtils from 'utils/formUtils'
 
 const { labelize } = formOptions

@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { isEmpty } from 'lodash'
-import { useEffectOnMount, useQueryParamBoolean } from 'utils/customHooks'
-import { getShortFormApplication } from 'components/lease_ups/shortFormActions'
-import ApplicationDetails from './application_details/ApplicationDetails'
-import CardLayout from '../layouts/CardLayout'
-import appPaths from 'utils/appPaths'
-import Loading from 'components/molecules/Loading'
-import PropTypes from 'prop-types'
 
+import { isEmpty } from 'lodash'
+import PropTypes from 'prop-types'
+import { useParams } from 'react-router-dom'
+
+import { getShortFormApplication } from 'components/lease_ups/shortFormActions'
+import Loading from 'components/molecules/Loading'
+import appPaths from 'utils/appPaths'
+import { useEffectOnMount, useQueryParamBoolean } from 'utils/customHooks'
+
+import CardLayout from '../layouts/CardLayout'
+import ApplicationDetails from './application_details/ApplicationDetails'
 import labelMapperFields from './application_details/applicationDetailsFieldsDesc'
 
 const buildActionLinkIfNecessary = (app, showAddBtn) => {

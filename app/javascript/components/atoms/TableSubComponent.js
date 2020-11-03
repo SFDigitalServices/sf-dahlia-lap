@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { map } from 'lodash'
 
 const TableSubComponent = ({ items }) => {

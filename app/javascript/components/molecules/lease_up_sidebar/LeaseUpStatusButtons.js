@@ -1,9 +1,9 @@
 import React from 'react'
+
 import PropTypes from 'prop-types'
 
-import StatusDropdown from '../StatusDropdown'
-
 import { LEASE_UP_STATUS_VALUES } from '../../../utils/statusUtils'
+import StatusDropdown from '../StatusDropdown'
 
 const LeaseUpStatusButtons = ({ status, isLoading, onChangeStatus, onAddCommentClicked }) => (
   <div className='status-history-buttons'>

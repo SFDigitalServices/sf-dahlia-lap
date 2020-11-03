@@ -1,9 +1,12 @@
 import React from 'react'
+
 import ReactTable from 'react-table'
+
 import TableSubComponent from 'components/atoms/TableSubComponent'
-import PrettyTime from '../atoms/PrettyTime'
 import appPaths from 'utils/appPaths'
 import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
+
+import PrettyTime from '../atoms/PrettyTime'
 
 const SubComponent = (row) => (
   <TableSubComponent

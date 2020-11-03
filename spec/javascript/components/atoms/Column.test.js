@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { shallow } from 'enzyme'
+
 import Column from 'components/atoms/Column'
 
 describe('Column', () => {

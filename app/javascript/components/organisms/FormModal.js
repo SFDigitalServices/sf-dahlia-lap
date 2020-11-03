@@ -1,9 +1,10 @@
 import React from 'react'
+
 import classNames from 'classnames'
 import { Form } from 'react-final-form'
 
-import Modal from './Modal'
 import Loading from '../molecules/Loading'
+import Modal from './Modal'
 
 const FormModalBody = ({
   type,
