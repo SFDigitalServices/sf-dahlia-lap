@@ -407,6 +407,85 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                           <div
                             className="filter-group_item"
                           >
+                            <SearchField
+                              fieldName="search"
+                              id="test-search"
+                              onClearClick={[Function]}
+                              placeholder="Application, First Name, Last Name..."
+                            >
+                              <Field
+                                formatOnBlur={false}
+                                name="search"
+                              >
+                                <div
+                                  className="search"
+                                >
+                                  <Label
+                                    fieldName="search"
+                                    id="test-search"
+                                  />
+                                  <input
+                                    className=""
+                                    disabled={false}
+                                    id="test-search"
+                                    name="search"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    placeholder="Application, First Name, Last Name..."
+                                    type="text"
+                                    value=""
+                                  />
+                                  <FieldError
+                                    meta={
+                                      Object {
+                                        "active": false,
+                                        "data": Object {},
+                                        "dirty": false,
+                                        "dirtySinceLastSubmit": false,
+                                        "error": undefined,
+                                        "initial": undefined,
+                                        "invalid": false,
+                                        "length": undefined,
+                                        "modified": false,
+                                        "pristine": true,
+                                        "submitError": undefined,
+                                        "submitFailed": false,
+                                        "submitSucceeded": false,
+                                        "submitting": false,
+                                        "touched": false,
+                                        "valid": true,
+                                        "validating": false,
+                                        "visited": false,
+                                      }
+                                    }
+                                  />
+                                </div>
+                              </Field>
+                            </SearchField>
+                          </div>
+                          <div
+                            className="filter-group_action"
+                          >
+                            <Button
+                              className="small primary"
+                              disabled={true}
+                              noBottomMargin={false}
+                              text="Search"
+                              type="submit"
+                            >
+                              <button
+                                className="small primary"
+                                disabled={true}
+                                type="submit"
+                              >
+                                Search
+                              </button>
+                            </Button>
+                          </div>
+                          <div
+                            className="filter-group_item"
+                          >
                             <SelectField
                               fieldName="preference"
                               options={
@@ -604,294 +683,6 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                 </div>
                               </Field>
                             </SelectField>
-                          </div>
-                          <div
-                            className="filter-group_item"
-                          >
-                            <InputField
-                              fieldName="application_number"
-                              placeholder="Application Number"
-                            >
-                              <Field
-                                formatOnBlur={false}
-                                name="application_number"
-                                parse={[Function]}
-                              >
-                                <div
-                                  className=""
-                                >
-                                  <Label
-                                    fieldName="application_number"
-                                    id="form-application_number"
-                                  />
-                                  <Input
-                                    id="form-application_number"
-                                    input={
-                                      Object {
-                                        "checked": undefined,
-                                        "name": "application_number",
-                                        "onBlur": [Function],
-                                        "onChange": [Function],
-                                        "onFocus": [Function],
-                                        "value": "",
-                                      }
-                                    }
-                                    meta={
-                                      Object {
-                                        "active": false,
-                                        "data": Object {},
-                                        "dirty": false,
-                                        "dirtySinceLastSubmit": false,
-                                        "error": undefined,
-                                        "initial": undefined,
-                                        "invalid": false,
-                                        "length": undefined,
-                                        "modified": false,
-                                        "pristine": true,
-                                        "submitError": undefined,
-                                        "submitFailed": false,
-                                        "submitSucceeded": false,
-                                        "submitting": false,
-                                        "touched": false,
-                                        "valid": true,
-                                        "validating": false,
-                                        "visited": false,
-                                      }
-                                    }
-                                    placeholder="Application Number"
-                                    type="text"
-                                  >
-                                    <input
-                                      className=""
-                                      id="form-application_number"
-                                      name="application_number"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      onFocus={[Function]}
-                                      placeholder="Application Number"
-                                      type="text"
-                                      value=""
-                                    />
-                                  </Input>
-                                  <FieldError
-                                    meta={
-                                      Object {
-                                        "active": false,
-                                        "data": Object {},
-                                        "dirty": false,
-                                        "dirtySinceLastSubmit": false,
-                                        "error": undefined,
-                                        "initial": undefined,
-                                        "invalid": false,
-                                        "length": undefined,
-                                        "modified": false,
-                                        "pristine": true,
-                                        "submitError": undefined,
-                                        "submitFailed": false,
-                                        "submitSucceeded": false,
-                                        "submitting": false,
-                                        "touched": false,
-                                        "valid": true,
-                                        "validating": false,
-                                        "visited": false,
-                                      }
-                                    }
-                                  />
-                                </div>
-                              </Field>
-                            </InputField>
-                          </div>
-                          <div
-                            className="filter-group_item"
-                          >
-                            <InputField
-                              fieldName="first_name"
-                              placeholder="First Name"
-                            >
-                              <Field
-                                formatOnBlur={false}
-                                name="first_name"
-                                parse={[Function]}
-                              >
-                                <div
-                                  className=""
-                                >
-                                  <Label
-                                    fieldName="first_name"
-                                    id="form-first_name"
-                                  />
-                                  <Input
-                                    id="form-first_name"
-                                    input={
-                                      Object {
-                                        "checked": undefined,
-                                        "name": "first_name",
-                                        "onBlur": [Function],
-                                        "onChange": [Function],
-                                        "onFocus": [Function],
-                                        "value": "",
-                                      }
-                                    }
-                                    meta={
-                                      Object {
-                                        "active": false,
-                                        "data": Object {},
-                                        "dirty": false,
-                                        "dirtySinceLastSubmit": false,
-                                        "error": undefined,
-                                        "initial": undefined,
-                                        "invalid": false,
-                                        "length": undefined,
-                                        "modified": false,
-                                        "pristine": true,
-                                        "submitError": undefined,
-                                        "submitFailed": false,
-                                        "submitSucceeded": false,
-                                        "submitting": false,
-                                        "touched": false,
-                                        "valid": true,
-                                        "validating": false,
-                                        "visited": false,
-                                      }
-                                    }
-                                    placeholder="First Name"
-                                    type="text"
-                                  >
-                                    <input
-                                      className=""
-                                      id="form-first_name"
-                                      name="first_name"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      onFocus={[Function]}
-                                      placeholder="First Name"
-                                      type="text"
-                                      value=""
-                                    />
-                                  </Input>
-                                  <FieldError
-                                    meta={
-                                      Object {
-                                        "active": false,
-                                        "data": Object {},
-                                        "dirty": false,
-                                        "dirtySinceLastSubmit": false,
-                                        "error": undefined,
-                                        "initial": undefined,
-                                        "invalid": false,
-                                        "length": undefined,
-                                        "modified": false,
-                                        "pristine": true,
-                                        "submitError": undefined,
-                                        "submitFailed": false,
-                                        "submitSucceeded": false,
-                                        "submitting": false,
-                                        "touched": false,
-                                        "valid": true,
-                                        "validating": false,
-                                        "visited": false,
-                                      }
-                                    }
-                                  />
-                                </div>
-                              </Field>
-                            </InputField>
-                          </div>
-                          <div
-                            className="filter-group_item"
-                          >
-                            <InputField
-                              fieldName="last_name"
-                              placeholder="Last Name"
-                            >
-                              <Field
-                                formatOnBlur={false}
-                                name="last_name"
-                                parse={[Function]}
-                              >
-                                <div
-                                  className=""
-                                >
-                                  <Label
-                                    fieldName="last_name"
-                                    id="form-last_name"
-                                  />
-                                  <Input
-                                    id="form-last_name"
-                                    input={
-                                      Object {
-                                        "checked": undefined,
-                                        "name": "last_name",
-                                        "onBlur": [Function],
-                                        "onChange": [Function],
-                                        "onFocus": [Function],
-                                        "value": "",
-                                      }
-                                    }
-                                    meta={
-                                      Object {
-                                        "active": false,
-                                        "data": Object {},
-                                        "dirty": false,
-                                        "dirtySinceLastSubmit": false,
-                                        "error": undefined,
-                                        "initial": undefined,
-                                        "invalid": false,
-                                        "length": undefined,
-                                        "modified": false,
-                                        "pristine": true,
-                                        "submitError": undefined,
-                                        "submitFailed": false,
-                                        "submitSucceeded": false,
-                                        "submitting": false,
-                                        "touched": false,
-                                        "valid": true,
-                                        "validating": false,
-                                        "visited": false,
-                                      }
-                                    }
-                                    placeholder="Last Name"
-                                    type="text"
-                                  >
-                                    <input
-                                      className=""
-                                      id="form-last_name"
-                                      name="last_name"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      onFocus={[Function]}
-                                      placeholder="Last Name"
-                                      type="text"
-                                      value=""
-                                    />
-                                  </Input>
-                                  <FieldError
-                                    meta={
-                                      Object {
-                                        "active": false,
-                                        "data": Object {},
-                                        "dirty": false,
-                                        "dirtySinceLastSubmit": false,
-                                        "error": undefined,
-                                        "initial": undefined,
-                                        "invalid": false,
-                                        "length": undefined,
-                                        "modified": false,
-                                        "pristine": true,
-                                        "submitError": undefined,
-                                        "submitFailed": false,
-                                        "submitSucceeded": false,
-                                        "submitting": false,
-                                        "touched": false,
-                                        "valid": true,
-                                        "validating": false,
-                                        "visited": false,
-                                      }
-                                    }
-                                  />
-                                </div>
-                              </Field>
-                            </InputField>
                           </div>
                           <div
                             className="filter-group_item"
