@@ -1,8 +1,8 @@
 import React from 'react'
 import { buildFieldId } from './utils'
-import { InputField, SelectField } from '~/utils/form/final_form/Field'
-import { maxLengthMap } from '~/utils/formUtils'
-import validate from '~/utils/form/validations'
+import { InputField, SelectField } from 'utils/form/final_form/Field'
+import { maxLengthMap } from 'utils/formUtils'
+import validate from 'utils/form/validations'
 
 const DisplacedFields = ({ householdMembers, i }) => {
   return (

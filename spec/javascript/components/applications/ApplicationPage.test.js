@@ -4,10 +4,10 @@ import { mountAppWithUrl } from '../../testUtils/wrapperUtil'
 import ApplicationPage from 'components/applications/ApplicationPage'
 import application from '../../fixtures/application'
 import saleApplication from '../../fixtures/sale_application'
-import ApplicationDetails from '~/components/applications/application_details/ApplicationDetails'
+import ApplicationDetails from 'components/applications/application_details/ApplicationDetails'
 
-import Loading from '~/components/molecules/Loading'
-import CardLayout from '~/components/layouts/CardLayout'
+import Loading from 'components/molecules/Loading'
+import CardLayout from 'components/layouts/CardLayout'
 
 const flaggedAppCardSelector = '#content-card-flagged_applications'
 

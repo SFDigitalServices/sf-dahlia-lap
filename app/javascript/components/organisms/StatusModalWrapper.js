@@ -2,17 +2,17 @@ import React from 'react'
 import { Field } from 'react-final-form'
 import classNames from 'classnames'
 
-import FormGrid from '~/components/molecules/FormGrid'
-import StatusDropdown from '~/components/molecules/StatusDropdown'
-import SubstatusDropdown from '~/components/molecules/SubstatusDropdown'
+import FormGrid from 'components/molecules/FormGrid'
+import StatusDropdown from 'components/molecules/StatusDropdown'
+import SubstatusDropdown from 'components/molecules/SubstatusDropdown'
 import FormModal from './FormModal'
-import { TextAreaField, Label, FieldError } from '~/utils/form/final_form/Field'
-import validate from '~/utils/form/validations'
+import { TextAreaField, Label, FieldError } from 'utils/form/final_form/Field'
+import validate from 'utils/form/validations'
 import {
   statusRequiresComments,
   LEASE_UP_SUBSTATUS_OPTIONS,
   validateStatusForm
-} from '~/utils/statusUtils'
+} from 'utils/statusUtils'
 
 const StatusModalWrapper = ({
   isOpen,

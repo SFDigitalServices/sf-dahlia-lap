@@ -1,8 +1,8 @@
 import React from 'react'
 import { map } from 'lodash'
-import { buildFields } from '~/utils/fieldSpecs'
+import { buildFields } from 'utils/fieldSpecs'
 import Field from './Field'
-import arrayUtils from '~/utils/arrayUtils'
+import arrayUtils from 'utils/arrayUtils'
 
 export const generateContent = (listing, entry, i) => {
   const { label, value, renderType } = entry

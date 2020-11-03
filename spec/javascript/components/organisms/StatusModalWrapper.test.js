@@ -2,16 +2,16 @@ import React from 'react'
 import { mount } from 'enzyme'
 import { act } from 'react-dom/test-utils'
 
-import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
-import FormModal from '~/components/organisms/FormModal'
-import { LEASE_UP_SUBSTATUS_OPTIONS } from '~/utils/statusUtils'
-import StatusDropdown from '~/components/molecules/StatusDropdown'
-import SubstatusDropdown from '~/components/molecules/SubstatusDropdown'
-import { TextAreaField } from '~/utils/form/final_form/Field'
-import AlertBox from '~/components/molecules/AlertBox'
+import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
+import FormModal from 'components/organisms/FormModal'
+import { LEASE_UP_SUBSTATUS_OPTIONS } from 'utils/statusUtils'
+import StatusDropdown from 'components/molecules/StatusDropdown'
+import SubstatusDropdown from 'components/molecules/SubstatusDropdown'
+import { TextAreaField } from 'utils/form/final_form/Field'
+import AlertBox from 'components/molecules/AlertBox'
 
 // We need to import statusUtils with require so we can use jest.spyOn
-const statusUtils = require('~/utils/statusUtils')
+const statusUtils = require('utils/statusUtils')
 const ON_SUBMIT = jest.fn()
 const ON_ALERT_CLOSE_CLICK = jest.fn()
 const HEADER = 'Heading'

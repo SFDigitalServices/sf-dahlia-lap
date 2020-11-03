@@ -2,10 +2,10 @@ import React from 'react'
 import { uniqBy, cloneDeep, clone, some, findIndex } from 'lodash'
 import { withRouter } from 'react-router-dom'
 
-import apiService from '~/apiService'
-import appPaths from '~/utils/appPaths'
+import apiService from 'apiService'
+import appPaths from 'utils/appPaths'
 import CardLayout from '../layouts/CardLayout'
-import Alerts from '~/components/Alerts'
+import Alerts from 'components/Alerts'
 import {
   deleteLease,
   getSupplementalPageData,
@@ -16,11 +16,11 @@ import {
   updateTotalHouseholdRent
 } from './actions'
 import SupplementalApplicationContainer from './SupplementalApplicationContainer'
-import LeaveConfirmationModal from '~/components/organisms/LeaveConfirmationModal'
+import LeaveConfirmationModal from 'components/organisms/LeaveConfirmationModal'
 import Context from './context'
-import formUtils from '~/utils/formUtils'
-import { doesApplicationHaveLease } from '~/utils/leaseUtils'
-import Loading from '~/components/molecules/Loading'
+import formUtils from 'utils/formUtils'
+import { doesApplicationHaveLease } from 'utils/leaseUtils'
+import Loading from 'components/molecules/Loading'
 
 export const SHOW_LEASE_STATE = 'show_lease'
 export const NO_LEASE_STATE = 'no_lease'

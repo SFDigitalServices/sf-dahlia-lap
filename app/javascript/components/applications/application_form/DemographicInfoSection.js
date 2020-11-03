@@ -1,8 +1,8 @@
 import React from 'react'
 import formOptions from './formOptions'
-import { SelectField, InputField } from '~/utils/form/final_form/Field'
-import { maxLengthMap } from '~/utils/formUtils'
-import validate from '~/utils/form/validations'
+import { SelectField, InputField } from 'utils/form/final_form/Field'
+import { maxLengthMap } from 'utils/formUtils'
+import validate from 'utils/form/validations'
 
 const { genderOptions, sexualOrientationOptions, raceOptions, ethnicityOptions } = formOptions
 

@@ -1,10 +1,10 @@
-import apiService from '~/apiService'
-import Alerts from '~/components/Alerts'
+import apiService from 'apiService'
+import Alerts from 'components/Alerts'
 import { isEmpty, find, isEqual, reject } from 'lodash'
-import { convertCurrency } from '~/utils/form/validations'
-import { isChanged, filterChanged } from '~/utils/utils'
-import { isLeaseAlreadyCreated } from '~/utils/leaseUtils'
-import { performOrDefault, performInSequence } from '~/utils/promiseUtils'
+import { convertCurrency } from 'utils/form/validations'
+import { isChanged, filterChanged } from 'utils/utils'
+import { isLeaseAlreadyCreated } from 'utils/leaseUtils'
+import { performOrDefault, performInSequence } from 'utils/promiseUtils'
 
 /**
  * Combine lease, application, and rental assistances responses into a single

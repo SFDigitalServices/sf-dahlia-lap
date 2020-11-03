@@ -1,7 +1,7 @@
 import React from 'react'
 import { map, isBoolean } from 'lodash'
-import { buildFields } from '~/utils/fieldSpecs'
-import arrayUtils from '~/utils/arrayUtils'
+import { buildFields } from 'utils/fieldSpecs'
+import arrayUtils from 'utils/arrayUtils'
 
 var generateContent = (dataCollection, entry, i) => {
   if (dataCollection == null) {

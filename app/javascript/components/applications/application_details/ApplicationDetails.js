@@ -14,7 +14,7 @@ import {
   reservedAndPriorityFields,
   applicationEligibilityFields
 } from './fields'
-import appPaths from '~/utils/appPaths'
+import appPaths from 'utils/appPaths'
 
 const ProofListItems = ({ fileBaseUrl, files }) =>
   map(files, (file) => {

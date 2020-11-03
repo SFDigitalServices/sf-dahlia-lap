@@ -1,7 +1,7 @@
 import React from 'react'
-import { maxLengthMap } from '~/utils/formUtils'
+import { maxLengthMap } from 'utils/formUtils'
 import { Field } from 'react-final-form'
-import { Input, BlockNote } from '~/utils/form/final_form/Field'
+import { Input, BlockNote } from 'utils/form/final_form/Field'
 import { every, last } from 'lodash'
 import classNames from 'classnames'
 

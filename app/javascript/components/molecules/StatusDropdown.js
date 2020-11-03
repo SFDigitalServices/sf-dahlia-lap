@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { components } from 'react-select'
 import classNames from 'classnames'
 
-import { LEASE_UP_STATUS_OPTIONS, LEASE_UP_STATUS_VALUES } from '~/utils/statusUtils'
+import { LEASE_UP_STATUS_OPTIONS, LEASE_UP_STATUS_VALUES } from 'utils/statusUtils'
 import Dropdown from '../molecules/Dropdown'
 import Icon from '../atoms/Icon'
 

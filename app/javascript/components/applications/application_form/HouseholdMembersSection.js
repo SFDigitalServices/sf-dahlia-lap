@@ -1,7 +1,7 @@
 import React from 'react'
 import HouseholdMemberForm from './HouseholdMemberForm'
 import { FieldArray } from 'react-final-form-arrays'
-import validate from '~/utils/form/validations'
+import validate from 'utils/form/validations'
 
 const memberValidate = (values) => {
   if (!values || !values.length) return

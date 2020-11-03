@@ -3,7 +3,7 @@ import { get, defaultTo } from 'lodash'
 
 import IndexTable from '../../IndexTable'
 import TableLayout from '../../layouts/TableLayout'
-import mapProps from '~/utils/mapProps'
+import mapProps from 'utils/mapProps'
 
 const flaggedTableFields = {
   id: null,

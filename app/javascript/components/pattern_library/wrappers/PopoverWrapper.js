@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import classNames from 'classnames'
 
-import Popover from '~/components/molecules/Popover'
-import StatusItems from '~/components/molecules/lease_up_sidebar/StatusItems'
+import Popover from 'components/molecules/Popover'
+import StatusItems from 'components/molecules/lease_up_sidebar/StatusItems'
 
 const MAX_UPDATES_TO_SHOW_DEFAULT = 4
 const PopoverWrapper = ({ statusItems }) => {

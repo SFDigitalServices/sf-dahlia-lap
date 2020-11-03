@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import MultiSelect from '~/components/molecules/MultiSelect'
+import MultiSelect from 'components/molecules/MultiSelect'
 import Select from 'react-select'
 
 const mockItems = [

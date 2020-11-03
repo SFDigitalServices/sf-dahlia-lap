@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import Dropdown from '~/components/molecules/Dropdown'
+import Dropdown from 'components/molecules/Dropdown'
 
 const DropdownWrapper = ({ items }) => {
   const [dropdown1Value, setDropdown1] = useState(null)

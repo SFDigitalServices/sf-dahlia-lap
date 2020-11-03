@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffectOnMount } from '~/utils/customHooks'
+import { useEffectOnMount } from 'utils/customHooks'
 
 import { forEach, isEmpty } from 'lodash'
 import PreferenceForm from './PreferenceForm'

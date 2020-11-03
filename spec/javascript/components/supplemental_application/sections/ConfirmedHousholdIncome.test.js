@@ -1,6 +1,8 @@
 import React from 'react'
-import { getAmiPercent } from 'components/supplemental_application/sections/ConfirmedHouseholdIncome'
-import ConfirmedHouseholdIncome from '~/components/supplemental_application/sections/ConfirmedHouseholdIncome'
+import ConfirmedHouseholdIncome, {
+  getAmiPercent
+} from 'components/supplemental_application/sections/ConfirmedHouseholdIncome'
+
 import { withForm } from '../../../testUtils/wrapperUtil'
 
 jest.mock('apiService', () => ({

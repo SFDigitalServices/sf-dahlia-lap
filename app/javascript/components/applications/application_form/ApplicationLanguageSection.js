@@ -1,7 +1,7 @@
 import React from 'react'
 import formOptions from './formOptions'
-import { SelectField } from '~/utils/form/final_form/Field'
-import validate from '~/utils/form/validations'
+import { SelectField } from 'utils/form/final_form/Field'
+import validate from 'utils/form/validations'
 
 const { applicationLanguageOptions } = formOptions
 

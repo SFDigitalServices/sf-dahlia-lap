@@ -2,7 +2,7 @@ import React from 'react'
 
 import SpreadsheetIndexTable from '../../SpreadsheetIndexTable'
 import TableLayout from '../../layouts/TableLayout'
-import mapProps from '~/utils/mapProps'
+import mapProps from 'utils/mapProps'
 
 const tableFields = {
   id: {

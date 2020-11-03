@@ -9,10 +9,10 @@ import { getApplications, getListing } from './leaseUpActions'
 import { createFieldUpdateComment } from '../supplemental_application/actions'
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
 import TableLayout from '../layouts/TableLayout'
-import appPaths from '~/utils/appPaths'
-import { EagerPagination, SERVER_PAGE_SIZE } from '~/utils/EagerPagination'
+import appPaths from 'utils/appPaths'
+import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
 import Context from './context'
-import { SALESFORCE_DATE_FORMAT } from '~/utils/utils'
+import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
 const ROWS_PER_PAGE = 20
 const BASE_URL = typeof SALESFORCE_BASE_URL !== 'undefined' ? SALESFORCE_BASE_URL : ''

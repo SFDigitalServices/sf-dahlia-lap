@@ -1,7 +1,7 @@
 import React from 'react'
 import { map, each, includes, keys, toPairs, isEmpty } from 'lodash'
 import formOptions from './formOptions'
-import { SelectField, CheckboxField } from '~/utils/form/final_form/Field'
+import { SelectField, CheckboxField } from 'utils/form/final_form/Field'
 
 const { yesNoOptions, adaPriorityValueToLabelMap } = formOptions
 

@@ -1,9 +1,9 @@
 import React from 'react'
-import { SelectField } from '~/utils/form/final_form/Field'
+import { SelectField } from 'utils/form/final_form/Field'
 import { find, map, omitBy, sortBy, cloneDeep } from 'lodash'
-import Row from '~/components/atoms/Row'
-import Column from '~/components/atoms/Column'
-import FormGroup from '~/components/atoms/FormGroup'
+import Row from 'components/atoms/Row'
+import Column from 'components/atoms/Column'
+import FormGroup from 'components/atoms/FormGroup'
 
 import PreferenceAdditionalOptions from './PreferenceAdditionalOptions'
 import { recordTypeMap } from './values'

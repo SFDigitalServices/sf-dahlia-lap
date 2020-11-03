@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 
-import Icon from '~/components/atoms/Icon'
-import Popover from '~/components/molecules/Popover'
-import StatusItems from '~/components/molecules/lease_up_sidebar/StatusItems'
+import Icon from 'components/atoms/Icon'
+import Popover from 'components/molecules/Popover'
+import StatusItems from 'components/molecules/lease_up_sidebar/StatusItems'
 import Loading from '../molecules/Loading'
-import apiService from '~/apiService'
+import apiService from 'apiService'
 
 const MAX_UPDATES_TO_SHOW_DEFAULT = 4
 const StatusHistoryPopover = ({ applicationId }) => {

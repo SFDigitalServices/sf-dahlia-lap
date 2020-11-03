@@ -1,5 +1,5 @@
-import apiService from '~/apiService'
-import { request } from '~/api/request'
+import apiService from 'apiService'
+import { request } from 'api/request'
 
 const mockFailedFn = jest.fn(() =>
   Promise.resolve({ lease: true }).then(() => {

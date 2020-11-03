@@ -1,7 +1,7 @@
 /* global mount */
 import React from 'react'
 
-import appPaths from '~/utils/appPaths'
+import appPaths from 'utils/appPaths'
 import LeaveConfirmationModal from 'components/organisms/LeaveConfirmationModal'
 
 describe('LeaveConfirmationModal', () => {

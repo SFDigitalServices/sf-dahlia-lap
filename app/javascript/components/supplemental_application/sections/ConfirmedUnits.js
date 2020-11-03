@@ -1,7 +1,7 @@
 import React from 'react'
 
-import FormGrid from '~/components/molecules/FormGrid'
-import { CheckboxField, TextCheckboxField } from '~/utils/form/final_form/Field.js'
+import FormGrid from 'components/molecules/FormGrid'
+import { CheckboxField, TextCheckboxField } from 'utils/form/final_form/Field.js'
 
 const ConfirmedUnits = ({ form }) => {
   return (

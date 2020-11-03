@@ -3,9 +3,9 @@ import { capitalize, compact, map, cloneDeep } from 'lodash'
 
 import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
 import LeaseUpApplicationsFilter from './LeaseUpApplicationsFilter'
-import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
+import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 
-import appPaths from '~/utils/appPaths'
+import appPaths from 'utils/appPaths'
 import { withContext } from './context'
 
 const LeaseUpTableContainer = ({

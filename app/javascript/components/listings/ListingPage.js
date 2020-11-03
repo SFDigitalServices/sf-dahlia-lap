@@ -2,7 +2,7 @@ import React from 'react'
 
 import ListingDetails from './ListingDetails'
 import CardLayout from '../layouts/CardLayout'
-import appPaths from '~/utils/appPaths'
+import appPaths from 'utils/appPaths'
 
 const ListingPageDetails = ({ listing }) => {
   return <ListingDetails listing={listing} />

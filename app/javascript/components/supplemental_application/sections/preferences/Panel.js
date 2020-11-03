@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { cond, stubTrue, constant, map } from 'lodash'
 
-import FormGrid from '~/components/molecules/FormGrid'
-import InlineModal from '~/components/molecules/InlineModal'
+import FormGrid from 'components/molecules/FormGrid'
+import InlineModal from 'components/molecules/InlineModal'
 import DefaultPanel from './DefaultPanel'
 import RentBurdenedPanel from './RentBurdenedPanel'
 import LiveOrWorkInSanFranciscoPanel from './LiveOrWorkInSanFranciscoPanel'

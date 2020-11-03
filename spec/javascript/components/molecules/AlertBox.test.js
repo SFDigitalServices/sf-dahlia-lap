@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import AlertBox from '~/components/molecules/AlertBox'
+import AlertBox from 'components/molecules/AlertBox'
 
 describe('AlertBox', () => {
   const onCloseClick = jest.fn()

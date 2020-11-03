@@ -2,12 +2,12 @@
 import { findWithText, mountAppWithUrl } from '../../testUtils/wrapperUtil'
 import { act } from 'react-dom/test-utils'
 import { Link } from 'react-router-dom'
-import LeaseUpApplicationsPage from '~/components/lease_ups/LeaseUpApplicationsPage'
-import Loading from '~/components/molecules/Loading'
+import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
+import Loading from 'components/molecules/Loading'
 
-import TableLayout from '~/components/layouts/TableLayout'
-import LeaseUpApplicationsTableContainer from '~/components/lease_ups/LeaseUpApplicationsTableContainer'
-import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
+import TableLayout from 'components/layouts/TableLayout'
+import LeaseUpApplicationsTableContainer from 'components/lease_ups/LeaseUpApplicationsTableContainer'
+import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 
 const mockGetLeaseUpListing = jest.fn()
 const mockFetchLeaseUpApplications = jest.fn()

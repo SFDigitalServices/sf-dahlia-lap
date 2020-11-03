@@ -1,7 +1,7 @@
 import React from 'react'
 
-import FormGrid from '~/components/molecules/FormGrid'
-import formUtils from '~/utils/formUtils'
+import FormGrid from 'components/molecules/FormGrid'
+import formUtils from 'utils/formUtils'
 
 const testRegex = (regex) => (value) => regex.test(value)
 

@@ -3,11 +3,11 @@ import { cloneDeep } from 'lodash'
 import RentalAssistance, {
   RentalAssistanceForm,
   RentalAssistanceTable
-} from '~/components/supplemental_application/sections/RentalAssistance'
+} from 'components/supplemental_application/sections/RentalAssistance'
 import { withForm, shallowWithFormAndContext, findWithProps } from '../../../testUtils/wrapperUtil'
-import { InputField, SelectField } from '~/utils/form/final_form/Field'
-import Button from '~/components/atoms/Button'
-import ExpandableTable from '~/components/molecules/ExpandableTable'
+import { InputField, SelectField } from 'utils/form/final_form/Field'
+import Button from 'components/atoms/Button'
+import ExpandableTable from 'components/molecules/ExpandableTable'
 
 const baseContext = {
   application: { rental_assistances: [] },

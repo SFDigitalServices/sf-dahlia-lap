@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 
-import arrayUtils from '~/utils/arrayUtils'
-import keyboard from '~/utils/keyboard'
+import arrayUtils from 'utils/arrayUtils'
+import keyboard from 'utils/keyboard'
 
 // visible for testing
 export const Tab = ({ tabItem, onKeyDown, onFocus, linkRefs }) => {

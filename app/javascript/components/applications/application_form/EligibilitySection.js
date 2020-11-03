@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { useEffectOnMount } from '~/utils/customHooks'
+import { useEffectOnMount } from 'utils/customHooks'
 import PropTypes from 'prop-types'
-import { CheckboxField, SelectField } from '~/utils/form/final_form/Field'
+import { CheckboxField, SelectField } from 'utils/form/final_form/Field'
 import { map, each, some } from 'lodash'
-import validate from '~/utils/form/validations'
+import validate from 'utils/form/validations'
 
 const checkboxErrorMessage = 'The applicant cannot qualify for the listing unless this is true.'
 

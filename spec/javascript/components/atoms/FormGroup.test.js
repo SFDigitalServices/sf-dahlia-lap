@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import FormGroup from '~/components/atoms/FormGroup'
+import FormGroup from 'components/atoms/FormGroup'
 
 describe('FormGroup', () => {
   test('it should render a form group with the correct children', () => {

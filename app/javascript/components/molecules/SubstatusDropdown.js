@@ -7,7 +7,7 @@ import {
   LEASE_UP_STATUS_VALUES,
   LEASE_UP_SUBSTATUS_OPTIONS,
   LEASE_UP_SUBSTATUS_VALUES
-} from '~/utils/statusUtils'
+} from 'utils/statusUtils'
 
 import Icon from '../atoms/Icon'
 import Dropdown from '../molecules/Dropdown'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { filter, some, overSome } from 'lodash'
 
-import appPaths from '~/utils/appPaths'
+import appPaths from 'utils/appPaths'
 import { isCOP, isDTHP } from './utils'
 
 const ProofFilesList = ({ proofFiles, fileBaseUrl }) => {

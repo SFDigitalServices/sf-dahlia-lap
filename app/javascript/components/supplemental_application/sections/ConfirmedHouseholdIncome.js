@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
-import { useEffectOnMount } from '~/utils/customHooks'
+import { useEffectOnMount } from 'utils/customHooks'
 import { isNil, isString } from 'lodash'
 
-import FormGrid from '~/components/molecules/FormGrid'
-import { formatPercent } from '~/utils/utils'
-import getAmiChartYears from '~/utils/amiYearUtils'
-import formUtils from '~/utils/formUtils'
-import ContentSection from '~/components/molecules/ContentSection'
+import FormGrid from 'components/molecules/FormGrid'
+import { formatPercent } from 'utils/utils'
+import getAmiChartYears from 'utils/amiYearUtils'
+import formUtils from 'utils/formUtils'
+import ContentSection from 'components/molecules/ContentSection'
 
 import {
   YesNoRadioGroup,
   CurrencyField,
   PercentField,
   SelectField
-} from '~/utils/form/final_form/Field.js'
-import validate from '~/utils/form/validations'
+} from 'utils/form/final_form/Field.js'
+import validate from 'utils/form/validations'
 
 const validateIncomeCurrency = (value) => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FormGrid from '~/components/molecules/FormGrid'
+import FormGrid from 'components/molecules/FormGrid'
 
 const FormItem = ({ label, children }) => (
   <FormGrid.Item>

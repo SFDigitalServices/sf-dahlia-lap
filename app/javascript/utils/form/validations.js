@@ -2,7 +2,7 @@ import moment from 'moment'
 import { compact, first, isEmpty, isNil, isString, mapValues, map, toInteger } from 'lodash'
 import flatten, { unflatten } from 'flat'
 
-import { API_DATE_FORMAT } from '~/utils/utils'
+import { API_DATE_FORMAT } from 'utils/utils'
 
 const run = (rules, values, ifRules) => {
   return mapValues(rules, (valFn, key) => {

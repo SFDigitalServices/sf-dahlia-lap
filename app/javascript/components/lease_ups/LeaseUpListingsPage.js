@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
-import appPaths from '~/utils/appPaths'
-import Loading from '~/components/molecules/Loading'
+import appPaths from 'utils/appPaths'
+import Loading from 'components/molecules/Loading'
 import { getLeaseUpListings } from './leaseUpActions'
 
 import TableLayout from '../layouts/TableLayout'

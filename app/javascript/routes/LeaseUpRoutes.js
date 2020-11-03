@@ -1,11 +1,11 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import LeaseUpApplicationsPage from '~/components/lease_ups/LeaseUpApplicationsPage'
-import SupplementalApplicationPage from '~/components/supplemental_application/SupplementalApplicationPage'
-import LeaseUpListingsPage from '~/components/lease_ups/LeaseUpListingsPage'
-import ApplicationPage from '~/components/applications/ApplicationPage'
-import appPaths from '~/utils/appPaths'
+import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
+import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
+import LeaseUpListingsPage from 'components/lease_ups/LeaseUpListingsPage'
+import ApplicationPage from 'components/applications/ApplicationPage'
+import appPaths from 'utils/appPaths'
 
 const LeaseUpRoutes = () => (
   <Switch>

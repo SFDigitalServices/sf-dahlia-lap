@@ -1,11 +1,11 @@
 import React from 'react'
 import formOptions from './formOptions'
 import AddressForm from './AddressForm'
-import validate from '~/utils/form/validations'
-import { InputField, SelectField } from '~/utils/form/final_form/Field'
-import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
+import validate from 'utils/form/validations'
+import { InputField, SelectField } from 'utils/form/final_form/Field'
+import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import { mailingAddressFieldMap } from './utils'
-import { maxLengthMap } from '~/utils/formUtils'
+import { maxLengthMap } from 'utils/formUtils'
 
 const { phoneTypeOptions } = formOptions
 

@@ -1,7 +1,7 @@
 import React from 'react'
 
-import ContentSection from '~/components/molecules/ContentSection'
-import TabCard from '~/components/organisms/TabCard'
+import ContentSection from 'components/molecules/ContentSection'
+import TabCard from 'components/organisms/TabCard'
 
 const TabCardWrapper = () => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
-import { InputField } from '~/utils/form/final_form/Field'
+import { InputField } from 'utils/form/final_form/Field'
 import { isEmpty } from 'lodash'
-import { maxLengthMap } from '~/utils/formUtils'
+import { maxLengthMap } from 'utils/formUtils'
 
 const buildField = (fieldName, addressFieldMap, addressFieldKey) => {
   return `${fieldName}.${addressFieldMap[addressFieldKey]}`

@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import AppCard from '~/components/molecules/AppCard'
+import AppCard from 'components/molecules/AppCard'
 
 describe('AppCard', () => {
   test('it renders the correct children', () => {

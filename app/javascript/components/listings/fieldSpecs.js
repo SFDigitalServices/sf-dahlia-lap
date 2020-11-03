@@ -1,7 +1,7 @@
 import { get, includes } from 'lodash'
 import moment from 'moment'
 
-import utils from '~/utils/utils'
+import utils from 'utils/utils'
 
 const getRenderType = (value) => {
   if (includes(value, 'http')) {

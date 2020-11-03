@@ -10,6 +10,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
 
+    'plugin:import/errors',
+
     /*
      * These prettier configs turn off any conflicting eslint configs
      * This way prettier controls all formatting, eslint controls
@@ -85,6 +87,11 @@ module.exports = {
     react: {
       // Must be updated when package.json react version is bumped
       version: '16.9.0'
+    },
+    'import/resolver': {
+      node: {
+        "moduleDirectory": ['node_modules', 'app/javascript']
+      }
     }
   }
 }

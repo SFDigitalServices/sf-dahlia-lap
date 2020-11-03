@@ -1,14 +1,14 @@
 import React from 'react'
 import { map, reject, overSome, findIndex, orderBy, kebabCase } from 'lodash'
 
-import TableWrapper from '~/components/atoms/TableWrapper'
+import TableWrapper from 'components/atoms/TableWrapper'
 import PreferenceIcon from './preferences/PreferenceIcon'
-import ExpandableTable from '~/components/molecules/ExpandableTable'
+import ExpandableTable from 'components/molecules/ExpandableTable'
 import Panel from './preferences/Panel'
 import { isCOP, isDTHP, isAliceGriffith, getPreferenceName } from './preferences/utils'
 import { getTypeOfProof } from './preferences/typeOfProof'
 import { withContext } from '../context'
-import { memberNameFromPref } from '~/components/applications/application_form/preferences/utils'
+import { memberNameFromPref } from 'components/applications/application_form/preferences/utils'
 
 const { ExpanderButton } = ExpandableTable
 

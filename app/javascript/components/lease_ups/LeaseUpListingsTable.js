@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactTable from 'react-table'
-import { cellFormat } from '~/utils/reactTableUtils'
+import { cellFormat } from 'utils/reactTableUtils'
 
 const PAGE_SIZE = 20
 

@@ -4,11 +4,11 @@ import { trim } from 'lodash'
 import { Link } from 'react-router-dom'
 
 import StatusDropdown from '../molecules/StatusDropdown'
-import { getLeaseUpStatusClass } from '~/utils/statusUtils'
-import appPaths from '~/utils/appPaths'
-import { cellFormat } from '~/utils/reactTableUtils'
+import { getLeaseUpStatusClass } from 'utils/statusUtils'
+import appPaths from 'utils/appPaths'
+import { cellFormat } from 'utils/reactTableUtils'
 import classNames from 'classnames'
-import { MAX_SERVER_LIMIT } from '~/utils/EagerPagination'
+import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
 import StatusHistoryPopover from '../organisms/StatusHistoryPopover'
 
 const LeaseUpStatusCell = ({ cell, onChange }) => {

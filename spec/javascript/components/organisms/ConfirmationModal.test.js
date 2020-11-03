@@ -1,8 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import ConfirmationModal from '~/components/organisms/ConfirmationModal'
-import Modal from '~/components/organisms/Modal'
+import ConfirmationModal from 'components/organisms/ConfirmationModal'
+import Modal from 'components/organisms/Modal'
 
 import { findWithText } from '../../testUtils/wrapperUtil'
 

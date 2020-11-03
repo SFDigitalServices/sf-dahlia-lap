@@ -2,7 +2,7 @@ import React from 'react'
 
 import PaperApplicationForm from './application_form/PaperApplicationForm'
 import CardLayout from '../layouts/CardLayout'
-import mapProps from '~/utils/mapProps'
+import mapProps from 'utils/mapProps'
 import { saveApplication } from './actions'
 
 const ApplicationEditPageForm = ({ listing, application, editPage, lendingInstitutions }) => {
