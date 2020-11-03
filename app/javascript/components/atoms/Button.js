@@ -24,12 +24,12 @@ const buttonSizeStyles = (clearVerticalPadding, minWidth) => {
   }
 }
 
-const buttonChildrenStyles = {
+const buttonChildrenStyles = () => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
   width: '100%'
-}
+})
 
 const textStyles = (hasLeftIcon, hasRightIcon) => ({
   marginTop: '1rem',
@@ -40,7 +40,12 @@ const textStyles = (hasLeftIcon, hasRightIcon) => ({
 })
 
 const iconWrapperStyles = () => ({
-  flexShrink: 0
+  flexShrink: 0,
+
+  // we need to override font-size because of a css button selector that sets
+  // the font size for all children. This is a problem because it adds 3px
+  // to any icon wrapper.
+  fontSize: 0
 })
 
 const wrapWithStyle = (node, style) => node && <span style={style}>{node}</span>
@@ -77,7 +82,7 @@ const Button = ({
       style={{ ...buttonSizeStyles(hasText, minWidthPx), ...style }}
       {...rest}
     >
-      <div style={buttonChildrenStyles}>
+      <div style={buttonChildrenStyles()}>
         {wrapWithStyle(iconLeft, iconWrapperStyles())}
         {wrapWithStyle(text, textStyles(!!iconLeft, !!iconRight))}
         {wrapWithStyle(iconRight, iconWrapperStyles())}
