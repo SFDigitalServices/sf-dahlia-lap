@@ -90,7 +90,7 @@ module.exports = {
     },
     'import/resolver': {
       node: {
-        "moduleDirectory": ['node_modules', 'app/javascript']
+        moduleDirectory: ['node_modules', 'app/javascript']
       }
     }
   }
