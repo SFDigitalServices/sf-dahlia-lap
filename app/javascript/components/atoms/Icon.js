@@ -2,19 +2,11 @@ import React from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 
-const Icon = ({
-  icon,
-  size = 'default',
-  alert = false,
-  success = false,
-  uiIconClassName = 'ui-icon'
-}) => {
-  const spanClassName = classNames(uiIconClassName, {
-    [`ui-${size}`]: size !== 'default',
+const Icon = ({ icon, size = 'small', alert = false, success = false }) => {
+  const spanClassName = classNames('ui-icon', `ui-${size}`, {
     'i-alert': alert,
     'i-success': success
   })
-
   return (
     <span className={spanClassName}>
       <svg>
@@ -26,10 +18,9 @@ const Icon = ({
 
 Icon.propTypes = {
   icon: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(['default', 'small', 'medium', 'tiny']),
+  size: PropTypes.oneOf(['small', 'medium', 'tiny']),
   alert: PropTypes.bool,
-  success: PropTypes.bool,
-  uiIconClassName: PropTypes.string
+  success: PropTypes.bool
 }
 
 export default Icon
