@@ -17,7 +17,7 @@ import EligibilitySection from './EligibilitySection'
 import HouseholdIncomeSection from './HouseholdIncomeSection'
 import HouseholdMembersSection from './HouseholdMembersSection'
 import PreferencesSection from './preferences/PreferencesSection'
-import { getFullHousehold, naturalKeyFromMember } from './preferences/utils.js'
+import { getFullHousehold, naturalKeyFromMember } from './preferences/utils'
 import PrimaryApplicantSection from './PrimaryApplicantSection'
 import ReservedPrioritySection from './ReservedPrioritySection'
 

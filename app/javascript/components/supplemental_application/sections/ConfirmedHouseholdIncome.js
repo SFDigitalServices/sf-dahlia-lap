@@ -11,7 +11,7 @@ import {
   CurrencyField,
   PercentField,
   SelectField
-} from 'utils/form/final_form/Field.js'
+} from 'utils/form/final_form/Field'
 import validate from 'utils/form/validations'
 import formUtils from 'utils/formUtils'
 import { formatPercent } from 'utils/utils'

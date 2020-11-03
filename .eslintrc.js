@@ -93,7 +93,7 @@ module.exports = {
         }
       }
     ],
-
+'import/extensions': 'error',
     'react/prop-types': 'off',
     'react/display-name': 'off',
     'react/state-in-constructor': 0,

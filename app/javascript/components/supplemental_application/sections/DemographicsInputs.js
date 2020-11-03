@@ -3,7 +3,7 @@ import React from 'react'
 import { range } from 'lodash'
 
 import FormGrid from 'components/molecules/FormGrid'
-import { SelectField } from 'utils/form/final_form/Field.js'
+import { SelectField } from 'utils/form/final_form/Field'
 import formUtils from 'utils/formUtils'
 
 const DemographicsInputs = () => {
