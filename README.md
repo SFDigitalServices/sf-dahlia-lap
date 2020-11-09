@@ -22,6 +22,15 @@ Cross-browser testing done with <a href="https://www.browserstack.com/"><img src
 * Create a `.env` file in the root directory and ask a team member for access to the local development secrets
 * Setup your local database by running `bin/rails db:migrate RAILS_ENV=development`
 
+### VSCode setup
+We recommend you use VSCode to develop partners. You can use something else, but you're on your own for setting up linting/autocomplete.
+
+#### Installing recommended VSCode extensions
+Open the partners projects in VSCode, click the extensions tab and filter by recommended extensions, install the extensions under "Workspace recommendations"
+
+#### Configuring VSCode and extensions
+Necessary configs are defined in [.vscode/settings.json](.vscode/settings.json). you can override those configs or change additional settings by changing the apps user settings (Code -> Preferences -> Settings or using the shortcut `CMD + ,`)
+
 ## To run server
 * `yarn start`
 * Access the app at [http://localhost:3000/](http://localhost:3000/)
