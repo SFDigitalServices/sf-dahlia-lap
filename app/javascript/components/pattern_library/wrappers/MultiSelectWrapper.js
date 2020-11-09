@@ -24,7 +24,7 @@ const SelectItemShape = PropTypes.shape({
 MultiSelectWrapper.propTypes = {
   items: PropTypes.arrayOf(SelectItemShape),
   disabled: PropTypes.bool,
-  height: PropTypes.oneOf('normal', 'small')
+  height: PropTypes.oneOf(['normal', 'small'])
 }
 
 export default MultiSelectWrapper

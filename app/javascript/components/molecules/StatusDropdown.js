@@ -35,7 +35,7 @@ const StatusDropdown = ({ status, onChange, disabled, placeholder, size, expand 
         type='button'
         disabled={disabled}
       >
-        <Icon icon='arrow-down' />
+        <Icon icon='arrow-down' size='small' />
         {val?.label ? val.label : placeholder}
         <div className='ui-icon ui-small'>
           <components.ValueContainer getValue={getValue} {...props}>

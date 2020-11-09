@@ -56,11 +56,9 @@ exports[`RentalAssistance matches snapshot 1`] = `
     <Component>
       <Button
         id="add-rental-assistance"
-        noBottomMargin={false}
         onClick={[Function]}
         small={true}
         text="Add Rental Assistance"
-        type="button"
       />
       <div
         className="margin-top--half"
@@ -214,7 +212,6 @@ exports[`RentalAssistanceForm when it already exists on salesforce matches snaps
         onClick={[Function]}
         text="Save"
         tiny={true}
-        type="button"
       />
       <Button
         classes="secondary"
@@ -224,7 +221,6 @@ exports[`RentalAssistanceForm when it already exists on salesforce matches snaps
         onClick={[MockFunction]}
         text="Cancel"
         tiny={true}
-        type="button"
       />
       <Button
         classes="alert-fill right"
@@ -234,7 +230,6 @@ exports[`RentalAssistanceForm when it already exists on salesforce matches snaps
         onClick={[MockFunction]}
         text="Delete"
         tiny={true}
-        type="button"
       />
     </div>
   </Component>
@@ -382,7 +377,6 @@ exports[`RentalAssistanceForm when it is new matches snapshot 1`] = `
         onClick={[Function]}
         text="Save"
         tiny={true}
-        type="button"
       />
       <Button
         classes="secondary"
@@ -392,7 +386,6 @@ exports[`RentalAssistanceForm when it is new matches snapshot 1`] = `
         onClick={[MockFunction]}
         text="Cancel"
         tiny={true}
-        type="button"
       />
     </div>
   </Component>
