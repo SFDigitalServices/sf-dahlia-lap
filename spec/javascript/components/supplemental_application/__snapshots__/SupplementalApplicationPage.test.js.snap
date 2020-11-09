@@ -1366,7 +1366,7 @@ Array [
                         htmlFor="form-confirmed_household_annual_income"
                         id="label-confirmed_household_annual_income"
                       >
-                        Total Household Annual Income
+                        Confirmed Total Household Annual Income
                       </label>
                       <input
                         className=""
@@ -2233,31 +2233,118 @@ Array [
                                       className="form-grid_item column"
                                     >
                                       <button
-                                        className="primary margin-right button tiny margin-bottom-none"
+                                        className="primary margin-right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-save"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Save
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Save
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="secondary button tiny margin-bottom-none"
+                                        className="secondary tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Cancel
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Cancel
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="alert-fill right button tiny margin-bottom-none"
+                                        className="alert-fill right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Delete
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Delete
+                                          </span>
+                                        </div>
                                       </button>
                                     </div>
                                   </div>
@@ -2548,31 +2635,118 @@ Array [
                                       className="form-grid_item column"
                                     >
                                       <button
-                                        className="primary margin-right button tiny margin-bottom-none"
+                                        className="primary margin-right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-save"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Save
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Save
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="secondary button tiny margin-bottom-none"
+                                        className="secondary tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Cancel
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Cancel
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="alert-fill right button tiny margin-bottom-none"
+                                        className="alert-fill right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Delete
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Delete
+                                          </span>
+                                        </div>
                                       </button>
                                     </div>
                                   </div>
@@ -2863,31 +3037,118 @@ Array [
                                       className="form-grid_item column"
                                     >
                                       <button
-                                        className="primary margin-right button tiny margin-bottom-none"
+                                        className="primary margin-right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-save"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Save
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Save
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="secondary button tiny margin-bottom-none"
+                                        className="secondary tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Cancel
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Cancel
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="alert-fill right button tiny margin-bottom-none"
+                                        className="alert-fill right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Delete
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Delete
+                                          </span>
+                                        </div>
                                       </button>
                                     </div>
                                   </div>
@@ -3178,31 +3439,118 @@ Array [
                                       className="form-grid_item column"
                                     >
                                       <button
-                                        className="primary margin-right button tiny margin-bottom-none"
+                                        className="primary margin-right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-save"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Save
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Save
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="secondary button tiny margin-bottom-none"
+                                        className="secondary tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Cancel
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Cancel
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="alert-fill right button tiny margin-bottom-none"
+                                        className="alert-fill right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Delete
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Delete
+                                          </span>
+                                        </div>
                                       </button>
                                     </div>
                                   </div>
@@ -3493,31 +3841,118 @@ Array [
                                       className="form-grid_item column"
                                     >
                                       <button
-                                        className="primary margin-right button tiny margin-bottom-none"
+                                        className="primary margin-right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-save"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Save
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Save
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="secondary button tiny margin-bottom-none"
+                                        className="secondary tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Cancel
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Cancel
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="alert-fill right button tiny margin-bottom-none"
+                                        className="alert-fill right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Delete
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Delete
+                                          </span>
+                                        </div>
                                       </button>
                                     </div>
                                   </div>
@@ -3808,31 +4243,118 @@ Array [
                                       className="form-grid_item column"
                                     >
                                       <button
-                                        className="primary margin-right button tiny margin-bottom-none"
+                                        className="primary margin-right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-save"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Save
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Save
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="secondary button tiny margin-bottom-none"
+                                        className="secondary tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Cancel
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Cancel
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="alert-fill right button tiny margin-bottom-none"
+                                        className="alert-fill right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Delete
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Delete
+                                          </span>
+                                        </div>
                                       </button>
                                     </div>
                                   </div>
@@ -4123,31 +4645,118 @@ Array [
                                       className="form-grid_item column"
                                     >
                                       <button
-                                        className="primary margin-right button tiny margin-bottom-none"
+                                        className="primary margin-right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-save"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Save
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Save
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="secondary button tiny margin-bottom-none"
+                                        className="secondary tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Cancel
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Cancel
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="alert-fill right button tiny margin-bottom-none"
+                                        className="alert-fill right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Delete
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Delete
+                                          </span>
+                                        </div>
                                       </button>
                                     </div>
                                   </div>
@@ -4438,31 +5047,118 @@ Array [
                                       className="form-grid_item column"
                                     >
                                       <button
-                                        className="primary margin-right button tiny margin-bottom-none"
+                                        className="primary margin-right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-save"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Save
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Save
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="secondary button tiny margin-bottom-none"
+                                        className="secondary tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Cancel
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Cancel
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="alert-fill right button tiny margin-bottom-none"
+                                        className="alert-fill right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Delete
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Delete
+                                          </span>
+                                        </div>
                                       </button>
                                     </div>
                                   </div>
@@ -4753,31 +5449,118 @@ Array [
                                       className="form-grid_item column"
                                     >
                                       <button
-                                        className="primary margin-right button tiny margin-bottom-none"
+                                        className="primary margin-right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-save"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Save
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Save
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="secondary button tiny margin-bottom-none"
+                                        className="secondary tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Cancel
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Cancel
+                                          </span>
+                                        </div>
                                       </button>
                                       <button
-                                        className="alert-fill right button tiny margin-bottom-none"
+                                        className="alert-fill right tiny margin-bottom-none"
                                         disabled={false}
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
+                                        style={
+                                          Object {
+                                            "paddingBottom": 0,
+                                            "paddingTop": 0,
+                                          }
+                                        }
                                         type="button"
                                       >
-                                        Delete
+                                        <div
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "display": "flex",
+                                              "justifyContent": "space-between",
+                                              "width": "100%",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            style={
+                                              Object {
+                                                "flexGrow": 1,
+                                                "marginBottom": "1rem",
+                                                "marginLeft": false,
+                                                "marginRight": false,
+                                                "marginTop": "1rem",
+                                              }
+                                            }
+                                          >
+                                            Delete
+                                          </span>
+                                        </div>
                                       </button>
                                     </div>
                                   </div>
@@ -4976,13 +5759,42 @@ Array [
                     className="form-grid_item column"
                   >
                     <button
-                      className="secondary button small margin-bottom-none"
+                      className="secondary small margin-bottom-none"
                       disabled={false}
                       id="edit-lease-button"
                       onClick={[Function]}
+                      style={
+                        Object {
+                          "paddingBottom": 0,
+                          "paddingTop": 0,
+                        }
+                      }
                       type="button"
                     >
-                      Edit Lease
+                      <div
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "display": "flex",
+                            "justifyContent": "space-between",
+                            "width": "100%",
+                          }
+                        }
+                      >
+                        <span
+                          style={
+                            Object {
+                              "flexGrow": 1,
+                              "marginBottom": "1rem",
+                              "marginLeft": false,
+                              "marginRight": false,
+                              "marginTop": "1rem",
+                            }
+                          }
+                        >
+                          Edit Lease
+                        </span>
+                      </div>
                     </button>
                   </div>
                 </div>

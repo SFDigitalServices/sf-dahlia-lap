@@ -475,16 +475,44 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                             <Button
                               className="small primary"
                               disabled={true}
-                              noBottomMargin={false}
                               text="Search"
                               type="submit"
                             >
                               <button
                                 className="small primary"
                                 disabled={true}
+                                style={
+                                  Object {
+                                    "paddingBottom": 0,
+                                    "paddingTop": 0,
+                                  }
+                                }
                                 type="submit"
                               >
-                                Search
+                                <div
+                                  style={
+                                    Object {
+                                      "alignItems": "center",
+                                      "display": "flex",
+                                      "justifyContent": "space-between",
+                                      "width": "100%",
+                                    }
+                                  }
+                                >
+                                  <span
+                                    style={
+                                      Object {
+                                        "flexGrow": 1,
+                                        "marginBottom": "1rem",
+                                        "marginLeft": false,
+                                        "marginRight": false,
+                                        "marginTop": "1rem",
+                                      }
+                                    }
+                                  >
+                                    Search
+                                  </span>
+                                </div>
                               </button>
                             </Button>
                           </div>
@@ -4428,6 +4456,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                   >
                                                                     <Icon
                                                                       icon="arrow-down"
+                                                                      size="small"
                                                                     >
                                                                       <span
                                                                         className="ui-icon ui-small"
@@ -7708,6 +7737,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                   >
                                                                     <Icon
                                                                       icon="arrow-down"
+                                                                      size="small"
                                                                     >
                                                                       <span
                                                                         className="ui-icon ui-small"
@@ -10988,6 +11018,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                   >
                                                                     <Icon
                                                                       icon="arrow-down"
+                                                                      size="small"
                                                                     >
                                                                       <span
                                                                         className="ui-icon ui-small"
@@ -14268,6 +14299,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                   >
                                                                     <Icon
                                                                       icon="arrow-down"
+                                                                      size="small"
                                                                     >
                                                                       <span
                                                                         className="ui-icon ui-small"
@@ -17548,6 +17580,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                   >
                                                                     <Icon
                                                                       icon="arrow-down"
+                                                                      size="small"
                                                                     >
                                                                       <span
                                                                         className="ui-icon ui-small"

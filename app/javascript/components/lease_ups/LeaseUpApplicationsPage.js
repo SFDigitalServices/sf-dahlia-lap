@@ -17,13 +17,13 @@ import { getApplications, getListing } from './leaseUpActions'
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
 
 const ROWS_PER_PAGE = 20
-const BASE_URL = typeof SALESFORCE_BASE_URL !== 'undefined' ? SALESFORCE_BASE_URL : ''
 
 const getPageHeaderData = (listing) => {
+  const baseUrl = typeof SALESFORCE_BASE_URL !== 'undefined' ? SALESFORCE_BASE_URL : ''
   const exportButtonAction = listing?.report_id
     ? {
         title: 'Export',
-        link: `${BASE_URL}/${listing?.report_id}?csv=1`
+        link: `${baseUrl}/${listing?.report_id}?csv=1`
       }
     : null
 

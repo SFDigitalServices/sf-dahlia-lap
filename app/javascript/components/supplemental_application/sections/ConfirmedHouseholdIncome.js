@@ -86,7 +86,7 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
           <FormGrid.Item>
             <CurrencyField
               fieldName='confirmed_household_annual_income'
-              label='Total Household Annual Income'
+              label='Confirmed Total Household Annual Income'
               validation={validateIncomeCurrency}
               isDirty={visited && visited.confirmed_household_annual_income}
               helpText='Not including imputed income from assets'

@@ -195,7 +195,7 @@ const ComponentThatUsesForm = ({ form }) => (
 
 You can test it like:
 ```
-import { withForm } from '~/spec/javascript/testUtils/wrapperUtil.js'
+import { withForm } from 'spec/javascript/testUtils/wrapperUtil.js'
 import ComponentA from '...'
 
 test('it renders ComponentA', () => {
@@ -225,7 +225,7 @@ export withContext(ComponentThatUsesFormAndContext)
 
 You can test it like:
 ```
-import { shallowWithFormAndContext } from '~/spec/javascript/testUtils/wrapperUtil.js'
+import { shallowWithFormAndContext } from 'spec/javascript/testUtils/wrapperUtil.js'
 import ComponentA from '...'
 
 test('it renders ComponentA', () => {

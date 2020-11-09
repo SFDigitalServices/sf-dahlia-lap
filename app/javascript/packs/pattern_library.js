@@ -36,12 +36,14 @@ import TabCard from 'components/organisms/TabCard'
 import TabsSection from 'components/organisms/TabsSection'
 import Properties from 'components/pattern_library/properties'
 // Pattern Library Wrappers
+import ButtonWrapper from 'components/pattern_library/wrappers/ButtonWrapper'
 import ContentSectionWrapper from 'components/pattern_library/wrappers/ContentSectionWrapper'
 import ExpandableTableWrapper from 'components/pattern_library/wrappers/ExpandableTableWrapper'
 import InlineModalWrapper from 'components/pattern_library/wrappers/InlineModalWrapper'
 import ModalWrapper from 'components/pattern_library/wrappers/ModalWrapper'
 import MultiSelectWrapper from 'components/pattern_library/wrappers/MultiSelectWrapper'
 import PopoverWrapper from 'components/pattern_library/wrappers/PopoverWrapper'
+import ShowHideFiltersButtonWrapper from 'components/pattern_library/wrappers/ShowHideFiltersButtonWrapper'
 import TabCardWrapper from 'components/pattern_library/wrappers/TabCardWrapper'
 
 Turbolinks.start()
@@ -88,3 +90,5 @@ WebpackerReact.setup({ ModalWrapper })
 WebpackerReact.setup({ PopoverWrapper })
 WebpackerReact.setup({ TabCardWrapper })
 WebpackerReact.setup({ MultiSelectWrapper })
+WebpackerReact.setup({ ButtonWrapper })
+WebpackerReact.setup({ ShowHideFiltersButtonWrapper })
