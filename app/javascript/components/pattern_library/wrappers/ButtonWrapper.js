@@ -23,7 +23,7 @@ const createButton = (
           iconLeft={showLeftIcon && <StyledIcon icon={'list-unordered'} />}
           iconRight={showRightIcon && <StyledIcon icon={'list-unordered'} />}
           text={text}
-          tightPadding={tightPadding}
+          paddingHorizontal={tightPadding && 'tight'}
           tertiary={tertiary}
           minWidthPx={minWidthPx}
         />

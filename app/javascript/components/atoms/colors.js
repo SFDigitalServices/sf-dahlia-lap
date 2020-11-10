@@ -34,5 +34,6 @@ export const COLORS = {
   success: '#2e8540',
   successTint: '#b4e5be',
   warn: '#fdb81e',
-  warnTint: '#fee8b6'
+  warnTint: '#fee8b6',
+  whiteSmoke: '#f5f5f5'
 }

@@ -56,10 +56,10 @@ const Button = ({
   iconLeft = null,
   iconRight = null,
   noBottomMargin,
+  paddingHorizontal = 'normal',
   small = false,
   tertiary = false,
   text = null,
-  tightPadding,
   tiny = false,
   type = 'button',
   minWidthPx = null,
@@ -67,7 +67,8 @@ const Button = ({
   ...rest
 }) => {
   const btnClassNames = classNames(classes, {
-    'tight-padding': tightPadding,
+    'tight-padding': paddingHorizontal === 'tight',
+    'extra-padding': paddingHorizontal === 'extra',
     small: small,
     tertiary: tertiary,
     tiny: tiny,
@@ -99,11 +100,11 @@ Button.propTypes = {
   iconLeft: PropTypes.node,
   iconRight: PropTypes.node,
   minWidthPx: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  paddingHorizontal: PropTypes.oneOf(['normal', 'tight', 'extra']),
   small: PropTypes.bool,
   style: PropTypes.object,
   tertiary: PropTypes.bool,
   text: PropTypes.node,
-  tightPadding: PropTypes.bool,
   tiny: PropTypes.bool
 }
 

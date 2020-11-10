@@ -3,14 +3,14 @@ import React from 'react'
 import { mount, shallow } from 'enzyme'
 
 import Button from 'components/atoms/Button'
-import LeaseUpApplicationsFilter from 'components/lease_ups/LeaseUpApplicationsFilter'
+import LeaseUpApplicationsFilterContainer from 'components/lease_ups/LeaseUpApplicationsFilterContainer'
 import SearchField from 'utils/form/final_form/SearchField'
 
 const mockSubmit = jest.fn()
 
 const getShallowWrapper = () =>
   shallow(
-    <LeaseUpApplicationsFilter
+    <LeaseUpApplicationsFilterContainer
       onSubmit={mockSubmit}
       preferences={['pref option 1', 'pref option 2']}
     />
@@ -18,7 +18,7 @@ const getShallowWrapper = () =>
 
 const getWrapper = () =>
   mount(
-    <LeaseUpApplicationsFilter
+    <LeaseUpApplicationsFilterContainer
       onSubmit={mockSubmit}
       preferences={['pref option 1', 'pref option 2']}
     />
@@ -72,7 +72,6 @@ describe('LeaseUpApplicationsFilter', () => {
       expect(searchButtonIsDisabled(wrapper)).toBe(false)
 
       // search button should be disabled after we submit
-      console.log('clicking submit')
       wrapper.find(Button).find({ text: 'Search' }).find('button').simulate('submit')
       expect(searchButtonIsDisabled(wrapper)).toBe(true)
 
