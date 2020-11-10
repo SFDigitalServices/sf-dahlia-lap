@@ -1,13 +1,13 @@
 import React from 'react'
 
-import CertOfPreferenceFields from './CertOfPreferenceFields'
-import DisplacedFields from './DisplacedFields'
-import AntiDisplacementFields from './AntiDisplacementFields'
-import NeighborhoodResidentFields from './NeighborhoodResidentFields'
-import LiveWorkFields from './LiveWorkFields'
-import RentBurdenedAssistedHousingFields from './RentBurdenedAssistedHousingFields'
-import DefaultPreferenceFields from './DefaultPreferenceFields'
 import AliceGriffithFields from './AliceGriffithFields'
+import AntiDisplacementFields from './AntiDisplacementFields'
+import CertOfPreferenceFields from './CertOfPreferenceFields'
+import DefaultPreferenceFields from './DefaultPreferenceFields'
+import DisplacedFields from './DisplacedFields'
+import LiveWorkFields from './LiveWorkFields'
+import NeighborhoodResidentFields from './NeighborhoodResidentFields'
+import RentBurdenedAssistedHousingFields from './RentBurdenedAssistedHousingFields'
 
 const PreferenceAdditionalOptions = ({ i, form, householdMembers, listingPreference }) => {
   const propsFields = { i, householdMembers }

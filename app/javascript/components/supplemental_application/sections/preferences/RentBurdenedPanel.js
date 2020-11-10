@@ -1,12 +1,12 @@
 import React from 'react'
-import { SelectField, CurrencyField } from '~/utils/form/final_form/Field.js'
 
-import FormGrid from '~/components/molecules/FormGrid'
-import { FormItem } from './utils'
-import { buildFieldId } from '~/components/applications/application_form/preferences/utils'
-import { statusOptions } from '~/components/supplemental_application/sections/preferences/utils'
-import formOptions from '~/components/applications/application_form/formOptions'
-import validate from '~/utils/form/validations'
+import formOptions from 'components/applications/application_form/formOptions'
+import { buildFieldId } from 'components/applications/application_form/preferences/utils'
+import FormGrid from 'components/molecules/FormGrid'
+import { SelectField, CurrencyField } from 'utils/form/final_form/Field'
+import validate from 'utils/form/validations'
+
+import { FormItem, statusOptions } from './utils'
 const { labelize } = formOptions
 
 export const RentBurdenedPanel = ({ preferenceIndex, visited }) => (

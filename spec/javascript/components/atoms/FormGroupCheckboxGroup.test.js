@@ -1,6 +1,8 @@
 import React from 'react'
+
 import { shallow } from 'enzyme'
-import FormGroupCheckboxGroup from '~/components/atoms/FormGroupCheckboxGroup'
+
+import FormGroupCheckboxGroup from 'components/atoms/FormGroupCheckboxGroup'
 
 describe('FormGroupCheckboxGroup', () => {
   test('it should render a form group checkbox group with the correct label and checkbox properties', () => {

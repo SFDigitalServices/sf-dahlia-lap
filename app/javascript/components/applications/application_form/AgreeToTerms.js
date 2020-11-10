@@ -1,6 +1,7 @@
 import React from 'react'
-import { CheckboxField } from '~/utils/form/final_form/Field'
-import validate from '~/utils/form/validations'
+
+import { CheckboxField } from 'utils/form/final_form/Field'
+import validate from 'utils/form/validations'
 
 const AgreeToTerms = () => (
   <div className='checkbox-group' role='group'>

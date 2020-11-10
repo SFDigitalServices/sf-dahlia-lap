@@ -1,6 +1,8 @@
 import React from 'react'
+
 import { shallow } from 'enzyme'
-import AlertNotice from '~/components/molecules/AlertNotice'
+
+import AlertNotice from 'components/molecules/AlertNotice'
 
 describe('AlertNotice', () => {
   test('it renders an alert notice with title and content', () => {

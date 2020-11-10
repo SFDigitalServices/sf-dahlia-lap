@@ -1,4 +1,5 @@
 import React from 'react'
+
 import ContentCard from '../molecules/ContentCard'
 
 const ContentCardGrid = ({ title, description }) => {

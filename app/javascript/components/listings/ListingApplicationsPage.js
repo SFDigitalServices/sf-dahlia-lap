@@ -1,10 +1,11 @@
 import React from 'react'
 
-import TableLayout from '../layouts/TableLayout'
-import mapProps from '~/utils/mapProps'
+import appPaths from 'utils/appPaths'
+import mapProps from 'utils/mapProps'
+
 import { fetchApplications } from '../applications/actions'
 import ApplicationsTableContainer from '../applications/ApplicationsTableContainer'
-import appPaths from '~/utils/appPaths'
+import TableLayout from '../layouts/TableLayout'
 
 const ListingApplicationsPage = ({ listing }) => {
   const filters = { listing_id: listing.id }

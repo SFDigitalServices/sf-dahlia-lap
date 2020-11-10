@@ -1,6 +1,7 @@
 import React from 'react'
-import Button from '~/components/atoms/Button'
-import StyledIcon from '~/components/atoms/StyledIcon'
+
+import Button from 'components/atoms/Button'
+import StyledIcon from 'components/atoms/StyledIcon'
 
 const createButton = (
   label,

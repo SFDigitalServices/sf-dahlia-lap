@@ -1,8 +1,10 @@
 import React from 'react'
+
 import { shallow } from 'enzyme'
-import Button from '~/components/atoms/Button'
-import StyledIcon from '~/components/atoms/StyledIcon'
-import ShowHideFiltersButton from '~/components/molecules/ShowHideFiltersButton'
+
+import Button from 'components/atoms/Button'
+import StyledIcon from 'components/atoms/StyledIcon'
+import ShowHideFiltersButton from 'components/molecules/ShowHideFiltersButton'
 
 describe('ShowHideFiltersButton', () => {
   test('it renders properly with default props', () => {

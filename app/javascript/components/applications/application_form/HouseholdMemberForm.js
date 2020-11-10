@@ -1,10 +1,12 @@
 import React from 'react'
+
+import formOptions from 'components/applications/application_form/formOptions'
+import { InputField, SelectField } from 'utils/form/final_form/Field'
+import { MultiDateField } from 'utils/form/final_form/MultiDateField'
+import validate from 'utils/form/validations'
+import { maxLengthMap } from 'utils/formUtils'
+
 import AddressForm from './AddressForm'
-import { maxLengthMap } from '~/utils/formUtils'
-import formOptions from '~/components/applications/application_form/formOptions'
-import { InputField, SelectField } from '~/utils/form/final_form/Field'
-import { MultiDateField } from '~/utils/form/final_form/MultiDateField'
-import validate from '~/utils/form/validations'
 
 const { relationshipOptions } = formOptions
 

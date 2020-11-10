@@ -1,9 +1,9 @@
 import React from 'react'
+
 import PropTypes from 'prop-types'
 
-import StatusItem from './StatusItem'
-
 import StatusItemShape from '../../../utils/shapes/StatusItemShape'
+import StatusItem from './StatusItem'
 
 /**
  * Displays a list of status updates for the Lease-up sidebar.

@@ -1,11 +1,13 @@
+import { cloneDeep } from 'lodash'
+
 import {
   deleteLease,
   saveLeaseAndAssistances,
   updateApplication,
   updateApplicationAndAddComment
 } from 'components/supplemental_application/actions'
+
 import supplementalApplication from '../../fixtures/supplemental_application'
-import { cloneDeep } from 'lodash'
 
 const mockSubmitAppFn = jest.fn()
 const mockCreateLeaseFn = jest.fn()

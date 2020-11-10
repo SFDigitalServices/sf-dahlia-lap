@@ -1,11 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import moment from 'moment'
 
-import StatusPill from '../../atoms/StatusPill'
+import moment from 'moment'
+import PropTypes from 'prop-types'
 
 import StatusItemShape from '../../../utils/shapes/StatusItemShape'
 import { getSubStatusLabel } from '../../../utils/statusUtils'
+import StatusPill from '../../atoms/StatusPill'
 
 const StatusDate = ({ timestamp }) => (
   <div className='status-item-date'>{moment.unix(timestamp).format('MMM D, YYYY')}</div>

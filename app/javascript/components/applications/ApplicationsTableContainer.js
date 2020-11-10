@@ -1,8 +1,9 @@
 import React from 'react'
 
-import ApplicationsTable from './ApplicationsTable'
+import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
+
 import ApplicationsFilter from './ApplicationsFilter'
-import { EagerPagination, SERVER_PAGE_SIZE } from '~/utils/EagerPagination'
+import ApplicationsTable from './ApplicationsTable'
 
 const ROWS_PER_PAGE = 20
 

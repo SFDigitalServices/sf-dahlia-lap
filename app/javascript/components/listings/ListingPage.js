@@ -1,8 +1,9 @@
 import React from 'react'
 
-import ListingDetails from './ListingDetails'
+import appPaths from 'utils/appPaths'
+
 import CardLayout from '../layouts/CardLayout'
-import appPaths from '~/utils/appPaths'
+import ListingDetails from './ListingDetails'
 
 const ListingPageDetails = ({ listing }) => {
   return <ListingDetails listing={listing} />

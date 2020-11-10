@@ -1,18 +1,20 @@
 /* global SALESFORCE_BASE_URL */
 
 import React, { useState } from 'react'
-import { map, each, set, clone } from 'lodash'
-import { useParams } from 'react-router-dom'
-import moment from 'moment'
-import { getApplications, getListing } from './leaseUpActions'
 
-import { createFieldUpdateComment } from '../supplemental_application/actions'
-import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
+import { map, each, set, clone } from 'lodash'
+import moment from 'moment'
+import { useParams } from 'react-router-dom'
+
+import appPaths from 'utils/appPaths'
+import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
+import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
+
 import TableLayout from '../layouts/TableLayout'
-import appPaths from '~/utils/appPaths'
-import { EagerPagination, SERVER_PAGE_SIZE } from '~/utils/EagerPagination'
+import { createFieldUpdateComment } from '../supplemental_application/actions'
 import Context from './context'
-import { SALESFORCE_DATE_FORMAT } from '~/utils/utils'
+import { getApplications, getListing } from './leaseUpActions'
+import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
 
 const ROWS_PER_PAGE = 20
 

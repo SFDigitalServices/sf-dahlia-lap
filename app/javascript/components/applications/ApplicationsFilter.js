@@ -1,10 +1,11 @@
 import React from 'react'
+
 import { map, sortBy } from 'lodash'
 import { Form } from 'react-final-form'
-import { InputField, SelectField } from '~/utils/form/final_form/Field'
 
-import formUtils from '~/utils/formUtils'
-import Loading from '~/components/molecules/Loading'
+import Loading from 'components/molecules/Loading'
+import { InputField, SelectField } from 'utils/form/final_form/Field'
+import formUtils from 'utils/formUtils'
 
 const submissionTypeOptions = formUtils.toOptions([
   formUtils.toEmptyOption('Any type'),

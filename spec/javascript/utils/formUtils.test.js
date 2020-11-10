@@ -1,4 +1,4 @@
-import formUtils from '~/utils/formUtils'
+import formUtils from 'utils/formUtils'
 
 describe('formatPrice', () => {
   test('should format small numbers correctly', async () => {

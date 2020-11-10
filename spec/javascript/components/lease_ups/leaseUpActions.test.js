@@ -2,7 +2,7 @@ import {
   convertToCommaSeparatedList,
   getApplications,
   sanitizeAndFormatSearch
-} from '~/components/lease_ups/leaseUpActions'
+} from 'components/lease_ups/leaseUpActions'
 
 const mockFetchLeaseUpApplications = jest.fn()
 

@@ -1,6 +1,3 @@
-import utils from '../support/puppeteer/utils'
-import sharedSteps from '../support/puppeteer/steps/sharedSteps'
-import { applicationRedirectRouteCheck } from '../support/puppeteer/steps/applications'
 import {
   NON_LEASE_UP_LISTING_ID,
   DEFAULT_E2E_TIME_OUT,
@@ -23,6 +20,9 @@ import {
   LENDING_INSTITUTION,
   LENDING_AGENT_ID
 } from '../support/puppeteer/consts'
+import { applicationRedirectRouteCheck } from '../support/puppeteer/steps/applications'
+import sharedSteps from '../support/puppeteer/steps/sharedSteps'
+import utils from '../support/puppeteer/utils'
 import SetupBrowserAndPage from '../utils/SetupBrowserAndPage'
 let testBrowser
 

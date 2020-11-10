@@ -1,10 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+
 import { each, includes, last, cloneDeep, toLower } from 'lodash'
+import PropTypes from 'prop-types'
 import ReactTable from 'react-table'
-import utils from '~/utils/utils'
-import appPaths from '~/utils/appPaths'
-import apiService from '~/apiService'
+
+import apiService from 'apiService'
+import appPaths from 'utils/appPaths'
+import utils from 'utils/utils'
+
 import IndexTableCell from './IndexTableCell'
 
 // NOTE: some aspects of this component are hardcoded to work with Flagged Application Sets

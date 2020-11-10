@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { shallow } from 'enzyme'
+
 import LeaseUpStatusButtons from 'components/molecules/lease_up_sidebar/LeaseUpStatusButtons'
 import StatusDropdown from 'components/molecules/StatusDropdown'
 

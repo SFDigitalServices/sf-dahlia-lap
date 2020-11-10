@@ -1,8 +1,8 @@
 import React from 'react'
 
-import ContentSection from '~/components/molecules/ContentSection'
-import FormGridRow from '~/components/molecules/FormGridRow'
-import InlineModal from '~/components/molecules/InlineModal'
+import ContentSection from 'components/molecules/ContentSection'
+import FormGridRow from 'components/molecules/FormGridRow'
+import InlineModal from 'components/molecules/InlineModal'
 const InlineModalWrapper = () => {
   return (
     <ContentSection title='Section title' description='This is stuff outside of the inline modal'>

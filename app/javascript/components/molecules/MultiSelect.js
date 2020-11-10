@@ -1,6 +1,7 @@
 import React from 'react'
-import Select from 'react-select'
+
 import PropTypes from 'prop-types'
+import Select from 'react-select'
 
 const HEIGHT_NORMAL = 'normal'
 const HEIGHT_SMALL = 'small'

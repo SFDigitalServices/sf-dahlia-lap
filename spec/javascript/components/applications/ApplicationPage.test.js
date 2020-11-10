@@ -1,13 +1,14 @@
-import { act } from 'react-dom/test-utils'
 import { shallow } from 'enzyme'
-import { mountAppWithUrl } from '../../testUtils/wrapperUtil'
+import { act } from 'react-dom/test-utils'
+
+import ApplicationDetails from 'components/applications/application_details/ApplicationDetails'
 import ApplicationPage from 'components/applications/ApplicationPage'
+import CardLayout from 'components/layouts/CardLayout'
+import Loading from 'components/molecules/Loading'
+
 import application from '../../fixtures/application'
 import saleApplication from '../../fixtures/sale_application'
-import ApplicationDetails from '~/components/applications/application_details/ApplicationDetails'
-
-import Loading from '~/components/molecules/Loading'
-import CardLayout from '~/components/layouts/CardLayout'
+import { mountAppWithUrl } from '../../testUtils/wrapperUtil'
 
 const flaggedAppCardSelector = '#content-card-flagged_applications'
 

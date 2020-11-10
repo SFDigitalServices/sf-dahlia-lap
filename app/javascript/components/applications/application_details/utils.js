@@ -1,5 +1,6 @@
 import { each, startCase, isPlainObject, includes, last, replace } from 'lodash'
-import utils from '~/utils/utils'
+
+import utils from 'utils/utils'
 
 const cleanupWords = (value) => {
   each(

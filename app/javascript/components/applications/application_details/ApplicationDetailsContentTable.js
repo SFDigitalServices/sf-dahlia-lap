@@ -1,9 +1,12 @@
 import React from 'react'
+
 import { map, isPlainObject, get } from 'lodash'
-import appPaths from '~/utils/appPaths'
+
+import appPaths from 'utils/appPaths'
+import { formatValue, getFormatType } from 'utils/fieldSpecs'
+import { renderNative } from 'utils/renderUtils'
+
 import { getLabel } from './utils'
-import { renderNative } from '~/utils/renderUtils'
-import { formatValue, getFormatType } from '~/utils/fieldSpecs'
 
 const getColumns = (fields) =>
   map(fields, (field) => {

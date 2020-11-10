@@ -1,10 +1,10 @@
-import utils from '../../support/puppeteer/utils'
-import sharedSteps from '../../support/puppeteer/steps/sharedSteps'
-import supplementalApplicationSteps from '../../support/puppeteer/steps/supplementalApplicationSteps'
 import {
   LEASE_UP_LISTING_APPLICATION_ID,
   DEFAULT_E2E_TIME_OUT
 } from '../../support/puppeteer/consts'
+import sharedSteps from '../../support/puppeteer/steps/sharedSteps'
+import supplementalApplicationSteps from '../../support/puppeteer/steps/supplementalApplicationSteps'
+import utils from '../../support/puppeteer/utils'
 import SetupBrowserAndPage from '../../utils/SetupBrowserAndPage'
 let testBrowser
 

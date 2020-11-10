@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-import { SelectField } from '~/utils/form/final_form/Field.js'
 
-import formUtils from '~/utils/formUtils'
-import FormGrid from '~/components/molecules/FormGrid'
-import { FormItem, Comment } from './utils'
-import formOptions from '~/components/applications/application_form/formOptions'
-import { buildFieldId } from '~/components/applications/application_form/preferences/utils'
-import { statusOptions } from '~/components/supplemental_application/sections/preferences/utils'
+import formOptions from 'components/applications/application_form/formOptions'
+import { buildFieldId } from 'components/applications/application_form/preferences/utils'
+import FormGrid from 'components/molecules/FormGrid'
+import { SelectField } from 'utils/form/final_form/Field'
+import formUtils from 'utils/formUtils'
+
+import { FormItem, Comment, statusOptions } from './utils'
+
 const { labelize } = formOptions
 
 const { preferenceProofOptionsLiveSf, preferenceProofOptionsWorkInSf } = formOptions

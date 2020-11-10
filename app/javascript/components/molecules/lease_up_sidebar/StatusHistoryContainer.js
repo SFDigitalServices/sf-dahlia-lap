@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
 
-import StatusItems from './StatusItems'
+import classNames from 'classnames'
+import PropTypes from 'prop-types'
 
 import StatusItemShape from '../../../utils/shapes/StatusItemShape'
 import ContentSection from '../ContentSection'
+import StatusItems from './StatusItems'
 
 const MAX_UPDATES_TO_SHOW_DEFAULT = 4
 

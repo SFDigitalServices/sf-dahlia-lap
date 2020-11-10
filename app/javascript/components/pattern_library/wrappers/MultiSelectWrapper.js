@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import MultiSelect from '~/components/molecules/MultiSelect'
+
 import PropTypes from 'prop-types'
+
+import MultiSelect from 'components/molecules/MultiSelect'
 
 const MultiSelectWrapper = ({ items = [], disabled = false, height = undefined }) => {
   const [selectedItems, setSelectedItems] = useState([])

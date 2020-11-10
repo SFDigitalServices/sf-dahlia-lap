@@ -1,9 +1,11 @@
 import React from 'react'
-import { InputField, SelectField } from '~/utils/form/final_form/Field'
-import formOptions from './formOptions'
+
+import { InputField, SelectField } from 'utils/form/final_form/Field'
+import { maxLengthMap } from 'utils/formUtils'
+
 import AddressForm from './AddressForm'
+import formOptions from './formOptions'
 import { mailingAddressFieldMap } from './utils'
-import { maxLengthMap } from '~/utils/formUtils'
 
 const { alternateContactOptions, phoneTypeOptions } = formOptions
 

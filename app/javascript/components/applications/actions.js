@@ -1,5 +1,5 @@
-import apiService from '~/apiService'
-import appPaths from '~/utils/appPaths'
+import apiService from 'apiService'
+import appPaths from 'utils/appPaths'
 
 export const saveApplication = async (submitType, submittedValues, listing, editPage) => {
   const response = await apiService.submitApplication(submittedValues)

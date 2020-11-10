@@ -1,9 +1,11 @@
 import React from 'react'
+
 import { mount } from 'enzyme'
 import { act } from 'react-dom/test-utils'
-import { mockManyStatusItems } from '../../mocks/statusItemMock'
 
-import StatusHistoryPopover from '~/components/organisms/StatusHistoryPopover'
+import StatusHistoryPopover from 'components/organisms/StatusHistoryPopover'
+
+import { mockManyStatusItems } from '../../mocks/statusItemMock'
 
 const mockGetFieldUpdateComments = jest.fn()
 const APP_ID = 'app_id'

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import _ from 'lodash'
 
 const IndexTableCell = ({ attrs, val, editVal, editing, onChange }) => {

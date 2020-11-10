@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
+
 import classNames from 'classnames'
 import { kebabCase } from 'lodash'
 
-import formUtils from '~/utils/formUtils'
+import formUtils from 'utils/formUtils'
 
 const ExpandableTableRow = ({
   row,

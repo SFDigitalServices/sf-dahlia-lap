@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { shallow } from 'enzyme'
+
 import StatusPill from 'components/atoms/StatusPill'
 
 const getWrapper = (status) => shallow(<StatusPill status={status} />)

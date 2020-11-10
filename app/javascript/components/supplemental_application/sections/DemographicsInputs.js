@@ -1,9 +1,10 @@
 import React from 'react'
-import { range } from 'lodash'
-import { SelectField } from '~/utils/form/final_form/Field.js'
 
-import FormGrid from '~/components/molecules/FormGrid'
-import formUtils from '~/utils/formUtils'
+import { range } from 'lodash'
+
+import FormGrid from 'components/molecules/FormGrid'
+import { SelectField } from 'utils/form/final_form/Field'
+import formUtils from 'utils/formUtils'
 
 const DemographicsInputs = () => {
   const numberOfPeopleOptions = range(10)

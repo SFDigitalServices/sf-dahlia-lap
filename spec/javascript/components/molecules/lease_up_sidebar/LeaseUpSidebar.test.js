@@ -1,8 +1,11 @@
 import React from 'react'
+
 import { shallow } from 'enzyme'
+
 import LeaseUpSidebar from 'components/molecules/lease_up_sidebar/LeaseUpSidebar'
 import LeaseUpStatusButtons from 'components/molecules/lease_up_sidebar/LeaseUpStatusButtons'
 import StatusHistoryContainer from 'components/molecules/lease_up_sidebar/StatusHistoryContainer'
+
 import { mockStatusItem, mockStatusItems, mockManyStatusItems } from '../../../mocks/statusItemMock'
 
 const getWrapper = (items, isLoading = false) =>

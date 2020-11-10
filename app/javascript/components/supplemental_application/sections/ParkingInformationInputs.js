@@ -1,8 +1,8 @@
 import React from 'react'
 
-import FormGrid from '~/components/molecules/FormGrid'
-import { CurrencyField, SelectField, InputField } from '~/utils/form/final_form/Field.js'
-import { validateLeaseCurrency } from '~/utils/form/validations'
+import FormGrid from 'components/molecules/FormGrid'
+import { CurrencyField, SelectField, InputField } from 'utils/form/final_form/Field'
+import { validateLeaseCurrency } from 'utils/form/validations'
 
 const monthlyRentFieldName = 'lease.monthly_parking_rent'
 const parkingSpotFieldName = 'lease.parking_spot_number'

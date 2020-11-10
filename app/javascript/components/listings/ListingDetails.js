@@ -1,7 +1,6 @@
 import React from 'react'
+
 import { isEmpty } from 'lodash'
-import ListingDetailsContentCard from './ListingDetailsContentCard'
-import ListingDetailsContentTable from './ListingDetailsContentTable'
 
 import {
   detailsFields,
@@ -16,6 +15,8 @@ import {
   openHousesFields,
   infoSessionsFields
 } from './fields'
+import ListingDetailsContentCard from './ListingDetailsContentCard'
+import ListingDetailsContentTable from './ListingDetailsContentTable'
 
 const ListingDetails = ({ listing }) => {
   const Card = (cardProps) => <ListingDetailsContentCard listing={listing} {...cardProps} />

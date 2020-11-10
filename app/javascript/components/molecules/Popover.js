@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { usePopper } from 'react-popper'
+
 import PropTypes from 'prop-types'
+import { usePopper } from 'react-popper'
 
 // Source: https://www.30secondsofcode.org/react/s/use-click-outside
 const useClickOutside = (ref, callback) => {

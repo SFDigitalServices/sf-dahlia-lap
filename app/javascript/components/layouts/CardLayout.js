@@ -1,10 +1,11 @@
 import React from 'react'
-import { useEffectOnMount } from '~/utils/customHooks'
 
-import PageHeader from '../organisms/PageHeader'
-import TabsSection from '../organisms/TabsSection'
-import TabCard from '../organisms/TabCard'
+import { useEffectOnMount } from 'utils/customHooks'
+
 import AppCard from '../molecules/AppCard'
+import PageHeader from '../organisms/PageHeader'
+import TabCard from '../organisms/TabCard'
+import TabsSection from '../organisms/TabsSection'
 
 const CardLayout = ({ children, pageHeader, tabSection, toolbar }) => {
   useEffectOnMount(() => {

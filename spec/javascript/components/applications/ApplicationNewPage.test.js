@@ -1,4 +1,5 @@
 import React from 'react'
+
 import renderer from 'react-test-renderer'
 
 import ApplicationNewPage from 'components/applications/ApplicationNewPage'

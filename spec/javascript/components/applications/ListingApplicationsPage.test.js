@@ -1,6 +1,9 @@
 import React from 'react'
+
 import renderer from 'react-test-renderer'
+
 import ListingApplicationsPage from 'components/listings/ListingApplicationsPage'
+
 import mockApplicationsPage from '../../fixtures/applications_page'
 
 jest.mock('apiService', () => {

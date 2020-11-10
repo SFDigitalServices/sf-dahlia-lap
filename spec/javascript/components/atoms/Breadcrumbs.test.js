@@ -1,9 +1,12 @@
 import React from 'react'
+
 import { shallow } from 'enzyme'
-import { NavLink } from 'react-router-dom'
-import BreadCrumbs, { Item } from 'components/atoms/BreadCrumbs'
-import { findWithProps } from '../../testUtils/wrapperUtil'
 import { uniq } from 'lodash'
+import { NavLink } from 'react-router-dom'
+
+import BreadCrumbs, { Item } from 'components/atoms/BreadCrumbs'
+
+import { findWithProps } from '../../testUtils/wrapperUtil'
 
 const mockCrumb = (title, link, renderAsRouterLink = undefined) => ({
   title,

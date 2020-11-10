@@ -1,5 +1,7 @@
 import React from 'react'
+
 import renderer from 'react-test-renderer'
+
 import IndexTableCell from 'components/IndexTableCell'
 
 // TODO: Add tests for editable cell functionality.

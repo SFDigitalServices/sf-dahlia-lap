@@ -1,7 +1,8 @@
 import React from 'react'
+
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
-import classNames from 'classnames'
 
 // Visible for testing only.
 export const Item = ({ item, current }) => {

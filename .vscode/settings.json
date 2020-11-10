@@ -9,5 +9,10 @@
     },
     "eslint.format.enable": true,
     "eslint.lintTask.enable": true,
+    "eslint.packageManager": "yarn",
     "jest.runAllTestsFirst": false,
+    "jest.rootPath": "./",
+    "autoimport.sourceRoot": "./app/javascript",
+    "autoimport.semicolon": false,
+    "autoimport.absolute": true,
 }

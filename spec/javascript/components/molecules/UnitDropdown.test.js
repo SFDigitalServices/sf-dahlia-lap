@@ -1,8 +1,9 @@
 import React from 'react'
+
 import { mount, shallow } from 'enzyme'
 import Select from 'react-select'
 
-import UnitDropdown, { renderUnitOption } from '~/components/molecules/UnitDropdown'
+import UnitDropdown, { renderUnitOption } from 'components/molecules/UnitDropdown'
 
 const ON_CHANGE = jest.fn()
 const units = [

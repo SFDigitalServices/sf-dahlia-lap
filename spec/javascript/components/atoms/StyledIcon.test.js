@@ -1,6 +1,8 @@
 import React from 'react'
+
 import { shallow } from 'enzyme'
-import StyledIcon from '~/components/atoms/StyledIcon'
+
+import StyledIcon from 'components/atoms/StyledIcon'
 
 describe('StyledIcon', () => {
   describe('with default props', () => {

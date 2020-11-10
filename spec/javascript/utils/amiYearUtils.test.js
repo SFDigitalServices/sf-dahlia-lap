@@ -1,4 +1,4 @@
-import getAmiChartYears from '~/utils/amiYearUtils'
+import getAmiChartYears from 'utils/amiYearUtils'
 
 const CurrentYear = '2020'
 

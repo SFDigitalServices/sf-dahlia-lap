@@ -1,4 +1,5 @@
-import { request } from '~/api/request'
+import { request } from 'api/request'
+
 import { isLeaseAlreadyCreated } from './utils/leaseUtils'
 
 const getLeaseUpListings = async () =>

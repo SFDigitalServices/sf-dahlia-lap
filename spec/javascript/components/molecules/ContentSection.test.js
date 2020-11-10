@@ -1,5 +1,7 @@
 import React from 'react'
+
 import renderer from 'react-test-renderer'
+
 import ContentSection from 'components/molecules/ContentSection'
 
 describe('ContentSection', () => {

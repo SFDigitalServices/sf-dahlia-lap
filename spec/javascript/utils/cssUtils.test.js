@@ -1,4 +1,4 @@
-import { toRem, toPx } from '~/utils/cssUtils'
+import { toRem, toPx } from 'utils/cssUtils'
 
 describe('toRem', () => {
   describe('with null or empty input', () => {

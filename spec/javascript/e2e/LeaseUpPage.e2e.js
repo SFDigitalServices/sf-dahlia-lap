@@ -1,9 +1,9 @@
-import sharedSteps from '../support/puppeteer/steps/sharedSteps'
 import {
   DEFAULT_E2E_TIME_OUT,
   FIRST_ROW_LEASE_UP_APPLICATION_ID,
   LEASE_UP_LISTING_ID
 } from '../support/puppeteer/consts'
+import sharedSteps from '../support/puppeteer/steps/sharedSteps'
 import supplementalApplicationSteps from '../support/puppeteer/steps/supplementalApplicationSteps'
 import SetupBrowserAndPage from '../utils/SetupBrowserAndPage'
 

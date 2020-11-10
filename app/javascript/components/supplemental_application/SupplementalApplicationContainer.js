@@ -1,23 +1,23 @@
 import React, { useState } from 'react'
-import { Form } from 'react-final-form'
+
 import arrayMutators from 'final-form-arrays'
 import { isEmpty } from 'lodash'
+import { Form } from 'react-final-form'
 
-import Button from '~/components/atoms/Button'
+import Button from 'components/atoms/Button'
+import AlertBox from 'components/molecules/AlertBox'
+import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
+import validate, { touchAllFields, convertPercentAndCurrency } from 'utils/form/validations'
+
 import ContentSection from '../molecules/ContentSection'
-import DemographicsInputs from './sections/DemographicsInputs'
+import LeaseUpSidebar from '../molecules/lease_up_sidebar/LeaseUpSidebar'
+import AsymColumnLayout from '../organisms/AsymColumnLayout'
+import { withContext } from './context'
 import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
-import PreferencesTable from './sections/PreferencesTable'
-import AlertBox from '~/components/molecules/AlertBox'
+import DemographicsInputs from './sections/DemographicsInputs'
 import Lease from './sections/Lease'
-import { withContext } from './context'
-import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
-
-import validate, { touchAllFields } from '~/utils/form/validations'
-import { convertPercentAndCurrency } from '../../utils/form/validations'
-import AsymColumnLayout from '../organisms/AsymColumnLayout'
-import LeaseUpSidebar from '../molecules/lease_up_sidebar/LeaseUpSidebar'
+import PreferencesTable from './sections/PreferencesTable'
 import { NO_LEASE_STATE } from './SupplementalApplicationPage'
 
 const ConfirmedPreferencesSection = ({

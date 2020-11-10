@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ExpandableTable from '~/components/molecules/ExpandableTable'
+import ExpandableTable from 'components/molecules/ExpandableTable'
 
 class ExpandableTableWrapper extends React.Component {
   expanderRenderer = (row, expanded, expandedRowToggler) => {

@@ -1,5 +1,6 @@
 import React from 'react'
-import ShowHideFiltersButton from '~/components/molecules/ShowHideFiltersButton'
+
+import ShowHideFiltersButton from 'components/molecules/ShowHideFiltersButton'
 
 const ShowHideFiltersButtonWrapper = () => {
   return (

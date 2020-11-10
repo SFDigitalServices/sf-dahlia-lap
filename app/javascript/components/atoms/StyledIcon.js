@@ -1,7 +1,8 @@
 import React from 'react'
+
 import PropTypes from 'prop-types'
 
-import { toRem } from '~/utils/cssUtils'
+import { toRem } from 'utils/cssUtils'
 
 const DEFAULT_ICON_SIZE_REM = '1.5rem'
 

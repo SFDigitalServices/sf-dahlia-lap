@@ -1,11 +1,11 @@
 import React from 'react'
+
 import { isEmpty } from 'lodash'
 import PropTypes from 'prop-types'
 
+import StatusItemShape from '../../../utils/shapes/StatusItemShape'
 import LeaseUpStatusButtons from './LeaseUpStatusButtons'
 import StatusHistoryContainer from './StatusHistoryContainer'
-
-import StatusItemShape from '../../../utils/shapes/StatusItemShape'
 
 const getMostRecentStatus = (statusHistory) =>
   statusHistory && statusHistory[0] ? statusHistory[0].status : null

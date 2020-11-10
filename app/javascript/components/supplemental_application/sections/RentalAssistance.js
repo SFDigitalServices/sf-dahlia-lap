@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from 'react'
+
 import { isEmpty, findIndex } from 'lodash'
 
-import TableWrapper from '~/components/atoms/TableWrapper'
-import ExpandableTable from '~/components/molecules/ExpandableTable'
-import Button from '~/components/atoms/Button'
-import { withContext } from '../context'
-import FormGrid from '~/components/molecules/FormGrid'
-import InlineModal from '~/components/molecules/InlineModal'
-import formUtils from '~/utils/formUtils'
-import validate, { convertCurrency } from '~/utils/form/validations'
-import { isSingleRentalAssistanceValid } from '~/utils/form/formSectionValidations'
+import Button from 'components/atoms/Button'
+import TableWrapper from 'components/atoms/TableWrapper'
+import ExpandableTable from 'components/molecules/ExpandableTable'
+import FormGrid from 'components/molecules/FormGrid'
+import InlineModal from 'components/molecules/InlineModal'
 import {
   CurrencyField,
   HelpText,
   InputField,
   SelectField,
   YesNoRadioGroup
-} from '~/utils/form/final_form/Field'
+} from 'utils/form/final_form/Field'
+import { isSingleRentalAssistanceValid } from 'utils/form/formSectionValidations'
+import validate, { convertCurrency } from 'utils/form/validations'
+import formUtils from 'utils/formUtils'
+
+import { withContext } from '../context'
 
 const { ExpanderButton } = ExpandableTable
 

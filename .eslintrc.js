@@ -10,6 +10,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
 
+    'plugin:import/errors',
+
     /*
      * These prettier configs turn off any conflicting eslint configs
      * This way prettier controls all formatting, eslint controls
@@ -72,6 +74,26 @@ module.exports = {
     // should pass as long as they don't timeout
     'jest/expect-expect': 'off',
 
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal'],
+        pathGroups: [
+          {
+            pattern: 'react',
+            group: 'external',
+            position: 'before'
+          }
+        ],
+        pathGroupsExcludedImportTypes: ['react'],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true
+        }
+      }
+    ],
+    'import/extensions': 'error',
     'react/prop-types': 'off',
     'react/display-name': 'off',
     'react/state-in-constructor': 0,
@@ -85,6 +107,11 @@ module.exports = {
     react: {
       // Must be updated when package.json react version is bumped
       version: '16.9.0'
+    },
+    'import/resolver': {
+      node: {
+        moduleDirectory: ['node_modules', 'app/javascript']
+      }
     }
   }
 }

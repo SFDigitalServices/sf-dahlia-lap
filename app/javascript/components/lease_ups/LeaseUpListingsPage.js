@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 
-import appPaths from '~/utils/appPaths'
-import Loading from '~/components/molecules/Loading'
-import { getLeaseUpListings } from './leaseUpActions'
+import { withRouter } from 'react-router-dom'
+
+import Loading from 'components/molecules/Loading'
+import appPaths from 'utils/appPaths'
 
 import TableLayout from '../layouts/TableLayout'
+import { getLeaseUpListings } from './leaseUpActions'
 import LeaseUpListingsTable from './LeaseUpListingsTable'
-import { withRouter } from 'react-router-dom'
 
 const LeaseUpListingsPage = ({ history }) => {
   const [loading, setLoading] = useState(true)

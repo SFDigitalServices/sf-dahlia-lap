@@ -1,6 +1,8 @@
 import React from 'react'
+
 import { shallow } from 'enzyme'
-import Column from '~/components/atoms/Column'
+
+import Column from 'components/atoms/Column'
 
 describe('Column', () => {
   test('it should render a column with the correct properties', () => {

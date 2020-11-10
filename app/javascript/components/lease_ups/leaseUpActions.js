@@ -1,7 +1,9 @@
-import apiService from '~/apiService'
 import { map } from 'lodash'
+
+import apiService from 'apiService'
+import { performInSequence } from 'utils/promiseUtils'
+
 import { buildLeaseUpAppPrefModel } from './leaseUpAppPrefModel'
-import { performInSequence } from '~/utils/promiseUtils'
 
 export const getLeaseUpListings = async () => apiService.getLeaseUpListings()
 

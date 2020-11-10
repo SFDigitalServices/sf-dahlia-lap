@@ -1,8 +1,11 @@
 import React from 'react'
-import ApplicationDetails from 'components/applications/application_details/ApplicationDetails'
-import application from '../../../fixtures/application'
+
 import { mount } from 'enzyme'
 import renderer from 'react-test-renderer'
+
+import ApplicationDetails from 'components/applications/application_details/ApplicationDetails'
+
+import application from '../../../fixtures/application'
 
 describe('ApplicationDetails', () => {
   describe('should render', () => {

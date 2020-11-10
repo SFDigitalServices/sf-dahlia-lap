@@ -1,4 +1,5 @@
 import puppeteer from 'puppeteer'
+
 import { HEADLESS, REMOVECSS } from '../support/puppeteer/consts'
 
 const IgnoreImageAndCSSLoad = async (page) => {

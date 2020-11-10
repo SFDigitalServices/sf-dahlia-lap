@@ -1,13 +1,15 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
-import { act } from 'react-dom/test-utils'
-import { clone } from 'lodash'
+
 import { mount } from 'enzyme'
+import { clone } from 'lodash'
+import { act } from 'react-dom/test-utils'
+import renderer from 'react-test-renderer'
 
 import ApplicationEditPage from 'components/applications/ApplicationEditPage'
-import listing from '../../fixtures/listing'
+
 import mockApplication from '../../fixtures/application'
 import lendingInstitutions from '../../fixtures/lending_institutions'
+import listing from '../../fixtures/listing'
 
 const mockSubmitApplication = jest.fn()
 

@@ -1,8 +1,8 @@
 /* global mount */
 import React from 'react'
 
-import appPaths from '~/utils/appPaths'
 import LeaveConfirmationModal from 'components/organisms/LeaveConfirmationModal'
+import appPaths from 'utils/appPaths'
 
 describe('LeaveConfirmationModal', () => {
   const isOpen = true
