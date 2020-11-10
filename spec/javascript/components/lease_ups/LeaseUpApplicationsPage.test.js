@@ -24,9 +24,9 @@ jest.mock('apiService', () => {
       mockFetchLeaseUpApplications(listingId, page, filters)
       return Promise.resolve({ records: mockApplications })
     },
-    createFieldUpdateComment: async (data) => {
-      var response = mockCreateFieldUpdateComment(data)
-      return Promise.resolve(response)
+    createFieldUpdateComment: async (applicationId, status, comment, substatus) => {
+      mockCreateFieldUpdateComment(applicationId)
+      return Promise.resolve(mockApplications)
     }
   }
 })
@@ -159,5 +159,50 @@ describe('LeaseUpApplicationsPage', () => {
 
     // if submit wasn't clicked we shouldn't trigger an API request
     expect(mockCreateFieldUpdateComment).not.toHaveBeenCalled()
+  })
+
+  test('updates substatus and last updated date on status change', async () => {
+    // Get the status last updated date before we change it, to verify that it changed.
+    const dateBefore = wrapper.find(rowSelector).first().find('PrettyTime').text()
+
+    // Change status to Appealed and open up the modal
+    act(() => {
+      wrapper
+        .find(rowSelector)
+        .first()
+        .find('Select')
+        .instance()
+        .props.onChange({ value: 'Appealed' })
+    })
+    wrapper.update()
+    expect(wrapper.find(StatusModalWrapper).props().isOpen).toBeTruthy()
+
+    // Change the substatus
+    act(() => {
+      wrapper
+        .find('SubstatusDropdown')
+        .find('Select')
+        .instance()
+        .props.onChange({ value: 'None of the above' })
+    })
+
+    // Add a comment
+    wrapper.find('textarea#status-comment').simulate('change', { target: { value: 'comment' } })
+
+    // Submit the modal
+    await act(async () => {
+      await wrapper.find('.modal-button_primary > button').simulate('submit')
+    })
+    await wrapper.update()
+
+    // Expect that we submitted the comment and the modal is closed
+    expect(mockCreateFieldUpdateComment).toHaveBeenCalled()
+    expect(wrapper.find(StatusModalWrapper).props().isOpen).toBeFalsy()
+
+    // Expect the changed row to have the updated substatus and date
+    expect(wrapper.find(rowSelector).first().find('div.td-offset-right').text()).toEqual(
+      'None of the above'
+    )
+    expect(wrapper.find(rowSelector).first().find('PrettyTime').text()).not.toEqual(dateBefore)
   })
 })

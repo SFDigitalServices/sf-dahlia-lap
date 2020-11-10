@@ -72,7 +72,6 @@ describe('LeaseUpApplicationsFilter', () => {
       expect(searchButtonIsDisabled(wrapper)).toBe(false)
 
       // search button should be disabled after we submit
-      console.log('clicking submit')
       wrapper.find(Button).find({ text: 'Search' }).find('button').simulate('submit')
       expect(searchButtonIsDisabled(wrapper)).toBe(true)
 
