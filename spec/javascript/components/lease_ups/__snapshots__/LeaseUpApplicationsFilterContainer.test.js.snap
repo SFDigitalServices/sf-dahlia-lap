@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LeaseUpApplicationsFilterContainer it matches the expected snapshot with default preferences 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "batch": [Function],
+      "blur": [Function],
+      "change": [Function],
+      "destroyOnUnregister": false,
+      "focus": [Function],
+      "getFieldState": [Function],
+      "getRegisteredFields": [Function],
+      "getState": [Function],
+      "initialize": [Function],
+      "isValidationPaused": [Function],
+      "mutators": Object {},
+      "pauseValidation": [Function],
+      "registerField": [Function],
+      "reset": [Function],
+      "resetFieldState": [Function],
+      "restart": [Function],
+      "resumeValidation": [Function],
+      "setConfig": [Function],
+      "submit": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <form
+    noValidate={true}
+    onSubmit={[Function]}
+    style={
+      Object {
+        "marginBottom": 0,
+      }
+    }
+  >
+    <div
+      className="filter-row"
+    >
+      <div
+        className="filter-group"
+      >
+        <div
+          className="filter-group_item"
+        >
+          <SearchField
+            fieldName="search"
+            id="test-search"
+            onClearClick={[Function]}
+            placeholder="Application, First Name, Last Name..."
+          />
+        </div>
+        <div
+          className="filter-group_action"
+        >
+          <Button
+            className="small primary"
+            disabled={true}
+            text="Search"
+            type="submit"
+          />
+        </div>
+        <div
+          className="filter-group_action"
+        >
+          <ShowHideFiltersButton
+            isShowingFilters={false}
+            numFiltersApplied={0}
+            onClick={[Function]}
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</ContextProvider>
+`;

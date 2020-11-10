@@ -24,8 +24,6 @@ const LeaseUpApplicationsFilters = ({
   onFilterChange = () => {},
   onClearFilters = () => {}
 }) => {
-  const handleFilterChange = (fieldName) => onFilterChange(fieldName)
-
   const renderFilter = (filter) => (
     <FormGrid.Item width='25%' key={filter.fieldName}>
       <SelectField
@@ -33,7 +31,7 @@ const LeaseUpApplicationsFilters = ({
         fieldName={filter.fieldName}
         options={filter.getOptions({ listingPreferences: preferences })}
         placeholder={filter.placeholder}
-        onChange={() => handleFilterChange(filter.fieldName)}
+        onChange={onFilterChange}
       />
     </FormGrid.Item>
   )
