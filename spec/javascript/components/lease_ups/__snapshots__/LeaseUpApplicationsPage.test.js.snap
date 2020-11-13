@@ -415,11 +415,12 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                           className="filter-group"
                         >
                           <div
-                            className="filter-group_item"
+                            className="filter-group_item__large"
                           >
                             <SearchField
                               fieldName="search"
                               id="test-search"
+                              minWidth="300px"
                               onClearClick={[Function]}
                               placeholder="Application, First Name, Last Name..."
                             >
@@ -443,6 +444,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     onChange={[Function]}
                                     onFocus={[Function]}
                                     placeholder="Application, First Name, Last Name..."
+                                    style={
+                                      Object {
+                                        "height": "52px",
+                                      }
+                                    }
                                     type="text"
                                     value=""
                                   />
@@ -478,14 +484,12 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                             className="filter-group_action"
                           >
                             <Button
-                              className="small primary"
-                              disabled={true}
+                              className="primary tertiary-inverse"
                               text="Search"
                               type="submit"
                             >
                               <button
-                                className="small primary"
-                                disabled={true}
+                                className="primary tertiary-inverse"
                                 style={
                                   Object {
                                     "paddingBottom": 0,

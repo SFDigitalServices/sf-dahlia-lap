@@ -60,12 +60,13 @@ describe('LeaseUpApplicationsFilterContainer', () => {
       wrapper.find('.search-icon').simulate('click')
       expect(wrapper.find(SearchField).find('input').props().value).toEqual('')
     })
-    test('the search field is disabled unless the field has been modified', () => {
+    test('the search field is tertiary-inverse unless the field has been modified', () => {
       const wrapper = getWrapper()
-      const searchButtonIsDisabled = (wrapper) =>
-        wrapper.find(Button).find({ text: 'Search' }).find('button').props().disabled
+      const graySearchButtonWrapper = (wrapper) =>
+        wrapper.find(Button).find({ text: 'Search' }).find('button.tertiary-inverse')
+
       // search button is disabled on first render
-      expect(searchButtonIsDisabled(wrapper)).toBe(true)
+      expect(graySearchButtonWrapper(wrapper)).toHaveLength(1)
 
       // search button should be enabled after we modify the field
       wrapper
@@ -73,11 +74,11 @@ describe('LeaseUpApplicationsFilterContainer', () => {
         .find('input')
         .simulate('change', { target: { value: 'my search query' } })
       wrapper.update()
-      expect(searchButtonIsDisabled(wrapper)).toBe(false)
+      expect(graySearchButtonWrapper(wrapper)).toHaveLength(0)
 
       // search button should be disabled after we submit
       wrapper.find(Button).find({ text: 'Search' }).find('button').simulate('submit')
-      expect(searchButtonIsDisabled(wrapper)).toBe(true)
+      expect(graySearchButtonWrapper(wrapper)).toHaveLength(1)
 
       // search button should be re-enabled if we modify after submit
       wrapper
@@ -85,7 +86,7 @@ describe('LeaseUpApplicationsFilterContainer', () => {
         .find('input')
         .simulate('change', { target: { value: 'my other search query' } })
       wrapper.update()
-      expect(searchButtonIsDisabled(wrapper)).toBe(false)
+      expect(graySearchButtonWrapper(wrapper)).toHaveLength(0)
     })
 
     describe('filters button and panel', () => {

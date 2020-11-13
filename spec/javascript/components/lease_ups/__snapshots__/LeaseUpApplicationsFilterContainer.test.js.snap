@@ -43,11 +43,12 @@ exports[`LeaseUpApplicationsFilterContainer it matches the expected snapshot wit
         className="filter-group"
       >
         <div
-          className="filter-group_item"
+          className="filter-group_item__large"
         >
           <SearchField
             fieldName="search"
             id="test-search"
+            minWidth="300px"
             onClearClick={[Function]}
             placeholder="Application, First Name, Last Name..."
           />
@@ -56,8 +57,7 @@ exports[`LeaseUpApplicationsFilterContainer it matches the expected snapshot wit
           className="filter-group_action"
         >
           <Button
-            className="small primary"
-            disabled={true}
+            className="primary tertiary-inverse"
             text="Search"
             type="submit"
           />

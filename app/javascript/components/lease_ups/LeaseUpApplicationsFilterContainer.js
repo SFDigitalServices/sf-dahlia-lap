@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+import classNames from 'classnames'
 import { Form } from 'react-final-form'
 
 import Button from 'components/atoms/Button'
@@ -53,18 +54,20 @@ const LeaseUpApplicationsFilterContainer = ({ onSubmit, preferences = [], loadin
           <form style={styles.marginBottomZero} onSubmit={handleSubmit} noValidate>
             <div className='filter-row'>
               <div className='filter-group'>
-                <div className='filter-group_item'>
+                <div className='filter-group_item__large'>
                   <SearchField
                     onClearClick={() => form.change('search', '')}
                     fieldName='search'
                     id='test-search'
                     placeholder='Application, First Name, Last Name...'
+                    minWidth='300px'
                   />
                 </div>
                 <div className='filter-group_action'>
                   <Button
-                    className='small primary'
-                    disabled={!form.getFieldState('search')?.modified}
+                    className={classNames('primary', {
+                      'tertiary-inverse': !form.getFieldState('search')?.modified
+                    })}
                     text='Search'
                     type='submit'
                   />
