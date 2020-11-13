@@ -11,7 +11,7 @@ import { SelectField } from 'utils/form/final_form/Field'
 const styles = {
   containerEndJustified: {
     display: 'flex',
-    justifyContent: 'end'
+    justifyContent: 'flex-end'
   },
   whiteSmokeBackground: {
     background: COLORS.whiteSmoke
