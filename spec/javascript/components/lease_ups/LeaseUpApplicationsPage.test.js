@@ -1,11 +1,14 @@
 /* eslint-disable jest/no-conditional-expect */
 import { act } from 'react-dom/test-utils'
 import { Link } from 'react-router-dom'
+import Select from 'react-select'
 
+import PrettyTime from 'components/atoms/PrettyTime'
 import TableLayout from 'components/layouts/TableLayout'
 import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
 import LeaseUpApplicationsTableContainer from 'components/lease_ups/LeaseUpApplicationsTableContainer'
 import Loading from 'components/molecules/Loading'
+import SubstatusDropdown from 'components/molecules/SubstatusDropdown'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 
 import { findWithText, mountAppWithUrl } from '../../testUtils/wrapperUtil'
@@ -170,20 +173,15 @@ describe('LeaseUpApplicationsPage', () => {
       wrapper
         .find(rowSelector)
         .first()
-        .find('Select')
+        .find(Select)
         .instance()
         .props.onChange({ value: 'Appealed' })
     })
     wrapper.update()
-    expect(wrapper.find(StatusModalWrapper).props().isOpen).toBeTruthy()
 
     // Change the substatus
     act(() => {
-      wrapper
-        .find('SubstatusDropdown')
-        .find('Select')
-        .instance()
-        .props.onChange({ value: 'None of the above' })
+      wrapper.find(SubstatusDropdown).find(Select).props().onChange({ value: 'None of the above' })
     })
 
     // Add a comment
@@ -203,6 +201,6 @@ describe('LeaseUpApplicationsPage', () => {
     expect(wrapper.find(rowSelector).first().find('div.td-offset-right').text()).toEqual(
       'None of the above'
     )
-    expect(wrapper.find(rowSelector).first().find('PrettyTime').text()).not.toEqual(dateBefore)
+    expect(wrapper.find(rowSelector).first().find(PrettyTime).text()).not.toEqual(dateBefore)
   })
 })
