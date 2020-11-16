@@ -6,7 +6,7 @@ import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 import appPaths from 'utils/appPaths'
 
 import { withContext } from './context'
-import LeaseUpApplicationsFilter from './LeaseUpApplicationsFilter'
+import LeaseUpApplicationsFilterContainer from './LeaseUpApplicationsFilterContainer'
 import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
 
 const LeaseUpTableContainer = ({
@@ -82,7 +82,7 @@ const LeaseUpTableContainer = ({
   const rowsData = (applications) => map(applications, buildRowData)
   return (
     <>
-      <LeaseUpApplicationsFilter
+      <LeaseUpApplicationsFilterContainer
         preferences={preferences}
         onSubmit={handleOnFilter}
         loading={loading}

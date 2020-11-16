@@ -6,6 +6,10 @@ import { Field } from 'react-final-form'
 
 import { Label, FieldError, HelpText } from './Field'
 
+const searchInputStyles = {
+  height: '52px'
+}
+
 const SearchField = ({
   blockNote,
   disabled = false,
@@ -49,6 +53,7 @@ const SearchField = ({
               <input
                 {...input}
                 id={id || `form-${fieldName}`}
+                style={searchInputStyles}
                 className={classNames({ 'has-value': hasValue, error: meta.error && meta.touched })}
                 type='text'
                 maxLength={maxLength}
