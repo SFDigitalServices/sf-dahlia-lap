@@ -5,6 +5,7 @@ import { trim } from 'lodash'
 import { Link } from 'react-router-dom'
 import ReactTable from 'react-table'
 
+import PreferenceRankCell from 'components/lease_ups/application_page/PreferenceRankCell'
 import appPaths from 'utils/appPaths'
 import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
 import { cellFormat } from 'utils/reactTableUtils'
@@ -31,25 +32,6 @@ const LeaseUpStatusCell = ({ cell, onChange }) => {
 }
 
 const resizableCell = (cell) => <span className='rt-resizable-td-content'>{cell.value}</span>
-
-const isInvalid = (original) => {
-  return original.post_lottery_validation === 'Invalid'
-}
-
-const PreferenceRankCell = ({ cell }) => {
-  if (isInvalid(cell.original)) {
-    return (
-      <div>
-        <span className='rt-td-label-rank t-semis'>{cell.original.preference_rank}</span>
-        <span className='rt-td-label-invalid t-semis'>
-          Invalid {cell.original.preference_record_type}
-        </span>
-      </div>
-    )
-  } else {
-    return <div>{cell.original.preference_rank}</div>
-  }
-}
 
 const LeaseUpApplicationsTable = ({
   listingId,
@@ -78,7 +60,12 @@ const LeaseUpApplicationsTable = ({
       accessor: 'rankOrder',
       headerClassName: 'td-min-narrow',
       className: 'td-min-narrow',
-      Cell: (cell) => <PreferenceRankCell cell={cell} />
+      Cell: (cell) => (
+        <PreferenceRankCell
+          preferenceRank={cell.original.preference_rank}
+          preferenceValidation={cell.original.post_lottery_validation}
+        />
+      )
     },
     {
       Header: 'Application Number',
@@ -149,9 +136,7 @@ const LeaseUpApplicationsTable = ({
         ? getLeaseUpStatusClass(rowInfo.row.lease_up_status)
         : ''
 
-    const trClassName = classNames('rt-tr-status', statusClassName, {
-      'is-invalid': rowInfo && isInvalid(rowInfo.original)
-    })
+    const trClassName = classNames('rt-tr-status', statusClassName)
 
     return {
       className: trClassName,
