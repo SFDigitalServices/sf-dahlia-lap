@@ -384,7 +384,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
               }
             }
           >
-            <LeaseUpApplicationsFilter
+            <LeaseUpApplicationsFilterContainer
               loading={false}
               onSubmit={[Function]}
               preferences={Array []}
@@ -402,6 +402,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     <form
                       noValidate={true}
                       onSubmit={[Function]}
+                      style={
+                        Object {
+                          "marginBottom": 0,
+                        }
+                      }
                     >
                       <div
                         className="filter-row"
@@ -410,11 +415,12 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                           className="filter-group"
                         >
                           <div
-                            className="filter-group_item"
+                            className="filter-group_item__large"
                           >
                             <SearchField
                               fieldName="search"
                               id="test-search"
+                              minWidth="300px"
                               onClearClick={[Function]}
                               placeholder="Application, First Name, Last Name..."
                             >
@@ -438,6 +444,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     onChange={[Function]}
                                     onFocus={[Function]}
                                     placeholder="Application, First Name, Last Name..."
+                                    style={
+                                      Object {
+                                        "height": "52px",
+                                      }
+                                    }
                                     type="text"
                                     value=""
                                   />
@@ -473,14 +484,12 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                             className="filter-group_action"
                           >
                             <Button
-                              className="small primary"
-                              disabled={true}
+                              className="primary tertiary-inverse"
                               text="Search"
                               type="submit"
                             >
                               <button
-                                className="small primary"
-                                disabled={true}
+                                className="primary tertiary-inverse"
                                 style={
                                   Object {
                                     "paddingBottom": 0,
@@ -517,468 +526,91 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                             </Button>
                           </div>
                           <div
-                            className="filter-group_item"
-                          >
-                            <SelectField
-                              fieldName="preference"
-                              options={
-                                Array [
-                                  Object {
-                                    "label": "Any Preference",
-                                    "value": "",
-                                  },
-                                  Object {
-                                    "label": "General",
-                                    "value": "general",
-                                  },
-                                ]
-                              }
-                              placeholder="Preference"
-                            >
-                              <Field
-                                component="select"
-                                formatOnBlur={true}
-                                name="preference"
-                                parse={[Function]}
-                              >
-                                <div
-                                  className="form-group"
-                                >
-                                  <Label
-                                    fieldName="preference"
-                                    id="form-preference"
-                                  />
-                                  <select
-                                    className=""
-                                    id="form-preference"
-                                    name="preference"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    onFocus={[Function]}
-                                  >
-                                    <option
-                                      key=""
-                                      value=""
-                                    >
-                                      Any Preference
-                                    </option>
-                                    <option
-                                      key="general"
-                                      value="general"
-                                    >
-                                      General
-                                    </option>
-                                  </select>
-                                  <FieldError
-                                    meta={
-                                      Object {
-                                        "active": false,
-                                        "data": Object {},
-                                        "dirty": false,
-                                        "dirtySinceLastSubmit": false,
-                                        "error": undefined,
-                                        "initial": undefined,
-                                        "invalid": false,
-                                        "length": undefined,
-                                        "modified": false,
-                                        "pristine": true,
-                                        "submitError": undefined,
-                                        "submitFailed": false,
-                                        "submitSucceeded": false,
-                                        "submitting": false,
-                                        "touched": false,
-                                        "valid": true,
-                                        "validating": false,
-                                        "visited": false,
-                                      }
-                                    }
-                                  />
-                                </div>
-                              </Field>
-                            </SelectField>
-                          </div>
-                          <div
-                            className="filter-group_item"
-                          >
-                            <SelectField
-                              fieldName="total_household_size"
-                              options={
-                                Array [
-                                  Object {
-                                    "label": "Any HH Members",
-                                    "value": "",
-                                  },
-                                  Object {
-                                    "label": "1",
-                                    "value": "1",
-                                  },
-                                  Object {
-                                    "label": "2",
-                                    "value": "2",
-                                  },
-                                  Object {
-                                    "label": "3",
-                                    "value": "3",
-                                  },
-                                  Object {
-                                    "label": "4",
-                                    "value": "4",
-                                  },
-                                  Object {
-                                    "label": "5+",
-                                    "value": "5+",
-                                  },
-                                ]
-                              }
-                            >
-                              <Field
-                                component="select"
-                                formatOnBlur={true}
-                                name="total_household_size"
-                                parse={[Function]}
-                              >
-                                <div
-                                  className="form-group"
-                                >
-                                  <Label
-                                    fieldName="total_household_size"
-                                    id="form-total_household_size"
-                                  />
-                                  <select
-                                    className=""
-                                    id="form-total_household_size"
-                                    name="total_household_size"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    onFocus={[Function]}
-                                  >
-                                    <option
-                                      key=""
-                                      value=""
-                                    >
-                                      Any HH Members
-                                    </option>
-                                    <option
-                                      key="1"
-                                      value="1"
-                                    >
-                                      1
-                                    </option>
-                                    <option
-                                      key="2"
-                                      value="2"
-                                    >
-                                      2
-                                    </option>
-                                    <option
-                                      key="3"
-                                      value="3"
-                                    >
-                                      3
-                                    </option>
-                                    <option
-                                      key="4"
-                                      value="4"
-                                    >
-                                      4
-                                    </option>
-                                    <option
-                                      key="5+"
-                                      value="5+"
-                                    >
-                                      5+
-                                    </option>
-                                  </select>
-                                  <FieldError
-                                    meta={
-                                      Object {
-                                        "active": false,
-                                        "data": Object {},
-                                        "dirty": false,
-                                        "dirtySinceLastSubmit": false,
-                                        "error": undefined,
-                                        "initial": undefined,
-                                        "invalid": false,
-                                        "length": undefined,
-                                        "modified": false,
-                                        "pristine": true,
-                                        "submitError": undefined,
-                                        "submitFailed": false,
-                                        "submitSucceeded": false,
-                                        "submitting": false,
-                                        "touched": false,
-                                        "valid": true,
-                                        "validating": false,
-                                        "visited": false,
-                                      }
-                                    }
-                                  />
-                                </div>
-                              </Field>
-                            </SelectField>
-                          </div>
-                          <div
-                            className="filter-group_item"
-                          >
-                            <SelectField
-                              fieldName="status"
-                              options={
-                                Array [
-                                  Object {
-                                    "label": "Any Status",
-                                    "value": "",
-                                  },
-                                  Object {
-                                    "label": "No Status",
-                                    "value": "No Status",
-                                  },
-                                  Object {
-                                    "commentRequired": true,
-                                    "label": "Processing",
-                                    "statusClassName": "is-processing",
-                                    "value": "Processing",
-                                  },
-                                  Object {
-                                    "label": "Withdrawn",
-                                    "statusClassName": "is-withdrawn",
-                                    "value": "Withdrawn",
-                                  },
-                                  Object {
-                                    "commentRequired": true,
-                                    "label": "Appealed",
-                                    "statusClassName": "is-appealed",
-                                    "value": "Appealed",
-                                  },
-                                  Object {
-                                    "commentRequired": true,
-                                    "label": "Waitlisted",
-                                    "statusClassName": "is-waitlisted",
-                                    "value": "Waitlisted",
-                                  },
-                                  Object {
-                                    "commentRequired": true,
-                                    "label": "Disqualified",
-                                    "statusClassName": "is-disqualified",
-                                    "value": "Disqualified",
-                                  },
-                                  Object {
-                                    "commentRequired": true,
-                                    "label": "Approved",
-                                    "statusClassName": "is-approved",
-                                    "value": "Approved",
-                                  },
-                                  Object {
-                                    "label": "Lease Signed",
-                                    "statusClassName": "is-leased",
-                                    "value": "Lease Signed",
-                                  },
-                                ]
-                              }
-                              placeholder="Status"
-                            >
-                              <Field
-                                component="select"
-                                formatOnBlur={true}
-                                name="status"
-                                parse={[Function]}
-                              >
-                                <div
-                                  className="form-group"
-                                >
-                                  <Label
-                                    fieldName="status"
-                                    id="form-status"
-                                  />
-                                  <select
-                                    className=""
-                                    id="form-status"
-                                    name="status"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    onFocus={[Function]}
-                                  >
-                                    <option
-                                      key=""
-                                      value=""
-                                    >
-                                      Any Status
-                                    </option>
-                                    <option
-                                      key="No Status"
-                                      value="No Status"
-                                    >
-                                      No Status
-                                    </option>
-                                    <option
-                                      key="Processing"
-                                      value="Processing"
-                                    >
-                                      Processing
-                                    </option>
-                                    <option
-                                      key="Withdrawn"
-                                      value="Withdrawn"
-                                    >
-                                      Withdrawn
-                                    </option>
-                                    <option
-                                      key="Appealed"
-                                      value="Appealed"
-                                    >
-                                      Appealed
-                                    </option>
-                                    <option
-                                      key="Waitlisted"
-                                      value="Waitlisted"
-                                    >
-                                      Waitlisted
-                                    </option>
-                                    <option
-                                      key="Disqualified"
-                                      value="Disqualified"
-                                    >
-                                      Disqualified
-                                    </option>
-                                    <option
-                                      key="Approved"
-                                      value="Approved"
-                                    >
-                                      Approved
-                                    </option>
-                                    <option
-                                      key="Lease Signed"
-                                      value="Lease Signed"
-                                    >
-                                      Lease Signed
-                                    </option>
-                                  </select>
-                                  <FieldError
-                                    meta={
-                                      Object {
-                                        "active": false,
-                                        "data": Object {},
-                                        "dirty": false,
-                                        "dirtySinceLastSubmit": false,
-                                        "error": undefined,
-                                        "initial": undefined,
-                                        "invalid": false,
-                                        "length": undefined,
-                                        "modified": false,
-                                        "pristine": true,
-                                        "submitError": undefined,
-                                        "submitFailed": false,
-                                        "submitSucceeded": false,
-                                        "submitting": false,
-                                        "touched": false,
-                                        "valid": true,
-                                        "validating": false,
-                                        "visited": false,
-                                      }
-                                    }
-                                  />
-                                </div>
-                              </Field>
-                            </SelectField>
-                          </div>
-                          <div
-                            className="filter-group_item"
-                          >
-                            <SelectField
-                              fieldName="accessibility"
-                              options={
-                                Array [
-                                  Object {
-                                    "label": "Any Accessibility Request",
-                                    "value": "",
-                                  },
-                                  Object {
-                                    "label": "Mobility",
-                                    "value": "Mobility impairments",
-                                  },
-                                  Object {
-                                    "label": "Vision/Hearing",
-                                    "value": "Vision impairments, Hearing impairments",
-                                  },
-                                ]
-                              }
-                              placeholder="Accessibility Requests"
-                            >
-                              <Field
-                                component="select"
-                                formatOnBlur={true}
-                                name="accessibility"
-                                parse={[Function]}
-                              >
-                                <div
-                                  className="form-group"
-                                >
-                                  <Label
-                                    fieldName="accessibility"
-                                    id="form-accessibility"
-                                  />
-                                  <select
-                                    className=""
-                                    id="form-accessibility"
-                                    name="accessibility"
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    onFocus={[Function]}
-                                  >
-                                    <option
-                                      key=""
-                                      value=""
-                                    >
-                                      Any Accessibility Request
-                                    </option>
-                                    <option
-                                      key="Mobility impairments"
-                                      value="Mobility impairments"
-                                    >
-                                      Mobility
-                                    </option>
-                                    <option
-                                      key="Vision impairments, Hearing impairments"
-                                      value="Vision impairments, Hearing impairments"
-                                    >
-                                      Vision/Hearing
-                                    </option>
-                                  </select>
-                                  <FieldError
-                                    meta={
-                                      Object {
-                                        "active": false,
-                                        "data": Object {},
-                                        "dirty": false,
-                                        "dirtySinceLastSubmit": false,
-                                        "error": undefined,
-                                        "initial": undefined,
-                                        "invalid": false,
-                                        "length": undefined,
-                                        "modified": false,
-                                        "pristine": true,
-                                        "submitError": undefined,
-                                        "submitFailed": false,
-                                        "submitSucceeded": false,
-                                        "submitting": false,
-                                        "touched": false,
-                                        "valid": true,
-                                        "validating": false,
-                                        "visited": false,
-                                      }
-                                    }
-                                  />
-                                </div>
-                              </Field>
-                            </SelectField>
-                          </div>
-                          <div
                             className="filter-group_action"
                           >
-                            <button
-                              className="small"
+                            <ShowHideFiltersButton
+                              isShowingFilters={false}
+                              numFiltersApplied={0}
+                              onClick={[Function]}
                             >
-                              Filter
-                            </button>
+                              <Button
+                                iconLeft={
+                                  <StyledIcon
+                                    customSizeRem="1.25rem"
+                                    icon="list-unordered"
+                                  />
+                                }
+                                iconRight={null}
+                                minWidthPx="195px"
+                                onClick={[Function]}
+                                paddingHorizontal="tight"
+                                text="Show Filters"
+                              >
+                                <button
+                                  className="tight-padding"
+                                  onClick={[Function]}
+                                  style={
+                                    Object {
+                                      "minWidth": "195px",
+                                      "paddingBottom": 0,
+                                      "paddingTop": 0,
+                                    }
+                                  }
+                                  type="button"
+                                >
+                                  <div
+                                    style={
+                                      Object {
+                                        "alignItems": "center",
+                                        "display": "flex",
+                                        "justifyContent": "space-between",
+                                        "width": "100%",
+                                      }
+                                    }
+                                  >
+                                    <span
+                                      style={
+                                        Object {
+                                          "flexShrink": 0,
+                                          "fontSize": 0,
+                                        }
+                                      }
+                                    >
+                                      <StyledIcon
+                                        customSizeRem="1.25rem"
+                                        icon="list-unordered"
+                                      >
+                                        <svg
+                                          style={
+                                            Object {
+                                              "height": "1.25rem",
+                                              "width": "1.25rem",
+                                            }
+                                          }
+                                        >
+                                          <use
+                                            xlinkHref="#i-list-unordered"
+                                          />
+                                        </svg>
+                                      </StyledIcon>
+                                    </span>
+                                    <span
+                                      style={
+                                        Object {
+                                          "flexGrow": 1,
+                                          "marginBottom": "1rem",
+                                          "marginLeft": "1rem",
+                                          "marginRight": false,
+                                          "marginTop": "1rem",
+                                        }
+                                      }
+                                    >
+                                      Show Filters
+                                    </span>
+                                  </div>
+                                </button>
+                              </Button>
+                            </ShowHideFiltersButton>
                           </div>
                         </div>
                       </div>
@@ -986,7 +618,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                   </ReactFinalForm>
                 </div>
               </Loading>
-            </LeaseUpApplicationsFilter>
+            </LeaseUpApplicationsFilterContainer>
             <LeaseUpApplicationsTable
               atMaxPages={false}
               dataSet={

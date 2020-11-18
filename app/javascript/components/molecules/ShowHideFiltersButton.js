@@ -25,7 +25,7 @@ const ShowHideFiltersButton = ({
       iconLeft={<StyledIcon icon='list-unordered' customSizeRem='1.25rem' />}
       iconRight={showFiltersCount ? getNumFiltersAppliedIcon(numFiltersApplied) : null}
       text={isShowingFilters ? 'Hide Filters' : 'Show Filters'}
-      tightPadding
+      paddingHorizontal='tight'
       // Set a min width so that there is no jitter when toggling between
       // show and hide text
       minWidthPx={showFiltersCount ? '236px' : '195px'}

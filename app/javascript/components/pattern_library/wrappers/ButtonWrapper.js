@@ -7,7 +7,7 @@ const createButton = (
   label,
   {
     tertiary = false,
-    tightPadding = false,
+    padding = undefined,
     text = 'Clear Filters',
     showLeftIcon = false,
     showRightIcon = false,
@@ -23,7 +23,7 @@ const createButton = (
           iconLeft={showLeftIcon && <StyledIcon icon={'list-unordered'} />}
           iconRight={showRightIcon && <StyledIcon icon={'list-unordered'} />}
           text={text}
-          tightPadding={tightPadding}
+          paddingHorizontal={padding}
           tertiary={tertiary}
           minWidthPx={minWidthPx}
         />
@@ -41,12 +41,13 @@ const buttonVariationSection = (
       <h3>{sectionHeaderText}</h3>
       {createButton('Primary', { text, showLeftIcon, showRightIcon })}
       {createButton('tertiary', { text, showLeftIcon, showRightIcon, tertiary: true })}
-      {createButton('tight padding', { text, showLeftIcon, showRightIcon, tightPadding: true })}
+      {createButton('tight padding', { text, showLeftIcon, showRightIcon, padding: 'tight' })}
+      {createButton('extra padding', { text, showLeftIcon, showRightIcon, padding: 'extra' })}
       {createButton('custom height and width', {
         text,
         showLeftIcon,
         showRightIcon,
-        tightPadding: true,
+        padding: 'tight',
         minWidthPx: '300px'
       })}
       {text &&
@@ -54,7 +55,7 @@ const buttonVariationSection = (
           text: `${text} Very long text on the button.`,
           showLeftIcon,
           showRightIcon,
-          tightPadding: true,
+          padding: 'tight',
           minWidthPx: '300px',
           limitParentDivWidth: true
         })}
