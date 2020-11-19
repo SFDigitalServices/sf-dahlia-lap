@@ -157,7 +157,7 @@ class SupplementalApplicationPage extends React.Component {
         )
       })
       .catch((e) => {
-        console.log(e)
+        console.error(e)
         Alerts.error()
         this.setLoading(false)
       })
