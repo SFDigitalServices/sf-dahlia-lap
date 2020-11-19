@@ -62,6 +62,7 @@ module Force
       { custom_api: '', domain: 'demographics', salesforce: '?', object: Force::Demographics },
       { custom_api: '', domain: 'applicant', salesforce: 'Applicant' },
       { custom_api: '', domain: 'listing_preference', salesforce: 'Listing_Preference_ID' },
+      { custom_api: 'status', domain: 'status', salesforce: 'Status' },
       # Supplemental Application Fields
       { custom_api: '', domain: 'status_last_updated', salesforce: 'Status_Last_Updated' },
       { custom_api: 'amiChartType', domain: 'ami_chart_type', salesforce: 'AMI_Chart_Type' },
@@ -75,8 +76,8 @@ module Force
       { custom_api: 'numberOfMinors', domain: 'number_of_minors', salesforce: 'Number_of_Minors' },
       { custom_api: 'numberOfSeniors', domain: 'number_of_seniors', salesforce: 'Number_of_Seniors' },
       { custom_api: 'processingStatus', domain: 'processing_status', salesforce: 'Processing_Status' },
-      { custom_api: 'status', domain: 'status', salesforce: 'Status' },
       { custom_api: 'subStatus', domain: 'sub_status', salesforce: 'Sub_Status' },
+      { custom_api: '', domain: 'status_last_updated', salesforce: 'Processing_Date_Updated' },
     ].freeze
 
     def to_domain
