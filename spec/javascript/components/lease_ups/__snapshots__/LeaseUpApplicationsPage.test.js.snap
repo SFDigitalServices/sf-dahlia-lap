@@ -597,6 +597,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           }
                                         >
                                           <use
+                                            style={null}
                                             xlinkHref="#i-list-unordered"
                                           />
                                         </svg>
@@ -3236,144 +3237,8 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         viewIndex={0}
                                         width={100}
                                       >
-                                        <LeaseUpStatusCell
-                                          cell={
-                                            Object {
-                                              "aggregated": undefined,
-                                              "classes": Array [
-                                                undefined,
-                                                "td-min-wide td-status td-fixed-right",
-                                                undefined,
-                                              ],
-                                              "column": Object {
-                                                "Aggregated": undefined,
-                                                "Cell": [Function],
-                                                "Expander": undefined,
-                                                "Filter": undefined,
-                                                "Footer": undefined,
-                                                "Header": "Lease Up Status",
-                                                "Pivot": undefined,
-                                                "PivotValue": undefined,
-                                                "Placeholder": undefined,
-                                                "accessor": [Function],
-                                                "aggregate": undefined,
-                                                "className": "td-min-wide td-status td-fixed-right",
-                                                "filterAll": false,
-                                                "filterMethod": undefined,
-                                                "filterable": undefined,
-                                                "footerClassName": "",
-                                                "footerStyle": Object {},
-                                                "getFooterProps": [Function],
-                                                "getHeaderProps": [Function],
-                                                "getProps": [Function],
-                                                "headerClassName": "td-min-wide tr-fixed-right",
-                                                "headerStyle": Object {},
-                                                "id": "lease_up_status",
-                                                "minResizeWidth": 11,
-                                                "minWidth": 100,
-                                                "resizable": undefined,
-                                                "show": true,
-                                                "sortMethod": undefined,
-                                                "sortable": undefined,
-                                                "style": Object {},
-                                              },
-                                              "columnProps": Object {
-                                                "className": undefined,
-                                                "rest": Object {},
-                                                "style": undefined,
-                                              },
-                                              "expander": undefined,
-                                              "groupedByPivot": undefined,
-                                              "index": 0,
-                                              "isExpanded": undefined,
-                                              "level": 0,
-                                              "maxWidth": undefined,
-                                              "nestingPath": Array [
-                                                0,
-                                              ],
-                                              "original": Object {
-                                                "accessibility": "Vision",
-                                                "application_id": "10001",
-                                                "application_number": "Application Name 1",
-                                                "application_preference_id": "1",
-                                                "email": "some email 1",
-                                                "first_name": "some first name 1",
-                                                "has_ada_priorities_selected": Object {
-                                                  "vision_impairments": true,
-                                                },
-                                                "last_name": "some last name 1",
-                                                "lease_up_status": undefined,
-                                                "mailing_address": undefined,
-                                                "phone": "some phone",
-                                                "post_lottery_validation": undefined,
-                                                "preference_lottery_rank": "2",
-                                                "preference_order": "2",
-                                                "preference_rank": "COP 2",
-                                                "preference_record_type": "COP",
-                                                "rankOrder": 2.0002,
-                                                "residence_address": "1316 BURNETT 1",
-                                                "status_last_updated": "2018-04-26T12:31:39.000+0000",
-                                                "sub_status": undefined,
-                                                "total_household_size": undefined,
-                                              },
-                                              "page": 0,
-                                              "pageSize": 20,
-                                              "pivoted": undefined,
-                                              "resized": Array [],
-                                              "row": Object {
-                                                "_index": 0,
-                                                "_nestingLevel": 0,
-                                                "_original": Object {
-                                                  "accessibility": "Vision",
-                                                  "application_id": "10001",
-                                                  "application_number": "Application Name 1",
-                                                  "application_preference_id": "1",
-                                                  "email": "some email 1",
-                                                  "first_name": "some first name 1",
-                                                  "has_ada_priorities_selected": Object {
-                                                    "vision_impairments": true,
-                                                  },
-                                                  "last_name": "some last name 1",
-                                                  "lease_up_status": undefined,
-                                                  "mailing_address": undefined,
-                                                  "phone": "some phone",
-                                                  "post_lottery_validation": undefined,
-                                                  "preference_lottery_rank": "2",
-                                                  "preference_order": "2",
-                                                  "preference_rank": "COP 2",
-                                                  "preference_record_type": "COP",
-                                                  "rankOrder": 2.0002,
-                                                  "residence_address": "1316 BURNETT 1",
-                                                  "status_last_updated": "2018-04-26T12:31:39.000+0000",
-                                                  "sub_status": undefined,
-                                                  "total_household_size": undefined,
-                                                },
-                                                "_subRows": undefined,
-                                                "_viewIndex": 0,
-                                                "accessibility": "Vision",
-                                                "application_number": "Application Name 1",
-                                                "bulk_checkbox": undefined,
-                                                "first_name": "some first name 1",
-                                                "last_name": "some last name 1",
-                                                "lease_up_status": undefined,
-                                                "rankOrder": 2.0002,
-                                                "status_last_updated": "2018-04-26T12:31:39.000+0000",
-                                                "sub_status": undefined,
-                                                "total_household_size": undefined,
-                                              },
-                                              "show": true,
-                                              "styles": Object {},
-                                              "subRows": undefined,
-                                              "tdProps": Object {
-                                                "className": undefined,
-                                                "rest": Object {},
-                                                "style": undefined,
-                                              },
-                                              "value": undefined,
-                                              "viewIndex": 0,
-                                              "width": 100,
-                                            }
-                                          }
+                                        <StatusCell
+                                          applicationId="10001"
                                           onChange={[Function]}
                                         >
                                           <div
@@ -3381,7 +3246,8 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               Object {
                                                 "alignItems": "center",
                                                 "display": "flex",
-                                                "position": "absolute",
+                                                "justifyContent": "flex-end",
+                                                "width": "100%",
                                               }
                                             }
                                           >
@@ -4221,7 +4087,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                   }
                                                                 >
                                                                   <button
-                                                                    className="button dropdown-button has-icon--right text-align-left tiny tertiary"
+                                                                    className="button dropdown-button has-icon--right text-align-left tight-padding-vertical tiny tertiary"
                                                                     disabled={false}
                                                                     type="button"
                                                                   >
@@ -4903,34 +4769,45 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             </StatusDropdown>
                                             <StatusHistoryPopover
                                               applicationId="10001"
+                                              customButtonClasses="margin-left"
                                             >
                                               <Popover
                                                 buttonElement={[Function]}
                                                 onButtonClick={[Function]}
                                               >
                                                 <button
-                                                  className="tiny icon margin-left--half"
+                                                  className="margin-left button-icon-only"
                                                   onClick={[Function]}
                                                 >
-                                                  <Icon
+                                                  <StyledIcon
+                                                    customFill="#767676"
+                                                    customSizeRem="1.2rem"
                                                     icon="list-unordered"
-                                                    size="medium"
                                                   >
-                                                    <span
-                                                      className="ui-icon ui-medium"
+                                                    <svg
+                                                      style={
+                                                        Object {
+                                                          "fill": "#767676",
+                                                          "height": "1.2rem",
+                                                          "width": "1.2rem",
+                                                        }
+                                                      }
                                                     >
-                                                      <svg>
-                                                        <use
-                                                          xlinkHref="#i-list-unordered"
-                                                        />
-                                                      </svg>
-                                                    </span>
-                                                  </Icon>
+                                                      <use
+                                                        style={
+                                                          Object {
+                                                            "fill": "#767676",
+                                                          }
+                                                        }
+                                                        xlinkHref="#i-list-unordered"
+                                                      />
+                                                    </svg>
+                                                  </StyledIcon>
                                                 </button>
                                               </Popover>
                                             </StatusHistoryPopover>
                                           </div>
-                                        </LeaseUpStatusCell>
+                                        </StatusCell>
                                       </Cell>
                                     </div>
                                   </TdComponent>
@@ -6591,144 +6468,8 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         viewIndex={1}
                                         width={100}
                                       >
-                                        <LeaseUpStatusCell
-                                          cell={
-                                            Object {
-                                              "aggregated": undefined,
-                                              "classes": Array [
-                                                undefined,
-                                                "td-min-wide td-status td-fixed-right",
-                                                undefined,
-                                              ],
-                                              "column": Object {
-                                                "Aggregated": undefined,
-                                                "Cell": [Function],
-                                                "Expander": undefined,
-                                                "Filter": undefined,
-                                                "Footer": undefined,
-                                                "Header": "Lease Up Status",
-                                                "Pivot": undefined,
-                                                "PivotValue": undefined,
-                                                "Placeholder": undefined,
-                                                "accessor": [Function],
-                                                "aggregate": undefined,
-                                                "className": "td-min-wide td-status td-fixed-right",
-                                                "filterAll": false,
-                                                "filterMethod": undefined,
-                                                "filterable": undefined,
-                                                "footerClassName": "",
-                                                "footerStyle": Object {},
-                                                "getFooterProps": [Function],
-                                                "getHeaderProps": [Function],
-                                                "getProps": [Function],
-                                                "headerClassName": "td-min-wide tr-fixed-right",
-                                                "headerStyle": Object {},
-                                                "id": "lease_up_status",
-                                                "minResizeWidth": 11,
-                                                "minWidth": 100,
-                                                "resizable": undefined,
-                                                "show": true,
-                                                "sortMethod": undefined,
-                                                "sortable": undefined,
-                                                "style": Object {},
-                                              },
-                                              "columnProps": Object {
-                                                "className": undefined,
-                                                "rest": Object {},
-                                                "style": undefined,
-                                              },
-                                              "expander": undefined,
-                                              "groupedByPivot": undefined,
-                                              "index": 1,
-                                              "isExpanded": undefined,
-                                              "level": 0,
-                                              "maxWidth": undefined,
-                                              "nestingPath": Array [
-                                                1,
-                                              ],
-                                              "original": Object {
-                                                "accessibility": "Vision",
-                                                "application_id": "10002",
-                                                "application_number": "Application Name 2",
-                                                "application_preference_id": "2",
-                                                "email": "some email 2",
-                                                "first_name": "some first name 2",
-                                                "has_ada_priorities_selected": Object {
-                                                  "vision_impairments": true,
-                                                },
-                                                "last_name": "some last name 2",
-                                                "lease_up_status": undefined,
-                                                "mailing_address": undefined,
-                                                "phone": "some phone",
-                                                "post_lottery_validation": undefined,
-                                                "preference_lottery_rank": "1",
-                                                "preference_order": "2",
-                                                "preference_rank": "COP 1",
-                                                "preference_record_type": "COP",
-                                                "rankOrder": 2.0001,
-                                                "residence_address": "1316 BURNETT 2",
-                                                "status_last_updated": "2018-04-26T12:31:39.000+0000",
-                                                "sub_status": undefined,
-                                                "total_household_size": undefined,
-                                              },
-                                              "page": 0,
-                                              "pageSize": 20,
-                                              "pivoted": undefined,
-                                              "resized": Array [],
-                                              "row": Object {
-                                                "_index": 1,
-                                                "_nestingLevel": 0,
-                                                "_original": Object {
-                                                  "accessibility": "Vision",
-                                                  "application_id": "10002",
-                                                  "application_number": "Application Name 2",
-                                                  "application_preference_id": "2",
-                                                  "email": "some email 2",
-                                                  "first_name": "some first name 2",
-                                                  "has_ada_priorities_selected": Object {
-                                                    "vision_impairments": true,
-                                                  },
-                                                  "last_name": "some last name 2",
-                                                  "lease_up_status": undefined,
-                                                  "mailing_address": undefined,
-                                                  "phone": "some phone",
-                                                  "post_lottery_validation": undefined,
-                                                  "preference_lottery_rank": "1",
-                                                  "preference_order": "2",
-                                                  "preference_rank": "COP 1",
-                                                  "preference_record_type": "COP",
-                                                  "rankOrder": 2.0001,
-                                                  "residence_address": "1316 BURNETT 2",
-                                                  "status_last_updated": "2018-04-26T12:31:39.000+0000",
-                                                  "sub_status": undefined,
-                                                  "total_household_size": undefined,
-                                                },
-                                                "_subRows": undefined,
-                                                "_viewIndex": 1,
-                                                "accessibility": "Vision",
-                                                "application_number": "Application Name 2",
-                                                "bulk_checkbox": undefined,
-                                                "first_name": "some first name 2",
-                                                "last_name": "some last name 2",
-                                                "lease_up_status": undefined,
-                                                "rankOrder": 2.0001,
-                                                "status_last_updated": "2018-04-26T12:31:39.000+0000",
-                                                "sub_status": undefined,
-                                                "total_household_size": undefined,
-                                              },
-                                              "show": true,
-                                              "styles": Object {},
-                                              "subRows": undefined,
-                                              "tdProps": Object {
-                                                "className": undefined,
-                                                "rest": Object {},
-                                                "style": undefined,
-                                              },
-                                              "value": undefined,
-                                              "viewIndex": 1,
-                                              "width": 100,
-                                            }
-                                          }
+                                        <StatusCell
+                                          applicationId="10002"
                                           onChange={[Function]}
                                         >
                                           <div
@@ -6736,7 +6477,8 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               Object {
                                                 "alignItems": "center",
                                                 "display": "flex",
-                                                "position": "absolute",
+                                                "justifyContent": "flex-end",
+                                                "width": "100%",
                                               }
                                             }
                                           >
@@ -7576,7 +7318,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                   }
                                                                 >
                                                                   <button
-                                                                    className="button dropdown-button has-icon--right text-align-left tiny tertiary"
+                                                                    className="button dropdown-button has-icon--right text-align-left tight-padding-vertical tiny tertiary"
                                                                     disabled={false}
                                                                     type="button"
                                                                   >
@@ -8258,34 +8000,45 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             </StatusDropdown>
                                             <StatusHistoryPopover
                                               applicationId="10002"
+                                              customButtonClasses="margin-left"
                                             >
                                               <Popover
                                                 buttonElement={[Function]}
                                                 onButtonClick={[Function]}
                                               >
                                                 <button
-                                                  className="tiny icon margin-left--half"
+                                                  className="margin-left button-icon-only"
                                                   onClick={[Function]}
                                                 >
-                                                  <Icon
+                                                  <StyledIcon
+                                                    customFill="#767676"
+                                                    customSizeRem="1.2rem"
                                                     icon="list-unordered"
-                                                    size="medium"
                                                   >
-                                                    <span
-                                                      className="ui-icon ui-medium"
+                                                    <svg
+                                                      style={
+                                                        Object {
+                                                          "fill": "#767676",
+                                                          "height": "1.2rem",
+                                                          "width": "1.2rem",
+                                                        }
+                                                      }
                                                     >
-                                                      <svg>
-                                                        <use
-                                                          xlinkHref="#i-list-unordered"
-                                                        />
-                                                      </svg>
-                                                    </span>
-                                                  </Icon>
+                                                      <use
+                                                        style={
+                                                          Object {
+                                                            "fill": "#767676",
+                                                          }
+                                                        }
+                                                        xlinkHref="#i-list-unordered"
+                                                      />
+                                                    </svg>
+                                                  </StyledIcon>
                                                 </button>
                                               </Popover>
                                             </StatusHistoryPopover>
                                           </div>
-                                        </LeaseUpStatusCell>
+                                        </StatusCell>
                                       </Cell>
                                     </div>
                                   </TdComponent>
@@ -9946,144 +9699,8 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         viewIndex={2}
                                         width={100}
                                       >
-                                        <LeaseUpStatusCell
-                                          cell={
-                                            Object {
-                                              "aggregated": undefined,
-                                              "classes": Array [
-                                                undefined,
-                                                "td-min-wide td-status td-fixed-right",
-                                                undefined,
-                                              ],
-                                              "column": Object {
-                                                "Aggregated": undefined,
-                                                "Cell": [Function],
-                                                "Expander": undefined,
-                                                "Filter": undefined,
-                                                "Footer": undefined,
-                                                "Header": "Lease Up Status",
-                                                "Pivot": undefined,
-                                                "PivotValue": undefined,
-                                                "Placeholder": undefined,
-                                                "accessor": [Function],
-                                                "aggregate": undefined,
-                                                "className": "td-min-wide td-status td-fixed-right",
-                                                "filterAll": false,
-                                                "filterMethod": undefined,
-                                                "filterable": undefined,
-                                                "footerClassName": "",
-                                                "footerStyle": Object {},
-                                                "getFooterProps": [Function],
-                                                "getHeaderProps": [Function],
-                                                "getProps": [Function],
-                                                "headerClassName": "td-min-wide tr-fixed-right",
-                                                "headerStyle": Object {},
-                                                "id": "lease_up_status",
-                                                "minResizeWidth": 11,
-                                                "minWidth": 100,
-                                                "resizable": undefined,
-                                                "show": true,
-                                                "sortMethod": undefined,
-                                                "sortable": undefined,
-                                                "style": Object {},
-                                              },
-                                              "columnProps": Object {
-                                                "className": undefined,
-                                                "rest": Object {},
-                                                "style": undefined,
-                                              },
-                                              "expander": undefined,
-                                              "groupedByPivot": undefined,
-                                              "index": 2,
-                                              "isExpanded": undefined,
-                                              "level": 0,
-                                              "maxWidth": undefined,
-                                              "nestingPath": Array [
-                                                2,
-                                              ],
-                                              "original": Object {
-                                                "accessibility": "Vision",
-                                                "application_id": "10003",
-                                                "application_number": "Application Name 3",
-                                                "application_preference_id": "3",
-                                                "email": "some email 3",
-                                                "first_name": "some first name 3",
-                                                "has_ada_priorities_selected": Object {
-                                                  "vision_impairments": true,
-                                                },
-                                                "last_name": "some last name 3",
-                                                "lease_up_status": undefined,
-                                                "mailing_address": undefined,
-                                                "phone": "some phone",
-                                                "post_lottery_validation": undefined,
-                                                "preference_lottery_rank": "1",
-                                                "preference_order": "3",
-                                                "preference_rank": "COP 1",
-                                                "preference_record_type": "COP",
-                                                "rankOrder": 3.0001,
-                                                "residence_address": "1316 BURNETT 3",
-                                                "status_last_updated": "2018-04-26T12:31:39.000+0000",
-                                                "sub_status": undefined,
-                                                "total_household_size": undefined,
-                                              },
-                                              "page": 0,
-                                              "pageSize": 20,
-                                              "pivoted": undefined,
-                                              "resized": Array [],
-                                              "row": Object {
-                                                "_index": 2,
-                                                "_nestingLevel": 0,
-                                                "_original": Object {
-                                                  "accessibility": "Vision",
-                                                  "application_id": "10003",
-                                                  "application_number": "Application Name 3",
-                                                  "application_preference_id": "3",
-                                                  "email": "some email 3",
-                                                  "first_name": "some first name 3",
-                                                  "has_ada_priorities_selected": Object {
-                                                    "vision_impairments": true,
-                                                  },
-                                                  "last_name": "some last name 3",
-                                                  "lease_up_status": undefined,
-                                                  "mailing_address": undefined,
-                                                  "phone": "some phone",
-                                                  "post_lottery_validation": undefined,
-                                                  "preference_lottery_rank": "1",
-                                                  "preference_order": "3",
-                                                  "preference_rank": "COP 1",
-                                                  "preference_record_type": "COP",
-                                                  "rankOrder": 3.0001,
-                                                  "residence_address": "1316 BURNETT 3",
-                                                  "status_last_updated": "2018-04-26T12:31:39.000+0000",
-                                                  "sub_status": undefined,
-                                                  "total_household_size": undefined,
-                                                },
-                                                "_subRows": undefined,
-                                                "_viewIndex": 2,
-                                                "accessibility": "Vision",
-                                                "application_number": "Application Name 3",
-                                                "bulk_checkbox": undefined,
-                                                "first_name": "some first name 3",
-                                                "last_name": "some last name 3",
-                                                "lease_up_status": undefined,
-                                                "rankOrder": 3.0001,
-                                                "status_last_updated": "2018-04-26T12:31:39.000+0000",
-                                                "sub_status": undefined,
-                                                "total_household_size": undefined,
-                                              },
-                                              "show": true,
-                                              "styles": Object {},
-                                              "subRows": undefined,
-                                              "tdProps": Object {
-                                                "className": undefined,
-                                                "rest": Object {},
-                                                "style": undefined,
-                                              },
-                                              "value": undefined,
-                                              "viewIndex": 2,
-                                              "width": 100,
-                                            }
-                                          }
+                                        <StatusCell
+                                          applicationId="10003"
                                           onChange={[Function]}
                                         >
                                           <div
@@ -10091,7 +9708,8 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               Object {
                                                 "alignItems": "center",
                                                 "display": "flex",
-                                                "position": "absolute",
+                                                "justifyContent": "flex-end",
+                                                "width": "100%",
                                               }
                                             }
                                           >
@@ -10931,7 +10549,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                   }
                                                                 >
                                                                   <button
-                                                                    className="button dropdown-button has-icon--right text-align-left tiny tertiary"
+                                                                    className="button dropdown-button has-icon--right text-align-left tight-padding-vertical tiny tertiary"
                                                                     disabled={false}
                                                                     type="button"
                                                                   >
@@ -11613,34 +11231,45 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             </StatusDropdown>
                                             <StatusHistoryPopover
                                               applicationId="10003"
+                                              customButtonClasses="margin-left"
                                             >
                                               <Popover
                                                 buttonElement={[Function]}
                                                 onButtonClick={[Function]}
                                               >
                                                 <button
-                                                  className="tiny icon margin-left--half"
+                                                  className="margin-left button-icon-only"
                                                   onClick={[Function]}
                                                 >
-                                                  <Icon
+                                                  <StyledIcon
+                                                    customFill="#767676"
+                                                    customSizeRem="1.2rem"
                                                     icon="list-unordered"
-                                                    size="medium"
                                                   >
-                                                    <span
-                                                      className="ui-icon ui-medium"
+                                                    <svg
+                                                      style={
+                                                        Object {
+                                                          "fill": "#767676",
+                                                          "height": "1.2rem",
+                                                          "width": "1.2rem",
+                                                        }
+                                                      }
                                                     >
-                                                      <svg>
-                                                        <use
-                                                          xlinkHref="#i-list-unordered"
-                                                        />
-                                                      </svg>
-                                                    </span>
-                                                  </Icon>
+                                                      <use
+                                                        style={
+                                                          Object {
+                                                            "fill": "#767676",
+                                                          }
+                                                        }
+                                                        xlinkHref="#i-list-unordered"
+                                                      />
+                                                    </svg>
+                                                  </StyledIcon>
                                                 </button>
                                               </Popover>
                                             </StatusHistoryPopover>
                                           </div>
-                                        </LeaseUpStatusCell>
+                                        </StatusCell>
                                       </Cell>
                                     </div>
                                   </TdComponent>
@@ -13301,144 +12930,8 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         viewIndex={3}
                                         width={100}
                                       >
-                                        <LeaseUpStatusCell
-                                          cell={
-                                            Object {
-                                              "aggregated": undefined,
-                                              "classes": Array [
-                                                undefined,
-                                                "td-min-wide td-status td-fixed-right",
-                                                undefined,
-                                              ],
-                                              "column": Object {
-                                                "Aggregated": undefined,
-                                                "Cell": [Function],
-                                                "Expander": undefined,
-                                                "Filter": undefined,
-                                                "Footer": undefined,
-                                                "Header": "Lease Up Status",
-                                                "Pivot": undefined,
-                                                "PivotValue": undefined,
-                                                "Placeholder": undefined,
-                                                "accessor": [Function],
-                                                "aggregate": undefined,
-                                                "className": "td-min-wide td-status td-fixed-right",
-                                                "filterAll": false,
-                                                "filterMethod": undefined,
-                                                "filterable": undefined,
-                                                "footerClassName": "",
-                                                "footerStyle": Object {},
-                                                "getFooterProps": [Function],
-                                                "getHeaderProps": [Function],
-                                                "getProps": [Function],
-                                                "headerClassName": "td-min-wide tr-fixed-right",
-                                                "headerStyle": Object {},
-                                                "id": "lease_up_status",
-                                                "minResizeWidth": 11,
-                                                "minWidth": 100,
-                                                "resizable": undefined,
-                                                "show": true,
-                                                "sortMethod": undefined,
-                                                "sortable": undefined,
-                                                "style": Object {},
-                                              },
-                                              "columnProps": Object {
-                                                "className": undefined,
-                                                "rest": Object {},
-                                                "style": undefined,
-                                              },
-                                              "expander": undefined,
-                                              "groupedByPivot": undefined,
-                                              "index": 3,
-                                              "isExpanded": undefined,
-                                              "level": 0,
-                                              "maxWidth": undefined,
-                                              "nestingPath": Array [
-                                                3,
-                                              ],
-                                              "original": Object {
-                                                "accessibility": "Vision",
-                                                "application_id": "10004",
-                                                "application_number": "Application Name 4",
-                                                "application_preference_id": "4",
-                                                "email": "some email 4",
-                                                "first_name": "some first name 4",
-                                                "has_ada_priorities_selected": Object {
-                                                  "vision_impairments": true,
-                                                },
-                                                "last_name": "some last name 4",
-                                                "lease_up_status": undefined,
-                                                "mailing_address": undefined,
-                                                "phone": "some phone",
-                                                "post_lottery_validation": undefined,
-                                                "preference_lottery_rank": "2",
-                                                "preference_order": "1",
-                                                "preference_rank": "COP 2",
-                                                "preference_record_type": "COP",
-                                                "rankOrder": 1.0002,
-                                                "residence_address": "1316 BURNETT 4",
-                                                "status_last_updated": "2018-04-26T12:31:39.000+0000",
-                                                "sub_status": undefined,
-                                                "total_household_size": undefined,
-                                              },
-                                              "page": 0,
-                                              "pageSize": 20,
-                                              "pivoted": undefined,
-                                              "resized": Array [],
-                                              "row": Object {
-                                                "_index": 3,
-                                                "_nestingLevel": 0,
-                                                "_original": Object {
-                                                  "accessibility": "Vision",
-                                                  "application_id": "10004",
-                                                  "application_number": "Application Name 4",
-                                                  "application_preference_id": "4",
-                                                  "email": "some email 4",
-                                                  "first_name": "some first name 4",
-                                                  "has_ada_priorities_selected": Object {
-                                                    "vision_impairments": true,
-                                                  },
-                                                  "last_name": "some last name 4",
-                                                  "lease_up_status": undefined,
-                                                  "mailing_address": undefined,
-                                                  "phone": "some phone",
-                                                  "post_lottery_validation": undefined,
-                                                  "preference_lottery_rank": "2",
-                                                  "preference_order": "1",
-                                                  "preference_rank": "COP 2",
-                                                  "preference_record_type": "COP",
-                                                  "rankOrder": 1.0002,
-                                                  "residence_address": "1316 BURNETT 4",
-                                                  "status_last_updated": "2018-04-26T12:31:39.000+0000",
-                                                  "sub_status": undefined,
-                                                  "total_household_size": undefined,
-                                                },
-                                                "_subRows": undefined,
-                                                "_viewIndex": 3,
-                                                "accessibility": "Vision",
-                                                "application_number": "Application Name 4",
-                                                "bulk_checkbox": undefined,
-                                                "first_name": "some first name 4",
-                                                "last_name": "some last name 4",
-                                                "lease_up_status": undefined,
-                                                "rankOrder": 1.0002,
-                                                "status_last_updated": "2018-04-26T12:31:39.000+0000",
-                                                "sub_status": undefined,
-                                                "total_household_size": undefined,
-                                              },
-                                              "show": true,
-                                              "styles": Object {},
-                                              "subRows": undefined,
-                                              "tdProps": Object {
-                                                "className": undefined,
-                                                "rest": Object {},
-                                                "style": undefined,
-                                              },
-                                              "value": undefined,
-                                              "viewIndex": 3,
-                                              "width": 100,
-                                            }
-                                          }
+                                        <StatusCell
+                                          applicationId="10004"
                                           onChange={[Function]}
                                         >
                                           <div
@@ -13446,7 +12939,8 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               Object {
                                                 "alignItems": "center",
                                                 "display": "flex",
-                                                "position": "absolute",
+                                                "justifyContent": "flex-end",
+                                                "width": "100%",
                                               }
                                             }
                                           >
@@ -14286,7 +13780,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                   }
                                                                 >
                                                                   <button
-                                                                    className="button dropdown-button has-icon--right text-align-left tiny tertiary"
+                                                                    className="button dropdown-button has-icon--right text-align-left tight-padding-vertical tiny tertiary"
                                                                     disabled={false}
                                                                     type="button"
                                                                   >
@@ -14968,34 +14462,45 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             </StatusDropdown>
                                             <StatusHistoryPopover
                                               applicationId="10004"
+                                              customButtonClasses="margin-left"
                                             >
                                               <Popover
                                                 buttonElement={[Function]}
                                                 onButtonClick={[Function]}
                                               >
                                                 <button
-                                                  className="tiny icon margin-left--half"
+                                                  className="margin-left button-icon-only"
                                                   onClick={[Function]}
                                                 >
-                                                  <Icon
+                                                  <StyledIcon
+                                                    customFill="#767676"
+                                                    customSizeRem="1.2rem"
                                                     icon="list-unordered"
-                                                    size="medium"
                                                   >
-                                                    <span
-                                                      className="ui-icon ui-medium"
+                                                    <svg
+                                                      style={
+                                                        Object {
+                                                          "fill": "#767676",
+                                                          "height": "1.2rem",
+                                                          "width": "1.2rem",
+                                                        }
+                                                      }
                                                     >
-                                                      <svg>
-                                                        <use
-                                                          xlinkHref="#i-list-unordered"
-                                                        />
-                                                      </svg>
-                                                    </span>
-                                                  </Icon>
+                                                      <use
+                                                        style={
+                                                          Object {
+                                                            "fill": "#767676",
+                                                          }
+                                                        }
+                                                        xlinkHref="#i-list-unordered"
+                                                      />
+                                                    </svg>
+                                                  </StyledIcon>
                                                 </button>
                                               </Popover>
                                             </StatusHistoryPopover>
                                           </div>
-                                        </LeaseUpStatusCell>
+                                        </StatusCell>
                                       </Cell>
                                     </div>
                                   </TdComponent>
@@ -16656,144 +16161,8 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         viewIndex={4}
                                         width={100}
                                       >
-                                        <LeaseUpStatusCell
-                                          cell={
-                                            Object {
-                                              "aggregated": undefined,
-                                              "classes": Array [
-                                                undefined,
-                                                "td-min-wide td-status td-fixed-right",
-                                                undefined,
-                                              ],
-                                              "column": Object {
-                                                "Aggregated": undefined,
-                                                "Cell": [Function],
-                                                "Expander": undefined,
-                                                "Filter": undefined,
-                                                "Footer": undefined,
-                                                "Header": "Lease Up Status",
-                                                "Pivot": undefined,
-                                                "PivotValue": undefined,
-                                                "Placeholder": undefined,
-                                                "accessor": [Function],
-                                                "aggregate": undefined,
-                                                "className": "td-min-wide td-status td-fixed-right",
-                                                "filterAll": false,
-                                                "filterMethod": undefined,
-                                                "filterable": undefined,
-                                                "footerClassName": "",
-                                                "footerStyle": Object {},
-                                                "getFooterProps": [Function],
-                                                "getHeaderProps": [Function],
-                                                "getProps": [Function],
-                                                "headerClassName": "td-min-wide tr-fixed-right",
-                                                "headerStyle": Object {},
-                                                "id": "lease_up_status",
-                                                "minResizeWidth": 11,
-                                                "minWidth": 100,
-                                                "resizable": undefined,
-                                                "show": true,
-                                                "sortMethod": undefined,
-                                                "sortable": undefined,
-                                                "style": Object {},
-                                              },
-                                              "columnProps": Object {
-                                                "className": undefined,
-                                                "rest": Object {},
-                                                "style": undefined,
-                                              },
-                                              "expander": undefined,
-                                              "groupedByPivot": undefined,
-                                              "index": 4,
-                                              "isExpanded": undefined,
-                                              "level": 0,
-                                              "maxWidth": undefined,
-                                              "nestingPath": Array [
-                                                4,
-                                              ],
-                                              "original": Object {
-                                                "accessibility": "Vision",
-                                                "application_id": "10005",
-                                                "application_number": "Application Name 5",
-                                                "application_preference_id": "5",
-                                                "email": "some email 5",
-                                                "first_name": "some first name 5",
-                                                "has_ada_priorities_selected": Object {
-                                                  "vision_impairments": true,
-                                                },
-                                                "last_name": "some last name 5",
-                                                "lease_up_status": undefined,
-                                                "mailing_address": undefined,
-                                                "phone": "some phone",
-                                                "post_lottery_validation": undefined,
-                                                "preference_lottery_rank": "1",
-                                                "preference_order": "1",
-                                                "preference_rank": "COP 1",
-                                                "preference_record_type": "COP",
-                                                "rankOrder": 1.0001,
-                                                "residence_address": "1316 BURNETT 5",
-                                                "status_last_updated": "2018-04-26T12:31:39.000+0000",
-                                                "sub_status": undefined,
-                                                "total_household_size": undefined,
-                                              },
-                                              "page": 0,
-                                              "pageSize": 20,
-                                              "pivoted": undefined,
-                                              "resized": Array [],
-                                              "row": Object {
-                                                "_index": 4,
-                                                "_nestingLevel": 0,
-                                                "_original": Object {
-                                                  "accessibility": "Vision",
-                                                  "application_id": "10005",
-                                                  "application_number": "Application Name 5",
-                                                  "application_preference_id": "5",
-                                                  "email": "some email 5",
-                                                  "first_name": "some first name 5",
-                                                  "has_ada_priorities_selected": Object {
-                                                    "vision_impairments": true,
-                                                  },
-                                                  "last_name": "some last name 5",
-                                                  "lease_up_status": undefined,
-                                                  "mailing_address": undefined,
-                                                  "phone": "some phone",
-                                                  "post_lottery_validation": undefined,
-                                                  "preference_lottery_rank": "1",
-                                                  "preference_order": "1",
-                                                  "preference_rank": "COP 1",
-                                                  "preference_record_type": "COP",
-                                                  "rankOrder": 1.0001,
-                                                  "residence_address": "1316 BURNETT 5",
-                                                  "status_last_updated": "2018-04-26T12:31:39.000+0000",
-                                                  "sub_status": undefined,
-                                                  "total_household_size": undefined,
-                                                },
-                                                "_subRows": undefined,
-                                                "_viewIndex": 4,
-                                                "accessibility": "Vision",
-                                                "application_number": "Application Name 5",
-                                                "bulk_checkbox": undefined,
-                                                "first_name": "some first name 5",
-                                                "last_name": "some last name 5",
-                                                "lease_up_status": undefined,
-                                                "rankOrder": 1.0001,
-                                                "status_last_updated": "2018-04-26T12:31:39.000+0000",
-                                                "sub_status": undefined,
-                                                "total_household_size": undefined,
-                                              },
-                                              "show": true,
-                                              "styles": Object {},
-                                              "subRows": undefined,
-                                              "tdProps": Object {
-                                                "className": undefined,
-                                                "rest": Object {},
-                                                "style": undefined,
-                                              },
-                                              "value": undefined,
-                                              "viewIndex": 4,
-                                              "width": 100,
-                                            }
-                                          }
+                                        <StatusCell
+                                          applicationId="10005"
                                           onChange={[Function]}
                                         >
                                           <div
@@ -16801,7 +16170,8 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               Object {
                                                 "alignItems": "center",
                                                 "display": "flex",
-                                                "position": "absolute",
+                                                "justifyContent": "flex-end",
+                                                "width": "100%",
                                               }
                                             }
                                           >
@@ -17641,7 +17011,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                   }
                                                                 >
                                                                   <button
-                                                                    className="button dropdown-button has-icon--right text-align-left tiny tertiary"
+                                                                    className="button dropdown-button has-icon--right text-align-left tight-padding-vertical tiny tertiary"
                                                                     disabled={false}
                                                                     type="button"
                                                                   >
@@ -18323,34 +17693,45 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             </StatusDropdown>
                                             <StatusHistoryPopover
                                               applicationId="10005"
+                                              customButtonClasses="margin-left"
                                             >
                                               <Popover
                                                 buttonElement={[Function]}
                                                 onButtonClick={[Function]}
                                               >
                                                 <button
-                                                  className="tiny icon margin-left--half"
+                                                  className="margin-left button-icon-only"
                                                   onClick={[Function]}
                                                 >
-                                                  <Icon
+                                                  <StyledIcon
+                                                    customFill="#767676"
+                                                    customSizeRem="1.2rem"
                                                     icon="list-unordered"
-                                                    size="medium"
                                                   >
-                                                    <span
-                                                      className="ui-icon ui-medium"
+                                                    <svg
+                                                      style={
+                                                        Object {
+                                                          "fill": "#767676",
+                                                          "height": "1.2rem",
+                                                          "width": "1.2rem",
+                                                        }
+                                                      }
                                                     >
-                                                      <svg>
-                                                        <use
-                                                          xlinkHref="#i-list-unordered"
-                                                        />
-                                                      </svg>
-                                                    </span>
-                                                  </Icon>
+                                                      <use
+                                                        style={
+                                                          Object {
+                                                            "fill": "#767676",
+                                                          }
+                                                        }
+                                                        xlinkHref="#i-list-unordered"
+                                                      />
+                                                    </svg>
+                                                  </StyledIcon>
                                                 </button>
                                               </Popover>
                                             </StatusHistoryPopover>
                                           </div>
-                                        </LeaseUpStatusCell>
+                                        </StatusCell>
                                       </Cell>
                                     </div>
                                   </TdComponent>

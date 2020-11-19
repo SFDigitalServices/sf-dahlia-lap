@@ -7,30 +7,11 @@ import ReactTable from 'react-table'
 
 import CheckboxCell from 'components/lease_ups/application_page/CheckboxCell'
 import PreferenceRankCell from 'components/lease_ups/application_page/PreferenceRankCell'
+import StatusCell from 'components/lease_ups/application_page/StatusCell'
 import appPaths from 'utils/appPaths'
 import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
 import { cellFormat } from 'utils/reactTableUtils'
 import { getLeaseUpStatusClass } from 'utils/statusUtils'
-
-import StatusDropdown from '../molecules/StatusDropdown'
-import StatusHistoryPopover from '../organisms/StatusHistoryPopover'
-
-const LeaseUpStatusCell = ({ cell, onChange }) => {
-  const applicationId = cell.original.application_id
-  const applicationPreferenceId = cell.original.application_preference_id
-
-  const value = cell.value || null
-  return (
-    <div style={{ display: 'flex', position: 'absolute', alignItems: 'center' }}>
-      <StatusDropdown
-        status={value}
-        size='tiny'
-        onChange={(val) => onChange(applicationPreferenceId, applicationId, val)}
-      />
-      <StatusHistoryPopover applicationId={applicationId} />
-    </div>
-  )
-}
 
 const resizableCell = (cell) => <span className='rt-resizable-td-content'>{cell.value}</span>
 
@@ -132,7 +113,20 @@ const LeaseUpApplicationsTable = ({
       accessor: 'lease_up_status',
       headerClassName: 'td-min-wide tr-fixed-right',
       className: 'td-min-wide td-status td-fixed-right',
-      Cell: (cell) => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} />
+      Cell: (cell) => {
+        const {
+          application_id: applicationId,
+          application_preference_id: preferenceId
+        } = cell.original
+
+        return (
+          <StatusCell
+            applicationId={applicationId}
+            status={cell.value}
+            onChange={(val) => onLeaseUpStatusChange(preferenceId, applicationId, val)}
+          />
+        )
+      }
     }
   ]
 
