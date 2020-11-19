@@ -5,6 +5,7 @@ import { trim } from 'lodash'
 import { Link } from 'react-router-dom'
 import ReactTable from 'react-table'
 
+import CheckboxCell from 'components/lease_ups/application_page/CheckboxCell'
 import PreferenceRankCell from 'components/lease_ups/application_page/PreferenceRankCell'
 import appPaths from 'utils/appPaths'
 import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
@@ -42,7 +43,9 @@ const LeaseUpApplicationsTable = ({
   onFetchData,
   pages,
   rowsPerPage,
-  atMaxPages
+  atMaxPages,
+  bulkCheckboxesState,
+  onBulkCheckboxClick
 }) => {
   const [currentPage, setCurrentPage] = useState(0)
 
@@ -55,6 +58,22 @@ const LeaseUpApplicationsTable = ({
   } pages of applications at this time. Please use the filters above to narrow your results.`
   const noDataMsg = atMaxPages ? maxPagesMsg : 'No results, try adjusting your filters'
   const columns = [
+    {
+      Header: '',
+      accessor: 'bulk_checkbox',
+      headerClassName: 'td-min-narrow',
+      className: 'td-min-narrow',
+      Cell: (cell) => {
+        const appId = cell.original.application_id
+        return (
+          <CheckboxCell
+            checked={bulkCheckboxesState[appId]}
+            applicationId={appId}
+            onClick={() => onBulkCheckboxClick(appId)}
+          />
+        )
+      }
+    },
     {
       Header: 'Preference Rank',
       accessor: 'rankOrder',
@@ -121,7 +140,11 @@ const LeaseUpApplicationsTable = ({
     const attrs = {}
 
     // onClick actions vary depending on the type of column
-    if (column.id !== 'application_number' && column.id !== 'lease_up_status') {
+    if (
+      column.id !== 'application_number' &&
+      column.id !== 'lease_up_status' &&
+      column.id !== 'bulk_checkbox'
+    ) {
       attrs.onClick = (e, handleOriginal) => {
         if (rowInfo) onCellClick(listingId, rowInfo)
       }
