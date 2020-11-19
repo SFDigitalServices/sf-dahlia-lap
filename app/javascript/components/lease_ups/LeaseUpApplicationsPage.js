@@ -101,26 +101,6 @@ const LeaseUpApplicationsPage = () => {
     setBulkCheckboxesState({ ...bulkCheckboxesState, [appId]: !bulkCheckboxesState[appId] })
   }
 
-  const performAsyncRequest = ({
-    initialState = {},
-    promiseFunc = async () => {},
-    stateFromResponse = {}
-  }) => {
-    setState({
-      ...initialState,
-      loading: true
-    })
-
-    promiseFunc()
-      .then(([listing, { records, pages }]) => {
-        setState({ ...stateFromResponse([listing, { records, pages }]) })
-        setInitialCheckboxState(records)
-      })
-      .finally(() => {
-        setState({ loading: false })
-      })
-  }
-
   const setState = (newState) =>
     overrideEntireState((prevState) => ({
       ...prevState,
@@ -141,17 +121,21 @@ const LeaseUpApplicationsPage = () => {
 
     const fetcher = (p) => getApplications(listingId, p, filters)
 
-    performAsyncRequest({
-      initialState: { page },
-      promiseFunc: () =>
-        Promise.all([getStateOrFetchListing(), state.eagerPagination.getPage(page, fetcher)]),
-      stateFromResponse: ([listing, { records, pages }]) => ({
-        listing,
-        applications: records,
-        pages: pages,
-        atMaxPages: false
+    setState({ loading: true })
+
+    Promise.all([getStateOrFetchListing(), state.eagerPagination.getPage(page, fetcher)])
+      .then(([listing, { records, pages }]) => {
+        setState({
+          listing,
+          applications: records,
+          pages: pages,
+          atMaxPages: false
+        })
+        setInitialCheckboxState(records)
       })
-    })
+      .finally(() => {
+        setState({ loading: false })
+      })
   }
 
   const handleOnFetchData = ({ filters, page }, _) => {
