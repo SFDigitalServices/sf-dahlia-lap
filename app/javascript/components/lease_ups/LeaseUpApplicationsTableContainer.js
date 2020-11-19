@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { capitalize, compact, map, cloneDeep } from 'lodash'
+import { Form } from 'react-final-form'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 import appPaths from 'utils/appPaths'
@@ -22,7 +23,9 @@ const LeaseUpTableContainer = ({
     rowsPerPage,
     atMaxPages,
     updateStatusModal,
-    handleCreateStatusUpdate
+    handleCreateStatusUpdate,
+    bulkCheckboxesState,
+    onBulkCheckboxClick
   }
 }) => {
   const closeStatusModal = () => {
@@ -87,16 +90,25 @@ const LeaseUpTableContainer = ({
         onSubmit={handleOnFilter}
         loading={loading}
       />
-      <LeaseUpApplicationsTable
-        dataSet={rowsData(applications)}
-        listingId={listingId}
-        onLeaseUpStatusChange={leaseUpStatusChangeHandler}
-        onCellClick={goToSupplementaryInfo}
-        loading={loading}
-        onFetchData={handleOnFetchData}
-        pages={pages}
-        rowsPerPage={rowsPerPage}
-        atMaxPages={atMaxPages}
+      <Form
+        onSubmit={() => console.log('submitted checkbox form')}
+        render={({ handleSubmit }) => (
+          <form onSubmit={handleSubmit} noValidate>
+            <LeaseUpApplicationsTable
+              dataSet={rowsData(applications)}
+              listingId={listingId}
+              onLeaseUpStatusChange={leaseUpStatusChangeHandler}
+              onCellClick={goToSupplementaryInfo}
+              loading={loading}
+              onFetchData={handleOnFetchData}
+              pages={pages}
+              rowsPerPage={rowsPerPage}
+              atMaxPages={atMaxPages}
+              bulkCheckboxesState={bulkCheckboxesState}
+              onBulkCheckboxClick={onBulkCheckboxClick}
+            />
+          </form>
+        )}
       />
       <StatusModalWrapper
         {...statusModal}

@@ -51,6 +51,22 @@ const PreferenceRankCell = ({ cell }) => {
   }
 }
 
+const CheckboxCell = ({ appId, value = false, onClick }) => (
+  <div className='form-group'>
+    <input
+      id={`bulk-action-checkbox-${appId}`}
+      type='checkbox'
+      checked={value}
+      onChange={() => onClick(appId)}
+    />
+    <label
+      style={{ margin: '0px' }}
+      className='form-label'
+      htmlFor={`bulk-action-checkbox-${appId}`}
+    />
+  </div>
+)
+
 const LeaseUpApplicationsTable = ({
   listingId,
   dataSet,
@@ -60,7 +76,9 @@ const LeaseUpApplicationsTable = ({
   onFetchData,
   pages,
   rowsPerPage,
-  atMaxPages
+  atMaxPages,
+  bulkCheckboxesState,
+  onBulkCheckboxClick
 }) => {
   const [currentPage, setCurrentPage] = useState(0)
 
@@ -73,6 +91,22 @@ const LeaseUpApplicationsTable = ({
   } pages of applications at this time. Please use the filters above to narrow your results.`
   const noDataMsg = atMaxPages ? maxPagesMsg : 'No results, try adjusting your filters'
   const columns = [
+    {
+      Header: '',
+      accessor: 'bulk_checkbox',
+      headerClassName: 'td-min-narrow',
+      className: 'td-min-narrow',
+      Cell: (cell) => {
+        const appId = cell.original.application_id
+        return (
+          <CheckboxCell
+            value={bulkCheckboxesState[appId]}
+            appId={appId}
+            onClick={onBulkCheckboxClick}
+          />
+        )
+      }
+    },
     {
       Header: 'Preference Rank',
       accessor: 'rankOrder',
@@ -134,7 +168,11 @@ const LeaseUpApplicationsTable = ({
     const attrs = {}
 
     // onClick actions vary depending on the type of column
-    if (column.id !== 'application_number' && column.id !== 'lease_up_status') {
+    if (
+      column.id !== 'application_number' &&
+      column.id !== 'lease_up_status' &&
+      column.id !== 'bulk_checkbox'
+    ) {
       attrs.onClick = (e, handleOriginal) => {
         if (rowInfo) onCellClick(listingId, rowInfo)
       }

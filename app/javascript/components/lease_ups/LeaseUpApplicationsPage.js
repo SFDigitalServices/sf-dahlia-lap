@@ -81,9 +81,25 @@ const LeaseUpApplicationsPage = () => {
     listing: null,
     eagerPagination: new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
   })
+  const [bulkCheckboxesState, setBulkCheckboxesState] = useState({})
 
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
+
+  const setInitialCheckboxState = (applications) => {
+    // get unique applications
+    const uniqAppIds = Array.from(new Set(applications.map((a) => a.application_id)))
+    const emptyCheckboxes = uniqAppIds.reduce((a, b) => {
+      a[b] = false
+      return a
+    }, {})
+    // set state to false for all of the initial applications
+    setBulkCheckboxesState(emptyCheckboxes)
+  }
+
+  const onBulkCheckboxClick = (appId) => {
+    setBulkCheckboxesState({ ...bulkCheckboxesState, [appId]: !bulkCheckboxesState[appId] })
+  }
 
   const performAsyncRequest = ({
     initialState = {},
@@ -96,8 +112,13 @@ const LeaseUpApplicationsPage = () => {
     })
 
     promiseFunc()
-      .then((r) => setState({ ...stateFromResponse(r) }))
-      .finally(() => setState({ loading: false }))
+      .then(([listing, { records, pages }]) => {
+        setState({ ...stateFromResponse([listing, { records, pages }]) })
+        setInitialCheckboxState(records)
+      })
+      .finally(() => {
+        setState({ loading: false })
+      })
   }
 
   const setState = (newState) =>
@@ -212,7 +233,9 @@ const LeaseUpApplicationsPage = () => {
     rowsPerPage: ROWS_PER_PAGE,
     updateStatusModal: updateStatusModal,
     statusModal: state.statusModal,
-    atMaxPages: state.atMaxPages
+    atMaxPages: state.atMaxPages,
+    bulkCheckboxesState,
+    onBulkCheckboxClick
   }
 
   return (
