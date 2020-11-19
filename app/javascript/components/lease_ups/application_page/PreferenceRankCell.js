@@ -4,13 +4,10 @@ import { PropTypes } from 'prop-types'
 
 import { COLORS } from 'components/atoms/colors'
 import StyledIcon from 'components/atoms/StyledIcon'
-import {
-  isConfirmedPreference,
-  isInvalidPreference,
-  VALIDATION_CONFIRMED,
-  VALIDATION_INVALID,
-  VALIDATION_UNCONFIRMED
-} from 'components/lease_ups/application_page/preferenceValidationUtils'
+
+export const VALIDATION_CONFIRMED = 'Confirmed'
+export const VALIDATION_UNCONFIRMED = 'Unconfirmed'
+export const VALIDATION_INVALID = 'Invalid'
 
 const getCellContainerStyle = (hasIcon) => ({
   width: '100%',
@@ -20,8 +17,8 @@ const getCellContainerStyle = (hasIcon) => ({
 })
 
 const PreferenceRankCell = ({ preferenceRank, preferenceValidation }) => {
-  const showXIcon = isInvalidPreference(preferenceValidation)
-  const showCheckIcon = isConfirmedPreference(preferenceValidation)
+  const showXIcon = preferenceValidation === VALIDATION_INVALID
+  const showCheckIcon = preferenceValidation === VALIDATION_CONFIRMED
   const showAnyIcon = showXIcon || showCheckIcon
 
   return (

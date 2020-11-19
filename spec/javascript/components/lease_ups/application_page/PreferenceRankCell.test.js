@@ -4,12 +4,11 @@ import { shallow } from 'enzyme'
 
 import { COLORS } from 'components/atoms/colors'
 import StyledIcon from 'components/atoms/StyledIcon'
-import PreferenceRankCell from 'components/lease_ups/application_page/PreferenceRankCell'
-import {
+import PreferenceRankCell, {
   VALIDATION_CONFIRMED,
   VALIDATION_INVALID,
   VALIDATION_UNCONFIRMED
-} from 'components/lease_ups/application_page/preferenceValidationUtils'
+} from 'components/lease_ups/application_page/PreferenceRankCell'
 
 import { findWithProps } from '../../../testUtils/wrapperUtil'
 
