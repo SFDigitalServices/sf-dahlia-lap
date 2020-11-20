@@ -13,6 +13,7 @@ import FormGroupTextValue from 'components/atoms/FormGroupTextValue'
 import Icon from 'components/atoms/Icon'
 import Spinner from 'components/atoms/Spinner'
 import StatusPill from 'components/atoms/StatusPill'
+import UnlabeledCheckbox from 'components/atoms/UnlabeledCheckbox'
 // Molecules
 import AlertBox from 'components/molecules/AlertBox'
 import AlertNotice from 'components/molecules/AlertNotice'
@@ -45,6 +46,7 @@ import MultiSelectWrapper from 'components/pattern_library/wrappers/MultiSelectW
 import PopoverWrapper from 'components/pattern_library/wrappers/PopoverWrapper'
 import ShowHideFiltersButtonWrapper from 'components/pattern_library/wrappers/ShowHideFiltersButtonWrapper'
 import TabCardWrapper from 'components/pattern_library/wrappers/TabCardWrapper'
+import UnlabeledCheckboxWrapper from 'components/pattern_library/wrappers/UnlabeledCheckboxWrapper'
 
 Turbolinks.start()
 
@@ -58,6 +60,7 @@ WebpackerReact.setup({ FormGroupRadioGroup })
 WebpackerReact.setup({ FormGroupTextArea })
 WebpackerReact.setup({ FormGroupTextInput })
 WebpackerReact.setup({ FormGroupTextValue })
+WebpackerReact.setup({ UnlabeledCheckbox })
 WebpackerReact.setup({ Icon })
 WebpackerReact.setup({ Spinner })
 WebpackerReact.setup({ StatusPill })
@@ -84,6 +87,7 @@ WebpackerReact.setup({ TabCard })
 WebpackerReact.setup({ TabsSection })
 // Pattern Library Wrappers
 WebpackerReact.setup({ ContentSectionWrapper })
+WebpackerReact.setup({ UnlabeledCheckboxWrapper })
 WebpackerReact.setup({ InlineModalWrapper })
 WebpackerReact.setup({ ExpandableTableWrapper })
 WebpackerReact.setup({ ModalWrapper })
