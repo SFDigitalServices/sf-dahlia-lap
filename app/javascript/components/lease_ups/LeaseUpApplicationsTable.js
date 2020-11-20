@@ -89,14 +89,14 @@ const LeaseUpApplicationsTable = ({
       Header: 'First Name',
       accessor: 'first_name',
       headerClassName: 'non-resizable',
-      minWidth: getCellWidth(120),
+      minWidth: getCellWidth(105),
       Cell: resizableCell
     },
     {
       Header: 'Last Name',
       accessor: 'last_name',
       headerClassName: 'non-resizable',
-      minWidth: getCellWidth(120),
+      minWidth: getCellWidth(105),
       Cell: resizableCell
     },
     {
@@ -116,14 +116,14 @@ const LeaseUpApplicationsTable = ({
       Header: 'Updated',
       accessor: 'status_last_updated',
       headerClassName: 'non-resizable',
-      minWidth: getCellWidth(80),
+      minWidth: getCellWidth(75),
       Cell: cellFormat.date
     },
     {
       Header: 'Latest Substatus',
       accessor: 'sub_status',
       headerClassName: 'non-resizable',
-      minWidth: getCellWidth(412)
+      minWidth: getCellWidth(380)
     },
     {
       Header: 'Status',
