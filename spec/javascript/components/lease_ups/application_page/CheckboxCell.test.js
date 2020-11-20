@@ -15,11 +15,6 @@ describe('CheckboxCell', () => {
       )
     })
 
-    test('renders an input and a label', () => {
-      expect(wrapper.find('input')).toHaveLength(1)
-      expect(wrapper.find('label')).toHaveLength(1)
-    })
-
     test('the input is set to unchecked', () => {
       expect(wrapper.find('input').props().checked).toBeFalsy()
     })
@@ -37,11 +32,6 @@ describe('CheckboxCell', () => {
       wrapper = shallow(
         <CheckboxCell applicationId='applicationId1' checked={true} onClick={mockOnClick} />
       )
-    })
-
-    test('renders an input and a label', () => {
-      expect(wrapper.find('input')).toHaveLength(1)
-      expect(wrapper.find('label')).toHaveLength(1)
     })
 
     test('the input is set to unchecked', () => {
