@@ -1772,21 +1772,27 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           <div
                                             className="form-group"
                                           >
-                                            <input
+                                            <UnlabeledCheckbox
                                               checked={false}
                                               id="bulk-action-checkbox-10001"
-                                              onChange={[Function]}
-                                              type="checkbox"
-                                            />
-                                            <label
-                                              className="form-label"
-                                              htmlFor="bulk-action-checkbox-10001"
-                                              style={
-                                                Object {
-                                                  "margin": "0px",
+                                              onClick={[Function]}
+                                            >
+                                              <input
+                                                checked={false}
+                                                id="bulk-action-checkbox-10001"
+                                                onChange={[Function]}
+                                                type="checkbox"
+                                              />
+                                              <label
+                                                className="form-label"
+                                                htmlFor="bulk-action-checkbox-10001"
+                                                style={
+                                                  Object {
+                                                    "margin": "0px",
+                                                  }
                                                 }
-                                              }
-                                            />
+                                              />
+                                            </UnlabeledCheckbox>
                                           </div>
                                         </CheckboxCell>
                                       </Cell>
@@ -5127,21 +5133,27 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           <div
                                             className="form-group"
                                           >
-                                            <input
+                                            <UnlabeledCheckbox
                                               checked={false}
                                               id="bulk-action-checkbox-10002"
-                                              onChange={[Function]}
-                                              type="checkbox"
-                                            />
-                                            <label
-                                              className="form-label"
-                                              htmlFor="bulk-action-checkbox-10002"
-                                              style={
-                                                Object {
-                                                  "margin": "0px",
+                                              onClick={[Function]}
+                                            >
+                                              <input
+                                                checked={false}
+                                                id="bulk-action-checkbox-10002"
+                                                onChange={[Function]}
+                                                type="checkbox"
+                                              />
+                                              <label
+                                                className="form-label"
+                                                htmlFor="bulk-action-checkbox-10002"
+                                                style={
+                                                  Object {
+                                                    "margin": "0px",
+                                                  }
                                                 }
-                                              }
-                                            />
+                                              />
+                                            </UnlabeledCheckbox>
                                           </div>
                                         </CheckboxCell>
                                       </Cell>
@@ -8482,21 +8494,27 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           <div
                                             className="form-group"
                                           >
-                                            <input
+                                            <UnlabeledCheckbox
                                               checked={false}
                                               id="bulk-action-checkbox-10003"
-                                              onChange={[Function]}
-                                              type="checkbox"
-                                            />
-                                            <label
-                                              className="form-label"
-                                              htmlFor="bulk-action-checkbox-10003"
-                                              style={
-                                                Object {
-                                                  "margin": "0px",
+                                              onClick={[Function]}
+                                            >
+                                              <input
+                                                checked={false}
+                                                id="bulk-action-checkbox-10003"
+                                                onChange={[Function]}
+                                                type="checkbox"
+                                              />
+                                              <label
+                                                className="form-label"
+                                                htmlFor="bulk-action-checkbox-10003"
+                                                style={
+                                                  Object {
+                                                    "margin": "0px",
+                                                  }
                                                 }
-                                              }
-                                            />
+                                              />
+                                            </UnlabeledCheckbox>
                                           </div>
                                         </CheckboxCell>
                                       </Cell>
@@ -11837,21 +11855,27 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           <div
                                             className="form-group"
                                           >
-                                            <input
+                                            <UnlabeledCheckbox
                                               checked={false}
                                               id="bulk-action-checkbox-10004"
-                                              onChange={[Function]}
-                                              type="checkbox"
-                                            />
-                                            <label
-                                              className="form-label"
-                                              htmlFor="bulk-action-checkbox-10004"
-                                              style={
-                                                Object {
-                                                  "margin": "0px",
+                                              onClick={[Function]}
+                                            >
+                                              <input
+                                                checked={false}
+                                                id="bulk-action-checkbox-10004"
+                                                onChange={[Function]}
+                                                type="checkbox"
+                                              />
+                                              <label
+                                                className="form-label"
+                                                htmlFor="bulk-action-checkbox-10004"
+                                                style={
+                                                  Object {
+                                                    "margin": "0px",
+                                                  }
                                                 }
-                                              }
-                                            />
+                                              />
+                                            </UnlabeledCheckbox>
                                           </div>
                                         </CheckboxCell>
                                       </Cell>
@@ -15192,21 +15216,27 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           <div
                                             className="form-group"
                                           >
-                                            <input
+                                            <UnlabeledCheckbox
                                               checked={false}
                                               id="bulk-action-checkbox-10005"
-                                              onChange={[Function]}
-                                              type="checkbox"
-                                            />
-                                            <label
-                                              className="form-label"
-                                              htmlFor="bulk-action-checkbox-10005"
-                                              style={
-                                                Object {
-                                                  "margin": "0px",
+                                              onClick={[Function]}
+                                            >
+                                              <input
+                                                checked={false}
+                                                id="bulk-action-checkbox-10005"
+                                                onChange={[Function]}
+                                                type="checkbox"
+                                              />
+                                              <label
+                                                className="form-label"
+                                                htmlFor="bulk-action-checkbox-10005"
+                                                style={
+                                                  Object {
+                                                    "margin": "0px",
+                                                  }
                                                 }
-                                              }
-                                            />
+                                              />
+                                            </UnlabeledCheckbox>
                                           </div>
                                         </CheckboxCell>
                                       </Cell>
