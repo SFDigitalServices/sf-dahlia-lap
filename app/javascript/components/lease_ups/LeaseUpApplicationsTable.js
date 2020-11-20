@@ -20,7 +20,19 @@ const getCellWidth = (baseSizePx, isAtStartOrEnd = false) => {
   return baseSizePx + padding
 }
 
-const resizableCell = (cell) => <span className='rt-resizable-td-content'>{cell.value}</span>
+const textCell = ({ value }) => {
+  const textStyle = {
+    width: '100%',
+    'text-overflow': 'ellipsis',
+    overflow: 'hidden'
+  }
+
+  return (
+    <div style={textStyle} title={value}>
+      {value}
+    </div>
+  )
+}
 
 const LeaseUpApplicationsTable = ({
   listingId,
@@ -66,7 +78,7 @@ const LeaseUpApplicationsTable = ({
       Header: 'Rank',
       accessor: 'rankOrder',
       headerClassName: 'non-resizable',
-      width: getCellWidth(84),
+      width: getCellWidth(88),
       Cell: (cell) => (
         <PreferenceRankCell
           preferenceRank={cell.original.preference_rank}
@@ -78,7 +90,7 @@ const LeaseUpApplicationsTable = ({
       Header: 'Application',
       accessor: 'application_number',
       headerClassName: 'non-resizable',
-      width: getCellWidth(100),
+      width: getCellWidth(96),
       Cell: (cell) => (
         <Link to={appPaths.toApplicationSupplementals(cell.original.application_id)}>
           {cell.value}
@@ -89,15 +101,15 @@ const LeaseUpApplicationsTable = ({
       Header: 'First Name',
       accessor: 'first_name',
       headerClassName: 'non-resizable',
-      minWidth: getCellWidth(105),
-      Cell: resizableCell
+      minWidth: getCellWidth(98),
+      Cell: textCell
     },
     {
       Header: 'Last Name',
       accessor: 'last_name',
       headerClassName: 'non-resizable',
-      minWidth: getCellWidth(105),
-      Cell: resizableCell
+      minWidth: getCellWidth(98),
+      Cell: textCell
     },
     {
       Header: 'HH',
@@ -110,7 +122,7 @@ const LeaseUpApplicationsTable = ({
       accessor: 'accessibility',
       headerClassName: 'non-resizable',
       minWidth: getCellWidth(84),
-      Cell: resizableCell
+      Cell: textCell
     },
     {
       Header: 'Updated',
@@ -122,15 +134,18 @@ const LeaseUpApplicationsTable = ({
     {
       Header: 'Latest Substatus',
       accessor: 'sub_status',
-      headerClassName: 'non-resizable',
-      minWidth: getCellWidth(380)
+      className: 'td-offset-right',
+      headerClassName: 'td-offset-right non-resizable',
+      minWidth: getCellWidth(345),
+      Cell: textCell
     },
     {
       Header: 'Status',
       accessor: 'lease_up_status',
-      headerClassName: 'non-resizable tr-fixed-right',
-      minWidth: getCellWidth(186, true),
-      className: 'td-status td-fixed-right',
+      paddingLeft: '10rem',
+      className: 'border-left padding-left td-status td-fixed-right',
+      headerClassName: 'border-left padding-left non-resizable tr-fixed-right',
+      minWidth: getCellWidth(192, true),
       Cell: (cell) => {
         const {
           application_id: applicationId,
