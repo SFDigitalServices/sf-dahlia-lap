@@ -428,8 +428,8 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                 "alignItems": "center",
                                 "display": "flex",
                                 "marginBottom": "1.25rem",
-                                "paddingLeft": "1.5rem",
-                                "paddingRight": ".4rem",
+                                "paddingLeft": "1rem",
+                                "paddingRight": "1rem",
                               }
                             }
                           >
@@ -438,6 +438,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                             >
                               <input
                                 checked={false}
+                                className="no-margin"
                                 id="bulk-edit-controller"
                                 onChange={[Function]}
                                 type="checkbox"
@@ -3352,6 +3353,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             >
                                               <input
                                                 checked={false}
+                                                className="no-margin"
                                                 id="bulk-action-checkbox-10001"
                                                 onChange={[Function]}
                                                 type="checkbox"
@@ -6728,6 +6730,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             >
                                               <input
                                                 checked={false}
+                                                className="no-margin"
                                                 id="bulk-action-checkbox-10002"
                                                 onChange={[Function]}
                                                 type="checkbox"
@@ -10104,6 +10107,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             >
                                               <input
                                                 checked={false}
+                                                className="no-margin"
                                                 id="bulk-action-checkbox-10003"
                                                 onChange={[Function]}
                                                 type="checkbox"
@@ -13480,6 +13484,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             >
                                               <input
                                                 checked={false}
+                                                className="no-margin"
                                                 id="bulk-action-checkbox-10004"
                                                 onChange={[Function]}
                                                 type="checkbox"
@@ -16856,6 +16861,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             >
                                               <input
                                                 checked={false}
+                                                className="no-margin"
                                                 id="bulk-action-checkbox-10005"
                                                 onChange={[Function]}
                                                 type="checkbox"

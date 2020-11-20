@@ -61,8 +61,8 @@ const LeaseUpApplicationsFilterContainer = ({ onSubmit, preferences = [], loadin
                     display: 'flex',
                     alignItems: 'center',
                     marginBottom: '1.25rem',
-                    paddingLeft: '1.5rem',
-                    paddingRight: '.4rem'
+                    paddingLeft: '1rem',
+                    paddingRight: '1rem'
                   }}
                 >
                   <UnlabeledCheckbox id={'bulk-edit-controller'} />

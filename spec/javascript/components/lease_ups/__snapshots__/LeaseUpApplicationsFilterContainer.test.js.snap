@@ -48,8 +48,8 @@ exports[`LeaseUpApplicationsFilterContainer it matches the expected snapshot wit
               "alignItems": "center",
               "display": "flex",
               "marginBottom": "1.25rem",
-              "paddingLeft": "1.5rem",
-              "paddingRight": ".4rem",
+              "paddingLeft": "1rem",
+              "paddingRight": "1rem",
             }
           }
         >
