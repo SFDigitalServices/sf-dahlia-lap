@@ -13,6 +13,13 @@ import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
 import { cellFormat } from 'utils/reactTableUtils'
 import { getLeaseUpStatusClass } from 'utils/statusUtils'
 
+const CELL_PADDING_PX = 16
+
+const getCellWidth = (baseSizePx, isAtStartOrEnd = false) => {
+  const padding = isAtStartOrEnd ? 1.5 * CELL_PADDING_PX : CELL_PADDING_PX
+  return baseSizePx + padding
+}
+
 const resizableCell = (cell) => <span className='rt-resizable-td-content'>{cell.value}</span>
 
 const LeaseUpApplicationsTable = ({
@@ -42,8 +49,8 @@ const LeaseUpApplicationsTable = ({
     {
       Header: '',
       accessor: 'bulk_checkbox',
-      headerClassName: 'td-min-narrow',
-      className: 'td-min-narrow',
+      headerClassName: 'non-resizable',
+      width: getCellWidth(24, true),
       Cell: (cell) => {
         const appId = cell.original.application_id
         return (
@@ -56,10 +63,10 @@ const LeaseUpApplicationsTable = ({
       }
     },
     {
-      Header: 'Preference Rank',
+      Header: 'Rank',
       accessor: 'rankOrder',
-      headerClassName: 'td-min-narrow',
-      className: 'td-min-narrow',
+      headerClassName: 'non-resizable',
+      width: getCellWidth(84),
       Cell: (cell) => (
         <PreferenceRankCell
           preferenceRank={cell.original.preference_rank}
@@ -68,51 +75,62 @@ const LeaseUpApplicationsTable = ({
       )
     },
     {
-      Header: 'Application Number',
+      Header: 'Application',
       accessor: 'application_number',
-      className: 'text-left',
+      headerClassName: 'non-resizable',
+      width: getCellWidth(100),
       Cell: (cell) => (
-        <Link
-          to={appPaths.toApplicationSupplementals(cell.original.application_id)}
-          className='has-border'
-        >
+        <Link to={appPaths.toApplicationSupplementals(cell.original.application_id)}>
           {cell.value}
         </Link>
       )
     },
-    { Header: 'First Name', accessor: 'first_name', Cell: resizableCell, className: 'text-left' },
-    { Header: 'Last Name', accessor: 'last_name', Cell: resizableCell, className: 'text-left' },
     {
-      Header: 'Accessibility Requests',
-      accessor: 'accessibility',
-      Cell: resizableCell,
-      className: 'text-left'
+      Header: 'First Name',
+      accessor: 'first_name',
+      headerClassName: 'non-resizable',
+      minWidth: getCellWidth(120),
+      Cell: resizableCell
+    },
+    {
+      Header: 'Last Name',
+      accessor: 'last_name',
+      headerClassName: 'non-resizable',
+      minWidth: getCellWidth(120),
+      Cell: resizableCell
     },
     {
       Header: 'HH',
       accessor: 'total_household_size',
-      Cell: resizableCell,
-      headerClassName: 'text-right td-min-narrow',
-      className: 'text-right td-min-narrow'
+      headerClassName: 'non-resizable',
+      width: getCellWidth(24)
+    },
+    {
+      Header: 'Requests',
+      accessor: 'accessibility',
+      headerClassName: 'non-resizable',
+      minWidth: getCellWidth(84),
+      Cell: resizableCell
     },
     {
       Header: 'Updated',
       accessor: 'status_last_updated',
-      headerClassName: 'text-right td-min-narrow',
-      className: 'text-right td-min-narrow',
+      headerClassName: 'non-resizable',
+      minWidth: getCellWidth(80),
       Cell: cellFormat.date
     },
     {
-      Header: 'Substatus',
+      Header: 'Latest Substatus',
       accessor: 'sub_status',
-      headerClassName: 'td-offset-right',
-      className: 'td-offset-right text-right td-min-wide'
+      headerClassName: 'non-resizable',
+      minWidth: getCellWidth(412)
     },
     {
-      Header: 'Lease Up Status',
+      Header: 'Status',
       accessor: 'lease_up_status',
-      headerClassName: 'td-min-wide tr-fixed-right',
-      className: 'td-min-wide td-status td-fixed-right',
+      headerClassName: 'non-resizable tr-fixed-right',
+      minWidth: getCellWidth(186, true),
+      className: 'td-status td-fixed-right',
       Cell: (cell) => {
         const {
           application_id: applicationId,

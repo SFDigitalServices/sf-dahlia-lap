@@ -9,22 +9,25 @@ export const VALIDATION_CONFIRMED = 'Confirmed'
 export const VALIDATION_UNCONFIRMED = 'Unconfirmed'
 export const VALIDATION_INVALID = 'Invalid'
 
-const getCellContainerStyle = (hasIcon) => ({
+const cellContainerStyle = {
   width: '100%',
   display: 'flex',
-  justifyContent: hasIcon ? 'space-between' : 'flex-start',
+  justifyContent: 'flex-start',
   alignItems: 'center'
-})
+}
+
+const textStyle = {
+  minWidth: '60px',
+  paddingRight: '0.5rem'
+}
 
 const PreferenceRankCell = ({ preferenceRank, preferenceValidation }) => {
   const showXIcon = preferenceValidation === VALIDATION_INVALID
   const showCheckIcon = preferenceValidation === VALIDATION_CONFIRMED
-  const showAnyIcon = showXIcon || showCheckIcon
 
   return (
-    <div style={getCellContainerStyle(showAnyIcon)}>
-      {preferenceRank}
-      {showAnyIcon && <>&nbsp;</>}
+    <div style={cellContainerStyle}>
+      <div style={textStyle}>{preferenceRank}</div>
       {showXIcon && <StyledIcon icon='close' size='medium' customFill={COLORS.alert} />}
       {showCheckIcon && (
         <StyledIcon icon='check' customSizeRem='1.25rem' customFill={COLORS.success} />

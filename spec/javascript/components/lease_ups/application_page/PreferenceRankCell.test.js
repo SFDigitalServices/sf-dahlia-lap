@@ -57,8 +57,8 @@ describe('PreferenceRankCell', () => {
       expect(findWithProps(wrapper, StyledIcon, { customFill: COLORS.success })).toHaveLength(1)
     })
 
-    test('renders cell with space-between justification', () => {
-      expect(wrapper.props().style.justifyContent).toEqual('space-between')
+    test('renders cell with flex-start justification', () => {
+      expect(wrapper.props().style.justifyContent).toEqual('flex-start')
     })
   })
 
@@ -83,8 +83,8 @@ describe('PreferenceRankCell', () => {
       expect(findWithProps(wrapper, StyledIcon, { customFill: COLORS.alert })).toHaveLength(1)
     })
 
-    test('renders cell with space-between justification', () => {
-      expect(wrapper.props().style.justifyContent).toEqual('space-between')
+    test('renders cell with flex-start justification', () => {
+      expect(wrapper.props().style.justifyContent).toEqual('flex-start')
     })
   })
 })

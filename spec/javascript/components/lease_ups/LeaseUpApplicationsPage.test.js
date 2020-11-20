@@ -198,9 +198,7 @@ describe('LeaseUpApplicationsPage', () => {
     expect(wrapper.find(StatusModalWrapper).props().isOpen).toBeFalsy()
 
     // Expect the changed row to have the updated substatus and date
-    expect(wrapper.find(rowSelector).first().find('div.td-offset-right').text()).toEqual(
-      'None of the above'
-    )
+    expect(wrapper.find(rowSelector).first().text().includes('None of the above')).toBeTruthy()
     expect(wrapper.find(rowSelector).first().find(PrettyTime).text()).not.toEqual(dateBefore)
   })
 })
