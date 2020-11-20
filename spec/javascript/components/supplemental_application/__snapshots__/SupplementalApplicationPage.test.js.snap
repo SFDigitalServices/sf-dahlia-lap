@@ -6158,8 +6158,19 @@ Array [
                         <button
                           className="button dropdown-button has-icon--right text-align-left tertiary"
                           disabled={false}
+                          style={Object {}}
                           type="button"
                         >
+                          <div
+                            style={
+                              Object {
+                                "alignItems": "center",
+                                "display": "flex",
+                                "justifyContent": "space-between",
+                                "width": "100%",
+                              }
+                            }
+                          />
                           <span
                             className="ui-icon ui-small"
                           >
@@ -6224,8 +6235,19 @@ Array [
                         <button
                           className="button dropdown-button has-icon--right text-align-left tertiary"
                           disabled={false}
+                          style={Object {}}
                           type="button"
                         >
+                          <div
+                            style={
+                              Object {
+                                "alignItems": "center",
+                                "display": "flex",
+                                "justifyContent": "space-between",
+                                "width": "100%",
+                              }
+                            }
+                          />
                           <span
                             className="ui-icon ui-small"
                           >

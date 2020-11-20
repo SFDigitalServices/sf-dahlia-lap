@@ -64,6 +64,7 @@ const Button = ({
   type = 'button',
   minWidthPx = null,
   style = {},
+  children = null,
   ...rest
 }) => {
   const btnClassNames = classNames(classes, {
@@ -89,6 +90,7 @@ const Button = ({
         {wrapWithStyle(text, textStyles(!!iconLeft, !!iconRight))}
         {wrapWithStyle(iconRight, iconWrapperStyles())}
       </div>
+      {children}
     </button>
   )
 }
@@ -96,6 +98,7 @@ const Button = ({
 Button.propTypes = {
   type: PropTypes.oneOf(['button', 'submit']),
   noBottomMargin: PropTypes.bool,
+  children: PropTypes.node,
   classes: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   iconLeft: PropTypes.node,
   iconRight: PropTypes.node,

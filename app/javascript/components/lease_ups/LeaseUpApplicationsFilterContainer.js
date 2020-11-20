@@ -4,10 +4,12 @@ import classNames from 'classnames'
 import { Form } from 'react-final-form'
 
 import Button from 'components/atoms/Button'
+import UnlabeledCheckbox from 'components/atoms/UnlabeledCheckbox'
 import { LEASE_UP_APPLICATION_FILTERS } from 'components/lease_ups/applicationFiltersConsts'
 import LeaseUpApplicationsFilters from 'components/lease_ups/LeaseUpApplicationsFilters'
 import Loading from 'components/molecules/Loading'
 import ShowHideFiltersButton from 'components/molecules/ShowHideFiltersButton'
+import StatusDropdown from 'components/molecules/StatusDropdown'
 import SearchField from 'utils/form/final_form/SearchField'
 import formUtils from 'utils/formUtils'
 
@@ -53,6 +55,25 @@ const LeaseUpApplicationsFilterContainer = ({ onSubmit, preferences = [], loadin
         render={({ form, handleSubmit }) => (
           <form style={styles.marginBottomZero} onSubmit={handleSubmit} noValidate>
             <div className='filter-row'>
+              <div className='filter-group filter-group--left'>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    marginBottom: '1.25rem',
+                    paddingLeft: '1.5rem',
+                    paddingRight: '.4rem'
+                  }}
+                >
+                  <UnlabeledCheckbox id={'bulk-edit-controller'} />
+                </div>
+                <div className='filter-group_action'>
+                  <StatusDropdown
+                    onChange={() => console.log('on status dropdown change')}
+                    minWidthPx={'185px'}
+                  />
+                </div>
+              </div>
               <div className='filter-group'>
                 <div className='filter-group_item__large'>
                   <SearchField

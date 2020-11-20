@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import { components } from 'react-select'
 
+import Button from 'components/atoms/Button'
 import { LEASE_UP_STATUS_OPTIONS, LEASE_UP_STATUS_VALUES } from 'utils/statusUtils'
 
 import Icon from '../atoms/Icon'
@@ -18,7 +19,15 @@ export const renderStatusOption = ({ value, label, statusClassName }, { selectVa
   )
 }
 
-const StatusDropdown = ({ status, onChange, disabled, placeholder, size, expand }) => {
+const StatusDropdown = ({
+  status,
+  onChange,
+  disabled = false,
+  placeholder = 'Status',
+  size = null,
+  expand = false,
+  minWidthPx = null
+}) => {
   const buttonClasses = [
     'button',
     'dropdown-button',
@@ -32,10 +41,11 @@ const StatusDropdown = ({ status, onChange, disabled, placeholder, size, expand 
     const val = getValue()[0]
 
     return (
-      <button
+      <Button
         className={classNames(buttonClasses.concat(val?.statusClassName || 'tertiary'))}
         type='button'
         disabled={disabled}
+        minWidthPx={minWidthPx}
       >
         <Icon icon='arrow-down' size='small' />
         {val?.label ? val.label : placeholder}
@@ -44,7 +54,7 @@ const StatusDropdown = ({ status, onChange, disabled, placeholder, size, expand 
             {children}
           </components.ValueContainer>
         </div>
-      </button>
+      </Button>
     )
   }
 
@@ -66,17 +76,10 @@ StatusDropdown.propTypes = {
   disabled: PropTypes.bool,
   expand: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
+  minWidthPx: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['tiny', 'small']),
   status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES)
-}
-
-StatusDropdown.defaultProps = {
-  disabled: false,
-  expand: false,
-  placeholder: 'Status',
-  size: null,
-  status: null
 }
 
 export default StatusDropdown

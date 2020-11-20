@@ -40,6 +40,33 @@ exports[`LeaseUpApplicationsFilterContainer it matches the expected snapshot wit
       className="filter-row"
     >
       <div
+        className="filter-group filter-group--left"
+      >
+        <div
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "marginBottom": "1.25rem",
+              "paddingLeft": "1.5rem",
+              "paddingRight": ".4rem",
+            }
+          }
+        >
+          <UnlabeledCheckbox
+            id="bulk-edit-controller"
+          />
+        </div>
+        <div
+          className="filter-group_action"
+        >
+          <StatusDropdown
+            minWidthPx="185px"
+            onChange={[Function]}
+          />
+        </div>
+      </div>
+      <div
         className="filter-group"
       >
         <div
