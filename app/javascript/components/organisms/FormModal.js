@@ -7,21 +7,22 @@ import Loading from '../molecules/Loading'
 import Modal from './Modal'
 
 const FormModalBody = ({
-  type,
-  header,
+  alertMsg,
+  children,
+  handleClose,
+  initialValues,
   isOpen,
+  loading,
+  onAlertCloseClick,
+  onSecondaryClick,
+  onSubmit,
   primary,
   secondary,
   showAlert,
-  alertMsg,
-  onAlertCloseClick,
-  handleClose,
-  onSubmit,
-  onSecondaryClick,
-  children,
-  validateError,
-  loading,
-  initialValues
+  subtitle,
+  title,
+  type,
+  validateError
 }) => {
   const primaryButtonClassName = classNames({
     button: true,
@@ -31,11 +32,11 @@ const FormModalBody = ({
 
   return (
     <Modal.Body hidden={isOpen} handleClose={handleClose}>
-      <Modal.Header title={header} />
+      <Modal.Header title={title} />
       {showAlert && alertMsg && (
         <Modal.Alert invert show={showAlert} title={alertMsg} onCloseClick={onAlertCloseClick} />
       )}
-
+      {subtitle && <Modal.Content>{subtitle}</Modal.Content>}
       <div className='form-modal_form_wrapper' data-loading={loading}>
         <Loading isLoading={loading}>
           <Form

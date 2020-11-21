@@ -1,6 +1,7 @@
 import React from 'react'
 
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
 import { Field } from 'react-final-form'
 
 import FormGrid from 'components/molecules/FormGrid'
@@ -10,27 +11,31 @@ import { TextAreaField, Label, FieldError } from 'utils/form/final_form/Field'
 import validate from 'utils/form/validations'
 import {
   statusRequiresComments,
+  LEASE_UP_STATUS_VALUES,
   LEASE_UP_SUBSTATUS_OPTIONS,
+  LEASE_UP_SUBSTATUS_VALUES,
   validateStatusForm
 } from 'utils/statusUtils'
 
 import FormModal from './FormModal'
 
 const StatusModalWrapper = ({
+  alertMsg,
   isOpen,
+  loading,
+  onAlertCloseClick,
   onClose,
   onSubmit,
   showAlert,
-  alertMsg,
-  onAlertCloseClick,
-  loading,
   status = null,
+  submitButton,
   subStatus = null,
-  header,
-  submitButton
+  title,
+  subtitle
 }) => (
   <FormModal
-    header={header}
+    title={title}
+    subtitle={subtitle}
     primary={submitButton}
     secondary='cancel'
     isOpen={isOpen}
@@ -133,3 +138,17 @@ const StatusModalWrapper = ({
 )
 
 export default StatusModalWrapper
+
+StatusModalWrapper.propTypes = {
+  isOpen: PropTypes.bool,
+  onClose: PropTypes.func,
+  onSubmit: PropTypes.func,
+  showAlert: PropTypes.bool,
+  alertMsg: PropTypes.string,
+  onAlertCloseClick: PropTypes.func,
+  loading: PropTypes.bool,
+  status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
+  subStatus: PropTypes.oneOf(LEASE_UP_SUBSTATUS_VALUES),
+  title: PropTypes.string,
+  submitButton: PropTypes.node
+}

@@ -104,7 +104,7 @@ const LeaseUpTableContainer = ({
       />
       <StatusModalWrapper
         {...statusModal}
-        header='Update Status'
+        title='Update Status'
         submitButton='Update'
         onSubmit={createStatusUpdate}
         onClose={closeStatusModal}

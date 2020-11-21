@@ -71,6 +71,7 @@ const LeaseUpApplicationsFilterContainer = ({ onSubmit, preferences = [], loadin
                   <StatusDropdown
                     onChange={() => console.log('on status dropdown change')}
                     minWidthPx={'185px'}
+                    placeholder={'Set Status'}
                   />
                 </div>
               </div>
