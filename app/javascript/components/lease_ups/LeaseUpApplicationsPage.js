@@ -70,19 +70,19 @@ const LeaseUpApplicationsPage = () => {
     page: 0,
     pages: 0,
     atMaxPages: false,
-    statusModal: {
-      isOpen: false,
-      status: null,
-      subStatus: null,
-      applicationId: null,
-      showAlert: null,
-      loading: false
-    },
     listing: null,
     eagerPagination: new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
   })
-  const [bulkCheckboxesState, setBulkCheckboxesState] = useState({})
 
+  const [bulkCheckboxesState, setBulkCheckboxesState] = useState({})
+  const [statusModalState, setStatusModalState] = useState({
+    isOpen: false,
+    status: null,
+    subStatus: null,
+    applicationId: null,
+    showAlert: null,
+    loading: false
+  })
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
 
@@ -101,16 +101,13 @@ const LeaseUpApplicationsPage = () => {
     setBulkCheckboxesState({ ...bulkCheckboxesState, [appId]: !bulkCheckboxesState[appId] })
   }
 
+  const updateStatusModal = (newState) => {
+    setStatusModalState({ ...statusModalState, ...newState })
+  }
   const setState = (newState) =>
     overrideEntireState((prevState) => ({
       ...prevState,
       ...newState
-    }))
-
-  const setStateWithPrev = (newState) =>
-    overrideEntireState((prevState) => ({
-      ...prevState,
-      ...newState(prevState)
     }))
 
   const loadPage = async (page, filters) => {
@@ -163,12 +160,12 @@ const LeaseUpApplicationsPage = () => {
       .then((response) => {
         each(applications, (app, index) => {
           if (app.application_id === applicationId) {
-            updateResults(`[${index}]['lease_up_status']`, status)
-            updateResults(
+            updateApplicationState(`[${index}]['lease_up_status']`, status)
+            updateApplicationState(
               `[${index}]['status_last_updated']`,
               moment().format(SALESFORCE_DATE_FORMAT)
             )
-            updateResults(`[${index}]['sub_status']`, subStatus)
+            updateApplicationState(`[${index}]['sub_status']`, subStatus)
           }
         })
 
@@ -190,17 +187,10 @@ const LeaseUpApplicationsPage = () => {
       })
   }
 
-  const updateStatusModal = (values) => {
-    setStateWithPrev((prevState) => ({
-      statusModal: {
-        ...clone(prevState.statusModal),
-        ...values
-      }
-    }))
-  }
-
-  const updateResults = (path, value) => {
-    setStateWithPrev((prevState) => ({
+  // TODO make sure that this fix works, not really sure what this function was
+  const updateApplicationState = (path, value) => {
+    overrideEntireState((prevState) => ({
+      ...prevState,
       applications: set(clone(prevState.applications), path, value)
     }))
   }
@@ -216,7 +206,7 @@ const LeaseUpApplicationsPage = () => {
     pages: state.pages,
     rowsPerPage: ROWS_PER_PAGE,
     updateStatusModal: updateStatusModal,
-    statusModal: state.statusModal,
+    statusModal: statusModalState,
     atMaxPages: state.atMaxPages,
     bulkCheckboxesState,
     onBulkCheckboxClick
