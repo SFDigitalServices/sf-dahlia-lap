@@ -10,23 +10,16 @@ import { LEASE_UP_STATUS_OPTIONS, LEASE_UP_STATUS_VALUES } from 'utils/statusUti
 import Icon from '../atoms/Icon'
 import Dropdown from '../molecules/Dropdown'
 
-export const renderStatusOption = ({ value, label, statusClassName }, { selectValue }) => {
-  const isSelected = selectValue[0]?.value === value
-  return (
-    <li className={classNames('dropdown-menu_item', statusClassName)} aria-selected={isSelected}>
-      <a>{label}</a>
-    </li>
-  )
-}
-
 const StatusDropdown = ({
   status,
   onChange,
+  overrideValue = false,
   disabled = false,
   placeholder = 'Status',
   size = null,
   expand = false,
-  minWidthPx = null
+  minWidthPx = null,
+  updateOnChange = true
 }) => {
   const buttonClasses = [
     'button',
@@ -37,8 +30,16 @@ const StatusDropdown = ({
     { tiny: size === 'tiny' },
     { small: size === 'small' }
   ]
+  const renderStatusOption = ({ value, label, statusClassName }, { selectValue }) => {
+    const isSelected = selectValue[0]?.value === value
+    return (
+      <li className={classNames('dropdown-menu_item', statusClassName)} aria-selected={isSelected}>
+        <a>{label}</a>
+      </li>
+    )
+  }
   const renderStatusToggle = ({ children, getValue, ...props }) => {
-    const val = getValue()[0]
+    const val = updateOnChange ? getValue()[0] : null
 
     return (
       <Button
@@ -68,6 +69,7 @@ const StatusDropdown = ({
       renderToggle={renderStatusToggle}
       renderOption={renderStatusOption}
       disabled={disabled}
+      overrideValue={overrideValue}
     />
   )
 }

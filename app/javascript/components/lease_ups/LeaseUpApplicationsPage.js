@@ -100,7 +100,7 @@ const LeaseUpApplicationsPage = () => {
     setBulkCheckboxesState(emptyCheckboxes)
   }
 
-  const handleClickBulkCheckbox = (appId) => {
+  const handleBulkCheckboxClick = (appId) => {
     setBulkCheckboxesState({ ...bulkCheckboxesState, [appId]: !bulkCheckboxesState[appId] })
   }
 
@@ -245,21 +245,20 @@ const LeaseUpApplicationsPage = () => {
 
   const context = {
     applications: state.applications,
-    listingId: listingId,
-    preferences: getPreferences(state.listing),
-    handleOnFetchData: handleOnFetchData,
-    handleCloseStatusModal: handleCloseStatusModal,
-    handleOnFilter: handleOnFilter,
-    loading: state.loading,
-    pages: state.pages,
-    rowsPerPage: ROWS_PER_PAGE,
-    statusModal: statusModalState,
     atMaxPages: state.atMaxPages,
     bulkCheckboxesState: bulkCheckboxesState,
-    onBulkCheckboxClick: handleClickBulkCheckbox,
+    listingId: listingId,
+    loading: state.loading,
+    onBulkCheckboxClick: handleBulkCheckboxClick,
+    onCloseStatusModal: handleCloseStatusModal,
+    onFetchData: handleOnFetchData,
+    onFilter: handleOnFilter,
+    onLeaseUpStatusChange: handleLeaseUpStatusChange,
     onSubmitStatusModal: handleStatusModalSubmit,
-    handleLeaseUpStatusChange: handleLeaseUpStatusChange,
-    handleStatusModalSubmit: handleStatusModalSubmit
+    pages: state.pages,
+    preferences: getPreferences(state.listing),
+    rowsPerPage: ROWS_PER_PAGE,
+    statusModal: statusModalState
   }
 
   return (

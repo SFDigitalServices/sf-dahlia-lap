@@ -11,21 +11,21 @@ import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
 
 const LeaseUpTableContainer = ({
   store: {
-    listingId,
     applications,
-    statusModal,
-    preferences,
-    loading,
-    handleOnFilter,
-    handleOnFetchData,
-    pages,
-    rowsPerPage,
     atMaxPages,
-    handleCloseStatusModal,
-    onSubmitStatusModal,
     bulkCheckboxesState,
+    listingId,
+    loading,
     onBulkCheckboxClick,
-    handleLeaseUpStatusChange
+    onCloseStatusModal,
+    onFetchData,
+    onFilter,
+    onLeaseUpStatusChange,
+    onSubmitStatusModal,
+    pages,
+    preferences,
+    rowsPerPage,
+    statusModal
   }
 }) => {
   const buildRowData = (result) => {
@@ -55,17 +55,17 @@ const LeaseUpTableContainer = ({
     <>
       <LeaseUpApplicationsFilterContainer
         preferences={preferences}
-        onSubmit={handleOnFilter}
+        onSubmit={onFilter}
         loading={loading}
-        onBulkLeaseUpStatusChange={handleLeaseUpStatusChange}
+        onBulkLeaseUpStatusChange={onLeaseUpStatusChange}
       />
       <LeaseUpApplicationsTable
         dataSet={rowsData(applications)}
         listingId={listingId}
-        onLeaseUpStatusChange={handleLeaseUpStatusChange}
+        onLeaseUpStatusChange={onLeaseUpStatusChange}
         onCellClick={goToSupplementaryInfo}
         loading={loading}
-        onFetchData={handleOnFetchData}
+        onFetchData={onFetchData}
         pages={pages}
         rowsPerPage={rowsPerPage}
         atMaxPages={atMaxPages}
@@ -77,7 +77,7 @@ const LeaseUpTableContainer = ({
         isBulkChange={statusModal.isBulkChange}
         isOpen={statusModal.isOpen}
         loading={statusModal.loading}
-        onClose={handleCloseStatusModal}
+        onClose={onCloseStatusModal}
         onSubmit={onSubmitStatusModal}
         showAlert={statusModal.showAlert}
         status={statusModal.status}
