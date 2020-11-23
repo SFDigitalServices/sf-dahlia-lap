@@ -74,7 +74,7 @@ const LeaseUpApplicationsFilterContainer = ({
                 </div>
                 <div className='filter-group_action'>
                   <StatusDropdown
-                    onChange={(val) => onBulkLeaseUpStatusChange(val)}
+                    onChange={(val) => onBulkLeaseUpStatusChange(val, null)}
                     minWidthPx={'185px'}
                     placeholder={'Set Status'}
                   />

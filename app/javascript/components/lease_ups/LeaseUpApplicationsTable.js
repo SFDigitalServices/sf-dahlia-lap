@@ -21,7 +21,7 @@ const LeaseUpStatusCell = ({ cell, onChange }) => {
   const value = cell.value || null
   return (
     <div style={{ display: 'flex', position: 'absolute', alignItems: 'center' }}>
-      <StatusDropdown status={value} size='tiny' onChange={(val) => onChange(applicationId, val)} />
+      <StatusDropdown status={value} size='tiny' onChange={(val) => onChange(val, applicationId)} />
       <StatusHistoryPopover applicationId={applicationId} />
     </div>
   )
