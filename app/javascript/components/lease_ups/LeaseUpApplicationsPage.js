@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 
-import { map, each, set, clone } from 'lodash'
+import { map, set, clone } from 'lodash'
 import moment from 'moment'
 import { useParams } from 'react-router-dom'
 
@@ -153,22 +153,37 @@ const LeaseUpApplicationsPage = () => {
     loadPage(0, filters)
   }
 
+  const handleBulkStatusUpdate = async ({ comment, status, subStatus }) => {
+    const appsToUpdate = Object.keys(bulkCheckboxesState).filter((id) => bulkCheckboxesState[id])
+    const statusUpdateRequests = appsToUpdate.map((appId) =>
+      createFieldUpdateComment(appId, status, comment, subStatus)
+    )
+    Promise.all(statusUpdateRequests)
+      .then(() => {
+        bulkUpdateApplicationState(appsToUpdate, status, subStatus)
+        updateStatusModal({
+          applicationId: null,
+          isOpen: false,
+          loading: false,
+          showAlert: false,
+          status: null
+        })
+        setInitialCheckboxState(state.applications)
+      })
+      .catch(() => {
+        updateStatusModal({
+          loading: false,
+          showAlert: true,
+          alertMsg: 'We were unable to make the update, please try again.',
+          onAlertCloseClick: () => updateStatusModal({ showAlert: false })
+        })
+      })
+  }
   const handleCreateStatusUpdate = async ({ applicationId, comment, status, subStatus }) => {
-    const { applications } = state
-
+    handleBulkStatusUpdate([applicationId, status, comment, subStatus])
     createFieldUpdateComment(applicationId, status, comment, subStatus)
       .then((response) => {
-        each(applications, (app, index) => {
-          if (app.application_id === applicationId) {
-            updateApplicationState(`[${index}]['lease_up_status']`, status)
-            updateApplicationState(
-              `[${index}]['status_last_updated']`,
-              moment().format(SALESFORCE_DATE_FORMAT)
-            )
-            updateApplicationState(`[${index}]['sub_status']`, subStatus)
-          }
-        })
-
+        updateApplicationState(applicationId, status, subStatus)
         updateStatusModal({
           applicationId: null,
           isOpen: false,
@@ -187,12 +202,41 @@ const LeaseUpApplicationsPage = () => {
       })
   }
 
-  // TODO make sure that this fix works, not really sure what this function was
-  const updateApplicationState = (path, value) => {
-    overrideEntireState((prevState) => ({
-      ...prevState,
-      applications: set(clone(prevState.applications), path, value)
-    }))
+  const updateApplicationState = (applicationId, status, subStatus) => {
+    const index = state.applications.findIndex((app) => app.application_id === applicationId)
+
+    const updatedApplication = {
+      ...state.applications[index],
+      ...{
+        lease_up_status: status,
+        status_last_updated: moment().format(SALESFORCE_DATE_FORMAT),
+        substatus: subStatus
+      }
+    }
+    overrideEntireState({
+      ...state.applications,
+      applications: set(clone(state.applications), `[${index}]`, updatedApplication)
+    })
+  }
+
+  // Updated the visible status, substatus, and status last updated for many applications at once
+  const bulkUpdateApplicationState = (applicationIds, status, subStatus) => {
+    const updatedApplications = state.applications.map((app) =>
+      applicationIds.includes(app.application_id)
+        ? {
+            ...app,
+            ...{
+              lease_up_status: status,
+              status_last_updated: moment().format(SALESFORCE_DATE_FORMAT),
+              substatus: subStatus
+            }
+          }
+        : app
+    )
+    overrideEntireState({
+      ...state,
+      applications: updatedApplications
+    })
   }
 
   const context = {
