@@ -22,7 +22,12 @@ const styles = {
 const getNumFiltersApplied = (form) =>
   LEASE_UP_APPLICATION_FILTERS.filter((f) => !!form.getState().values[f.fieldName]).length
 
-const LeaseUpApplicationsFilterContainer = ({ onSubmit, preferences = [], loading = false }) => {
+const LeaseUpApplicationsFilterContainer = ({
+  onSubmit,
+  preferences = [],
+  loading = false,
+  onBulkLeaseUpStatusChange
+}) => {
   const [isShowingFilters, setIsShowingFilters] = useState(false)
   const [hasChangedFilters, setHasChangedFilters] = useState(false)
 
@@ -69,7 +74,7 @@ const LeaseUpApplicationsFilterContainer = ({ onSubmit, preferences = [], loadin
                 </div>
                 <div className='filter-group_action'>
                   <StatusDropdown
-                    onChange={() => console.log('on status dropdown change')}
+                    onChange={(val) => onBulkLeaseUpStatusChange(val)}
                     minWidthPx={'185px'}
                     placeholder={'Set Status'}
                   />

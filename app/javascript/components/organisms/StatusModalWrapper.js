@@ -30,12 +30,12 @@ const StatusModalWrapper = ({
   status = null,
   submitButton,
   subStatus = null,
-  title,
-  subtitle
+  bulkUpdateCount = null,
+  title
 }) => (
   <FormModal
     title={title}
-    subtitle={subtitle}
+    subtitle={bulkUpdateCount ? `Update the status for ${bulkUpdateCount} selected items` : null}
     primary={submitButton}
     secondary='cancel'
     isOpen={isOpen}
@@ -150,5 +150,6 @@ StatusModalWrapper.propTypes = {
   status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
   subStatus: PropTypes.oneOf(LEASE_UP_SUBSTATUS_VALUES),
   title: PropTypes.string,
+  bulkUpdateCount: PropTypes.number,
   submitButton: PropTypes.node
 }

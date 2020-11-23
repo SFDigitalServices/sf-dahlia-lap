@@ -17,16 +17,11 @@ import StatusHistoryPopover from '../organisms/StatusHistoryPopover'
 
 const LeaseUpStatusCell = ({ cell, onChange }) => {
   const applicationId = cell.original.application_id
-  const applicationPreferenceId = cell.original.application_preference_id
 
   const value = cell.value || null
   return (
     <div style={{ display: 'flex', position: 'absolute', alignItems: 'center' }}>
-      <StatusDropdown
-        status={value}
-        size='tiny'
-        onChange={(val) => onChange(applicationPreferenceId, applicationId, val)}
-      />
+      <StatusDropdown status={value} size='tiny' onChange={(val) => onChange(applicationId, val)} />
       <StatusHistoryPopover applicationId={applicationId} />
     </div>
   )

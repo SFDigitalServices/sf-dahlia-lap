@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 
-import { map, set, clone } from 'lodash'
+import { map } from 'lodash'
 import moment from 'moment'
 import { useParams } from 'react-router-dom'
 
@@ -81,7 +81,9 @@ const LeaseUpApplicationsPage = () => {
     subStatus: null,
     applicationId: null,
     showAlert: null,
-    loading: false
+    loading: false,
+    onSubmit: null,
+    bulkUpdateCount: null
   })
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
@@ -102,7 +104,11 @@ const LeaseUpApplicationsPage = () => {
   }
 
   const updateStatusModal = (newState) => {
-    setStatusModalState({ ...statusModalState, ...newState })
+    console.log('updating status modal, old state', statusModalState, 'new state', newState)
+    setStatusModalState((prevState) => {
+      console.log('prev state in the actual update', prevState)
+      return { ...prevState, ...newState }
+    })
   }
   const setState = (newState) =>
     overrideEntireState((prevState) => ({
@@ -154,13 +160,14 @@ const LeaseUpApplicationsPage = () => {
   }
 
   const handleBulkStatusUpdate = async ({ comment, status, subStatus }) => {
+    await console.log('handleBulkStatusUpdate state of status modal going in', statusModalState)
     const appsToUpdate = Object.keys(bulkCheckboxesState).filter((id) => bulkCheckboxesState[id])
     const statusUpdateRequests = appsToUpdate.map((appId) =>
       createFieldUpdateComment(appId, status, comment, subStatus)
     )
     Promise.all(statusUpdateRequests)
       .then(() => {
-        bulkUpdateApplicationState(appsToUpdate, status, subStatus)
+        updateApplicationState(appsToUpdate, status, subStatus)
         updateStatusModal({
           applicationId: null,
           isOpen: false,
@@ -179,11 +186,12 @@ const LeaseUpApplicationsPage = () => {
         })
       })
   }
+
   const handleCreateStatusUpdate = async ({ applicationId, comment, status, subStatus }) => {
-    handleBulkStatusUpdate([applicationId, status, comment, subStatus])
+    console.log('create status update with app id', applicationId)
     createFieldUpdateComment(applicationId, status, comment, subStatus)
       .then((response) => {
-        updateApplicationState(applicationId, status, subStatus)
+        updateApplicationState([applicationId], status, subStatus)
         updateStatusModal({
           applicationId: null,
           isOpen: false,
@@ -202,25 +210,8 @@ const LeaseUpApplicationsPage = () => {
       })
   }
 
-  const updateApplicationState = (applicationId, status, subStatus) => {
-    const index = state.applications.findIndex((app) => app.application_id === applicationId)
-
-    const updatedApplication = {
-      ...state.applications[index],
-      ...{
-        lease_up_status: status,
-        status_last_updated: moment().format(SALESFORCE_DATE_FORMAT),
-        substatus: subStatus
-      }
-    }
-    overrideEntireState({
-      ...state.applications,
-      applications: set(clone(state.applications), `[${index}]`, updatedApplication)
-    })
-  }
-
   // Updated the visible status, substatus, and status last updated for many applications at once
-  const bulkUpdateApplicationState = (applicationIds, status, subStatus) => {
+  const updateApplicationState = (applicationIds, status, subStatus) => {
     const updatedApplications = state.applications.map((app) =>
       applicationIds.includes(app.application_id)
         ? {
@@ -228,13 +219,12 @@ const LeaseUpApplicationsPage = () => {
             ...{
               lease_up_status: status,
               status_last_updated: moment().format(SALESFORCE_DATE_FORMAT),
-              substatus: subStatus
+              sub_status: subStatus
             }
           }
         : app
     )
-    overrideEntireState({
-      ...state,
+    setState({
       applications: updatedApplications
     })
   }
@@ -253,7 +243,8 @@ const LeaseUpApplicationsPage = () => {
     statusModal: statusModalState,
     atMaxPages: state.atMaxPages,
     bulkCheckboxesState,
-    onBulkCheckboxClick
+    onBulkCheckboxClick,
+    handleBulkStatusUpdate
   }
 
   return (

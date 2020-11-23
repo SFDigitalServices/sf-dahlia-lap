@@ -24,29 +24,60 @@ const LeaseUpTableContainer = ({
     updateStatusModal,
     handleCreateStatusUpdate,
     bulkCheckboxesState,
-    onBulkCheckboxClick
+    onBulkCheckboxClick,
+    handleBulkStatusUpdate
   }
 }) => {
   const closeStatusModal = () => {
+    console.log('called close status modal')
     updateStatusModal({
       isOpen: false,
-      showAlert: false
+      showAlert: false,
+      bulkUpdateCount: null
     })
   }
 
-  const leaseUpStatusChangeHandler = (applicationPreferenceId, applicationId, value) => {
+  const leaseUpStatusChangeHandler = (applicationId, value) => {
+    console.log('lease up status change app id', applicationId)
     updateStatusModal({
       applicationId: applicationId,
-      applicationPreferenceId: applicationPreferenceId,
       isOpen: true,
-      status: value
+      status: value,
+      onSubmit: createStatusUpdate
     })
+  }
+
+  const bulkLeaseUpStatusChangeHandler = (value) => {
+    const appsToUpdate = Object.keys(bulkCheckboxesState).filter((id) => bulkCheckboxesState[id])
+      .length
+
+    updateStatusModal({
+      applicationId: null,
+      isOpen: true,
+      status: value,
+      onSubmit: createBulkStatusUpdates,
+      bulkUpdateCount: appsToUpdate
+    })
+  }
+
+  const createBulkStatusUpdates = async (submittedValues) => {
+    updateStatusModal({ loading: true })
+
+    const { status, subStatus } = submittedValues
+    var comment = submittedValues.comment && submittedValues.comment.trim()
+    const data = {
+      status,
+      comment,
+      ...(subStatus ? { subStatus } : {})
+    }
+    handleBulkStatusUpdate(data)
   }
 
   const createStatusUpdate = async (submittedValues) => {
     updateStatusModal({ loading: true })
 
     const { applicationId } = statusModal
+    console.log('app id being sent to handleCreateStatusUpdate', applicationId, statusModal)
     const { status, subStatus } = submittedValues
     var comment = submittedValues.comment && submittedValues.comment.trim()
     const data = {
@@ -88,6 +119,7 @@ const LeaseUpTableContainer = ({
         preferences={preferences}
         onSubmit={handleOnFilter}
         loading={loading}
+        onBulkLeaseUpStatusChange={bulkLeaseUpStatusChangeHandler}
       />
       <LeaseUpApplicationsTable
         dataSet={rowsData(applications)}
@@ -106,7 +138,6 @@ const LeaseUpTableContainer = ({
         {...statusModal}
         title='Update Status'
         submitButton='Update'
-        onSubmit={createStatusUpdate}
         onClose={closeStatusModal}
       />
     </>
