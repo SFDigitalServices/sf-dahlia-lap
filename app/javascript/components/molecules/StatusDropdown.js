@@ -36,6 +36,7 @@ const StatusDropdown = ({
     'has-icon--right',
     'text-align-left',
     { expand: expand },
+    { 'tight-padding-vertical': size === 'tiny' },
     { tiny: size === 'tiny' },
     { small: size === 'small' }
   ]
