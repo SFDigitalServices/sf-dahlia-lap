@@ -87,7 +87,7 @@ const LeaseUpApplicationsFilterContainer = ({
                   }}
                 >
                   <UnlabeledCheckbox
-                    id={'bulk-edit-controller'}
+                    id='bulk-edit-controller'
                     indeterminate={!allChecked && numChecked > 0}
                     checked={allChecked}
                     onClick={handleCheckboxClicked}
