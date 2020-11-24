@@ -894,17 +894,16 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                       "Header": "Latest Substatus",
                       "accessor": "sub_status",
                       "className": "td-offset-right",
-                      "headerClassName": "td-offset-right non-resizable",
+                      "headerClassName": "td-offset-right",
                       "minWidth": 361,
                     },
                     Object {
                       "Cell": [Function],
                       "Header": "Status",
                       "accessor": "lease_up_status",
-                      "className": "border-left padding-left td-status td-fixed-right",
-                      "headerClassName": "border-left padding-left non-resizable tr-fixed-right",
+                      "className": "td-status td-fixed-right",
+                      "headerClassName": "tr-fixed-right",
                       "minWidth": 216,
-                      "paddingLeft": "10rem",
                     },
                   ]
                 }
@@ -1488,7 +1487,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                 </div>
                               </ThComponent>
                               <ThComponent
-                                className="td-offset-right non-resizable rt-resizable-header"
+                                className="td-offset-right rt-resizable-header"
                                 key="8-sub_status"
                                 style={
                                   Object {
@@ -1500,7 +1499,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                 toggleSort={[Function]}
                               >
                                 <div
-                                  className="rt-th td-offset-right non-resizable rt-resizable-header"
+                                  className="rt-th td-offset-right rt-resizable-header"
                                   onClick={[Function]}
                                   role="columnheader"
                                   style={
@@ -1530,7 +1529,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                 </div>
                               </ThComponent>
                               <ThComponent
-                                className="border-left padding-left non-resizable tr-fixed-right rt-resizable-header"
+                                className="tr-fixed-right rt-resizable-header"
                                 key="9-lease_up_status"
                                 style={
                                   Object {
@@ -1542,7 +1541,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                 toggleSort={[Function]}
                               >
                                 <div
-                                  className="rt-th border-left padding-left non-resizable tr-fixed-right rt-resizable-header"
+                                  className="rt-th tr-fixed-right rt-resizable-header"
                                   onClick={[Function]}
                                   role="columnheader"
                                   style={
@@ -2358,7 +2357,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -2541,7 +2540,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -2749,7 +2748,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -2993,7 +2992,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "getFooterProps": [Function],
                                             "getHeaderProps": [Function],
                                             "getProps": [Function],
-                                            "headerClassName": "td-offset-right non-resizable",
+                                            "headerClassName": "td-offset-right",
                                             "headerStyle": Object {},
                                             "id": "sub_status",
                                             "minResizeWidth": 11,
@@ -3110,7 +3109,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -3119,7 +3118,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     onClick={[Function]}
                                     style={
@@ -3131,7 +3130,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       onClick={[Function]}
                                       role="gridcell"
                                       style={
@@ -3146,7 +3145,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         classes={
                                           Array [
                                             undefined,
-                                            "border-left padding-left td-status td-fixed-right",
+                                            "td-status td-fixed-right",
                                             undefined,
                                           ]
                                         }
@@ -3163,7 +3162,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "Placeholder": undefined,
                                             "accessor": [Function],
                                             "aggregate": undefined,
-                                            "className": "border-left padding-left td-status td-fixed-right",
+                                            "className": "td-status td-fixed-right",
                                             "filterAll": false,
                                             "filterMethod": undefined,
                                             "filterable": undefined,
@@ -3172,12 +3171,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "getFooterProps": [Function],
                                             "getHeaderProps": [Function],
                                             "getProps": [Function],
-                                            "headerClassName": "border-left padding-left non-resizable tr-fixed-right",
+                                            "headerClassName": "tr-fixed-right",
                                             "headerStyle": Object {},
                                             "id": "lease_up_status",
                                             "minResizeWidth": 11,
                                             "minWidth": 216,
-                                            "paddingLeft": "10rem",
                                             "resizable": undefined,
                                             "show": true,
                                             "sortMethod": undefined,
@@ -5629,7 +5627,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -5812,7 +5810,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -6020,7 +6018,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -6264,7 +6262,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "getFooterProps": [Function],
                                             "getHeaderProps": [Function],
                                             "getProps": [Function],
-                                            "headerClassName": "td-offset-right non-resizable",
+                                            "headerClassName": "td-offset-right",
                                             "headerStyle": Object {},
                                             "id": "sub_status",
                                             "minResizeWidth": 11,
@@ -6381,7 +6379,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -6390,7 +6388,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     onClick={[Function]}
                                     style={
@@ -6402,7 +6400,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       onClick={[Function]}
                                       role="gridcell"
                                       style={
@@ -6417,7 +6415,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         classes={
                                           Array [
                                             undefined,
-                                            "border-left padding-left td-status td-fixed-right",
+                                            "td-status td-fixed-right",
                                             undefined,
                                           ]
                                         }
@@ -6434,7 +6432,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "Placeholder": undefined,
                                             "accessor": [Function],
                                             "aggregate": undefined,
-                                            "className": "border-left padding-left td-status td-fixed-right",
+                                            "className": "td-status td-fixed-right",
                                             "filterAll": false,
                                             "filterMethod": undefined,
                                             "filterable": undefined,
@@ -6443,12 +6441,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "getFooterProps": [Function],
                                             "getHeaderProps": [Function],
                                             "getProps": [Function],
-                                            "headerClassName": "border-left padding-left non-resizable tr-fixed-right",
+                                            "headerClassName": "tr-fixed-right",
                                             "headerStyle": Object {},
                                             "id": "lease_up_status",
                                             "minResizeWidth": 11,
                                             "minWidth": 216,
-                                            "paddingLeft": "10rem",
                                             "resizable": undefined,
                                             "show": true,
                                             "sortMethod": undefined,
@@ -8900,7 +8897,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -9083,7 +9080,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -9291,7 +9288,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -9535,7 +9532,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "getFooterProps": [Function],
                                             "getHeaderProps": [Function],
                                             "getProps": [Function],
-                                            "headerClassName": "td-offset-right non-resizable",
+                                            "headerClassName": "td-offset-right",
                                             "headerStyle": Object {},
                                             "id": "sub_status",
                                             "minResizeWidth": 11,
@@ -9652,7 +9649,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -9661,7 +9658,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     onClick={[Function]}
                                     style={
@@ -9673,7 +9670,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       onClick={[Function]}
                                       role="gridcell"
                                       style={
@@ -9688,7 +9685,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         classes={
                                           Array [
                                             undefined,
-                                            "border-left padding-left td-status td-fixed-right",
+                                            "td-status td-fixed-right",
                                             undefined,
                                           ]
                                         }
@@ -9705,7 +9702,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "Placeholder": undefined,
                                             "accessor": [Function],
                                             "aggregate": undefined,
-                                            "className": "border-left padding-left td-status td-fixed-right",
+                                            "className": "td-status td-fixed-right",
                                             "filterAll": false,
                                             "filterMethod": undefined,
                                             "filterable": undefined,
@@ -9714,12 +9711,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "getFooterProps": [Function],
                                             "getHeaderProps": [Function],
                                             "getProps": [Function],
-                                            "headerClassName": "border-left padding-left non-resizable tr-fixed-right",
+                                            "headerClassName": "tr-fixed-right",
                                             "headerStyle": Object {},
                                             "id": "lease_up_status",
                                             "minResizeWidth": 11,
                                             "minWidth": 216,
-                                            "paddingLeft": "10rem",
                                             "resizable": undefined,
                                             "show": true,
                                             "sortMethod": undefined,
@@ -12171,7 +12167,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -12354,7 +12350,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -12562,7 +12558,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -12806,7 +12802,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "getFooterProps": [Function],
                                             "getHeaderProps": [Function],
                                             "getProps": [Function],
-                                            "headerClassName": "td-offset-right non-resizable",
+                                            "headerClassName": "td-offset-right",
                                             "headerStyle": Object {},
                                             "id": "sub_status",
                                             "minResizeWidth": 11,
@@ -12923,7 +12919,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -12932,7 +12928,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     onClick={[Function]}
                                     style={
@@ -12944,7 +12940,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       onClick={[Function]}
                                       role="gridcell"
                                       style={
@@ -12959,7 +12955,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         classes={
                                           Array [
                                             undefined,
-                                            "border-left padding-left td-status td-fixed-right",
+                                            "td-status td-fixed-right",
                                             undefined,
                                           ]
                                         }
@@ -12976,7 +12972,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "Placeholder": undefined,
                                             "accessor": [Function],
                                             "aggregate": undefined,
-                                            "className": "border-left padding-left td-status td-fixed-right",
+                                            "className": "td-status td-fixed-right",
                                             "filterAll": false,
                                             "filterMethod": undefined,
                                             "filterable": undefined,
@@ -12985,12 +12981,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "getFooterProps": [Function],
                                             "getHeaderProps": [Function],
                                             "getProps": [Function],
-                                            "headerClassName": "border-left padding-left non-resizable tr-fixed-right",
+                                            "headerClassName": "tr-fixed-right",
                                             "headerStyle": Object {},
                                             "id": "lease_up_status",
                                             "minResizeWidth": 11,
                                             "minWidth": 216,
-                                            "paddingLeft": "10rem",
                                             "resizable": undefined,
                                             "show": true,
                                             "sortMethod": undefined,
@@ -15442,7 +15437,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -15625,7 +15620,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -15833,7 +15828,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -16077,7 +16072,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "getFooterProps": [Function],
                                             "getHeaderProps": [Function],
                                             "getProps": [Function],
-                                            "headerClassName": "td-offset-right non-resizable",
+                                            "headerClassName": "td-offset-right",
                                             "headerStyle": Object {},
                                             "id": "sub_status",
                                             "minResizeWidth": 11,
@@ -16194,7 +16189,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           style={
                                             Object {
                                               "overflow": "hidden",
-                                              "text-overflow": "ellipsis",
+                                              "textOverflow": "ellipsis",
                                               "width": "100%",
                                             }
                                           }
@@ -16203,7 +16198,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     onClick={[Function]}
                                     style={
@@ -16215,7 +16210,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       onClick={[Function]}
                                       role="gridcell"
                                       style={
@@ -16230,7 +16225,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         classes={
                                           Array [
                                             undefined,
-                                            "border-left padding-left td-status td-fixed-right",
+                                            "td-status td-fixed-right",
                                             undefined,
                                           ]
                                         }
@@ -16247,7 +16242,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "Placeholder": undefined,
                                             "accessor": [Function],
                                             "aggregate": undefined,
-                                            "className": "border-left padding-left td-status td-fixed-right",
+                                            "className": "td-status td-fixed-right",
                                             "filterAll": false,
                                             "filterMethod": undefined,
                                             "filterable": undefined,
@@ -16256,12 +16251,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "getFooterProps": [Function],
                                             "getHeaderProps": [Function],
                                             "getProps": [Function],
-                                            "headerClassName": "border-left padding-left non-resizable tr-fixed-right",
+                                            "headerClassName": "tr-fixed-right",
                                             "headerStyle": Object {},
                                             "id": "lease_up_status",
                                             "minResizeWidth": 11,
                                             "minWidth": 216,
-                                            "paddingLeft": "10rem",
                                             "resizable": undefined,
                                             "show": true,
                                             "sortMethod": undefined,
@@ -18238,7 +18232,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     style={
                                       Object {
@@ -18249,7 +18243,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       role="gridcell"
                                       style={
                                         Object {
@@ -18562,7 +18556,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     style={
                                       Object {
@@ -18573,7 +18567,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       role="gridcell"
                                       style={
                                         Object {
@@ -18886,7 +18880,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     style={
                                       Object {
@@ -18897,7 +18891,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       role="gridcell"
                                       style={
                                         Object {
@@ -19210,7 +19204,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     style={
                                       Object {
@@ -19221,7 +19215,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       role="gridcell"
                                       style={
                                         Object {
@@ -19534,7 +19528,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     style={
                                       Object {
@@ -19545,7 +19539,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       role="gridcell"
                                       style={
                                         Object {
@@ -19858,7 +19852,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     style={
                                       Object {
@@ -19869,7 +19863,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       role="gridcell"
                                       style={
                                         Object {
@@ -20182,7 +20176,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     style={
                                       Object {
@@ -20193,7 +20187,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       role="gridcell"
                                       style={
                                         Object {
@@ -20506,7 +20500,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     style={
                                       Object {
@@ -20517,7 +20511,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       role="gridcell"
                                       style={
                                         Object {
@@ -20830,7 +20824,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     style={
                                       Object {
@@ -20841,7 +20835,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       role="gridcell"
                                       style={
                                         Object {
@@ -21154,7 +21148,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     style={
                                       Object {
@@ -21165,7 +21159,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       role="gridcell"
                                       style={
                                         Object {
@@ -21478,7 +21472,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     style={
                                       Object {
@@ -21489,7 +21483,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       role="gridcell"
                                       style={
                                         Object {
@@ -21802,7 +21796,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     style={
                                       Object {
@@ -21813,7 +21807,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       role="gridcell"
                                       style={
                                         Object {
@@ -22126,7 +22120,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     style={
                                       Object {
@@ -22137,7 +22131,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       role="gridcell"
                                       style={
                                         Object {
@@ -22450,7 +22444,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     style={
                                       Object {
@@ -22461,7 +22455,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       role="gridcell"
                                       style={
                                         Object {
@@ -22774,7 +22768,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     </div>
                                   </TdComponent>
                                   <TdComponent
-                                    className="border-left padding-left td-status td-fixed-right"
+                                    className="td-status td-fixed-right"
                                     key="9-lease_up_status"
                                     style={
                                       Object {
@@ -22785,7 +22779,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                     }
                                   >
                                     <div
-                                      className="rt-td border-left padding-left td-status td-fixed-right"
+                                      className="rt-td td-status td-fixed-right"
                                       role="gridcell"
                                       style={
                                         Object {
@@ -23117,7 +23111,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                             "getFooterProps": [Function],
                             "getHeaderProps": [Function],
                             "getProps": [Function],
-                            "headerClassName": "td-offset-right non-resizable",
+                            "headerClassName": "td-offset-right",
                             "headerStyle": Object {},
                             "id": "sub_status",
                             "minResizeWidth": 11,
@@ -23140,7 +23134,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                             "Placeholder": undefined,
                             "accessor": [Function],
                             "aggregate": undefined,
-                            "className": "border-left padding-left td-status td-fixed-right",
+                            "className": "td-status td-fixed-right",
                             "filterAll": false,
                             "filterMethod": undefined,
                             "filterable": undefined,
@@ -23149,12 +23143,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                             "getFooterProps": [Function],
                             "getHeaderProps": [Function],
                             "getProps": [Function],
-                            "headerClassName": "border-left padding-left non-resizable tr-fixed-right",
+                            "headerClassName": "tr-fixed-right",
                             "headerStyle": Object {},
                             "id": "lease_up_status",
                             "minResizeWidth": 11,
                             "minWidth": 216,
-                            "paddingLeft": "10rem",
                             "resizable": undefined,
                             "show": true,
                             "sortMethod": undefined,
@@ -23446,7 +23439,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                             "getFooterProps": [Function],
                             "getHeaderProps": [Function],
                             "getProps": [Function],
-                            "headerClassName": "td-offset-right non-resizable",
+                            "headerClassName": "td-offset-right",
                             "headerStyle": Object {},
                             "id": "sub_status",
                             "minResizeWidth": 11,
@@ -23469,7 +23462,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                             "Placeholder": undefined,
                             "accessor": [Function],
                             "aggregate": undefined,
-                            "className": "border-left padding-left td-status td-fixed-right",
+                            "className": "td-status td-fixed-right",
                             "filterAll": false,
                             "filterMethod": undefined,
                             "filterable": undefined,
@@ -23478,12 +23471,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                             "getFooterProps": [Function],
                             "getHeaderProps": [Function],
                             "getProps": [Function],
-                            "headerClassName": "border-left padding-left non-resizable tr-fixed-right",
+                            "headerClassName": "tr-fixed-right",
                             "headerStyle": Object {},
                             "id": "lease_up_status",
                             "minResizeWidth": 11,
                             "minWidth": 216,
-                            "paddingLeft": "10rem",
                             "resizable": undefined,
                             "show": true,
                             "sortMethod": undefined,
@@ -23591,17 +23583,16 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                             "Header": "Latest Substatus",
                             "accessor": "sub_status",
                             "className": "td-offset-right",
-                            "headerClassName": "td-offset-right non-resizable",
+                            "headerClassName": "td-offset-right",
                             "minWidth": 361,
                           },
                           Object {
                             "Cell": [Function],
                             "Header": "Status",
                             "accessor": "lease_up_status",
-                            "className": "border-left padding-left td-status td-fixed-right",
-                            "headerClassName": "border-left padding-left non-resizable tr-fixed-right",
+                            "className": "td-status td-fixed-right",
+                            "headerClassName": "tr-fixed-right",
                             "minWidth": 216,
-                            "paddingLeft": "10rem",
                           },
                         ]
                       }
