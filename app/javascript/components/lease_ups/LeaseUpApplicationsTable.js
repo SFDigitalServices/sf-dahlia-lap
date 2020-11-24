@@ -14,8 +14,12 @@ import { cellFormat } from 'utils/reactTableUtils'
 import { getLeaseUpStatusClass } from 'utils/statusUtils'
 
 const CELL_PADDING_PX = 16
+const STATUS_COLUMN_WIDTH_PX = 192
 
 const getCellWidth = (baseSizePx, isAtStartOrEnd = false) => {
+  // We put 1/2 cell padding on either side of every cell so that the total padding between
+  // cells is CELL_PADDING_PX. However, if the cell is at the start or end we want the full
+  // padding on one side and half padding on the other side, so we need to multiply the padding by 1.5x.
   const padding = isAtStartOrEnd ? 1.5 * CELL_PADDING_PX : CELL_PADDING_PX
   return baseSizePx + padding
 }
@@ -136,16 +140,18 @@ const LeaseUpApplicationsTable = ({
       accessor: 'sub_status',
       className: 'td-offset-right',
       headerClassName: 'td-offset-right non-resizable',
-      minWidth: getCellWidth(345),
+
+      // this cell actually goes underneath the fixed column,
+      // so it needs to combine both cells' widths.
+      minWidth: getCellWidth(153 + STATUS_COLUMN_WIDTH_PX),
       Cell: textCell
     },
     {
       Header: 'Status',
       accessor: 'lease_up_status',
-      paddingLeft: '10rem',
       className: 'border-left padding-left td-status td-fixed-right',
       headerClassName: 'border-left padding-left non-resizable tr-fixed-right',
-      minWidth: getCellWidth(192, true),
+      minWidth: getCellWidth(STATUS_COLUMN_WIDTH_PX, true),
       Cell: (cell) => {
         const {
           application_id: applicationId,
