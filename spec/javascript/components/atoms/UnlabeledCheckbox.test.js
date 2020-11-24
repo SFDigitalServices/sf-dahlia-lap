@@ -52,4 +52,34 @@ describe('UnlabeledCheckbox', () => {
       expect(mockOnClick.mock.calls).toHaveLength(1)
     })
   })
+
+  describe('when indeterminate', () => {
+    describe('when checked', () => {
+      let wrapper
+      beforeEach(() => {
+        wrapper = shallow(
+          <UnlabeledCheckbox id='checkbox-id' indeterminate checked={true} onClick={mockOnClick} />
+        )
+      })
+
+      test('the input is set to checked', () => {
+        expect(wrapper.find('input').props().checked).toBeTruthy()
+      })
+    })
+
+    describe('when not checked', () => {
+      let wrapper
+      beforeEach(() => {
+        wrapper = shallow(
+          <UnlabeledCheckbox id='checkbox-id' indeterminate checked={false} onClick={mockOnClick} />
+        )
+      })
+
+      test('the input is set to checked', () => {
+        // the input should still be checked even if checked is false,
+        // because indeterminate is a variation on the checked state.
+        expect(wrapper.find('input').props().checked).toBeTruthy()
+      })
+    })
+  })
 })

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import classNames from 'classnames'
+import { PropTypes } from 'prop-types'
 import { Form } from 'react-final-form'
 
 import Button from 'components/atoms/Button'
@@ -26,7 +27,10 @@ const LeaseUpApplicationsFilterContainer = ({
   onSubmit,
   preferences = [],
   loading = false,
-  onBulkLeaseUpStatusChange
+  bulkCheckboxesState = [],
+  onBulkLeaseUpStatusChange,
+  onClearSelectedApplications = () => {},
+  onSelectAllApplications = () => {}
 }) => {
   const [isShowingFilters, setIsShowingFilters] = useState(false)
   const [hasChangedFilters, setHasChangedFilters] = useState(false)
@@ -53,6 +57,18 @@ const LeaseUpApplicationsFilterContainer = ({
     })
   }
 
+  const applicationIds = Object.entries(bulkCheckboxesState)
+  const numChecked = applicationIds.filter(([_, checked]) => checked).length
+  const allChecked = applicationIds.length > 0 && applicationIds.length === numChecked
+
+  const handleCheckboxClicked = () => {
+    if (numChecked > 0) {
+      onClearSelectedApplications()
+    } else {
+      onSelectAllApplications()
+    }
+  }
+
   return (
     <Loading isLoading={loading}>
       <Form
@@ -70,7 +86,12 @@ const LeaseUpApplicationsFilterContainer = ({
                     paddingRight: '1rem'
                   }}
                 >
-                  <UnlabeledCheckbox id={'bulk-edit-controller'} />
+                  <UnlabeledCheckbox
+                    id={'bulk-edit-controller'}
+                    indeterminate={!allChecked && numChecked > 0}
+                    checked={allChecked}
+                    onClick={handleCheckboxClicked}
+                  />
                 </div>
                 <div className='filter-group_action'>
                   <StatusDropdown
@@ -123,6 +144,16 @@ const LeaseUpApplicationsFilterContainer = ({
       />
     </Loading>
   )
+}
+
+LeaseUpApplicationsFilterContainer.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  onBulkLeaseUpStatusChange: PropTypes.func.isRequired,
+  onClearSelectedApplications: PropTypes.func,
+  onSelectAllApplications: PropTypes.func,
+  preferences: PropTypes.array,
+  loading: PropTypes.bool,
+  bulkActionApplications: PropTypes.object
 }
 
 export default LeaseUpApplicationsFilterContainer
