@@ -243,6 +243,14 @@ const LeaseUpApplicationsPage = () => {
     })
   }
 
+  const setAllBulkCheckboxValues = (newValue) => {
+    const entries = Object.keys(bulkCheckboxesState).map((k) => [k, newValue])
+    setBulkCheckboxesState(Object.fromEntries(entries))
+  }
+
+  const handleClearSelectedApplications = () => setAllBulkCheckboxValues(false)
+  const handleSelectAllApplications = () => setAllBulkCheckboxValues(true)
+
   const context = {
     applications: state.applications,
     atMaxPages: state.atMaxPages,
@@ -255,6 +263,8 @@ const LeaseUpApplicationsPage = () => {
     onFilter: handleOnFilter,
     onLeaseUpStatusChange: handleLeaseUpStatusChange,
     onSubmitStatusModal: handleStatusModalSubmit,
+    onClearSelectedApplications: handleClearSelectedApplications,
+    onSelectAllApplications: handleSelectAllApplications,
     pages: state.pages,
     preferences: getPreferences(state.listing),
     rowsPerPage: ROWS_PER_PAGE,

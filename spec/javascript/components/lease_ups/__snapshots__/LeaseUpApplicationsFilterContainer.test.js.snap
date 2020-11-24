@@ -54,7 +54,10 @@ exports[`LeaseUpApplicationsFilterContainer it matches the expected snapshot wit
           }
         >
           <UnlabeledCheckbox
+            checked={false}
             id="bulk-edit-controller"
+            indeterminate={false}
+            onClick={[Function]}
           />
         </div>
         <div
