@@ -27,7 +27,7 @@ const getCellWidth = (baseSizePx, isAtStartOrEnd = false) => {
 const textCell = ({ value }) => {
   const textStyle = {
     width: '100%',
-    'text-overflow': 'ellipsis',
+    textOverflow: 'ellipsis',
     overflow: 'hidden'
   }
 
@@ -139,7 +139,7 @@ const LeaseUpApplicationsTable = ({
       Header: 'Latest Substatus',
       accessor: 'sub_status',
       className: 'td-offset-right',
-      headerClassName: 'td-offset-right non-resizable',
+      headerClassName: 'td-offset-right',
 
       // this cell actually goes underneath the fixed column,
       // so it needs to combine both cells' widths.
@@ -149,8 +149,8 @@ const LeaseUpApplicationsTable = ({
     {
       Header: 'Status',
       accessor: 'lease_up_status',
-      className: 'border-left padding-left td-status td-fixed-right',
-      headerClassName: 'border-left padding-left non-resizable tr-fixed-right',
+      className: 'td-status td-fixed-right',
+      headerClassName: 'tr-fixed-right',
       minWidth: getCellWidth(STATUS_COLUMN_WIDTH_PX, true),
       Cell: (cell) => {
         const {
