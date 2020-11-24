@@ -9,23 +9,33 @@ exports[`StatusHistoryPopover when there are fewer than 4 status items it matche
     onButtonClick={[Function]}
   >
     <button
-      className="tiny icon margin-left--half"
+      className="button-icon-only"
       onClick={[Function]}
     >
-      <Icon
+      <StyledIcon
+        customFill="#767676"
+        customSizeRem="1.2rem"
         icon="list-unordered"
-        size="medium"
       >
-        <span
-          className="ui-icon ui-medium"
+        <svg
+          style={
+            Object {
+              "fill": "#767676",
+              "height": "1.2rem",
+              "width": "1.2rem",
+            }
+          }
         >
-          <svg>
-            <use
-              xlinkHref="#i-list-unordered"
-            />
-          </svg>
-        </span>
-      </Icon>
+          <use
+            style={
+              Object {
+                "fill": "#767676",
+              }
+            }
+            xlinkHref="#i-list-unordered"
+          />
+        </svg>
+      </StyledIcon>
     </button>
     <div
       className="popper-container"

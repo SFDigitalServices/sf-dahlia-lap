@@ -25,6 +25,7 @@ const StatusDropdown = ({ status, onChange, disabled, placeholder, size, expand 
     'has-icon--right',
     'text-align-left',
     { expand: expand },
+    { 'tight-padding-vertical': size === 'tiny' },
     { tiny: size === 'tiny' },
     { small: size === 'small' }
   ]
