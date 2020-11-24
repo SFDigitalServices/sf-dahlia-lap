@@ -63,6 +63,8 @@ exports[`LeaseUpApplicationsFilterContainer it matches the expected snapshot wit
           <StatusDropdown
             minWidthPx="185px"
             onChange={[Function]}
+            placeholder="Set Status"
+            updateOnChange={false}
           />
         </div>
       </div>

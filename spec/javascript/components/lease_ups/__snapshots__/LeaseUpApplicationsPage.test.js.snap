@@ -371,29 +371,34 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                   "10004": false,
                   "10005": false,
                 },
-                "handleCreateStatusUpdate": [Function],
-                "handleOnFetchData": [Function],
-                "handleOnFilter": [Function],
                 "listingId": "listingId",
                 "loading": false,
                 "onBulkCheckboxClick": [Function],
+                "onCloseStatusModal": [Function],
+                "onFetchData": [Function],
+                "onFilter": [Function],
+                "onLeaseUpStatusChange": [Function],
+                "onSubmitStatusModal": [Function],
                 "pages": NaN,
                 "preferences": Array [],
                 "rowsPerPage": 20,
                 "statusModal": Object {
-                  "applicationId": null,
+                  "alertMsg": null,
+                  "applicationIds": null,
+                  "isBulkChange": false,
                   "isOpen": false,
                   "loading": false,
+                  "onSubmit": null,
                   "showAlert": null,
                   "status": null,
                   "subStatus": null,
                 },
-                "updateStatusModal": [Function],
               }
             }
           >
             <LeaseUpApplicationsFilterContainer
               loading={false}
+              onBulkLeaseUpStatusChange={[Function]}
               onSubmit={[Function]}
               preferences={Array []}
             >
@@ -460,6 +465,8 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                             <StatusDropdown
                               minWidthPx="185px"
                               onChange={[Function]}
+                              placeholder="Set Status"
+                              updateOnChange={false}
                             >
                               <Dropdown
                                 classNamePrefix="status-dropdown"
@@ -509,7 +516,8 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                   ]
                                 }
                                 onChange={[Function]}
-                                placeholder="Status"
+                                overrideValue={false}
+                                placeholder="Set Status"
                                 renderOption={[Function]}
                                 renderToggle={[Function]}
                                 value={null}
@@ -1328,7 +1336,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                           </svg>
                                                         </span>
                                                       </Icon>
-                                                      Status
+                                                      Set Status
                                                       <div
                                                         className="ui-icon ui-small"
                                                       >
@@ -5019,6 +5027,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                   ]
                                                 }
                                                 onChange={[Function]}
+                                                overrideValue={false}
                                                 placeholder="Status"
                                                 renderOption={[Function]}
                                                 renderToggle={[Function]}
@@ -8396,6 +8405,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                   ]
                                                 }
                                                 onChange={[Function]}
+                                                overrideValue={false}
                                                 placeholder="Status"
                                                 renderOption={[Function]}
                                                 renderToggle={[Function]}
@@ -11773,6 +11783,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                   ]
                                                 }
                                                 onChange={[Function]}
+                                                overrideValue={false}
                                                 placeholder="Status"
                                                 renderOption={[Function]}
                                                 renderToggle={[Function]}
@@ -15150,6 +15161,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                   ]
                                                 }
                                                 onChange={[Function]}
+                                                overrideValue={false}
                                                 placeholder="Status"
                                                 renderOption={[Function]}
                                                 renderToggle={[Function]}
@@ -18527,6 +18539,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                   ]
                                                 }
                                                 onChange={[Function]}
+                                                overrideValue={false}
                                                 placeholder="Status"
                                                 renderOption={[Function]}
                                                 renderToggle={[Function]}
@@ -26409,20 +26422,21 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
               </ReactTable>
             </LeaseUpApplicationsTable>
             <StatusModalWrapper
-              applicationId={null}
-              header="Update Status"
+              alertMsg={null}
+              bulkUpdateCount={null}
+              isBulkChange={false}
               isOpen={false}
               loading={false}
               onClose={[Function]}
               onSubmit={[Function]}
               showAlert={null}
               status={null}
-              subStatus={null}
               submitButton="Update"
+              title="Update Status"
             >
               <FormModal
+                alertMsg="Something went wrong, please try again."
                 handleClose={[Function]}
-                header="Update Status"
                 initialValues={
                   Object {
                     "comment": "",
@@ -26437,6 +26451,8 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                 primary="Update"
                 secondary="cancel"
                 showAlert={null}
+                subtitle={null}
+                title="Update Status"
                 type="status"
                 validateError={[Function]}
               >
