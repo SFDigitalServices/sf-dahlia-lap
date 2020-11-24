@@ -24,7 +24,7 @@ describe('UnlabeledCheckbox', () => {
 
     test('onClick is trigged when the input changes', () => {
       expect(mockOnClick.mock.calls).toHaveLength(0)
-      wrapper.find('input').simulate('change')
+      wrapper.find('input').simulate('click')
       expect(mockOnClick.mock.calls).toHaveLength(1)
     })
 
@@ -50,7 +50,7 @@ describe('UnlabeledCheckbox', () => {
 
     test('onClick is trigged when the input changes', () => {
       expect(mockOnClick.mock.calls).toHaveLength(0)
-      wrapper.find('input').simulate('change')
+      wrapper.find('input').simulate('click')
       expect(mockOnClick.mock.calls).toHaveLength(1)
     })
 

@@ -82,7 +82,6 @@ const LeaseUpApplicationsFilterContainer = ({
                     display: 'flex',
                     alignItems: 'center',
                     marginBottom: '1.25rem',
-                    paddingLeft: '1rem',
                     paddingRight: '1rem'
                   }}
                 >
