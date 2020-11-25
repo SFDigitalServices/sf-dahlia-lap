@@ -446,7 +446,6 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                 "alignItems": "center",
                                 "display": "flex",
                                 "marginBottom": "1.25rem",
-                                "paddingLeft": "1rem",
                                 "paddingRight": "1rem",
                               }
                             }
