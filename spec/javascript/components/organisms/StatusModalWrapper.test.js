@@ -37,6 +37,26 @@ describe('StatusModalWrapper', () => {
     expect(wrapper.find(FormModal).prop('isOpen')).toBeFalsy()
   })
 
+  test('should display a subtitle if numApplicationsToUpdate > 1', () => {
+    wrapper = getWrapper({ numApplicationsToUpdate: 2 })
+
+    expect(wrapper.find(FormModal).prop('subtitle')).toEqual(
+      'Update the status for 2 selected items'
+    )
+  })
+
+  test('should display a subtitle if numApplicationsToUpdate == 1', () => {
+    wrapper = getWrapper({ numApplicationsToUpdate: 1 })
+
+    expect(wrapper.find(FormModal).prop('subtitle')).toBeFalsy()
+  })
+
+  test('should display a subtitle if numApplicationsToUpdate == 0', () => {
+    wrapper = getWrapper({ numApplicationsToUpdate: 0 })
+
+    expect(wrapper.find(FormModal).prop('subtitle')).toBeFalsy()
+  })
+
   test('should open a closeable alert modal when showAlert is true', () => {
     const alertMessage = 'test alert message'
     wrapper = getWrapper({ showAlert: true, alertMsg: alertMessage, isOpen: true })
@@ -59,6 +79,7 @@ describe('StatusModalWrapper', () => {
     wrapper = getWrapper({ status: 'Appealed', isOpen: true })
     expect(wrapper.find(StatusDropdown).props().status).toBeTruthy()
   })
+
   test('should display correct substatus options if substatuses are available', () => {
     wrapper = getWrapper({ status: 'Appealed', isOpen: true })
 
@@ -69,7 +90,7 @@ describe('StatusModalWrapper', () => {
     )
   })
 
-  test('should not display sub status dropdown if substatuses are not available', () => {
+  test('should not display substatus dropdown if substatuses are not available', () => {
     wrapper = getWrapper({ status: 'Processing', isOpen: true })
 
     expect(wrapper.find(SubstatusDropdown).exists()).toBeFalsy()
