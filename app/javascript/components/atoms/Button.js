@@ -88,9 +88,9 @@ const Button = ({
       <div style={buttonChildrenStyles()}>
         {wrapWithStyle(iconLeft, iconWrapperStyles())}
         {wrapWithStyle(text, textStyles(!!iconLeft, !!iconRight))}
+        {children}
         {wrapWithStyle(iconRight, iconWrapperStyles())}
       </div>
-      {children}
     </button>
   )
 }
