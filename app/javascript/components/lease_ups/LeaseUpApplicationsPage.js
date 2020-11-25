@@ -166,12 +166,13 @@ const LeaseUpApplicationsPage = () => {
       applicationIds,
       status,
       comment,
-      ...(subStatus ? { subStatus } : {}),
+      ...(subStatus && { substatus }),
       isBulkChange: isBulkChange
     }
 
     createStatusUpdates(data)
   }
+  
   const createStatusUpdates = async ({
     applicationIds,
     comment,
@@ -182,7 +183,7 @@ const LeaseUpApplicationsPage = () => {
     const statusUpdateRequests = applicationIds.map((appId) =>
       createFieldUpdateComment(appId, status, comment, subStatus)
     )
-    Promise.all(statusUpdateRequests)
+    return Promise.all(statusUpdateRequests)
       .then(() => {
         updateApplicationState(applicationIds, status, subStatus)
         updateStatusModal({
@@ -214,7 +215,7 @@ const LeaseUpApplicationsPage = () => {
   const handleLeaseUpStatusChange = (value, applicationId) => {
     const appsToUpdate = applicationId
       ? [applicationId]
-      : Object.keys(bulkCheckboxesState).filter((id) => bulkCheckboxesState[id])
+      : Object.entries(bulkCheckboxesState).filter(([id, checked]) => checked)
     updateStatusModal({
       applicationIds: appsToUpdate,
       isOpen: true,
