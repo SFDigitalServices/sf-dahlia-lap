@@ -66,9 +66,12 @@ const UnitDropdown = ({ unit, availableUnits, onChange, disabled, placeholder, i
       </button>
     )
   }
-  const mappedUnits = availableUnits.map((unit) => {
-    return { value: unit.id, ...unit }
-  })
+
+  const mappedUnits = [...availableUnits]
+    .sort((unitA, unitB) => (unitA.unit_number > unitB.unit_number ? 1 : -1))
+    .map((unit) => {
+      return { value: unit.id, ...unit }
+    })
   mappedUnits.unshift({ value: null, id: null })
 
   return (
