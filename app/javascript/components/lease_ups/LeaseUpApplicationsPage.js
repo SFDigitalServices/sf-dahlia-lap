@@ -208,7 +208,6 @@ const LeaseUpApplicationsPage = () => {
     updateStatusModal({
       isOpen: false,
       showAlert: false,
-      bulkUpdateCount: null,
       applicationId: null
     })
   }

@@ -83,7 +83,7 @@ const LeaseUpTableContainer = ({
         status={statusModal.status}
         submitButton='Update'
         title='Update Status'
-        bulkUpdateCount={statusModal.isBulkChange ? statusModal.applicationIds.length : null}
+        bulkUpdateCount={statusModal.applicationIds.length}
       />
     </>
   )

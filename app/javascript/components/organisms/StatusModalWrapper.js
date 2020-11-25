@@ -20,22 +20,26 @@ import {
 import FormModal from './FormModal'
 
 const StatusModalWrapper = ({
-  alertMsg,
-  isOpen,
-  loading,
-  onAlertCloseClick,
-  onClose,
-  onSubmit,
-  showAlert,
+  alertMsg = null,
+  isOpen = false,
+  loading = false,
+  onAlertCloseClick = () => {},
+  onClose = () => {},
+  onSubmit = () => {},
+  showAlert = false,
   status = null,
   submitButton,
   subStatus = null,
-  bulkUpdateCount = null,
-  title
+  numApplicationsToUpdate = 1,
+  title = null
 }) => (
   <FormModal
     title={title}
-    subtitle={bulkUpdateCount ? `Update the status for ${bulkUpdateCount} selected items` : null}
+    subtitle={
+      numApplicationsToUpdate > 1
+        ? `Update the status for ${numApplicationsToUpdate} selected items`
+        : null
+    }
     primary={submitButton}
     secondary='cancel'
     isOpen={isOpen}
@@ -150,6 +154,6 @@ StatusModalWrapper.propTypes = {
   status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
   subStatus: PropTypes.oneOf(LEASE_UP_SUBSTATUS_VALUES),
   title: PropTypes.string,
-  bulkUpdateCount: PropTypes.number,
+  numApplicationsToUpdate: PropTypes.number,
   submitButton: PropTypes.node
 }
