@@ -28,7 +28,9 @@ const StatusDropdown = ({
   size = null,
   expand = false,
   minWidthPx = null,
-  updateOnChange = true
+  // when true, never display the current status in the dropdown toggle,
+  // always show the placeholder.
+  forceDisplayPlaceholderText = false
 }) => {
   const buttonClasses = [
     'button',
@@ -42,7 +44,7 @@ const StatusDropdown = ({
   ]
 
   const renderStatusToggle = ({ children, getValue, ...props }) => {
-    const val = updateOnChange ? getValue()[0] : null
+    const val = forceDisplayPlaceholderText ? null : getValue()[0]
 
     return (
       <Button

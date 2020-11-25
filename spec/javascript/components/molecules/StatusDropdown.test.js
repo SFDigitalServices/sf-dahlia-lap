@@ -72,11 +72,11 @@ describe('StatusDropdown', () => {
       expect(toggleButton.text()).toEqual('Appealed')
       expect(toggleButton.hasClass('is-appealed')).toBe(true)
     })
-    test('does not render a value when updateOnChange is false', () => {
+    test('does not render a value when forceDisplayPlaceholderText is true', () => {
       wrapper = getWrapper({
         placeholder: 'placeholder',
         status: 'Appealed',
-        updateOnChange: false
+        forceDisplayPlaceholderText: true
       })
       const toggleButton = wrapper.find(Select).find('.status-dropdown__control').find('button')
       expect(toggleButton.text()).toEqual('placeholder')

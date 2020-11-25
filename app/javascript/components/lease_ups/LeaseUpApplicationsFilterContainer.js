@@ -96,7 +96,7 @@ const LeaseUpApplicationsFilterContainer = ({
                     onChange={onBulkLeaseUpStatusChange}
                     minWidthPx={'185px'}
                     placeholder={'Set Status'}
-                    updateOnChange={false}
+                    forceDisplayPlaceholderText
                   />
                 </div>
               </div>
