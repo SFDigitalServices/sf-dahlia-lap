@@ -4,23 +4,20 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 
 import apiService from 'apiService'
-import Icon from 'components/atoms/Icon'
+import { COLORS } from 'components/atoms/colors'
+import StyledIcon from 'components/atoms/StyledIcon'
 import StatusItems from 'components/molecules/lease_up_sidebar/StatusItems'
 import Popover from 'components/molecules/Popover'
 
 import Loading from '../molecules/Loading'
 
 const MAX_UPDATES_TO_SHOW_DEFAULT = 4
-const StatusHistoryPopover = ({ applicationId }) => {
-  const [showingAllStatuses, setShowingAllStatuses] = useState(false)
-  const onShowHideStatusesToggled = () => setShowingAllStatuses(!showingAllStatuses)
 
-  const StatusIconButton = ({ onClick, ref }) => (
-    <button ref={ref} onClick={onClick} className='tiny icon margin-left--half'>
-      <Icon icon='list-unordered' size='medium' />
-    </button>
-  )
+const StatusHistoryPopover = ({ applicationId, customButtonClasses = null }) => {
+  const [showingAllStatuses, setShowingAllStatuses] = useState(false)
   const [state, setState] = useState({ statusItems: [], loading: false })
+
+  const onShowHideStatusesToggled = () => setShowingAllStatuses(!showingAllStatuses)
 
   const fetchStatusHistory = () => {
     setState({ statusItems: state.statusItems, loading: true })
@@ -40,7 +37,18 @@ const StatusHistoryPopover = ({ applicationId }) => {
 
   const showShowMoreToggler = state.statusItems.length > MAX_UPDATES_TO_SHOW_DEFAULT
   return (
-    <Popover buttonElement={StatusIconButton} onButtonClick={onClick}>
+    <Popover
+      buttonElement={({ onClick, ref }) => (
+        <button
+          ref={ref}
+          onClick={onClick}
+          className={classNames(customButtonClasses, 'button-icon-only')}
+        >
+          <StyledIcon icon='list-unordered' customSizeRem='1.2rem' customFill={COLORS.steel} />
+        </button>
+      )}
+      onButtonClick={onClick}
+    >
       <Loading isLoading={state.loading}>
         <StatusItems
           statusItems={state.statusItems}
@@ -61,7 +69,8 @@ const StatusHistoryPopover = ({ applicationId }) => {
   )
 }
 StatusHistoryPopover.propTypes = {
-  applicationId: PropTypes.string.isRequired
+  applicationId: PropTypes.string.isRequired,
+  customButtonClasses: PropTypes.string
 }
 
 export default StatusHistoryPopover
