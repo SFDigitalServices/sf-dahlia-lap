@@ -13,7 +13,6 @@ import FormGroupTextValue from 'components/atoms/FormGroupTextValue'
 import Icon from 'components/atoms/Icon'
 import Spinner from 'components/atoms/Spinner'
 import StatusPill from 'components/atoms/StatusPill'
-import UnlabeledCheckbox from 'components/atoms/UnlabeledCheckbox'
 // Molecules
 import AlertBox from 'components/molecules/AlertBox'
 import AlertNotice from 'components/molecules/AlertNotice'
@@ -60,7 +59,6 @@ WebpackerReact.setup({ FormGroupRadioGroup })
 WebpackerReact.setup({ FormGroupTextArea })
 WebpackerReact.setup({ FormGroupTextInput })
 WebpackerReact.setup({ FormGroupTextValue })
-WebpackerReact.setup({ UnlabeledCheckbox })
 WebpackerReact.setup({ Icon })
 WebpackerReact.setup({ Spinner })
 WebpackerReact.setup({ StatusPill })

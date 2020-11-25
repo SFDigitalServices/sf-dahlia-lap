@@ -166,13 +166,13 @@ const LeaseUpApplicationsPage = () => {
       applicationIds,
       status,
       comment,
-      ...(subStatus && { substatus }),
+      ...(subStatus && { subStatus }),
       isBulkChange: isBulkChange
     }
 
     createStatusUpdates(data)
   }
-  
+
   const createStatusUpdates = async ({
     applicationIds,
     comment,
