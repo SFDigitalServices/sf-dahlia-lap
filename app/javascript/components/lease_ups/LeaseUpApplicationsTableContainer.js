@@ -62,7 +62,7 @@ const LeaseUpTableContainer = ({
         bulkCheckboxesState={bulkCheckboxesState}
         onClearSelectedApplications={onClearSelectedApplications}
         onSelectAllApplications={onSelectAllApplications}
-        onBulkLeaseUpStatusChange={onLeaseUpStatusChange}
+        onBulkLeaseUpStatusChange={(val) => onLeaseUpStatusChange(val, null)}
       />
       <LeaseUpApplicationsTable
         dataSet={rowsData(applications)}

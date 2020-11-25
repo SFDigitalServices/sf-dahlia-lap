@@ -17,6 +17,12 @@ import formUtils from 'utils/formUtils'
 const styles = {
   marginBottomZero: {
     marginBottom: 0
+  },
+  bulkEditCheckbox: {
+    display: 'flex',
+    alignItems: 'center',
+    marginBottom: '1.25rem',
+    paddingRight: '1rem'
   }
 }
 
@@ -77,14 +83,7 @@ const LeaseUpApplicationsFilterContainer = ({
           <form style={styles.marginBottomZero} onSubmit={handleSubmit} noValidate>
             <div className='filter-row'>
               <div className='filter-group filter-group--left'>
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    marginBottom: '1.25rem',
-                    paddingRight: '1rem'
-                  }}
-                >
+                <div style={styles.bulkEditCheckbox}>
                   <Checkbox
                     id='bulk-edit-controller'
                     indeterminate={!allChecked && numChecked > 0}
@@ -94,7 +93,7 @@ const LeaseUpApplicationsFilterContainer = ({
                 </div>
                 <div className='filter-group_action'>
                   <StatusDropdown
-                    onChange={(val) => onBulkLeaseUpStatusChange(val, null)}
+                    onChange={onBulkLeaseUpStatusChange}
                     minWidthPx={'185px'}
                     placeholder={'Set Status'}
                     updateOnChange={false}

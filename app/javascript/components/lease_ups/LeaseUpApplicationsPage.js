@@ -161,12 +161,11 @@ const LeaseUpApplicationsPage = () => {
     updateStatusModal({ loading: true })
     const { applicationIds, isBulkChange } = statusModalState
     const { status, subStatus } = submittedValues
-    var comment = submittedValues.comment && submittedValues.comment.trim()
     const data = {
       applicationIds,
       status,
-      comment,
-      ...(subStatus && { subStatus }),
+      comment: submittedValues.comment?.trim(),
+      subStatus,
       isBulkChange: isBulkChange
     }
 
