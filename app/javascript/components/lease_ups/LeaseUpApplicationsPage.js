@@ -225,18 +225,14 @@ const LeaseUpApplicationsPage = () => {
 
   // Updated the visible status, substatus, and status last updated for one or many applications
   const updateApplicationState = (applicationIds, status, subStatus) => {
-    const updatedApplications = state.applications.map((app) =>
-      applicationIds.includes(app.application_id)
-        ? {
-            ...app,
-            ...{
-              lease_up_status: status,
-              status_last_updated: moment().format(SALESFORCE_DATE_FORMAT),
-              sub_status: subStatus
-            }
-          }
-        : app
-    )
+    const updatedApplications = state.applications.map((app) => ({
+      ...app,
+      ...(applicationIds.includes(app.application_id) && {
+        lease_up_status: status,
+        status_last_updated: moment().format(SALESFORCE_DATE_FORMAT),
+        sub_status: subStatus
+      })
+    }))
     setState({
       applications: updatedApplications
     })
