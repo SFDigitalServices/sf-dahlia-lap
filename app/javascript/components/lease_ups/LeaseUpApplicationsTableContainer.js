@@ -22,6 +22,8 @@ const LeaseUpTableContainer = ({
     onFilter,
     onLeaseUpStatusChange,
     onSubmitStatusModal,
+    onClearSelectedApplications,
+    onSelectAllApplications,
     pages,
     preferences,
     rowsPerPage,
@@ -57,6 +59,9 @@ const LeaseUpTableContainer = ({
         preferences={preferences}
         onSubmit={onFilter}
         loading={loading}
+        bulkCheckboxesState={bulkCheckboxesState}
+        onClearSelectedApplications={onClearSelectedApplications}
+        onSelectAllApplications={onSelectAllApplications}
         onBulkLeaseUpStatusChange={onLeaseUpStatusChange}
       />
       <LeaseUpApplicationsTable

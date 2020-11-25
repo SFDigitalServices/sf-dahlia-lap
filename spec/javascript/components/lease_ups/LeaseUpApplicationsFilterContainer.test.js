@@ -4,6 +4,7 @@ import { mount, shallow } from 'enzyme'
 import { act } from 'react-dom/test-utils'
 
 import Button from 'components/atoms/Button'
+import UnlabeledCheckbox from 'components/atoms/UnlabeledCheckbox'
 import LeaseUpApplicationsFilterContainer from 'components/lease_ups/LeaseUpApplicationsFilterContainer'
 import LeaseUpApplicationsFilters from 'components/lease_ups/LeaseUpApplicationsFilters'
 import ShowHideFiltersButton from 'components/molecules/ShowHideFiltersButton'
@@ -11,27 +12,117 @@ import { SelectField } from 'utils/form/final_form/Field'
 import SearchField from 'utils/form/final_form/SearchField'
 
 const mockSubmit = jest.fn()
+const mockOnClearSelectedApplications = jest.fn()
+const mockOnSelectAllApplications = jest.fn()
 
-const getShallowWrapper = () =>
-  shallow(
-    <LeaseUpApplicationsFilterContainer
-      onSubmit={mockSubmit}
-      preferences={['pref option 1', 'pref option 2']}
-    />
-  )
+const getNode = (bulkCheckboxesState = {}) => (
+  <LeaseUpApplicationsFilterContainer
+    onSubmit={mockSubmit}
+    onClearSelectedApplications={mockOnClearSelectedApplications}
+    onSelectAllApplications={mockOnSelectAllApplications}
+    bulkCheckboxesState={bulkCheckboxesState}
+    onBulkLeaseUpStatusChange={() => {}}
+    preferences={['pref option 1', 'pref option 2']}
+  />
+)
 
-const getWrapper = () =>
-  mount(
-    <LeaseUpApplicationsFilterContainer
-      onSubmit={mockSubmit}
-      preferences={['pref option 1', 'pref option 2']}
-    />
-  )
+const getShallowWrapper = (bulkCheckboxesState = {}) => shallow(getNode(bulkCheckboxesState))
+
+const getWrapper = (bulkCheckboxesState = {}) => mount(getNode(bulkCheckboxesState))
 
 describe('LeaseUpApplicationsFilterContainer', () => {
   test('it matches the expected snapshot with default preferences', () => {
     const wrapper = getShallowWrapper()
     expect(wrapper.find('ReactFinalForm').dive()).toMatchSnapshot()
+  })
+
+  describe('status checkbox', () => {
+    let wrapper
+    describe('when the list of applications is empty', () => {
+      beforeEach(() => {
+        wrapper = getWrapper({})
+      })
+
+      test('should render the checkbox as unchecked', () => {
+        expect(wrapper.find(UnlabeledCheckbox).props().checked).toBeFalsy()
+      })
+
+      test('should render the checkbox as not indeterminate', () => {
+        expect(wrapper.find(UnlabeledCheckbox).props().indeterminate).toBeFalsy()
+      })
+
+      test('should call select all on click', () => {
+        expect(mockOnClearSelectedApplications.mock.calls).toHaveLength(0)
+        expect(mockOnSelectAllApplications.mock.calls).toHaveLength(0)
+        wrapper.find(UnlabeledCheckbox).simulate('click')
+        expect(mockOnClearSelectedApplications.mock.calls).toHaveLength(0)
+        expect(mockOnSelectAllApplications.mock.calls).toHaveLength(1)
+      })
+    })
+
+    describe('when the list of applications is all unchecked', () => {
+      beforeEach(() => {
+        wrapper = getWrapper({ appId1: false, appId2: false })
+      })
+
+      test('should render the checkbox as unchecked', () => {
+        expect(wrapper.find(UnlabeledCheckbox).props().checked).toBeFalsy()
+      })
+
+      test('should render the checkbox as not indeterminate', () => {
+        expect(wrapper.find(UnlabeledCheckbox).props().indeterminate).toBeFalsy()
+      })
+
+      test('should call select all on click', () => {
+        expect(mockOnClearSelectedApplications.mock.calls).toHaveLength(0)
+        expect(mockOnSelectAllApplications.mock.calls).toHaveLength(0)
+        wrapper.find(UnlabeledCheckbox).simulate('click')
+        expect(mockOnClearSelectedApplications.mock.calls).toHaveLength(0)
+        expect(mockOnSelectAllApplications.mock.calls).toHaveLength(1)
+      })
+    })
+    describe('when the list of applications has some checked and some unchecked', () => {
+      beforeEach(() => {
+        wrapper = getWrapper({ appId1: false, appId2: true })
+      })
+
+      test('should render the checkbox as checked=false', () => {
+        expect(wrapper.find(UnlabeledCheckbox).props().checked).toBeFalsy()
+      })
+
+      test('should render the checkbox with indeterminate=true', () => {
+        expect(wrapper.find(UnlabeledCheckbox).props().indeterminate).toBeTruthy()
+      })
+
+      test('should call clear all on click', () => {
+        expect(mockOnClearSelectedApplications.mock.calls).toHaveLength(0)
+        expect(mockOnSelectAllApplications.mock.calls).toHaveLength(0)
+        wrapper.find(UnlabeledCheckbox).simulate('click')
+        expect(mockOnClearSelectedApplications.mock.calls).toHaveLength(1)
+        expect(mockOnSelectAllApplications.mock.calls).toHaveLength(0)
+      })
+    })
+    describe('when the list of applications is all checked', () => {
+      beforeEach(() => {
+        wrapper = getWrapper({ appId1: true, appId2: true })
+      })
+
+      test('should render the checkbox as checked=false', () => {
+        expect(wrapper.find(UnlabeledCheckbox).props().checked).toBeTruthy()
+      })
+
+      test('should render the checkbox with indeterminate=false', () => {
+        expect(wrapper.find(UnlabeledCheckbox).props().indeterminate).toBeFalsy()
+      })
+
+      test('should call clear all on click', () => {
+        expect(mockOnClearSelectedApplications.mock.calls).toHaveLength(0)
+        expect(mockOnSelectAllApplications.mock.calls).toHaveLength(0)
+        wrapper.find(UnlabeledCheckbox).simulate('click')
+        expect(mockOnClearSelectedApplications.mock.calls).toHaveLength(1)
+        expect(mockOnSelectAllApplications.mock.calls).toHaveLength(0)
+      })
+    })
   })
 
   describe('search field', () => {

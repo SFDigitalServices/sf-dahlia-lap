@@ -48,13 +48,15 @@ exports[`LeaseUpApplicationsFilterContainer it matches the expected snapshot wit
               "alignItems": "center",
               "display": "flex",
               "marginBottom": "1.25rem",
-              "paddingLeft": "1rem",
               "paddingRight": "1rem",
             }
           }
         >
           <UnlabeledCheckbox
+            checked={false}
             id="bulk-edit-controller"
+            indeterminate={false}
+            onClick={[Function]}
           />
         </div>
         <div
@@ -63,6 +65,8 @@ exports[`LeaseUpApplicationsFilterContainer it matches the expected snapshot wit
           <StatusDropdown
             minWidthPx="185px"
             onChange={[Function]}
+            placeholder="Set Status"
+            updateOnChange={false}
           />
         </div>
       </div>
