@@ -32,13 +32,17 @@ const buttonChildrenStyles = () => ({
   width: '100%'
 })
 
-const textStyles = (hasLeftIcon, hasRightIcon) => ({
-  marginTop: '1rem',
-  marginBottom: '1rem',
-  marginRight: hasRightIcon && '1rem',
-  marginLeft: hasLeftIcon && '1rem',
-  flexGrow: 1
-})
+const textStyles = (paddingVertical, paddingHorizontal, hasLeftIcon, hasRightIcon) => {
+  const verticalPaddingRem = paddingVertical === 'tight' ? '0.5rem' : '1rem'
+  const paddingBetweenTextAndIcon = paddingHorizontal === 'tight' ? '0.5rem' : '1rem'
+  return {
+    marginTop: verticalPaddingRem,
+    marginBottom: verticalPaddingRem,
+    marginRight: hasRightIcon && paddingBetweenTextAndIcon,
+    marginLeft: hasLeftIcon && paddingBetweenTextAndIcon,
+    flexGrow: 1
+  }
+}
 
 const iconWrapperStyles = () => ({
   flexShrink: 0,
@@ -57,6 +61,7 @@ const Button = ({
   iconRight = null,
   noBottomMargin,
   paddingHorizontal = 'normal',
+  paddingVertical = 'normal',
   small = false,
   tertiary = false,
   text = null,
@@ -75,7 +80,6 @@ const Button = ({
     tiny: tiny,
     'margin-bottom-none': noBottomMargin
   })
-
   const hasText = !!text
 
   return (
@@ -87,7 +91,10 @@ const Button = ({
     >
       <div style={buttonChildrenStyles()}>
         {wrapWithStyle(iconLeft, iconWrapperStyles())}
-        {wrapWithStyle(text, textStyles(!!iconLeft, !!iconRight))}
+        {wrapWithStyle(
+          text,
+          textStyles(paddingVertical, paddingHorizontal, !!iconLeft, !!iconRight)
+        )}
         {children}
         {wrapWithStyle(iconRight, iconWrapperStyles())}
       </div>
@@ -104,6 +111,7 @@ Button.propTypes = {
   iconRight: PropTypes.node,
   minWidthPx: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   paddingHorizontal: PropTypes.oneOf(['normal', 'tight', 'extra']),
+  paddingVertical: PropTypes.oneOf(['normal', 'tight']),
   small: PropTypes.bool,
   style: PropTypes.object,
   tertiary: PropTypes.bool,

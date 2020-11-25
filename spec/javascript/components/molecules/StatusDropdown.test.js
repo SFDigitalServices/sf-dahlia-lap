@@ -32,13 +32,7 @@ describe('StatusDropdown', () => {
   describe('toggle', () => {
     test('renders as expected when value is null', () => {
       wrapper = getWrapper()
-      const expectedButtonClasses = [
-        'button',
-        'dropdown-button',
-        'has-icon--right',
-        'text-align-left',
-        'tertiary'
-      ]
+      const expectedButtonClasses = ['button', 'dropdown-button', 'tertiary']
       const toggleButton = wrapper.find(Select).find('.status-dropdown__control').find('button')
       expect(toggleButton.text()).toEqual('Status')
       expect(toggleButton.hasClass(expectedButtonClasses.join(' '))).toEqual(true)

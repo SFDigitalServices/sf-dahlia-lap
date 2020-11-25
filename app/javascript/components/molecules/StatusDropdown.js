@@ -5,10 +5,9 @@ import PropTypes from 'prop-types'
 import { components } from 'react-select'
 
 import Button from 'components/atoms/Button'
+import StyledIcon from 'components/atoms/StyledIcon'
+import Dropdown from 'components/molecules/Dropdown'
 import { LEASE_UP_STATUS_OPTIONS, LEASE_UP_STATUS_VALUES } from 'utils/statusUtils'
-
-import Icon from '../atoms/Icon'
-import Dropdown from '../molecules/Dropdown'
 
 export const renderStatusOption = ({ value, label, statusClassName }, { selectValue }) => {
   const isSelected = selectValue[0]?.value === value
@@ -32,30 +31,27 @@ const StatusDropdown = ({
   // always show the placeholder.
   forceDisplayPlaceholderText = false
 }) => {
-  const buttonClasses = [
-    'button',
-    'dropdown-button',
-    'has-icon--right',
-    'text-align-left',
-    { expand: expand },
-    { 'tight-padding-vertical': size === 'tiny' },
-    { tiny: size === 'tiny' },
-    { small: size === 'small' }
-  ]
+  const buttonClasses = ['button', 'dropdown-button', { expand: expand }]
 
   const renderStatusToggle = ({ children, getValue, ...props }) => {
     const val = forceDisplayPlaceholderText ? null : getValue()[0]
 
+    const padding = size === 'tiny' ? 'tight' : 'normal'
+
     return (
       <Button
-        className={classNames(buttonClasses.concat(val?.statusClassName || 'tertiary'))}
+        classes={classNames(buttonClasses.concat(val?.statusClassName || 'tertiary'))}
         type='button'
         disabled={disabled}
         minWidthPx={minWidthPx}
+        iconRight={<StyledIcon icon='arrow-down' size='small' />}
+        text={val?.label ?? placeholder}
+        small={size === 'small'}
+        tiny={size === 'tiny'}
+        paddingHorizontal={padding}
+        paddingVertical={padding}
       >
-        <Icon icon='arrow-down' size='small' />
-        {val?.label ? val.label : placeholder}
-        <div className='ui-icon ui-small'>
+        <div style={{ width: 0, height: 0 }}>
           <components.ValueContainer getValue={getValue} {...props}>
             {children}
           </components.ValueContainer>
