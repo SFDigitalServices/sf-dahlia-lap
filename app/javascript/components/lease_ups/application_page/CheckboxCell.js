@@ -2,15 +2,11 @@ import React from 'react'
 
 import { PropTypes } from 'prop-types'
 
-import UnlabeledCheckbox from 'components/atoms/UnlabeledCheckbox'
+import Checkbox from 'components/atoms/Checkbox'
 
 const CheckboxCell = ({ applicationId, checked = false, onClick = () => {} }) => (
   <div className='form-group'>
-    <UnlabeledCheckbox
-      id={`bulk-action-checkbox-${applicationId}`}
-      checked={checked}
-      onClick={onClick}
-    />
+    <Checkbox id={`bulk-action-checkbox-${applicationId}`} checked={checked} onClick={onClick} />
   </div>
 )
 

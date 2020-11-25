@@ -2,15 +2,15 @@ import React from 'react'
 
 import { shallow } from 'enzyme'
 
-import UnlabeledCheckbox from 'components/atoms/UnlabeledCheckbox'
+import Checkbox from 'components/atoms/Checkbox'
 
 const mockOnClick = jest.fn()
 
-describe('UnlabeledCheckbox', () => {
+describe('Checkbox', () => {
   describe('when not checked', () => {
     let wrapper
     beforeEach(() => {
-      wrapper = shallow(<UnlabeledCheckbox id='checkbox-id' onClick={mockOnClick} />)
+      wrapper = shallow(<Checkbox id='checkbox-id' onClick={mockOnClick} />)
     })
 
     test('renders an input and a label', () => {
@@ -36,7 +36,7 @@ describe('UnlabeledCheckbox', () => {
   describe('when checked', () => {
     let wrapper
     beforeEach(() => {
-      wrapper = shallow(<UnlabeledCheckbox id='checkbox-id' checked onClick={mockOnClick} />)
+      wrapper = shallow(<Checkbox id='checkbox-id' checked onClick={mockOnClick} />)
     })
 
     test('renders an input and a label', () => {
@@ -63,9 +63,7 @@ describe('UnlabeledCheckbox', () => {
     describe('when checked', () => {
       let wrapper
       beforeEach(() => {
-        wrapper = shallow(
-          <UnlabeledCheckbox id='checkbox-id' indeterminate checked onClick={mockOnClick} />
-        )
+        wrapper = shallow(<Checkbox id='checkbox-id' indeterminate checked onClick={mockOnClick} />)
       })
 
       test('the input is set to checked', () => {
@@ -80,9 +78,7 @@ describe('UnlabeledCheckbox', () => {
     describe('when not checked', () => {
       let wrapper
       beforeEach(() => {
-        wrapper = shallow(
-          <UnlabeledCheckbox id='checkbox-id' indeterminate onClick={mockOnClick} />
-        )
+        wrapper = shallow(<Checkbox id='checkbox-id' indeterminate onClick={mockOnClick} />)
       })
 
       test('the input is set to checked', () => {

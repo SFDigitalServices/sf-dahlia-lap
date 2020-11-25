@@ -3,7 +3,7 @@ import React from 'react'
 import classNames from 'classnames'
 import { PropTypes } from 'prop-types'
 
-const UnlabeledCheckbox = ({ id, checked = false, indeterminate = false, onClick = () => {} }) => (
+const Checkbox = ({ id, checked = false, indeterminate = false, onClick = () => {} }) => (
   <>
     <input
       id={id}
@@ -20,10 +20,10 @@ const UnlabeledCheckbox = ({ id, checked = false, indeterminate = false, onClick
   </>
 )
 
-UnlabeledCheckbox.propTypes = {
+Checkbox.propTypes = {
   id: PropTypes.string.isRequired,
   checked: PropTypes.bool,
   indeterminate: PropTypes.bool,
   onClick: PropTypes.func
 }
-export default UnlabeledCheckbox
+export default Checkbox

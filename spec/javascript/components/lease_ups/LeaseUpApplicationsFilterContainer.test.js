@@ -4,7 +4,7 @@ import { mount, shallow } from 'enzyme'
 import { act } from 'react-dom/test-utils'
 
 import Button from 'components/atoms/Button'
-import UnlabeledCheckbox from 'components/atoms/UnlabeledCheckbox'
+import Checkbox from 'components/atoms/Checkbox'
 import LeaseUpApplicationsFilterContainer from 'components/lease_ups/LeaseUpApplicationsFilterContainer'
 import LeaseUpApplicationsFilters from 'components/lease_ups/LeaseUpApplicationsFilters'
 import ShowHideFiltersButton from 'components/molecules/ShowHideFiltersButton'
@@ -44,17 +44,17 @@ describe('LeaseUpApplicationsFilterContainer', () => {
       })
 
       test('should render the checkbox as unchecked', () => {
-        expect(wrapper.find(UnlabeledCheckbox).props().checked).toBeFalsy()
+        expect(wrapper.find(Checkbox).props().checked).toBeFalsy()
       })
 
       test('should render the checkbox as not indeterminate', () => {
-        expect(wrapper.find(UnlabeledCheckbox).props().indeterminate).toBeFalsy()
+        expect(wrapper.find(Checkbox).props().indeterminate).toBeFalsy()
       })
 
       test('should call select all on click', () => {
         expect(mockOnClearSelectedApplications.mock.calls).toHaveLength(0)
         expect(mockOnSelectAllApplications.mock.calls).toHaveLength(0)
-        wrapper.find(UnlabeledCheckbox).simulate('click')
+        wrapper.find(Checkbox).simulate('click')
         expect(mockOnClearSelectedApplications.mock.calls).toHaveLength(0)
         expect(mockOnSelectAllApplications.mock.calls).toHaveLength(1)
       })
@@ -66,17 +66,17 @@ describe('LeaseUpApplicationsFilterContainer', () => {
       })
 
       test('should render the checkbox as unchecked', () => {
-        expect(wrapper.find(UnlabeledCheckbox).props().checked).toBeFalsy()
+        expect(wrapper.find(Checkbox).props().checked).toBeFalsy()
       })
 
       test('should render the checkbox as not indeterminate', () => {
-        expect(wrapper.find(UnlabeledCheckbox).props().indeterminate).toBeFalsy()
+        expect(wrapper.find(Checkbox).props().indeterminate).toBeFalsy()
       })
 
       test('should call select all on click', () => {
         expect(mockOnClearSelectedApplications.mock.calls).toHaveLength(0)
         expect(mockOnSelectAllApplications.mock.calls).toHaveLength(0)
-        wrapper.find(UnlabeledCheckbox).simulate('click')
+        wrapper.find(Checkbox).simulate('click')
         expect(mockOnClearSelectedApplications.mock.calls).toHaveLength(0)
         expect(mockOnSelectAllApplications.mock.calls).toHaveLength(1)
       })
@@ -87,17 +87,17 @@ describe('LeaseUpApplicationsFilterContainer', () => {
       })
 
       test('should render the checkbox as checked=false', () => {
-        expect(wrapper.find(UnlabeledCheckbox).props().checked).toBeFalsy()
+        expect(wrapper.find(Checkbox).props().checked).toBeFalsy()
       })
 
       test('should render the checkbox with indeterminate=true', () => {
-        expect(wrapper.find(UnlabeledCheckbox).props().indeterminate).toBeTruthy()
+        expect(wrapper.find(Checkbox).props().indeterminate).toBeTruthy()
       })
 
       test('should call clear all on click', () => {
         expect(mockOnClearSelectedApplications.mock.calls).toHaveLength(0)
         expect(mockOnSelectAllApplications.mock.calls).toHaveLength(0)
-        wrapper.find(UnlabeledCheckbox).simulate('click')
+        wrapper.find(Checkbox).simulate('click')
         expect(mockOnClearSelectedApplications.mock.calls).toHaveLength(1)
         expect(mockOnSelectAllApplications.mock.calls).toHaveLength(0)
       })
@@ -108,17 +108,17 @@ describe('LeaseUpApplicationsFilterContainer', () => {
       })
 
       test('should render the checkbox as checked=false', () => {
-        expect(wrapper.find(UnlabeledCheckbox).props().checked).toBeTruthy()
+        expect(wrapper.find(Checkbox).props().checked).toBeTruthy()
       })
 
       test('should render the checkbox with indeterminate=false', () => {
-        expect(wrapper.find(UnlabeledCheckbox).props().indeterminate).toBeFalsy()
+        expect(wrapper.find(Checkbox).props().indeterminate).toBeFalsy()
       })
 
       test('should call clear all on click', () => {
         expect(mockOnClearSelectedApplications.mock.calls).toHaveLength(0)
         expect(mockOnSelectAllApplications.mock.calls).toHaveLength(0)
-        wrapper.find(UnlabeledCheckbox).simulate('click')
+        wrapper.find(Checkbox).simulate('click')
         expect(mockOnClearSelectedApplications.mock.calls).toHaveLength(1)
         expect(mockOnSelectAllApplications.mock.calls).toHaveLength(0)
       })

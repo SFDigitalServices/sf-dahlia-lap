@@ -2,7 +2,7 @@ import React from 'react'
 
 import { shallow } from 'enzyme'
 
-import UnlabeledCheckbox from 'components/atoms/UnlabeledCheckbox'
+import Checkbox from 'components/atoms/Checkbox'
 import CheckboxCell from 'components/lease_ups/application_page/CheckboxCell'
 
 const mockOnClick = jest.fn()
@@ -14,7 +14,7 @@ describe('CheckboxCell', () => {
       wrapper = shallow(
         <CheckboxCell applicationId='applicationId1' checked={false} onClick={mockOnClick} />
       )
-        .find(UnlabeledCheckbox)
+        .find(Checkbox)
         .dive()
     })
 
@@ -35,7 +35,7 @@ describe('CheckboxCell', () => {
       wrapper = shallow(
         <CheckboxCell applicationId='applicationId1' checked={true} onClick={mockOnClick} />
       )
-        .find(UnlabeledCheckbox)
+        .find(Checkbox)
         .dive()
     })
 

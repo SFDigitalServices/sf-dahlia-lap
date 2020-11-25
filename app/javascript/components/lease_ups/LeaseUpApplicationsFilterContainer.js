@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { Form } from 'react-final-form'
 
 import Button from 'components/atoms/Button'
-import UnlabeledCheckbox from 'components/atoms/UnlabeledCheckbox'
+import Checkbox from 'components/atoms/Checkbox'
 import { LEASE_UP_APPLICATION_FILTERS } from 'components/lease_ups/applicationFiltersConsts'
 import LeaseUpApplicationsFilters from 'components/lease_ups/LeaseUpApplicationsFilters'
 import Loading from 'components/molecules/Loading'
@@ -85,7 +85,7 @@ const LeaseUpApplicationsFilterContainer = ({
                     paddingRight: '1rem'
                   }}
                 >
-                  <UnlabeledCheckbox
+                  <Checkbox
                     id='bulk-edit-controller'
                     indeterminate={!allChecked && numChecked > 0}
                     checked={allChecked}

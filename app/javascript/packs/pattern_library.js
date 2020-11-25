@@ -37,6 +37,7 @@ import TabsSection from 'components/organisms/TabsSection'
 import Properties from 'components/pattern_library/properties'
 // Pattern Library Wrappers
 import ButtonWrapper from 'components/pattern_library/wrappers/ButtonWrapper'
+import CheckboxWrapper from 'components/pattern_library/wrappers/CheckboxWrapper'
 import ContentSectionWrapper from 'components/pattern_library/wrappers/ContentSectionWrapper'
 import ExpandableTableWrapper from 'components/pattern_library/wrappers/ExpandableTableWrapper'
 import InlineModalWrapper from 'components/pattern_library/wrappers/InlineModalWrapper'
@@ -45,7 +46,6 @@ import MultiSelectWrapper from 'components/pattern_library/wrappers/MultiSelectW
 import PopoverWrapper from 'components/pattern_library/wrappers/PopoverWrapper'
 import ShowHideFiltersButtonWrapper from 'components/pattern_library/wrappers/ShowHideFiltersButtonWrapper'
 import TabCardWrapper from 'components/pattern_library/wrappers/TabCardWrapper'
-import UnlabeledCheckboxWrapper from 'components/pattern_library/wrappers/UnlabeledCheckboxWrapper'
 
 Turbolinks.start()
 
@@ -85,7 +85,7 @@ WebpackerReact.setup({ TabCard })
 WebpackerReact.setup({ TabsSection })
 // Pattern Library Wrappers
 WebpackerReact.setup({ ContentSectionWrapper })
-WebpackerReact.setup({ UnlabeledCheckboxWrapper })
+WebpackerReact.setup({ CheckboxWrapper })
 WebpackerReact.setup({ InlineModalWrapper })
 WebpackerReact.setup({ ExpandableTableWrapper })
 WebpackerReact.setup({ ModalWrapper })
