@@ -14,17 +14,15 @@ describe('CheckboxCell', () => {
       wrapper = shallow(
         <CheckboxCell applicationId='applicationId1' checked={false} onClick={mockOnClick} />
       )
-        .find(Checkbox)
-        .dive()
     })
 
     test('the input is set to unchecked', () => {
-      expect(wrapper.find('input').props().checked).toBeFalsy()
+      expect(wrapper.find(Checkbox).props().checked).toBeFalsy()
     })
 
     test('onClick is trigged when the input changes', () => {
       expect(mockOnClick.mock.calls).toHaveLength(0)
-      wrapper.find('input').simulate('click')
+      wrapper.find(Checkbox).simulate('click')
       expect(mockOnClick.mock.calls).toHaveLength(1)
     })
   })
@@ -35,17 +33,15 @@ describe('CheckboxCell', () => {
       wrapper = shallow(
         <CheckboxCell applicationId='applicationId1' checked={true} onClick={mockOnClick} />
       )
-        .find(Checkbox)
-        .dive()
     })
 
     test('the input is set to unchecked', () => {
-      expect(wrapper.find('input').props().checked).toBeTruthy()
+      expect(wrapper.find(Checkbox).props().checked).toBeTruthy()
     })
 
     test('onClick is trigged when the input changes', () => {
       expect(mockOnClick.mock.calls).toHaveLength(0)
-      wrapper.find('input').simulate('click')
+      wrapper.find(Checkbox).simulate('click')
       expect(mockOnClick.mock.calls).toHaveLength(1)
     })
   })
