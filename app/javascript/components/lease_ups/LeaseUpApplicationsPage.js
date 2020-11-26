@@ -202,11 +202,10 @@ const LeaseUpApplicationsPage = () => {
           status: null
         })
       }
-      console.log(successfulIds, errorIds)
+
       setBulkCheckboxValues(false, successfulIds)
     })
   }
-  console.log(bulkCheckboxesState)
 
   const handleCloseStatusModal = () => {
     updateStatusModal({
