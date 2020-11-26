@@ -52,7 +52,7 @@ exports[`LeaseUpApplicationsFilterContainer it matches the expected snapshot wit
             }
           }
         >
-          <UnlabeledCheckbox
+          <Checkbox
             checked={false}
             id="bulk-edit-controller"
             indeterminate={false}
@@ -63,10 +63,11 @@ exports[`LeaseUpApplicationsFilterContainer it matches the expected snapshot wit
           className="filter-group_action"
         >
           <StatusDropdown
+            disabled={true}
+            forceDisplayPlaceholderText={true}
             minWidthPx="185px"
             onChange={[Function]}
             placeholder="Set Status"
-            updateOnChange={false}
           />
         </div>
       </div>

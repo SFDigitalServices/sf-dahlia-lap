@@ -6156,9 +6156,14 @@ Array [
                         onTouchEnd={[Function]}
                       >
                         <button
-                          className="button dropdown-button has-icon--right text-align-left tertiary"
+                          className="button dropdown-button tertiary"
                           disabled={false}
-                          style={Object {}}
+                          style={
+                            Object {
+                              "paddingBottom": 0,
+                              "paddingTop": 0,
+                            }
+                          }
                           type="button"
                         >
                           <div
@@ -6170,39 +6175,70 @@ Array [
                                 "width": "100%",
                               }
                             }
-                          />
-                          <span
-                            className="ui-icon ui-small"
                           >
-                            <svg>
-                              <use
-                                xlinkHref="#i-arrow-down"
-                              />
-                            </svg>
-                          </span>
-                          Status
-                          <div
-                            className="ui-icon ui-small"
-                          >
+                            <span
+                              style={
+                                Object {
+                                  "flexGrow": 1,
+                                  "marginBottom": "1rem",
+                                  "marginLeft": false,
+                                  "marginRight": "1rem",
+                                  "marginTop": "1rem",
+                                }
+                              }
+                            >
+                              Status
+                            </span>
                             <div
-                              className="status-dropdown__value-container css-g1d714-ValueContainer"
+                              style={
+                                Object {
+                                  "height": 0,
+                                  "width": 0,
+                                }
+                              }
                             >
                               <div
-                                className="status-dropdown__placeholder css-1wa3eu0-placeholder"
-                              />
-                              <input
-                                aria-autocomplete="list"
-                                className="css-62g3xt-dummyInput"
-                                disabled={false}
-                                id="react-select-3-input"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                onFocus={[Function]}
-                                readOnly={true}
-                                tabIndex="0"
-                                value=""
-                              />
+                                className="status-dropdown__value-container css-g1d714-ValueContainer"
+                              >
+                                <div
+                                  className="status-dropdown__placeholder css-1wa3eu0-placeholder"
+                                />
+                                <input
+                                  aria-autocomplete="list"
+                                  className="css-62g3xt-dummyInput"
+                                  disabled={false}
+                                  id="react-select-3-input"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onFocus={[Function]}
+                                  readOnly={true}
+                                  tabIndex="0"
+                                  value=""
+                                />
+                              </div>
                             </div>
+                            <span
+                              style={
+                                Object {
+                                  "flexShrink": 0,
+                                  "fontSize": 0,
+                                }
+                              }
+                            >
+                              <svg
+                                style={
+                                  Object {
+                                    "height": ".75rem",
+                                    "width": ".75rem",
+                                  }
+                                }
+                              >
+                                <use
+                                  style={null}
+                                  xlinkHref="#i-arrow-down"
+                                />
+                              </svg>
+                            </span>
                           </div>
                         </button>
                       </div>
@@ -6233,9 +6269,14 @@ Array [
                         onTouchEnd={[Function]}
                       >
                         <button
-                          className="button dropdown-button has-icon--right text-align-left tertiary"
+                          className="button dropdown-button tertiary"
                           disabled={false}
-                          style={Object {}}
+                          style={
+                            Object {
+                              "paddingBottom": 0,
+                              "paddingTop": 0,
+                            }
+                          }
                           type="button"
                         >
                           <div
@@ -6247,39 +6288,70 @@ Array [
                                 "width": "100%",
                               }
                             }
-                          />
-                          <span
-                            className="ui-icon ui-small"
                           >
-                            <svg>
-                              <use
-                                xlinkHref="#i-arrow-down"
-                              />
-                            </svg>
-                          </span>
-                          Status
-                          <div
-                            className="ui-icon ui-small"
-                          >
+                            <span
+                              style={
+                                Object {
+                                  "flexGrow": 1,
+                                  "marginBottom": "1rem",
+                                  "marginLeft": false,
+                                  "marginRight": "1rem",
+                                  "marginTop": "1rem",
+                                }
+                              }
+                            >
+                              Status
+                            </span>
                             <div
-                              className="status-dropdown__value-container css-g1d714-ValueContainer"
+                              style={
+                                Object {
+                                  "height": 0,
+                                  "width": 0,
+                                }
+                              }
                             >
                               <div
-                                className="status-dropdown__placeholder css-1wa3eu0-placeholder"
-                              />
-                              <input
-                                aria-autocomplete="list"
-                                className="css-62g3xt-dummyInput"
-                                disabled={false}
-                                id="react-select-4-input"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                onFocus={[Function]}
-                                readOnly={true}
-                                tabIndex="0"
-                                value=""
-                              />
+                                className="status-dropdown__value-container css-g1d714-ValueContainer"
+                              >
+                                <div
+                                  className="status-dropdown__placeholder css-1wa3eu0-placeholder"
+                                />
+                                <input
+                                  aria-autocomplete="list"
+                                  className="css-62g3xt-dummyInput"
+                                  disabled={false}
+                                  id="react-select-4-input"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onFocus={[Function]}
+                                  readOnly={true}
+                                  tabIndex="0"
+                                  value=""
+                                />
+                              </div>
                             </div>
+                            <span
+                              style={
+                                Object {
+                                  "flexShrink": 0,
+                                  "fontSize": 0,
+                                }
+                              }
+                            >
+                              <svg
+                                style={
+                                  Object {
+                                    "height": ".75rem",
+                                    "width": ".75rem",
+                                  }
+                                }
+                              >
+                                <use
+                                  style={null}
+                                  xlinkHref="#i-arrow-down"
+                                />
+                              </svg>
+                            </span>
                           </div>
                         </button>
                       </div>
