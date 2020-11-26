@@ -79,16 +79,16 @@ const LeaseUpTableContainer = ({
       />
       <StatusModalWrapper
         alertMsg={statusModal.alertMsg}
-        isBulkChange={statusModal.isBulkChange}
         isOpen={statusModal.isOpen}
         loading={statusModal.loading}
+        onAlertCloseClick={statusModal.onAlertCloseClick}
         onClose={onCloseStatusModal}
         onSubmit={onSubmitStatusModal}
         showAlert={statusModal.showAlert}
         status={statusModal.status}
         submitButton='Update'
         title='Update Status'
-        bulkUpdateCount={statusModal.applicationIds?.length}
+        numApplicationsToUpdate={statusModal.applicationIds?.length}
       />
     </>
   )

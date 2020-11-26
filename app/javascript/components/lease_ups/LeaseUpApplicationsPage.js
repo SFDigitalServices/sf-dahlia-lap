@@ -83,7 +83,6 @@ const LeaseUpApplicationsPage = () => {
     showAlert: null,
     loading: false,
     onSubmit: null,
-    isBulkChange: false,
     alertMsg: null
   })
   // grab the listing id from the url: /lease-ups/listings/:listingId
@@ -159,67 +158,73 @@ const LeaseUpApplicationsPage = () => {
 
   const handleStatusModalSubmit = async (submittedValues) => {
     updateStatusModal({ loading: true })
-    const { applicationIds, isBulkChange } = statusModalState
+    const { applicationIds } = statusModalState
     const { status, subStatus } = submittedValues
     const data = {
       applicationIds,
       status,
       comment: submittedValues.comment?.trim(),
-      subStatus,
-      isBulkChange: isBulkChange
+      subStatus
     }
 
     createStatusUpdates(data)
   }
 
-  const createStatusUpdates = async ({
-    applicationIds,
-    comment,
-    status,
-    subStatus,
-    isBulkChange
-  }) => {
+  const createStatusUpdates = async ({ applicationIds, comment, status, subStatus }) => {
     const statusUpdateRequests = applicationIds.map((appId) =>
       createFieldUpdateComment(appId, status, comment, subStatus)
+        .then((_) => ({ application: appId }))
+        .catch((e) => ({
+          error: true,
+          application: appId
+        }))
     )
-    return Promise.all(statusUpdateRequests)
-      .then(() => {
-        updateApplicationState(applicationIds, status, subStatus)
+
+    return Promise.all(statusUpdateRequests).then((values) => {
+      const successfulIds = values.filter((v) => !v.error).map((v) => v.application)
+      const errorIds = values.filter((v) => v.error).map((v) => v.application)
+      updateApplicationState(successfulIds, status, subStatus)
+
+      if (errorIds.length !== 0) {
         updateStatusModal({
-          applicationId: null,
+          applicationIds: errorIds,
+          loading: false,
+          showAlert: true,
+          alertMsg: `We were unable to make the update for ${errorIds.length} out of ${values.length} applications, please try again.`,
+          onAlertCloseClick: () => updateStatusModal({ showAlert: false })
+        })
+      } else {
+        updateStatusModal({
+          applicationIds: [],
           isOpen: false,
           loading: false,
           showAlert: false,
           status: null
         })
-        isBulkChange && setInitialCheckboxState(state.applications)
-      })
-      .catch(() => {
-        updateStatusModal({
-          loading: false,
-          showAlert: true,
-          alertMsg: 'We were unable to make the update, please try again.',
-          onAlertCloseClick: () => updateStatusModal({ showAlert: false })
-        })
-      })
+      }
+      console.log(successfulIds, errorIds)
+      setBulkCheckboxValues(false, successfulIds)
+    })
   }
+  console.log(bulkCheckboxesState)
 
   const handleCloseStatusModal = () => {
     updateStatusModal({
       isOpen: false,
       showAlert: false,
-      applicationId: null
+      applicationIds: []
     })
   }
   const handleLeaseUpStatusChange = (value, applicationId) => {
     const appsToUpdate = applicationId
       ? [applicationId]
-      : Object.entries(bulkCheckboxesState).filter(([id, checked]) => checked)
+      : Object.entries(bulkCheckboxesState)
+          .filter(([_, checked]) => checked)
+          .map(([id, _]) => id)
     updateStatusModal({
       applicationIds: appsToUpdate,
       isOpen: true,
-      status: value,
-      isBulkChange: !applicationId
+      status: value
     })
   }
 
@@ -238,13 +243,16 @@ const LeaseUpApplicationsPage = () => {
     })
   }
 
-  const setAllBulkCheckboxValues = (newValue) => {
-    const entries = Object.keys(bulkCheckboxesState).map((k) => [k, newValue])
-    setBulkCheckboxesState(Object.fromEntries(entries))
+  const setBulkCheckboxValues = (newValue, applicationIds = null) => {
+    const newBulkCheckboxState = { ...bulkCheckboxesState }
+    const applicationIdsToUpdate = applicationIds ?? Object.keys(bulkCheckboxesState)
+
+    applicationIdsToUpdate.forEach((id) => (newBulkCheckboxState[id] = newValue))
+    setBulkCheckboxesState(newBulkCheckboxState)
   }
 
-  const handleClearSelectedApplications = () => setAllBulkCheckboxValues(false)
-  const handleSelectAllApplications = () => setAllBulkCheckboxValues(true)
+  const handleClearSelectedApplications = () => setBulkCheckboxValues(false)
+  const handleSelectAllApplications = () => setBulkCheckboxValues(true)
 
   const context = {
     applications: state.applications,
