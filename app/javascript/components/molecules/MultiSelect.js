@@ -21,31 +21,50 @@ const getStyleOverrides = (controlHeight) => {
   return {
     control: (base, _) => ({
       ...base,
-      height: controlHeightPx
+      minHeight: controlHeightPx
+    }),
+    multiValue: (base, _) => ({
+      ...base,
+      maxWidth: '90%'
+    }),
+    input: (base, _) => ({
+      ...base,
+      position: 'relative',
+      top: '10px'
     })
   }
 }
 
 const MultiSelect = ({
-  items = [],
-  selectedItems = [],
+  input = null,
+  options = [],
+  value = [],
   height = HEIGHT_NORMAL,
   disabled = false,
-  onChangeValues = () => {}
-}) => (
-  <div className='input-custom-height'>
-    <Select
-      isDisabled={disabled}
-      isClearable
-      isSearchable
-      isMulti
-      styles={getStyleOverrides(height)}
-      onChange={(values) => onChangeValues(values)}
-      value={selectedItems}
-      options={items}
-    />
-  </div>
-)
+  onChange = () => {}
+}) => {
+  let selectedValues
+  if (value && value[0] && !value[0].value) {
+    selectedValues = options.filter((option) => value.includes(option.value))
+  } else {
+    selectedValues = value
+  }
+  return (
+    <div className='input-custom-height'>
+      <Select
+        {...input}
+        isDisabled={disabled}
+        isClearable
+        isSearchable
+        isMulti
+        styles={getStyleOverrides(height)}
+        onChange={(values) => onChange(values)}
+        options={options}
+        value={selectedValues}
+      />
+    </div>
+  )
+}
 
 const SelectItemShape = PropTypes.shape({
   value: PropTypes.string,
@@ -53,10 +72,11 @@ const SelectItemShape = PropTypes.shape({
 })
 
 MultiSelect.propTypes = {
-  items: PropTypes.arrayOf(SelectItemShape),
+  input: PropTypes.object,
+  options: PropTypes.arrayOf(SelectItemShape),
   height: PropTypes.oneOf([HEIGHT_NORMAL, HEIGHT_SMALL]),
   disabled: PropTypes.bool,
-  selectedItems: PropTypes.arrayOf(SelectItemShape),
+  value: PropTypes.arrayOf(SelectItemShape),
   onChange: PropTypes.func
 }
 
