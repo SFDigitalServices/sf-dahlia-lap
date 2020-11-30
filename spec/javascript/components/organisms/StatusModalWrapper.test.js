@@ -83,12 +83,6 @@ describe('StatusModalWrapper', () => {
     expect(wrapper.find(FormModal).prop('subtitle')).toBeFalsy()
   })
 
-  test('should display a subtitle if numApplicationsToUpdate == 0', () => {
-    wrapper = getWrapper({ numApplicationsToUpdate: 0 })
-
-    expect(wrapper.find(FormModal).prop('subtitle')).toBeFalsy()
-  })
-
   test('should open a closeable alert modal when showAlert is true', () => {
     const alertMessage = 'test alert message'
     wrapper = getWrapper({ showAlert: true, alertMsg: alertMessage, isOpen: true })
