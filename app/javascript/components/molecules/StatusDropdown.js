@@ -51,6 +51,7 @@ const StatusDropdown = ({
         paddingHorizontal={padding}
         paddingVertical={padding}
         textAlign='left'
+        noBottomMargin
       >
         <div style={{ width: 0, height: 0 }}>
           <components.ValueContainer getValue={getValue} {...props}>
