@@ -27,22 +27,28 @@ module Force
         # This builds the syntax need for soql to do an
         # OR statement when passing the option of `Vision/Hearing`
         # https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_querying_multiselect_picklists.htm
-        if opts[:accessibility]
-          accessibility_filters = opts[:accessibility].split(', ')
-          accessibility_string = accessibility_filters.length == 1 ? "'#{accessibility_filters[0]}'" : "'#{accessibility_filters[0]}', '#{accessibility_filters[1]}'"
+        if opts[:accessibility].present?
+          accessibility_string = opts[:accessibility].map { |accessibility| "'#{accessibility}'" }.join(', ')
         end
 
         filters = ''
-        filters += "and Preference_All_Name__c like '%#{opts[:preference]}' " if opts[:preference].present?
-        filters += "and Application__r.Processing_Status__c = " + (opts[:status] == 'No Status' ? 'NULL' : "'#{opts[:status]}'") if opts[:status].present?
+        if opts[:preference].present?
+          preferences = opts[:preference].map { |preference| "Preference_All_Name__c like '%#{preference}'" }.join(' or ')
+          filters += "and (#{preferences})"
+        end
+        if opts[:status].present?
+          states = opts[:status].map do |status|
+            'Application__r.Processing_Status__c = ' + (status == 'No Status' ? 'NULL' : "'#{status}'")
+          end.join(' or ')
+          filters += "and (#{states})"
+        end
         filters += "and Application__r.Has_ADA_Priorities_Selected__c INCLUDES (#{accessibility_string}) " if opts[:accessibility].present?
 
         if opts[:total_household_size].present?
-          if opts[:total_household_size] == '5+'
-            filters += "and Application__r.Total_Household_Size__c >= 5 "
-          else
-            filters += "and Application__r.Total_Household_Size__c = #{opts[:total_household_size]} "
-          end
+          total_household_size = opts[:total_household_size].map do |size|
+            size == '5+' ? 'Application__r.Total_Household_Size__c >= 5' : "Application__r.Total_Household_Size__c = #{size}"
+          end.join(' or ')
+          filters += "and (#{total_household_size})"
         end
 
         filters
