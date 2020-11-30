@@ -1323,6 +1323,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                       />
                                                     }
                                                     minWidthPx="185px"
+                                                    noBottomMargin={true}
                                                     paddingHorizontal="normal"
                                                     paddingVertical="normal"
                                                     small={false}
@@ -1332,7 +1333,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                     type="button"
                                                   >
                                                     <button
-                                                      className="button dropdown-button tertiary"
+                                                      className="button dropdown-button tertiary margin-bottom-none"
                                                       disabled={true}
                                                       style={
                                                         Object {
@@ -1361,6 +1362,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               "marginLeft": false,
                                                               "marginRight": "1rem",
                                                               "marginTop": "1rem",
+                                                              "overflow": "auto",
                                                               "textAlign": "left",
                                                             }
                                                           }
@@ -2169,6 +2171,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         "marginLeft": false,
                                         "marginRight": false,
                                         "marginTop": "1rem",
+                                        "overflow": "auto",
                                         "textAlign": "center",
                                       }
                                     }
@@ -2257,6 +2260,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           "marginLeft": "0.5rem",
                                           "marginRight": false,
                                           "marginTop": "1rem",
+                                          "overflow": "auto",
                                           "textAlign": "center",
                                         }
                                       }
@@ -5794,6 +5798,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                       />
                                                                     }
                                                                     minWidthPx={null}
+                                                                    noBottomMargin={true}
                                                                     paddingHorizontal="tight"
                                                                     paddingVertical="tight"
                                                                     small={false}
@@ -5803,7 +5808,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     type="button"
                                                                   >
                                                                     <button
-                                                                      className="button dropdown-button tertiary tight-padding tiny"
+                                                                      className="button dropdown-button tertiary tight-padding tiny margin-bottom-none"
                                                                       disabled={false}
                                                                       style={
                                                                         Object {
@@ -5831,6 +5836,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                               "marginLeft": false,
                                                                               "marginRight": "0.5rem",
                                                                               "marginTop": "0.5rem",
+                                                                              "overflow": "auto",
                                                                               "textAlign": "left",
                                                                             }
                                                                           }
@@ -9137,6 +9143,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                       />
                                                                     }
                                                                     minWidthPx={null}
+                                                                    noBottomMargin={true}
                                                                     paddingHorizontal="tight"
                                                                     paddingVertical="tight"
                                                                     small={false}
@@ -9146,7 +9153,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     type="button"
                                                                   >
                                                                     <button
-                                                                      className="button dropdown-button tertiary tight-padding tiny"
+                                                                      className="button dropdown-button tertiary tight-padding tiny margin-bottom-none"
                                                                       disabled={false}
                                                                       style={
                                                                         Object {
@@ -9174,6 +9181,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                               "marginLeft": false,
                                                                               "marginRight": "0.5rem",
                                                                               "marginTop": "0.5rem",
+                                                                              "overflow": "auto",
                                                                               "textAlign": "left",
                                                                             }
                                                                           }
@@ -12480,6 +12488,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                       />
                                                                     }
                                                                     minWidthPx={null}
+                                                                    noBottomMargin={true}
                                                                     paddingHorizontal="tight"
                                                                     paddingVertical="tight"
                                                                     small={false}
@@ -12489,7 +12498,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     type="button"
                                                                   >
                                                                     <button
-                                                                      className="button dropdown-button tertiary tight-padding tiny"
+                                                                      className="button dropdown-button tertiary tight-padding tiny margin-bottom-none"
                                                                       disabled={false}
                                                                       style={
                                                                         Object {
@@ -12517,6 +12526,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                               "marginLeft": false,
                                                                               "marginRight": "0.5rem",
                                                                               "marginTop": "0.5rem",
+                                                                              "overflow": "auto",
                                                                               "textAlign": "left",
                                                                             }
                                                                           }
@@ -15823,6 +15833,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                       />
                                                                     }
                                                                     minWidthPx={null}
+                                                                    noBottomMargin={true}
                                                                     paddingHorizontal="tight"
                                                                     paddingVertical="tight"
                                                                     small={false}
@@ -15832,7 +15843,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     type="button"
                                                                   >
                                                                     <button
-                                                                      className="button dropdown-button tertiary tight-padding tiny"
+                                                                      className="button dropdown-button tertiary tight-padding tiny margin-bottom-none"
                                                                       disabled={false}
                                                                       style={
                                                                         Object {
@@ -15860,6 +15871,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                               "marginLeft": false,
                                                                               "marginRight": "0.5rem",
                                                                               "marginTop": "0.5rem",
+                                                                              "overflow": "auto",
                                                                               "textAlign": "left",
                                                                             }
                                                                           }
@@ -19166,6 +19178,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                       />
                                                                     }
                                                                     minWidthPx={null}
+                                                                    noBottomMargin={true}
                                                                     paddingHorizontal="tight"
                                                                     paddingVertical="tight"
                                                                     small={false}
@@ -19175,7 +19188,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     type="button"
                                                                   >
                                                                     <button
-                                                                      className="button dropdown-button tertiary tight-padding tiny"
+                                                                      className="button dropdown-button tertiary tight-padding tiny margin-bottom-none"
                                                                       disabled={false}
                                                                       style={
                                                                         Object {
@@ -19203,6 +19216,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                               "marginLeft": false,
                                                                               "marginRight": "0.5rem",
                                                                               "marginTop": "0.5rem",
+                                                                              "overflow": "auto",
                                                                               "textAlign": "left",
                                                                             }
                                                                           }
