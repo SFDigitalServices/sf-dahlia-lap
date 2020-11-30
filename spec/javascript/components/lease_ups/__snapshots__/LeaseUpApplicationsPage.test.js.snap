@@ -1327,6 +1327,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                     paddingVertical="normal"
                                                     small={false}
                                                     text="Set Status"
+                                                    textAlign="left"
                                                     tiny={false}
                                                     type="button"
                                                   >
@@ -1360,6 +1361,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               "marginLeft": false,
                                                               "marginRight": "1rem",
                                                               "marginTop": "1rem",
+                                                              "textAlign": "left",
                                                             }
                                                           }
                                                         >
@@ -2167,6 +2169,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         "marginLeft": false,
                                         "marginRight": false,
                                         "marginTop": "1rem",
+                                        "textAlign": "center",
                                       }
                                     }
                                   >
@@ -2254,6 +2257,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           "marginLeft": "0.5rem",
                                           "marginRight": false,
                                           "marginTop": "1rem",
+                                          "textAlign": "center",
                                         }
                                       }
                                     >
@@ -5794,6 +5798,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     paddingVertical="tight"
                                                                     small={false}
                                                                     text="Status"
+                                                                    textAlign="left"
                                                                     tiny={true}
                                                                     type="button"
                                                                   >
@@ -5826,6 +5831,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                               "marginLeft": false,
                                                                               "marginRight": "0.5rem",
                                                                               "marginTop": "0.5rem",
+                                                                              "textAlign": "left",
                                                                             }
                                                                           }
                                                                         >
@@ -9135,6 +9141,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     paddingVertical="tight"
                                                                     small={false}
                                                                     text="Status"
+                                                                    textAlign="left"
                                                                     tiny={true}
                                                                     type="button"
                                                                   >
@@ -9167,6 +9174,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                               "marginLeft": false,
                                                                               "marginRight": "0.5rem",
                                                                               "marginTop": "0.5rem",
+                                                                              "textAlign": "left",
                                                                             }
                                                                           }
                                                                         >
@@ -12476,6 +12484,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     paddingVertical="tight"
                                                                     small={false}
                                                                     text="Status"
+                                                                    textAlign="left"
                                                                     tiny={true}
                                                                     type="button"
                                                                   >
@@ -12508,6 +12517,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                               "marginLeft": false,
                                                                               "marginRight": "0.5rem",
                                                                               "marginTop": "0.5rem",
+                                                                              "textAlign": "left",
                                                                             }
                                                                           }
                                                                         >
@@ -15817,6 +15827,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     paddingVertical="tight"
                                                                     small={false}
                                                                     text="Status"
+                                                                    textAlign="left"
                                                                     tiny={true}
                                                                     type="button"
                                                                   >
@@ -15849,6 +15860,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                               "marginLeft": false,
                                                                               "marginRight": "0.5rem",
                                                                               "marginTop": "0.5rem",
+                                                                              "textAlign": "left",
                                                                             }
                                                                           }
                                                                         >
@@ -19158,6 +19170,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                     paddingVertical="tight"
                                                                     small={false}
                                                                     text="Status"
+                                                                    textAlign="left"
                                                                     tiny={true}
                                                                     type="button"
                                                                   >
@@ -19190,6 +19203,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                               "marginLeft": false,
                                                                               "marginRight": "0.5rem",
                                                                               "marginTop": "0.5rem",
+                                                                              "textAlign": "left",
                                                                             }
                                                                           }
                                                                         >

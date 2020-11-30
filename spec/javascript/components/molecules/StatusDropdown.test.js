@@ -3,6 +3,7 @@ import React from 'react'
 import { mount, shallow } from 'enzyme'
 import Select from 'react-select'
 
+import Button from 'components/atoms/Button'
 import Dropdown from 'components/molecules/Dropdown'
 import StatusDropdown, { renderStatusOption } from 'components/molecules/StatusDropdown'
 import { LEASE_UP_STATUS_OPTIONS } from 'utils/statusUtils'
@@ -45,6 +46,12 @@ describe('StatusDropdown', () => {
       expect(toggleButton.hasClass('expand')).toBe(false)
       expect(toggleButton.hasClass('tiny')).toBe(false)
       expect(toggleButton.hasClass('small')).toBe(false)
+    })
+
+    test('renders with left-aligned text', () => {
+      wrapper = getWrapper({})
+
+      expect(wrapper.find(Button).props().textAlign).toEqual('left')
     })
 
     test('renders with additional styles when provided', () => {

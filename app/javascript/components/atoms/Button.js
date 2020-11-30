@@ -32,7 +32,7 @@ const buttonChildrenStyles = () => ({
   width: '100%'
 })
 
-const textStyles = (paddingVertical, paddingHorizontal, hasLeftIcon, hasRightIcon) => {
+const textStyles = (textAlign, paddingVertical, paddingHorizontal, hasLeftIcon, hasRightIcon) => {
   const verticalPaddingRem = paddingVertical === 'tight' ? '0.5rem' : '1rem'
   const paddingBetweenTextAndIcon = paddingHorizontal === 'tight' ? '0.5rem' : '1rem'
   return {
@@ -40,7 +40,8 @@ const textStyles = (paddingVertical, paddingHorizontal, hasLeftIcon, hasRightIco
     marginBottom: verticalPaddingRem,
     marginRight: hasRightIcon && paddingBetweenTextAndIcon,
     marginLeft: hasLeftIcon && paddingBetweenTextAndIcon,
-    flexGrow: 1
+    flexGrow: 1,
+    textAlign
   }
 }
 
@@ -70,6 +71,7 @@ const Button = ({
   minWidthPx = null,
   style = {},
   children = null,
+  textAlign = 'center',
   ...rest
 }) => {
   const btnClassNames = classNames(classes, {
@@ -93,7 +95,7 @@ const Button = ({
         {wrapWithStyle(iconLeft, iconWrapperStyles())}
         {wrapWithStyle(
           text,
-          textStyles(paddingVertical, paddingHorizontal, !!iconLeft, !!iconRight)
+          textStyles(textAlign, paddingVertical, paddingHorizontal, !!iconLeft, !!iconRight)
         )}
         {children}
         {wrapWithStyle(iconRight, iconWrapperStyles())}
@@ -116,6 +118,7 @@ Button.propTypes = {
   style: PropTypes.object,
   tertiary: PropTypes.bool,
   text: PropTypes.node,
+  textAlign: PropTypes.oneOf(['left', 'center', 'right']),
   tiny: PropTypes.bool
 }
 

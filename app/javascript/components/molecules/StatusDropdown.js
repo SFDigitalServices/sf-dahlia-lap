@@ -50,6 +50,7 @@ const StatusDropdown = ({
         tiny={size === 'tiny'}
         paddingHorizontal={padding}
         paddingVertical={padding}
+        textAlign='left'
       >
         <div style={{ width: 0, height: 0 }}>
           <components.ValueContainer getValue={getValue} {...props}>
