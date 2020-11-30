@@ -19,6 +19,7 @@ export const renderStatusOption = ({ value, label, statusClassName }, { selectVa
 }
 
 const StatusDropdown = ({
+  buttonClasses = [],
   status,
   onChange,
   overrideValue = false,
@@ -31,7 +32,7 @@ const StatusDropdown = ({
   // always show the placeholder.
   forceDisplayPlaceholderText = false
 }) => {
-  const buttonClasses = ['button', 'dropdown-button', { expand: expand }]
+  const classes = classNames(buttonClasses, 'button', 'dropdown-button', { expand: expand })
 
   const renderStatusToggle = ({ children, getValue, ...props }) => {
     const val = forceDisplayPlaceholderText ? null : getValue()[0]
@@ -40,7 +41,7 @@ const StatusDropdown = ({
 
     return (
       <Button
-        classes={classNames(buttonClasses.concat(val?.statusClassName || 'tertiary'))}
+        classes={classNames(classes, val?.statusClassName || 'tertiary')}
         type='button'
         disabled={disabled}
         minWidthPx={minWidthPx}
@@ -78,6 +79,7 @@ const StatusDropdown = ({
 }
 
 StatusDropdown.propTypes = {
+  buttonClasses: PropTypes.arrayOf(PropTypes.string),
   disabled: PropTypes.bool,
   expand: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
