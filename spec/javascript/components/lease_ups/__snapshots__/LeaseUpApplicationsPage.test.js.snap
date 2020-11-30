@@ -387,6 +387,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                 "statusModal": Object {
                   "alertMsg": null,
                   "applicationIds": null,
+                  "isBulkUpdate": false,
                   "isOpen": false,
                   "loading": false,
                   "onSubmit": null,
@@ -26319,6 +26320,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
             </LeaseUpApplicationsTable>
             <StatusModalWrapper
               alertMsg={null}
+              isBulkUpdate={false}
               isOpen={false}
               loading={false}
               onClose={[Function]}

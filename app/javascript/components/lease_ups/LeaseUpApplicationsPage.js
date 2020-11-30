@@ -76,15 +76,17 @@ const LeaseUpApplicationsPage = () => {
 
   const [bulkCheckboxesState, setBulkCheckboxesState] = useState({})
   const [statusModalState, setStatusModalState] = useState({
-    isOpen: false,
-    status: null,
-    subStatus: null,
+    alertMsg: null,
     applicationIds: null,
-    showAlert: null,
+    isBulkUpdate: false,
+    isOpen: false,
     loading: false,
     onSubmit: null,
-    alertMsg: null
+    showAlert: null,
+    status: null,
+    subStatus: null
   })
+
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
 
@@ -185,6 +187,8 @@ const LeaseUpApplicationsPage = () => {
       const errorIds = values.filter((v) => v.error).map((v) => v.application)
       updateApplicationState(successfulIds, status, subStatus)
 
+      const wasBulkUpdate = statusModalState.isBulkUpdate
+
       if (errorIds.length !== 0) {
         updateStatusModal({
           applicationIds: errorIds,
@@ -203,7 +207,9 @@ const LeaseUpApplicationsPage = () => {
         })
       }
 
-      setBulkCheckboxValues(false, successfulIds)
+      if (wasBulkUpdate) {
+        setBulkCheckboxValues(false, successfulIds)
+      }
     })
   }
 
@@ -215,13 +221,16 @@ const LeaseUpApplicationsPage = () => {
     })
   }
   const handleLeaseUpStatusChange = (value, applicationId) => {
-    const appsToUpdate = applicationId
-      ? [applicationId]
-      : Object.entries(bulkCheckboxesState)
+    const isBulkUpdate = !applicationId
+    const appsToUpdate = isBulkUpdate
+      ? Object.entries(bulkCheckboxesState)
           .filter(([_, checked]) => checked)
           .map(([id, _]) => id)
+      : [applicationId]
+
     updateStatusModal({
       applicationIds: appsToUpdate,
+      isBulkUpdate,
       isOpen: true,
       status: value
     })

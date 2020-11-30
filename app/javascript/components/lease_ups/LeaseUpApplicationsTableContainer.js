@@ -79,8 +79,10 @@ const LeaseUpTableContainer = ({
       />
       <StatusModalWrapper
         alertMsg={statusModal.alertMsg}
+        isBulkUpdate={statusModal.isBulkUpdate}
         isOpen={statusModal.isOpen}
         loading={statusModal.loading}
+        numApplicationsToUpdate={statusModal.applicationIds?.length}
         onAlertCloseClick={statusModal.onAlertCloseClick}
         onClose={onCloseStatusModal}
         onSubmit={onSubmitStatusModal}
@@ -88,7 +90,6 @@ const LeaseUpTableContainer = ({
         status={statusModal.status}
         submitButton='Update'
         title='Update Status'
-        numApplicationsToUpdate={statusModal.applicationIds?.length}
       />
     </>
   )

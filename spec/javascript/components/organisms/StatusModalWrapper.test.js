@@ -37,12 +37,44 @@ describe('StatusModalWrapper', () => {
     expect(wrapper.find(FormModal).prop('isOpen')).toBeFalsy()
   })
 
-  test('should display a subtitle if numApplicationsToUpdate > 1', () => {
-    wrapper = getWrapper({ numApplicationsToUpdate: 2 })
+  describe('when isBulkUpdate is true', () => {
+    test('should display a subtitle if numApplicationsToUpdate=0', () => {
+      wrapper = getWrapper({ isBulkUpdate: true, numApplicationsToUpdate: 0 })
+      expect(wrapper.find(FormModal).prop('subtitle')).toEqual(
+        'Update the status for 0 selected items'
+      )
+    })
 
-    expect(wrapper.find(FormModal).prop('subtitle')).toEqual(
-      'Update the status for 2 selected items'
-    )
+    test('should display a subtitle if numApplicationsToUpdate=1', () => {
+      wrapper = getWrapper({ isBulkUpdate: true, numApplicationsToUpdate: 1 })
+      expect(wrapper.find(FormModal).prop('subtitle')).toEqual(
+        'Update the status for 1 selected item'
+      )
+    })
+
+    test('should display a subtitle if numApplicationsToUpdate=2', () => {
+      wrapper = getWrapper({ isBulkUpdate: true, numApplicationsToUpdate: 2 })
+      expect(wrapper.find(FormModal).prop('subtitle')).toEqual(
+        'Update the status for 2 selected items'
+      )
+    })
+  })
+
+  describe('when isBulkUpdate is false', () => {
+    test('should display a subtitle if numApplicationsToUpdate=0', () => {
+      wrapper = getWrapper({ isBulkUpdate: false, numApplicationsToUpdate: 0 })
+      expect(wrapper.find(FormModal).prop('subtitle')).toBeNull()
+    })
+
+    test('should display a subtitle if numApplicationsToUpdate=1', () => {
+      wrapper = getWrapper({ isBulkUpdate: false, numApplicationsToUpdate: 1 })
+      expect(wrapper.find(FormModal).prop('subtitle')).toBeNull()
+    })
+
+    test('should display a subtitle if numApplicationsToUpdate=2', () => {
+      wrapper = getWrapper({ isBulkUpdate: false, numApplicationsToUpdate: 2 })
+      expect(wrapper.find(FormModal).prop('subtitle')).toBeNull()
+    })
   })
 
   test('should display a subtitle if numApplicationsToUpdate == 1', () => {
