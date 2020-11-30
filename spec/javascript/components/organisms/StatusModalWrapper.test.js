@@ -61,17 +61,17 @@ describe('StatusModalWrapper', () => {
   })
 
   describe('when isBulkUpdate is false', () => {
-    test('should display a subtitle if numApplicationsToUpdate=0', () => {
+    test('should not display a subtitle if numApplicationsToUpdate=0', () => {
       wrapper = getWrapper({ isBulkUpdate: false, numApplicationsToUpdate: 0 })
       expect(wrapper.find(FormModal).prop('subtitle')).toBeNull()
     })
 
-    test('should display a subtitle if numApplicationsToUpdate=1', () => {
+    test('should not display a subtitle if numApplicationsToUpdate=1', () => {
       wrapper = getWrapper({ isBulkUpdate: false, numApplicationsToUpdate: 1 })
       expect(wrapper.find(FormModal).prop('subtitle')).toBeNull()
     })
 
-    test('should display a subtitle if numApplicationsToUpdate=2', () => {
+    test('should not display a subtitle if numApplicationsToUpdate=2', () => {
       wrapper = getWrapper({ isBulkUpdate: false, numApplicationsToUpdate: 2 })
       expect(wrapper.find(FormModal).prop('subtitle')).toBeNull()
     })
