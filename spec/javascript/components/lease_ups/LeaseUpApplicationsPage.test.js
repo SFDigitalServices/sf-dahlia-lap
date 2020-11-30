@@ -3,6 +3,7 @@ import { act } from 'react-dom/test-utils'
 import { Link } from 'react-router-dom'
 import Select from 'react-select'
 
+import Button from 'components/atoms/Button'
 import PrettyTime from 'components/atoms/PrettyTime'
 import TableLayout from 'components/layouts/TableLayout'
 import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
@@ -34,29 +35,32 @@ jest.mock('apiService', () => {
   }
 })
 
-const buildMockApplicationWithPreference = (uniqId, prefOrder, prefRank) => {
-  return {
-    id: uniqId,
-    processing_status: 'processing',
-    preference_order: prefOrder,
-    preference_lottery_rank: prefRank,
-    record_type_for_app_preferences: 'COP',
-    application: {
-      id: 1000 + uniqId,
-      name: `Application Name ${uniqId}`,
-      status_last_updated: '2018-04-26T12:31:39.000+0000',
-      has_ada_priorities_selected: { vision_impairments: true },
-      applicant: {
-        id: '1',
-        residence_address: `1316 BURNETT ${uniqId}`,
-        first_name: `some first name ${uniqId}`,
-        last_name: `some last name ${uniqId}`,
-        phone: 'some phone',
-        email: `some email ${uniqId}`
-      }
+const buildMockApplicationWithPreference = ({
+  prefId,
+  applicationId,
+  prefOrder = 1,
+  prefRank = 1
+}) => ({
+  id: prefId,
+  processing_status: 'processing',
+  preference_order: prefOrder,
+  preference_lottery_rank: prefRank,
+  record_type_for_app_preferences: 'COP',
+  application: {
+    id: applicationId,
+    name: `Application Name ${applicationId}`,
+    status_last_updated: '2018-04-26T12:31:39.000+0000',
+    has_ada_priorities_selected: { vision_impairments: true },
+    applicant: {
+      id: '1',
+      residence_address: `1316 BURNETT ${prefId}`,
+      first_name: `some first name ${prefId}`,
+      last_name: `some last name ${prefId}`,
+      phone: 'some phone',
+      email: `some email ${prefId}`
     }
   }
-}
+})
 
 const mockListing = {
   id: 'listingId',
@@ -66,11 +70,40 @@ const mockListing = {
 }
 
 const mockApplications = [
-  buildMockApplicationWithPreference('1', '2', '2'),
-  buildMockApplicationWithPreference('2', '2', '1'),
-  buildMockApplicationWithPreference('3', '3', '1'),
-  buildMockApplicationWithPreference('4', '1', '2'),
-  buildMockApplicationWithPreference('5', '1', '1')
+  buildMockApplicationWithPreference({
+    prefId: '1',
+    applicationId: '1001',
+    prefOrder: '1',
+    prefRank: '2'
+  }),
+  buildMockApplicationWithPreference({
+    prefId: '2',
+    applicationId: '1002',
+    prefOrder: '2',
+    prefRank: '1'
+  }),
+  buildMockApplicationWithPreference({
+    prefId: '3',
+    applicationId: '1003',
+    prefOrder: '2',
+    prefRank: '3'
+  }),
+  buildMockApplicationWithPreference({
+    prefId: '4',
+    applicationId: '1004',
+    prefOrder: '3',
+    prefRank: '2'
+  }),
+
+  // these last two rows should have the same application IDs
+  buildMockApplicationWithPreference({
+    prefId: '5',
+    applicationId: '1005'
+  }),
+  buildMockApplicationWithPreference({
+    prefId: '6',
+    applicationId: '1005'
+  })
 ]
 
 const rowSelector = 'div.rt-tbody .rt-tr-group'
@@ -133,7 +166,7 @@ describe('LeaseUpApplicationsPage', () => {
 
     // Just double check that our list has the same length as mockApplications, because if
     // for some reason it had length 0 the .every(..) call would always return true by default
-    expect(applicationLinkWrappers).toHaveLength(5)
+    expect(applicationLinkWrappers).toHaveLength(6)
     expect(applicationLinkWrappers.every((w) => w.exists())).toBeTruthy()
   })
 
@@ -200,5 +233,220 @@ describe('LeaseUpApplicationsPage', () => {
     // Expect the changed row to have the updated substatus and date
     expect(wrapper.find(rowSelector).first().text().includes('None of the above')).toBeTruthy()
     expect(wrapper.find(rowSelector).first().find(PrettyTime).text()).not.toEqual(dateBefore)
+  })
+
+  describe('bulk checkboxes', () => {
+    const getTopLevelInputWrapper = (wrapper) => wrapper.find('input#bulk-edit-controller')
+
+    const getRowBulkCheckboxInput = (wrapper, applicationId) =>
+      wrapper.find(`input[id="bulk-action-checkbox-${applicationId}"]`)
+
+    const getRowBulkCheckboxInputs = (wrapper) => wrapper.find('input[id^="bulk-action-checkbox-"]')
+
+    const isChecked = (inputWrapper) => !!inputWrapper.props().checked
+
+    describe('initial load state without boxes checked', () => {
+      test('the bulk input box is unchecked and not indeterminate', () => {
+        const wrapperProps = getTopLevelInputWrapper(wrapper).props()
+        expect(wrapperProps.checked).toBeFalsy()
+        expect(wrapperProps.className.includes('indeterminate')).toBeFalsy()
+      })
+
+      test('none of the rows have checked boxes', () => {
+        expect(getRowBulkCheckboxInputs(wrapper).map(isChecked)).toEqual(Array(6).fill(false))
+      })
+
+      test('the bulk status button is disabled', () => {
+        expect(findWithText(wrapper, Button, 'Set Status').props().disabled).toBeTruthy()
+      })
+    })
+
+    describe('when a single checkbox is clicked', () => {
+      beforeEach(() => {
+        act(() => {
+          getRowBulkCheckboxInputs(wrapper).first().simulate('click')
+        })
+        wrapper.update()
+      })
+
+      test('the bulk input box is checked and indeterminate', () => {
+        const wrapperProps = getTopLevelInputWrapper(wrapper).props()
+        expect(wrapperProps.checked).toBeTruthy()
+        expect(wrapperProps.className.includes('indeterminate')).toBeTruthy()
+      })
+
+      test('the first row has a checked box and the rest are unchecked', () => {
+        const allInputs = getRowBulkCheckboxInputs(wrapper)
+        expect(allInputs.first().props().checked).toBeTruthy()
+
+        expect(allInputs.slice(1).map(isChecked)).toEqual(Array(5).fill(false))
+      })
+
+      test('the bulk status button is enabled', () => {
+        expect(findWithText(wrapper, Button, 'Set Status').props().disabled).toBeFalsy()
+      })
+
+      describe('when all row checkboxes with unique IDs are clicked individually', () => {
+        beforeEach(() => {
+          const ids = [1002, 1003, 1004, 1005]
+
+          ids.forEach((id) => {
+            act(() => {
+              getRowBulkCheckboxInput(wrapper, id).first().simulate('click')
+            })
+            wrapper.update()
+          })
+        })
+
+        test('it returns to the all-boxes-checked state', () => {
+          expect(getTopLevelInputWrapper(wrapper).props().checked).toBeTruthy()
+          expect(getRowBulkCheckboxInputs(wrapper).map(isChecked)).toEqual(Array(6).fill(true))
+          expect(
+            getTopLevelInputWrapper(wrapper).props().className.includes('indeterminate')
+          ).toBeFalsy()
+          expect(findWithText(wrapper, Button, 'Set Status').props().disabled).toBeFalsy()
+        })
+      })
+    })
+
+    describe('after checking the top-level bulk checkbox', () => {
+      beforeEach(() => {
+        act(() => {
+          getTopLevelInputWrapper(wrapper).simulate('click')
+        })
+        wrapper.update()
+      })
+
+      test('the bulk input box is checked', () => {
+        expect(getTopLevelInputWrapper(wrapper).props().checked).toBeTruthy()
+      })
+
+      test('all of the rows have checked boxes', () => {
+        expect(getRowBulkCheckboxInputs(wrapper).map(isChecked)).toEqual(Array(6).fill(true))
+      })
+
+      test('the bulk status button is enabled', () => {
+        expect(findWithText(wrapper, Button, 'Set Status').props().disabled).toBeFalsy()
+      })
+
+      describe('when the top-level checkbox is clicked again', () => {
+        beforeEach(() => {
+          act(() => {
+            getTopLevelInputWrapper(wrapper).simulate('click')
+          })
+          wrapper.update()
+        })
+
+        test('it returns to the all boxes unchecked state', () => {
+          expect(getTopLevelInputWrapper(wrapper).props().checked).toBeFalsy()
+          expect(
+            getTopLevelInputWrapper(wrapper).props().className.includes('indeterminate')
+          ).toBeFalsy()
+          expect(getRowBulkCheckboxInputs(wrapper).map(isChecked)).toEqual(Array(6).fill(false))
+          expect(findWithText(wrapper, Button, 'Set Status').props().disabled).toBeTruthy()
+        })
+      })
+
+      describe('when the first checkbox is unchecked', () => {
+        beforeEach(() => {
+          act(() => {
+            getRowBulkCheckboxInputs(wrapper).first().simulate('click')
+          })
+          wrapper.update()
+        })
+
+        test('the bulk input box is checked and indeterminate', () => {
+          const wrapperProps = getTopLevelInputWrapper(wrapper).props()
+          expect(wrapperProps.checked).toBeTruthy()
+
+          expect(wrapperProps.className.includes('indeterminate')).toBeTruthy()
+        })
+
+        test('the first row checkbox is unchecked', () => {
+          expect(getRowBulkCheckboxInputs(wrapper).first().props().checked).toBeFalsy()
+        })
+
+        test('the rest of the checkboxes are checked', () => {
+          const allRowInputs = getRowBulkCheckboxInputs(wrapper)
+          expect(allRowInputs.length > 1).toBeTruthy()
+
+          const inputsAfterFirst = allRowInputs.slice(1)
+          expect(inputsAfterFirst.map(isChecked)).toEqual(Array(5).fill(true))
+        })
+
+        test('the bulk status button is enabled', () => {
+          expect(findWithText(wrapper, Button, 'Set Status').props().disabled).toBeFalsy()
+        })
+
+        describe('when the first checkbox is clicked again', () => {
+          beforeEach(() => {
+            act(() => {
+              getRowBulkCheckboxInputs(wrapper).first().simulate('click')
+            })
+            wrapper.update()
+          })
+
+          test('it returns to the all-boxes-checked state', () => {
+            expect(getTopLevelInputWrapper(wrapper).props().checked).toBeTruthy()
+            expect(
+              getTopLevelInputWrapper(wrapper).props().className.includes('indeterminate')
+            ).toBeFalsy()
+            expect(getRowBulkCheckboxInputs(wrapper).map(isChecked)).toEqual(Array(6).fill(true))
+            expect(findWithText(wrapper, Button, 'Set Status').props().disabled).toBeFalsy()
+          })
+        })
+
+        describe('when the top-level indeterminate checkbox is clicked', () => {
+          beforeEach(() => {
+            act(() => {
+              getTopLevelInputWrapper(wrapper).simulate('click')
+            })
+            wrapper.update()
+          })
+
+          test('it returns to the all-boxes-unchecked state', () => {
+            expect(getTopLevelInputWrapper(wrapper).props().checked).toBeFalsy()
+            expect(
+              getTopLevelInputWrapper(wrapper).props().className.includes('indeterminate')
+            ).toBeFalsy()
+            expect(getRowBulkCheckboxInputs(wrapper).map(isChecked)).toEqual(Array(6).fill(false))
+            expect(findWithText(wrapper, Button, 'Set Status').props().disabled).toBeTruthy()
+          })
+        })
+      })
+    })
+
+    describe('when a checkbox that applies to multiple rows is clicked', () => {
+      beforeEach(() => {
+        act(() => {
+          getRowBulkCheckboxInputs(wrapper).last().simulate('click')
+        })
+        wrapper.update()
+      })
+
+      test('only the two affected rows are checked', () => {
+        expect(getRowBulkCheckboxInputs(wrapper).map(isChecked)).toEqual([
+          false,
+          false,
+          false,
+          false,
+          true,
+          true
+        ])
+      })
+
+      describe('when the same checkbox that applies to multiple rows is clicked again', () => {
+        beforeEach(() => {
+          act(() => {
+            getRowBulkCheckboxInputs(wrapper).last().simulate('click')
+          })
+          wrapper.update()
+        })
+
+        test('all rows are unchecked', () => {
+          expect(getRowBulkCheckboxInputs(wrapper).map(isChecked)).toEqual(Array(6).fill(false))
+        })
+      })
+    })
   })
 })
