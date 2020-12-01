@@ -81,7 +81,7 @@ describe('MultiSelect', () => {
     })
 
     test('sets height to 45px', () => {
-      expect(wrapper.find(Select).props().styles.control().height).toEqual('45px')
+      expect(wrapper.find(Select).props().styles.control().minHeight).toEqual('45px')
     })
   })
 
@@ -92,7 +92,7 @@ describe('MultiSelect', () => {
     })
 
     test('sets height to 38px', () => {
-      expect(wrapper.find(Select).props().styles.control().height).toEqual('38px')
+      expect(wrapper.find(Select).props().styles.control().minHeight).toEqual('38px')
     })
   })
 })

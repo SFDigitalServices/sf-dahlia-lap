@@ -26,11 +26,6 @@ const getStyleOverrides = (controlHeight) => {
     multiValue: (base, _) => ({
       ...base,
       maxWidth: '90%'
-    }),
-    input: (base, _) => ({
-      ...base,
-      position: 'relative',
-      top: '10px'
     })
   }
 }

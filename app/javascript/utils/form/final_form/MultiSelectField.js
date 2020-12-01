@@ -1,6 +1,7 @@
 import React from 'react'
 
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
 import { Field } from 'react-final-form'
 
 import MultiSelect from 'components/molecules/MultiSelect'
@@ -10,18 +11,19 @@ import { FieldError, HelpText, Label } from './Field'
 const format = (options) => {
   return options && options.map((option) => (typeof option === 'string' ? option : option.value))
 }
+const HEIGHT_NORMAL = 'normal'
+const HEIGHT_SMALL = 'small'
 
-export const MultiSelectField = ({
+const MultiSelectField = ({
   blockNote,
-  disabled,
+  disabled = false,
   fieldName,
-  height,
+  height = HEIGHT_NORMAL,
   helpText,
   id,
   label,
-  onChange,
   options,
-  selectValue
+  onChange = () => {}
 }) => (
   <Field name={fieldName} component={MultiSelect} format={format} formatOnBlur>
     {({ input, meta }) => {
@@ -43,8 +45,7 @@ export const MultiSelectField = ({
                 input.onChange(event)
                 onChange && onChange(event)
               }}
-              {...(disabled && { disabled })}
-              {...(selectValue && { value: selectValue })}
+              disabled={disabled}
             />
             <FieldError meta={meta} />
             {helpText && <HelpText note={helpText} describeId={`describe-${id || fieldName}`} />}
@@ -54,3 +55,22 @@ export const MultiSelectField = ({
     }}
   </Field>
 )
+
+const MultiSelectFieldShape = PropTypes.shape({
+  value: PropTypes.string,
+  label: PropTypes.string
+})
+
+MultiSelectField.propTypes = {
+  blockNote: PropTypes.string,
+  disabled: PropTypes.bool,
+  fieldName: PropTypes.string.isRequired,
+  height: PropTypes.oneOf([HEIGHT_NORMAL, HEIGHT_SMALL]),
+  helpText: PropTypes.string,
+  id: PropTypes.string,
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  options: PropTypes.arrayOf(MultiSelectFieldShape).isRequired
+}
+
+export default MultiSelectField
