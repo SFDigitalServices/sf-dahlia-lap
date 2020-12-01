@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 
-import { map, each, set, clone } from 'lodash'
+import { map } from 'lodash'
 import moment from 'moment'
 import { useParams } from 'react-router-dom'
 
@@ -70,18 +70,22 @@ const LeaseUpApplicationsPage = () => {
     page: 0,
     pages: 0,
     atMaxPages: false,
-    statusModal: {
-      isOpen: false,
-      status: null,
-      subStatus: null,
-      applicationId: null,
-      showAlert: null,
-      loading: false
-    },
     listing: null,
     eagerPagination: new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
   })
+
   const [bulkCheckboxesState, setBulkCheckboxesState] = useState({})
+  const [statusModalState, setStatusModalState] = useState({
+    alertMsg: null,
+    applicationIds: null,
+    isBulkUpdate: false,
+    isOpen: false,
+    loading: false,
+    onSubmit: null,
+    showAlert: null,
+    status: null,
+    subStatus: null
+  })
 
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
@@ -97,20 +101,18 @@ const LeaseUpApplicationsPage = () => {
     setBulkCheckboxesState(emptyCheckboxes)
   }
 
-  const onBulkCheckboxClick = (appId) => {
-    setBulkCheckboxesState({ ...bulkCheckboxesState, [appId]: !bulkCheckboxesState[appId] })
+  const handleBulkCheckboxClick = (appId) => {
+    setBulkCheckboxesState((prevState) => ({ ...prevState, [appId]: !bulkCheckboxesState[appId] }))
+  }
+
+  const updateStatusModal = (newState) => {
+    setStatusModalState((prevState) => ({ ...prevState, ...newState }))
   }
 
   const setState = (newState) =>
     overrideEntireState((prevState) => ({
       ...prevState,
       ...newState
-    }))
-
-  const setStateWithPrev = (newState) =>
-    overrideEntireState((prevState) => ({
-      ...prevState,
-      ...newState(prevState)
     }))
 
   const loadPage = async (page, filters) => {
@@ -156,70 +158,128 @@ const LeaseUpApplicationsPage = () => {
     loadPage(0, filters)
   }
 
-  const handleCreateStatusUpdate = async ({ applicationId, comment, status, subStatus }) => {
-    const { applications } = state
+  const handleStatusModalSubmit = async (submittedValues) => {
+    updateStatusModal({ loading: true })
+    const { applicationIds } = statusModalState
+    const { status, subStatus } = submittedValues
+    const data = {
+      applicationIds,
+      status,
+      comment: submittedValues.comment?.trim(),
+      subStatus
+    }
 
-    createFieldUpdateComment(applicationId, status, comment, subStatus)
-      .then((response) => {
-        each(applications, (app, index) => {
-          if (app.application_id === applicationId) {
-            updateResults(`[${index}]['lease_up_status']`, status)
-            updateResults(
-              `[${index}]['status_last_updated']`,
-              moment().format(SALESFORCE_DATE_FORMAT)
-            )
-            updateResults(`[${index}]['sub_status']`, subStatus)
-          }
-        })
+    createStatusUpdates(data)
+  }
 
+  const createStatusUpdates = async ({ applicationIds, comment, status, subStatus }) => {
+    const statusUpdateRequests = applicationIds.map((appId) =>
+      createFieldUpdateComment(appId, status, comment, subStatus)
+        .then((_) => ({ application: appId }))
+        .catch((e) => ({
+          error: true,
+          application: appId
+        }))
+    )
+
+    return Promise.all(statusUpdateRequests).then((values) => {
+      const successfulIds = values.filter((v) => !v.error).map((v) => v.application)
+      const errorIds = values.filter((v) => v.error).map((v) => v.application)
+      updateApplicationState(successfulIds, status, subStatus)
+
+      const wasBulkUpdate = statusModalState.isBulkUpdate
+
+      if (errorIds.length !== 0) {
         updateStatusModal({
-          applicationId: null,
+          applicationIds: errorIds,
+          loading: false,
+          showAlert: true,
+          alertMsg: `We were unable to make the update for ${errorIds.length} out of ${values.length} applications, please try again.`,
+          onAlertCloseClick: () => updateStatusModal({ showAlert: false })
+        })
+      } else {
+        updateStatusModal({
+          applicationIds: [],
           isOpen: false,
           loading: false,
           showAlert: false,
           status: null
         })
-      })
-      .catch(() => {
-        updateStatusModal({
-          loading: false,
-          showAlert: true,
-          alertMsg: 'We were unable to make the update, please try again.',
-          onAlertCloseClick: () => updateStatusModal({ showAlert: false })
-        })
-      })
-  }
-
-  const updateStatusModal = (values) => {
-    setStateWithPrev((prevState) => ({
-      statusModal: {
-        ...clone(prevState.statusModal),
-        ...values
       }
-    }))
+
+      if (wasBulkUpdate) {
+        setBulkCheckboxValues(false, successfulIds)
+      }
+    })
   }
 
-  const updateResults = (path, value) => {
-    setStateWithPrev((prevState) => ({
-      applications: set(clone(prevState.applications), path, value)
-    }))
+  const handleCloseStatusModal = () => {
+    updateStatusModal({
+      isOpen: false,
+      showAlert: false,
+      applicationIds: []
+    })
   }
+  const handleLeaseUpStatusChange = (value, applicationId) => {
+    const isBulkUpdate = !applicationId
+    const appsToUpdate = isBulkUpdate
+      ? Object.entries(bulkCheckboxesState)
+          .filter(([_, checked]) => checked)
+          .map(([id, _]) => id)
+      : [applicationId]
+
+    updateStatusModal({
+      applicationIds: appsToUpdate,
+      isBulkUpdate,
+      isOpen: true,
+      status: value
+    })
+  }
+
+  // Updated the visible status, substatus, and status last updated for one or many applications
+  const updateApplicationState = (applicationIds, status, subStatus) => {
+    const updatedApplications = state.applications.map((app) => ({
+      ...app,
+      ...(applicationIds.includes(app.application_id) && {
+        lease_up_status: status,
+        status_last_updated: moment().format(SALESFORCE_DATE_FORMAT),
+        sub_status: subStatus
+      })
+    }))
+    setState({
+      applications: updatedApplications
+    })
+  }
+
+  const setBulkCheckboxValues = (newValue, applicationIds = null) => {
+    const newBulkCheckboxState = { ...bulkCheckboxesState }
+    const applicationIdsToUpdate = applicationIds ?? Object.keys(bulkCheckboxesState)
+
+    applicationIdsToUpdate.forEach((id) => (newBulkCheckboxState[id] = newValue))
+    setBulkCheckboxesState(newBulkCheckboxState)
+  }
+
+  const handleClearSelectedApplications = () => setBulkCheckboxValues(false)
+  const handleSelectAllApplications = () => setBulkCheckboxValues(true)
 
   const context = {
     applications: state.applications,
-    listingId: listingId,
-    preferences: getPreferences(state.listing),
-    handleOnFetchData: handleOnFetchData,
-    handleCreateStatusUpdate: handleCreateStatusUpdate,
-    handleOnFilter: handleOnFilter,
-    loading: state.loading,
-    pages: state.pages,
-    rowsPerPage: ROWS_PER_PAGE,
-    updateStatusModal: updateStatusModal,
-    statusModal: state.statusModal,
     atMaxPages: state.atMaxPages,
-    bulkCheckboxesState,
-    onBulkCheckboxClick
+    bulkCheckboxesState: bulkCheckboxesState,
+    listingId: listingId,
+    loading: state.loading,
+    onBulkCheckboxClick: handleBulkCheckboxClick,
+    onCloseStatusModal: handleCloseStatusModal,
+    onFetchData: handleOnFetchData,
+    onFilter: handleOnFilter,
+    onLeaseUpStatusChange: handleLeaseUpStatusChange,
+    onSubmitStatusModal: handleStatusModalSubmit,
+    onClearSelectedApplications: handleClearSelectedApplications,
+    onSelectAllApplications: handleSelectAllApplications,
+    pages: state.pages,
+    preferences: getPreferences(state.listing),
+    rowsPerPage: ROWS_PER_PAGE,
+    statusModal: statusModalState
   }
 
   return (

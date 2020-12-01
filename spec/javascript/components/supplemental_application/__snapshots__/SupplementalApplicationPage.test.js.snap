@@ -2263,6 +2263,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -2301,6 +2303,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -2339,6 +2343,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -2665,6 +2671,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -2703,6 +2711,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -2741,6 +2751,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -3067,6 +3079,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -3105,6 +3119,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -3143,6 +3159,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -3469,6 +3487,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -3507,6 +3527,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -3545,6 +3567,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -3871,6 +3895,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -3909,6 +3935,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -3947,6 +3975,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -4273,6 +4303,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -4311,6 +4343,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -4349,6 +4383,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -4675,6 +4711,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -4713,6 +4751,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -4751,6 +4791,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -5077,6 +5119,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -5115,6 +5159,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -5153,6 +5199,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -5479,6 +5527,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -5517,6 +5567,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -5555,6 +5607,8 @@ Array [
                                                 "marginLeft": false,
                                                 "marginRight": false,
                                                 "marginTop": "1rem",
+                                                "overflow": "auto",
+                                                "textAlign": "center",
                                               }
                                             }
                                           >
@@ -5789,6 +5843,8 @@ Array [
                               "marginLeft": false,
                               "marginRight": false,
                               "marginTop": "1rem",
+                              "overflow": "auto",
+                              "textAlign": "center",
                             }
                           }
                         >
@@ -6156,42 +6212,91 @@ Array [
                         onTouchEnd={[Function]}
                       >
                         <button
-                          className="button dropdown-button has-icon--right text-align-left tertiary"
+                          className="tight-padding button dropdown-button tertiary margin-bottom-none"
                           disabled={false}
+                          style={
+                            Object {
+                              "paddingBottom": 0,
+                              "paddingTop": 0,
+                            }
+                          }
                           type="button"
                         >
-                          <span
-                            className="ui-icon ui-small"
-                          >
-                            <svg>
-                              <use
-                                xlinkHref="#i-arrow-down"
-                              />
-                            </svg>
-                          </span>
-                          Status
                           <div
-                            className="ui-icon ui-small"
+                            style={
+                              Object {
+                                "alignItems": "center",
+                                "display": "flex",
+                                "justifyContent": "space-between",
+                                "width": "100%",
+                              }
+                            }
                           >
+                            <span
+                              style={
+                                Object {
+                                  "flexGrow": 1,
+                                  "marginBottom": "1rem",
+                                  "marginLeft": false,
+                                  "marginRight": "1rem",
+                                  "marginTop": "1rem",
+                                  "overflow": "auto",
+                                  "textAlign": "left",
+                                }
+                              }
+                            >
+                              Status
+                            </span>
                             <div
-                              className="status-dropdown__value-container css-g1d714-ValueContainer"
+                              style={
+                                Object {
+                                  "height": 0,
+                                  "width": 0,
+                                }
+                              }
                             >
                               <div
-                                className="status-dropdown__placeholder css-1wa3eu0-placeholder"
-                              />
-                              <input
-                                aria-autocomplete="list"
-                                className="css-62g3xt-dummyInput"
-                                disabled={false}
-                                id="react-select-3-input"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                onFocus={[Function]}
-                                readOnly={true}
-                                tabIndex="0"
-                                value=""
-                              />
+                                className="status-dropdown__value-container css-g1d714-ValueContainer"
+                              >
+                                <div
+                                  className="status-dropdown__placeholder css-1wa3eu0-placeholder"
+                                />
+                                <input
+                                  aria-autocomplete="list"
+                                  className="css-62g3xt-dummyInput"
+                                  disabled={false}
+                                  id="react-select-3-input"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onFocus={[Function]}
+                                  readOnly={true}
+                                  tabIndex="0"
+                                  value=""
+                                />
+                              </div>
                             </div>
+                            <span
+                              style={
+                                Object {
+                                  "flexShrink": 0,
+                                  "fontSize": 0,
+                                }
+                              }
+                            >
+                              <svg
+                                style={
+                                  Object {
+                                    "height": ".75rem",
+                                    "width": ".75rem",
+                                  }
+                                }
+                              >
+                                <use
+                                  style={null}
+                                  xlinkHref="#i-arrow-down"
+                                />
+                              </svg>
+                            </span>
                           </div>
                         </button>
                       </div>
@@ -6222,42 +6327,91 @@ Array [
                         onTouchEnd={[Function]}
                       >
                         <button
-                          className="button dropdown-button has-icon--right text-align-left tertiary"
+                          className="tight-padding button dropdown-button tertiary margin-bottom-none"
                           disabled={false}
+                          style={
+                            Object {
+                              "paddingBottom": 0,
+                              "paddingTop": 0,
+                            }
+                          }
                           type="button"
                         >
-                          <span
-                            className="ui-icon ui-small"
-                          >
-                            <svg>
-                              <use
-                                xlinkHref="#i-arrow-down"
-                              />
-                            </svg>
-                          </span>
-                          Status
                           <div
-                            className="ui-icon ui-small"
+                            style={
+                              Object {
+                                "alignItems": "center",
+                                "display": "flex",
+                                "justifyContent": "space-between",
+                                "width": "100%",
+                              }
+                            }
                           >
+                            <span
+                              style={
+                                Object {
+                                  "flexGrow": 1,
+                                  "marginBottom": "1rem",
+                                  "marginLeft": false,
+                                  "marginRight": "1rem",
+                                  "marginTop": "1rem",
+                                  "overflow": "auto",
+                                  "textAlign": "left",
+                                }
+                              }
+                            >
+                              Status
+                            </span>
                             <div
-                              className="status-dropdown__value-container css-g1d714-ValueContainer"
+                              style={
+                                Object {
+                                  "height": 0,
+                                  "width": 0,
+                                }
+                              }
                             >
                               <div
-                                className="status-dropdown__placeholder css-1wa3eu0-placeholder"
-                              />
-                              <input
-                                aria-autocomplete="list"
-                                className="css-62g3xt-dummyInput"
-                                disabled={false}
-                                id="react-select-4-input"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                onFocus={[Function]}
-                                readOnly={true}
-                                tabIndex="0"
-                                value=""
-                              />
+                                className="status-dropdown__value-container css-g1d714-ValueContainer"
+                              >
+                                <div
+                                  className="status-dropdown__placeholder css-1wa3eu0-placeholder"
+                                />
+                                <input
+                                  aria-autocomplete="list"
+                                  className="css-62g3xt-dummyInput"
+                                  disabled={false}
+                                  id="react-select-4-input"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onFocus={[Function]}
+                                  readOnly={true}
+                                  tabIndex="0"
+                                  value=""
+                                />
+                              </div>
                             </div>
+                            <span
+                              style={
+                                Object {
+                                  "flexShrink": 0,
+                                  "fontSize": 0,
+                                }
+                              }
+                            >
+                              <svg
+                                style={
+                                  Object {
+                                    "height": ".75rem",
+                                    "width": ".75rem",
+                                  }
+                                }
+                              >
+                                <use
+                                  style={null}
+                                  xlinkHref="#i-arrow-down"
+                                />
+                              </svg>
+                            </span>
                           </div>
                         </button>
                       </div>

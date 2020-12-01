@@ -76,11 +76,18 @@ const getFormErrors = async (page) => {
   return errors
 }
 
+const getCheckboxVal = async (page, selector) => {
+  const checkbox = await page.$(selector)
+  const checkedProp = await checkbox.getProperty('checked')
+  return checkedProp.jsonValue()
+}
+
 export default {
   loginAsAgent,
   goto,
   waitForApp,
   enterValue,
+  getCheckboxVal,
   getInputValue,
   getText,
   generateRandomString,

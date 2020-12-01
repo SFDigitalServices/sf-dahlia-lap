@@ -2,6 +2,7 @@ import {
   LEASE_UP_LISTING_APPLICATION_ID,
   DEFAULT_E2E_TIME_OUT
 } from '../../support/puppeteer/consts'
+import { unselectedStatusMenuItem } from '../../support/puppeteer/steps/leaseUpStatusSteps'
 import sharedSteps from '../../support/puppeteer/steps/sharedSteps'
 import supplementalApplicationSteps from '../../support/puppeteer/steps/supplementalApplicationSteps'
 import SetupBrowserAndPage from '../../utils/SetupBrowserAndPage'
@@ -46,9 +47,7 @@ describe('SupplementalApplicationPage action buttons', () => {
       await page.click('.status-history-buttons button.dropdown-button ')
 
       // Select a status from the dropdown menu
-      await page.click(
-        '.status-history-buttons li[aria-selected="false"].dropdown-menu_item a:first-child'
-      )
+      await page.click('.status-history-buttons ' + unselectedStatusMenuItem)
 
       await supplementalApplicationSteps.testStatusModalUpdate(page)
 

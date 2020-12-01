@@ -3,6 +3,7 @@ import React from 'react'
 import { mount, shallow } from 'enzyme'
 import Select from 'react-select'
 
+import Button from 'components/atoms/Button'
 import Dropdown from 'components/molecules/Dropdown'
 import StatusDropdown, { renderStatusOption } from 'components/molecules/StatusDropdown'
 import { LEASE_UP_STATUS_OPTIONS } from 'utils/statusUtils'
@@ -32,13 +33,7 @@ describe('StatusDropdown', () => {
   describe('toggle', () => {
     test('renders as expected when value is null', () => {
       wrapper = getWrapper()
-      const expectedButtonClasses = [
-        'button',
-        'dropdown-button',
-        'has-icon--right',
-        'text-align-left',
-        'tertiary'
-      ]
+      const expectedButtonClasses = ['button', 'dropdown-button', 'tertiary']
       const toggleButton = wrapper.find(Select).find('.status-dropdown__control').find('button')
       expect(toggleButton.text()).toEqual('Status')
       expect(toggleButton.hasClass(expectedButtonClasses.join(' '))).toEqual(true)
@@ -51,6 +46,12 @@ describe('StatusDropdown', () => {
       expect(toggleButton.hasClass('expand')).toBe(false)
       expect(toggleButton.hasClass('tiny')).toBe(false)
       expect(toggleButton.hasClass('small')).toBe(false)
+    })
+
+    test('renders with left-aligned text', () => {
+      wrapper = getWrapper({})
+
+      expect(wrapper.find(Button).props().textAlign).toEqual('left')
     })
 
     test('renders with additional styles when provided', () => {
@@ -71,6 +72,16 @@ describe('StatusDropdown', () => {
       const toggleButton = wrapper.find(Select).find('.status-dropdown__control').find('button')
       expect(toggleButton.text()).toEqual('Appealed')
       expect(toggleButton.hasClass('is-appealed')).toBe(true)
+    })
+    test('does not render a value when forceDisplayPlaceholderText is true', () => {
+      wrapper = getWrapper({
+        placeholder: 'placeholder',
+        status: 'Appealed',
+        forceDisplayPlaceholderText: true
+      })
+      const toggleButton = wrapper.find(Select).find('.status-dropdown__control').find('button')
+      expect(toggleButton.text()).toEqual('placeholder')
+      expect(toggleButton.hasClass('is-appealed')).toBe(false)
     })
 
     test('renders when the dropdown is disabled', () => {

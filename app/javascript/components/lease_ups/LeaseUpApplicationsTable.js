@@ -153,16 +153,12 @@ const LeaseUpApplicationsTable = ({
       headerClassName: 'tr-fixed-right',
       minWidth: getCellWidth(STATUS_COLUMN_WIDTH_PX, true),
       Cell: (cell) => {
-        const {
-          application_id: applicationId,
-          application_preference_id: preferenceId
-        } = cell.original
-
+        const { application_id: applicationId } = cell.original
         return (
           <StatusCell
             applicationId={applicationId}
             status={cell.value}
-            onChange={(val) => onLeaseUpStatusChange(preferenceId, applicationId, val)}
+            onChange={(val) => onLeaseUpStatusChange(val, applicationId)}
           />
         )
       }

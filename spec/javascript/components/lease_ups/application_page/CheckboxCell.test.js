@@ -2,6 +2,7 @@ import React from 'react'
 
 import { shallow } from 'enzyme'
 
+import Checkbox from 'components/atoms/Checkbox'
 import CheckboxCell from 'components/lease_ups/application_page/CheckboxCell'
 
 const mockOnClick = jest.fn()
@@ -15,18 +16,13 @@ describe('CheckboxCell', () => {
       )
     })
 
-    test('renders an input and a label', () => {
-      expect(wrapper.find('input')).toHaveLength(1)
-      expect(wrapper.find('label')).toHaveLength(1)
-    })
-
     test('the input is set to unchecked', () => {
-      expect(wrapper.find('input').props().checked).toBeFalsy()
+      expect(wrapper.find(Checkbox).props().checked).toBeFalsy()
     })
 
     test('onClick is trigged when the input changes', () => {
       expect(mockOnClick.mock.calls).toHaveLength(0)
-      wrapper.find('input').simulate('change')
+      wrapper.find(Checkbox).simulate('click')
       expect(mockOnClick.mock.calls).toHaveLength(1)
     })
   })
@@ -39,18 +35,13 @@ describe('CheckboxCell', () => {
       )
     })
 
-    test('renders an input and a label', () => {
-      expect(wrapper.find('input')).toHaveLength(1)
-      expect(wrapper.find('label')).toHaveLength(1)
-    })
-
     test('the input is set to unchecked', () => {
-      expect(wrapper.find('input').props().checked).toBeTruthy()
+      expect(wrapper.find(Checkbox).props().checked).toBeTruthy()
     })
 
     test('onClick is trigged when the input changes', () => {
       expect(mockOnClick.mock.calls).toHaveLength(0)
-      wrapper.find('input').simulate('change')
+      wrapper.find(Checkbox).simulate('click')
       expect(mockOnClick.mock.calls).toHaveLength(1)
     })
   })

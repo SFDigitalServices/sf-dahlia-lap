@@ -1,26 +1,43 @@
 import React, { useState } from 'react'
 
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
 import { Form } from 'react-final-form'
 
 import Button from 'components/atoms/Button'
+import Checkbox from 'components/atoms/Checkbox'
 import { LEASE_UP_APPLICATION_FILTERS } from 'components/lease_ups/applicationFiltersConsts'
 import LeaseUpApplicationsFilters from 'components/lease_ups/LeaseUpApplicationsFilters'
 import Loading from 'components/molecules/Loading'
 import ShowHideFiltersButton from 'components/molecules/ShowHideFiltersButton'
+import StatusDropdown from 'components/molecules/StatusDropdown'
 import SearchField from 'utils/form/final_form/SearchField'
 import formUtils from 'utils/formUtils'
 
 const styles = {
   marginBottomZero: {
     marginBottom: 0
+  },
+  bulkEditCheckbox: {
+    display: 'flex',
+    alignItems: 'center',
+    marginBottom: '1.25rem',
+    paddingRight: '1rem'
   }
 }
 
 const getNumFiltersApplied = (form) =>
   LEASE_UP_APPLICATION_FILTERS.filter((f) => !!form.getState().values[f.fieldName]).length
 
-const LeaseUpApplicationsFilterContainer = ({ onSubmit, preferences = [], loading = false }) => {
+const LeaseUpApplicationsFilterContainer = ({
+  onSubmit,
+  preferences = [],
+  loading = false,
+  bulkCheckboxesState = [],
+  onBulkLeaseUpStatusChange,
+  onClearSelectedApplications = () => {},
+  onSelectAllApplications = () => {}
+}) => {
   const [isShowingFilters, setIsShowingFilters] = useState(false)
   const [hasChangedFilters, setHasChangedFilters] = useState(false)
 
@@ -46,6 +63,18 @@ const LeaseUpApplicationsFilterContainer = ({ onSubmit, preferences = [], loadin
     })
   }
 
+  const applicationIds = Object.entries(bulkCheckboxesState)
+  const numChecked = applicationIds.filter(([_, checked]) => checked).length
+  const allChecked = applicationIds.length > 0 && applicationIds.length === numChecked
+
+  const handleCheckboxClicked = () => {
+    if (numChecked > 0) {
+      onClearSelectedApplications()
+    } else {
+      onSelectAllApplications()
+    }
+  }
+
   return (
     <Loading isLoading={loading}>
       <Form
@@ -53,6 +82,25 @@ const LeaseUpApplicationsFilterContainer = ({ onSubmit, preferences = [], loadin
         render={({ form, handleSubmit }) => (
           <form style={styles.marginBottomZero} onSubmit={handleSubmit} noValidate>
             <div className='filter-row'>
+              <div className='filter-group filter-group--left'>
+                <div style={styles.bulkEditCheckbox}>
+                  <Checkbox
+                    id='bulk-edit-controller'
+                    indeterminate={!allChecked && numChecked > 0}
+                    checked={allChecked}
+                    onClick={handleCheckboxClicked}
+                  />
+                </div>
+                <div className='filter-group_action'>
+                  <StatusDropdown
+                    disabled={numChecked === 0}
+                    onChange={onBulkLeaseUpStatusChange}
+                    minWidthPx={'185px'}
+                    placeholder={'Set Status'}
+                    forceDisplayPlaceholderText
+                  />
+                </div>
+              </div>
               <div className='filter-group'>
                 <div className='filter-group_item__large'>
                   <SearchField
@@ -95,6 +143,16 @@ const LeaseUpApplicationsFilterContainer = ({ onSubmit, preferences = [], loadin
       />
     </Loading>
   )
+}
+
+LeaseUpApplicationsFilterContainer.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  onBulkLeaseUpStatusChange: PropTypes.func.isRequired,
+  onClearSelectedApplications: PropTypes.func,
+  onSelectAllApplications: PropTypes.func,
+  preferences: PropTypes.array,
+  loading: PropTypes.bool,
+  bulkActionApplications: PropTypes.object
 }
 
 export default LeaseUpApplicationsFilterContainer

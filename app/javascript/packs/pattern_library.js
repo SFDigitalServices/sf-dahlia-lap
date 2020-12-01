@@ -37,6 +37,7 @@ import TabsSection from 'components/organisms/TabsSection'
 import Properties from 'components/pattern_library/properties'
 // Pattern Library Wrappers
 import ButtonWrapper from 'components/pattern_library/wrappers/ButtonWrapper'
+import CheckboxWrapper from 'components/pattern_library/wrappers/CheckboxWrapper'
 import ContentSectionWrapper from 'components/pattern_library/wrappers/ContentSectionWrapper'
 import ExpandableTableWrapper from 'components/pattern_library/wrappers/ExpandableTableWrapper'
 import InlineModalWrapper from 'components/pattern_library/wrappers/InlineModalWrapper'
@@ -84,6 +85,7 @@ WebpackerReact.setup({ TabCard })
 WebpackerReact.setup({ TabsSection })
 // Pattern Library Wrappers
 WebpackerReact.setup({ ContentSectionWrapper })
+WebpackerReact.setup({ CheckboxWrapper })
 WebpackerReact.setup({ InlineModalWrapper })
 WebpackerReact.setup({ ExpandableTableWrapper })
 WebpackerReact.setup({ ModalWrapper })

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 import { toPx } from 'utils/cssUtils'
 
-const buttonSizeStyles = (clearVerticalPadding, minWidth) => {
+const buttonStyles = (clearVerticalPadding, minWidth) => {
   const widthStyle = minWidth
     ? {
         minWidth: toPx(minWidth)
@@ -32,13 +32,19 @@ const buttonChildrenStyles = () => ({
   width: '100%'
 })
 
-const textStyles = (hasLeftIcon, hasRightIcon) => ({
-  marginTop: '1rem',
-  marginBottom: '1rem',
-  marginRight: hasRightIcon && '1rem',
-  marginLeft: hasLeftIcon && '1rem',
-  flexGrow: 1
-})
+const textStyles = (textAlign, paddingVertical, paddingHorizontal, hasLeftIcon, hasRightIcon) => {
+  const verticalPaddingRem = paddingVertical === 'tight' ? '0.5rem' : '1rem'
+  const paddingBetweenTextAndIcon = paddingHorizontal === 'tight' ? '0.5rem' : '1rem'
+  return {
+    marginTop: verticalPaddingRem,
+    marginBottom: verticalPaddingRem,
+    marginRight: hasRightIcon && paddingBetweenTextAndIcon,
+    marginLeft: hasLeftIcon && paddingBetweenTextAndIcon,
+    overflow: 'auto',
+    flexGrow: 1,
+    textAlign
+  }
+}
 
 const iconWrapperStyles = () => ({
   flexShrink: 0,
@@ -57,6 +63,7 @@ const Button = ({
   iconRight = null,
   noBottomMargin,
   paddingHorizontal = 'normal',
+  paddingVertical = 'normal',
   small = false,
   tertiary = false,
   text = null,
@@ -64,6 +71,8 @@ const Button = ({
   type = 'button',
   minWidthPx = null,
   style = {},
+  children = null,
+  textAlign = 'center',
   ...rest
 }) => {
   const btnClassNames = classNames(classes, {
@@ -74,19 +83,22 @@ const Button = ({
     tiny: tiny,
     'margin-bottom-none': noBottomMargin
   })
-
   const hasText = !!text
 
   return (
     <button
       className={btnClassNames}
       type={type}
-      style={{ ...buttonSizeStyles(hasText, minWidthPx), ...style }}
+      style={{ ...buttonStyles(hasText, minWidthPx), ...style }}
       {...rest}
     >
       <div style={buttonChildrenStyles()}>
         {wrapWithStyle(iconLeft, iconWrapperStyles())}
-        {wrapWithStyle(text, textStyles(!!iconLeft, !!iconRight))}
+        {wrapWithStyle(
+          text,
+          textStyles(textAlign, paddingVertical, paddingHorizontal, !!iconLeft, !!iconRight)
+        )}
+        {children}
         {wrapWithStyle(iconRight, iconWrapperStyles())}
       </div>
     </button>
@@ -96,15 +108,18 @@ const Button = ({
 Button.propTypes = {
   type: PropTypes.oneOf(['button', 'submit']),
   noBottomMargin: PropTypes.bool,
+  children: PropTypes.node,
   classes: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   iconLeft: PropTypes.node,
   iconRight: PropTypes.node,
   minWidthPx: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   paddingHorizontal: PropTypes.oneOf(['normal', 'tight', 'extra']),
+  paddingVertical: PropTypes.oneOf(['normal', 'tight']),
   small: PropTypes.bool,
   style: PropTypes.object,
   tertiary: PropTypes.bool,
   text: PropTypes.node,
+  textAlign: PropTypes.oneOf(['left', 'center', 'right']),
   tiny: PropTypes.bool
 }
 
