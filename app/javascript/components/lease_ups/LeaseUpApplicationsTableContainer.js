@@ -11,54 +11,25 @@ import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
 
 const LeaseUpTableContainer = ({
   store: {
-    listingId,
     applications,
-    statusModal,
-    preferences,
-    loading,
-    handleOnFilter,
-    handleOnFetchData,
-    pages,
-    rowsPerPage,
     atMaxPages,
-    updateStatusModal,
-    handleCreateStatusUpdate,
     bulkCheckboxesState,
-    onBulkCheckboxClick
+    listingId,
+    loading,
+    onBulkCheckboxClick,
+    onCloseStatusModal,
+    onFetchData,
+    onFilter,
+    onLeaseUpStatusChange,
+    onSubmitStatusModal,
+    onClearSelectedApplications,
+    onSelectAllApplications,
+    pages,
+    preferences,
+    rowsPerPage,
+    statusModal
   }
 }) => {
-  const closeStatusModal = () => {
-    updateStatusModal({
-      isOpen: false,
-      showAlert: false
-    })
-  }
-
-  const leaseUpStatusChangeHandler = (applicationPreferenceId, applicationId, value) => {
-    updateStatusModal({
-      applicationId: applicationId,
-      applicationPreferenceId: applicationPreferenceId,
-      isOpen: true,
-      status: value
-    })
-  }
-
-  const createStatusUpdate = async (submittedValues) => {
-    updateStatusModal({ loading: true })
-
-    const { applicationId } = statusModal
-    const { status, subStatus } = submittedValues
-    var comment = submittedValues.comment && submittedValues.comment.trim()
-    const data = {
-      status,
-      comment,
-      applicationId,
-      ...(subStatus ? { subStatus } : {})
-    }
-
-    handleCreateStatusUpdate(data)
-  }
-
   const buildRowData = (result) => {
     const rowData = cloneDeep(result)
     // get keys and remove empty values
@@ -86,16 +57,20 @@ const LeaseUpTableContainer = ({
     <>
       <LeaseUpApplicationsFilterContainer
         preferences={preferences}
-        onSubmit={handleOnFilter}
+        onSubmit={onFilter}
         loading={loading}
+        bulkCheckboxesState={bulkCheckboxesState}
+        onClearSelectedApplications={onClearSelectedApplications}
+        onSelectAllApplications={onSelectAllApplications}
+        onBulkLeaseUpStatusChange={(val) => onLeaseUpStatusChange(val, null)}
       />
       <LeaseUpApplicationsTable
         dataSet={rowsData(applications)}
         listingId={listingId}
-        onLeaseUpStatusChange={leaseUpStatusChangeHandler}
+        onLeaseUpStatusChange={onLeaseUpStatusChange}
         onCellClick={goToSupplementaryInfo}
         loading={loading}
-        onFetchData={handleOnFetchData}
+        onFetchData={onFetchData}
         pages={pages}
         rowsPerPage={rowsPerPage}
         atMaxPages={atMaxPages}
@@ -103,11 +78,18 @@ const LeaseUpTableContainer = ({
         onBulkCheckboxClick={onBulkCheckboxClick}
       />
       <StatusModalWrapper
-        {...statusModal}
-        header='Update Status'
+        alertMsg={statusModal.alertMsg}
+        isBulkUpdate={statusModal.isBulkUpdate}
+        isOpen={statusModal.isOpen}
+        loading={statusModal.loading}
+        numApplicationsToUpdate={statusModal.applicationIds?.length}
+        onAlertCloseClick={statusModal.onAlertCloseClick}
+        onClose={onCloseStatusModal}
+        onSubmit={onSubmitStatusModal}
+        showAlert={statusModal.showAlert}
+        status={statusModal.status}
         submitButton='Update'
-        onSubmit={createStatusUpdate}
-        onClose={closeStatusModal}
+        title='Update Status'
       />
     </>
   )

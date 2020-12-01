@@ -53,18 +53,13 @@ describe('SupplementalApplicationPage confirm modal', () => {
       expect(url).toBe(
         `http://localhost:3000/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`
       )
-
-      await testBrowser.close()
     },
     DEFAULT_E2E_TIME_OUT
   )
   test(
     'should not pop up if the form was submitted successfully',
     async () => {
-      const { browser, page } = await SetupBrowserAndPage(null, true)
-      testBrowser = browser
-
-      await sharedSteps.loginAsAgent(page)
+      const { page } = await SetupBrowserAndPage(testBrowser, true)
       await sharedSteps.goto(
         page,
         `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplemental`
@@ -85,6 +80,7 @@ describe('SupplementalApplicationPage confirm modal', () => {
 
       const hasConfirmModal = await utils.isPresent(page, '#leave-confirmation-modal')
       expect(hasConfirmModal).toBe(false)
+      await testBrowser.close()
     },
     DEFAULT_E2E_TIME_OUT
   )

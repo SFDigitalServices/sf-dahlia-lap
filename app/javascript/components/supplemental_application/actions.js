@@ -56,8 +56,9 @@ export const updateApplication = async (application, prevApplication, alsoSaveLe
   )
 }
 
-export const createFieldUpdateComment = async (applicationId, status, comment, substatus) =>
-  apiService.createFieldUpdateComment(applicationId, status, comment, substatus)
+export const createFieldUpdateComment = async (applicationId, status, comment, substatus) => {
+  return apiService.createFieldUpdateComment(applicationId, status, comment, substatus)
+}
 
 export const updateApplicationAndAddComment = async (
   application,

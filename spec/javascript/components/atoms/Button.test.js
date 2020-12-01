@@ -5,6 +5,8 @@ import { shallow } from 'enzyme'
 import Button from 'components/atoms/Button'
 import StyledIcon from 'components/atoms/StyledIcon'
 
+import { findWithText } from '../../testUtils/wrapperUtil'
+
 describe('Button', () => {
   test('it renders a button with the correct default properties', () => {
     const wrapper = shallow(<Button text='This is a button' />)
@@ -176,6 +178,34 @@ describe('Button', () => {
       const buttonStyle = wrapper.find('button').props().style
       expect(buttonStyle.paddingTop).toBeUndefined()
       expect(buttonStyle.paddingBottom).toBeUndefined()
+    })
+  })
+
+  describe('textAlign', () => {
+    const BUTTON_TEXT = 'test_button_text'
+
+    test('renders left aligned text properly', () => {
+      const wrapper = shallow(<Button text={BUTTON_TEXT} textAlign='left' />)
+
+      expect(findWithText(wrapper, 'span', BUTTON_TEXT).props().style.textAlign).toEqual('left')
+    })
+
+    test('renders right aligned text properly', () => {
+      const wrapper = shallow(<Button text={BUTTON_TEXT} textAlign='right' />)
+
+      expect(findWithText(wrapper, 'span', BUTTON_TEXT).props().style.textAlign).toEqual('right')
+    })
+
+    test('renders center aligned text properly', () => {
+      const wrapper = shallow(<Button text={BUTTON_TEXT} textAlign='center' />)
+
+      expect(findWithText(wrapper, 'span', BUTTON_TEXT).props().style.textAlign).toEqual('center')
+    })
+
+    test('renders center aligned text by default', () => {
+      const wrapper = shallow(<Button text={BUTTON_TEXT} />)
+
+      expect(findWithText(wrapper, 'span', BUTTON_TEXT).props().style.textAlign).toEqual('center')
     })
   })
 })
