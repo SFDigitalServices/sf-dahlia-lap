@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 import { toPx } from 'utils/cssUtils'
 
-const buttonSizeStyles = (clearVerticalPadding, minWidth) => {
+const buttonStyles = (clearVerticalPadding, minWidth) => {
   const widthStyle = minWidth
     ? {
         minWidth: toPx(minWidth)
@@ -40,6 +40,7 @@ const textStyles = (textAlign, paddingVertical, paddingHorizontal, hasLeftIcon, 
     marginBottom: verticalPaddingRem,
     marginRight: hasRightIcon && paddingBetweenTextAndIcon,
     marginLeft: hasLeftIcon && paddingBetweenTextAndIcon,
+    overflow: 'auto',
     flexGrow: 1,
     textAlign
   }
@@ -88,7 +89,7 @@ const Button = ({
     <button
       className={btnClassNames}
       type={type}
-      style={{ ...buttonSizeStyles(hasText, minWidthPx), ...style }}
+      style={{ ...buttonStyles(hasText, minWidthPx), ...style }}
       {...rest}
     >
       <div style={buttonChildrenStyles()}>
