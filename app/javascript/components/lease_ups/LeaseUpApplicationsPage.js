@@ -1,11 +1,12 @@
 /* global SALESFORCE_BASE_URL */
 
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 import { map } from 'lodash'
 import moment from 'moment'
 import { useParams } from 'react-router-dom'
 
+import { LeaseUpContext } from 'stores/LeaseUpProvider'
 import appPaths from 'utils/appPaths'
 import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
@@ -86,6 +87,9 @@ const LeaseUpApplicationsPage = () => {
     status: null,
     subStatus: null
   })
+
+  const con = useContext(LeaseUpContext)
+  console.log(con.state)
 
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
