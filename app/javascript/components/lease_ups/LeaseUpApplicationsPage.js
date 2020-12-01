@@ -102,7 +102,7 @@ const LeaseUpApplicationsPage = () => {
   }
 
   const handleBulkCheckboxClick = (appId) => {
-    setBulkCheckboxesState({ ...bulkCheckboxesState, [appId]: !bulkCheckboxesState[appId] })
+    setBulkCheckboxesState((prevState) => ({ ...prevState, [appId]: !bulkCheckboxesState[appId] }))
   }
 
   const updateStatusModal = (newState) => {

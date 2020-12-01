@@ -6,10 +6,12 @@ import Select from 'react-select'
 import Button from 'components/atoms/Button'
 import PrettyTime from 'components/atoms/PrettyTime'
 import TableLayout from 'components/layouts/TableLayout'
+import LeaseUpApplicationsFilterContainer from 'components/lease_ups/LeaseUpApplicationsFilterContainer'
 import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
 import LeaseUpApplicationsTableContainer from 'components/lease_ups/LeaseUpApplicationsTableContainer'
 import Loading from 'components/molecules/Loading'
 import SubstatusDropdown from 'components/molecules/SubstatusDropdown'
+import FormModal from 'components/organisms/FormModal'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 
 import { findWithText, mountAppWithUrl } from '../../testUtils/wrapperUtil'
@@ -30,10 +32,31 @@ jest.mock('apiService', () => {
     },
     createFieldUpdateComment: async (applicationId, status, comment, substatus) => {
       mockCreateFieldUpdateComment(applicationId)
+
+      if (comment === 'FAIL_REQUEST') {
+        return Promise.reject(new Error('rejected promise'))
+      }
+
       return Promise.resolve(mockApplications)
     }
   }
 })
+
+const fillOutStatusModalAndSubmit = async (wrapper, subStatus, comment) => {
+  // Change the substatus
+  act(() => {
+    wrapper.find(SubstatusDropdown).find(Select).props().onChange({ value: subStatus })
+  })
+
+  // Add a comment
+  wrapper.find('textarea#status-comment').simulate('change', { target: { value: comment } })
+
+  // Submit the modal
+  await act(async () => {
+    wrapper.find('.modal-button_primary > button').simulate('submit')
+  })
+  await wrapper.update()
+}
 
 const buildMockApplicationWithPreference = ({
   prefId,
@@ -212,19 +235,7 @@ describe('LeaseUpApplicationsPage', () => {
     })
     wrapper.update()
 
-    // Change the substatus
-    act(() => {
-      wrapper.find(SubstatusDropdown).find(Select).props().onChange({ value: 'None of the above' })
-    })
-
-    // Add a comment
-    wrapper.find('textarea#status-comment').simulate('change', { target: { value: 'comment' } })
-
-    // Submit the modal
-    await act(async () => {
-      await wrapper.find('.modal-button_primary > button').simulate('submit')
-    })
-    await wrapper.update()
+    await fillOutStatusModalAndSubmit(wrapper, 'None of the above', 'comment')
 
     // Expect that we submitted the comment and the modal is closed
     expect(mockCreateFieldUpdateComment).toHaveBeenCalled()
@@ -290,12 +301,10 @@ describe('LeaseUpApplicationsPage', () => {
         beforeEach(() => {
           const ids = [1002, 1003, 1004, 1005]
 
-          ids.forEach((id) => {
-            act(() => {
-              getRowBulkCheckboxInput(wrapper, id).first().simulate('click')
-            })
-            wrapper.update()
+          act(() => {
+            ids.forEach((id) => getRowBulkCheckboxInput(wrapper, id).first().simulate('click'))
           })
+          wrapper.update()
         })
 
         test('it returns to the all-boxes-checked state', () => {
@@ -305,6 +314,98 @@ describe('LeaseUpApplicationsPage', () => {
             getTopLevelInputWrapper(wrapper).props().className.includes('indeterminate')
           ).toBeFalsy()
           expect(findWithText(wrapper, Button, 'Set Status').props().disabled).toBeFalsy()
+        })
+      })
+    })
+
+    describe('when multiple checkboxes are clicked', () => {
+      beforeEach(async () => {
+        act(() => {
+          getRowBulkCheckboxInputs(wrapper)
+            .slice(0, 2)
+            .forEach((input) => input.simulate('click'))
+        })
+        wrapper.update()
+      })
+
+      test('the bulk input box is checked and indeterminate', () => {
+        const wrapperProps = getTopLevelInputWrapper(wrapper).props()
+        expect(wrapperProps.checked).toBeTruthy()
+        expect(wrapperProps.className.includes('indeterminate')).toBeTruthy()
+      })
+
+      test('the first and second rows have a checked box and the rest are unchecked', () => {
+        const allInputs = getRowBulkCheckboxInputs(wrapper)
+        expect(allInputs.at(0).props().checked).toBeTruthy()
+        expect(allInputs.at(1).props().checked).toBeTruthy()
+
+        expect(allInputs.slice(2).map(isChecked)).toEqual(Array(4).fill(false))
+      })
+
+      test('the bulk status button is enabled', () => {
+        expect(findWithText(wrapper, Button, 'Set Status').props().disabled).toBeFalsy()
+      })
+
+      describe('when the set status button value changes', () => {
+        beforeEach(() => {
+          act(() => {
+            wrapper
+              .find(LeaseUpApplicationsFilterContainer)
+              .find(Select)
+              .instance()
+              .props.onChange({ value: 'Appealed' })
+          })
+
+          wrapper.update()
+        })
+
+        test('the status modal opens', () => {
+          expect(wrapper.find(StatusModalWrapper).props().isOpen).toBeTruthy()
+        })
+
+        test('the status modal mas the correct subtitle', () => {
+          expect(wrapper.find(StatusModalWrapper).find(FormModal).props().subtitle).toEqual(
+            'Update the status for 2 selected items'
+          )
+        })
+
+        describe('when information is submitted with a successful request', () => {
+          beforeEach(async () => {
+            await fillOutStatusModalAndSubmit(wrapper, 'None of the above', 'comment')
+          })
+
+          test('should uncheck the status item', () => {
+            const allInputs = getRowBulkCheckboxInputs(wrapper)
+            expect(isChecked(allInputs.at(0))).toBeFalsy()
+            expect(isChecked(allInputs.at(1))).toBeFalsy()
+          })
+
+          test('should close the modal', () => {
+            expect(wrapper.find(StatusModalWrapper).props().isOpen).toBeFalsy()
+          })
+        })
+
+        describe('when information is submitted with a failing request', () => {
+          beforeEach(async () => {
+            await fillOutStatusModalAndSubmit(wrapper, 'None of the above', 'FAIL_REQUEST')
+          })
+
+          test('should not uncheck the status items', () => {
+            const allInputs = getRowBulkCheckboxInputs(wrapper)
+            expect(isChecked(allInputs.at(0))).toBeTruthy()
+            expect(isChecked(allInputs.at(1))).toBeTruthy()
+          })
+
+          test('should keep the modal open', () => {
+            expect(wrapper.find(StatusModalWrapper).props().isOpen).toBeTruthy()
+          })
+
+          test('should show an alert', () => {
+            expect(wrapper.find(StatusModalWrapper).props().showAlert).toBeTruthy()
+            expect(wrapper.find(StatusModalWrapper).props().alertMsg).toEqual(
+              'We were unable to make the update for 2 out of 2 applications, please try again.'
+            )
+          })
         })
       })
     })
