@@ -2,6 +2,7 @@ import React from 'react'
 
 import { shallow } from 'enzyme'
 
+import { COLORS } from 'components/atoms/colors'
 import StyledIcon from 'components/atoms/StyledIcon'
 
 describe('StyledIcon', () => {
@@ -39,6 +40,17 @@ describe('StyledIcon', () => {
 
     test('should apply the custom size style', () => {
       expect(wrapper.find('svg').props().style.width).toEqual('3rem')
+    })
+  })
+
+  describe('with custom fill', () => {
+    let wrapper
+    beforeEach(() => {
+      wrapper = shallow(<StyledIcon customFill={COLORS.success} icon='list-unordered' />)
+    })
+
+    test('should apply the custom fill style', () => {
+      expect(wrapper.find('svg').props().style.fill).toEqual(COLORS.success)
     })
   })
 })

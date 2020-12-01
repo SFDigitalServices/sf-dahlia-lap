@@ -1,11 +1,14 @@
 /* eslint-disable jest/no-conditional-expect */
 import { act } from 'react-dom/test-utils'
 import { Link } from 'react-router-dom'
+import Select from 'react-select'
 
+import PrettyTime from 'components/atoms/PrettyTime'
 import TableLayout from 'components/layouts/TableLayout'
 import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
 import LeaseUpApplicationsTableContainer from 'components/lease_ups/LeaseUpApplicationsTableContainer'
 import Loading from 'components/molecules/Loading'
+import SubstatusDropdown from 'components/molecules/SubstatusDropdown'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 
 import { findWithText, mountAppWithUrl } from '../../testUtils/wrapperUtil'
@@ -24,9 +27,9 @@ jest.mock('apiService', () => {
       mockFetchLeaseUpApplications(listingId, page, filters)
       return Promise.resolve({ records: mockApplications })
     },
-    createFieldUpdateComment: async (data) => {
-      var response = mockCreateFieldUpdateComment(data)
-      return Promise.resolve(response)
+    createFieldUpdateComment: async (applicationId, status, comment, substatus) => {
+      mockCreateFieldUpdateComment(applicationId)
+      return Promise.resolve(mockApplications)
     }
   }
 })
@@ -159,5 +162,43 @@ describe('LeaseUpApplicationsPage', () => {
 
     // if submit wasn't clicked we shouldn't trigger an API request
     expect(mockCreateFieldUpdateComment).not.toHaveBeenCalled()
+  })
+
+  test('updates substatus and last updated date on status change', async () => {
+    // Get the status last updated date before we change it, to verify that it changed.
+    const dateBefore = wrapper.find(rowSelector).first().find('PrettyTime').text()
+
+    // Change status to Appealed and open up the modal
+    act(() => {
+      wrapper
+        .find(rowSelector)
+        .first()
+        .find(Select)
+        .instance()
+        .props.onChange({ value: 'Appealed' })
+    })
+    wrapper.update()
+
+    // Change the substatus
+    act(() => {
+      wrapper.find(SubstatusDropdown).find(Select).props().onChange({ value: 'None of the above' })
+    })
+
+    // Add a comment
+    wrapper.find('textarea#status-comment').simulate('change', { target: { value: 'comment' } })
+
+    // Submit the modal
+    await act(async () => {
+      await wrapper.find('.modal-button_primary > button').simulate('submit')
+    })
+    await wrapper.update()
+
+    // Expect that we submitted the comment and the modal is closed
+    expect(mockCreateFieldUpdateComment).toHaveBeenCalled()
+    expect(wrapper.find(StatusModalWrapper).props().isOpen).toBeFalsy()
+
+    // Expect the changed row to have the updated substatus and date
+    expect(wrapper.find(rowSelector).first().text().includes('None of the above')).toBeTruthy()
+    expect(wrapper.find(rowSelector).first().find(PrettyTime).text()).not.toEqual(dateBefore)
   })
 })

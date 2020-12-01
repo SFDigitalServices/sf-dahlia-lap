@@ -51,6 +51,6 @@ preferences:
     Application__r.Sub_Status__c:
     Application__r.Processing_Status__c:
       label: "Lease Up Status"
-    LastModifiedDate:
+    Application__r.Processing_Date_Updated__c:
       label: "Status Updated"
     Listing_Preference_ID__r.Record_Type_For_App_Preferences__c:

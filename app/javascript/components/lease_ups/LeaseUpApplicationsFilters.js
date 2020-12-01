@@ -14,7 +14,7 @@ const styles = {
     justifyContent: 'flex-end'
   },
   whiteSmokeBackground: {
-    background: COLORS.whiteSmoke
+    background: COLORS.snow
   }
 }
 

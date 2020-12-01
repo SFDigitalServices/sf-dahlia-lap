@@ -22,7 +22,9 @@ const LeaseUpTableContainer = ({
     rowsPerPage,
     atMaxPages,
     updateStatusModal,
-    handleCreateStatusUpdate
+    handleCreateStatusUpdate,
+    bulkCheckboxesState,
+    onBulkCheckboxClick
   }
 }) => {
   const closeStatusModal = () => {
@@ -97,6 +99,8 @@ const LeaseUpTableContainer = ({
         pages={pages}
         rowsPerPage={rowsPerPage}
         atMaxPages={atMaxPages}
+        bulkCheckboxesState={bulkCheckboxesState}
+        onBulkCheckboxClick={onBulkCheckboxClick}
       />
       <StatusModalWrapper
         {...statusModal}

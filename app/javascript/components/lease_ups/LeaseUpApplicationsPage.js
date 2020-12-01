@@ -81,23 +81,24 @@ const LeaseUpApplicationsPage = () => {
     listing: null,
     eagerPagination: new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
   })
+  const [bulkCheckboxesState, setBulkCheckboxesState] = useState({})
 
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
 
-  const performAsyncRequest = ({
-    initialState = {},
-    promiseFunc = async () => {},
-    stateFromResponse = {}
-  }) => {
-    setState({
-      ...initialState,
-      loading: true
-    })
+  const setInitialCheckboxState = (applications) => {
+    // get unique applications
+    const uniqAppIds = Array.from(new Set(applications.map((a) => a.application_id)))
+    const emptyCheckboxes = uniqAppIds.reduce((a, b) => {
+      a[b] = false
+      return a
+    }, {})
+    // set state to false for all of the initial applications
+    setBulkCheckboxesState(emptyCheckboxes)
+  }
 
-    promiseFunc()
-      .then((r) => setState({ ...stateFromResponse(r) }))
-      .finally(() => setState({ loading: false }))
+  const onBulkCheckboxClick = (appId) => {
+    setBulkCheckboxesState({ ...bulkCheckboxesState, [appId]: !bulkCheckboxesState[appId] })
   }
 
   const setState = (newState) =>
@@ -120,17 +121,21 @@ const LeaseUpApplicationsPage = () => {
 
     const fetcher = (p) => getApplications(listingId, p, filters)
 
-    performAsyncRequest({
-      initialState: { page },
-      promiseFunc: () =>
-        Promise.all([getStateOrFetchListing(), state.eagerPagination.getPage(page, fetcher)]),
-      stateFromResponse: ([listing, { records, pages }]) => ({
-        listing,
-        applications: records,
-        pages: pages,
-        atMaxPages: false
+    setState({ loading: true })
+
+    Promise.all([getStateOrFetchListing(), state.eagerPagination.getPage(page, fetcher)])
+      .then(([listing, { records, pages }]) => {
+        setState({
+          listing,
+          applications: records,
+          pages: pages,
+          atMaxPages: false
+        })
+        setInitialCheckboxState(records)
       })
-    })
+      .finally(() => {
+        setState({ loading: false })
+      })
   }
 
   const handleOnFetchData = ({ filters, page }, _) => {
@@ -212,7 +217,9 @@ const LeaseUpApplicationsPage = () => {
     rowsPerPage: ROWS_PER_PAGE,
     updateStatusModal: updateStatusModal,
     statusModal: state.statusModal,
-    atMaxPages: state.atMaxPages
+    atMaxPages: state.atMaxPages,
+    bulkCheckboxesState,
+    onBulkCheckboxClick
   }
 
   return (

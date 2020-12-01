@@ -27,7 +27,7 @@ const getCustomSizeStyle = (customSize) => {
   return getSizeStyle(customSizeRem)
 }
 
-const getIconStyle = (size, customSize) => {
+const getBasicSizeStyle = (size) => {
   switch (size) {
     case 'default':
       return ICON_STYLE_REGULAR
@@ -40,16 +40,24 @@ const getIconStyle = (size, customSize) => {
   }
 }
 
-const StyledIcon = ({ size = 'default', customSizeRem = null, icon }) => (
-  <svg style={customSizeRem ? getCustomSizeStyle(customSizeRem) : getIconStyle(size)}>
-    <use xlinkHref={`#i-${icon}`} />
-  </svg>
-)
+const StyledIcon = ({ size = 'default', customSizeRem = null, customFill = null, icon }) => {
+  const fillStyle = customFill && { fill: customFill }
+  const style = {
+    ...(customSizeRem ? getCustomSizeStyle(customSizeRem) : getBasicSizeStyle(size)),
+    ...fillStyle
+  }
+  return (
+    <svg style={style}>
+      <use style={fillStyle} xlinkHref={`#i-${icon}`} />
+    </svg>
+  )
+}
 
 StyledIcon.propTypes = {
   icon: PropTypes.string.isRequired,
   size: PropTypes.oneOf(['default', 'small', 'medium', 'tiny']),
-  customSizeRem: PropTypes.string
+  customSizeRem: PropTypes.string,
+  customFill: PropTypes.string
 }
 
 export default StyledIcon
