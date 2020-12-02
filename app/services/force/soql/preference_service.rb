@@ -34,21 +34,21 @@ module Force
         filters = ''
         if opts[:preference].present?
           preferences = opts[:preference].map { |preference| "Preference_All_Name__c like '%#{preference}'" }.join(' or ')
-          filters += "and (#{preferences})"
+          filters += " and (#{preferences})"
         end
         if opts[:status].present?
           states = opts[:status].map do |status|
             'Application__r.Processing_Status__c = ' + (status == 'No Status' ? 'NULL' : "'#{status}'")
           end.join(' or ')
-          filters += "and (#{states})"
+          filters += " and (#{states})"
         end
-        filters += "and Application__r.Has_ADA_Priorities_Selected__c INCLUDES (#{accessibility_string}) " if opts[:accessibility].present?
+        filters += " and Application__r.Has_ADA_Priorities_Selected__c INCLUDES (#{accessibility_string}) " if opts[:accessibility].present?
 
         if opts[:total_household_size].present?
           total_household_size = opts[:total_household_size].map do |size|
             size == '5+' ? 'Application__r.Total_Household_Size__c >= 5' : "Application__r.Total_Household_Size__c = #{size}"
           end.join(' or ')
-          filters += "and (#{total_household_size})"
+          filters += " and (#{total_household_size})"
         end
 
         filters

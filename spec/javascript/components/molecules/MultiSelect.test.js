@@ -36,7 +36,7 @@ describe('MultiSelect', () => {
   describe('with multiple items', () => {
     let wrapper
     beforeEach(() => {
-      wrapper = shallow(<MultiSelect items={mockItems} />)
+      wrapper = shallow(<MultiSelect options={mockItems} />)
     })
 
     test('renders no selected items', () => {
@@ -55,7 +55,7 @@ describe('MultiSelect', () => {
   describe('when disabled', () => {
     let wrapper
     beforeEach(() => {
-      wrapper = shallow(<MultiSelect items={mockItems} disabled />)
+      wrapper = shallow(<MultiSelect options={mockItems} disabled />)
     })
 
     test('renders as disabled', () => {
@@ -66,7 +66,7 @@ describe('MultiSelect', () => {
   describe('when one item is selected', () => {
     let wrapper
     beforeEach(() => {
-      wrapper = shallow(<MultiSelect items={mockItems} selectedItems={[mockItems[0]]} disabled />)
+      wrapper = shallow(<MultiSelect options={mockItems} value={[mockItems[0]]} disabled />)
     })
 
     test('should pass that item to react-select', () => {
