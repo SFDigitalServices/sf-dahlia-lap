@@ -140,7 +140,7 @@ const LeaseUpApplicationsPage = () => {
       })
   }
 
-  const handleOnFetchData = ({ filters, page }, _) => {
+  const handleOnFetchData = ({ page }, _) => {
     if (state.eagerPagination.isOverLimit(page)) {
       setState({
         applications: [],
@@ -148,7 +148,7 @@ const LeaseUpApplicationsPage = () => {
         atMaxPages: true
       })
     } else {
-      loadPage(page, filters)
+      loadPage(page, state.filters)
     }
   }
 
