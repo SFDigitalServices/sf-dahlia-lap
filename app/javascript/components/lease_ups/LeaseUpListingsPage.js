@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 
 import Loading from 'components/molecules/Loading'
-import { AppContext } from 'context/LeaseUpProvider'
+import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
 import { useEffectOnMount } from 'utils/customHooks'
 

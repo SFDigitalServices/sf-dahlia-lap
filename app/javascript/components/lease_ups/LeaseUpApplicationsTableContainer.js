@@ -4,7 +4,7 @@ import { capitalize, compact, map, cloneDeep } from 'lodash'
 import { useHistory } from 'react-router-dom'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
-import { AppContext } from 'context/LeaseUpProvider'
+import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
 
 import { withContext } from './context'

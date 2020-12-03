@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom'
 import { getShortFormApplication } from 'components/lease_ups/shortFormActions'
 import Loading from 'components/molecules/Loading'
 import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
-import { AppContext } from 'context/LeaseUpProvider'
+import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
 import { useEffectOnMount, useQueryParamBoolean } from 'utils/customHooks'
 

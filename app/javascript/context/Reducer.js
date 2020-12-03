@@ -28,7 +28,7 @@ const overrideBreadcrumbData = (state, breadcrumbDataOverrides) => ({
   }
 })
 
-const LeaseUpReducer = (state, action) => {
+const Reducer = (state, action) => {
   switch (action.type) {
     case ACTION_TYPE_SELECTED_LISTING_CHANGED:
       return overrideBreadcrumbData(state, {
@@ -56,4 +56,4 @@ const LeaseUpReducer = (state, action) => {
   }
 }
 
-export default LeaseUpReducer
+export default Reducer

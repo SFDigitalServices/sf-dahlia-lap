@@ -6,7 +6,7 @@ import { map } from 'lodash'
 import moment from 'moment'
 import { useParams } from 'react-router-dom'
 
-import { AppContext } from 'context/LeaseUpProvider'
+import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
 import { useStateObject, useEffectOnMount } from 'utils/customHooks'
 import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'

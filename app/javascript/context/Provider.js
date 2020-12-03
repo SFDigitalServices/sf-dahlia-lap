@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from 'react'
 
 import { createActions } from 'context/leaseUpActionCreators'
-import LeaseUpReducer, { getEmptyApplication, getEmptyListing } from 'context/LeaseUpReducer'
+import Reducer, { getEmptyApplication, getEmptyListing } from 'context/Reducer'
 
 const initialState = {
   breadcrumbData: {
@@ -12,10 +12,10 @@ const initialState = {
 
 export const AppContext = createContext()
 
-const LeaseUpProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(LeaseUpReducer, initialState)
+const Provider = ({ children }) => {
+  const [state, dispatch] = useReducer(Reducer, initialState)
   const actions = createActions(dispatch)
   return <AppContext.Provider value={[state, actions]}>{children}</AppContext.Provider>
 }
 
-export default LeaseUpProvider
+export default Provider

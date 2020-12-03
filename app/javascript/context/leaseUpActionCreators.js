@@ -4,7 +4,7 @@ import {
   ACTION_TYPE_APPLICATION_LOADED,
   ACTION_TYPE_SELECTED_APPLICATION_CHANGED,
   ACTION_TYPE_SELECTED_LISTING_CHANGED
-} from 'context/LeaseUpReducer'
+} from 'context/Reducer'
 
 const formatListingStateData = (listing) => ({
   id: listing?.id,
