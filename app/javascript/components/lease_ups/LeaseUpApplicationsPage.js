@@ -6,8 +6,7 @@ import { map } from 'lodash'
 import moment from 'moment'
 import { useParams } from 'react-router-dom'
 
-import { onApplicationsPageLoaded, onApplicationsPageMounted } from 'stores/leaseUpActionCreators'
-import { LeaseUpStateContext, LeaseUpDispatchContext } from 'stores/LeaseUpProvider'
+import { AppContext } from 'context/LeaseUpProvider'
 import appPaths from 'utils/appPaths'
 import { useStateObject, useEffectOnMount } from 'utils/customHooks'
 import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
@@ -90,13 +89,12 @@ const LeaseUpApplicationsPage = () => {
     subStatus: null
   })
 
-  const { listing: contextListing } = useContext(LeaseUpStateContext).breadcrumbData
-  const dispatch = useContext(LeaseUpDispatchContext)
+  const [{ breadcrumbData }, actions] = useContext(AppContext)
 
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
 
-  useEffectOnMount(() => onApplicationsPageMounted(dispatch))
+  useEffectOnMount(actions.applicationsPageMounted)
 
   const setInitialCheckboxState = (applications) => {
     // get unique applications
@@ -131,7 +129,7 @@ const LeaseUpApplicationsPage = () => {
           atMaxPages: false,
           listing: listing
         })
-        onApplicationsPageLoaded(dispatch, listing)
+        actions.applicationsPageLoadComplete(listing)
         setInitialCheckboxState(records)
       })
       .finally(() => {
@@ -283,7 +281,7 @@ const LeaseUpApplicationsPage = () => {
 
   return (
     <Context.Provider value={context}>
-      <TableLayout pageHeader={getPageHeaderData(contextListing)}>
+      <TableLayout pageHeader={getPageHeaderData(breadcrumbData.listing)}>
         <LeaseUpApplicationsTableContainer />
       </TableLayout>
     </Context.Provider>

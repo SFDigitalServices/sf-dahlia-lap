@@ -56,11 +56,11 @@ export const useQueryParamBoolean = (paramName, defaultValue = false) => {
 export const useStateObject = (initialStateObject) => {
   const [state, overrideEntireState] = useState(initialStateObject)
 
-  const setState = (newStateOrCallback) => {
+  const setState = (newStateOrFunction) => {
     overrideEntireState((prevState) => {
-      const newStateOverrides = isFunction(newStateOrCallback)
-        ? newStateOrCallback(prevState)
-        : newStateOrCallback
+      const newStateOverrides = isFunction(newStateOrFunction)
+        ? newStateOrFunction(prevState)
+        : newStateOrFunction
 
       return {
         ...prevState,

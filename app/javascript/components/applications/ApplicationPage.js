@@ -7,8 +7,7 @@ import { useParams } from 'react-router-dom'
 import { getShortFormApplication } from 'components/lease_ups/shortFormActions'
 import Loading from 'components/molecules/Loading'
 import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
-import { onApplicationPageLoaded } from 'stores/leaseUpActionCreators'
-import { LeaseUpDispatchContext, LeaseUpStateContext } from 'stores/LeaseUpProvider'
+import { AppContext } from 'context/LeaseUpProvider'
 import appPaths from 'utils/appPaths'
 import { useEffectOnMount, useQueryParamBoolean } from 'utils/customHooks'
 
@@ -52,14 +51,13 @@ const ApplicationPage = ({ isLeaseUp = false }) => {
   const [loading, setLoading] = useState(true)
 
   const { applicationId } = useParams()
-  const { breadcrumbData } = useContext(LeaseUpStateContext)
-  const dispatch = useContext(LeaseUpDispatchContext)
+  const [{ breadcrumbData }, actions] = useContext(AppContext)
   const showAddBtn = useQueryParamBoolean('showAddBtn')
 
   useEffectOnMount(() => {
     getShortFormApplication(applicationId)
       .then((response) => {
-        onApplicationPageLoaded(dispatch, response.application, response.application?.listing)
+        actions.applicationPageLoadComplete(response.application, response.application?.listing)
         setApplication(response.application)
         setFileBaseUrl(response.fileBaseUrl)
       })

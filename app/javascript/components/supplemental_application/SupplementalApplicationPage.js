@@ -8,8 +8,7 @@ import Alerts from 'components/Alerts'
 import Loading from 'components/molecules/Loading'
 import LeaveConfirmationModal from 'components/organisms/LeaveConfirmationModal'
 import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
-import { onSupplementalPageLoaded } from 'stores/leaseUpActionCreators'
-import { LeaseUpDispatchContext, LeaseUpStateContext } from 'stores/LeaseUpProvider'
+import { AppContext } from 'context/LeaseUpProvider'
 import appPaths from 'utils/appPaths'
 import { useEffectOnMount, useStateObject } from 'utils/customHooks'
 import formUtils from 'utils/formUtils'
@@ -84,9 +83,7 @@ const SupplementalApplicationPage = ({ applicationId }) => {
 
   const history = useHistory()
 
-  const { breadcrumbData } = useContext(LeaseUpStateContext)
-
-  const dispatch = useContext(LeaseUpDispatchContext)
+  const [{ breadcrumbData }, actions] = useContext(AppContext)
 
   useEffectOnMount(() => {
     getSupplementalPageData(applicationId)
@@ -103,7 +100,7 @@ const SupplementalApplicationPage = ({ applicationId }) => {
           statusHistory
         })
 
-        onSupplementalPageLoaded(dispatch, application, application?.listing)
+        actions.supplementalPageLoadComplete(application, application?.listing)
 
         setStatusModalState({
           loading: false,
@@ -193,22 +190,18 @@ const SupplementalApplicationPage = ({ applicationId }) => {
 
   const updateApplicationStateAfterRequest = (
     applicationResponse,
-    additionalFieldsToUpdate = {},
-    setStateCallback = () => {}
+    additionalFieldsToUpdate = {}
   ) => {
     const leaveEditMode = (currentLeaseSectionState) =>
       currentLeaseSectionState === EDIT_LEASE_STATE ? SHOW_LEASE_STATE : currentLeaseSectionState
 
-    setState(
-      (prevState) => ({
-        application: setApplicationsDefaults(applicationResponse),
-        loading: false,
-        supplementalAppTouched: false,
-        leaseSectionState: leaveEditMode(prevState.leaseSectionState),
-        ...additionalFieldsToUpdate
-      }),
-      setStateCallback
-    )
+    setState((prevState) => ({
+      application: setApplicationsDefaults(applicationResponse),
+      loading: false,
+      supplementalAppTouched: false,
+      leaseSectionState: leaveEditMode(prevState.leaseSectionState),
+      ...additionalFieldsToUpdate
+    }))
   }
 
   const handleStatusModalSubmit = async (submittedValues, formApplication) => {
@@ -227,9 +220,8 @@ const SupplementalApplicationPage = ({ applicationId }) => {
       shouldSaveLeaseOnApplicationSave(leaseSectionState)
     )
       .then(({ application, statusHistory }) => {
-        updateApplicationStateAfterRequest(application, { statusHistory }, () =>
-          setStatusModalState({ loading: false, isOpen: false })
-        )
+        updateApplicationStateAfterRequest(application, { statusHistory })
+        setStatusModalState({ loading: false, isOpen: false })
       })
       .catch((_) => {
         setState({ loading: false })
