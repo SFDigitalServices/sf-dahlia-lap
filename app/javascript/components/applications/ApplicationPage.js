@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 import { isEmpty } from 'lodash'
 import PropTypes from 'prop-types'
@@ -6,6 +6,9 @@ import { useParams } from 'react-router-dom'
 
 import { getShortFormApplication } from 'components/lease_ups/shortFormActions'
 import Loading from 'components/molecules/Loading'
+import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
+import { onApplicationPageLoaded } from 'stores/leaseUpActionCreators'
+import { LeaseUpDispatchContext, LeaseUpStateContext } from 'stores/LeaseUpProvider'
 import appPaths from 'utils/appPaths'
 import { useEffectOnMount, useQueryParamBoolean } from 'utils/customHooks'
 
@@ -49,11 +52,14 @@ const ApplicationPage = ({ isLeaseUp = false }) => {
   const [loading, setLoading] = useState(true)
 
   const { applicationId } = useParams()
+  const { breadcrumbData } = useContext(LeaseUpStateContext)
+  const dispatch = useContext(LeaseUpDispatchContext)
   const showAddBtn = useQueryParamBoolean('showAddBtn')
 
   useEffectOnMount(() => {
     getShortFormApplication(applicationId)
       .then((response) => {
+        onApplicationPageLoaded(dispatch, response.application, response.application?.listing)
         setApplication(response.application)
         setFileBaseUrl(response.fileBaseUrl)
       })
@@ -70,36 +76,7 @@ const ApplicationPage = ({ isLeaseUp = false }) => {
   let tabSection
 
   if (isLeaseUp) {
-    if (application) {
-      pageHeader = {
-        title: `${application.name}: ${application.applicant.name}`,
-        breadcrumbs: [
-          { title: 'Lease Ups', link: appPaths.toLeaseUps(), renderAsRouterLink: true },
-          {
-            title: application.listing.name,
-            link: appPaths.toListingLeaseUps(application.listing.id),
-            renderAsRouterLink: true
-          },
-          { title: application.name, link: '#' }
-        ]
-      }
-    } else {
-      const emptyBreadCrumb = {
-        title: '',
-        link: '#'
-      }
-
-      pageHeader = {
-        // making this a div with a non-blocking space allows us to keep the header height
-        // without actually rendering any text.
-        title: <div>&nbsp;</div>,
-        breadcrumbs: [
-          { title: 'Lease Ups', link: appPaths.toLeaseUps(), renderAsRouterLink: true },
-          emptyBreadCrumb,
-          emptyBreadCrumb
-        ]
-      }
-    }
+    pageHeader = getPageHeaderData(breadcrumbData.application, breadcrumbData.listing)
 
     tabSection = {
       items: [

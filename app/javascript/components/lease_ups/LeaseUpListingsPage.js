@@ -3,7 +3,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 
 import Loading from 'components/molecules/Loading'
-import { LeaseUpContext } from 'stores/LeaseUpProvider'
+import { onListingRowClicked } from 'stores/leaseUpActionCreators'
+import { LeaseUpDispatchContext } from 'stores/LeaseUpProvider'
 import appPaths from 'utils/appPaths'
 
 import TableLayout from '../layouts/TableLayout'
@@ -14,7 +15,7 @@ const LeaseUpListingsPage = ({ history }) => {
   const [loading, setLoading] = useState(true)
   const [listings, setListings] = useState(true)
 
-  const { dispatch } = useContext(LeaseUpContext)
+  const dispatch = useContext(LeaseUpDispatchContext)
 
   useEffect(() => {
     getLeaseUpListings()
@@ -26,9 +27,10 @@ const LeaseUpListingsPage = ({ history }) => {
     title: 'Lease Ups'
   }
 
-  const onCellClick = (rowInfo) => {
-    dispatch({ type: 'INCREMENT' })
-    history.push(appPaths.toLeaseUpApplications(rowInfo.original.id))
+  const onCellClick = ({ original: listing }) => {
+    onListingRowClicked(dispatch, listing)
+
+    history.push(appPaths.toLeaseUpApplications(listing.id))
   }
 
   return (

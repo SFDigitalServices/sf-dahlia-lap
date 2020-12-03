@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { capitalize, compact, map, cloneDeep } from 'lodash'
+import { useHistory } from 'react-router-dom'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
+import { LeaseUpDispatchContext } from 'stores/LeaseUpProvider'
+import { ACTION_SET_CURRENT_APPLICATION } from 'stores/LeaseUpReducer'
 import appPaths from 'utils/appPaths'
 
 import { withContext } from './context'
@@ -48,8 +51,21 @@ const LeaseUpTableContainer = ({
     return rowData
   }
 
-  const goToSupplementaryInfo = (listingId, rowInfo) => {
-    window.location.href = appPaths.toApplicationSupplementals(rowInfo.original.application_id)
+  const history = useHistory()
+  const dispatch = useContext(LeaseUpDispatchContext)
+
+  const handleCellClick = (rowInfo) => {
+    const application = rowInfo.original
+    dispatch({
+      type: ACTION_SET_CURRENT_APPLICATION,
+      data: {
+        id: application.application_id,
+        number: application.application_number,
+        applicantFirstName: application.first_name,
+        applicantLastName: application.last_name
+      }
+    })
+    history.push(appPaths.toApplicationSupplementals(rowInfo.original.application_id))
   }
 
   const rowsData = (applications) => map(applications, buildRowData)
@@ -68,7 +84,7 @@ const LeaseUpTableContainer = ({
         dataSet={rowsData(applications)}
         listingId={listingId}
         onLeaseUpStatusChange={onLeaseUpStatusChange}
-        onCellClick={goToSupplementaryInfo}
+        onCellClick={handleCellClick}
         loading={loading}
         onFetchData={onFetchData}
         pages={pages}

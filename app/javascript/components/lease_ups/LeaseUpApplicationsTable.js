@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react'
 
 import classNames from 'classnames'
 import { trim } from 'lodash'
-import { Link } from 'react-router-dom'
 import ReactTable from 'react-table'
 
+import Button from 'components/atoms/Button'
 import CheckboxCell from 'components/lease_ups/application_page/CheckboxCell'
 import PreferenceRankCell from 'components/lease_ups/application_page/PreferenceRankCell'
 import StatusCell from 'components/lease_ups/application_page/StatusCell'
-import appPaths from 'utils/appPaths'
 import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
 import { cellFormat } from 'utils/reactTableUtils'
 import { getLeaseUpStatusClass } from 'utils/statusUtils'
@@ -96,9 +95,9 @@ const LeaseUpApplicationsTable = ({
       headerClassName: 'non-resizable',
       width: getCellWidth(96),
       Cell: (cell) => (
-        <Link to={appPaths.toApplicationSupplementals(cell.original.application_id)}>
+        <Button classes='button-link' onClick={() => onCellClick(cell)}>
           {cell.value}
-        </Link>
+        </Button>
       )
     },
     {
@@ -175,7 +174,7 @@ const LeaseUpApplicationsTable = ({
       column.id !== 'bulk_checkbox'
     ) {
       attrs.onClick = (e, handleOriginal) => {
-        if (rowInfo) onCellClick(listingId, rowInfo)
+        if (rowInfo) onCellClick(rowInfo)
       }
     }
 

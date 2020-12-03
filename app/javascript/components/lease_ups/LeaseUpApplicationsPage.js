@@ -6,7 +6,8 @@ import { map } from 'lodash'
 import moment from 'moment'
 import { useParams } from 'react-router-dom'
 
-import { LeaseUpContext } from 'stores/LeaseUpProvider'
+import { onApplicationsPageLoaded } from 'stores/leaseUpActionCreators'
+import { LeaseUpStateContext, LeaseUpDispatchContext } from 'stores/LeaseUpProvider'
 import appPaths from 'utils/appPaths'
 import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
@@ -43,7 +44,7 @@ const getPageHeaderData = (listing) => {
     ? [
         levelAboveBreadcrumb,
         {
-          title: listing?.name,
+          title: listing.name,
           link: appPaths.toLeaseUpApplications(listing.id),
           renderAsRouterLink: true
         }
@@ -88,8 +89,8 @@ const LeaseUpApplicationsPage = () => {
     subStatus: null
   })
 
-  const con = useContext(LeaseUpContext)
-  console.log(con.state)
+  const { listing: contextListing } = useContext(LeaseUpStateContext).breadcrumbData
+  const dispatch = useContext(LeaseUpDispatchContext)
 
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
@@ -132,11 +133,11 @@ const LeaseUpApplicationsPage = () => {
     Promise.all([getStateOrFetchListing(), state.eagerPagination.getPage(page, fetcher)])
       .then(([listing, { records, pages }]) => {
         setState({
-          listing,
           applications: records,
           pages: pages,
           atMaxPages: false
         })
+        onApplicationsPageLoaded(dispatch, listing)
         setInitialCheckboxState(records)
       })
       .finally(() => {
@@ -281,14 +282,14 @@ const LeaseUpApplicationsPage = () => {
     onClearSelectedApplications: handleClearSelectedApplications,
     onSelectAllApplications: handleSelectAllApplications,
     pages: state.pages,
-    preferences: getPreferences(state.listing),
+    preferences: getPreferences(contextListing),
     rowsPerPage: ROWS_PER_PAGE,
     statusModal: statusModalState
   }
 
   return (
     <Context.Provider value={context}>
-      <TableLayout pageHeader={getPageHeaderData(state.listing)}>
+      <TableLayout pageHeader={getPageHeaderData(contextListing)}>
         <LeaseUpApplicationsTableContainer />
       </TableLayout>
     </Context.Provider>
