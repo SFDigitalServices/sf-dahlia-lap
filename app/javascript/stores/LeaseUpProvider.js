@@ -1,20 +1,14 @@
 import React, { createContext, useReducer } from 'react'
 
-import LeaseUpReducer from 'stores/LeaseUpReducer'
+import LeaseUpReducer, {
+  EMPTY_APPLICATION_BREADCRUMB,
+  EMPTY_LISTING_BREADCRUMB
+} from 'stores/LeaseUpReducer'
 
 const initialState = {
   breadcrumbData: {
-    listing: {
-      id: null,
-      name: null,
-      buildingAddress: null
-    },
-    application: {
-      id: null,
-      number: null,
-      applicantFirstName: null,
-      applicantLastName: null
-    }
+    listing: EMPTY_LISTING_BREADCRUMB,
+    application: EMPTY_APPLICATION_BREADCRUMB
   }
 }
 

@@ -1,4 +1,6 @@
 import {
+  ACTION_CLEAR_CURRENT_APPLICATION,
+  ACTION_CLEAR_CURRENT_LISTING,
   ACTION_SUPP_APPLICATION_LOADED,
   ACTION_SET_CURRENT_APPLICATION,
   ACTION_SET_CURRENT_LISTING
@@ -46,6 +48,11 @@ export const onApplicationPageLoaded = (dispatch, application, listing) => {
     }
   })
 }
+
+export const onApplicationsPageMounted = (dispatch) =>
+  dispatch({ type: ACTION_CLEAR_CURRENT_APPLICATION })
+
+export const onListingsPageMounted = (dispatch) => dispatch({ type: ACTION_CLEAR_CURRENT_LISTING })
 
 const dispatchSetListingAction = (dispatch, listing) =>
   dispatch({

@@ -6,10 +6,10 @@ import { map } from 'lodash'
 import moment from 'moment'
 import { useParams } from 'react-router-dom'
 
-import { onApplicationsPageLoaded } from 'stores/leaseUpActionCreators'
+import { onApplicationsPageLoaded, onApplicationsPageMounted } from 'stores/leaseUpActionCreators'
 import { LeaseUpStateContext, LeaseUpDispatchContext } from 'stores/LeaseUpProvider'
 import appPaths from 'utils/appPaths'
-import { useStateObject } from 'utils/customHooks'
+import { useStateObject, useEffectOnMount } from 'utils/customHooks'
 import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
@@ -95,6 +95,8 @@ const LeaseUpApplicationsPage = () => {
 
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
+
+  useEffectOnMount(() => onApplicationsPageMounted(dispatch))
 
   const setInitialCheckboxState = (applications) => {
     // get unique applications

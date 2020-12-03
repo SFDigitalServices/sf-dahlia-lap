@@ -1,11 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 import { withRouter } from 'react-router-dom'
 
 import Loading from 'components/molecules/Loading'
-import { onListingRowClicked } from 'stores/leaseUpActionCreators'
+import { onListingRowClicked, onListingsPageMounted } from 'stores/leaseUpActionCreators'
 import { LeaseUpDispatchContext } from 'stores/LeaseUpProvider'
 import appPaths from 'utils/appPaths'
+import { useEffectOnMount } from 'utils/customHooks'
 
 import TableLayout from '../layouts/TableLayout'
 import { getLeaseUpListings } from './leaseUpActions'
@@ -17,11 +18,12 @@ const LeaseUpListingsPage = ({ history }) => {
 
   const dispatch = useContext(LeaseUpDispatchContext)
 
-  useEffect(() => {
+  useEffectOnMount(() => {
+    onListingsPageMounted(dispatch)
     getLeaseUpListings()
       .then((responseListings) => setListings(responseListings))
       .finally(() => setLoading(false))
-  }, [])
+  })
 
   const pageHeader = {
     title: 'Lease Ups'
