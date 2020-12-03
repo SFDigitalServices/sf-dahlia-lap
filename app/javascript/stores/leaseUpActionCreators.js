@@ -47,20 +47,17 @@ export const onApplicationPageLoaded = (dispatch, application, listing) => {
   })
 }
 
-export const onApplicationsPageLoaded = (dispatch, listing) =>
+const dispatchSetListingAction = (dispatch, listing) =>
   dispatch({
     type: ACTION_SET_CURRENT_LISTING,
     data: formatListingStateData(listing)
   })
 
-export const onListingRowClicked = (dispatch, listing) => {
-  dispatch({
-    type: ACTION_SET_CURRENT_LISTING,
-    data: {
-      listing: formatListingStateData(listing)
-    }
-  })
-}
+export const onApplicationsPageLoaded = (dispatch, listing) =>
+  dispatchSetListingAction(dispatch, listing)
+
+export const onListingRowClicked = (dispatch, listing) =>
+  dispatchSetListingAction(dispatch, listing)
 
 export const onApplicationRowClicked = (dispatch, application) =>
   dispatch({

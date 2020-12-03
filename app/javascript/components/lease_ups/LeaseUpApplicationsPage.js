@@ -1,6 +1,6 @@
 /* global SALESFORCE_BASE_URL */
 
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 
 import { map } from 'lodash'
 import moment from 'moment'
@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom'
 import { onApplicationsPageLoaded } from 'stores/leaseUpActionCreators'
 import { LeaseUpStateContext, LeaseUpDispatchContext } from 'stores/LeaseUpProvider'
 import appPaths from 'utils/appPaths'
+import { useStateObject } from 'utils/customHooks'
 import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
@@ -40,20 +41,20 @@ const getPageHeaderData = (listing) => {
     link: '#'
   }
 
-  const breadcrumbs = listing
-    ? [
-        levelAboveBreadcrumb,
-        {
+  const breadcrumbs = [
+    levelAboveBreadcrumb,
+    listing.name
+      ? {
           title: listing.name,
           link: appPaths.toLeaseUpApplications(listing.id),
           renderAsRouterLink: true
         }
-      ]
-    : [levelAboveBreadcrumb, emptyBreadCrumb]
+      : emptyBreadCrumb
+  ]
 
   return {
-    title: listing?.name || '',
-    content: listing?.building_street_address || '',
+    title: listing?.name || <span>&nbsp;</span>,
+    content: listing?.buildingAddress || '',
     action: exportButtonAction,
     breadcrumbs
   }
@@ -65,7 +66,7 @@ const getPreferences = (listing) => {
 }
 
 const LeaseUpApplicationsPage = () => {
-  const [state, overrideEntireState] = useState({
+  const [state, setState] = useStateObject({
     loading: false,
     applications: [],
     filters: {},
@@ -76,8 +77,8 @@ const LeaseUpApplicationsPage = () => {
     eagerPagination: new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
   })
 
-  const [bulkCheckboxesState, setBulkCheckboxesState] = useState({})
-  const [statusModalState, setStatusModalState] = useState({
+  const [bulkCheckboxesState, setBulkCheckboxesState] = useStateObject({})
+  const [statusModalState, setStatusModalState] = useStateObject({
     alertMsg: null,
     applicationIds: null,
     isBulkUpdate: false,
@@ -107,18 +108,8 @@ const LeaseUpApplicationsPage = () => {
   }
 
   const handleBulkCheckboxClick = (appId) => {
-    setBulkCheckboxesState((prevState) => ({ ...prevState, [appId]: !bulkCheckboxesState[appId] }))
+    setBulkCheckboxesState({ [appId]: !bulkCheckboxesState[appId] })
   }
-
-  const updateStatusModal = (newState) => {
-    setStatusModalState((prevState) => ({ ...prevState, ...newState }))
-  }
-
-  const setState = (newState) =>
-    overrideEntireState((prevState) => ({
-      ...prevState,
-      ...newState
-    }))
 
   const loadPage = async (page, filters) => {
     const { listing: listingFromState } = state
@@ -135,7 +126,8 @@ const LeaseUpApplicationsPage = () => {
         setState({
           applications: records,
           pages: pages,
-          atMaxPages: false
+          atMaxPages: false,
+          listing: listing
         })
         onApplicationsPageLoaded(dispatch, listing)
         setInitialCheckboxState(records)
@@ -164,7 +156,7 @@ const LeaseUpApplicationsPage = () => {
   }
 
   const handleStatusModalSubmit = async (submittedValues) => {
-    updateStatusModal({ loading: true })
+    setStatusModalState({ loading: true })
     const { applicationIds } = statusModalState
     const { status, subStatus } = submittedValues
     const data = {
@@ -195,15 +187,15 @@ const LeaseUpApplicationsPage = () => {
       const wasBulkUpdate = statusModalState.isBulkUpdate
 
       if (errorIds.length !== 0) {
-        updateStatusModal({
+        setStatusModalState({
           applicationIds: errorIds,
           loading: false,
           showAlert: true,
           alertMsg: `We were unable to make the update for ${errorIds.length} out of ${values.length} applications, please try again.`,
-          onAlertCloseClick: () => updateStatusModal({ showAlert: false })
+          onAlertCloseClick: () => setStatusModalState({ showAlert: false })
         })
       } else {
-        updateStatusModal({
+        setStatusModalState({
           applicationIds: [],
           isOpen: false,
           loading: false,
@@ -219,7 +211,7 @@ const LeaseUpApplicationsPage = () => {
   }
 
   const handleCloseStatusModal = () => {
-    updateStatusModal({
+    setStatusModalState({
       isOpen: false,
       showAlert: false,
       applicationIds: []
@@ -233,7 +225,7 @@ const LeaseUpApplicationsPage = () => {
           .map(([id, _]) => id)
       : [applicationId]
 
-    updateStatusModal({
+    setStatusModalState({
       applicationIds: appsToUpdate,
       isBulkUpdate,
       isOpen: true,
@@ -257,7 +249,7 @@ const LeaseUpApplicationsPage = () => {
   }
 
   const setBulkCheckboxValues = (newValue, applicationIds = null) => {
-    const newBulkCheckboxState = { ...bulkCheckboxesState }
+    const newBulkCheckboxState = {}
     const applicationIdsToUpdate = applicationIds ?? Object.keys(bulkCheckboxesState)
 
     applicationIdsToUpdate.forEach((id) => (newBulkCheckboxState[id] = newValue))
@@ -282,7 +274,7 @@ const LeaseUpApplicationsPage = () => {
     onClearSelectedApplications: handleClearSelectedApplications,
     onSelectAllApplications: handleSelectAllApplications,
     pages: state.pages,
-    preferences: getPreferences(contextListing),
+    preferences: getPreferences(state.listing),
     rowsPerPage: ROWS_PER_PAGE,
     statusModal: statusModalState
   }

@@ -85,7 +85,7 @@ const SupplementalApplicationPage = ({ applicationId }) => {
   const history = useHistory()
 
   const { breadcrumbData } = useContext(LeaseUpStateContext)
-  console.log(breadcrumbData)
+
   const dispatch = useContext(LeaseUpDispatchContext)
 
   useEffectOnMount(() => {
