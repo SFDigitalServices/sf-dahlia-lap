@@ -137,6 +137,16 @@ const Lease = ({ form, values, store }) => {
   }
 
   const areNoUnitsAvailable = !availableUnitsOptions.length
+  const selectedUnit = form.getState().values.lease?.unit
+
+  // If a unit is selected from the dropdown, subtract that from the available units.
+  const availableUnitsCount = selectedUnit ? availableUnits.length - 1 : availableUnits.length
+
+  // If an a11y unit is available and selected from the dropdown, substract that from the available units.
+  const availableAccessibilityUnitsCount =
+    selectedUnit && accessibilityUnits.find((el) => el.id === selectedUnit)
+      ? accessibilityUnits.length - 1
+      : accessibilityUnits.length
 
   const validateAndSaveLease = (form) => {
     if (areLeaseAndRentalAssistancesValid(form)) {
@@ -171,11 +181,23 @@ const Lease = ({ form, values, store }) => {
           <FormGrid.Item width='25%'>
             <strong className='form-note micro h-caps'>Total</strong>
             <p className='margin-top'>
-              <strong className='form-note'>{availableUnits.length}</strong>
+              <strong className='form-note'>{availableUnitsCount}</strong>
             </p>
           </FormGrid.Item>
           <FormGrid.Item width='25%'>
             <strong className='form-note micro h-caps'>Accessibility</strong>
+            <p className='margin-top'>
+              <span className='form-note'>{availableAccessibilityUnitsCount}</span>
+            </p>
+          </FormGrid.Item>
+          <FormGrid.Item width='25%'>
+            <strong className='form-note micro h-caps'>DTHP</strong>
+            <p className='margin-top'>
+              <span className='form-note'>{accessibilityUnits.length}</span>
+            </p>
+          </FormGrid.Item>
+          <FormGrid.Item width='25%'>
+            <strong className='form-note micro h-caps'>NRHP</strong>
             <p className='margin-top'>
               <span className='form-note'>{accessibilityUnits.length}</span>
             </p>
