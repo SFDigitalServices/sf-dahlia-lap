@@ -28,7 +28,9 @@ module Force
         # OR statement when passing the option of `Vision/Hearing`
         # https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_querying_multiselect_picklists.htm
         if opts[:accessibility].present?
-          accessibility_string = opts[:accessibility].map { |accessibility| "'#{accessibility}'" }.join(', ')
+          accessibility_string = opts[:accessibility].map do |accessibility|
+            accessibility.split(', ').map { |item| "'#{item}'" }
+          end.join(', ')
         end
 
         filters = ''
