@@ -11,7 +11,7 @@ RSpec.describe Force::Soql::PreferenceService do
   describe 'buildAppPreferencesFilters' do
     it 'should create the correct accessibility string for Mobility' do
       VCR.use_cassette('services/soql/preference_service') do
-        filters = subject.buildAppPreferencesFilters({ listing_id: LEASE_UP_LISTING_ID, accessibility: 'Mobility impairments' })
+        filters = subject.buildAppPreferencesFilters({ listing_id: LEASE_UP_LISTING_ID, accessibility: ['Mobility impairments'] })
 
         expect(filters).to include("INCLUDES ('Mobility impairments')")
       end
@@ -19,7 +19,8 @@ RSpec.describe Force::Soql::PreferenceService do
 
     it 'should create the correct accessibility string Vision/Hearing' do
       VCR.use_cassette('services/soql/preference_service') do
-        filters = subject.buildAppPreferencesFilters({ listing_id: LEASE_UP_LISTING_ID, accessibility: 'Vision impairments, Hearing impairments' })
+        filters = subject.buildAppPreferencesFilters({ listing_id: LEASE_UP_LISTING_ID, accessibility: ['Vision impairments',
+                                                                                                        'Hearing impairments'] })
 
         expect(filters).to include("INCLUDES ('Vision impairments', 'Hearing impairments')")
       end
@@ -27,17 +28,52 @@ RSpec.describe Force::Soql::PreferenceService do
 
     it 'creates the expected query string when householdmembers is set to 1' do
       VCR.use_cassette('services/soql/preference_service') do
-        filters = subject.buildAppPreferencesFilters({ total_household_size: '1' })
+        filters = subject.buildAppPreferencesFilters({ total_household_size: ['1'] })
 
-        expect(filters).to include("and Application__r.Total_Household_Size__c = 1")
+        expect(filters).to include('and (Application__r.Total_Household_Size__c = 1)')
       end
     end
 
     it 'creates the expected query string when householdmembers is set to 5+' do
       VCR.use_cassette('services/soql/preference_service') do
-        filters = subject.buildAppPreferencesFilters({ total_household_size: '5+' })
+        filters = subject.buildAppPreferencesFilters({ total_household_size: ['5+'] })
 
-        expect(filters).to include("and Application__r.Total_Household_Size__c >= 5")
+        expect(filters).to include('and (Application__r.Total_Household_Size__c >= 5)')
+      end
+    end
+
+    it 'creates the expected query string when householdmembers has two values' do
+      VCR.use_cassette('services/soql/preference_service') do
+        filters = subject.buildAppPreferencesFilters({ total_household_size: ['1', '5+'] })
+
+        expect(filters).to include('and (Application__r.Total_Household_Size__c = 1 or Application__r.Total_Household_Size__c >= 5)')
+      end
+    end
+
+    it 'creates the expected query string when status has two values' do
+      VCR.use_cassette('services/soql/preference_service') do
+        filters = subject.buildAppPreferencesFilters({ status: ['No Status', 'Processing'] })
+
+        expect(filters).to include('and (Application__r.Processing_Status__c = NULL or'\
+                                   ' Application__r.Processing_Status__c = \'Processing\')')
+      end
+    end
+
+    it 'creates the expected query string when preference has two values' do
+      VCR.use_cassette('services/soql/preference_service') do
+        filters = subject.buildAppPreferencesFilters({ preference: ['Certificate of Preference (COP)', 'general'] })
+
+        expect(filters).to include('and (Preference_All_Name__c like \'%Certificate of Preference (COP)\' or'\
+                                   ' Preference_All_Name__c like \'%general\')')
+      end
+    end
+
+    it 'creates the expected query string when status is null and household is not' do
+      VCR.use_cassette('services/soql/preference_service') do
+        filters = subject.buildAppPreferencesFilters({ status: ['No Status'], total_household_size: ['1'] })
+
+        expect(filters).to include('and (Application__r.Processing_Status__c = NULL) '\
+                                   'and (Application__r.Total_Household_Size__c = 1)')
       end
     end
   end

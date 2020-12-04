@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 
 import Button from 'components/atoms/Button'
 import LeaseUpApplicationsFilters from 'components/lease_ups/LeaseUpApplicationsFilters'
-import { SelectField } from 'utils/form/final_form/Field'
+import MultiSelectField from 'utils/form/final_form/MultiSelectField'
 
 import { findWithProps } from '../../testUtils/wrapperUtil'
 
@@ -29,7 +29,7 @@ describe('LeaseUpApplicationsFilters', () => {
     })
 
     test('renders all filters in order', () => {
-      const fields = wrapper.find(SelectField)
+      const fields = wrapper.find(MultiSelectField)
       expect(fields).toHaveLength(4)
       expect(fields.at(0).props().label).toEqual('Preferences')
       expect(fields.at(1).props().label).toEqual('Household Members')
@@ -38,8 +38,8 @@ describe('LeaseUpApplicationsFilters', () => {
     })
 
     test('renders preferences with the correct options', () => {
-      const preferenceField = wrapper.find(SelectField).at(0)
-      expect(preferenceField.props().options).toHaveLength(2)
+      const preferenceField = wrapper.find(MultiSelectField).at(0)
+      expect(preferenceField.props().options).toHaveLength(1)
     })
 
     test('renders the button with tertiary-inverse style', () => {
@@ -56,8 +56,8 @@ describe('LeaseUpApplicationsFilters', () => {
     })
 
     test('renders preferences with the correct options', () => {
-      const preferenceField = wrapper.find(SelectField).at(0)
-      expect(preferenceField.props().options).toHaveLength(4)
+      const preferenceField = wrapper.find(MultiSelectField).at(0)
+      expect(preferenceField.props().options).toHaveLength(3)
     })
   })
 
@@ -82,28 +82,30 @@ describe('LeaseUpApplicationsFilters', () => {
 
     test('should call onFilterChanged when preference filter changes', () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(0)
-      const fieldWrapper = findWithProps(wrapper, SelectField, { label: 'Preferences' })
+      const fieldWrapper = findWithProps(wrapper, MultiSelectField, { label: 'Preferences' })
       fieldWrapper.props().onChange()
       expect(mockOnFilterChange.mock.calls).toHaveLength(1)
     })
 
     test('should call onFilterChanged when Household Members filter changes', () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(0)
-      const fieldWrapper = findWithProps(wrapper, SelectField, { label: 'Household Members' })
+      const fieldWrapper = findWithProps(wrapper, MultiSelectField, { label: 'Household Members' })
       fieldWrapper.props().onChange()
       expect(mockOnFilterChange.mock.calls).toHaveLength(1)
     })
 
     test('should call onFilterChanged when Accessibility Requests changes', () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(0)
-      const fieldWrapper = findWithProps(wrapper, SelectField, { label: 'Accessibility Requests' })
+      const fieldWrapper = findWithProps(wrapper, MultiSelectField, {
+        label: 'Accessibility Requests'
+      })
       fieldWrapper.props().onChange()
       expect(mockOnFilterChange.mock.calls).toHaveLength(1)
     })
 
     test('should call onFilterChanged when Application Status filter changes', () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(0)
-      const fieldWrapper = findWithProps(wrapper, SelectField, { label: 'Application Status' })
+      const fieldWrapper = findWithProps(wrapper, MultiSelectField, { label: 'Application Status' })
       fieldWrapper.props().onChange()
       expect(mockOnFilterChange.mock.calls).toHaveLength(1)
     })

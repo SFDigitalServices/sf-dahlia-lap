@@ -8,13 +8,15 @@ const MultiSelectWrapper = ({ items = [], disabled = false, height = undefined }
   const [selectedItems, setSelectedItems] = useState([])
 
   return (
-    <MultiSelect
-      items={items}
-      disabled={disabled}
-      height={height}
-      selectedItems={selectedItems}
-      onChangeValues={(values) => setSelectedItems(values)}
-    />
+    <div className='form-group'>
+      <MultiSelect
+        options={items}
+        disabled={disabled}
+        height={height}
+        value={selectedItems}
+        onChange={(values) => setSelectedItems(values)}
+      />
+    </div>
   )
 }
 

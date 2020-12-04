@@ -26,8 +26,12 @@ const styles = {
   }
 }
 
-const getNumFiltersApplied = (form) =>
-  LEASE_UP_APPLICATION_FILTERS.filter((f) => !!form.getState().values[f.fieldName]).length
+const getNumFiltersApplied = (form) => {
+  return LEASE_UP_APPLICATION_FILTERS.filter((f) => {
+    const value = form.getState().values[f.fieldName]
+    return !(!value || value.length === 0)
+  }).length
+}
 
 const LeaseUpApplicationsFilterContainer = ({
   onSubmit,
@@ -131,7 +135,6 @@ const LeaseUpApplicationsFilterContainer = ({
             </div>
             {isShowingFilters && (
               <LeaseUpApplicationsFilters
-                form={form}
                 preferences={preferences}
                 hasChangedFilters={hasChangedFilters}
                 onFilterChange={handleFilterChange}
