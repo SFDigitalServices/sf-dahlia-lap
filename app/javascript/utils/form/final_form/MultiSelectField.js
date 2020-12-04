@@ -24,6 +24,8 @@ const MultiSelectField = ({
 }) => (
   <Field name={fieldName} component={MultiSelect} format={format} formatOnBlur>
     {({ input, meta }) => {
+      // React Select in some cases returns an empty string and MultiSelect accepts only arrays
+      const value = input.value === '' ? null : input.value
       return (
         <>
           <div className={classNames('form-group', { error: meta.error && meta.touched })}>
@@ -36,7 +38,7 @@ const MultiSelectField = ({
             <MultiSelect
               {...input}
               options={options}
-              value={input.value}
+              value={value}
               onChange={(event) => {
                 input.onChange(event)
                 onChange && onChange(event)
@@ -56,7 +58,6 @@ MultiSelectField.propTypes = {
   blockNote: PropTypes.string,
   disabled: PropTypes.bool,
   fieldName: PropTypes.string.isRequired,
-  form: PropTypes.object,
   helpText: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,

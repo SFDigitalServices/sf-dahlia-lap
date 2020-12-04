@@ -55,7 +55,10 @@ MultiSelect.propTypes = {
   input: PropTypes.object,
   options: PropTypes.arrayOf(MultiSelectItemShape),
   disabled: PropTypes.bool,
-  value: PropTypes.oneOfType([PropTypes.arrayOf(MultiSelectItemShape), PropTypes.string]),
+  value: PropTypes.oneOfType([
+    PropTypes.arrayOf(MultiSelectItemShape),
+    PropTypes.arrayOf(PropTypes.string)
+  ]),
   onChange: PropTypes.func
 }
 

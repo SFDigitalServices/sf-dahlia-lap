@@ -32,8 +32,9 @@ module Force
             accessibility.split(', ').map { |item| "'#{item}'" }
           end.join(', ')
         end
-
         filters = ''
+        filters += " and Application__r.Has_ADA_Priorities_Selected__c INCLUDES (#{accessibility_string}) " if opts[:accessibility].present?
+
         if opts[:preference].present?
           preferences = opts[:preference].map { |preference| "Preference_All_Name__c like '%#{preference}'" }.join(' or ')
           filters += " and (#{preferences})"
@@ -44,7 +45,6 @@ module Force
           end.join(' or ')
           filters += " and (#{states})"
         end
-        filters += " and Application__r.Has_ADA_Priorities_Selected__c INCLUDES (#{accessibility_string}) " if opts[:accessibility].present?
 
         if opts[:total_household_size].present?
           total_household_size = opts[:total_household_size].map do |size|

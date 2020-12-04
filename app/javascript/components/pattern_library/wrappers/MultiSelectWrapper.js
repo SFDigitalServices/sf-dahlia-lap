@@ -13,7 +13,7 @@ const MultiSelectWrapper = ({ items = [], disabled = false, height = undefined }
         options={items}
         disabled={disabled}
         height={height}
-        selectedItems={selectedItems}
+        value={selectedItems}
         onChange={(values) => setSelectedItems(values)}
       />
     </div>

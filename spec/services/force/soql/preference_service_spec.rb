@@ -67,6 +67,15 @@ RSpec.describe Force::Soql::PreferenceService do
                                    ' Preference_All_Name__c like \'%general\')')
       end
     end
+
+    it 'creates the expected query string when status is null and household is not' do
+      VCR.use_cassette('services/soql/preference_service') do
+        filters = subject.buildAppPreferencesFilters({ status: ['No Status'], total_household_size: ['1'] })
+
+        expect(filters).to include('and (Application__r.Processing_Status__c = NULL) '\
+                                   'and (Application__r.Total_Household_Size__c = 1)')
+      end
+    end
   end
 
   describe 'buildAppPreferencesSearch' do
