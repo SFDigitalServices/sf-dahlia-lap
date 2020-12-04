@@ -20,12 +20,12 @@ import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContain
 
 const ROWS_PER_PAGE = 20
 
-const getPageHeaderData = (listing) => {
+const getPageHeaderData = (listing, reportId) => {
   const baseUrl = typeof SALESFORCE_BASE_URL !== 'undefined' ? SALESFORCE_BASE_URL : ''
-  const exportButtonAction = listing?.report_id
+  const exportButtonAction = reportId
     ? {
         title: 'Export',
-        link: `${baseUrl}/${listing?.report_id}?csv=1`
+        link: `${baseUrl}/${reportId}?csv=1`
       }
     : null
 
@@ -281,7 +281,7 @@ const LeaseUpApplicationsPage = () => {
 
   return (
     <Context.Provider value={context}>
-      <TableLayout pageHeader={getPageHeaderData(breadcrumbData.listing)}>
+      <TableLayout pageHeader={getPageHeaderData(breadcrumbData.listing, state.listing?.report_id)}>
         <LeaseUpApplicationsTableContainer />
       </TableLayout>
     </Context.Provider>
