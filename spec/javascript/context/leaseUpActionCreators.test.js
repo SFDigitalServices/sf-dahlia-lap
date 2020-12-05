@@ -18,25 +18,10 @@ const mockApplication = {
   }
 }
 
-const mockApplicationFromApplicationsPage = {
-  application_id: mockApplication.id,
-  application_number: mockApplication.name,
-  first_name: mockApplication.applicant.first_name,
-  last_name: mockApplication.applicant.last_name
-}
-
 const mockFormattedApplication = {
   id: mockApplication.id,
   number: mockApplication.name,
-  applicantFirstName: mockApplication.applicant.first_name,
-  applicantLastName: mockApplication.applicant.last_name
-}
-
-const mockFormattedEmptyApplication = {
-  id: undefined,
-  number: undefined,
-  applicantFirstName: undefined,
-  applicantLastName: undefined
+  applicantFullName: `${mockApplication.applicant.first_name} ${mockApplication.applicant.last_name}`
 }
 
 const mockListingWithoutAddress = {
@@ -58,12 +43,6 @@ const mockFormattedListingWithoutAddress = {
 const mockFormattedListing = {
   ...mockFormattedListingWithoutAddress,
   buildingAddress: mockListing.building_street_address
-}
-
-const mockFormattedEmptyListing = {
-  id: undefined,
-  name: undefined,
-  buildingAddress: undefined
 }
 
 describe('leaseUpActionCreators', () => {
@@ -94,21 +73,41 @@ describe('leaseUpActionCreators', () => {
 
       expect(dispatchedAction.type).toEqual(ACTION_TYPE_APPLICATION_LOADED)
       expect(dispatchedAction.data).toEqual({
-        application: mockFormattedEmptyApplication,
-        listing: mockFormattedEmptyListing
+        application: {
+          id: undefined,
+          number: undefined,
+          applicantFullName: undefined
+        },
+        listing: {
+          id: undefined,
+          name: undefined,
+          buildingAddress: undefined
+        }
       })
     })
   })
 
   describe('applicationPageLoadComplete', () => {
     test('dispatches correct action', () => {
-      actions.applicationPageLoadComplete(mockApplication, mockListing)
+      const mockApplicationFromShortformPage = {
+        ...mockApplication,
+        applicant: {
+          name: 'firstName1 middlename1 lastname1'
+        }
+      }
+
+      const expectedApplication = {
+        ...mockFormattedApplication,
+        applicantFullName: 'firstName1 middlename1 lastname1'
+      }
+
+      actions.applicationPageLoadComplete(mockApplicationFromShortformPage, mockListing)
 
       const dispatchedAction = getDispatchedAction()
 
       expect(dispatchedAction.type).toEqual(ACTION_TYPE_APPLICATION_LOADED)
       expect(dispatchedAction.data).toEqual({
-        application: mockFormattedApplication,
+        application: expectedApplication,
         listing: mockFormattedListing
       })
     })
@@ -120,8 +119,16 @@ describe('leaseUpActionCreators', () => {
 
       expect(dispatchedAction.type).toEqual(ACTION_TYPE_APPLICATION_LOADED)
       expect(dispatchedAction.data).toEqual({
-        application: mockFormattedEmptyApplication,
-        listing: mockFormattedEmptyListing
+        application: {
+          id: undefined,
+          number: undefined,
+          applicantFullName: undefined
+        },
+        listing: {
+          id: undefined,
+          name: undefined,
+          buildingAddress: undefined
+        }
       })
     })
   })
@@ -164,7 +171,11 @@ describe('leaseUpActionCreators', () => {
       const dispatchedAction = getDispatchedAction()
 
       expect(dispatchedAction.type).toEqual(ACTION_TYPE_SELECTED_LISTING_CHANGED)
-      expect(dispatchedAction.data).toEqual(mockFormattedEmptyListing)
+      expect(dispatchedAction.data).toEqual({
+        id: undefined,
+        name: undefined,
+        buildingAddress: undefined
+      })
     })
   })
 
@@ -184,12 +195,23 @@ describe('leaseUpActionCreators', () => {
       const dispatchedAction = getDispatchedAction()
 
       expect(dispatchedAction.type).toEqual(ACTION_TYPE_SELECTED_LISTING_CHANGED)
-      expect(dispatchedAction.data).toEqual(mockFormattedEmptyListing)
+      expect(dispatchedAction.data).toEqual({
+        id: undefined,
+        name: undefined,
+        buildingAddress: undefined
+      })
     })
   })
 
   describe('applicationRowClicked', () => {
     test('dispatches correct action', () => {
+      const mockApplicationFromApplicationsPage = {
+        application_id: mockApplication.id,
+        application_number: mockApplication.name,
+        first_name: mockApplication.applicant.first_name,
+        last_name: mockApplication.applicant.last_name
+      }
+
       actions.applicationRowClicked(mockApplicationFromApplicationsPage)
 
       const dispatchedAction = getDispatchedAction()
@@ -204,7 +226,11 @@ describe('leaseUpActionCreators', () => {
       const dispatchedAction = getDispatchedAction()
 
       expect(dispatchedAction.type).toEqual(ACTION_TYPE_SELECTED_APPLICATION_CHANGED)
-      expect(dispatchedAction.data).toEqual(mockFormattedEmptyApplication)
+      expect(dispatchedAction.data).toEqual({
+        id: undefined,
+        number: undefined,
+        applicantFullName: undefined
+      })
     })
   })
 })

@@ -12,11 +12,10 @@ const formatListingStateData = (listing) => ({
   buildingAddress: listing?.building_street_address
 })
 
-const formatApplicationStateData = (id, number, applicantFirstName, applicantLastName) => ({
+const formatApplicationStateData = (id, number, applicantFullName) => ({
   id,
   number,
-  applicantFirstName,
-  applicantLastName
+  applicantFullName
 })
 
 const getListingChangedAction = (listing) => ({
@@ -24,14 +23,33 @@ const getListingChangedAction = (listing) => ({
   data: formatListingStateData(listing)
 })
 
+const getFullName = (first, middle, last) => [first, middle, last].filter((x) => !!x).join(' ')
+
+const getFullNameFromApplicant = (applicant) => {
+  if (!applicant) return undefined
+
+  const { name, first_name, middle_name, last_name } = applicant
+
+  if (name) return name
+
+  return getFullName(first_name, middle_name, last_name)
+}
+
+const getFullNameFromApplication = (application) => {
+  if (!application) return undefined
+
+  const { first_name, middle_name, last_name } = application
+
+  return getFullName(first_name, middle_name, last_name)
+}
+
 const getApplicationLoadedAction = (application, listing) => ({
   type: ACTION_TYPE_APPLICATION_LOADED,
   data: {
     application: formatApplicationStateData(
       application?.id,
       application?.name,
-      application?.applicant?.first_name,
-      application?.applicant?.last_name
+      getFullNameFromApplicant(application?.applicant)
     ),
     listing: formatListingStateData(listing)
   }
@@ -52,8 +70,7 @@ export const createActions = (dispatch) => ({
       data: formatApplicationStateData(
         application?.application_id,
         application?.application_number,
-        application?.first_name,
-        application?.last_name
+        getFullNameFromApplication(application)
       )
     })
 })

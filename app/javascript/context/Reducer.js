@@ -16,15 +16,28 @@ export const getEmptyListing = () => ({
 
 export const getEmptyApplication = () => ({
   id: null,
-  name: null,
-  buildingAddress: null
+  number: null,
+  applicantFullName: null
 })
 
-const overrideBreadcrumbData = (state, breadcrumbDataOverrides) => ({
+const overrideBreadcrumbData = (state, { listing, application }) => ({
   ...state,
   breadcrumbData: {
     ...state.breadcrumbData,
-    ...breadcrumbDataOverrides
+    ...(listing && {
+      listing: {
+        id: listing.id,
+        name: listing.name,
+        buildingAddress: listing.buildingAddress
+      }
+    }),
+    ...(application && {
+      application: {
+        id: application.id,
+        number: application.number,
+        applicantFullName: application.applicantFullName
+      }
+    })
   }
 })
 

@@ -14,11 +14,8 @@ export const getPageHeaderData = (application, listing) => {
     link: '#'
   }
 
-  const applicantName = application?.applicantFirstName
-    ? `${application?.applicantFirstName} ${application.applicantLastName}`
-    : null
-
   const applicationNumber = application?.number
+  const applicantName = application?.applicantFullName
 
   const title =
     !!applicantName && !!applicationNumber ? (
