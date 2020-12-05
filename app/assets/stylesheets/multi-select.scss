@@ -4,7 +4,7 @@
   // Don't override input height and margin values
   input {
     height: initial;
-    margin: initial;
+    margin: 0 !important;
   }
 }
 

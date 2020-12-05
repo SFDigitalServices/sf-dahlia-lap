@@ -6,7 +6,7 @@ import Button from 'components/atoms/Button'
 import { COLORS } from 'components/atoms/colors'
 import { LEASE_UP_APPLICATION_FILTERS } from 'components/lease_ups/applicationFiltersConsts'
 import FormGrid from 'components/molecules/FormGrid'
-import { SelectField } from 'utils/form/final_form/Field'
+import MultiSelectField from 'utils/form/final_form/MultiSelectField'
 
 const styles = {
   containerEndJustified: {
@@ -26,10 +26,10 @@ const LeaseUpApplicationsFilters = ({
 }) => {
   const renderFilter = (filter) => (
     <FormGrid.Item width='25%' key={filter.fieldName}>
-      <SelectField
-        label={filter.label}
-        fieldName={filter.fieldName}
+      <MultiSelectField
         options={filter.getOptions({ listingPreferences: preferences })}
+        fieldName={filter.fieldName}
+        label={filter.label}
         placeholder={filter.placeholder}
         onChange={onFilterChange}
       />
