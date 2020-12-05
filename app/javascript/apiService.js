@@ -17,9 +17,8 @@ const getShortFormApplication = async (applicationId) =>
 const getSupplementalPageData = async (applicationId) =>
   request
     .get(`/supplementals/${applicationId}`, null, true)
-    .then(({ application, available_units, file_base_url, status_history, units }) => ({
+    .then(({ application, units, file_base_url, status_history }) => ({
       application,
-      availableUnits: available_units,
       statusHistory: status_history,
       fileBaseUrl: file_base_url,
       units

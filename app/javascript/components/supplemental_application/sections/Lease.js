@@ -24,7 +24,7 @@ import ParkingInformationInputs from './ParkingInformationInputs'
 import RentalAssistance from './RentalAssistance'
 
 const NONE_PREFERENCE_LABEL = 'None'
-
+const DTHP_PREF_MATCH = 'DTHP'
 const toggleNoPreferenceUsed = (form, event) => {
   // lease.preference_used need to be reset, otherwise SF validation fails
   if (isEmpty(event.target.value)) {
@@ -92,7 +92,7 @@ const LeaseActions = ({
 
 const Lease = ({ form, values, store }) => {
   const {
-    availableUnits,
+    units,
     application,
     handleSaveLease,
     handleDeleteLease,
@@ -106,10 +106,16 @@ const Lease = ({ form, values, store }) => {
 
   const isEditingMode = leaseSectionState === EDIT_LEASE_STATE
   const disabled = !isEditingMode
+  console.log('app id', application)
+  const availableUnits = units.filter(
+    (unit) => !unit.application_id || unit.application_id === application.id
+  )
+  console.log('available units', availableUnits)
 
   const availableUnitsOptions = formUtils.toOptions(
     map(availableUnits, pluck('id', 'unit_number', 'priority_type'))
   )
+  const selectedUnit = form.getState().values.lease?.unit
 
   const accessibilityUnits =
     availableUnits &&
@@ -125,7 +131,7 @@ const Lease = ({ form, values, store }) => {
     formUtils.toEmptyOption(NONE_PREFERENCE_LABEL),
     ...map(confirmedPreferences, pluck('id', 'preference_name'))
   ])
-
+  console.log('confirmedPreferences', confirmedPreferences)
   const getVisited = (fieldName) => form.getFieldState(fieldName)?.visited
 
   const openDeleteLeaseConfirmation = () => setShowDeleteConfirmation(true)
@@ -137,11 +143,25 @@ const Lease = ({ form, values, store }) => {
   }
 
   const areNoUnitsAvailable = !availableUnitsOptions.length
-  const selectedUnit = form.getState().values.lease?.unit
-
+  console.log('form state', form.getState())
+  console.log('pref used in form', form.getState().values.lease?.preference_used)
+  const prefUsed = confirmedPreferences.find(
+    (pref) => pref.id === form.getState().values.lease?.preference_used
+  )
+  console.log('pref used with name?', prefUsed)
+  const prefUsedIsDTHP = prefUsed?.preference_name.includes(DTHP_PREF_MATCH)
+  console.log('prefUsedisDTHP', prefUsedIsDTHP)
   // If a unit is selected from the dropdown, subtract that from the available units.
   const availableUnitsCount = selectedUnit ? availableUnits.length - 1 : availableUnits.length
 
+  const numOccupiedDTHP = units.filter(
+    (unit) =>
+      (unit.application_id &&
+        unit.application_id !== application.id &&
+        unit.preference_used_name?.includes('DTHP')) ||
+      (unit.id === selectedUnit && prefUsedIsDTHP)
+  )
+  console.log('numOccupiedDTHP', numOccupiedDTHP)
   // If an a11y unit is available and selected from the dropdown, substract that from the available units.
   const availableAccessibilityUnitsCount =
     selectedUnit && accessibilityUnits.find((el) => el.id === selectedUnit)
@@ -193,7 +213,7 @@ const Lease = ({ form, values, store }) => {
           <FormGrid.Item width='25%'>
             <strong className='form-note micro h-caps'>DTHP</strong>
             <p className='margin-top'>
-              <span className='form-note'>{accessibilityUnits.length}</span>
+              <span className='form-note'>{numOccupiedDTHP.length}</span>
             </p>
           </FormGrid.Item>
           <FormGrid.Item width='25%'>

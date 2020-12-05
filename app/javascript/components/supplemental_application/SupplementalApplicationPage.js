@@ -74,9 +74,8 @@ const getApplicationWithEmptyLease = (application) => ({
   rental_assistances: []
 })
 
-const getListingAmiCharts = (units) => {
-  return uniqBy(units, (u) => [u.ami_chart_type, u.ami_chart_year].join())
-}
+const getListingAmiCharts = (units) =>
+  uniqBy(units, (u) => [u.ami_chart_type, u.ami_chart_year].join())
 
 const setApplicationsDefaults = (application) => {
   const applicationWithDefaults = cloneDeep(application)
@@ -115,10 +114,10 @@ class SupplementalApplicationPage extends React.Component {
     const { applicationId } = this.props
 
     getSupplementalPageData(applicationId)
-      .then(({ application, statusHistory, fileBaseUrl, units, availableUnits }) => {
+      .then(({ application, statusHistory, fileBaseUrl, units }) => {
         this.setState({
           application: setApplicationsDefaults(application),
-          availableUnits,
+          units,
           fileBaseUrl,
           // Only show lease section on load if there's a lease on the application.
           leaseSectionState: getInitialLeaseState(application),
@@ -453,7 +452,7 @@ class SupplementalApplicationPage extends React.Component {
     const { applicationId } = this.props
     const {
       application,
-      availableUnits,
+      units,
       fileBaseUrl,
       leaveConfirmationModal,
       listing,
@@ -480,7 +479,7 @@ class SupplementalApplicationPage extends React.Component {
       application: application,
       applicationMembers: [application?.applicant, ...(application?.household_members || [])],
       assignSupplementalAppTouched: this.assignSupplementalAppTouched,
-      availableUnits: availableUnits,
+      units: units,
       fileBaseUrl: fileBaseUrl,
       handleCreateLeaseClick: this.handleCreateLeaseClick,
       handleCancelLeaseClick: this.handleCancelLeaseClick,
