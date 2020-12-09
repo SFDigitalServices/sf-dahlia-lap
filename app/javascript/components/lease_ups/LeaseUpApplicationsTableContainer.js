@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { capitalize, compact, map, cloneDeep } from 'lodash'
+import { useHistory } from 'react-router-dom'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
+import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
 
 import { withContext } from './context'
@@ -48,8 +50,13 @@ const LeaseUpTableContainer = ({
     return rowData
   }
 
-  const goToSupplementaryInfo = (listingId, rowInfo) => {
-    window.location.href = appPaths.toApplicationSupplementals(rowInfo.original.application_id)
+  const history = useHistory()
+  const [, actions] = useContext(AppContext)
+
+  const handleCellClick = (rowInfo) => {
+    const application = rowInfo.original
+    actions.applicationRowClicked(application)
+    history.push(appPaths.toApplicationSupplementals(rowInfo.original.application_id))
   }
 
   const rowsData = (applications) => map(applications, buildRowData)
@@ -68,7 +75,7 @@ const LeaseUpTableContainer = ({
         dataSet={rowsData(applications)}
         listingId={listingId}
         onLeaseUpStatusChange={onLeaseUpStatusChange}
-        onCellClick={goToSupplementaryInfo}
+        onCellClick={handleCellClick}
         loading={loading}
         onFetchData={onFetchData}
         pages={pages}
