@@ -85,10 +85,10 @@ const SupplementalApplicationPage = ({ applicationId }) => {
   const [{ breadcrumbData }, actions] = useContext(AppContext)
 
   useAsyncOnMount(() => getSupplementalPageData(applicationId), {
-    onSuccess: ({ application, statusHistory, fileBaseUrl, units, availableUnits, listing }) => {
+    onSuccess: ({ application, statusHistory, fileBaseUrl, units, listing }) => {
       setState({
         application: setApplicationsDefaults(application),
-        availableUnits,
+        units,
         fileBaseUrl,
         // Only show lease section on load if there's a lease on the application.
         leaseSectionState: getInitialLeaseState(application),
