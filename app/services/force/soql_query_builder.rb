@@ -149,7 +149,7 @@ module Force
 
     def _from_soql
       _from = "FROM #{@from}"
-      _from += " WHERE #{_where_soql} " if !_where_soql.empty?
+      _from += " WHERE #{_where_soql}" if !_where_soql.empty?
       _from
     end
 
