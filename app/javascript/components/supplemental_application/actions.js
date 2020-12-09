@@ -2,7 +2,6 @@ import { isEmpty, find, isEqual, reject } from 'lodash'
 
 import apiService from 'apiService'
 import Alerts from 'components/Alerts'
-import { getListing } from 'components/lease_ups/leaseUpActions'
 import { convertCurrency } from 'utils/form/validations'
 import { isLeaseAlreadyCreated } from 'utils/leaseUtils'
 import { performOrDefault, performInSequence } from 'utils/promiseUtils'
@@ -25,7 +24,7 @@ const defaultLeaseResponse = (application) => ({
 
 export const getSupplementalPageData = async (applicationId) => {
   const pageData = await apiService.getSupplementalPageData(applicationId)
-  const listing = await getListing(pageData.application.listing.id)
+  const listing = await apiService.getLeaseUpListing(pageData.application.listing.id)
   return { ...pageData, listing }
 }
 
