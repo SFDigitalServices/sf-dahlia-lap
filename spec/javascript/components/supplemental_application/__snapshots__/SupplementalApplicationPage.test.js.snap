@@ -1635,6 +1635,7 @@ Array [
                       >
                         <strong
                           className="form-note"
+                          id="unit-available-count"
                         >
                           2
                         </strong>
@@ -1653,8 +1654,47 @@ Array [
                       >
                         <span
                           className="form-note"
+                          id="priority-available-count"
                         >
-                          0
+                          1
+                        </span>
+                      </p>
+                    </div>
+                    <div
+                      className="form-grid_item column small-3"
+                    >
+                      <strong
+                        className="form-note micro h-caps"
+                      >
+                        DTHP
+                      </strong>
+                      <p
+                        className="margin-top"
+                      >
+                        <span
+                          className="form-note"
+                          id="dthp-available-count"
+                        >
+                          3
+                        </span>
+                      </p>
+                    </div>
+                    <div
+                      className="form-grid_item column small-3"
+                    >
+                      <strong
+                        className="form-note micro h-caps"
+                      >
+                        NRHP
+                      </strong>
+                      <p
+                        className="margin-top"
+                      >
+                        <span
+                          className="form-note"
+                          id="nrhp-available-count"
+                        >
+                          4
                         </span>
                       </p>
                     </div>
@@ -1761,11 +1801,8 @@ Array [
                                 className="ui-icon ui-small"
                               >
                                 <div
-                                  className="unit-dropdown__value-container css-g1d714-ValueContainer"
+                                  className="unit-dropdown__value-container unit-dropdown__value-container--has-value css-g1d714-ValueContainer"
                                 >
-                                  <div
-                                    className="unit-dropdown__placeholder css-1wa3eu0-placeholder"
-                                  />
                                   <input
                                     aria-autocomplete="list"
                                     className="css-62g3xt-dummyInput"
@@ -5802,7 +5839,7 @@ Array [
                             Live or Work in San Francisco Preference
                           </option>
                           <option
-                            value="testValidPref"
+                            value="validDTHPPref"
                           >
                             Displaced Tenant Housing Preference (DTHP)
                           </option>

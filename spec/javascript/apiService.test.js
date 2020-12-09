@@ -17,7 +17,6 @@ const mockSuppAppGetFn = jest.fn(() =>
     },
     status_history: [{ id: 'statusHistoryId' }],
     file_base_url: 'file base url',
-    available_units: [{ id: 'availableUnitId' }],
     units: [{ id: 'unitId' }]
   })
 )
@@ -66,7 +65,6 @@ describe('apiService', () => {
           },
           statusHistory: [{ id: 'statusHistoryId' }],
           fileBaseUrl: 'file base url',
-          availableUnits: [{ id: 'availableUnitId' }],
           units: [{ id: 'unitId' }]
         })
       })

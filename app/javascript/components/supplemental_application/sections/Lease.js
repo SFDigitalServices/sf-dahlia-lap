@@ -93,7 +93,6 @@ const LeaseActions = ({
 
 const Lease = ({ form, values, store }) => {
   const {
-    units,
     application,
     handleSaveLease,
     handleDeleteLease,
@@ -101,7 +100,8 @@ const Lease = ({ form, values, store }) => {
     handleCancelLeaseClick,
     leaseSectionState,
     listing,
-    loading
+    loading,
+    units
   } = store
 
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
@@ -164,7 +164,7 @@ const Lease = ({ form, values, store }) => {
       unit.id !== selectedUnit &&
       unit.priority_type &&
       unit.priority_type.match(/Mobility|Hearing|Vision/)
-  ).length
+  )
 
   const validateAndSaveLease = (form) => {
     if (areLeaseAndRentalAssistancesValid(form)) {
@@ -199,7 +199,7 @@ const Lease = ({ form, values, store }) => {
           <FormGrid.Item width='25%'>
             <strong className='form-note micro h-caps'>Total</strong>
             <p className='margin-top'>
-              <strong className='form-note'>
+              <strong className='form-note' id='unit-available-count'>
                 {selectedUnit ? availableUnits.length - 1 : availableUnits.length}
               </strong>
             </p>
@@ -207,19 +207,25 @@ const Lease = ({ form, values, store }) => {
           <FormGrid.Item width='25%'>
             <strong className='form-note micro h-caps'>Accessibility</strong>
             <p className='margin-top'>
-              <span className='form-note'>{remainingPriorityUnits}</span>
+              <span className='form-note' id='priority-available-count'>
+                {remainingPriorityUnits.length}
+              </span>
             </p>
           </FormGrid.Item>
           <FormGrid.Item width='25%'>
             <strong className='form-note micro h-caps'>DTHP</strong>
             <p className='margin-top'>
-              <span className='form-note'>{remainingSetAsidesForPref(DTHP)}</span>
+              <span className='form-note' id='dthp-available-count'>
+                {remainingSetAsidesForPref(DTHP)}
+              </span>
             </p>
           </FormGrid.Item>
           <FormGrid.Item width='25%'>
             <strong className='form-note micro h-caps'>NRHP</strong>
             <p className='margin-top'>
-              <span className='form-note'>{remainingSetAsidesForPref(NRHP)}</span>
+              <span className='form-note' id='nrhp-available-count'>
+                {remainingSetAsidesForPref(NRHP)}
+              </span>
             </p>
           </FormGrid.Item>
         </FormGrid.Row>
