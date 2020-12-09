@@ -114,14 +114,14 @@ class SupplementalApplicationPage extends React.Component {
     const { applicationId } = this.props
 
     getSupplementalPageData(applicationId)
-      .then(({ application, statusHistory, fileBaseUrl, units }) => {
+      .then(({ application, statusHistory, fileBaseUrl, units, listing }) => {
         this.setState({
           application: setApplicationsDefaults(application),
           units,
           fileBaseUrl,
           // Only show lease section on load if there's a lease on the application.
           leaseSectionState: getInitialLeaseState(application),
-          listing: application.listing,
+          listing: listing,
           listingAmiCharts: getListingAmiCharts(units),
           rentalAssistances: application.rental_assistances,
           statusHistory,
