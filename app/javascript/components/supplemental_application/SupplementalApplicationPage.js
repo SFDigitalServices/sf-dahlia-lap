@@ -10,7 +10,7 @@ import LeaveConfirmationModal from 'components/organisms/LeaveConfirmationModal'
 import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
 import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
-import { useEffectOnMount, useStateObject } from 'utils/customHooks'
+import { useAsyncOnMount, useStateObject } from 'utils/customHooks'
 import formUtils from 'utils/formUtils'
 import { doesApplicationHaveLease } from 'utils/leaseUtils'
 
@@ -85,30 +85,32 @@ const SupplementalApplicationPage = ({ applicationId }) => {
 
   const [{ breadcrumbData }, actions] = useContext(AppContext)
 
-  useEffectOnMount(() => {
-    getSupplementalPageData(applicationId)
-      .then(({ application, statusHistory, fileBaseUrl, units, availableUnits }) => {
-        setState({
-          application: setApplicationsDefaults(application),
-          availableUnits,
-          fileBaseUrl,
-          // Only show lease section on load if there's a lease on the application.
-          leaseSectionState: getInitialLeaseState(application),
-          listing: application.listing,
-          listingAmiCharts: getListingAmiCharts(units),
-          rentalAssistances: application.rental_assistances,
-          statusHistory
-        })
-
-        actions.supplementalPageLoadComplete(application, application?.listing)
-
-        setStatusModalState({
-          loading: false,
-          status: application.processing_status
-        })
+  useAsyncOnMount(() => getSupplementalPageData(applicationId), {
+    onSuccess: ({ application, statusHistory, fileBaseUrl, units, availableUnits }) => {
+      setState({
+        application: setApplicationsDefaults(application),
+        availableUnits,
+        fileBaseUrl,
+        // Only show lease section on load if there's a lease on the application.
+        leaseSectionState: getInitialLeaseState(application),
+        listing: application.listing,
+        listingAmiCharts: getListingAmiCharts(units),
+        rentalAssistances: application.rental_assistances,
+        statusHistory
       })
-      .catch(() => Alerts.error())
-      .finally(() => setState({ loading: false }))
+
+      actions.supplementalPageLoadComplete(application, application?.listing)
+
+      setStatusModalState({
+        loading: false,
+        status: application.processing_status
+      })
+    },
+    onFail: (e) => {
+      console.error(e)
+      Alerts.error()
+    },
+    onComplete: () => setState({ loading: false })
   })
 
   const handleSaveApplication = async (formApplication) => {

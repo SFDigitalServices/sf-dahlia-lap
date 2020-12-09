@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom'
 
 import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
-import { useStateObject, useEffectOnMount } from 'utils/customHooks'
+import { useStateObject, useEffectOnMount, useIsMountedRef } from 'utils/customHooks'
 import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
@@ -90,6 +90,7 @@ const LeaseUpApplicationsPage = () => {
   })
 
   const [{ breadcrumbData }, actions] = useContext(AppContext)
+  const isMountedRef = useIsMountedRef()
 
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
@@ -123,17 +124,21 @@ const LeaseUpApplicationsPage = () => {
 
     Promise.all([getStateOrFetchListing(), state.eagerPagination.getPage(page, fetcher)])
       .then(([listing, { records, pages }]) => {
-        setState({
-          applications: records,
-          pages: pages,
-          atMaxPages: false,
-          listing: listing
-        })
-        actions.applicationsPageLoadComplete(listing)
-        setInitialCheckboxState(records)
+        if (isMountedRef.current) {
+          setState({
+            applications: records,
+            pages: pages,
+            atMaxPages: false,
+            listing: listing
+          })
+          actions.applicationsPageLoadComplete(listing)
+          setInitialCheckboxState(records)
+        }
       })
       .finally(() => {
-        setState({ loading: false })
+        if (isMountedRef.current) {
+          setState({ loading: false })
+        }
       })
   }
 
@@ -180,6 +185,10 @@ const LeaseUpApplicationsPage = () => {
     )
 
     return Promise.all(statusUpdateRequests).then((values) => {
+      if (!isMountedRef.current) {
+        return
+      }
+
       const successfulIds = values.filter((v) => !v.error).map((v) => v.application)
       const errorIds = values.filter((v) => v.error).map((v) => v.application)
       updateApplicationState(successfulIds, status, subStatus)

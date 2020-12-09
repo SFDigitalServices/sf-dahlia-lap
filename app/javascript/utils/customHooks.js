@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { isFunction } from 'lodash'
 import { useLocation } from 'react-router-dom'
@@ -14,6 +14,27 @@ import { useLocation } from 'react-router-dom'
  */
 // eslint-disable-next-line react-hooks/exhaustive-deps
 export const useEffectOnMount = (f) => useEffect(f, [])
+
+export const useAsyncOnMount = (promiseFn, { onSuccess, onFail, onComplete } = {}) =>
+  useEffectOnMount(() => {
+    let isSubscribed = true
+    promiseFn()
+      .then((value) => isSubscribed && onSuccess && onSuccess(value))
+      .catch((e) => isSubscribed && onFail && onFail(e))
+      .finally(() => isSubscribed && onComplete && onComplete())
+    return () => (isSubscribed = false)
+  })
+
+export const useIsMountedRef = () => {
+  const isMounted = useRef(true)
+
+  // set isMounted to false when we unmount the component
+  useEffectOnMount(() => () => {
+    isMounted.current = false
+  })
+
+  return isMounted
+}
 
 /**
  * Get the url param if it exists. This is only usable in a react routed component,

@@ -9,7 +9,7 @@ import Loading from 'components/molecules/Loading'
 import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
 import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
-import { useEffectOnMount, useQueryParamBoolean } from 'utils/customHooks'
+import { useAsyncOnMount, useQueryParamBoolean } from 'utils/customHooks'
 
 import CardLayout from '../layouts/CardLayout'
 import ApplicationDetails from './application_details/ApplicationDetails'
@@ -54,20 +54,19 @@ const ApplicationPage = ({ isLeaseUp = false }) => {
   const [{ breadcrumbData }, actions] = useContext(AppContext)
   const showAddBtn = useQueryParamBoolean('showAddBtn')
 
-  useEffectOnMount(() => {
-    getShortFormApplication(applicationId)
-      .then((response) => {
-        actions.applicationPageLoadComplete(response.application, response.application?.listing)
-        setApplication(response.application)
-        setFileBaseUrl(response.fileBaseUrl)
-      })
-      .catch((e) => {
-        // Alert window pauses state updates so we set loading to false instead of
-        // waiting for the finally block
-        setLoading(false)
-        window.alert('The application you requested could not be found.')
-      })
-      .finally(() => setLoading(false))
+  useAsyncOnMount(() => getShortFormApplication(applicationId), {
+    onSuccess: (response) => {
+      actions.applicationPageLoadComplete(response.application, response.application?.listing)
+      setApplication(response.application)
+      setFileBaseUrl(response.fileBaseUrl)
+    },
+    onFail: (e) => {
+      // Alert window pauses state updates so we set loading to false instead of
+      // waiting for the finally block
+      setLoading(false)
+      window.alert('The application you requested could not be found.')
+    },
+    onComplete: () => setLoading(false)
   })
 
   let pageHeader = {}

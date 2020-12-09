@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 import Loading from 'components/molecules/Loading'
 import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
-import { useEffectOnMount } from 'utils/customHooks'
+import { useAsyncOnMount } from 'utils/customHooks'
 
 import TableLayout from '../layouts/TableLayout'
 import { getLeaseUpListings } from './leaseUpActions'
@@ -17,12 +17,16 @@ const LeaseUpListingsPage = ({ history }) => {
 
   const [, actions] = useContext(AppContext)
 
-  useEffectOnMount(() => {
-    actions.listingsPageMounted()
-    getLeaseUpListings()
-      .then((responseListings) => setListings(responseListings))
-      .finally(() => setLoading(false))
-  })
+  useAsyncOnMount(
+    () => {
+      actions.listingsPageMounted()
+      return getLeaseUpListings()
+    },
+    {
+      onSuccess: (responseListings) => setListings(responseListings),
+      onComplete: () => setLoading(false)
+    }
+  )
 
   const pageHeader = {
     title: 'Lease Ups'
