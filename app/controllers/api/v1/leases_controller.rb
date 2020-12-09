@@ -6,11 +6,7 @@ module Api
     class LeasesController < ApiController
       def index
         response = soql_lease_service.application_lease(params[:application_id])
-        if response
-          render json: { lease: response }
-        else
-          render status: 422, json: false
-        end
+        render json: { lease: response }
       end
 
       # All requests are creates since we do not know if the lease exists until we check.
