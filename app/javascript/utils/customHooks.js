@@ -15,6 +15,13 @@ import { useLocation } from 'react-router-dom'
 // eslint-disable-next-line react-hooks/exhaustive-deps
 export const useEffectOnMount = (f) => useEffect(f, [])
 
+/**
+ * First an async request when a component mounts that will automatically be
+ * unsubscribed if the component unmounts before it finishes.
+ * @param {() => Promise} promiseFn function that returns a promise when called
+ * @param {onSuccess, onFail, onComplete} callbackFns functions that will be called
+ *   if the component is still mounted when the request finishes
+ */
 export const useAsyncOnMount = (promiseFn, { onSuccess, onFail, onComplete } = {}) =>
   useEffectOnMount(() => {
     let isSubscribed = true
@@ -25,6 +32,23 @@ export const useAsyncOnMount = (promiseFn, { onSuccess, onFail, onComplete } = {
     return () => (isSubscribed = false)
   })
 
+/**
+ * Allows us to check if a component is mounted after a long running async request.
+ *
+ * usage:
+ *
+ * // Don't destructure the current attribute like const { current } = useIsMountedRef()
+ * const isMounted = useIsMountedRef()
+ *
+ * const onClickSomething = () => {
+ *   fetchData().then((response) => {
+ *     // Don't grab the isMounted.current value until the moment you need it!
+ *     // It will always be true when the component renders but may change by
+ *     // the time a request completes.
+ *     if (isMounted.current) setState(response)
+ *   })
+ * }
+ */
 export const useIsMountedRef = () => {
   const isMounted = useRef(true)
 
