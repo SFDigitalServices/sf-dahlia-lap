@@ -1,12 +1,14 @@
 /* global SALESFORCE_BASE_URL */
 
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 
 import { map } from 'lodash'
 import moment from 'moment'
 import { useParams } from 'react-router-dom'
 
+import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
+import { useStateObject, useEffectOnMount, useIsMountedRef } from 'utils/customHooks'
 import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
@@ -18,12 +20,12 @@ import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContain
 
 const ROWS_PER_PAGE = 20
 
-const getPageHeaderData = (listing) => {
+const getPageHeaderData = (listing, reportId) => {
   const baseUrl = typeof SALESFORCE_BASE_URL !== 'undefined' ? SALESFORCE_BASE_URL : ''
-  const exportButtonAction = listing?.report_id
+  const exportButtonAction = reportId
     ? {
         title: 'Export',
-        link: `${baseUrl}/${listing?.report_id}?csv=1`
+        link: `${baseUrl}/${reportId}?csv=1`
       }
     : null
 
@@ -38,20 +40,20 @@ const getPageHeaderData = (listing) => {
     link: '#'
   }
 
-  const breadcrumbs = listing
-    ? [
-        levelAboveBreadcrumb,
-        {
-          title: listing?.name,
+  const breadcrumbs = [
+    levelAboveBreadcrumb,
+    listing.name
+      ? {
+          title: listing.name,
           link: appPaths.toLeaseUpApplications(listing.id),
           renderAsRouterLink: true
         }
-      ]
-    : [levelAboveBreadcrumb, emptyBreadCrumb]
+      : emptyBreadCrumb
+  ]
 
   return {
-    title: listing?.name || '',
-    content: listing?.building_street_address || '',
+    title: listing?.name || <span>&nbsp;</span>,
+    content: listing?.buildingAddress || '',
     action: exportButtonAction,
     breadcrumbs
   }
@@ -63,7 +65,7 @@ const getPreferences = (listing) => {
 }
 
 const LeaseUpApplicationsPage = () => {
-  const [state, overrideEntireState] = useState({
+  const [state, setState] = useStateObject({
     loading: false,
     applications: [],
     filters: {},
@@ -74,8 +76,8 @@ const LeaseUpApplicationsPage = () => {
     eagerPagination: new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
   })
 
-  const [bulkCheckboxesState, setBulkCheckboxesState] = useState({})
-  const [statusModalState, setStatusModalState] = useState({
+  const [bulkCheckboxesState, setBulkCheckboxesState] = useStateObject({})
+  const [statusModalState, setStatusModalState] = useStateObject({
     alertMsg: null,
     applicationIds: null,
     isBulkUpdate: false,
@@ -87,8 +89,13 @@ const LeaseUpApplicationsPage = () => {
     subStatus: null
   })
 
+  const [{ breadcrumbData }, actions] = useContext(AppContext)
+  const isMountedRef = useIsMountedRef()
+
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
+
+  useEffectOnMount(actions.applicationsPageMounted)
 
   const setInitialCheckboxState = (applications) => {
     // get unique applications
@@ -102,18 +109,8 @@ const LeaseUpApplicationsPage = () => {
   }
 
   const handleBulkCheckboxClick = (appId) => {
-    setBulkCheckboxesState((prevState) => ({ ...prevState, [appId]: !bulkCheckboxesState[appId] }))
+    setBulkCheckboxesState({ [appId]: !bulkCheckboxesState[appId] })
   }
-
-  const updateStatusModal = (newState) => {
-    setStatusModalState((prevState) => ({ ...prevState, ...newState }))
-  }
-
-  const setState = (newState) =>
-    overrideEntireState((prevState) => ({
-      ...prevState,
-      ...newState
-    }))
 
   const loadPage = async (page, filters) => {
     const { listing: listingFromState } = state
@@ -127,20 +124,25 @@ const LeaseUpApplicationsPage = () => {
 
     Promise.all([getStateOrFetchListing(), state.eagerPagination.getPage(page, fetcher)])
       .then(([listing, { records, pages }]) => {
-        setState({
-          listing,
-          applications: records,
-          pages: pages,
-          atMaxPages: false
-        })
-        setInitialCheckboxState(records)
+        if (isMountedRef.current) {
+          setState({
+            applications: records,
+            pages: pages,
+            atMaxPages: false,
+            listing: listing
+          })
+          actions.applicationsPageLoadComplete(listing)
+          setInitialCheckboxState(records)
+        }
       })
       .finally(() => {
-        setState({ loading: false })
+        if (isMountedRef.current) {
+          setState({ loading: false })
+        }
       })
   }
 
-  const handleOnFetchData = ({ filters, page }, _) => {
+  const handleOnFetchData = ({ page }, _) => {
     if (state.eagerPagination.isOverLimit(page)) {
       setState({
         applications: [],
@@ -148,7 +150,7 @@ const LeaseUpApplicationsPage = () => {
         atMaxPages: true
       })
     } else {
-      loadPage(page, filters)
+      loadPage(page, state.filters)
     }
   }
 
@@ -159,7 +161,7 @@ const LeaseUpApplicationsPage = () => {
   }
 
   const handleStatusModalSubmit = async (submittedValues) => {
-    updateStatusModal({ loading: true })
+    setStatusModalState({ loading: true })
     const { applicationIds } = statusModalState
     const { status, subStatus } = submittedValues
     const data = {
@@ -183,6 +185,10 @@ const LeaseUpApplicationsPage = () => {
     )
 
     return Promise.all(statusUpdateRequests).then((values) => {
+      if (!isMountedRef.current) {
+        return
+      }
+
       const successfulIds = values.filter((v) => !v.error).map((v) => v.application)
       const errorIds = values.filter((v) => v.error).map((v) => v.application)
       updateApplicationState(successfulIds, status, subStatus)
@@ -190,15 +196,15 @@ const LeaseUpApplicationsPage = () => {
       const wasBulkUpdate = statusModalState.isBulkUpdate
 
       if (errorIds.length !== 0) {
-        updateStatusModal({
+        setStatusModalState({
           applicationIds: errorIds,
           loading: false,
           showAlert: true,
           alertMsg: `We were unable to make the update for ${errorIds.length} out of ${values.length} applications, please try again.`,
-          onAlertCloseClick: () => updateStatusModal({ showAlert: false })
+          onAlertCloseClick: () => setStatusModalState({ showAlert: false })
         })
       } else {
-        updateStatusModal({
+        setStatusModalState({
           applicationIds: [],
           isOpen: false,
           loading: false,
@@ -214,7 +220,7 @@ const LeaseUpApplicationsPage = () => {
   }
 
   const handleCloseStatusModal = () => {
-    updateStatusModal({
+    setStatusModalState({
       isOpen: false,
       showAlert: false,
       applicationIds: []
@@ -228,7 +234,7 @@ const LeaseUpApplicationsPage = () => {
           .map(([id, _]) => id)
       : [applicationId]
 
-    updateStatusModal({
+    setStatusModalState({
       applicationIds: appsToUpdate,
       isBulkUpdate,
       isOpen: true,
@@ -252,7 +258,7 @@ const LeaseUpApplicationsPage = () => {
   }
 
   const setBulkCheckboxValues = (newValue, applicationIds = null) => {
-    const newBulkCheckboxState = { ...bulkCheckboxesState }
+    const newBulkCheckboxState = {}
     const applicationIdsToUpdate = applicationIds ?? Object.keys(bulkCheckboxesState)
 
     applicationIdsToUpdate.forEach((id) => (newBulkCheckboxState[id] = newValue))
@@ -284,7 +290,7 @@ const LeaseUpApplicationsPage = () => {
 
   return (
     <Context.Provider value={context}>
-      <TableLayout pageHeader={getPageHeaderData(state.listing)}>
+      <TableLayout pageHeader={getPageHeaderData(breadcrumbData.listing, state.listing?.report_id)}>
         <LeaseUpApplicationsTableContainer />
       </TableLayout>
     </Context.Provider>

@@ -3,61 +3,63 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Select from 'react-select'
 
-const HEIGHT_NORMAL = 'normal'
-const HEIGHT_SMALL = 'small'
-
-const getStyleOverrides = (controlHeight) => {
-  let controlHeightPx
-  switch (controlHeight) {
-    case HEIGHT_SMALL:
-      controlHeightPx = '38px'
-      break
-    case HEIGHT_NORMAL:
-    default:
-      controlHeightPx = '45px'
-      break
-  }
-
+const getStyle = () => {
   return {
     control: (base, _) => ({
       ...base,
-      height: controlHeightPx
+      minHeight: '45px'
+    }),
+    multiValue: (base, _) => ({
+      ...base,
+      maxWidth: '90%'
     })
   }
 }
 
 const MultiSelect = ({
-  items = [],
-  selectedItems = [],
-  height = HEIGHT_NORMAL,
+  input = null,
+  options = [],
+  value = [],
   disabled = false,
-  onChangeValues = () => {}
-}) => (
-  <div className='input-custom-height'>
-    <Select
-      isDisabled={disabled}
-      isClearable
-      isSearchable
-      isMulti
-      styles={getStyleOverrides(height)}
-      onChange={(values) => onChangeValues(values)}
-      value={selectedItems}
-      options={items}
-    />
-  </div>
-)
+  onChange = () => {}
+}) => {
+  let selectedValues
+  if (value && value[0] && !value[0].value) {
+    selectedValues = options.filter((option) => value.includes(option.value))
+  } else {
+    selectedValues = value
+  }
+  return (
+    <div className='input-custom-height'>
+      <Select
+        {...input}
+        isDisabled={disabled}
+        isClearable
+        isSearchable
+        isMulti
+        styles={getStyle()}
+        onChange={(values) => onChange(values)}
+        options={options}
+        value={selectedValues}
+      />
+    </div>
+  )
+}
 
-const SelectItemShape = PropTypes.shape({
+const MultiSelectItemShape = PropTypes.shape({
   value: PropTypes.string,
   label: PropTypes.string
 })
 
 MultiSelect.propTypes = {
-  items: PropTypes.arrayOf(SelectItemShape),
-  height: PropTypes.oneOf([HEIGHT_NORMAL, HEIGHT_SMALL]),
+  input: PropTypes.object,
+  options: PropTypes.arrayOf(MultiSelectItemShape),
   disabled: PropTypes.bool,
-  selectedItems: PropTypes.arrayOf(SelectItemShape),
+  value: PropTypes.oneOfType([
+    PropTypes.arrayOf(MultiSelectItemShape),
+    PropTypes.arrayOf(PropTypes.string)
+  ]),
   onChange: PropTypes.func
 }
 
-export default MultiSelect
+export { MultiSelect as default, MultiSelectItemShape }

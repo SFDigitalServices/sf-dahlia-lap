@@ -17,7 +17,7 @@ module Api::V1
     end
 
     def lease_up_apps_params
-      params.permit(:search, :listing_id, :page, :preference, :status, :accessibility, :total_household_size)
+      params.permit(:search, :listing_id, :page, accessibility: [], preference: [], status: [], total_household_size: [])
     end
   end
 end

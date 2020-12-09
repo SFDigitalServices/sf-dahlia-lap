@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
-import { uniqBy, cloneDeep, clone, some, findIndex } from 'lodash'
-import { withRouter } from 'react-router-dom'
+import { uniqBy, cloneDeep, some, findIndex } from 'lodash'
+import { useHistory } from 'react-router-dom'
 
 import apiService from 'apiService'
 import Alerts from 'components/Alerts'
 import Loading from 'components/molecules/Loading'
 import LeaveConfirmationModal from 'components/organisms/LeaveConfirmationModal'
+import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
+import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
+import { useAsyncOnMount, useStateObject } from 'utils/customHooks'
 import formUtils from 'utils/formUtils'
 import { doesApplicationHaveLease } from 'utils/leaseUtils'
 
@@ -33,41 +36,6 @@ const getInitialLeaseState = (application) =>
 
 const shouldSaveLeaseOnApplicationSave = (leaseState) => leaseState === EDIT_LEASE_STATE
 
-const getPageHeader = (application, listing) => {
-  const rootBreadcrumb = {
-    title: 'Lease Ups',
-    link: appPaths.toLeaseUps(),
-    renderAsRouterLink: true
-  }
-
-  if (!application || !listing) {
-    const emptyBreadCrumb = {
-      title: '',
-      link: '#'
-    }
-
-    return {
-      // making this a div with a non-blocking space allows us to keep the header height
-      // without actually rendering any text.
-      title: <div>&nbsp;</div>,
-      breadcrumbs: [rootBreadcrumb, emptyBreadCrumb, emptyBreadCrumb]
-    }
-  }
-
-  return {
-    title: `${application.name}: ${application.applicant?.name}`,
-    breadcrumbs: [
-      rootBreadcrumb,
-      {
-        title: listing.name,
-        link: appPaths.toListingLeaseUps(application?.listing_id),
-        renderAsRouterLink: true
-      },
-      { title: application.name, link: '#' }
-    ]
-  }
-}
-
 const getApplicationWithEmptyLease = (application) => ({
   ...application,
   lease: {},
@@ -90,58 +58,64 @@ const setApplicationsDefaults = (application) => {
   return applicationWithDefaults
 }
 
-class SupplementalApplicationPage extends React.Component {
-  state = {
+const SupplementalApplicationPage = ({ applicationId }) => {
+  const [state, setState] = useStateObject({
     application: null,
     confirmedPreferencesFailed: false,
     leaseSectionState: null,
-    leaveConfirmationModal: {
-      isOpen: false
-    },
+    leaveConfirmationModalOpen: false,
     listing: null,
     listingAmiCharts: null,
     loading: false,
     rentalAssistances: null,
     statusHistory: null,
-    statusModal: {
-      loading: false,
-      status: null
-    },
     supplementalAppTouched: false
-  }
+  })
 
-  componentDidMount = () => {
-    const { applicationId } = this.props
+  const [statusModalState, setStatusModalState, overrideStatusModalState] = useStateObject({
+    loading: false,
+    status: null,
+    header: null,
+    isOpen: false,
+    submitButton: null
+  })
 
-    getSupplementalPageData(applicationId)
-      .then(({ application, statusHistory, fileBaseUrl, units, listing }) => {
-        this.setState({
-          application: setApplicationsDefaults(application),
-          units,
-          fileBaseUrl,
-          // Only show lease section on load if there's a lease on the application.
-          leaseSectionState: getInitialLeaseState(application),
-          listing: listing,
-          listingAmiCharts: getListingAmiCharts(units),
-          rentalAssistances: application.rental_assistances,
-          statusHistory,
-          statusModal: {
-            loading: false,
-            status: application.processing_status
-          }
-        })
+  const history = useHistory()
+
+  const [{ breadcrumbData }, actions] = useContext(AppContext)
+
+  useAsyncOnMount(() => getSupplementalPageData(applicationId), {
+    onSuccess: ({ application, statusHistory, fileBaseUrl, units, availableUnits, listing }) => {
+      setState({
+        application: setApplicationsDefaults(application),
+        availableUnits,
+        fileBaseUrl,
+        // Only show lease section on load if there's a lease on the application.
+        leaseSectionState: getInitialLeaseState(application),
+        listing: listing,
+        listingAmiCharts: getListingAmiCharts(units),
+        rentalAssistances: application.rental_assistances,
+        statusHistory
       })
-      .catch(() => Alerts.error())
-  }
 
-  setLoading = (loading) => {
-    this.setState({ loading })
-  }
+      actions.supplementalPageLoadComplete(application, application?.listing)
 
-  handleSaveApplication = async (formApplication) => {
-    const { application: prevApplication, leaseSectionState } = this.state
+      setStatusModalState({
+        loading: false,
+        status: application.processing_status
+      })
+    },
+    onFail: (e) => {
+      console.error(e)
+      Alerts.error()
+    },
+    onComplete: () => setState({ loading: false })
+  })
 
-    this.setLoading(true)
+  const handleSaveApplication = async (formApplication) => {
+    const { application: prevApplication, leaseSectionState } = state
+
+    setState({ loading: true })
 
     updateApplication(
       formApplication,
@@ -149,20 +123,16 @@ class SupplementalApplicationPage extends React.Component {
       shouldSaveLeaseOnApplicationSave(leaseSectionState)
     )
       .then((responseApplication) => {
-        this.updateApplicationStateAfterRequest(
-          responseApplication,
-          {},
-          this.handleCloseRentalAssistancePanel
-        )
+        updateApplicationStateAfterRequest(responseApplication, {})
       })
       .catch((e) => {
         console.error(e)
         Alerts.error()
-        this.setLoading(false)
+        setState({ loading: false })
       })
   }
 
-  handleSavePreference = async (preferenceIndex, formApplicationValues) => {
+  const handleSavePreference = async (preferenceIndex, formApplicationValues) => {
     const preference = formApplicationValues.preferences[preferenceIndex]
     const updates = [updatePreference(preference)]
     // If updating a rent burdened preference, we need to independently
@@ -177,90 +147,69 @@ class SupplementalApplicationPage extends React.Component {
     const failed = some(responses, (response) => response === false)
 
     if (!failed) {
-      this.setState({
+      setState({
         application: formApplicationValues,
         confirmedPreferencesFailed: false
       })
     } else {
-      this.setState({ confirmedPreferencesFailed: true })
+      setState({ confirmedPreferencesFailed: true })
     }
 
     return !failed
   }
 
-  handleDismissError = (preferenceIndex) => {
-    this.setState({ confirmedPreferencesFailed: false })
+  const handleDismissError = (preferenceIndex) => {
+    setState({ confirmedPreferencesFailed: false })
   }
 
-  updateStatusModal = (values) => {
-    this.setState((prevState) => {
-      return {
-        statusModal: {
-          ...clone(prevState.statusModal),
-          ...values
-        }
-      }
+  const openAddStatusCommentModal = () => {
+    overrideStatusModalState({
+      header: 'Add New Comment',
+      isOpen: true,
+      status: state.application.processing_status,
+      submitButton: 'Save'
     })
   }
 
-  openAddStatusCommentModal = () => {
-    this.setState({
-      statusModal: {
-        header: 'Add New Comment',
-        isOpen: true,
-        status: this.state.application.processing_status,
-        submitButton: 'Save'
-      }
+  const openUpdateStatusModal = (value) => {
+    overrideStatusModalState({
+      submitButton: 'Update',
+      header: 'Update Status',
+      isOpen: true,
+      status: value
     })
   }
 
-  openUpdateStatusModal = (value) => {
-    this.setState({
-      statusModal: {
-        submitButton: 'Update',
-        header: 'Update Status',
-        isOpen: true,
-        status: value
-      }
-    })
-  }
+  const handleStatusModalClose = () => setStatusModalState({ isOpen: false })
 
-  handleStatusModalClose = () => {
-    this.updateStatusModal({ isOpen: false })
-  }
-
-  handleStatusModalStatusChange = (value, key) => {
-    this.updateStatusModal({
+  const handleStatusModalStatusChange = (value, key) => {
+    setStatusModalState({
       [key || 'status']: value,
       ...(!key ? { subStatus: '' } : {})
     })
   }
 
-  updateApplicationStateAfterRequest = (
+  const updateApplicationStateAfterRequest = (
     applicationResponse,
-    additionalFieldsToUpdate = {},
-    setStateCallback = () => {}
+    additionalFieldsToUpdate = {}
   ) => {
     const leaveEditMode = (currentLeaseSectionState) =>
       currentLeaseSectionState === EDIT_LEASE_STATE ? SHOW_LEASE_STATE : currentLeaseSectionState
 
-    this.setState(
-      (prevState) => ({
-        application: setApplicationsDefaults(applicationResponse),
-        loading: false,
-        supplementalAppTouched: false,
-        leaseSectionState: leaveEditMode(prevState.leaseSectionState),
-        ...additionalFieldsToUpdate
-      }),
-      setStateCallback
-    )
+    setState((prevState) => ({
+      application: setApplicationsDefaults(applicationResponse),
+      loading: false,
+      supplementalAppTouched: false,
+      leaseSectionState: leaveEditMode(prevState.leaseSectionState),
+      ...additionalFieldsToUpdate
+    }))
   }
 
-  handleStatusModalSubmit = async (submittedValues, formApplication) => {
-    const { application: prevApplication, leaseSectionState } = this.state
+  const handleStatusModalSubmit = async (submittedValues, formApplication) => {
+    const { application: prevApplication, leaseSectionState } = state
     const { status, subStatus, comment } = submittedValues
-    this.setState({ loading: true })
-    this.updateStatusModal({ loading: true })
+    setState({ loading: true })
+    setStatusModalState({ loading: true })
     formApplication.processing_status = status
 
     updateApplicationAndAddComment(
@@ -272,48 +221,42 @@ class SupplementalApplicationPage extends React.Component {
       shouldSaveLeaseOnApplicationSave(leaseSectionState)
     )
       .then(({ application, statusHistory }) => {
-        this.updateApplicationStateAfterRequest(application, { statusHistory }, () =>
-          this.updateStatusModal({ loading: false, isOpen: false })
-        )
+        updateApplicationStateAfterRequest(application, { statusHistory })
+        setStatusModalState({ loading: false, isOpen: false })
       })
-      .catch((e) => {
-        this.setState({ loading: false })
-        this.updateStatusModal({
+      .catch((_) => {
+        setState({ loading: false })
+        setStatusModalState({
           loading: false,
           showAlert: true,
           alertMsg: 'We were unable to make the update, please try again.',
-          onAlertCloseClick: () => this.updateStatusModal({ showAlert: false })
+          onAlertCloseClick: () => setStatusModalState({ showAlert: false })
         })
       })
-      .finally(this.handleCloseRentalAssistancePanel)
   }
 
-  handleCreateLeaseClick = () => {
-    this.setState({ leaseSectionState: EDIT_LEASE_STATE })
+  const handleCreateLeaseClick = () => {
+    setState({ leaseSectionState: EDIT_LEASE_STATE })
   }
 
-  handleCancelLeaseClick = (form) => {
-    const { application } = this.state
+  const handleCancelLeaseClick = (form) => {
+    const { application } = state
 
-    this.setState({
-      leaseSectionState: getInitialLeaseState(application)
-    })
+    setState({ leaseSectionState: getInitialLeaseState(application) })
 
     form.change('lease', application.lease)
     form.change('rental_assistances', application.rental_assistances)
   }
 
-  handleEditLeaseClick = (form) => {
-    this.setState({ leaseSectionState: EDIT_LEASE_STATE })
-  }
+  const handleEditLeaseClick = () => setState({ leaseSectionState: EDIT_LEASE_STATE })
 
-  handleSaveLease = (formApplication) => {
-    const { application: prevApplication } = this.state
+  const handleSaveLease = (formApplication) => {
+    const { application: prevApplication } = state
 
-    this.setState({ loading: true })
+    setState({ loading: true })
     saveLeaseAndAssistances(formApplication, prevApplication)
       .then((response) => {
-        this.setState((prevState) => ({
+        setState((prevState) => ({
           application: {
             ...prevState.application,
             lease: response.lease,
@@ -323,26 +266,26 @@ class SupplementalApplicationPage extends React.Component {
         }))
       })
       .catch(() => Alerts.error())
-      .finally(() => this.setState({ loading: false }))
+      .finally(() => setState({ loading: false }))
   }
 
-  handleDeleteLease = () => {
-    const { application } = this.state
-    this.setState({ loading: true })
+  const handleDeleteLease = () => {
+    const { application } = state
+    setState({ loading: true })
 
     deleteLease(application)
-      .then((response) => {
-        this.setState((prevState) => ({
+      .then((_) => {
+        setState((prevState) => ({
           application: getApplicationWithEmptyLease(prevState.application),
           leaseSectionState: NO_LEASE_STATE
         }))
       })
       .catch(() => Alerts.error())
-      .finally(() => this.setState({ loading: false }))
+      .finally(() => setState({ loading: false }))
   }
 
-  handleRentalAssistanceAction = (action) => {
-    this.setState({ loading: true })
+  const handleRentalAssistanceAction = (action) => {
+    setState({ loading: true })
 
     return (...args) => {
       return action(...args)
@@ -354,11 +297,11 @@ class SupplementalApplicationPage extends React.Component {
             return false
           }
         })
-        .finally(() => this.setState({ loading: false }))
+        .finally(() => setState({ loading: false }))
     }
   }
 
-  handleSaveRentalAssistance = async (
+  const handleSaveRentalAssistance = async (
     rentalAssistance,
     formApplicationValues,
     action = 'create'
@@ -374,15 +317,15 @@ class SupplementalApplicationPage extends React.Component {
       rentalAssistanceAction = apiService.createRentalAssistance
     }
 
-    const response = await this.handleRentalAssistanceAction(rentalAssistanceAction)(
+    const response = await handleRentalAssistanceAction(rentalAssistanceAction)(
       rentalAssistance,
-      this.state.application.id
+      state.application.id
     )
     // show price in right format
     rentalAssistance.assistance_amount = formUtils.formatPrice(rentalAssistance.assistance_amount)
 
     if (response) {
-      this.setState((prev) => {
+      setState((prev) => {
         const rentalAssistances = cloneDeep(prev.application.rental_assistances)
 
         if (action === 'update') {
@@ -405,13 +348,13 @@ class SupplementalApplicationPage extends React.Component {
     return response
   }
 
-  handleDeleteRentalAssistance = async (rentalAssistance, formApplicationValues) => {
-    const response = await this.handleRentalAssistanceAction(apiService.deleteRentalAssistance)(
+  const handleDeleteRentalAssistance = async (rentalAssistance, formApplicationValues) => {
+    const response = await handleRentalAssistanceAction(apiService.deleteRentalAssistance)(
       rentalAssistance.id
     )
 
     if (response) {
-      this.setState((prev) => {
+      setState((prev) => {
         const rentalAssistances = cloneDeep(prev.application.rental_assistances)
         const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
         rentalAssistances.splice(idx, 1)
@@ -427,100 +370,89 @@ class SupplementalApplicationPage extends React.Component {
     return response
   }
 
-  handleLeaveSuppAppTab = () => {
-    const { application, leaseSectionState, supplementalAppTouched } = this.state
-    const { applicationId, history } = this.props
+  const handleLeaveSuppAppTab = () => {
+    const { application, leaseSectionState, supplementalAppTouched } = state
 
     const hasStartedNewLease =
       leaseSectionState === EDIT_LEASE_STATE && !doesApplicationHaveLease(application)
     if (supplementalAppTouched || hasStartedNewLease) {
-      this.setState({ leaveConfirmationModal: { isOpen: true } })
+      setState({ leaveConfirmationModalOpen: true })
     } else {
       history.push(appPaths.toLeaseUpShortForm(applicationId))
     }
   }
 
-  assignSupplementalAppTouched = () => {
-    this.setState({ supplementalAppTouched: true })
+  const assignSupplementalAppTouched = () => setState({ supplementalAppTouched: true })
+
+  const handleLeaveModalClose = () => setState({ leaveConfirmationModalOpen: false })
+
+  const { application, units, fileBaseUrl, leaveConfirmationModalOpen, statusHistory } = state
+
+  const tabSection = {
+    items: [
+      {
+        title: 'Short Form Application',
+        onClick: handleLeaveSuppAppTab
+      },
+      {
+        title: 'Supplemental Information',
+        url: appPaths.toApplicationSupplementals(applicationId),
+        active: true,
+        renderAsRouterLink: true
+      }
+    ]
   }
 
-  handleLeaveModalClose = () => {
-    this.setState({ leaveConfirmationModal: { isOpen: false } })
+  const context = {
+    ...state,
+    statusModal: statusModalState,
+    application: application,
+    applicationMembers: [application?.applicant, ...(application?.household_members || [])],
+    assignSupplementalAppTouched: assignSupplementalAppTouched,
+    units: units,
+    fileBaseUrl: fileBaseUrl,
+    handleCreateLeaseClick: handleCreateLeaseClick,
+    handleCancelLeaseClick: handleCancelLeaseClick,
+    handleEditLeaseClick: handleEditLeaseClick,
+    handleSaveLease: handleSaveLease,
+    handleDeleteLease: handleDeleteLease,
+    handleDeleteRentalAssistance: handleDeleteRentalAssistance,
+    handleSaveRentalAssistance: handleSaveRentalAssistance,
+    handleStatusModalClose: handleStatusModalClose,
+    handleStatusModalStatusChange: handleStatusModalStatusChange,
+    handleStatusModalSubmit: handleStatusModalSubmit,
+
+    // onDismissError doesn't appear to be used anywhere.
+    onDismissError: handleDismissError,
+    onSavePreference: handleSavePreference,
+    onSubmit: handleSaveApplication,
+    openAddStatusCommentModal: openAddStatusCommentModal,
+    openUpdateStatusModal: openUpdateStatusModal,
+    statusHistory: statusHistory
   }
 
-  render() {
-    const { applicationId } = this.props
-    const {
-      application,
-      units,
-      fileBaseUrl,
-      leaveConfirmationModal,
-      listing,
-      statusHistory
-    } = this.state
-
-    const tabSection = {
-      items: [
-        {
-          title: 'Short Form Application',
-          onClick: this.handleLeaveSuppAppTab
-        },
-        {
-          title: 'Supplemental Information',
-          url: appPaths.toApplicationSupplementals(applicationId),
-          active: true,
-          renderAsRouterLink: true
-        }
-      ]
-    }
-
-    const context = {
-      ...this.state,
-      application: application,
-      applicationMembers: [application?.applicant, ...(application?.household_members || [])],
-      assignSupplementalAppTouched: this.assignSupplementalAppTouched,
-      units: units,
-      fileBaseUrl: fileBaseUrl,
-      handleCreateLeaseClick: this.handleCreateLeaseClick,
-      handleCancelLeaseClick: this.handleCancelLeaseClick,
-      handleEditLeaseClick: this.handleEditLeaseClick,
-      handleSaveLease: this.handleSaveLease,
-      handleDeleteLease: this.handleDeleteLease,
-      handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,
-      handleDeleteRentalAssistance: this.handleDeleteRentalAssistance,
-      handleSaveRentalAssistance: this.handleSaveRentalAssistance,
-      handleStatusModalClose: this.handleStatusModalClose,
-      handleStatusModalStatusChange: this.handleStatusModalStatusChange,
-      handleStatusModalSubmit: this.handleStatusModalSubmit,
-      onDismissError: this.handleDismissError,
-      onSavePreference: this.handleSavePreference,
-      onSubmit: this.handleSaveApplication,
-      openAddStatusCommentModal: this.openAddStatusCommentModal,
-      openUpdateStatusModal: this.openUpdateStatusModal,
-      setLoading: this.setLoading,
-      statusHistory: statusHistory
-    }
-
-    return (
-      <Context.Provider value={context}>
-        <CardLayout pageHeader={getPageHeader(application, listing)} tabSection={tabSection}>
-          <Loading
-            isLoading={!application}
-            renderChildrenWhileLoading={false}
-            loaderViewHeight='100vh'
-          >
-            <SupplementalApplicationContainer />
-          </Loading>
-        </CardLayout>
-        <LeaveConfirmationModal
-          isOpen={leaveConfirmationModal.isOpen}
-          handleClose={this.handleLeaveModalClose}
-          destination={appPaths.toLeaseUpShortForm(applicationId)}
-          routedDestination
-        />
-      </Context.Provider>
-    )
-  }
+  return (
+    <Context.Provider value={context}>
+      <CardLayout
+        pageHeader={getPageHeaderData(breadcrumbData.application, breadcrumbData.listing)}
+        tabSection={tabSection}
+      >
+        <Loading
+          isLoading={!application}
+          renderChildrenWhileLoading={false}
+          loaderViewHeight='100vh'
+        >
+          <SupplementalApplicationContainer />
+        </Loading>
+      </CardLayout>
+      <LeaveConfirmationModal
+        isOpen={leaveConfirmationModalOpen}
+        handleClose={handleLeaveModalClose}
+        destination={appPaths.toLeaseUpShortForm(applicationId)}
+        routedDestination
+      />
+    </Context.Provider>
+  )
 }
 
-export default withRouter(SupplementalApplicationPage)
+export default SupplementalApplicationPage

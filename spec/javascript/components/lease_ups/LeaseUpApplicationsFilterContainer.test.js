@@ -8,7 +8,7 @@ import Checkbox from 'components/atoms/Checkbox'
 import LeaseUpApplicationsFilterContainer from 'components/lease_ups/LeaseUpApplicationsFilterContainer'
 import LeaseUpApplicationsFilters from 'components/lease_ups/LeaseUpApplicationsFilters'
 import ShowHideFiltersButton from 'components/molecules/ShowHideFiltersButton'
-import { SelectField } from 'utils/form/final_form/Field'
+import MultiSelectField from 'utils/form/final_form/MultiSelectField'
 import SearchField from 'utils/form/final_form/SearchField'
 
 const mockSubmit = jest.fn()
@@ -219,9 +219,7 @@ describe('LeaseUpApplicationsFilterContainer', () => {
 
         describe('when a filter is changed', () => {
           beforeEach(async () => {
-            await act(async () =>
-              wrapper.find(SelectField).at(0).find('select').simulate('change', 'general')
-            )
+            await act(async () => wrapper.find(MultiSelectField).at(0).invoke('onChange')())
             wrapper.update()
           })
 
