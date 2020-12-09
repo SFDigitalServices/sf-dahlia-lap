@@ -1770,7 +1770,7 @@ Array [
                                     aria-autocomplete="list"
                                     className="css-62g3xt-dummyInput"
                                     disabled={true}
-                                    id="react-select-5-input"
+                                    id="react-select-7-input"
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
@@ -5797,9 +5797,14 @@ Array [
                             None
                           </option>
                           <option
-                            value="testValidPref"
+                            value="a0w0P00000OUJc3QAH"
                           >
                             Live or Work in San Francisco Preference
+                          </option>
+                          <option
+                            value="testValidPref"
+                          >
+                            Displaced Tenant Housing Preference (DTHP)
                           </option>
                         </select>
                       </div>

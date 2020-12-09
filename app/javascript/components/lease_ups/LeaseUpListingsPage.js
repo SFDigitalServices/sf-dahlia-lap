@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 import { withRouter } from 'react-router-dom'
 
 import Loading from 'components/molecules/Loading'
+import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
+import { useAsyncOnMount } from 'utils/customHooks'
 
 import TableLayout from '../layouts/TableLayout'
 import { getLeaseUpListings } from './leaseUpActions'
@@ -13,18 +15,27 @@ const LeaseUpListingsPage = ({ history }) => {
   const [loading, setLoading] = useState(true)
   const [listings, setListings] = useState(true)
 
-  useEffect(() => {
-    getLeaseUpListings()
-      .then((responseListings) => setListings(responseListings))
-      .finally(() => setLoading(false))
-  }, [])
+  const [, actions] = useContext(AppContext)
+
+  useAsyncOnMount(
+    () => {
+      actions.listingsPageMounted()
+      return getLeaseUpListings()
+    },
+    {
+      onSuccess: (responseListings) => setListings(responseListings),
+      onComplete: () => setLoading(false)
+    }
+  )
 
   const pageHeader = {
     title: 'Lease Ups'
   }
 
-  const onCellClick = (rowInfo) => {
-    history.push(appPaths.toLeaseUpApplications(rowInfo.original.id))
+  const onCellClick = ({ original: listing }) => {
+    actions.listingRowClicked(listing)
+
+    history.push(appPaths.toLeaseUpApplications(listing.id))
   }
 
   return (

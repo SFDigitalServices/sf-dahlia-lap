@@ -2,12 +2,16 @@ import React from 'react'
 
 import { BrowserRouter as Router } from 'react-router-dom'
 
+import Provider from 'context/Provider'
+
 import LeaseUpRoutes from './LeaseUpRoutes'
 
 const LeaseUpApp = () => (
-  <Router>
-    <LeaseUpRoutes />
-  </Router>
+  <Provider>
+    <Router>
+      <LeaseUpRoutes />
+    </Router>
+  </Provider>
 )
 
 export default LeaseUpApp

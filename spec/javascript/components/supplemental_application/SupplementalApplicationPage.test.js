@@ -16,18 +16,28 @@ window.scrollTo = jest.fn()
 
 const getMockApplication = () => cloneDeep(supplementalApplication)
 
-const WINDOW_URL = `/lease-ups/applications/${getMockApplication().id}/supplemental`
+const getWindowUrl = (id) => `/lease-ups/applications/${id}/supplemental`
+
+const ID_NO_AVAILABLE_UNITS = 'idwithnoavailableunits'
+const ID_WITH_TOTAL_MONTHLY_RENT = 'idwithtotalmonthlyrent'
 
 jest.mock('apiService', () => {
   const mockedApplication = require('../../fixtures/supplemental_application').default
   const mockedUnits = require('../../fixtures/units').default
   const _merge = require('lodash').merge
   const _cloneDeep = require('lodash').cloneDeep
+  const _ID_NO_AVAILABLE_UNITS = 'idwithnoavailableunits'
+  const _ID_WITH_TOTAL_MONTHLY_RENT = 'idwithtotalmonthlyrent'
   return {
     getSupplementalPageData: async (applicationId) => {
       mockInitialLoad(applicationId)
 
       const appWithPrefs = _cloneDeep(mockedApplication)
+
+      if (applicationId === _ID_WITH_TOTAL_MONTHLY_RENT) {
+        appWithPrefs.total_monthly_rent = '50'
+      }
+
       _merge(appWithPrefs.preferences[0], {
         preference_name: 'Rent Burdened Assisted Housing',
         individual_preference: 'Rent Burdened',
@@ -40,33 +50,37 @@ jest.mock('apiService', () => {
         recordtype_developername: 'RB_AHP'
       })
 
-      _merge(appWithPrefs.preferences[1], {
+      _merge(appWithPrefs.preferences[2], {
         id: 'testValidPref',
         post_lottery_validation: 'Confirmed'
       })
+
       return {
         application: appWithPrefs,
         statusHistory: [],
         fileBaseUrl: 'fileBaseUrl',
         units: _cloneDeep(mockedUnits),
-        availableUnits: [
-          {
-            id: 'id1',
-            unit_number: '123',
-            unit_type: 'studio',
-            priority_type: null,
-            max_ami_for_qualifying_unit: 50,
-            ami_chart_type: 'HUD'
-          },
-          {
-            id: 'id2',
-            unit_number: '100',
-            unit_type: 'studio',
-            priority_type: null,
-            max_ami_for_qualifying_unit: 50,
-            ami_chart_type: 'HUD'
-          }
-        ]
+        availableUnits:
+          applicationId === _ID_NO_AVAILABLE_UNITS
+            ? []
+            : [
+                {
+                  id: 'id1',
+                  unit_number: '123',
+                  unit_type: 'studio',
+                  priority_type: null,
+                  max_ami_for_qualifying_unit: 50,
+                  ami_chart_type: 'HUD'
+                },
+                {
+                  id: 'id2',
+                  unit_number: '100',
+                  unit_type: 'studio',
+                  priority_type: null,
+                  max_ami_for_qualifying_unit: 50,
+                  ami_chart_type: 'HUD'
+                }
+              ]
       }
     },
     submitApplication: async (application) => {
@@ -108,28 +122,20 @@ jest.mock('apiService', () => {
       mockGetRentalAssistances(applicationId)
       return []
     },
-    createRentalAssistance: async (applicationId) => ({}),
-    updateRentalAssistance: async (applicationId) => ({})
+    createRentalAssistance: async (_) => ({}),
+    updateRentalAssistance: async (_) => ({})
   }
 })
 
-const getWrapper = async () => {
+const getWrapper = async (id = getMockApplication().id) => {
   let wrapper
   await act(async () => {
-    wrapper = mountAppWithUrl(WINDOW_URL)
+    wrapper = mountAppWithUrl(getWindowUrl(id))
   })
 
   wrapper.update()
 
   return wrapper
-}
-
-const setStateOnWrapper = async (wrapper, prevStateToNewStateFunction) => {
-  await act(async () => {
-    wrapper.find('SupplementalApplicationPage').setState(prevStateToNewStateFunction)
-  })
-
-  wrapper.update()
 }
 
 describe('SupplementalApplicationPage', () => {
@@ -151,8 +157,9 @@ describe('SupplementalApplicationPage', () => {
 
   test('it should render as expected', async () => {
     let component
+
     await renderer.act(async () => {
-      component = renderer.create(leaseUpAppWithUrl(WINDOW_URL))
+      component = renderer.create(leaseUpAppWithUrl(getWindowUrl(getMockApplication().id)))
     })
 
     const tree = component.toJSON()
@@ -209,36 +216,18 @@ describe('SupplementalApplicationPage', () => {
     test('it saves a live/work application preference panel', async () => {
       const wrapper = await getWrapper()
 
-      await setStateOnWrapper(wrapper, (prevState) => ({
-        application: {
-          ...prevState.application,
-          preferences: [
-            merge(prevState.application.preferences[0], {
-              id: 'preference_id',
-              application_member_id: 'xxx',
-              individual_preference: 'Live in SF',
-              type_of_proof: null,
-              lw_type_of_proof: 'Water bill',
-              post_lottery_validation: 'Unconfirmed'
-            })
-          ]
-        }
-      }))
-
       // Click edit to open up the panel
-      await wrapper.find('.preferences-table .action-link').first().simulate('click')
+      act(() => {
+        wrapper.find('.preferences-table .action-link').at(2).simulate('click')
+      })
       // Save the preference panel without making updates
       await act(async () => {
-        wrapper.find('.preferences-table .save-panel-btn').first().simulate('click')
+        wrapper.find('.preferences-table .save-panel-btn').at(2).simulate('click')
       })
 
       const expectedPreferencePayload = {
-        id: 'preference_id',
-        application_member_id: 'xxx',
         individual_preference: 'Live in SF',
-        type_of_proof: null,
-        lw_type_of_proof: 'Water bill',
-        post_lottery_validation: 'Unconfirmed'
+        lw_type_of_proof: 'Telephone bill'
       }
 
       expect(mockUpdateApplication.mock.calls).toHaveLength(0)
@@ -250,14 +239,10 @@ describe('SupplementalApplicationPage', () => {
     })
 
     test('it updates total monthly rent when saving a rent burdened preference panel', async () => {
-      const wrapper = await getWrapper()
-
-      await setStateOnWrapper(wrapper, (prevState) => ({
-        application: { ...prevState.application, total_monthly_rent: '50' }
-      }))
+      const wrapper = await getWrapper(ID_WITH_TOTAL_MONTHLY_RENT)
 
       // Click edit to open up the panel
-      await wrapper.find('.preferences-table .action-link').first().simulate('click')
+      wrapper.find('.preferences-table .action-link').first().simulate('click')
       // Save the preference panel without making updates
       await act(async () => {
         wrapper.find('.preferences-table .save-panel-btn').first().simulate('click')
@@ -293,10 +278,16 @@ describe('SupplementalApplicationPage', () => {
     test('currencies are converted to floats on save', async () => {
       const application = getMockApplication()
       const wrapper = await getWrapper()
-      wrapper
-        .find('input#form-confirmed_household_annual_income')
-        .simulate('change', { target: { value: '1234' } })
-      wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
+
+      act(() => {
+        wrapper
+          .find('input#form-confirmed_household_annual_income')
+          .simulate('change', { target: { value: '1234' } })
+      })
+
+      act(() => {
+        wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
+      })
 
       await act(async () => {
         wrapper.find('form').first().simulate('submit')
@@ -312,10 +303,14 @@ describe('SupplementalApplicationPage', () => {
     test('converts empty values to null when touched', async () => {
       const application = getMockApplication()
       const wrapper = await getWrapper()
-      wrapper
-        .find('input#form-confirmed_household_annual_income')
-        .simulate('change', { target: { value: '' } })
-      wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
+
+      act(() => {
+        wrapper
+          .find('input#form-confirmed_household_annual_income')
+          .simulate('change', { target: { value: '' } })
+
+        wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
+      })
 
       const expectedApplication = { id: application.id }
       expectedApplication.confirmed_household_annual_income = null
@@ -346,17 +341,24 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('#edit-lease-button').first().simulate('click')
       // Fill out lease fields
       // Assigned Unit number
-      wrapper.find('#form-lease_unit').find('Select').instance().props.onChange({ value: 'id1' })
-      wrapper.update()
-      // Lease start date
-      wrapper.find('#lease_start_date_month input').simulate('change', { target: { value: '1' } })
-      wrapper.find('#lease_start_date_day input').simulate('change', { target: { value: '12' } })
-      wrapper.find('#lease_start_date_year input').simulate('change', { target: { value: '2019' } })
 
-      // Preference used
-      wrapper
-        .find('[name="lease.preference_used"] select option[value="testValidPref"]')
-        .simulate('change')
+      // Lease start date
+      act(() => {
+        wrapper.find('#form-lease_unit').find('Select').instance().props.onChange({ value: 'id1' })
+
+        wrapper.find('#lease_start_date_month input').simulate('change', { target: { value: '1' } })
+        wrapper.find('#lease_start_date_day input').simulate('change', { target: { value: '12' } })
+
+        wrapper
+          .find('#lease_start_date_year input')
+          .simulate('change', { target: { value: '2019' } })
+
+        // Preference used
+        wrapper
+          .find('[name="lease.preference_used"] select option[value="testValidPref"]')
+          .simulate('change')
+      })
+      wrapper.update()
 
       // Costs
 
@@ -405,7 +407,10 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('#edit-lease-button').first().simulate('click')
 
       // Select the value from the dropdown
-      wrapper.find('#form-lease_unit').find('Select').instance().props.onChange({ value: null })
+
+      act(() => {
+        wrapper.find('#form-lease_unit').find('Select').instance().props.onChange({ value: null })
+      })
       wrapper.update()
 
       // Hit save
@@ -420,9 +425,8 @@ describe('SupplementalApplicationPage', () => {
     })
 
     test('it displays "No Units Available" when no units available', async () => {
-      const wrapper = await getWrapper()
-      await setStateOnWrapper(wrapper, (prevState) => ({ availableUnits: [] }))
-      const unitSelect = await wrapper.find('#form-lease_unit').first()
+      const wrapper = await getWrapper(ID_NO_AVAILABLE_UNITS)
+      const unitSelect = wrapper.find('#form-lease_unit').first()
 
       expect(unitSelect.exists()).toBeTruthy()
       expect(unitSelect.html().includes('No Units Available')).toBeTruthy()
@@ -444,10 +448,13 @@ describe('SupplementalApplicationPage', () => {
     const wrapper = await getWrapper()
 
     // Fill in letters in lease date month - which are invalid values
-    wrapper
-      .find('#lease_start_date_month')
-      .first()
-      .simulate('change', { target: { value: 'AB' } })
+
+    act(() => {
+      wrapper
+        .find('#lease_start_date_month')
+        .first()
+        .simulate('change', { target: { value: 'AB' } })
+    })
     wrapper.find('#save-supplemental-application').first().simulate('click')
 
     // alert box to display
