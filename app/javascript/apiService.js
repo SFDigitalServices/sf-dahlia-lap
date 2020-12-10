@@ -23,7 +23,9 @@ const getSupplementalApplication = async (applicationId) =>
     }))
 
 const getUnits = async (listingId) =>
-  request.get(`/supplementals/units`, { params: { listing_id: listingId } }, true)
+  request
+    .get(`/supplementals/units`, { params: { listing_id: listingId } }, true)
+    .then((r) => r.units)
 
 const getStatusHistory = async (applicationId) =>
   request

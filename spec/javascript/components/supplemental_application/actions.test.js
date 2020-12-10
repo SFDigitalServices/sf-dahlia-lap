@@ -34,9 +34,7 @@ jest.mock('apiService', () => {
 
   const mockGetUnits = async (listingId) => {
     mockGetUnitsFn(listingId)
-    return {
-      units: []
-    }
+    return []
   }
 
   const mockGetListing = async (listingId) => {
@@ -122,7 +120,6 @@ describe('getSupplementalPageData', () => {
     })
 
     test('returns the correct response', () => {
-      console.log('supp app', supplementalApplication.listing)
       expect(response).toEqual({
         application: supplementalApplication,
         units: [],
@@ -140,11 +137,11 @@ describe('getSupplementalPageData', () => {
     })
 
     test('calls getUnits with the supplemental application listing id', () => {
-      expect(mockGetUnitsFn.mock.calls[0][1]).toEqual(supplementalApplication.listing.id)
+      expect(mockGetUnitsFn.mock.calls[0][0]).toEqual(supplementalApplication.listing.id)
     })
 
     test('calls getListing with the supplemental application listing id', () => {
-      expect(mockGetListingFn.mock.calls[0][1]).toEqual(supplementalApplication.listing.id)
+      expect(mockGetListingFn.mock.calls[0][0]).toEqual(supplementalApplication.listing.id)
     })
   })
 
@@ -172,11 +169,11 @@ describe('getSupplementalPageData', () => {
     })
 
     test('calls getUnits with the supplied listing id', () => {
-      expect(mockGetUnitsFn.mock.calls[0][1]).toEqual('otherListingId')
+      expect(mockGetUnitsFn.mock.calls[0][0]).toEqual('otherListingId')
     })
 
     test('calls getListing with the supplied listing id', () => {
-      expect(mockGetListingFn.mock.calls[0][1]).toEqual('otherListingId')
+      expect(mockGetListingFn.mock.calls[0][0]).toEqual('otherListingId')
     })
   })
 })

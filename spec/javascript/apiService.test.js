@@ -22,11 +22,7 @@ const mockSuppAppGetFn = jest.fn(() =>
 )
 const mockGetLeaseFn = jest.fn(() => Promise.resolve({ lease: supplementalApplication.lease }))
 const mockGetStatusHistoryFn = jest.fn(() => Promise.resolve({ data: [] }))
-const mockGetUnitsFn = jest.fn(() =>
-  Promise.resolve({
-    units: [{ id: 'unitId' }]
-  })
-)
+const mockGetUnitsFn = jest.fn(() => Promise.resolve({ units: [{ id: 'unitId' }] }))
 const mockPostFn = jest.fn(() => Promise.resolve(true))
 const mockPutFn = jest.fn(() => Promise.resolve(true))
 const mockDestroyFn = jest.fn(() => Promise.resolve(true))
@@ -116,9 +112,7 @@ describe('apiService', () => {
     })
 
     test('converts the top-level response params to camelcase', () => {
-      expect(result).toEqual({
-        units: [{ id: 'unitId' }]
-      })
+      expect(result).toEqual([{ id: 'unitId' }])
     })
 
     describe('when the request fails', () => {

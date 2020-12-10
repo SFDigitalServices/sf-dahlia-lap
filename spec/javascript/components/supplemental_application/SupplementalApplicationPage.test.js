@@ -92,26 +92,23 @@ jest.mock('apiService', () => {
         application_id: 'other application'
       })
 
-      return {
-        units:
-          listingId === _ID_NO_AVAILABLE_UNITS
-            ? [occupiedUnit]
-            : [
-                occupiedUnit,
-                _merge(mockedUnits[0], {
-                  id: 'unit_without_priority',
-                  unit_number: 'unit without priority',
-                  priority_type: null,
-                  max_ami_for_qualifying_unit: 50
-                }),
-                _merge(mockedUnits[1], {
-                  id: 'unit_with_priority',
-                  unit_number: 'unit with priority',
-                  priority_type: 'Hearing/Vision impairments',
-                  max_ami_for_qualifying_unit: 50
-                })
-              ]
-      }
+      return listingId === _ID_NO_AVAILABLE_UNITS
+        ? [occupiedUnit]
+        : [
+            occupiedUnit,
+            _merge(mockedUnits[0], {
+              id: 'unit_without_priority',
+              unit_number: 'unit without priority',
+              priority_type: null,
+              max_ami_for_qualifying_unit: 50
+            }),
+            _merge(mockedUnits[1], {
+              id: 'unit_with_priority',
+              unit_number: 'unit with priority',
+              priority_type: 'Hearing/Vision impairments',
+              max_ami_for_qualifying_unit: 50
+            })
+          ]
     },
     getLeaseUpListing: async (listingId) => _cloneDeep(mockedListing),
 

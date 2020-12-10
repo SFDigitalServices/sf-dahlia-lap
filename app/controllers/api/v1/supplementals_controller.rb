@@ -16,9 +16,7 @@ module Api
       end
 
       def units
-        puts 'listing_id', params[:listing_id]
         units = units_service.units_and_leases_for_listing(params[:listing_id])
-        puts 'units', units.to_json()
         render json: {
           units: units  }
       end

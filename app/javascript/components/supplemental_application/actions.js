@@ -25,19 +25,24 @@ const defaultLeaseResponse = (application) => ({
 export const getSupplementalPageData = async (applicationId, listingId = null) => {
   const applicationPromise = async () => apiService.getSupplementalApplication(applicationId)
   const unitsPromise = async (nonNullListingId) => apiService.getUnits(nonNullListingId)
-
+  const listingPromise = async (nonNullListingId) => apiService.getLeaseUpListing(nonNullListingId)
+  const listingAndUnitsPromise = async (nonNullListingId) =>
+    Promise.all([unitsPromise(nonNullListingId), listingPromise(nonNullListingId)])
   const applicationAndUnitsPromise = async () => {
     const inParallelPromiseFunc = async () =>
-      Promise.all([applicationPromise(), unitsPromise(listingId)])
+      Promise.all([applicationPromise(), listingAndUnitsPromise(listingId)])
     const inSequencePromiseFunc = async () =>
-      performInSequence(applicationPromise, (res) => unitsPromise(res.application.listing.id))
+      performInSequence(applicationPromise, (res) =>
+        listingAndUnitsPromise(res.application.listing.id)
+      )
 
     const promiseFunc = listingId ? inParallelPromiseFunc : inSequencePromiseFunc
 
-    return promiseFunc().then(([{ application, fileBaseUrl }, { units }]) => ({
+    return promiseFunc().then(([{ application, fileBaseUrl }, [units, listing]]) => ({
       application,
       fileBaseUrl,
-      units
+      units,
+      listing
     }))
   }
 
@@ -61,7 +66,7 @@ export const getSupplementalPageData = async (applicationId, listingId = null) =
       statusHistory,
       fileBaseUrl,
       units,
-      listing: await apiService.getLeaseUpListing(application.listing.id)
+      listing
     })
   )
 }
