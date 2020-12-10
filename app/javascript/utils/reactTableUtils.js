@@ -14,3 +14,10 @@ const date = (cell) => {
 export const cellFormat = {
   date
 }
+
+export const filterMethod = (filter, row) => {
+  return (
+    // do case insensitive RegExp match instead of the default "startsWith"
+    row[filter.id].match(new RegExp(filter.value, 'ig'))
+  )
+}

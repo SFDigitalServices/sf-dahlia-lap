@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import ReactTable from 'react-table'
 
 import appPaths from 'utils/appPaths'
+import { filterMethod } from 'utils/reactTableUtils'
 import utils from 'utils/utils'
 
 import IndexTableCell from './IndexTableCell'
@@ -30,12 +31,7 @@ const IndexTable = ({ fields, results, links, page }) => {
           }
           return <IndexTableCell {...{ attrs, val }} />
         },
-        filterMethod: (filter, row) => {
-          return (
-            // do case insensitive RegExp match instead of the default "startsWith"
-            row[filter.id].match(new RegExp(filter.value, 'ig'))
-          )
-        }
+        filterMethod: (filter, row) => filterMethod(filter, row)
       }
       if (attrs.minWidth) {
         column.minWidth = attrs.minWidth
