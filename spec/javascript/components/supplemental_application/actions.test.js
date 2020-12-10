@@ -16,6 +16,7 @@ const mockGetLeaseFn = jest.fn()
 const mockGetStatusHistoryFn = jest.fn()
 const mockGetSupplementalApplicationFn = jest.fn()
 const mockGetUnitsFn = jest.fn()
+const mockGetListingFn = jest.fn()
 const mockDeleteLeaseFn = jest.fn()
 const mockUpdateLeaseFn = jest.fn()
 const mockCreateRentalFn = jest.fn()
@@ -31,12 +32,14 @@ jest.mock('apiService', () => {
     return _supplementalApplication.lease
   }
 
-  const mockGetUnits = async (applicationId, listingId) => {
-    mockGetUnitsFn(applicationId, listingId)
-    return {
-      availableUnits: [],
-      units: []
-    }
+  const mockGetUnits = async (listingId) => {
+    mockGetUnitsFn(listingId)
+    return []
+  }
+
+  const mockGetListing = async (listingId) => {
+    mockGetListingFn(listingId)
+    return { id: listingId }
   }
 
   const mockGetStatusHistory = async (applicationId) => {
@@ -96,6 +99,7 @@ jest.mock('apiService', () => {
     submitApplication: mockSubmitApplication,
     getLease: mockGetLease,
     getUnits: mockGetUnits,
+    getLeaseUpListing: mockGetListing,
     getStatusHistory: mockGetStatusHistory,
     getSupplementalApplication: mockGetSupplementalApplication,
     createLease: mockCreateLease,
@@ -118,9 +122,9 @@ describe('getSupplementalPageData', () => {
     test('returns the correct response', () => {
       expect(response).toEqual({
         application: supplementalApplication,
-        availableUnits: [],
         units: [],
-        fileBaseUrl: 'fileBaseUrl'
+        fileBaseUrl: 'fileBaseUrl',
+        listing: { id: supplementalApplication.listing.id }
       })
     })
 
@@ -133,7 +137,11 @@ describe('getSupplementalPageData', () => {
     })
 
     test('calls getUnits with the supplemental application listing id', () => {
-      expect(mockGetUnitsFn.mock.calls[0][1]).toEqual(supplementalApplication.listing.id)
+      expect(mockGetUnitsFn.mock.calls[0][0]).toEqual(supplementalApplication.listing.id)
+    })
+
+    test('calls getListing with the supplemental application listing id', () => {
+      expect(mockGetListingFn.mock.calls[0][0]).toEqual(supplementalApplication.listing.id)
     })
   })
 
@@ -146,9 +154,9 @@ describe('getSupplementalPageData', () => {
     test('returns the correct response', () => {
       expect(response).toEqual({
         application: supplementalApplication,
-        availableUnits: [],
         units: [],
-        fileBaseUrl: 'fileBaseUrl'
+        fileBaseUrl: 'fileBaseUrl',
+        listing: { id: 'otherListingId' }
       })
     })
 
@@ -161,7 +169,11 @@ describe('getSupplementalPageData', () => {
     })
 
     test('calls getUnits with the supplied listing id', () => {
-      expect(mockGetUnitsFn.mock.calls[0][1]).toEqual('otherListingId')
+      expect(mockGetUnitsFn.mock.calls[0][0]).toEqual('otherListingId')
+    })
+
+    test('calls getListing with the supplied listing id', () => {
+      expect(mockGetListingFn.mock.calls[0][0]).toEqual('otherListingId')
     })
   })
 })

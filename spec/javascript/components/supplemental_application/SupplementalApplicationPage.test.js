@@ -20,17 +20,20 @@ const getWindowUrl = (id) => `/lease-ups/applications/${id}/supplemental`
 
 const ID_NO_AVAILABLE_UNITS = 'idwithnoavailableunits'
 const ID_WITH_TOTAL_MONTHLY_RENT = 'idwithtotalmonthlyrent'
+const ID_WITH_SELECTED_UNIT = 'idwithselectedunit'
 
 /**
  * TODO: instead of mocking apiService, we should probably be mocking one level up (actions.js).
  */
 jest.mock('apiService', () => {
   const mockedApplication = require('../../fixtures/supplemental_application').default
+  const mockedListing = require('../../fixtures/listing').default
   const mockedUnits = require('../../fixtures/units').default
   const _merge = require('lodash').merge
   const _cloneDeep = require('lodash').cloneDeep
   const _ID_NO_AVAILABLE_UNITS = 'idwithnoavailableunits'
   const _ID_WITH_TOTAL_MONTHLY_RENT = 'idwithtotalmonthlyrent'
+  const _ID_WITH_SELECTED_UNIT = 'idwithselectedunit'
 
   return {
     getSupplementalApplication: async (applicationId) => {
@@ -40,6 +43,11 @@ jest.mock('apiService', () => {
 
       if (applicationId === _ID_WITH_TOTAL_MONTHLY_RENT) {
         appWithPrefs.total_monthly_rent = '50'
+      }
+
+      if (applicationId === _ID_NO_AVAILABLE_UNITS) {
+        // let the listing know that it should have no available units.
+        appWithPrefs.listing.id = _ID_NO_AVAILABLE_UNITS
       }
 
       _merge(appWithPrefs.preferences[0], {
@@ -55,7 +63,7 @@ jest.mock('apiService', () => {
       })
 
       _merge(appWithPrefs.preferences[2], {
-        id: 'testValidPref',
+        id: 'validDTHPPref',
         post_lottery_validation: 'Confirmed'
       })
 
@@ -65,33 +73,45 @@ jest.mock('apiService', () => {
       }
     },
     getLease: async (applicationId) => {
-      return { ...mockedApplication.lease }
+      const lease = _cloneDeep(mockedApplication.lease)
+      if (applicationId === _ID_WITH_SELECTED_UNIT) {
+        lease.unit = 'id1'
+      } else {
+        lease.unit = null
+      }
+      return { ...lease }
     },
     getStatusHistory: async (applicationId) => [],
-    getUnits: async (applicationId, listingId) => ({
-      units: _cloneDeep(mockedUnits),
-      availableUnits:
-        applicationId === _ID_NO_AVAILABLE_UNITS
-          ? []
-          : [
-              {
-                id: 'id1',
-                unit_number: '123',
-                unit_type: 'studio',
-                priority_type: null,
-                max_ami_for_qualifying_unit: 50,
-                ami_chart_type: 'HUD'
-              },
-              {
-                id: 'id2',
-                unit_number: '100',
-                unit_type: 'studio',
-                priority_type: null,
-                max_ami_for_qualifying_unit: 50,
-                ami_chart_type: 'HUD'
-              }
-            ]
-    }),
+    getUnits: async (listingId) => {
+      const occupiedUnit = _merge(_cloneDeep(mockedUnits[0]), {
+        id: 'idOccupied',
+        unit_number: 'occupied',
+        unit_type: 'studio',
+        priority_type: null,
+        max_ami_for_qualifying_unit: 50,
+        application_id: 'other application'
+      })
+
+      return listingId === _ID_NO_AVAILABLE_UNITS
+        ? [occupiedUnit]
+        : [
+            occupiedUnit,
+            _merge(mockedUnits[0], {
+              id: 'unit_without_priority',
+              unit_number: 'unit without priority',
+              priority_type: null,
+              max_ami_for_qualifying_unit: 50
+            }),
+            _merge(mockedUnits[1], {
+              id: 'unit_with_priority',
+              unit_number: 'unit with priority',
+              priority_type: 'Hearing/Vision impairments',
+              max_ami_for_qualifying_unit: 50
+            })
+          ]
+    },
+    getLeaseUpListing: async (listingId) => _cloneDeep(mockedListing),
+
     submitApplication: async (application) => {
       mockSubmitApplication(application)
       return _merge(_cloneDeep(mockedApplication), application)
@@ -139,7 +159,7 @@ jest.mock('apiService', () => {
   }
 })
 
-const getWrapper = async (id = getMockApplication().id) => {
+const getWrapper = async (id = getMockApplication().id, unitId = null) => {
   let wrapper
   await act(async () => {
     wrapper = mountAppWithUrl(getWindowUrl(id))
@@ -342,7 +362,7 @@ describe('SupplementalApplicationPage', () => {
 
       // Add a valid preference for preference used
       merge(mockApplication.preferences[0], {
-        id: 'testValidPref',
+        id: 'validDTHPPref',
         post_lottery_validation: 'Confirmed'
       })
 
@@ -356,7 +376,11 @@ describe('SupplementalApplicationPage', () => {
 
       // Lease start date
       act(() => {
-        wrapper.find('#form-lease_unit').find('Select').instance().props.onChange({ value: 'id1' })
+        wrapper
+          .find('#form-lease_unit')
+          .find('Select')
+          .props()
+          .onChange({ value: 'unit_without_priority' })
 
         wrapper.find('#lease_start_date_month input').simulate('change', { target: { value: '1' } })
         wrapper.find('#lease_start_date_day input').simulate('change', { target: { value: '12' } })
@@ -367,7 +391,7 @@ describe('SupplementalApplicationPage', () => {
 
         // Preference used
         wrapper
-          .find('[name="lease.preference_used"] select option[value="testValidPref"]')
+          .find('[name="lease.preference_used"] select option[value="validDTHPPref"]')
           .simulate('change')
       })
       wrapper.update()
@@ -399,11 +423,11 @@ describe('SupplementalApplicationPage', () => {
       const expectedLease = {
         id: 'a130P000005TeZrQAK',
         bmr_parking_space_assigned: 'Yes',
-        unit: 'id1',
+        unit: 'unit_without_priority',
         lease_start_date: { year: '2019', month: '1', day: '12' },
         lease_status: 'Draft',
         no_preference_used: false,
-        preference_used: 'testValidPref',
+        preference_used: 'validDTHPPref',
         total_monthly_rent_without_parking: '1',
         monthly_parking_rent: '2',
         monthly_tenant_contribution: '3',
@@ -416,12 +440,13 @@ describe('SupplementalApplicationPage', () => {
     })
 
     test('should send a null value for unit to API if selected', async () => {
+      const wrapper = await getWrapper(ID_WITH_SELECTED_UNIT)
       wrapper.find('#edit-lease-button').first().simulate('click')
 
       // Select the value from the dropdown
 
       act(() => {
-        wrapper.find('#form-lease_unit').find('Select').instance().props.onChange({ value: null })
+        wrapper.find('#form-lease_unit').find('Select').props().onChange({ value: null })
       })
       wrapper.update()
 
@@ -436,12 +461,89 @@ describe('SupplementalApplicationPage', () => {
       expect(mockUpdateLease).toHaveBeenCalledWith(expect.objectContaining({ unit: null }))
     })
 
-    test('it displays "No Units Available" when no units available', async () => {
+    test('it displays "No Units Available" and 0 units count when no units available', async () => {
       const wrapper = await getWrapper(ID_NO_AVAILABLE_UNITS)
       const unitSelect = wrapper.find('#form-lease_unit').first()
 
       expect(unitSelect.exists()).toBeTruthy()
       expect(unitSelect.html().includes('No Units Available')).toBeTruthy()
+      expect(wrapper.find('#total-available-count').text()).toEqual('0')
+    })
+
+    describe('when no unit is selected', () => {
+      test('it shows expected available unit counts', () => {
+        expect(wrapper.find('#total-available-count').text()).toEqual('2')
+        expect(wrapper.find('#accessibility-available-count').text()).toEqual('1')
+        expect(wrapper.find('#dthp-available-count').text()).toEqual('3')
+        expect(wrapper.find('#nrhp-available-count').text()).toEqual('4')
+      })
+
+      test('it does not change the DTHP availability count when pref used is selected', () => {
+        act(() => {
+          wrapper
+            .find('[name="lease.preference_used"] select')
+            .simulate('change', { target: { value: 'validDTHPPref' } })
+        })
+        expect(wrapper.find('#dthp-available-count').text()).toEqual('3')
+      })
+    })
+
+    describe('when unit without priority is selected', () => {
+      beforeEach(async () => {
+        wrapper.find('#edit-lease-button').first().simulate('click')
+        act(() => {
+          wrapper
+            .find('#form-lease_unit')
+            .find('Select')
+            .props()
+            .onChange({ value: 'unit_without_priority' })
+        })
+        wrapper.update()
+      })
+
+      test('it decreases the number of available units', () => {
+        expect(wrapper.find('#total-available-count').text()).toEqual('1')
+      })
+
+      test('it does not impact the number of accessibility units', () => {
+        expect(wrapper.find('#accessibility-available-count').text()).toEqual('1')
+      })
+
+      test('it does not impact the number of priority set asides', () => {
+        expect(wrapper.find('#dthp-available-count').text()).toEqual('3')
+        expect(wrapper.find('#nrhp-available-count').text()).toEqual('4')
+      })
+
+      test('it decreases the available DTHP count when DTHP is pref used', () => {
+        act(() => {
+          wrapper
+            .find('[name="lease.preference_used"] select')
+            .simulate('change', { target: { value: 'validDTHPPref' } })
+        })
+        expect(wrapper.find('#dthp-available-count').text()).toEqual('2')
+      })
+    })
+
+    describe('when unit with priority is selected', () => {
+      beforeEach(async () => {
+        wrapper.find('#edit-lease-button').first().simulate('click')
+        act(() => {
+          wrapper
+            .find('#form-lease_unit')
+            .find('Select')
+            .props()
+            .onChange({ value: 'unit_with_priority' })
+        })
+        wrapper.update()
+      })
+
+      test('it decreases the number of available units', () => {
+        expect(wrapper.find('#total-available-count').text()).toEqual('1')
+      })
+
+      test('it decreases the number of accessibility units', () => {
+        expect(wrapper.find('#accessibility-available-count').text()).toEqual('0')
+      })
     })
   })
 

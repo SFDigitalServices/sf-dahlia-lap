@@ -19,6 +19,7 @@ module Force
       { domain: 'total_monthly_rent_without_parking', salesforce: 'Total_Monthly_Rent_without_Parking' },
       { domain: 'unit', salesforce: 'Unit' },
       { domain: 'parking_spot_number', salesforce: 'Parking_Spot_Number' },
+      { domain: 'preference_used_name', salesforce: 'Preference_Used_Name' }
     ].freeze
 
     def to_salesforce

@@ -30,5 +30,14 @@ RSpec.describe Force::SoqlQueryBuilder do
 
       expect(soql).to eq("SELECT Id FROM Application__c WHERE (Status__c != 'DRAFT') AND (Id == 1) LIMIT 100 OFFSET 200")
     end
+
+    it 'should allow queries without a where clause' do
+      builder = Force::SoqlQueryBuilder.new(client)
+
+      soql = builder.from(:Application__c)
+                    .select('Id')
+                    .to_soql
+      expect(soql).to eq('SELECT Id FROM Application__c')
+    end
   end
 end

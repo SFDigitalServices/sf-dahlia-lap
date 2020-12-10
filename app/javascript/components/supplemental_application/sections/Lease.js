@@ -12,7 +12,7 @@ import { CurrencyField, FieldError, Label, SelectField } from 'utils/form/final_
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import { areLeaseAndRentalAssistancesValid } from 'utils/form/formSectionValidations'
 import formUtils from 'utils/formUtils'
-import { doesApplicationHaveLease } from 'utils/leaseUtils'
+import { doesApplicationHaveLease, totalSetAsidesForPref } from 'utils/leaseUtils'
 import { pluck } from 'utils/utils'
 
 import { convertPercentAndCurrency, validateLeaseCurrency } from '../../../utils/form/validations'
@@ -24,7 +24,8 @@ import ParkingInformationInputs from './ParkingInformationInputs'
 import RentalAssistance from './RentalAssistance'
 
 const NONE_PREFERENCE_LABEL = 'None'
-
+const DTHP = 'Displaced Tenant Housing Preference (DTHP)'
+const NRHP = 'Neighborhood Resident Housing Preference (NRHP)'
 const toggleNoPreferenceUsed = (form, event) => {
   // lease.preference_used need to be reset, otherwise SF validation fails
   if (isEmpty(event.target.value)) {
@@ -32,6 +33,20 @@ const toggleNoPreferenceUsed = (form, event) => {
   }
   form.change('lease.no_preference_used', isEmpty(event.target.value))
 }
+
+const UnitCountNote = ({ title, value, bold = false }) => (
+  <FormGrid.Item width='25%'>
+    <strong className='form-note micro h-caps'>{title}</strong>
+    <p className='margin-top'>
+      <span
+        className={classNames('form-note', { 't-bold': bold })}
+        id={`${title.toLowerCase()}-available-count`}
+      >
+        {value}
+      </span>
+    </p>
+  </FormGrid.Item>
+)
 
 const LeaseActions = ({
   onEditLeaseClick,
@@ -92,40 +107,21 @@ const LeaseActions = ({
 
 const Lease = ({ form, values, store }) => {
   const {
-    availableUnits,
     application,
     handleSaveLease,
     handleDeleteLease,
     handleEditLeaseClick,
     handleCancelLeaseClick,
     leaseSectionState,
-    loading
+    listing,
+    loading,
+    units
   } = store
 
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
 
   const isEditingMode = leaseSectionState === EDIT_LEASE_STATE
   const disabled = !isEditingMode
-
-  const availableUnitsOptions = formUtils.toOptions(
-    map(availableUnits, pluck('id', 'unit_number', 'priority_type'))
-  )
-
-  const accessibilityUnits =
-    availableUnits &&
-    availableUnits.filter((unit) => {
-      return unit.priority_type && unit.priority_type.match(/Mobility|Hearing|Vision/)
-    })
-
-  const confirmedPreferences = filter(application.preferences, {
-    post_lottery_validation: 'Confirmed'
-  })
-
-  const confirmedPreferenceOptions = formUtils.toOptions([
-    formUtils.toEmptyOption(NONE_PREFERENCE_LABEL),
-    ...map(confirmedPreferences, pluck('id', 'preference_name'))
-  ])
-
   const getVisited = (fieldName) => form.getFieldState(fieldName)?.visited
 
   const openDeleteLeaseConfirmation = () => setShowDeleteConfirmation(true)
@@ -136,7 +132,52 @@ const Lease = ({ form, values, store }) => {
     handleDeleteLease()
   }
 
+  const confirmedPreferences = filter(application.preferences, {
+    post_lottery_validation: 'Confirmed'
+  })
+
+  const confirmedPreferenceOptions = formUtils.toOptions([
+    formUtils.toEmptyOption(NONE_PREFERENCE_LABEL),
+    ...map(confirmedPreferences, pluck('id', 'preference_name'))
+  ])
+
+  const availableUnits = units.filter(
+    (unit) => !unit.application_id || unit.application_id === application.id
+  )
+
+  const availableUnitsOptions = formUtils.toOptions(
+    map(availableUnits, pluck('id', 'unit_number', 'priority_type'))
+  )
+
+  const selectedUnit = form.getState().values.lease?.unit
+
   const areNoUnitsAvailable = !availableUnitsOptions.length
+
+  const isSelected = (pref) => {
+    const prefUsed = confirmedPreferences.find(
+      (pref) => pref.id === form.getState().values.lease?.preference_used
+    )
+    return prefUsed?.preference_name === pref
+  }
+
+  const unitIsUsedWithPrefElsewhere = (unit, pref) =>
+    unit.application_id &&
+    unit.application_id !== application.id &&
+    unit.preference_used_name === pref
+
+  const numUnitsUsingPref = (pref) =>
+    units.filter(
+      (unit) =>
+        (unit.id === selectedUnit && isSelected(pref)) || unitIsUsedWithPrefElsewhere(unit, pref)
+    ).length
+
+  const remainingSetAsidesForPref = (pref) =>
+    totalSetAsidesForPref(listing, pref) - numUnitsUsingPref(pref)
+
+  // Selected unit does not count in available a11y units.
+  const remainingPriorityUnits = availableUnits.filter(
+    (unit) => unit.id !== selectedUnit && unit.priority_type?.match(/Mobility|Hearing|Vision/)
+  )
 
   const validateAndSaveLease = (form) => {
     if (areLeaseAndRentalAssistancesValid(form)) {
@@ -168,18 +209,14 @@ const Lease = ({ form, values, store }) => {
           </FormGrid.Item>
         </FormGrid.Row>
         <FormGrid.Row>
-          <FormGrid.Item width='25%'>
-            <strong className='form-note micro h-caps'>Total</strong>
-            <p className='margin-top'>
-              <strong className='form-note'>{availableUnits.length}</strong>
-            </p>
-          </FormGrid.Item>
-          <FormGrid.Item width='25%'>
-            <strong className='form-note micro h-caps'>Accessibility</strong>
-            <p className='margin-top'>
-              <span className='form-note'>{accessibilityUnits.length}</span>
-            </p>
-          </FormGrid.Item>
+          <UnitCountNote
+            title={'Total'}
+            value={selectedUnit ? availableUnits.length - 1 : availableUnits.length}
+            bold
+          />
+          <UnitCountNote title={'Accessibility'} value={remainingPriorityUnits.length} />
+          <UnitCountNote title={'DTHP'} value={remainingSetAsidesForPref(DTHP)} />
+          <UnitCountNote title={'NRHP'} value={remainingSetAsidesForPref(NRHP)} />
         </FormGrid.Row>
         <FormGrid.Row>
           <FormGrid.Item>
