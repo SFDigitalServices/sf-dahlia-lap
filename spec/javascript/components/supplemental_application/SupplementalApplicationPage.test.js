@@ -379,8 +379,8 @@ describe('SupplementalApplicationPage', () => {
         wrapper
           .find('#form-lease_unit')
           .find('Select')
-          .instance()
-          .props.onChange({ value: 'unit_without_priority' })
+          .props()
+          .onChange({ value: 'unit_without_priority' })
 
         wrapper.find('#lease_start_date_month input').simulate('change', { target: { value: '1' } })
         wrapper.find('#lease_start_date_day input').simulate('change', { target: { value: '12' } })
@@ -446,7 +446,7 @@ describe('SupplementalApplicationPage', () => {
       // Select the value from the dropdown
 
       act(() => {
-        wrapper.find('#form-lease_unit').find('Select').instance().props.onChange({ value: null })
+        wrapper.find('#form-lease_unit').find('Select').props().onChange({ value: null })
       })
       wrapper.update()
 
@@ -495,8 +495,8 @@ describe('SupplementalApplicationPage', () => {
           wrapper
             .find('#form-lease_unit')
             .find('Select')
-            .instance()
-            .props.onChange({ value: 'unit_without_priority' })
+            .props()
+            .onChange({ value: 'unit_without_priority' })
         })
         wrapper.update()
       })
@@ -531,8 +531,8 @@ describe('SupplementalApplicationPage', () => {
           wrapper
             .find('#form-lease_unit')
             .find('Select')
-            .instance()
-            .props.onChange({ value: 'unit_with_priority' })
+            .props()
+            .onChange({ value: 'unit_with_priority' })
         })
         wrapper.update()
       })

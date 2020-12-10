@@ -7,7 +7,7 @@ const units = [
     'property_type': null,
     'ami_chart_type': 'HUD Unadjusted',
     'ami_chart_year': 2017,
-    'reserved_type': null,
+    'reserved_type': null
   },
   {
     'unit_type': 'Studio',

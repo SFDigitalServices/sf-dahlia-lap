@@ -176,10 +176,7 @@ const Lease = ({ form, values, store }) => {
 
   // Selected unit does not count in available a11y units.
   const remainingPriorityUnits = availableUnits.filter(
-    (unit) =>
-      unit.id !== selectedUnit &&
-      unit.priority_type &&
-      unit.priority_type.match(/Mobility|Hearing|Vision/)
+    (unit) => unit.id !== selectedUnit && unit.priority_type?.match(/Mobility|Hearing|Vision/)
   )
 
   const validateAndSaveLease = (form) => {

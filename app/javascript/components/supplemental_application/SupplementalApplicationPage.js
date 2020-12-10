@@ -84,7 +84,7 @@ const SupplementalApplicationPage = ({ applicationId }) => {
 
   const [{ breadcrumbData }, actions] = useContext(AppContext)
 
-  useAsyncOnMount(() => getSupplementalPageData(applicationId, breadcrumbData?.listing.id), {
+  useAsyncOnMount(() => getSupplementalPageData(applicationId, breadcrumbData?.listing?.id), {
     onSuccess: ({ application, statusHistory, fileBaseUrl, units, listing }) => {
       setState({
         application: setApplicationsDefaults(application),
