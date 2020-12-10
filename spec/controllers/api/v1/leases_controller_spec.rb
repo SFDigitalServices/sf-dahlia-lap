@@ -9,6 +9,28 @@ RSpec.describe Api::V1::LeasesController, type: :controller do
   test_lease_id = 'a130P000007U6tkQAC' # Lease id for application_with_lease
   application_without_lease = 'a0o0P00000ItlpiQAB' # Random application
   lease_id_length = 18
+  describe '#index' do
+    it 'updates existing lease if application has lease' do
+      VCR.use_cassette('api/v1/leases/index/app-with-lease') do
+        get :index, params: { application_id: application_with_lease }
+      end
+
+      expect(response).to have_http_status(:success)
+      json = JSON.parse(response.body)
+      expect(json['lease']['id']).to eq('a130P000007U6tkQAC')
+    end
+
+    it 'returns an empty lease object if application doesn\'t have lease' do
+      VCR.use_cassette('api/v1/leases/index/app-without-lease') do
+        get :index, params: { application_id: application_without_lease }
+      end
+
+      expect(response).to have_http_status(:success)
+      json = JSON.parse(response.body)
+      expect(json['lease']).to eq({})
+    end
+  end
+
   describe '#create' do
     it 'updates existing lease if application has lease' do
       VCR.use_cassette('api/v1/leases/create/app-with-lease') do

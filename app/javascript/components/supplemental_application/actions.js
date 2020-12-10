@@ -22,10 +22,48 @@ const defaultLeaseResponse = (application) => ({
   rentalAssistances: application?.rental_assistances
 })
 
-export const getSupplementalPageData = async (applicationId) => {
-  const pageData = await apiService.getSupplementalPageData(applicationId)
-  const listing = await apiService.getLeaseUpListing(pageData.application.listing.id)
-  return { ...pageData, listing }
+export const getSupplementalPageData = async (applicationId, listingId = null) => {
+  const applicationPromise = async () => apiService.getSupplementalApplication(applicationId)
+  const unitsPromise = async (nonNullListingId) => apiService.getUnits(nonNullListingId)
+
+  const applicationAndUnitsPromise = async () => {
+    const inParallelPromiseFunc = async () =>
+      Promise.all([applicationPromise(), unitsPromise(listingId)])
+    const inSequencePromiseFunc = async () =>
+      performInSequence(applicationPromise, (res) => unitsPromise(res.application.listing.id))
+
+    const promiseFunc = listingId ? inParallelPromiseFunc : inSequencePromiseFunc
+
+    return promiseFunc().then(([{ application, fileBaseUrl }, { units }]) => ({
+      application,
+      fileBaseUrl,
+      units
+    }))
+  }
+
+  const rentalAssistancesPromise = () => apiService.getRentalAssistances(applicationId)
+  const statusHistoryPromise = () => apiService.getStatusHistory(applicationId)
+  const leasePromise = () => apiService.getLease(applicationId)
+
+  return Promise.all([
+    statusHistoryPromise(),
+    leasePromise(),
+    rentalAssistancesPromise(),
+    applicationAndUnitsPromise()
+  ]).then(
+    async ([
+      { statusHistory },
+      lease,
+      rentalAssistances,
+      { application, fileBaseUrl, units, listing }
+    ]) => ({
+      application: { ...application, lease, rental_assistances: rentalAssistances },
+      statusHistory,
+      fileBaseUrl,
+      units,
+      listing: await apiService.getLeaseUpListing(application.listing.id)
+    })
+  )
 }
 
 /**

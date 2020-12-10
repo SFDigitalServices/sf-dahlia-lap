@@ -1,12 +1,18 @@
 # frozen_string_literal: true
 
+#
+# See https://draftin.com/documents/265218?token=bhHu5yxJW7NJ3AUAsNYBl6nT6UQ9AAHlB9bKF-l4wNl64bh4uDoF9Gw2cf9JBN302u1FOa5IZQ-W8j7jepVCMEY
+# for more information about how to setup puma for concurrency.
+#
+
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers: a minimum and maximum.
 # Any libraries that use thread pools should be configured to match
 # the maximum value specified for Puma. Default is set to 5 threads for minimum
 # and maximum; this matches the default thread size of Active Record.
 #
-threads_count = ENV.fetch('RAILS_MAX_THREADS') { 1 }
+
+threads_count = ENV.fetch('PUMA_THREADS') { 3 }
 threads threads_count, threads_count
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
@@ -23,7 +29,10 @@ environment ENV.fetch('RAILS_ENV') { 'development' }
 # Workers do not work on JRuby or Windows (both of which do not support
 # processes).
 #
-# workers ENV.fetch("WEB_CONCURRENCY") { 2 }
+# Our prod box has 1gb of ram, and each worker uses at least 300mb of memory, so be
+# careful not to set this value > 3 or so.
+
+workers ENV.fetch("PUMA_WORKERS") { 2 }
 
 # Use the `preload_app!` method when specifying a `workers` number.
 # This directive tells Puma to first boot the application and load code
@@ -31,18 +40,15 @@ environment ENV.fetch('RAILS_ENV') { 'development' }
 # process behavior so workers use less memory. If you use this option
 # you need to make sure to reconnect any threads in the `on_worker_boot`
 # block.
-#
-workers 1
-
 preload_app!
 
 # If you are preloading your application and using Active Record, it's
 # recommended that you close any connections to the database before workers
 # are forked to prevent connection leakage.
-#
-# before_fork do
-#   ActiveRecord::Base.connection_pool.disconnect! if defined?(ActiveRecord)
-# end
+
+before_fork do
+  ActiveRecord::Base.connection_pool.disconnect! if defined?(ActiveRecord)
+end
 
 # The code in the `on_worker_boot` will be called if you are using
 # clustered mode by specifying a number of `workers`. After each worker
@@ -50,11 +56,11 @@ preload_app!
 # option, you will want to use this block to reconnect to any threads
 # or connections that may have been created at application boot, as Ruby
 # cannot share connections between processes.
-#
-# on_worker_boot do
-#   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
-# end
-#
+
+on_worker_boot do
+  ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
+end
+
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart

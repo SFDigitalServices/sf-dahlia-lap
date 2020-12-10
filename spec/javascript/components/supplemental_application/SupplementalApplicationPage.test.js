@@ -22,6 +22,9 @@ const ID_NO_AVAILABLE_UNITS = 'idwithnoavailableunits'
 const ID_WITH_TOTAL_MONTHLY_RENT = 'idwithtotalmonthlyrent'
 const ID_WITH_SELECTED_UNIT = 'idwithselectedunit'
 
+/**
+ * TODO: instead of mocking apiService, we should probably be mocking one level up (actions.js).
+ */
 jest.mock('apiService', () => {
   const mockedApplication = require('../../fixtures/supplemental_application').default
   const mockedListing = require('../../fixtures/listing').default
@@ -33,7 +36,7 @@ jest.mock('apiService', () => {
   const _ID_WITH_SELECTED_UNIT = 'idwithselectedunit'
 
   return {
-    getSupplementalPageData: async (applicationId) => {
+    getSupplementalApplication: async (applicationId) => {
       mockInitialLoad(applicationId)
 
       const appWithPrefs = _cloneDeep(mockedApplication)
@@ -45,6 +48,10 @@ jest.mock('apiService', () => {
         appWithPrefs.lease.unit = 'id1'
       } else {
         appWithPrefs.lease.unit = null
+      }
+
+      if (applicationId === _ID_NO_AVAILABLE_UNITS) {
+        appWithPrefs.listing.id = _ID_NO_AVAILABLE_UNITS
       }
 
       _merge(appWithPrefs.preferences[0], {
@@ -59,15 +66,6 @@ jest.mock('apiService', () => {
         recordtype_developername: 'RB_AHP'
       })
 
-      const occupiedUnit = _merge(_cloneDeep(mockedUnits[0]), {
-        id: 'idOccupied',
-        unit_number: 'occupied',
-        unit_type: 'studio',
-        priority_type: null,
-        max_ami_for_qualifying_unit: 50,
-        application_id: 'other application'
-      })
-
       _merge(appWithPrefs.preferences[2], {
         id: 'validDTHPPref',
         post_lottery_validation: 'Confirmed'
@@ -76,9 +74,25 @@ jest.mock('apiService', () => {
       return {
         application: appWithPrefs,
         statusHistory: [],
-        fileBaseUrl: 'fileBaseUrl',
+        fileBaseUrl: 'fileBaseUrl'
+      }
+    },
+    getLease: async (applicationId) => {
+      return { ...mockedApplication.lease }
+    },
+    getStatusHistory: async (applicationId) => [],
+    getUnits: async (listingId) => {
+      const occupiedUnit = _merge(_cloneDeep(mockedUnits[0]), {
+        id: 'idOccupied',
+        unit_number: 'occupied',
+        unit_type: 'studio',
+        priority_type: null,
+        max_ami_for_qualifying_unit: 50,
+        application_id: 'other application'
+      })
+      return {
         units:
-          applicationId === _ID_NO_AVAILABLE_UNITS
+          listingId === _ID_NO_AVAILABLE_UNITS
             ? [occupiedUnit]
             : [
                 occupiedUnit,
@@ -97,7 +111,6 @@ jest.mock('apiService', () => {
               ]
       }
     },
-
     getLeaseUpListing: async (listingId) => _cloneDeep(mockedListing),
 
     submitApplication: async (application) => {
@@ -136,8 +149,11 @@ jest.mock('apiService', () => {
       return leaseWithNewFields
     },
     getRentalAssistances: async (applicationId) => {
+      const assistances = _cloneDeep(mockedApplication.rental_assistances)
+
       mockGetRentalAssistances(applicationId)
-      return []
+
+      return assistances
     },
     createRentalAssistance: async (_) => ({}),
     updateRentalAssistance: async (_) => ({})
