@@ -21,6 +21,9 @@ const getWindowUrl = (id) => `/lease-ups/applications/${id}/supplemental`
 const ID_NO_AVAILABLE_UNITS = 'idwithnoavailableunits'
 const ID_WITH_TOTAL_MONTHLY_RENT = 'idwithtotalmonthlyrent'
 
+/**
+ * TODO: instead of mocking apiService, we should probably be mocking one level up (actions.js).
+ */
 jest.mock('apiService', () => {
   const mockedApplication = require('../../fixtures/supplemental_application').default
   const mockedUnits = require('../../fixtures/units').default
@@ -28,8 +31,9 @@ jest.mock('apiService', () => {
   const _cloneDeep = require('lodash').cloneDeep
   const _ID_NO_AVAILABLE_UNITS = 'idwithnoavailableunits'
   const _ID_WITH_TOTAL_MONTHLY_RENT = 'idwithtotalmonthlyrent'
+
   return {
-    getSupplementalPageData: async (applicationId) => {
+    getSupplementalApplication: async (applicationId) => {
       mockInitialLoad(applicationId)
 
       const appWithPrefs = _cloneDeep(mockedApplication)
@@ -56,33 +60,38 @@ jest.mock('apiService', () => {
       })
 
       return {
-        application: appWithPrefs,
-        statusHistory: [],
-        fileBaseUrl: 'fileBaseUrl',
-        units: _cloneDeep(mockedUnits),
-        availableUnits:
-          applicationId === _ID_NO_AVAILABLE_UNITS
-            ? []
-            : [
-                {
-                  id: 'id1',
-                  unit_number: '123',
-                  unit_type: 'studio',
-                  priority_type: null,
-                  max_ami_for_qualifying_unit: 50,
-                  ami_chart_type: 'HUD'
-                },
-                {
-                  id: 'id2',
-                  unit_number: '100',
-                  unit_type: 'studio',
-                  priority_type: null,
-                  max_ami_for_qualifying_unit: 50,
-                  ami_chart_type: 'HUD'
-                }
-              ]
+        application: { ...appWithPrefs, rental_assistances: null, lease: null },
+        fileBaseUrl: 'fileBaseUrl'
       }
     },
+    getLease: async (applicationId) => {
+      return { ...mockedApplication.lease }
+    },
+    getStatusHistory: async (applicationId) => [],
+    getUnits: async (applicationId, listingId) => ({
+      units: _cloneDeep(mockedUnits),
+      availableUnits:
+        applicationId === _ID_NO_AVAILABLE_UNITS
+          ? []
+          : [
+              {
+                id: 'id1',
+                unit_number: '123',
+                unit_type: 'studio',
+                priority_type: null,
+                max_ami_for_qualifying_unit: 50,
+                ami_chart_type: 'HUD'
+              },
+              {
+                id: 'id2',
+                unit_number: '100',
+                unit_type: 'studio',
+                priority_type: null,
+                max_ami_for_qualifying_unit: 50,
+                ami_chart_type: 'HUD'
+              }
+            ]
+    }),
     submitApplication: async (application) => {
       mockSubmitApplication(application)
       return _merge(_cloneDeep(mockedApplication), application)
@@ -119,8 +128,11 @@ jest.mock('apiService', () => {
       return leaseWithNewFields
     },
     getRentalAssistances: async (applicationId) => {
+      const assistances = _cloneDeep(mockedApplication.rental_assistances)
+
       mockGetRentalAssistances(applicationId)
-      return []
+
+      return assistances
     },
     createRentalAssistance: async (_) => ({}),
     updateRentalAssistance: async (_) => ({})

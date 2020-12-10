@@ -40,10 +40,14 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'ami' => 'ami#get'
 
+      scope '/supplementals' do
+        get 'units' => 'supplementals#units'
+      end
+
       resources :supplementals, only: %w[show]
 
       resources :applications, only: %w[index update] do
-        resources :leases, only: %w[create update destroy]
+        resources :leases, only: %w[index create update destroy]
         resources :field_update_comments, only: %w[index create]
       end
 

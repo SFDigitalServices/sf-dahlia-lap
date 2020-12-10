@@ -10,7 +10,7 @@ module Overcommit
       # removed. Uses the dotenv gem's parser to read in the vars from .env.
       class ScanForEnvVars < Base
         def run
-          ignore_vars = ['SALESFORCE_API_VERSION']
+          ignore_vars = ['SALESFORCE_API_VERSION', 'PUMA_THREADS', 'PUMA_WORKERS']
           env_vars = Dotenv::Parser.call(File.read('.env'))
           ignore_vars.each { |var| env_vars.delete(var) }
           errors = []

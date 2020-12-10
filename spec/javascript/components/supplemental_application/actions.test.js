@@ -2,6 +2,7 @@ import { cloneDeep } from 'lodash'
 
 import {
   deleteLease,
+  getSupplementalPageData,
   saveLeaseAndAssistances,
   updateApplication,
   updateApplicationAndAddComment
@@ -11,6 +12,10 @@ import supplementalApplication from '../../fixtures/supplemental_application'
 
 const mockSubmitAppFn = jest.fn()
 const mockCreateLeaseFn = jest.fn()
+const mockGetLeaseFn = jest.fn()
+const mockGetStatusHistoryFn = jest.fn()
+const mockGetSupplementalApplicationFn = jest.fn()
+const mockGetUnitsFn = jest.fn()
 const mockDeleteLeaseFn = jest.fn()
 const mockUpdateLeaseFn = jest.fn()
 const mockCreateRentalFn = jest.fn()
@@ -19,6 +24,34 @@ const mockCreateFieldUpdateCommentFn = jest.fn()
 const mockGetRentalAssistancesFn = jest.fn()
 
 jest.mock('apiService', () => {
+  const _supplementalApplication = require('../../fixtures/supplemental_application').default
+
+  const mockGetLease = async (applicationId) => {
+    mockGetLeaseFn(applicationId)
+    return _supplementalApplication.lease
+  }
+
+  const mockGetUnits = async (applicationId, listingId) => {
+    mockGetUnitsFn(applicationId, listingId)
+    return {
+      availableUnits: [],
+      units: []
+    }
+  }
+
+  const mockGetStatusHistory = async (applicationId) => {
+    mockGetStatusHistoryFn(applicationId)
+    return []
+  }
+
+  const mockGetSupplementalApplication = async (applicationId) => {
+    mockGetSupplementalApplicationFn(applicationId)
+    return {
+      application: { ..._supplementalApplication, lease: null, rental_assistances: null },
+      fileBaseUrl: 'fileBaseUrl'
+    }
+  }
+
   const mockSubmitApplication = async (application) => {
     mockSubmitAppFn(application)
     return application
@@ -51,7 +84,7 @@ jest.mock('apiService', () => {
 
   const mockGetRentalAssistances = async (applicationId) => {
     mockGetRentalAssistancesFn(applicationId)
-    return []
+    return _supplementalApplication.rental_assistances
   }
 
   const mockCreateFieldUpdateComment = async (id, status, comment, substatus) => {
@@ -61,6 +94,10 @@ jest.mock('apiService', () => {
 
   return {
     submitApplication: mockSubmitApplication,
+    getLease: mockGetLease,
+    getUnits: mockGetUnits,
+    getStatusHistory: mockGetStatusHistory,
+    getSupplementalApplication: mockGetSupplementalApplication,
     createLease: mockCreateLease,
     deleteLease: mockDeleteLease,
     updateLease: mockUpdateLease,
@@ -69,6 +106,64 @@ jest.mock('apiService', () => {
     getRentalAssistances: mockGetRentalAssistances,
     createFieldUpdateComment: mockCreateFieldUpdateComment
   }
+})
+
+describe('getSupplementalPageData', () => {
+  describe('when no listingId is passed', () => {
+    let response
+    beforeEach(async () => {
+      response = await getSupplementalPageData('applicationId')
+    })
+
+    test('returns the correct response', () => {
+      expect(response).toEqual({
+        application: supplementalApplication,
+        availableUnits: [],
+        units: [],
+        fileBaseUrl: 'fileBaseUrl'
+      })
+    })
+
+    test('triggers separate requests', () => {
+      expect(mockGetLeaseFn.mock.calls).toHaveLength(1)
+      expect(mockGetSupplementalApplicationFn.mock.calls).toHaveLength(1)
+      expect(mockGetRentalAssistancesFn.mock.calls).toHaveLength(1)
+      expect(mockGetStatusHistoryFn.mock.calls).toHaveLength(1)
+      expect(mockGetUnitsFn.mock.calls).toHaveLength(1)
+    })
+
+    test('calls getUnits with the supplemental application listing id', () => {
+      expect(mockGetUnitsFn.mock.calls[0][1]).toEqual(supplementalApplication.listing.id)
+    })
+  })
+
+  describe('when a listing ID is passed', () => {
+    let response
+    beforeEach(async () => {
+      response = await getSupplementalPageData('applicationId', 'otherListingId')
+    })
+
+    test('returns the correct response', () => {
+      expect(response).toEqual({
+        application: supplementalApplication,
+        availableUnits: [],
+        units: [],
+        fileBaseUrl: 'fileBaseUrl'
+      })
+    })
+
+    test('triggers separate requests', () => {
+      expect(mockGetLeaseFn.mock.calls).toHaveLength(1)
+      expect(mockGetSupplementalApplicationFn.mock.calls).toHaveLength(1)
+      expect(mockGetRentalAssistancesFn.mock.calls).toHaveLength(1)
+      expect(mockGetStatusHistoryFn.mock.calls).toHaveLength(1)
+      expect(mockGetUnitsFn.mock.calls).toHaveLength(1)
+    })
+
+    test('calls getUnits with the supplied listing id', () => {
+      expect(mockGetUnitsFn.mock.calls[0][1]).toEqual('otherListingId')
+    })
+  })
 })
 
 describe('updateApplication', () => {
