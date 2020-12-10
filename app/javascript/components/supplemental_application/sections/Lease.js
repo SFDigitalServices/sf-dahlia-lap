@@ -24,8 +24,8 @@ import ParkingInformationInputs from './ParkingInformationInputs'
 import RentalAssistance from './RentalAssistance'
 
 const NONE_PREFERENCE_LABEL = 'None'
-const DTHP = 'DTHP'
-const NRHP = 'NRHP'
+const DTHP = 'Displaced Tenant Housing Preference (DTHP)'
+const NRHP = 'Neighborhood Resident Housing Preference (NRHP)'
 const toggleNoPreferenceUsed = (form, event) => {
   // lease.preference_used need to be reset, otherwise SF validation fails
   if (isEmpty(event.target.value)) {
@@ -33,6 +33,20 @@ const toggleNoPreferenceUsed = (form, event) => {
   }
   form.change('lease.no_preference_used', isEmpty(event.target.value))
 }
+
+const UnitCountNote = ({ title, value, bold = false }) => (
+  <FormGrid.Item width='25%'>
+    <strong className='form-note micro h-caps'>{title}</strong>
+    <p className='margin-top'>
+      <span
+        className={classNames('form-note', { 't-bold': bold })}
+        id={`${title.toLowerCase()}-available-count`}
+      >
+        {value}
+      </span>
+    </p>
+  </FormGrid.Item>
+)
 
 const LeaseActions = ({
   onEditLeaseClick,
@@ -139,24 +153,26 @@ const Lease = ({ form, values, store }) => {
 
   const areNoUnitsAvailable = !availableUnitsOptions.length
 
-  const prefUsedIs = (pref) => {
+  const isSelected = (pref) => {
     const prefUsed = confirmedPreferences.find(
       (pref) => pref.id === form.getState().values.lease?.preference_used
     )
-    return prefUsed?.preference_name.includes(pref)
+    return prefUsed?.preference_name === pref
   }
 
   const unitIsUsedWithPrefElsewhere = (unit, pref) =>
     unit.application_id &&
     unit.application_id !== application.id &&
-    unit.preference_used_name?.includes(pref)
+    unit.preference_used_name === pref
 
-  const remainingSetAsidesForPref = (pref) =>
-    totalSetAsidesForPref(listing, pref) -
+  const numUnitsUsingPref = (pref) =>
     units.filter(
       (unit) =>
-        (unit.id === selectedUnit && prefUsedIs(pref)) || unitIsUsedWithPrefElsewhere(unit, pref)
+        (unit.id === selectedUnit && isSelected(pref)) || unitIsUsedWithPrefElsewhere(unit, pref)
     ).length
+
+  const remainingSetAsidesForPref = (pref) =>
+    totalSetAsidesForPref(listing, pref) - numUnitsUsingPref(pref)
 
   // Selected unit does not count in available a11y units.
   const remainingPriorityUnits = availableUnits.filter(
@@ -196,38 +212,14 @@ const Lease = ({ form, values, store }) => {
           </FormGrid.Item>
         </FormGrid.Row>
         <FormGrid.Row>
-          <FormGrid.Item width='25%'>
-            <strong className='form-note micro h-caps'>Total</strong>
-            <p className='margin-top'>
-              <strong className='form-note' id='unit-available-count'>
-                {selectedUnit ? availableUnits.length - 1 : availableUnits.length}
-              </strong>
-            </p>
-          </FormGrid.Item>
-          <FormGrid.Item width='25%'>
-            <strong className='form-note micro h-caps'>Accessibility</strong>
-            <p className='margin-top'>
-              <span className='form-note' id='priority-available-count'>
-                {remainingPriorityUnits.length}
-              </span>
-            </p>
-          </FormGrid.Item>
-          <FormGrid.Item width='25%'>
-            <strong className='form-note micro h-caps'>DTHP</strong>
-            <p className='margin-top'>
-              <span className='form-note' id='dthp-available-count'>
-                {remainingSetAsidesForPref(DTHP)}
-              </span>
-            </p>
-          </FormGrid.Item>
-          <FormGrid.Item width='25%'>
-            <strong className='form-note micro h-caps'>NRHP</strong>
-            <p className='margin-top'>
-              <span className='form-note' id='nrhp-available-count'>
-                {remainingSetAsidesForPref(NRHP)}
-              </span>
-            </p>
-          </FormGrid.Item>
+          <UnitCountNote
+            title={'Total'}
+            value={selectedUnit ? availableUnits.length - 1 : availableUnits.length}
+            bold
+          />
+          <UnitCountNote title={'Accessibility'} value={remainingPriorityUnits.length} />
+          <UnitCountNote title={'DTHP'} value={remainingSetAsidesForPref(DTHP)} />
+          <UnitCountNote title={'NRHP'} value={remainingSetAsidesForPref(NRHP)} />
         </FormGrid.Row>
         <FormGrid.Row>
           <FormGrid.Item>

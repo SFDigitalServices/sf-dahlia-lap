@@ -452,13 +452,13 @@ describe('SupplementalApplicationPage', () => {
 
       expect(unitSelect.exists()).toBeTruthy()
       expect(unitSelect.html().includes('No Units Available')).toBeTruthy()
-      expect(wrapper.find('#unit-available-count').text()).toEqual('0')
+      expect(wrapper.find('#total-available-count').text()).toEqual('0')
     })
 
     describe('when no unit is selected', () => {
       test('it shows expected available unit counts', () => {
-        expect(wrapper.find('#unit-available-count').text()).toEqual('2')
-        expect(wrapper.find('#priority-available-count').text()).toEqual('1')
+        expect(wrapper.find('#total-available-count').text()).toEqual('2')
+        expect(wrapper.find('#accessibility-available-count').text()).toEqual('1')
         expect(wrapper.find('#dthp-available-count').text()).toEqual('3')
         expect(wrapper.find('#nrhp-available-count').text()).toEqual('4')
       })
@@ -487,11 +487,11 @@ describe('SupplementalApplicationPage', () => {
       })
 
       test('it decreases the number of available units', () => {
-        expect(wrapper.find('#unit-available-count').text()).toEqual('1')
+        expect(wrapper.find('#total-available-count').text()).toEqual('1')
       })
 
       test('it does not impact the number of accessibility units', () => {
-        expect(wrapper.find('#priority-available-count').text()).toEqual('1')
+        expect(wrapper.find('#accessibility-available-count').text()).toEqual('1')
       })
 
       test('it does not impact the number of priority set asides', () => {
@@ -523,11 +523,11 @@ describe('SupplementalApplicationPage', () => {
       })
 
       test('it decreases the number of available units', () => {
-        expect(wrapper.find('#unit-available-count').text()).toEqual('1')
+        expect(wrapper.find('#total-available-count').text()).toEqual('1')
       })
 
       test('it decreases the number of accessibility units', () => {
-        expect(wrapper.find('#priority-available-count').text()).toEqual('0')
+        expect(wrapper.find('#accessibility-available-count').text()).toEqual('0')
       })
     })
   })

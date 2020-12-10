@@ -1633,12 +1633,12 @@ Array [
                       <p
                         className="margin-top"
                       >
-                        <strong
-                          className="form-note"
-                          id="unit-available-count"
+                        <span
+                          className="form-note t-bold"
+                          id="total-available-count"
                         >
                           2
-                        </strong>
+                        </span>
                       </p>
                     </div>
                     <div
@@ -1654,7 +1654,7 @@ Array [
                       >
                         <span
                           className="form-note"
-                          id="priority-available-count"
+                          id="accessibility-available-count"
                         >
                           1
                         </span>
