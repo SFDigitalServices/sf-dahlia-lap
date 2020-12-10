@@ -5,6 +5,7 @@ import { Form } from 'react-final-form'
 import { MemoryRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Context from 'components/supplemental_application/context'
+import Provider from 'context/Provider'
 import LeaseUpRoutes from 'routes/LeaseUpRoutes'
 
 const formNode = (application, formToChildrenFunc) => (
@@ -113,9 +114,11 @@ export const withRouter = (urlWithParamPlaceholders, url, children) => {
 }
 
 export const leaseUpAppWithUrl = (url) => (
-  <Router initialEntries={[url]}>
-    <LeaseUpRoutes />
-  </Router>
+  <Provider>
+    <Router initialEntries={[url]}>
+      <LeaseUpRoutes />
+    </Router>
+  </Provider>
 )
 
 export const mountAppWithUrl = (url) => mount(leaseUpAppWithUrl(url))

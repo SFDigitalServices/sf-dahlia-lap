@@ -4,6 +4,11 @@ module Api
   module V1
     # RESTful JSON API for lease actions
     class LeasesController < ApiController
+      def index
+        response = soql_lease_service.application_lease(params[:application_id])
+        render json: { lease: response }
+      end
+
       # All requests are creates since we do not know if the lease exists until we check.
       def create
         # Before creating a lease, we must check if one already exists for the

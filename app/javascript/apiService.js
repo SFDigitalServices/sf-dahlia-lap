@@ -14,16 +14,30 @@ const getShortFormApplication = async (applicationId) =>
     fileBaseUrl: response.file_base_url
   }))
 
-const getSupplementalPageData = async (applicationId) =>
+const getSupplementalApplication = async (applicationId) =>
   request
     .get(`/supplementals/${applicationId}`, null, true)
-    .then(({ application, available_units, file_base_url, status_history, units }) => ({
+    .then(({ application, file_base_url }) => ({
       application,
+      fileBaseUrl: file_base_url
+    }))
+
+const getUnits = async (applicationId, listingId) =>
+  request
+    .get(
+      `/supplementals/units`,
+      { params: { application_id: applicationId, listing_id: listingId } },
+      true
+    )
+    .then(({ available_units, units }) => ({
       availableUnits: available_units,
-      statusHistory: status_history,
-      fileBaseUrl: file_base_url,
       units
     }))
+
+const getStatusHistory = async (applicationId) =>
+  request
+    .get(`/applications/${applicationId}/field_update_comments`, null, true)
+    .then(({ data }) => ({ statusHistory: data }))
 
 const updateFlaggedApplication = async (data) => {
   const putData = {
@@ -149,6 +163,10 @@ const getLeaseRequestData = (rawLeaseObject, primaryApplicantContact) => ({
   }
 })
 
+export const getLease = async (applicationId) => {
+  return request.get(`/applications/${applicationId}/leases`, null, true).then(({ lease }) => lease)
+}
+
 export const updateLease = async (leaseToUpdate, primaryApplicantContact, applicationId) => {
   if (!isLeaseAlreadyCreated(leaseToUpdate)) {
     throw new Error('Trying to update a lease that doesn’t yet exist.')
@@ -191,10 +209,13 @@ export default {
   fetchApplications,
   fetchLeaseUpApplications,
   getAMI,
+  getUnits,
+  getLease,
   getLeaseUpListing,
   getLeaseUpListings,
   getShortFormApplication,
-  getSupplementalPageData,
+  getStatusHistory,
+  getSupplementalApplication,
   updatePreference,
   getFieldUpdateComments,
   createFieldUpdateComment,

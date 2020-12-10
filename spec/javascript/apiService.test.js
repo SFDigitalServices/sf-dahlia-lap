@@ -1,6 +1,8 @@
 import { request } from 'api/request'
 import apiService from 'apiService'
 
+import supplementalApplication from './fixtures/supplemental_application'
+
 const mockFailedFn = jest.fn(() =>
   Promise.resolve({ lease: true }).then(() => {
     throw new Error('Promise failed')
@@ -15,8 +17,13 @@ const mockSuppAppGetFn = jest.fn(() =>
       id: 'applicationId',
       child_snake_case_key: 'someValue'
     },
-    status_history: [{ id: 'statusHistoryId' }],
-    file_base_url: 'file base url',
+    file_base_url: 'file base url'
+  })
+)
+const mockGetLeaseFn = jest.fn(() => Promise.resolve({ lease: supplementalApplication.lease }))
+const mockGetStatusHistoryFn = jest.fn(() => Promise.resolve({ data: [] }))
+const mockGetUnitsFn = jest.fn(() =>
+  Promise.resolve({
     available_units: [{ id: 'availableUnitId' }],
     units: [{ id: 'unitId' }]
   })
@@ -44,7 +51,7 @@ describe('apiService', () => {
       let errorCaught
       beforeEach(async () => {
         request.get = mockSuppAppGetFn
-        result = await apiService.getSupplementalPageData('applicationId').catch(() => {
+        result = await apiService.getSupplementalApplication('applicationId').catch(() => {
           errorCaught = true
         })
       })
@@ -64,10 +71,7 @@ describe('apiService', () => {
             id: 'applicationId',
             child_snake_case_key: 'someValue'
           },
-          statusHistory: [{ id: 'statusHistoryId' }],
-          fileBaseUrl: 'file base url',
-          availableUnits: [{ id: 'availableUnitId' }],
-          units: [{ id: 'unitId' }]
+          fileBaseUrl: 'file base url'
         })
       })
     })
@@ -80,7 +84,142 @@ describe('apiService', () => {
       test('propagates the error', async () => {
         let errorCaught = false
 
-        await apiService.getSupplementalPageData('applicationId').catch(() => {
+        await apiService.getSupplementalApplication('applicationId').catch(() => {
+          errorCaught = true
+        })
+
+        expect(errorCaught).toBeTruthy()
+      })
+    })
+  })
+
+  describe('getUnits', () => {
+    let result
+    let errorCaught
+    beforeEach(async () => {
+      request.get = mockGetUnitsFn
+      result = await apiService.getUnits('applicationId', 'listingId').catch(() => {
+        errorCaught = true
+      })
+    })
+
+    test('does not fail', () => {
+      expect(errorCaught).toBeFalsy()
+    })
+
+    test('calls with the correct params', () => {
+      expect(mockGetUnitsFn.mock.calls).toHaveLength(1)
+      expect(mockGetUnitsFn.mock.calls[0]).toEqual([
+        '/supplementals/units',
+        { params: { application_id: 'applicationId', listing_id: 'listingId' } },
+        true
+      ])
+    })
+
+    test('converts the top-level response params to camelcase', () => {
+      expect(result).toEqual({
+        availableUnits: [{ id: 'availableUnitId' }],
+        units: [{ id: 'unitId' }]
+      })
+    })
+
+    describe('when the request fails', () => {
+      beforeEach(async () => {
+        request.get = mockFailedFn
+      })
+
+      test('propagates the error', async () => {
+        let errorCaught = false
+
+        await apiService.getUnits('applicationId', 'listingId').catch(() => {
+          errorCaught = true
+        })
+
+        expect(errorCaught).toBeTruthy()
+      })
+    })
+  })
+
+  describe('getLease', () => {
+    let result
+    let errorCaught
+    beforeEach(async () => {
+      request.get = mockGetLeaseFn
+      result = await apiService.getLease('applicationId').catch(() => {
+        errorCaught = true
+      })
+    })
+
+    test('does not fail', () => {
+      expect(errorCaught).toBeFalsy()
+    })
+
+    test('calls with the correct params', () => {
+      expect(mockGetLeaseFn.mock.calls).toHaveLength(1)
+      expect(mockGetLeaseFn.mock.calls[0]).toEqual([
+        '/applications/applicationId/leases',
+        null,
+        true
+      ])
+    })
+
+    test('returns the lease object directly', () => {
+      expect(result).toEqual(supplementalApplication.lease)
+    })
+
+    describe('when the request fails', () => {
+      beforeEach(async () => {
+        request.get = mockFailedFn
+      })
+
+      test('propagates the error', async () => {
+        let errorCaught = false
+
+        await apiService.getLease('applicationId').catch(() => {
+          errorCaught = true
+        })
+
+        expect(errorCaught).toBeTruthy()
+      })
+    })
+  })
+
+  describe('getStatusHistory', () => {
+    let result
+    let errorCaught
+    beforeEach(async () => {
+      request.get = mockGetStatusHistoryFn
+      result = await apiService.getStatusHistory('applicationId').catch(() => {
+        errorCaught = true
+      })
+    })
+
+    test('does not fail', () => {
+      expect(errorCaught).toBeFalsy()
+    })
+
+    test('calls with the correct params', () => {
+      expect(mockGetStatusHistoryFn.mock.calls).toHaveLength(1)
+      expect(mockGetStatusHistoryFn.mock.calls[0]).toEqual([
+        '/applications/applicationId/field_update_comments',
+        null,
+        true
+      ])
+    })
+
+    test('returns the lease object directly', () => {
+      expect(result).toEqual({ statusHistory: [] })
+    })
+
+    describe('when the request fails', () => {
+      beforeEach(async () => {
+        request.get = mockFailedFn
+      })
+
+      test('propagates the error', async () => {
+        let errorCaught = false
+
+        await apiService.getStatusHistory('applicationId').catch(() => {
           errorCaught = true
         })
 

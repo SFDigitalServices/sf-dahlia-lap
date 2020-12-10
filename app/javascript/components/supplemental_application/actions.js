@@ -22,8 +22,51 @@ const defaultLeaseResponse = (application) => ({
   rentalAssistances: application?.rental_assistances
 })
 
-export const getSupplementalPageData = async (applicationId) =>
-  apiService.getSupplementalPageData(applicationId)
+export const getSupplementalPageData = async (applicationId, listingId = null) => {
+  const applicationPromise = async () => apiService.getSupplementalApplication(applicationId)
+  const unitsPromise = async (nonNullListingId) =>
+    apiService.getUnits(applicationId, nonNullListingId)
+
+  const applicationAndUnitsPromise = async () => {
+    const inParallelPromiseFunc = async () =>
+      Promise.all([applicationPromise(), unitsPromise(listingId)])
+    const inSequencePromiseFunc = async () =>
+      performInSequence(applicationPromise, (res) => unitsPromise(res.application.listing.id))
+
+    const promiseFunc = listingId ? inParallelPromiseFunc : inSequencePromiseFunc
+
+    return promiseFunc().then(([{ application, fileBaseUrl }, { units, availableUnits }]) => ({
+      application,
+      availableUnits,
+      fileBaseUrl,
+      units
+    }))
+  }
+
+  const rentalAssistancesPromise = () => apiService.getRentalAssistances(applicationId)
+  const statusHistoryPromise = () => apiService.getStatusHistory(applicationId)
+  const leasePromise = () => apiService.getLease(applicationId)
+
+  return Promise.all([
+    statusHistoryPromise(),
+    leasePromise(),
+    rentalAssistancesPromise(),
+    applicationAndUnitsPromise()
+  ]).then(
+    ([
+      { statusHistory },
+      lease,
+      rentalAssistances,
+      { application, fileBaseUrl, units, availableUnits }
+    ]) => ({
+      application: { ...application, lease, rental_assistances: rentalAssistances },
+      availableUnits,
+      statusHistory,
+      fileBaseUrl,
+      units
+    })
+  )
+}
 
 /**
  * Update any fields on the application that have been changed from

@@ -8,15 +8,20 @@ module Api
 
       def show
         id = params[:id]
-        application = soql_application_service.application(id)
-        application['rental_assistances'] = soql_rental_assistance_service.application_rental_assistances(id)
 
         render json: {
-          application: application,
-          status_history: field_update_comment_service.status_history_by_application(id),
+          application: soql_application_service.application(id, { include_lease: false, include_rental_assistances: false }),
           file_base_url: current_user.admin ? ENV['SALESFORCE_INSTANCE_URL'] : ENV['COMMUNITY_LOGIN_URL'],
-          available_units: units_service.available_units_for_application(application[:listing_id], id),
-          units: soql_listing_service.units(application[:listing_id])
+        }
+      end
+
+      def units
+        application_id = params[:application_id]
+        listing_id = params[:listing_id]
+
+        render json: {
+          available_units: units_service.available_units_for_application(listing_id, application_id),
+          units: soql_listing_service.units(listing_id)
         }
       end
 
