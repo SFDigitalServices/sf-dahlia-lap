@@ -44,13 +44,9 @@ jest.mock('apiService', () => {
       if (applicationId === _ID_WITH_TOTAL_MONTHLY_RENT) {
         appWithPrefs.total_monthly_rent = '50'
       }
-      if (applicationId === _ID_WITH_SELECTED_UNIT) {
-        appWithPrefs.lease.unit = 'id1'
-      } else {
-        appWithPrefs.lease.unit = null
-      }
 
       if (applicationId === _ID_NO_AVAILABLE_UNITS) {
+        // let the listing know that it should have no available units.
         appWithPrefs.listing.id = _ID_NO_AVAILABLE_UNITS
       }
 
@@ -72,13 +68,18 @@ jest.mock('apiService', () => {
       })
 
       return {
-        application: appWithPrefs,
-        statusHistory: [],
+        application: { ...appWithPrefs, rental_assistances: null, lease: null },
         fileBaseUrl: 'fileBaseUrl'
       }
     },
     getLease: async (applicationId) => {
-      return { ...mockedApplication.lease }
+      const lease = _cloneDeep(mockedApplication.lease)
+      if (applicationId === _ID_WITH_SELECTED_UNIT) {
+        lease.unit = 'id1'
+      } else {
+        lease.unit = null
+      }
+      return { ...lease }
     },
     getStatusHistory: async (applicationId) => [],
     getUnits: async (listingId) => {
@@ -90,6 +91,7 @@ jest.mock('apiService', () => {
         max_ami_for_qualifying_unit: 50,
         application_id: 'other application'
       })
+
       return {
         units:
           listingId === _ID_NO_AVAILABLE_UNITS

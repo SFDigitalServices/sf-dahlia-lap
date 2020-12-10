@@ -122,11 +122,12 @@ describe('getSupplementalPageData', () => {
     })
 
     test('returns the correct response', () => {
+      console.log('supp app', supplementalApplication.listing)
       expect(response).toEqual({
         application: supplementalApplication,
         units: [],
         fileBaseUrl: 'fileBaseUrl',
-        listing: { id: null }
+        listing: { id: supplementalApplication.listing.id }
       })
     })
 
@@ -140,6 +141,10 @@ describe('getSupplementalPageData', () => {
 
     test('calls getUnits with the supplemental application listing id', () => {
       expect(mockGetUnitsFn.mock.calls[0][1]).toEqual(supplementalApplication.listing.id)
+    })
+
+    test('calls getListing with the supplemental application listing id', () => {
+      expect(mockGetListingFn.mock.calls[0][1]).toEqual(supplementalApplication.listing.id)
     })
   })
 
@@ -168,6 +173,10 @@ describe('getSupplementalPageData', () => {
 
     test('calls getUnits with the supplied listing id', () => {
       expect(mockGetUnitsFn.mock.calls[0][1]).toEqual('otherListingId')
+    })
+
+    test('calls getListing with the supplied listing id', () => {
+      expect(mockGetListingFn.mock.calls[0][1]).toEqual('otherListingId')
     })
   })
 })

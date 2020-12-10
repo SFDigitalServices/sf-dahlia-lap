@@ -1637,7 +1637,7 @@ Array [
                           className="form-note t-bold"
                           id="total-available-count"
                         >
-                          1
+                          2
                         </span>
                       </p>
                     </div>
@@ -1801,11 +1801,8 @@ Array [
                                 className="ui-icon ui-small"
                               >
                                 <div
-                                  className="unit-dropdown__value-container css-g1d714-ValueContainer"
+                                  className="unit-dropdown__value-container unit-dropdown__value-container--has-value css-g1d714-ValueContainer"
                                 >
-                                  <div
-                                    className="unit-dropdown__placeholder css-1wa3eu0-placeholder"
-                                  />
                                   <input
                                     aria-autocomplete="list"
                                     className="css-62g3xt-dummyInput"
