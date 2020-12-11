@@ -73,8 +73,6 @@ const getPreferences = (listing) => {
 const LeaseUpApplicationsPage = () => {
   const [{ breadcrumbData, applicationsListData }, actions] = useContext(AppContext)
 
-  console.log(breadcrumbData, applicationsListData)
-
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
 

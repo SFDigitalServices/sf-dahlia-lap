@@ -63,9 +63,9 @@ export const createActions = (dispatch) => ({
   applicationPageLoadComplete: (application, listing) =>
     dispatch(getApplicationLoadedAction(application, listing)),
   applicationsTableFiltersApplied: (filters) =>
-    dispatch({ type: ACTION_TYPE_APPLICATION_TABLE_FILTERS_APPLIED, data: filters }),
+    dispatch({ type: ACTION_TYPE_APPLICATION_TABLE_FILTERS_APPLIED, data: filters || {} }),
   applicationsTablePageChanged: (page) =>
-    dispatch({ type: ACTION_TYPE_APPLICATION_TABLE_PAGE_CHANGED, data: page }),
+    dispatch({ type: ACTION_TYPE_APPLICATION_TABLE_PAGE_CHANGED, data: page || 0 }),
   applicationsPageMounted: () => dispatch({ type: ACTION_TYPE_LEFT_APPLICATION_SCOPE }),
   listingsPageMounted: () => dispatch({ type: ACTION_TYPE_LEFT_LISTING_SCOPE }),
   applicationsPageLoadComplete: (listing) => dispatch(getListingChangedAction(listing)),

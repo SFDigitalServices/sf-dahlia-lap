@@ -91,69 +91,66 @@ const LeaseUpApplicationsFilterContainer = ({
       <Form
         onSubmit={handleFormSubmit}
         initialValues={appliedFilters}
-        render={({ form, handleSubmit }) => {
-          console.log(form.getState().values)
-          return (
-            <form style={styles.marginBottomZero} onSubmit={handleSubmit} noValidate>
-              <div className='filter-row'>
-                <div className='filter-group filter-group--left'>
-                  <div style={styles.bulkEditCheckbox}>
-                    <Checkbox
-                      id='bulk-edit-controller'
-                      indeterminate={!allChecked && numChecked > 0}
-                      checked={allChecked}
-                      onClick={handleCheckboxClicked}
-                    />
-                  </div>
-                  <div className='filter-group_action'>
-                    <StatusDropdown
-                      disabled={numChecked === 0}
-                      onChange={onBulkLeaseUpStatusChange}
-                      minWidthPx={'185px'}
-                      placeholder={'Set Status'}
-                      forceDisplayPlaceholderText
-                    />
-                  </div>
+        render={({ form, handleSubmit }) => (
+          <form style={styles.marginBottomZero} onSubmit={handleSubmit} noValidate>
+            <div className='filter-row'>
+              <div className='filter-group filter-group--left'>
+                <div style={styles.bulkEditCheckbox}>
+                  <Checkbox
+                    id='bulk-edit-controller'
+                    indeterminate={!allChecked && numChecked > 0}
+                    checked={allChecked}
+                    onClick={handleCheckboxClicked}
+                  />
                 </div>
-                <div className='filter-group'>
-                  <div className='filter-group_item__large'>
-                    <SearchField
-                      onClearClick={() => form.change('search', '')}
-                      fieldName='search'
-                      id='test-search'
-                      placeholder='Application, First Name, Last Name...'
-                      minWidth='300px'
-                    />
-                  </div>
-                  <div className='filter-group_action'>
-                    <Button
-                      className={classNames('primary', {
-                        'tertiary-inverse': !form.getFieldState('search')?.modified
-                      })}
-                      text='Search'
-                      type='submit'
-                    />
-                  </div>
-                  <div className='filter-group_action'>
-                    <ShowHideFiltersButton
-                      isShowingFilters={isShowingFilters}
-                      onClick={onClickShowHideFilters}
-                      numFiltersApplied={getNumFiltersApplied(form)}
-                    />
-                  </div>
+                <div className='filter-group_action'>
+                  <StatusDropdown
+                    disabled={numChecked === 0}
+                    onChange={onBulkLeaseUpStatusChange}
+                    minWidthPx={'185px'}
+                    placeholder={'Set Status'}
+                    forceDisplayPlaceholderText
+                  />
                 </div>
               </div>
-              {isShowingFilters && (
-                <LeaseUpApplicationsFilters
-                  preferences={preferences}
-                  hasChangedFilters={hasChangedFilters}
-                  onFilterChange={handleFilterChange}
-                  onClearFilters={() => handleClearFilters(form)}
-                />
-              )}
-            </form>
-          )
-        }}
+              <div className='filter-group'>
+                <div className='filter-group_item__large'>
+                  <SearchField
+                    onClearClick={() => form.change('search', '')}
+                    fieldName='search'
+                    id='test-search'
+                    placeholder='Application, First Name, Last Name...'
+                    minWidth='300px'
+                  />
+                </div>
+                <div className='filter-group_action'>
+                  <Button
+                    className={classNames('primary', {
+                      'tertiary-inverse': !form.getFieldState('search')?.modified
+                    })}
+                    text='Search'
+                    type='submit'
+                  />
+                </div>
+                <div className='filter-group_action'>
+                  <ShowHideFiltersButton
+                    isShowingFilters={isShowingFilters}
+                    onClick={onClickShowHideFilters}
+                    numFiltersApplied={getNumFiltersApplied(form)}
+                  />
+                </div>
+              </div>
+            </div>
+            {isShowingFilters && (
+              <LeaseUpApplicationsFilters
+                preferences={preferences}
+                hasChangedFilters={hasChangedFilters}
+                onFilterChange={handleFilterChange}
+                onClearFilters={() => handleClearFilters(form)}
+              />
+            )}
+          </form>
+        )}
       />
     </Loading>
   )

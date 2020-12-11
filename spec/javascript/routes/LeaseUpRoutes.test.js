@@ -106,11 +106,6 @@ describe('LeaseUpRoutes', () => {
       expect(wrapper.find(MOCK_NAME_SUPP)).toHaveLength(0)
       expect(wrapper.find(MOCK_NAME_SHORT_FORM)).toHaveLength(0)
     })
-
-    test('passes the id as a prop to the supp app', () => {
-      const wrapper = getWrapper('/lease-ups/applications/suppAppId/supplemental')
-      expect(wrapper.find(MOCK_NAME_SUPP).props().applicationId).toEqual('suppAppId')
-    })
   })
 
   describe('non lease-up short form paths', () => {
