@@ -16,15 +16,9 @@ const LeaseUpRoutes = () => (
     <Route exact path={appPaths.toLeaseUps()}>
       <LeaseUpListingsPage />
     </Route>
-    <Route
-      exact
-      path={appPaths.toApplicationSupplementals(':applicationId')}
-      render={({ match }) => (
-        // TODO: Convert SupplementalApplicationPage to functional components and use
-        // hooks to get path params.
-        <SupplementalApplicationPage applicationId={match.params.applicationId} />
-      )}
-    />
+    <Route exact path={appPaths.toApplicationSupplementals(':applicationId')}>
+      <SupplementalApplicationPage />
+    </Route>
     <Route exact path={appPaths.toLeaseUpShortForm(':applicationId')}>
       <ApplicationPage isLeaseUp />
     </Route>
