@@ -88,6 +88,7 @@ const LeaseUpApplicationsPage = () => {
   const [statusModalState, setStatusModalState] = useStateObject({
     alertMsg: null,
     applicationIds: null,
+    isCommentModal: false,
     isBulkUpdate: false,
     isOpen: false,
     loading: false,
@@ -232,7 +233,7 @@ const LeaseUpApplicationsPage = () => {
       applicationIds: []
     })
   }
-  const handleLeaseUpStatusChange = (value, applicationId) => {
+  const handleLeaseUpStatusChange = (value, applicationId, isCommentModal) => {
     const isBulkUpdate = !applicationId
     const appsToUpdate = isBulkUpdate
       ? Object.entries(bulkCheckboxesState)
@@ -243,6 +244,7 @@ const LeaseUpApplicationsPage = () => {
     setStatusModalState({
       applicationIds: appsToUpdate,
       isBulkUpdate,
+      isCommentModal: isCommentModal,
       isOpen: true,
       status: value
     })

@@ -157,7 +157,7 @@ const LeaseUpApplicationsTable = ({
           <StatusCell
             applicationId={applicationId}
             status={cell.value}
-            onChange={(val) => onLeaseUpStatusChange(val, applicationId)}
+            onChange={(val) => onLeaseUpStatusChange(val, applicationId, false)}
           />
         )
       }

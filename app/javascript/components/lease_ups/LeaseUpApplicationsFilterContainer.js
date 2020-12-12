@@ -40,6 +40,7 @@ const LeaseUpApplicationsFilterContainer = ({
   loading = false,
   bulkCheckboxesState = [],
   onBulkLeaseUpStatusChange,
+  onBulkLeaseUpCommentChange,
   onClearSelectedApplications = () => {},
   onSelectAllApplications = () => {}
 }) => {
@@ -104,12 +105,26 @@ const LeaseUpApplicationsFilterContainer = ({
                   />
                 </div>
                 <div className='filter-group_action'>
-                  <StatusDropdown
+                  <div className='padding-right--half d-inline-block'>
+                    <StatusDropdown
+                      classes={{ tertiary: numChecked === 0 }}
+                      disabled={numChecked === 0}
+                      onChange={onBulkLeaseUpStatusChange}
+                      minWidthPx={'185px'}
+                      placeholder={'Set Status'}
+                      forceDisplayPlaceholderText
+                      tertiary={numChecked === 0}
+                    />
+                  </div>
+                  <Button
+                    tertiary={numChecked === 0}
                     disabled={numChecked === 0}
-                    onChange={onBulkLeaseUpStatusChange}
-                    minWidthPx={'185px'}
-                    placeholder={'Set Status'}
-                    forceDisplayPlaceholderText
+                    onClick={onBulkLeaseUpCommentChange}
+                    type='button'
+                    minWidthPx='185px'
+                    text='Add Comment'
+                    textAlign='left'
+                    noBottomMargin
                   />
                 </div>
               </div>
@@ -159,6 +174,7 @@ const LeaseUpApplicationsFilterContainer = ({
 LeaseUpApplicationsFilterContainer.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onBulkLeaseUpStatusChange: PropTypes.func.isRequired,
+  onBulkLeaseUpCommentChange: PropTypes.func.isRequired,
   onClearSelectedApplications: PropTypes.func,
   onSelectAllApplications: PropTypes.func,
   preferences: PropTypes.array,
