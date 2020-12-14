@@ -182,14 +182,20 @@ const LeaseUpApplicationsPage = () => {
   }
 
   const createStatusUpdates = async ({ applicationIds, comment, status, subStatus }) => {
-    const statusUpdateRequests = applicationIds.map((appId) =>
-      createFieldUpdateComment(appId, status, comment, subStatus)
+    const statusUpdateRequests = applicationIds.map((appId) => {
+      let applicationStatus = status
+      let applicationSubStatus = subStatus
+      if (typeof applicationStatus === 'object') {
+        applicationStatus = status[appId].status
+        applicationSubStatus = status[appId].substatus
+      }
+      return createFieldUpdateComment(appId, applicationStatus, comment, applicationSubStatus)
         .then((_) => ({ application: appId }))
         .catch((e) => ({
           error: true,
           application: appId
         }))
-    )
+    })
 
     return Promise.all(statusUpdateRequests).then((values) => {
       if (!isMountedRef.current) {
@@ -198,7 +204,11 @@ const LeaseUpApplicationsPage = () => {
 
       const successfulIds = values.filter((v) => !v.error).map((v) => v.application)
       const errorIds = values.filter((v) => v.error).map((v) => v.application)
-      updateApplicationState(successfulIds, status, subStatus)
+
+      // Don't change status if it's a bulk comment action (status doesn't change)
+      if (typeof status === 'string') {
+        updateApplicationState(successfulIds, status, subStatus)
+      }
 
       const wasBulkUpdate = statusModalState.isBulkUpdate
 
@@ -235,18 +245,30 @@ const LeaseUpApplicationsPage = () => {
   }
   const handleLeaseUpStatusChange = (value, applicationId, isCommentModal) => {
     const isBulkUpdate = !applicationId
+    let status
     const appsToUpdate = isBulkUpdate
       ? Object.entries(bulkCheckboxesState)
           .filter(([_, checked]) => checked)
           .map(([id, _]) => id)
       : [applicationId]
+    if (isCommentModal) {
+      status = state.applications
+        .filter((application) => appsToUpdate.includes(application.application_id))
+        .reduce(function (obj, application) {
+          obj[application.application_id] = {
+            status: application.lease_up_status,
+            substatus: application.sub_status
+          }
+          return obj
+        }, {})
+    }
 
     setStatusModalState({
       applicationIds: appsToUpdate,
       isBulkUpdate,
       isCommentModal: isCommentModal,
       isOpen: true,
-      status: value
+      status: status || value
     })
   }
 
