@@ -176,4 +176,15 @@ describe('StatusModalWrapper', () => {
       expect(ON_SUBMIT).toHaveBeenCalled()
     })
   })
+  describe('when isCommentModal is true', () => {
+    test('should display a subtitle if numApplicationsToUpdate=1', () => {
+      wrapper = getWrapper({ isCommentModal: true, numApplicationsToUpdate: 1, isBulkUpdate: true })
+      expect(wrapper.find(FormModal).prop('subtitle')).toEqual('Add a comment to 1 selected item')
+    })
+
+    test('should hide status field', () => {
+      wrapper = getWrapper({ isCommentModal: true, numApplicationsToUpdate: 1, isBulkUpdate: true })
+      expect(wrapper.find(StatusDropdown).exists()).toBeFalsy()
+    })
+  })
 })

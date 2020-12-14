@@ -21,7 +21,7 @@ import FormModal from './FormModal'
 
 const bulkUpdateSubtitle = (isCommentModal, count) => {
   const prefix = isCommentModal ? 'Add a comment to' : 'Update the status for'
-  return `${prefix} ${count} selected item${count > 1 ? 's' : ''}`
+  return `${prefix} ${count} selected item${count === 1 ? '' : 's'}`
 }
 
 const StatusModalWrapper = ({
