@@ -20,7 +20,9 @@ const toApplicationNew = (listingId) => `/listings/${listingId}/applications/new
 
 const toApplicationsFlagged = (id) => `/applications/flagged/${id}`
 
-const toApplicationsFlaggedIndex = (type) => `/applications/flagged?type=${type}`
+const toApplicationsFlaggedIndexBase = () => '/applications/flagged'
+
+const toApplicationsFlaggedIndex = (type) => `${toApplicationsFlaggedIndexBase()}?type=${type}`
 
 const toListingLeaseUps = (listingId) => `/lease-ups/listings/${listingId}`
 
@@ -48,6 +50,7 @@ export default {
   toLeaseUpShortForm,
   toApplicationsFlagged,
   toApplicationsFlaggedIndex,
+  toApplicationsFlaggedIndexBase,
   toListingLeaseUps,
   toApplicationEdit,
   toListing,
