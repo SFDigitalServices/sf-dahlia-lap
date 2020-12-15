@@ -22,17 +22,10 @@ const getSupplementalApplication = async (applicationId) =>
       fileBaseUrl: file_base_url
     }))
 
-const getUnits = async (applicationId, listingId) =>
+const getUnits = async (listingId) =>
   request
-    .get(
-      `/supplementals/units`,
-      { params: { application_id: applicationId, listing_id: listingId } },
-      true
-    )
-    .then(({ available_units, units }) => ({
-      availableUnits: available_units,
-      units
-    }))
+    .get(`/supplementals/units`, { params: { listing_id: listingId } }, true)
+    .then((r) => r.units)
 
 const getStatusHistory = async (applicationId) =>
   request

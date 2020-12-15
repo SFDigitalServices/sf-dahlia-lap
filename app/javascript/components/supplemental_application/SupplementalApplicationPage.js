@@ -42,9 +42,8 @@ const getApplicationWithEmptyLease = (application) => ({
   rental_assistances: []
 })
 
-const getListingAmiCharts = (units) => {
-  return uniqBy(units, (u) => [u.ami_chart_type, u.ami_chart_year].join())
-}
+const getListingAmiCharts = (units) =>
+  uniqBy(units, (u) => [u.ami_chart_type, u.ami_chart_year].join())
 
 const setApplicationsDefaults = (application) => {
   const applicationWithDefaults = cloneDeep(application)
@@ -85,15 +84,15 @@ const SupplementalApplicationPage = ({ applicationId }) => {
 
   const [{ breadcrumbData }, actions] = useContext(AppContext)
 
-  useAsyncOnMount(() => getSupplementalPageData(applicationId, breadcrumbData?.listing.id), {
-    onSuccess: ({ application, statusHistory, fileBaseUrl, units, availableUnits }) => {
+  useAsyncOnMount(() => getSupplementalPageData(applicationId, breadcrumbData?.listing?.id), {
+    onSuccess: ({ application, statusHistory, fileBaseUrl, units, listing }) => {
       setState({
         application: setApplicationsDefaults(application),
-        availableUnits,
+        units,
         fileBaseUrl,
         // Only show lease section on load if there's a lease on the application.
         leaseSectionState: getInitialLeaseState(application),
-        listing: application.listing,
+        listing: listing,
         listingAmiCharts: getListingAmiCharts(units),
         rentalAssistances: application.rental_assistances,
         statusHistory
@@ -387,13 +386,7 @@ const SupplementalApplicationPage = ({ applicationId }) => {
 
   const handleLeaveModalClose = () => setState({ leaveConfirmationModalOpen: false })
 
-  const {
-    application,
-    availableUnits,
-    fileBaseUrl,
-    leaveConfirmationModalOpen,
-    statusHistory
-  } = state
+  const { application, units, fileBaseUrl, leaveConfirmationModalOpen, statusHistory } = state
 
   const tabSection = {
     items: [
@@ -416,7 +409,7 @@ const SupplementalApplicationPage = ({ applicationId }) => {
     application: application,
     applicationMembers: [application?.applicant, ...(application?.household_members || [])],
     assignSupplementalAppTouched: assignSupplementalAppTouched,
-    availableUnits: availableUnits,
+    units: units,
     fileBaseUrl: fileBaseUrl,
     handleCreateLeaseClick: handleCreateLeaseClick,
     handleCancelLeaseClick: handleCancelLeaseClick,

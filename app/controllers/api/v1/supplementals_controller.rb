@@ -16,13 +16,8 @@ module Api
       end
 
       def units
-        application_id = params[:application_id]
-        listing_id = params[:listing_id]
-
-        render json: {
-          available_units: units_service.available_units_for_application(listing_id, application_id),
-          units: soql_listing_service.units(listing_id)
-        }
+        units = units_service.units_and_leases_for_listing(params[:listing_id])
+        render json: { units: units }
       end
 
       private
