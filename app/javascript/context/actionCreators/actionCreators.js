@@ -1,12 +1,13 @@
 import {
-  ACTION_TYPE_APPLICATION_LOADED,
   ACTION_TYPE_APPLICATION_TABLE_FILTERS_APPLIED,
   ACTION_TYPE_APPLICATION_TABLE_PAGE_CHANGED,
   ACTION_TYPE_LEFT_APPLICATION_SCOPE,
   ACTION_TYPE_LEFT_LISTING_SCOPE,
   ACTION_TYPE_SELECTED_APPLICATION_CHANGED,
-  ACTION_TYPE_SELECTED_LISTING_CHANGED
-} from 'context/Reducer'
+  ACTION_TYPE_SELECTED_LISTING_CHANGED,
+  ACTION_TYPE_SHORTFORM_LOADED,
+  ACTION_TYPE_SUPP_APP_LOADED
+} from 'context/actions'
 
 const formatListingStateData = (listing) => ({
   id: listing?.id,
@@ -45,8 +46,8 @@ const getFullNameFromApplication = (application) => {
   return getFullName(first_name, middle_name, last_name)
 }
 
-const getApplicationLoadedAction = (application, listing) => ({
-  type: ACTION_TYPE_APPLICATION_LOADED,
+const getApplicationLoadedAction = (isSuppApp, application, listing) => ({
+  type: isSuppApp ? ACTION_TYPE_SUPP_APP_LOADED : ACTION_TYPE_SHORTFORM_LOADED,
   data: {
     application: formatApplicationStateData(
       application?.id,
@@ -59,9 +60,9 @@ const getApplicationLoadedAction = (application, listing) => ({
 
 export const createActions = (dispatch) => ({
   supplementalPageLoadComplete: (application, listing) =>
-    dispatch(getApplicationLoadedAction(application, listing)),
+    dispatch(getApplicationLoadedAction(true, application, listing)),
   applicationPageLoadComplete: (application, listing) =>
-    dispatch(getApplicationLoadedAction(application, listing)),
+    dispatch(getApplicationLoadedAction(false, application, listing)),
   applicationsTableFiltersApplied: (filters) =>
     dispatch({ type: ACTION_TYPE_APPLICATION_TABLE_FILTERS_APPLIED, data: filters || {} }),
   applicationsTablePageChanged: (page) =>

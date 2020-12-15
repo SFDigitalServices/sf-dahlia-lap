@@ -1,13 +1,14 @@
-import { createActions } from 'context/leaseUpActionCreators'
+import { createActions } from 'context/actionCreators/actionCreators'
 import {
-  ACTION_TYPE_APPLICATION_LOADED,
+  ACTION_TYPE_SUPP_APP_LOADED,
+  ACTION_TYPE_SHORTFORM_LOADED,
   ACTION_TYPE_APPLICATION_TABLE_FILTERS_APPLIED,
   ACTION_TYPE_APPLICATION_TABLE_PAGE_CHANGED,
   ACTION_TYPE_LEFT_APPLICATION_SCOPE,
   ACTION_TYPE_LEFT_LISTING_SCOPE,
   ACTION_TYPE_SELECTED_APPLICATION_CHANGED,
   ACTION_TYPE_SELECTED_LISTING_CHANGED
-} from 'context/Reducer'
+} from 'context/actions'
 
 const mockDispatch = jest.fn()
 
@@ -61,7 +62,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_APPLICATION_LOADED)
+      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SUPP_APP_LOADED)
       expect(dispatchedAction.data).toEqual({
         application: mockFormattedApplication,
         listing: mockFormattedListing
@@ -73,7 +74,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_APPLICATION_LOADED)
+      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SUPP_APP_LOADED)
       expect(dispatchedAction.data).toEqual({
         application: {
           id: undefined,
@@ -107,7 +108,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_APPLICATION_LOADED)
+      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SHORTFORM_LOADED)
       expect(dispatchedAction.data).toEqual({
         application: expectedApplication,
         listing: mockFormattedListing
@@ -119,7 +120,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_APPLICATION_LOADED)
+      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SHORTFORM_LOADED)
       expect(dispatchedAction.data).toEqual({
         application: {
           id: undefined,

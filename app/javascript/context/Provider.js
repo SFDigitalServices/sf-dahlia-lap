@@ -1,21 +1,11 @@
 import React, { createContext, useReducer } from 'react'
 
-import { createActions } from 'context/leaseUpActionCreators'
-import Reducer, {
-  getEmptyApplication,
-  getEmptyApplicationsListData,
-  getEmptyListing
-} from 'context/Reducer'
-
-const initialState = {
-  breadcrumbData: {
-    listing: getEmptyListing(),
-    application: getEmptyApplication()
-  },
-  applicationsListData: getEmptyApplicationsListData()
-}
+import { createActions } from 'context/actionCreators/actionCreators'
+import Reducer, { getInitialState } from 'context/Reducer'
 
 export const AppContext = createContext()
+
+const initialState = getInitialState()
 
 const Provider = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, initialState)

@@ -1,12 +1,14 @@
-import Reducer, {
-  ACTION_TYPE_APPLICATION_LOADED,
+import {
+  ACTION_TYPE_SUPP_APP_LOADED,
+  ACTION_TYPE_SHORTFORM_LOADED,
   ACTION_TYPE_APPLICATION_TABLE_FILTERS_APPLIED,
   ACTION_TYPE_APPLICATION_TABLE_PAGE_CHANGED,
   ACTION_TYPE_LEFT_APPLICATION_SCOPE,
   ACTION_TYPE_LEFT_LISTING_SCOPE,
   ACTION_TYPE_SELECTED_APPLICATION_CHANGED,
   ACTION_TYPE_SELECTED_LISTING_CHANGED
-} from 'context/Reducer'
+} from 'context/actions'
+import Reducer from 'context/Reducer'
 
 const mockState = {
   breadcrumbData: {
@@ -27,8 +29,9 @@ const mockState = {
     },
     page: 1
   },
-  someOtherStateData: {
-    someOtherStateKey: 'someOtherStateValue'
+  applicationDetailsData: {
+    shortform: null,
+    supplemental: null
   }
 }
 
@@ -69,7 +72,8 @@ describe('Reducer', () => {
     test('clears out existing address when no address is provided', () => {
       const listingWithoutAddress = {
         id: mockNewListing.id,
-        name: mockNewListing.name
+        name: mockNewListing.name,
+        buildingAddress: null
       }
 
       const newState = Reducer(
@@ -178,11 +182,11 @@ describe('Reducer', () => {
     })
   })
 
-  describe('ACTION_TYPE_APPLICATION_LOADED', () => {
+  describe('ACTION_TYPE_SUPP_APP_LOADED', () => {
     test('should override listing and application data', () => {
       const newState = Reducer(
         mockState,
-        getMockAction(ACTION_TYPE_APPLICATION_LOADED, {
+        getMockAction(ACTION_TYPE_SUPP_APP_LOADED, {
           application: mockNewApplication,
           listing: mockNewListing
         })
@@ -194,6 +198,41 @@ describe('Reducer', () => {
           ...mockState.breadcrumbData,
           application: mockNewApplication,
           listing: mockNewListing
+        },
+        applicationDetailsData: {
+          ...mockState.applicationDetailsData,
+          supplemental: {
+            application: mockNewApplication,
+            listing: mockNewListing
+          }
+        }
+      })
+    })
+  })
+
+  describe('ACTION_TYPE_SHORTFORM_LOADED', () => {
+    test('should override listing and application data', () => {
+      const newState = Reducer(
+        mockState,
+        getMockAction(ACTION_TYPE_SHORTFORM_LOADED, {
+          application: mockNewApplication,
+          listing: mockNewListing
+        })
+      )
+
+      expect(newState).toEqual({
+        ...mockState,
+        breadcrumbData: {
+          ...mockState.breadcrumbData,
+          application: mockNewApplication,
+          listing: mockNewListing
+        },
+        applicationDetailsData: {
+          ...mockState.applicationDetailsData,
+          shortform: {
+            application: mockNewApplication,
+            listing: mockNewListing
+          }
         }
       })
     })
