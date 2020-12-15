@@ -59,7 +59,7 @@ const setApplicationsDefaults = (application) => {
 }
 
 const SupplementalApplicationPage = () => {
-  // grab the listing id from the url: /lease-ups/applications/:applicationId/supplemental
+  // grab the application id from the url: /lease-ups/applications/:applicationId/supplemental
   const { applicationId } = useParams()
   const [state, setState] = useStateObject({
     application: null,
