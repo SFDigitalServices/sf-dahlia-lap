@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
@@ -11,6 +11,7 @@ import LeaseUpApplicationsFilters from 'components/lease_ups/LeaseUpApplications
 import Loading from 'components/molecules/Loading'
 import ShowHideFiltersButton from 'components/molecules/ShowHideFiltersButton'
 import StatusDropdown from 'components/molecules/StatusDropdown'
+import { AppContext } from 'context/Provider'
 import SearchField from 'utils/form/final_form/SearchField'
 import formUtils from 'utils/formUtils'
 
@@ -44,6 +45,12 @@ const LeaseUpApplicationsFilterContainer = ({
 }) => {
   const [isShowingFilters, setIsShowingFilters] = useState(false)
   const [hasChangedFilters, setHasChangedFilters] = useState(false)
+
+  const [
+    {
+      applicationsListData: { appliedFilters }
+    }
+  ] = useContext(AppContext)
 
   const onClickShowHideFilters = () => setIsShowingFilters(!isShowingFilters)
 
@@ -83,6 +90,7 @@ const LeaseUpApplicationsFilterContainer = ({
     <Loading isLoading={loading}>
       <Form
         onSubmit={handleFormSubmit}
+        initialValues={appliedFilters}
         render={({ form, handleSubmit }) => (
           <form style={styles.marginBottomZero} onSubmit={handleSubmit} noValidate>
             <div className='filter-row'>

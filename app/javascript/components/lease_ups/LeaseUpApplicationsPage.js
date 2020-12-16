@@ -8,7 +8,13 @@ import { useParams } from 'react-router-dom'
 
 import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
-import { useStateObject, useEffectOnMount, useIsMountedRef } from 'utils/customHooks'
+import {
+  useAsync,
+  useAsyncOnMount,
+  useStateObject,
+  useEffectOnMount,
+  useIsMountedRef
+} from 'utils/customHooks'
 import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
@@ -65,14 +71,16 @@ const getPreferences = (listing) => {
 }
 
 const LeaseUpApplicationsPage = () => {
+  const [{ breadcrumbData, applicationsListData }, actions] = useContext(AppContext)
+
+  // grab the listing id from the url: /lease-ups/listings/:listingId
+  const { listingId } = useParams()
+
   const [state, setState] = useStateObject({
     loading: false,
     applications: [],
-    filters: {},
-    page: 0,
     pages: 0,
     atMaxPages: false,
-    listing: null,
     eagerPagination: new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
   })
 
@@ -89,11 +97,52 @@ const LeaseUpApplicationsPage = () => {
     subStatus: null
   })
 
-  const [{ breadcrumbData }, actions] = useContext(AppContext)
   const isMountedRef = useIsMountedRef()
 
-  // grab the listing id from the url: /lease-ups/listings/:listingId
-  const { listingId } = useParams()
+  const [{ reportId, listingPreferences }, setListingState] = useStateObject({})
+  useAsyncOnMount(() => getListing(listingId), {
+    onSuccess: (listing) => {
+      setListingState({
+        reportId: listing.report_id,
+        listingPreferences: getPreferences(listing)
+      })
+
+      actions.applicationsPageLoadComplete(listing)
+    }
+  })
+
+  useAsync(
+    () => {
+      const { appliedFilters, page } = applicationsListData
+
+      if (state.eagerPagination.isOverLimit(page)) {
+        setState({
+          applications: [],
+          atMaxPage: true,
+          loading: false
+        })
+
+        // don't trigger any promise if we're over the limit.
+        return null
+      }
+
+      const fetcher = (p) => getApplications(listingId, p, appliedFilters)
+
+      setState({ loading: true })
+
+      return state.eagerPagination.getPage(page, fetcher)
+    },
+    {
+      onSuccess: ({ records, pages }) => {
+        setInitialCheckboxState(records)
+        setState({ applications: records, pages })
+      },
+      onComplete: () => {
+        setState({ loading: false })
+      }
+    },
+    [applicationsListData.appliedFilters, applicationsListData.page]
+  )
 
   useEffectOnMount(actions.applicationsPageMounted)
 
@@ -112,52 +161,9 @@ const LeaseUpApplicationsPage = () => {
     setBulkCheckboxesState({ [appId]: !bulkCheckboxesState[appId] })
   }
 
-  const loadPage = async (page, filters) => {
-    const { listing: listingFromState } = state
-
-    const getStateOrFetchListing = () =>
-      listingFromState ? Promise.resolve(listingFromState) : getListing(listingId)
-
-    const fetcher = (p) => getApplications(listingId, p, filters)
-
-    setState({ loading: true })
-
-    Promise.all([getStateOrFetchListing(), state.eagerPagination.getPage(page, fetcher)])
-      .then(([listing, { records, pages }]) => {
-        if (isMountedRef.current) {
-          setState({
-            applications: records,
-            pages: pages,
-            atMaxPages: false,
-            listing: listing
-          })
-          actions.applicationsPageLoadComplete(listing)
-          setInitialCheckboxState(records)
-        }
-      })
-      .finally(() => {
-        if (isMountedRef.current) {
-          setState({ loading: false })
-        }
-      })
-  }
-
-  const handleOnFetchData = ({ page }, _) => {
-    if (state.eagerPagination.isOverLimit(page)) {
-      setState({
-        applications: [],
-        loading: false,
-        atMaxPages: true
-      })
-    } else {
-      loadPage(page, state.filters)
-    }
-  }
-
   const handleOnFilter = (filters) => {
-    setState({ filters })
     state.eagerPagination.reset()
-    loadPage(0, filters)
+    actions.applicationsTableFiltersApplied(filters)
   }
 
   const handleStatusModalSubmit = async (submittedValues) => {
@@ -276,21 +282,20 @@ const LeaseUpApplicationsPage = () => {
     loading: state.loading,
     onBulkCheckboxClick: handleBulkCheckboxClick,
     onCloseStatusModal: handleCloseStatusModal,
-    onFetchData: handleOnFetchData,
     onFilter: handleOnFilter,
     onLeaseUpStatusChange: handleLeaseUpStatusChange,
     onSubmitStatusModal: handleStatusModalSubmit,
     onClearSelectedApplications: handleClearSelectedApplications,
     onSelectAllApplications: handleSelectAllApplications,
     pages: state.pages,
-    preferences: getPreferences(state.listing),
+    preferences: listingPreferences,
     rowsPerPage: ROWS_PER_PAGE,
     statusModal: statusModalState
   }
 
   return (
     <Context.Provider value={context}>
-      <TableLayout pageHeader={getPageHeaderData(breadcrumbData.listing, state.listing?.report_id)}>
+      <TableLayout pageHeader={getPageHeaderData(breadcrumbData.listing, reportId)}>
         <LeaseUpApplicationsTableContainer />
       </TableLayout>
     </Context.Provider>
