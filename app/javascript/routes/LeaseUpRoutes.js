@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom'
 import ApplicationPage from 'components/applications/ApplicationPage'
 import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
 import LeaseUpListingsPage from 'components/lease_ups/LeaseUpListingsPage'
-import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
+import ApplicationDetailsContainer from 'components/supplemental_application/ApplicationDetailsContainer'
 import appPaths from 'utils/appPaths'
 
 // List of URLs that need to be routed via rails but that conflict with react-routed
@@ -29,10 +29,10 @@ const LeaseUpRoutes = () => (
       <LeaseUpListingsPage />
     </Route>
     <Route exact path={appPaths.toApplicationSupplementals(':applicationId')}>
-      <SupplementalApplicationPage />
+      <ApplicationDetailsContainer />
     </Route>
     <Route exact path={appPaths.toLeaseUpShortForm(':applicationId')}>
-      <ApplicationPage isLeaseUp />
+      <ApplicationDetailsContainer />
     </Route>
     <Route exact path={appPaths.toApplication(':applicationId')}>
       <ApplicationPage />

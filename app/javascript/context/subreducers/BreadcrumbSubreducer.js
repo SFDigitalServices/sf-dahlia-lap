@@ -57,7 +57,7 @@ export const BREADCRUMB_ACTIONS = {
       application,
       listing
     }),
-  [ACTION_TYPE_SHORTFORM_LOADED]: (state, { application, listing }) =>
+  [ACTION_TYPE_SHORTFORM_LOADED]: (state, { breadcrumbData: { application, listing } }) =>
     overrideBreadcrumbData(state, {
       application,
       listing

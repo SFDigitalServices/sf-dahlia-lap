@@ -5,15 +5,18 @@ import {
 } from '../actions'
 
 const getEmptyApplicationDetailsState = () => ({
-  shortform: null,
+  shortform: {
+    application: null,
+    fileBaseUrl: null
+  },
   supplemental: null
 })
 
 const APPLICATION_DETAILS_ACTIONS = {
   [ACTION_TYPE_LEFT_APPLICATION_SCOPE]: (_, __) => getEmptyApplicationDetailsState(),
-  [ACTION_TYPE_SHORTFORM_LOADED]: (state, data) => ({
+  [ACTION_TYPE_SHORTFORM_LOADED]: (state, { pageData }) => ({
     ...state,
-    shortform: data
+    shortform: pageData
   }),
   [ACTION_TYPE_SUPP_APP_LOADED]: (state, data) => ({
     ...state,

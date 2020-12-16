@@ -61,8 +61,25 @@ const getApplicationLoadedAction = (isSuppApp, application, listing) => ({
 export const createActions = (dispatch) => ({
   supplementalPageLoadComplete: (application, listing) =>
     dispatch(getApplicationLoadedAction(true, application, listing)),
-  applicationPageLoadComplete: (application, listing) =>
-    dispatch(getApplicationLoadedAction(false, application, listing)),
+  applicationPageLoadComplete: (application, listing, fileBaseUrl) =>
+    dispatch({
+      type: ACTION_TYPE_SHORTFORM_LOADED,
+      data: {
+        breadcrumbData: {
+          application: formatApplicationStateData(
+            application?.id,
+            application?.name,
+            getFullNameFromApplicant(application?.applicant)
+          ),
+          listing: formatListingStateData(listing)
+        },
+        pageData: {
+          application,
+          listing,
+          fileBaseUrl
+        }
+      }
+    }),
   applicationsTableFiltersApplied: (filters) =>
     dispatch({ type: ACTION_TYPE_APPLICATION_TABLE_FILTERS_APPLIED, data: filters || {} }),
   applicationsTablePageChanged: (page) =>

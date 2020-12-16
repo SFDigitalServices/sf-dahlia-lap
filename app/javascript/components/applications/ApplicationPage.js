@@ -45,29 +45,34 @@ const buildActionLinkIfNecessary = (app, showAddBtn) => {
   return actions
 }
 
+const isPageLoaded = (applicationDetailsData) => applicationDetailsData.application !== null
+
 const ApplicationPage = ({ isLeaseUp = false }) => {
   const [application, setApplication] = useState(null)
   const [fileBaseUrl, setFileBaseUrl] = useState(null)
   const [loading, setLoading] = useState(true)
 
   const { applicationId } = useParams()
-  const [{ breadcrumbData }, actions] = useContext(AppContext)
+  const [{ breadcrumbData, applicationDetailsData }, actions] = useContext(AppContext)
   const showAddBtn = useQueryParamBoolean('showAddBtn')
 
-  useAsyncOnMount(() => getShortFormApplication(applicationId), {
-    onSuccess: (response) => {
-      actions.applicationPageLoadComplete(response.application, response.application?.listing)
-      setApplication(response.application)
-      setFileBaseUrl(response.fileBaseUrl)
-    },
-    onFail: (e) => {
-      // Alert window pauses state updates so we set loading to false instead of
-      // waiting for the finally block
-      setLoading(false)
-      window.alert('The application you requested could not be found.')
-    },
-    onComplete: () => setLoading(false)
-  })
+  useAsyncOnMount(
+    () => !isPageLoaded(applicationDetailsData) && getShortFormApplication(applicationId),
+    {
+      onSuccess: (response) => {
+        actions.applicationPageLoadComplete(response.application, response.application?.listing)
+        setApplication(response.application)
+        setFileBaseUrl(response.fileBaseUrl)
+      },
+      onFail: (e) => {
+        // Alert window pauses state updates so we set loading to false instead of
+        // waiting for the finally block
+        setLoading(false)
+        window.alert('The application you requested could not be found.')
+      },
+      onComplete: () => setLoading(false)
+    }
+  )
 
   let pageHeader = {}
   let tabSection
