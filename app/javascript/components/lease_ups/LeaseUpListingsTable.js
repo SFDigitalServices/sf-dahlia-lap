@@ -2,13 +2,19 @@ import React from 'react'
 
 import ReactTable from 'react-table'
 
-import { cellFormat } from 'utils/reactTableUtils'
+import { cellFormat, filterMethod } from 'utils/reactTableUtils'
 
 const PAGE_SIZE = 20
 
 const LeaseUpListingsTable = ({ listings, onCellClick }) => {
   const columns = [
-    { Header: 'Listing Name', accessor: 'name', headerClassName: 'td-min-wide' },
+    {
+      Header: 'Listing Name',
+      accessor: 'name',
+      headerClassName: 'td-min-wide',
+      filterable: true,
+      filterMethod: (filter, row) => filterMethod(filter, row)
+    },
     {
       Header: 'Lottery Date',
       accessor: 'lottery_date',
