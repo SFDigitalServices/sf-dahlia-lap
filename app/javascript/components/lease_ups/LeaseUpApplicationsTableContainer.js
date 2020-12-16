@@ -69,7 +69,7 @@ const LeaseUpTableContainer = ({
         onClearSelectedApplications={onClearSelectedApplications}
         onSelectAllApplications={onSelectAllApplications}
         onBulkLeaseUpStatusChange={(val) => onLeaseUpStatusChange(val, null, false)}
-        onBulkLeaseUpCommentChange={(val) => onLeaseUpStatusChange(val, null, true)}
+        onBulkLeaseUpCommentChange={(val) => onLeaseUpStatusChange(null, null, true)}
       />
       <LeaseUpApplicationsTable
         dataSet={rowsData(applications)}
@@ -88,7 +88,7 @@ const LeaseUpTableContainer = ({
         isBulkUpdate={statusModal.isBulkUpdate}
         isOpen={statusModal.isOpen}
         loading={statusModal.loading}
-        numApplicationsToUpdate={statusModal.applicationIds?.length}
+        numApplicationsToUpdate={statusModal.applicationsData?.length}
         onAlertCloseClick={statusModal.onAlertCloseClick}
         onClose={onCloseStatusModal}
         onSubmit={onSubmitStatusModal}

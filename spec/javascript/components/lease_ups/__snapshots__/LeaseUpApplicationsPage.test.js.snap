@@ -407,15 +407,13 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                 "rowsPerPage": 20,
                 "statusModal": Object {
                   "alertMsg": null,
-                  "applicationIds": null,
+                  "applicationsData": null,
                   "isBulkUpdate": false,
                   "isCommentModal": false,
                   "isOpen": false,
                   "loading": false,
                   "onSubmit": null,
                   "showAlert": null,
-                  "status": null,
-                  "subStatus": null,
                 },
               }
             }
@@ -29670,7 +29668,6 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
               onClose={[Function]}
               onSubmit={[Function]}
               showAlert={null}
-              status={null}
               submitButton="Update"
               title="Update Status"
             >

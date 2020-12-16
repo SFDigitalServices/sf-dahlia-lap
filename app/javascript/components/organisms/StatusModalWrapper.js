@@ -157,11 +157,6 @@ const StatusModalWrapper = ({
 
 export default StatusModalWrapper
 
-const StatusShape = PropTypes.shape({
-  status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
-  substatus: PropTypes.oneOf(LEASE_UP_SUBSTATUS_VALUES)
-})
-
 StatusModalWrapper.propTypes = {
   alertMsg: PropTypes.string,
   isBulkUpdate: PropTypes.bool,
@@ -173,10 +168,7 @@ StatusModalWrapper.propTypes = {
   onClose: PropTypes.func,
   onSubmit: PropTypes.func,
   showAlert: PropTypes.bool,
-  status: PropTypes.oneOfType([
-    PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
-    PropTypes.objectOf(StatusShape)
-  ]),
+  status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
   submitButton: PropTypes.node,
   subStatus: PropTypes.oneOf(LEASE_UP_SUBSTATUS_VALUES),
   title: PropTypes.string
