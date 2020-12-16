@@ -16,8 +16,9 @@ export const cellFormat = {
 }
 
 export const filterMethod = (filter, row) => {
-  return (
-    // do case insensitive RegExp match instead of the default "startsWith"
-    row[filter.id].match(new RegExp(filter.value, 'ig'))
-  )
+  const { id: columnId, value } = filter
+  const cell = row[columnId]
+
+  // do case insensitive RegExp match instead of the default "startsWith"
+  return cell.match(new RegExp(value, 'ig'))
 }
