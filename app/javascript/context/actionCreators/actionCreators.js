@@ -12,7 +12,6 @@ import {
 } from 'context/actionCreators/applicationDetailsActionHelpers'
 import {
   formatListingStateData,
-  getApplicationDetailsBreadcrumbsData,
   getApplicationRowClickedBreadcrumbData
 } from 'context/actionCreators/breadcrumbActionHelpers'
 import ACTIONS from 'context/actions'
@@ -33,17 +32,20 @@ export const createActions = (dispatch) => ({
     updateSavedPreference(dispatch, preferenceIndex, formApplicationValues),
   preferencesFailedChanged: (failed) =>
     dispatch({ type: ACTIONS.CONFIRMED_PREFERENCES_FAILED, data: { failed } }),
-  openSuppAppAddCommentModal: (currentStatus) =>
+  openSuppAppAddCommentModal: (statusHistory) => {
+    const currentStatusItem = statusHistory?.[0]
     dispatch({
       type: ACTIONS.STATUS_MODAL_UPDATED,
       data: {
         ...getEmptyApplicationDetailsState().supplemental.statusModal,
         header: 'Add New Comment',
         isOpen: true,
-        status: currentStatus,
+        status: currentStatusItem?.status,
+        subStatus: currentStatusItem?.substatus,
         submitButton: 'Save'
       }
-    }),
+    })
+  },
   closeSuppAppStatusModal: () =>
     dispatch({ type: ACTIONS.STATUS_MODAL_UPDATED, data: { isOpen: false } }),
   closeSuppAppStatusModalAlert: () =>
@@ -166,7 +168,6 @@ export const createActions = (dispatch) => ({
     dispatch({
       type: ACTIONS.SHORTFORM_LOADED,
       data: {
-        breadcrumbData: getApplicationDetailsBreadcrumbsData(application, listing),
         pageData: {
           application,
           listing,

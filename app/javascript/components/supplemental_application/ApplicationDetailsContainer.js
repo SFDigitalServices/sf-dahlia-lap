@@ -8,7 +8,7 @@ import CardLayout from 'components/layouts/CardLayout'
 import { getShortFormApplication } from 'components/lease_ups/shortFormActions'
 import Loading from 'components/molecules/Loading'
 import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
-import SupplementalApplicationPage2 from 'components/supplemental_application/SupplementalApplicationPage2'
+import SupplementalApplicationContainer from 'components/supplemental_application/SupplementalApplicationContainer'
 import { AppContext } from 'context/Provider'
 import { useAsyncOnMount } from 'utils/customHooks'
 
@@ -25,6 +25,7 @@ const ApplicationDetailsContainer = () => {
     },
     actions
   ] = useContext(AppContext)
+
   const [loadingShortform, setLoadingShortform] = useState(true)
 
   useAsyncOnMount(() => getShortFormApplication(applicationId), {
@@ -49,8 +50,6 @@ const ApplicationDetailsContainer = () => {
       }
     }
   )
-
-  console.log(selectedTabKey)
 
   const tabItems = [
     {
@@ -81,7 +80,7 @@ const ApplicationDetailsContainer = () => {
         loaderViewHeight='100vh'
       >
         {selectedTabKey === SUPP_TAB_KEY ? (
-          <SupplementalApplicationPage2 />
+          supplemental.application && <SupplementalApplicationContainer />
         ) : (
           <ApplicationPage2
             application={shortform.application}

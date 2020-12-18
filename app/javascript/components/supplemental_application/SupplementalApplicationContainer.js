@@ -1,24 +1,26 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 import arrayMutators from 'final-form-arrays'
 import { isEmpty } from 'lodash'
 import { Form } from 'react-final-form'
 
+import Alerts from 'components/Alerts'
 import Button from 'components/atoms/Button'
 import AlertBox from 'components/molecules/AlertBox'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
+import { NO_LEASE_STATE } from 'context/actionCreators/applicationDetailsActionHelpers'
+import { AppContext } from 'context/Provider'
+import { getApplicationMembers } from 'utils/applicationDetailsUtils'
 import validate, { touchAllFields, convertPercentAndCurrency } from 'utils/form/validations'
 
 import ContentSection from '../molecules/ContentSection'
 import LeaseUpSidebar from '../molecules/lease_up_sidebar/LeaseUpSidebar'
 import AsymColumnLayout from '../organisms/AsymColumnLayout'
-import { withContext } from './context'
 import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import DemographicsInputs from './sections/DemographicsInputs'
 import Lease from './sections/Lease'
 import PreferencesTable from './sections/PreferencesTable'
-import { NO_LEASE_STATE } from './SupplementalApplicationPage'
 
 const ConfirmedPreferencesSection = ({
   application,
@@ -99,24 +101,34 @@ const DemographicsSection = () => (
   </ContentSection>
 )
 
-const Sidebar = withContext(
-  ({ store: { statusHistory, loading }, onChangeStatus, onAddCommentClicked, onSaveClicked }) => {
-    return (
-      <div className='sticky-sidebar-large-up'>
-        <LeaseUpSidebar
-          statusItems={statusHistory}
-          isLoading={loading}
-          onChangeStatus={onChangeStatus}
-          onAddCommentClicked={onAddCommentClicked}
-          onSaveClicked={onSaveClicked}
-        />
-      </div>
-    )
-  }
-)
+const Sidebar = ({
+  statusHistory,
+  loading,
+  onChangeStatus,
+  onAddCommentClicked,
+  onSaveClicked
+}) => {
+  return (
+    <div className='sticky-sidebar-large-up'>
+      <LeaseUpSidebar
+        statusItems={statusHistory}
+        isLoading={loading}
+        onChangeStatus={onChangeStatus}
+        onAddCommentClicked={onAddCommentClicked}
+        onSaveClicked={onSaveClicked}
+      />
+    </div>
+  )
+}
 
-const SupplementalApplicationContainer = ({ store }) => {
+const SupplementalApplicationContainer = () => {
   const [failed, setFailed] = useState(false)
+  const [
+    {
+      applicationDetailsData: { supplemental: state }
+    },
+    actions
+  ] = useContext(AppContext)
 
   const validateForm = (values) => {
     const errors = { lease: {} }
@@ -142,35 +154,29 @@ const SupplementalApplicationContainer = ({ store }) => {
     return failed
   }
 
-  const {
-    application,
-    applicationMembers,
-    fileBaseUrl,
-    onSavePreference,
-    confirmedPreferencesFailed,
-    onDismissError,
-    listingAmiCharts,
-    onSubmit,
-    statusModal,
-    handleCreateLeaseClick,
-    handleStatusModalClose,
-    handleStatusModalSubmit,
-    assignSupplementalAppTouched,
-    openAddStatusCommentModal,
-    openUpdateStatusModal,
-    leaseSectionState
-  } = store
-
-  const onAddCommentClicked = (form, touched) =>
-    !checkForValidationErrors(form, touched) ? openAddStatusCommentModal() : null
+  const handleAddCommentClicked = (form, touched) =>
+    !checkForValidationErrors(form, touched)
+      ? actions.openSuppAppAddCommentModal(state.statusHistory)
+      : null
 
   const onChangeStatus = (form, touched, value) =>
-    !checkForValidationErrors(form, touched) ? openUpdateStatusModal(value) : null
+    !checkForValidationErrors(form, touched) ? actions.openSuppAppUpdateStatusModal(value) : null
+
+  const handleSaveApplication = async (formApplication) => {
+    const { application: prevApplication, leaseSectionState } = state
+
+    actions
+      .updateSupplementalApplication(leaseSectionState, formApplication, prevApplication)
+      .catch((e) => {
+        console.error(e)
+        Alerts.error()
+      })
+  }
 
   return (
     <Form
-      onSubmit={(values) => onSubmit(convertPercentAndCurrency(values))}
-      initialValues={application}
+      onSubmit={(values) => handleSaveApplication(convertPercentAndCurrency(values))}
+      initialValues={state.application}
       // Keep dirty on reinitialize ensures the whole form doesn't refresh
       // when only a piece of it is saved (eg. when the lease is saved)
       keepDirtyOnReinitialize
@@ -187,7 +193,7 @@ const SupplementalApplicationContainer = ({ store }) => {
           )}
           <form
             onSubmit={handleSubmit}
-            onChange={assignSupplementalAppTouched}
+            onChange={() => actions.supplementalAppTouched(true)}
             style={{ margin: '0px' }}
             id='shortForm'
             noValidate
@@ -195,26 +201,28 @@ const SupplementalApplicationContainer = ({ store }) => {
             <AsymColumnLayout.Container>
               <AsymColumnLayout.MainContent>
                 <ConfirmedPreferencesSection
-                  application={application}
-                  applicationMembers={applicationMembers}
-                  fileBaseUrl={fileBaseUrl}
-                  onSave={onSavePreference}
-                  onDismissError={onDismissError}
-                  confirmedPreferencesFailed={confirmedPreferencesFailed}
+                  application={state.application}
+                  applicationMembers={getApplicationMembers(state.application)}
+                  fileBaseUrl={state.fileBaseUrl}
+                  onSave={actions.updateSavedPreference}
+                  onDismissError={() => actions.preferencesFailedChanged(false)}
+                  confirmedPreferencesFailed={state.confirmedPreferencesFailed}
                   form={form}
                 />
-                <Income listingAmiCharts={listingAmiCharts} visited={visited} form={form} />
+                <Income listingAmiCharts={state.listingAmiCharts} visited={visited} form={form} />
                 <LeaseSection
                   form={form}
                   values={values}
-                  showLeaseSection={leaseSectionState !== NO_LEASE_STATE}
-                  onCreateLeaseClick={handleCreateLeaseClick}
+                  showLeaseSection={state.leaseSectionState !== NO_LEASE_STATE}
+                  onCreateLeaseClick={actions.leaseCreated}
                 />
                 <DemographicsSection />
               </AsymColumnLayout.MainContent>
               <AsymColumnLayout.Sidebar>
                 <Sidebar
-                  onAddCommentClicked={() => onAddCommentClicked(form, touched)}
+                  statusHistory={state.statusHistory}
+                  loading={state.loading}
+                  onAddCommentClicked={() => handleAddCommentClicked(form, touched)}
                   onChangeStatus={(value) => onChangeStatus(form, touched, value)}
                   onSaveClicked={() => checkForValidationErrors(form, touched)}
                 />
@@ -222,14 +230,25 @@ const SupplementalApplicationContainer = ({ store }) => {
             </AsymColumnLayout.Container>
           </form>
           <StatusModalWrapper
-            {...statusModal}
-            onClose={handleStatusModalClose}
-            onSubmit={(submittedValues) =>
-              handleStatusModalSubmit(
+            alertMsg={state.statusModal.alertMsg}
+            isOpen={state.statusModal.isOpen}
+            loading={state.statusModal.loading}
+            onAlertCloseClick={actions.closeSuppAppStatusModalAlert}
+            onClose={actions.closeSuppAppStatusModal}
+            onSubmit={(submittedValues) => {
+              const { application: prevApplication, leaseSectionState } = state
+              return actions.submitSuppAppStatusModal(
                 submittedValues,
-                convertPercentAndCurrency(form.getState().values)
+                convertPercentAndCurrency(form.getState().values),
+                prevApplication,
+                leaseSectionState
               )
-            }
+            }}
+            showAlert={state.statusModal.showAlert}
+            status={state.statusModal.status}
+            submitButton={state.statusModal.submitButton}
+            subStatus={state.statusModal.substatus}
+            title={state.statusModal.header}
           />
         </>
       )}
@@ -237,4 +256,4 @@ const SupplementalApplicationContainer = ({ store }) => {
   )
 }
 
-export default withContext(SupplementalApplicationContainer)
+export default SupplementalApplicationContainer

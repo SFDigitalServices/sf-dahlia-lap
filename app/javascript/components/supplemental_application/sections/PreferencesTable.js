@@ -6,7 +6,6 @@ import { memberNameFromPref } from 'components/applications/application_form/pre
 import TableWrapper from 'components/atoms/TableWrapper'
 import ExpandableTable from 'components/molecules/ExpandableTable'
 
-import { withContext } from '../context'
 import Panel from './preferences/Panel'
 import PreferenceIcon from './preferences/PreferenceIcon'
 import { getTypeOfProof } from './preferences/typeOfProof'
@@ -133,4 +132,4 @@ const PreferencesTable = ({
   )
 }
 
-export default withContext(PreferencesTable)
+export default PreferencesTable

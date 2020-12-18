@@ -45,12 +45,7 @@ export const BREADCRUMB_ACTIONS = {
     overrideBreadcrumbData(state, {
       application: getEmptyApplication()
     }),
-  [ACTIONS.SUPP_APP_LOAD_SUCCESS]: (state, { application, listing }) =>
-    overrideBreadcrumbData(state, {
-      application,
-      listing
-    }),
-  [ACTIONS.SHORTFORM_LOADED]: (state, { breadcrumbData: { application, listing } }) =>
+  [ACTIONS.SUPP_APP_LOAD_SUCCESS]: (state, { breadcrumbData: { application, listing } }) =>
     overrideBreadcrumbData(state, {
       application,
       listing
