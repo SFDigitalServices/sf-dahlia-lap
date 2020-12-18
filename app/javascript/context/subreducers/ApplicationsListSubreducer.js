@@ -1,8 +1,4 @@
-import {
-  ACTION_TYPE_APPLICATION_TABLE_FILTERS_APPLIED,
-  ACTION_TYPE_APPLICATION_TABLE_PAGE_CHANGED,
-  ACTION_TYPE_LEFT_LISTING_SCOPE
-} from '../actions'
+import ACTIONS from '../actions'
 
 const getEmptyApplicationsListData = () => ({
   appliedFilters: {},
@@ -16,11 +12,11 @@ const overrideApplicationPageData = (state, { appliedFilters, page }) => ({
 })
 
 const APPLICATIONS_LIST_ACTIONS = {
-  [ACTION_TYPE_LEFT_LISTING_SCOPE]: (state, _) =>
+  [ACTIONS.LEFT_LISTING_SCOPE]: (state, _) =>
     overrideApplicationPageData(state, getEmptyApplicationsListData()),
-  [ACTION_TYPE_APPLICATION_TABLE_FILTERS_APPLIED]: (state, data) =>
+  [ACTIONS.APPLICATION_TABLE_FILTERS_APPLIED]: (state, data) =>
     overrideApplicationPageData(state, { appliedFilters: data, page: 0 }),
-  [ACTION_TYPE_APPLICATION_TABLE_PAGE_CHANGED]: (state, data) =>
+  [ACTIONS.APPLICATION_TABLE_PAGE_CHANGED]: (state, data) =>
     overrideApplicationPageData(state, { page: data })
 }
 

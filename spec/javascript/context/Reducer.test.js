@@ -1,13 +1,4 @@
-import {
-  ACTION_TYPE_SUPP_APP_LOAD_SUCCESS,
-  ACTION_TYPE_SHORTFORM_LOADED,
-  ACTION_TYPE_APPLICATION_TABLE_FILTERS_APPLIED,
-  ACTION_TYPE_APPLICATION_TABLE_PAGE_CHANGED,
-  ACTION_TYPE_LEFT_APPLICATION_SCOPE,
-  ACTION_TYPE_LEFT_LISTING_SCOPE,
-  ACTION_TYPE_SELECTED_APPLICATION_CHANGED,
-  ACTION_TYPE_SELECTED_LISTING_CHANGED
-} from 'context/actions'
+import ACTIONS from 'context/actions'
 import Reducer from 'context/Reducer'
 
 const mockState = {
@@ -53,11 +44,11 @@ const getMockAction = (type, data = null) => ({
 })
 
 describe('Reducer', () => {
-  describe('ACTION_TYPE_SELECTED_LISTING_CHANGED', () => {
+  describe('ACTIONS.SELECTED_LISTING_CHANGED', () => {
     test('should only override the listing data', () => {
       const newState = Reducer(
         mockState,
-        getMockAction(ACTION_TYPE_SELECTED_LISTING_CHANGED, mockNewListing)
+        getMockAction(ACTIONS.SELECTED_LISTING_CHANGED, mockNewListing)
       )
 
       expect(newState).toEqual({
@@ -78,7 +69,7 @@ describe('Reducer', () => {
 
       const newState = Reducer(
         mockState,
-        getMockAction(ACTION_TYPE_SELECTED_LISTING_CHANGED, listingWithoutAddress)
+        getMockAction(ACTIONS.SELECTED_LISTING_CHANGED, listingWithoutAddress)
       )
 
       expect(newState).toEqual({
@@ -91,9 +82,9 @@ describe('Reducer', () => {
     })
   })
 
-  describe('ACTION_TYPE_LEFT_LISTING_SCOPE', () => {
+  describe('ACTIONS.LEFT_LISTING_SCOPE', () => {
     test('should only delete listing data and applicationsList data', () => {
-      const newState = Reducer(mockState, getMockAction(ACTION_TYPE_LEFT_LISTING_SCOPE))
+      const newState = Reducer(mockState, getMockAction(ACTIONS.LEFT_LISTING_SCOPE))
 
       expect(newState).toEqual({
         ...mockState,
@@ -113,11 +104,11 @@ describe('Reducer', () => {
     })
   })
 
-  describe('ACTION_TYPE_APPLICATION_TABLE_FILTERS_APPLIED', () => {
+  describe('ACTIONS.APPLICATION_TABLE_FILTERS_APPLIED', () => {
     test('should reset the page and filtersApplied only', () => {
       const newState = Reducer(
         mockState,
-        getMockAction(ACTION_TYPE_APPLICATION_TABLE_FILTERS_APPLIED, { preferences: ['pref2'] })
+        getMockAction(ACTIONS.APPLICATION_TABLE_FILTERS_APPLIED, { preferences: ['pref2'] })
       )
 
       expect(newState).toEqual({
@@ -130,12 +121,9 @@ describe('Reducer', () => {
     })
   })
 
-  describe('ACTION_TYPE_APPLICATION_TABLE_PAGE_CHANGED', () => {
+  describe('ACTIONS.APPLICATION_TABLE_PAGE_CHANGED', () => {
     test('should update the page only', () => {
-      const newState = Reducer(
-        mockState,
-        getMockAction(ACTION_TYPE_APPLICATION_TABLE_PAGE_CHANGED, 3)
-      )
+      const newState = Reducer(mockState, getMockAction(ACTIONS.APPLICATION_TABLE_PAGE_CHANGED, 3))
 
       expect(newState).toEqual({
         ...mockState,
@@ -147,11 +135,11 @@ describe('Reducer', () => {
     })
   })
 
-  describe('ACTION_TYPE_SELECTED_APPLICATION_CHANGED', () => {
+  describe('ACTIONS.SELECTED_APPLICATION_CHANGED', () => {
     test('should only update application data', () => {
       const newState = Reducer(
         mockState,
-        getMockAction(ACTION_TYPE_SELECTED_APPLICATION_CHANGED, mockNewApplication)
+        getMockAction(ACTIONS.SELECTED_APPLICATION_CHANGED, mockNewApplication)
       )
 
       expect(newState).toEqual({
@@ -164,9 +152,9 @@ describe('Reducer', () => {
     })
   })
 
-  describe('ACTION_TYPE_LEFT_APPLICATION_SCOPE', () => {
+  describe('ACTIONS.LEFT_APPLICATION_SCOPE', () => {
     test('should only delete application data', () => {
-      const newState = Reducer(mockState, getMockAction(ACTION_TYPE_LEFT_APPLICATION_SCOPE))
+      const newState = Reducer(mockState, getMockAction(ACTIONS.LEFT_APPLICATION_SCOPE))
 
       expect(newState).toEqual({
         ...mockState,
@@ -182,11 +170,11 @@ describe('Reducer', () => {
     })
   })
 
-  describe('ACTION_TYPE_SUPP_APP_LOAD_SUCCESS', () => {
+  describe('ACTIONS.SUPP_APP_LOAD_SUCCESS', () => {
     test('should override listing and application data', () => {
       const newState = Reducer(
         mockState,
-        getMockAction(ACTION_TYPE_SUPP_APP_LOAD_SUCCESS, {
+        getMockAction(ACTIONS.SUPP_APP_LOAD_SUCCESS, {
           application: mockNewApplication,
           listing: mockNewListing
         })
@@ -210,11 +198,11 @@ describe('Reducer', () => {
     })
   })
 
-  describe('ACTION_TYPE_SHORTFORM_LOADED', () => {
+  describe('ACTIONS.SHORTFORM_LOADED', () => {
     test('should override listing and application data', () => {
       const newState = Reducer(
         mockState,
-        getMockAction(ACTION_TYPE_SHORTFORM_LOADED, {
+        getMockAction(ACTIONS.SHORTFORM_LOADED, {
           application: mockNewApplication,
           listing: mockNewListing
         })

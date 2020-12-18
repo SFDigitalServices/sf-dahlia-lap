@@ -1,14 +1,5 @@
 import { createActions } from 'context/actionCreators/actionCreators'
-import {
-  ACTION_TYPE_SUPP_APP_LOAD_SUCCESS,
-  ACTION_TYPE_SHORTFORM_LOADED,
-  ACTION_TYPE_APPLICATION_TABLE_FILTERS_APPLIED,
-  ACTION_TYPE_APPLICATION_TABLE_PAGE_CHANGED,
-  ACTION_TYPE_LEFT_APPLICATION_SCOPE,
-  ACTION_TYPE_LEFT_LISTING_SCOPE,
-  ACTION_TYPE_SELECTED_APPLICATION_CHANGED,
-  ACTION_TYPE_SELECTED_LISTING_CHANGED
-} from 'context/actions'
+import ACTIONS from 'context/actions'
 
 const mockDispatch = jest.fn()
 
@@ -62,7 +53,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SUPP_APP_LOAD_SUCCESS)
+      expect(dispatchedAction.type).toEqual(ACTIONS.SUPP_APP_LOAD_SUCCESS)
       expect(dispatchedAction.data).toEqual({
         application: mockFormattedApplication,
         listing: mockFormattedListing
@@ -74,7 +65,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SUPP_APP_LOAD_SUCCESS)
+      expect(dispatchedAction.type).toEqual(ACTIONS.SUPP_APP_LOAD_SUCCESS)
       expect(dispatchedAction.data).toEqual({
         application: {
           id: undefined,
@@ -108,7 +99,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SHORTFORM_LOADED)
+      expect(dispatchedAction.type).toEqual(ACTIONS.SHORTFORM_LOADED)
       expect(dispatchedAction.data).toEqual({
         application: expectedApplication,
         listing: mockFormattedListing
@@ -120,7 +111,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SHORTFORM_LOADED)
+      expect(dispatchedAction.type).toEqual(ACTIONS.SHORTFORM_LOADED)
       expect(dispatchedAction.data).toEqual({
         application: {
           id: undefined,
@@ -142,7 +133,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_LEFT_APPLICATION_SCOPE)
+      expect(dispatchedAction.type).toEqual(ACTIONS.LEFT_APPLICATION_SCOPE)
       expect(dispatchedAction.data).toBeUndefined()
     })
   })
@@ -153,7 +144,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_LEFT_LISTING_SCOPE)
+      expect(dispatchedAction.type).toEqual(ACTIONS.LEFT_LISTING_SCOPE)
       expect(dispatchedAction.data).toBeUndefined()
     })
   })
@@ -164,7 +155,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SELECTED_LISTING_CHANGED)
+      expect(dispatchedAction.type).toEqual(ACTIONS.SELECTED_LISTING_CHANGED)
       expect(dispatchedAction.data).toEqual(mockFormattedListing)
     })
 
@@ -173,7 +164,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SELECTED_LISTING_CHANGED)
+      expect(dispatchedAction.type).toEqual(ACTIONS.SELECTED_LISTING_CHANGED)
       expect(dispatchedAction.data).toEqual({
         id: undefined,
         name: undefined,
@@ -188,7 +179,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SELECTED_LISTING_CHANGED)
+      expect(dispatchedAction.type).toEqual(ACTIONS.SELECTED_LISTING_CHANGED)
       expect(dispatchedAction.data).toEqual(mockFormattedListingWithoutAddress)
     })
 
@@ -197,7 +188,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SELECTED_LISTING_CHANGED)
+      expect(dispatchedAction.type).toEqual(ACTIONS.SELECTED_LISTING_CHANGED)
       expect(dispatchedAction.data).toEqual({
         id: undefined,
         name: undefined,
@@ -219,7 +210,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SELECTED_APPLICATION_CHANGED)
+      expect(dispatchedAction.type).toEqual(ACTIONS.SELECTED_APPLICATION_CHANGED)
       expect(dispatchedAction.data).toEqual(mockFormattedApplication)
     })
 
@@ -228,7 +219,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SELECTED_APPLICATION_CHANGED)
+      expect(dispatchedAction.type).toEqual(ACTIONS.SELECTED_APPLICATION_CHANGED)
       expect(dispatchedAction.data).toEqual({
         id: undefined,
         number: undefined,
@@ -247,7 +238,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_APPLICATION_TABLE_FILTERS_APPLIED)
+      expect(dispatchedAction.type).toEqual(ACTIONS.APPLICATION_TABLE_FILTERS_APPLIED)
       expect(dispatchedAction.data).toEqual(mockFilters)
     })
 
@@ -256,7 +247,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_APPLICATION_TABLE_FILTERS_APPLIED)
+      expect(dispatchedAction.type).toEqual(ACTIONS.APPLICATION_TABLE_FILTERS_APPLIED)
       expect(dispatchedAction.data).toEqual({})
     })
   })
@@ -267,7 +258,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_APPLICATION_TABLE_PAGE_CHANGED)
+      expect(dispatchedAction.type).toEqual(ACTIONS.APPLICATION_TABLE_PAGE_CHANGED)
       expect(dispatchedAction.data).toEqual(3)
     })
 
@@ -276,7 +267,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_APPLICATION_TABLE_PAGE_CHANGED)
+      expect(dispatchedAction.type).toEqual(ACTIONS.APPLICATION_TABLE_PAGE_CHANGED)
       expect(dispatchedAction.data).toEqual(0)
     })
   })

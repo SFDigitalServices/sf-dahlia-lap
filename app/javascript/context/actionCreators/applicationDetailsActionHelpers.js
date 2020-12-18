@@ -7,13 +7,7 @@ import {
   updatePreference,
   updateTotalHouseholdRent
 } from 'components/supplemental_application/actions'
-import {
-  ACTION_TYPE_CONFIRMED_PREFERENCES_FAILED,
-  ACTION_TYPE_SUPP_APP_LOAD_COMPLETE,
-  ACTION_TYPE_SUPP_APP_LOAD_START,
-  ACTION_TYPE_SUPP_APP_LOAD_SUCCESS,
-  ACTION_TYPE_SUPP_APP_LOAD_FAIL
-} from 'context/actions'
+import ACTIONS from 'context/actions'
 import { doesApplicationHaveLease } from 'utils/leaseUtils'
 
 import { getApplicationDetailsBreadcrumbsData } from './breadcrumbActionHelpers'
@@ -48,11 +42,11 @@ export const loadSupplementalApplicationPage = async (
   applicationId,
   listingId = null
 ) => {
-  dispatch({ type: ACTION_TYPE_SUPP_APP_LOAD_START })
+  dispatch({ type: ACTIONS.SUPP_APP_LOAD_START })
   return getSupplementalPageData(applicationId, listingId)
     .then(({ application, statusHistory, fileBaseUrl, units, listing }) => {
       dispatch({
-        type: ACTION_TYPE_SUPP_APP_LOAD_SUCCESS,
+        type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
         data: {
           breadcrumbData: getApplicationDetailsBreadcrumbsData(application, listing),
           pageData: {
@@ -69,7 +63,7 @@ export const loadSupplementalApplicationPage = async (
         }
       })
     })
-    .finally(() => dispatch({ type: ACTION_TYPE_SUPP_APP_LOAD_COMPLETE }))
+    .finally(() => dispatch({ type: ACTIONS.SUPP_APP_LOAD_COMPLETE }))
 }
 
 const getApplicationStateOverridesAfterUpdate = (
@@ -95,7 +89,7 @@ export const updateSupplementalApplication = async (
   formApplication,
   prevApplication
 ) => {
-  dispatch({ type: ACTION_TYPE_SUPP_APP_LOAD_START })
+  dispatch({ type: ACTIONS.SUPP_APP_LOAD_START })
   return updateApplication(
     formApplication,
     prevApplication,
@@ -103,17 +97,17 @@ export const updateSupplementalApplication = async (
   )
     .then((responseApplication) => {
       dispatch({
-        type: ACTION_TYPE_SUPP_APP_LOAD_SUCCESS,
+        type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
         data: {
           pageData: getApplicationStateOverridesAfterUpdate(leaseSectionState, responseApplication)
         }
       })
     })
-    .finally(() => dispatch({ type: ACTION_TYPE_SUPP_APP_LOAD_COMPLETE }))
+    .finally(() => dispatch({ type: ACTIONS.SUPP_APP_LOAD_COMPLETE }))
 }
 
 export const updateSavedPreference = async (dispatch, preferenceIndex, formApplicationValues) => {
-  dispatch({ type: ACTION_TYPE_SUPP_APP_LOAD_START })
+  dispatch({ type: ACTIONS.SUPP_APP_LOAD_START })
   const preference = formApplicationValues.preferences[preferenceIndex]
   const updates = [updatePreference(preference)]
   // If updating a rent burdened preference, we need to independently
@@ -128,7 +122,7 @@ export const updateSavedPreference = async (dispatch, preferenceIndex, formAppli
   const failed = responses.some((r) => r === false)
 
   dispatch({
-    type: ACTION_TYPE_SUPP_APP_LOAD_SUCCESS,
+    type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
     data: {
       pageData: {
         application: formApplicationValues,
@@ -138,7 +132,7 @@ export const updateSavedPreference = async (dispatch, preferenceIndex, formAppli
   })
 
   if (failed) {
-    dispatch({ type: ACTION_TYPE_CONFIRMED_PREFERENCES_FAILED, data: { failed: true } })
+    dispatch({ type: ACTIONS.CONFIRMED_PREFERENCES_FAILED, data: { failed: true } })
   }
 
   return !failed
@@ -153,7 +147,7 @@ export const statusModalSubmit = async (
 ) => {
   const { status, subStatus, comment } = submittedValues
   dispatch({
-    type: ACTION_TYPE_SUPP_APP_LOAD_START,
+    type: ACTIONS.SUPP_APP_LOAD_START,
     data: {
       additionalOverrides: {
         statusModal: { loading: true }
@@ -175,7 +169,7 @@ export const statusModalSubmit = async (
       getApplicationStateOverridesAfterUpdate(application, { statusHistory })
 
       dispatch({
-        type: ACTION_TYPE_SUPP_APP_LOAD_SUCCESS,
+        type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
         data: {
           pageData: {
             ...getApplicationStateOverridesAfterUpdate(application, { statusHistory }),
@@ -186,7 +180,7 @@ export const statusModalSubmit = async (
     })
     .catch((_) => {
       dispatch({
-        type: ACTION_TYPE_SUPP_APP_LOAD_FAIL,
+        type: ACTIONS.SUPP_APP_LOAD_FAIL,
         data: {
           additionalOverrides: {
             loading: false,
@@ -198,7 +192,7 @@ export const statusModalSubmit = async (
     })
     .finally(() => {
       dispatch({
-        type: ACTION_TYPE_SUPP_APP_LOAD_COMPLETE,
+        type: ACTIONS.SUPP_APP_LOAD_COMPLETE,
         data: { additionalOverrides: { statusModal: { loading: false } } }
       })
     })

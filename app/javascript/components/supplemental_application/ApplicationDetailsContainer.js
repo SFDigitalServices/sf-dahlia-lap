@@ -15,10 +15,6 @@ import { useAsyncOnMount } from 'utils/customHooks'
 const SUPP_TAB_KEY = 'supplemental_tab'
 const SHORTFORM_TAB_KEY = 'shortform_tab'
 
-export const SHOW_LEASE_STATE = 'show_lease'
-export const NO_LEASE_STATE = 'no_lease'
-export const EDIT_LEASE_STATE = 'edit_lease'
-
 const ApplicationDetailsContainer = () => {
   const { applicationId } = useParams()
   const [selectedTabKey, setSelectedTabKey] = useState(SUPP_TAB_KEY)

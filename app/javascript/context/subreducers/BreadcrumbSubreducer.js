@@ -1,11 +1,4 @@
-import {
-  ACTION_TYPE_SELECTED_LISTING_CHANGED,
-  ACTION_TYPE_SELECTED_APPLICATION_CHANGED,
-  ACTION_TYPE_LEFT_LISTING_SCOPE,
-  ACTION_TYPE_LEFT_APPLICATION_SCOPE,
-  ACTION_TYPE_SUPP_APP_LOAD_SUCCESS,
-  ACTION_TYPE_SHORTFORM_LOADED
-} from '../actions'
+import ACTIONS from '../actions'
 
 const getEmptyListing = () => ({
   id: null,
@@ -36,28 +29,28 @@ const overrideBreadcrumbData = (state, { listing, application }) => ({
 })
 
 export const BREADCRUMB_ACTIONS = {
-  [ACTION_TYPE_SELECTED_LISTING_CHANGED]: (state, data) =>
+  [ACTIONS.SELECTED_LISTING_CHANGED]: (state, data) =>
     overrideBreadcrumbData(state, {
       listing: data
     }),
-  [ACTION_TYPE_SELECTED_APPLICATION_CHANGED]: (state, data) =>
+  [ACTIONS.SELECTED_APPLICATION_CHANGED]: (state, data) =>
     overrideBreadcrumbData(state, {
       application: data
     }),
-  [ACTION_TYPE_LEFT_LISTING_SCOPE]: (state, _) =>
+  [ACTIONS.LEFT_LISTING_SCOPE]: (state, _) =>
     overrideBreadcrumbData(state, {
       listing: getEmptyListing()
     }),
-  [ACTION_TYPE_LEFT_APPLICATION_SCOPE]: (state, _) =>
+  [ACTIONS.LEFT_APPLICATION_SCOPE]: (state, _) =>
     overrideBreadcrumbData(state, {
       application: getEmptyApplication()
     }),
-  [ACTION_TYPE_SUPP_APP_LOAD_SUCCESS]: (state, { application, listing }) =>
+  [ACTIONS.SUPP_APP_LOAD_SUCCESS]: (state, { application, listing }) =>
     overrideBreadcrumbData(state, {
       application,
       listing
     }),
-  [ACTION_TYPE_SHORTFORM_LOADED]: (state, { breadcrumbData: { application, listing } }) =>
+  [ACTIONS.SHORTFORM_LOADED]: (state, { breadcrumbData: { application, listing } }) =>
     overrideBreadcrumbData(state, {
       application,
       listing
