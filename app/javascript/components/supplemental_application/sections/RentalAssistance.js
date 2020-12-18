@@ -303,7 +303,7 @@ const RentalAssistance = ({ store, form, visited, disabled }) => {
   const handleSave = async (index, action = 'update') => {
     const entireForm = form.getState().values
     const rentalAssistance = convertCurrency(entireForm.rental_assistances[index])
-    return handleSaveRentalAssistance(rentalAssistance, entireForm, action)
+    return handleSaveRentalAssistance(rentalAssistance, action)
   }
 
   const handleSaveNewAssistance = async (index) =>

@@ -1,5 +1,5 @@
 import {
-  ACTION_TYPE_SUPP_APP_LOADED,
+  ACTION_TYPE_SUPP_APP_LOAD_SUCCESS,
   ACTION_TYPE_SHORTFORM_LOADED,
   ACTION_TYPE_APPLICATION_TABLE_FILTERS_APPLIED,
   ACTION_TYPE_APPLICATION_TABLE_PAGE_CHANGED,
@@ -182,11 +182,11 @@ describe('Reducer', () => {
     })
   })
 
-  describe('ACTION_TYPE_SUPP_APP_LOADED', () => {
+  describe('ACTION_TYPE_SUPP_APP_LOAD_SUCCESS', () => {
     test('should override listing and application data', () => {
       const newState = Reducer(
         mockState,
-        getMockAction(ACTION_TYPE_SUPP_APP_LOADED, {
+        getMockAction(ACTION_TYPE_SUPP_APP_LOAD_SUCCESS, {
           application: mockNewApplication,
           listing: mockNewListing
         })

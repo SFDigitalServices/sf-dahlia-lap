@@ -3,7 +3,7 @@ import {
   ACTION_TYPE_SELECTED_APPLICATION_CHANGED,
   ACTION_TYPE_LEFT_LISTING_SCOPE,
   ACTION_TYPE_LEFT_APPLICATION_SCOPE,
-  ACTION_TYPE_SUPP_APP_LOADED,
+  ACTION_TYPE_SUPP_APP_LOAD_SUCCESS,
   ACTION_TYPE_SHORTFORM_LOADED
 } from '../actions'
 
@@ -52,7 +52,7 @@ export const BREADCRUMB_ACTIONS = {
     overrideBreadcrumbData(state, {
       application: getEmptyApplication()
     }),
-  [ACTION_TYPE_SUPP_APP_LOADED]: (state, { application, listing }) =>
+  [ACTION_TYPE_SUPP_APP_LOAD_SUCCESS]: (state, { application, listing }) =>
     overrideBreadcrumbData(state, {
       application,
       listing

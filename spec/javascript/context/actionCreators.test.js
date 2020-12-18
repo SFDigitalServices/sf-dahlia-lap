@@ -1,6 +1,6 @@
 import { createActions } from 'context/actionCreators/actionCreators'
 import {
-  ACTION_TYPE_SUPP_APP_LOADED,
+  ACTION_TYPE_SUPP_APP_LOAD_SUCCESS,
   ACTION_TYPE_SHORTFORM_LOADED,
   ACTION_TYPE_APPLICATION_TABLE_FILTERS_APPLIED,
   ACTION_TYPE_APPLICATION_TABLE_PAGE_CHANGED,
@@ -62,7 +62,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SUPP_APP_LOADED)
+      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SUPP_APP_LOAD_SUCCESS)
       expect(dispatchedAction.data).toEqual({
         application: mockFormattedApplication,
         listing: mockFormattedListing
@@ -74,7 +74,7 @@ describe('leaseUpActionCreators', () => {
 
       const dispatchedAction = getDispatchedAction()
 
-      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SUPP_APP_LOADED)
+      expect(dispatchedAction.type).toEqual(ACTION_TYPE_SUPP_APP_LOAD_SUCCESS)
       expect(dispatchedAction.data).toEqual({
         application: {
           id: undefined,
