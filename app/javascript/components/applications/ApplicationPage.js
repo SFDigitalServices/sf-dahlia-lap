@@ -60,7 +60,12 @@ const ApplicationPage = ({ isLeaseUp = false }) => {
     () => !isPageLoaded(applicationDetailsData) && getShortFormApplication(applicationId),
     {
       onSuccess: (response) => {
-        actions.applicationPageLoadComplete(response.application, response.application?.listing)
+        actions.applicationPageLoadComplete(
+          response.application,
+          response.application?.listing,
+          response.fileBaseUrl,
+          true
+        )
         setApplication(response.application)
         setFileBaseUrl(response.fileBaseUrl)
       },

@@ -12,7 +12,7 @@ const getEmptyApplication = () => ({
   applicantFullName: null
 })
 
-const overrideBreadcrumbData = (state, { listing, application }) => ({
+const overrideBreadcrumbData = (state, { listing, application } = {}) => ({
   ...state,
   ...(listing && {
     listing: {
@@ -45,11 +45,8 @@ export const BREADCRUMB_ACTIONS = {
     overrideBreadcrumbData(state, {
       application: getEmptyApplication()
     }),
-  [ACTIONS.SUPP_APP_LOAD_SUCCESS]: (state, { breadcrumbData: { application, listing } }) =>
-    overrideBreadcrumbData(state, {
-      application,
-      listing
-    })
+  [ACTIONS.SUPP_APP_LOAD_SUCCESS]: (state, { breadcrumbData }) =>
+    overrideBreadcrumbData(state, breadcrumbData)
 }
 
 const BreadcrumbSubreducer = {

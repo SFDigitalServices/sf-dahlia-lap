@@ -69,12 +69,8 @@ export const RentalAssistanceTable = ({
   const expandedRowRenderer = (rentalAssistances, form) => (row, toggle, original) => {
     const index = findIndex(rentalAssistances, original)
 
-    // Run the async function, if the result doesn't throw an error and returned a
-    // truthy response, toggle the panel to show/hide
-    const toggleIfSuccessful = (asyncFunc) => (...args) =>
-      asyncFunc(...args).then((result) => {
-        if (result) toggle()
-      })
+    // Run the async function, if the result doesn't throw an error, toggle the panel to show/hide
+    const toggleIfSuccessful = (asyncFunc) => (...args) => asyncFunc(...args).then(toggle)
 
     const handleClose = () => {
       onCancelEdit(index)
@@ -283,9 +279,7 @@ const RentalAssistance = ({ form, visited, disabled }) => {
     }
   }, [disabled])
 
-  const handleOpenNewPanel = () => {
-    setIsEditingNewAssistance(true)
-  }
+  const handleOpenNewPanel = () => setIsEditingNewAssistance(true)
 
   const handleCloseNewPanel = () => {
     setIsEditingNewAssistance(false)
@@ -301,16 +295,14 @@ const RentalAssistance = ({ form, visited, disabled }) => {
   const handleSave = async (index, action = 'update') => {
     const entireForm = form.getState().values
     const rentalAssistance = convertCurrency(entireForm.rental_assistances[index])
-    if (action === 'update') {
-      return actions.updateRentalAssistance(state.application.id, {
-        ...rentalAssistance,
-        ...(rentalAssistance.type_of_assistance !== 'Other' && { other_assistance_name: null })
-      })
-    } else if (action === 'create') {
-      return actions
-        .createRentalAssistance(state.application.id, rentalAssistance)
-        .then(() => setIsEditingNewAssistance(false))
-    }
+
+    return (action === 'update'
+      ? actions.updateRentalAssistance(state.application.id, {
+          ...rentalAssistance,
+          ...(rentalAssistance.type_of_assistance !== 'Other' && { other_assistance_name: null })
+        })
+      : actions.createRentalAssistance(state.application.id, rentalAssistance)
+    ).then(() => setIsEditingNewAssistance(false))
   }
 
   const applicationMembers = getApplicationMembers(state.application)

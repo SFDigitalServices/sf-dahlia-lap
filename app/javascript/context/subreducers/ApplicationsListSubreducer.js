@@ -5,7 +5,7 @@ const getEmptyApplicationsListData = () => ({
   page: 0
 })
 
-const overrideApplicationPageData = (state, { appliedFilters, page }) => ({
+const overrideApplicationPageData = (state, { appliedFilters, page } = {}) => ({
   ...state,
   ...(appliedFilters && { appliedFilters }),
   ...(!(page === undefined || page === null) && { page })

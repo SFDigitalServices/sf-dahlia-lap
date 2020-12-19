@@ -12,6 +12,7 @@ import {
 } from 'context/actionCreators/applicationDetailsActionHelpers'
 import {
   formatListingStateData,
+  getApplicationDetailsBreadcrumbsData,
   getApplicationRowClickedBreadcrumbData
 } from 'context/actionCreators/breadcrumbActionHelpers'
 import ACTIONS from 'context/actions'
@@ -113,7 +114,7 @@ export const createActions = (dispatch) => ({
       .updateRentalAssistance(updatedRentalAssistance, applicationId)
       .then((_) => {
         dispatch({
-          type: ACTIONS.RENTAL_ASSISTANCE_CREATE_SUCCESS,
+          type: ACTIONS.RENTAL_ASSISTANCE_UPDATE_SUCCESS,
           data: {
             updatedRentalAssistance: {
               ...updatedRentalAssistance,
@@ -164,10 +165,13 @@ export const createActions = (dispatch) => ({
       prevApplication,
       leaseSectionState
     ),
-  applicationPageLoadComplete: (application, listing, fileBaseUrl) =>
+  applicationPageLoadComplete: (application, listing, fileBaseUrl, updateBreadcrumbs = false) =>
     dispatch({
       type: ACTIONS.SHORTFORM_LOADED,
       data: {
+        ...(updateBreadcrumbs && {
+          breadcrumbData: getApplicationDetailsBreadcrumbsData(application, listing)
+        }),
         pageData: {
           application,
           listing,
