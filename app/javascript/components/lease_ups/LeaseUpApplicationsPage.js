@@ -170,11 +170,11 @@ const LeaseUpApplicationsPage = () => {
     const { applicationsData } = statusModalState
     const { status, subStatus } = submittedValues
 
-    applicationsData.forEach((application) => {
-      application.comment = submittedValues.comment?.trim()
+    Object.keys(applicationsData).forEach((appId) => {
+      applicationsData[appId].comment = submittedValues.comment?.trim()
       if (status) {
-        application.status = status
-        application.subStatus = subStatus
+        applicationsData[appId].status = status
+        applicationsData[appId].subStatus = subStatus
       }
     })
 
@@ -182,13 +182,13 @@ const LeaseUpApplicationsPage = () => {
   }
 
   const createStatusUpdates = async (applicationsData) => {
-    const statusUpdateRequests = applicationsData.map((props) => {
-      const { application, status, comment, subStatus } = props
-      return createFieldUpdateComment(application, status, comment, subStatus)
-        .then((_) => ({ application: application }))
+    const statusUpdateRequests = Object.keys(applicationsData).map((applicationId) => {
+      const { status, comment, subStatus } = applicationsData[applicationId]
+      return createFieldUpdateComment(applicationId, status, comment, subStatus)
+        .then((_) => ({ application: applicationId }))
         .catch((e) => ({
           error: true,
-          application: application
+          application: applicationId
         }))
     })
 
@@ -199,14 +199,20 @@ const LeaseUpApplicationsPage = () => {
 
       const successfulIds = values.filter((v) => !v.error).map((v) => v.application)
       const errorIds = values.filter((v) => v.error).map((v) => v.application)
+      const successfulData = {}
 
-      updateApplicationState(applicationsData.filter((a) => successfulIds.includes(a.application)))
+      successfulIds.forEach((applicationId) => {
+        successfulData[applicationId] = applicationsData[applicationId]
+        delete applicationsData[applicationId]
+      })
+
+      updateApplicationState(successfulData)
 
       const wasBulkUpdate = statusModalState.isBulkUpdate
 
       if (errorIds.length !== 0) {
         setStatusModalState({
-          applicationsData: applicationsData.filter((a) => errorIds.includes(a.application)),
+          applicationsData: applicationsData,
           loading: false,
           showAlert: true,
           alertMsg: `We were unable to make the update for ${errorIds.length} out of ${values.length} applications, please try again.`,
@@ -214,7 +220,7 @@ const LeaseUpApplicationsPage = () => {
         })
       } else {
         setStatusModalState({
-          applicationsData: [],
+          applicationsData: {},
           isOpen: false,
           loading: false,
           showAlert: false,
@@ -232,7 +238,7 @@ const LeaseUpApplicationsPage = () => {
     setStatusModalState({
       isOpen: false,
       showAlert: false,
-      applicationsData: []
+      applicationsData: {}
     })
   }
   const handleLeaseUpStatusChange = (value, applicationId, isCommentModal) => {
@@ -244,14 +250,19 @@ const LeaseUpApplicationsPage = () => {
       : [applicationId]
 
     const applicationsData = state.applications
-      .filter((application) => appsToUpdate.includes(application.application_id))
-      .map((application) => {
-        return {
+      .filter(
+        (application, position, self) =>
+          appsToUpdate.includes(application.application_id) &&
+          self.indexOf(application) === position
+      )
+      .reduce((obj, application) => {
+        obj[application.application_id] = {
           application: application.application_id,
           status: value || application.lease_up_status,
           ...(!value && { sub_status: application.sub_status })
         }
-      })
+        return obj
+      }, {})
 
     setStatusModalState({
       isBulkUpdate,
@@ -265,7 +276,7 @@ const LeaseUpApplicationsPage = () => {
   // Updated the visible status, substatus, and status last updated for one or many applications
   const updateApplicationState = (applicationsData) => {
     const updatedApplications = state.applications.map((app) => {
-      const updatedApp = applicationsData.find((a) => app.application_id === a.application)
+      const updatedApp = applicationsData[app.application_id]
       return {
         ...app,
         ...(updatedApp && {

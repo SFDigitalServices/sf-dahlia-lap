@@ -88,7 +88,9 @@ const LeaseUpTableContainer = ({
         isBulkUpdate={statusModal.isBulkUpdate}
         isOpen={statusModal.isOpen}
         loading={statusModal.loading}
-        numApplicationsToUpdate={statusModal.applicationsData?.length}
+        numApplicationsToUpdate={
+          statusModal.applicationsData ? Object.keys(statusModal.applicationsData).length : 1
+        }
         onAlertCloseClick={statusModal.onAlertCloseClick}
         onClose={onCloseStatusModal}
         onSubmit={onSubmitStatusModal}

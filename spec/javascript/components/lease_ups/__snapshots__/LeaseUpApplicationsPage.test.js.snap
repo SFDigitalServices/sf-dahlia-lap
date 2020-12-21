@@ -29665,6 +29665,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
               isCommentModal={false}
               isOpen={false}
               loading={false}
+              numApplicationsToUpdate={1}
               onClose={[Function]}
               onSubmit={[Function]}
               showAlert={null}
