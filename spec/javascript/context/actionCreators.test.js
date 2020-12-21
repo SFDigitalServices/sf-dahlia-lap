@@ -1,4 +1,12 @@
-import { createActions } from 'context/actionCreators/actionCreators'
+import {
+  applicationsTablePageChanged,
+  listingRowClicked,
+  applicationsPageMounted,
+  applicationRowClicked,
+  applicationsPageLoadComplete,
+  listingsPageMounted,
+  applicationsTableFiltersApplied
+} from 'context/actionCreators/actionCreators'
 import ACTIONS from 'context/actions'
 
 const mockDispatch = jest.fn()
@@ -40,96 +48,11 @@ const mockFormattedListing = {
 }
 
 describe('leaseUpActionCreators', () => {
-  let actions
-  beforeEach(() => {
-    actions = createActions(mockDispatch)
-  })
-
   const getDispatchedAction = () => mockDispatch.mock.calls[0][0]
-
-  describe('supplementalPageLoadComplete', () => {
-    test('dispatches correct action', () => {
-      actions.supplementalPageLoadComplete(mockApplication, mockListing)
-
-      const dispatchedAction = getDispatchedAction()
-
-      expect(dispatchedAction.type).toEqual(ACTIONS.SUPP_APP_LOAD_SUCCESS)
-      expect(dispatchedAction.data).toEqual({
-        application: mockFormattedApplication,
-        listing: mockFormattedListing
-      })
-    })
-
-    test('dispatches correct action with null input', () => {
-      actions.supplementalPageLoadComplete(null, null)
-
-      const dispatchedAction = getDispatchedAction()
-
-      expect(dispatchedAction.type).toEqual(ACTIONS.SUPP_APP_LOAD_SUCCESS)
-      expect(dispatchedAction.data).toEqual({
-        application: {
-          id: undefined,
-          number: undefined,
-          applicantFullName: undefined
-        },
-        listing: {
-          id: undefined,
-          name: undefined,
-          buildingAddress: undefined
-        }
-      })
-    })
-  })
-
-  describe('applicationPageLoadComplete', () => {
-    test('dispatches correct action', () => {
-      const mockApplicationFromShortformPage = {
-        ...mockApplication,
-        applicant: {
-          name: 'firstName1 middlename1 lastname1'
-        }
-      }
-
-      const expectedApplication = {
-        ...mockFormattedApplication,
-        applicantFullName: 'firstName1 middlename1 lastname1'
-      }
-
-      actions.applicationPageLoadComplete(mockApplicationFromShortformPage, mockListing)
-
-      const dispatchedAction = getDispatchedAction()
-
-      expect(dispatchedAction.type).toEqual(ACTIONS.SHORTFORM_LOADED)
-      expect(dispatchedAction.data).toEqual({
-        application: expectedApplication,
-        listing: mockFormattedListing
-      })
-    })
-
-    test('dispatches correct action with null input', () => {
-      actions.applicationPageLoadComplete(null, null)
-
-      const dispatchedAction = getDispatchedAction()
-
-      expect(dispatchedAction.type).toEqual(ACTIONS.SHORTFORM_LOADED)
-      expect(dispatchedAction.data).toEqual({
-        application: {
-          id: undefined,
-          number: undefined,
-          applicantFullName: undefined
-        },
-        listing: {
-          id: undefined,
-          name: undefined,
-          buildingAddress: undefined
-        }
-      })
-    })
-  })
 
   describe('applicationsPageMounted', () => {
     test('dispatches correct action', () => {
-      actions.applicationsPageMounted()
+      applicationsPageMounted(mockDispatch)
 
       const dispatchedAction = getDispatchedAction()
 
@@ -140,7 +63,7 @@ describe('leaseUpActionCreators', () => {
 
   describe('listingsPageMounted', () => {
     test('dispatches correct action', () => {
-      actions.listingsPageMounted()
+      listingsPageMounted(mockDispatch)
 
       const dispatchedAction = getDispatchedAction()
 
@@ -151,7 +74,7 @@ describe('leaseUpActionCreators', () => {
 
   describe('applicationsPageLoadComplete', () => {
     test('dispatches correct action', () => {
-      actions.applicationsPageLoadComplete(mockListing)
+      applicationsPageLoadComplete(mockDispatch, mockListing)
 
       const dispatchedAction = getDispatchedAction()
 
@@ -160,7 +83,7 @@ describe('leaseUpActionCreators', () => {
     })
 
     test('dispatches correct action with null input', () => {
-      actions.applicationsPageLoadComplete(null)
+      applicationsPageLoadComplete(mockDispatch, null)
 
       const dispatchedAction = getDispatchedAction()
 
@@ -175,7 +98,7 @@ describe('leaseUpActionCreators', () => {
 
   describe('listingRowClicked', () => {
     test('dispatches correct action', () => {
-      actions.listingRowClicked(mockListingWithoutAddress)
+      listingRowClicked(mockDispatch, mockListingWithoutAddress)
 
       const dispatchedAction = getDispatchedAction()
 
@@ -184,7 +107,7 @@ describe('leaseUpActionCreators', () => {
     })
 
     test('dispatches correct action with null input', () => {
-      actions.listingRowClicked(null)
+      listingRowClicked(mockDispatch, null)
 
       const dispatchedAction = getDispatchedAction()
 
@@ -206,7 +129,7 @@ describe('leaseUpActionCreators', () => {
         last_name: mockApplication.applicant.last_name
       }
 
-      actions.applicationRowClicked(mockApplicationFromApplicationsPage)
+      applicationRowClicked(mockDispatch, mockApplicationFromApplicationsPage)
 
       const dispatchedAction = getDispatchedAction()
 
@@ -215,7 +138,7 @@ describe('leaseUpActionCreators', () => {
     })
 
     test('dispatches correct action with null input', () => {
-      actions.applicationRowClicked(null)
+      applicationRowClicked(mockDispatch, null)
 
       const dispatchedAction = getDispatchedAction()
 
@@ -234,7 +157,7 @@ describe('leaseUpActionCreators', () => {
         preferences: ['pref1']
       }
 
-      actions.applicationsTableFiltersApplied(mockFilters)
+      applicationsTableFiltersApplied(mockDispatch, mockFilters)
 
       const dispatchedAction = getDispatchedAction()
 
@@ -243,7 +166,7 @@ describe('leaseUpActionCreators', () => {
     })
 
     test('dispatches correct action with null input', () => {
-      actions.applicationsTableFiltersApplied(null)
+      applicationsTableFiltersApplied(mockDispatch, null)
 
       const dispatchedAction = getDispatchedAction()
 
@@ -254,7 +177,7 @@ describe('leaseUpActionCreators', () => {
 
   describe('applicationsTablePageChanged', () => {
     test('dispatches correct action', () => {
-      actions.applicationsTablePageChanged(3)
+      applicationsTablePageChanged(mockDispatch, 3)
 
       const dispatchedAction = getDispatchedAction()
 
@@ -263,7 +186,7 @@ describe('leaseUpActionCreators', () => {
     })
 
     test('dispatches correct action with null input', () => {
-      actions.applicationsTablePageChanged(null)
+      applicationsTablePageChanged(mockDispatch, null)
 
       const dispatchedAction = getDispatchedAction()
 

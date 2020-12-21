@@ -6,6 +6,11 @@ import { map } from 'lodash'
 import moment from 'moment'
 import { useParams } from 'react-router-dom'
 
+import {
+  applicationsPageLoadComplete,
+  applicationsPageMounted,
+  applicationsTableFiltersApplied
+} from 'context/actionCreators/actionCreators'
 import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
 import {
@@ -71,7 +76,7 @@ const getPreferences = (listing) => {
 }
 
 const LeaseUpApplicationsPage = () => {
-  const [{ breadcrumbData, applicationsListData }, actions] = useContext(AppContext)
+  const [{ breadcrumbData, applicationsListData }, dispatch] = useContext(AppContext)
 
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
@@ -107,7 +112,7 @@ const LeaseUpApplicationsPage = () => {
         listingPreferences: getPreferences(listing)
       })
 
-      actions.applicationsPageLoadComplete(listing)
+      applicationsPageLoadComplete(dispatch, listing)
     }
   })
 
@@ -144,7 +149,7 @@ const LeaseUpApplicationsPage = () => {
     [applicationsListData.appliedFilters, applicationsListData.page]
   )
 
-  useEffectOnMount(actions.applicationsPageMounted)
+  useEffectOnMount(() => applicationsPageMounted(dispatch))
 
   const setInitialCheckboxState = (applications) => {
     // get unique applications
@@ -163,7 +168,7 @@ const LeaseUpApplicationsPage = () => {
 
   const handleOnFilter = (filters) => {
     state.eagerPagination.reset()
-    actions.applicationsTableFiltersApplied(filters)
+    applicationsTableFiltersApplied(dispatch, filters)
   }
 
   const handleStatusModalSubmit = async (submittedValues) => {

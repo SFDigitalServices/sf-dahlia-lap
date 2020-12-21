@@ -208,7 +208,5 @@ export const updateTotalHouseholdRent = async (id, totalMonthlyRent) => {
     id: id,
     total_monthly_rent: totalMonthlyRent
   })
-  const response = await apiService.updateApplication(attributes)
-
-  return response
+  return apiService.updateApplication(attributes)
 }

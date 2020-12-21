@@ -45,7 +45,7 @@ export const BREADCRUMB_ACTIONS = {
     overrideBreadcrumbData(state, {
       application: getEmptyApplication()
     }),
-  [ACTIONS.SUPP_APP_LOAD_SUCCESS]: (state, { breadcrumbData }) =>
+  [ACTIONS.SUPP_APP_INITIAL_LOAD_SUCCESS]: (state, { breadcrumbData }) =>
     overrideBreadcrumbData(state, breadcrumbData)
 }
 

@@ -12,6 +12,11 @@ import { getShortFormApplication } from 'components/lease_ups/shortFormActions'
 import Loading from 'components/molecules/Loading'
 import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
 import SupplementalApplicationContainer from 'components/supplemental_application/SupplementalApplicationContainer'
+import {
+  applicationPageLoadComplete,
+  loadSupplementalPageData,
+  updateSupplementalApplication
+} from 'context/actionCreators/application_details/applicationDetailsActionCreators'
 import { AppContext } from 'context/Provider'
 import { useAsyncOnMount } from 'utils/customHooks'
 import validate, { convertPercentAndCurrency } from 'utils/form/validations'
@@ -61,28 +66,22 @@ const ApplicationDetailsContainer = () => {
       breadcrumbData,
       applicationDetailsData: { supplemental, shortform }
     },
-    actions
+    dispatch
   ] = useContext(AppContext)
 
   const [loadingShortform, setLoadingShortform] = useState(true)
 
   useAsyncOnMount(() => getShortFormApplication(applicationId), {
     onSuccess: ({ application, fileBaseUrl }) => {
-      actions.applicationPageLoadComplete(application, application?.listing, fileBaseUrl)
+      applicationPageLoadComplete(dispatch, application, application?.listing, fileBaseUrl)
     },
     onComplete: () => {
       setLoadingShortform(false)
     }
   })
 
-  useAsyncOnMount(
-    () => actions.loadSupplementalPageData(applicationId, breadcrumbData?.listingId?.id),
-    {
-      onFail: (e) => {
-        console.error(e)
-        Alerts.error()
-      }
-    }
+  useAsyncOnMount(() =>
+    loadSupplementalPageData(dispatch, applicationId, breadcrumbData?.listingId?.id)
   )
 
   const tabItems = [
@@ -103,12 +102,15 @@ const ApplicationDetailsContainer = () => {
   const handleSaveApplication = async (formApplication) => {
     const { application: prevApplication, leaseSectionState } = supplemental
 
-    actions
-      .updateSupplementalApplication(leaseSectionState, formApplication, prevApplication)
-      .catch((e) => {
-        console.error(e)
-        Alerts.error()
-      })
+    return updateSupplementalApplication(
+      dispatch,
+      leaseSectionState,
+      formApplication,
+      prevApplication
+    ).catch((e) => {
+      console.error(e)
+      Alerts.error()
+    })
   }
 
   const performingInitialLoadForTab =

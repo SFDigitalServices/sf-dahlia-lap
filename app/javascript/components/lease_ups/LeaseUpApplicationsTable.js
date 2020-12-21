@@ -8,6 +8,7 @@ import Button from 'components/atoms/Button'
 import CheckboxCell from 'components/lease_ups/application_page/CheckboxCell'
 import PreferenceRankCell from 'components/lease_ups/application_page/PreferenceRankCell'
 import StatusCell from 'components/lease_ups/application_page/StatusCell'
+import { applicationsTablePageChanged } from 'context/actionCreators/actionCreators'
 import { AppContext } from 'context/Provider'
 import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
 import { cellFormat } from 'utils/reactTableUtils'
@@ -53,7 +54,7 @@ const LeaseUpApplicationsTable = ({
     {
       applicationsListData: { page }
     },
-    actions
+    dispatch
   ] = useContext(AppContext)
 
   const maxPagesMsg = `Unfortunately, we can only display the first ${
@@ -208,7 +209,7 @@ const LeaseUpApplicationsTable = ({
       className='rt-table-status'
       data={dataSet}
       page={page}
-      onPageChange={(newPage) => actions.applicationsTablePageChanged(newPage)}
+      onPageChange={(newPage) => applicationsTablePageChanged(dispatch, newPage)}
       pages={pages}
       columns={columns}
       getTdProps={getTdProps}

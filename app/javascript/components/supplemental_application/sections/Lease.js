@@ -4,12 +4,17 @@ import classNames from 'classnames'
 import { capitalize, each, filter, map, isEmpty } from 'lodash'
 import { Field } from 'react-final-form'
 
-import Alerts from 'components/Alerts'
 import ContentSection from 'components/molecules/ContentSection'
 import FormGrid from 'components/molecules/FormGrid'
 import InlineModal from 'components/molecules/InlineModal'
 import ConfirmationModal from 'components/organisms/ConfirmationModal'
-import { EDIT_LEASE_STATE } from 'context/actionCreators/applicationDetailsActionHelpers'
+import {
+  leaseEditClicked,
+  leaseCanceled,
+  leaseDeleted,
+  leaseSaved
+} from 'context/actionCreators/application_details/applicationDetailsActionCreators'
+import { EDIT_LEASE_STATE } from 'context/actionCreators/application_details/leaseUiStates'
 import { AppContext } from 'context/Provider'
 import { CurrencyField, FieldError, Label, SelectField } from 'utils/form/final_form/Field'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
@@ -111,7 +116,7 @@ const Lease = ({ form, values }) => {
     {
       applicationDetailsData: { supplemental: state }
     },
-    actions
+    dispatch
   ] = useContext(AppContext)
 
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
@@ -127,10 +132,7 @@ const Lease = ({ form, values }) => {
     const { application } = state
     setShowDeleteConfirmation(false)
 
-    actions.leaseDeleted(application).catch((e) => {
-      console.log(e)
-      Alerts.error()
-    })
+    leaseDeleted(dispatch, application)
   }
 
   const confirmedPreferences = filter(state.application.preferences, {
@@ -183,7 +185,7 @@ const Lease = ({ form, values }) => {
   const handleCancelLeaseClick = (form) => {
     const { application } = state
 
-    actions.leaseCanceled(state.application)
+    leaseCanceled(dispatch, state.application)
 
     // Reset lease and assistances on the form
     form.change('lease', application.lease)
@@ -193,12 +195,7 @@ const Lease = ({ form, values }) => {
   const validateAndSaveLease = (form) => {
     if (areLeaseAndRentalAssistancesValid(form)) {
       const { application: prevApplication } = state
-      actions
-        .leaseSaved(convertPercentAndCurrency(form.getState().values), prevApplication)
-        .catch((e) => {
-          console.log(e)
-          Alerts.error()
-        })
+      leaseSaved(dispatch, convertPercentAndCurrency(form.getState().values), prevApplication)
     } else {
       // submit to force errors to display
       form.submit()
@@ -344,7 +341,7 @@ const Lease = ({ form, values }) => {
         <LeaseActions
           onSave={() => validateAndSaveLease(form)}
           onCancelLeaseClick={() => handleCancelLeaseClick(form)}
-          onEditLeaseClick={actions.leaseEditClicked}
+          onEditLeaseClick={() => leaseEditClicked(dispatch)}
           onDelete={openDeleteLeaseConfirmation}
           loading={state.loading}
           leaseExists={doesApplicationHaveLease(state.application)}

@@ -1,6 +1,19 @@
 import { cloneDeep, findIndex } from 'lodash'
 
+import { NO_LEASE_STATE } from 'context/actionCreators/application_details/leaseUiStates'
+
 import ACTIONS from '../actions'
+
+export const getEmptyStatusModalState = () => ({
+  alertMsg: null,
+  header: null,
+  isOpen: false,
+  loading: false,
+  showAlert: false,
+  status: null,
+  substatus: null,
+  submitButton: null
+})
 
 export const getEmptyApplicationDetailsState = () => ({
   shortform: {
@@ -18,19 +31,9 @@ export const getEmptyApplicationDetailsState = () => ({
     loading: false,
     rentalAssistances: null,
     statusHistory: null,
-    supplementalAppTouched: false,
     units: null,
     applicationMembers: [],
-    statusModal: {
-      alertMsg: null,
-      header: null,
-      isOpen: false,
-      loading: false,
-      showAlert: false,
-      status: null,
-      substatus: null,
-      submitButton: null
-    }
+    statusModal: getEmptyStatusModalState()
   }
 })
 
@@ -56,19 +59,26 @@ const APPLICATION_DETAILS_ACTIONS = {
     ...state,
     shortform: pageData
   }),
-  [ACTIONS.SUPP_APP_LOAD_START]: (state, { additionalOverrides } = {}) =>
-    setSupplementalOverrides(state, { loading: true, ...additionalOverrides }),
-  [ACTIONS.SUPP_APP_LOAD_SUCCESS]: (state, { pageData }) =>
+  [ACTIONS.SUPP_APP_LOAD_START]: (state, data = {}) =>
+    setSupplementalOverrides(state, { loading: true, ...data }),
+  [ACTIONS.SUPP_APP_INITIAL_LOAD_SUCCESS]: (state, { pageData }) =>
     setSupplementalOverrides(state, pageData),
-  [ACTIONS.SUPP_APP_LOAD_COMPLETE]: (state, { additionalOverrides } = {}) =>
-    setSupplementalOverrides(state, { loading: false, ...additionalOverrides }),
-  [ACTIONS.SUPP_APP_LOAD_FAIL]: (state, { additionalOverrides } = {}) =>
-    setSupplementalOverrides(state, additionalOverrides),
+  [ACTIONS.SUPP_APP_LOAD_SUCCESS]: (state, data = {}) => setSupplementalOverrides(state, data),
+  [ACTIONS.SUPP_APP_LOAD_COMPLETE]: (state, data = {}) =>
+    setSupplementalOverrides(state, { loading: false, ...data }),
   [ACTIONS.CONFIRMED_PREFERENCES_FAILED]: (state, { failed }) =>
     setSupplementalOverrides(state, { confirmedPreferencesFailed: failed }),
   [ACTIONS.STATUS_MODAL_UPDATED]: (state, data) =>
     setSupplementalOverrides(state, { statusModal: data }),
-  [ACTIONS.STATE_UPDATED]: (state, data) => setSupplementalOverrides(state, data),
+  [ACTIONS.STATUS_MODAL_ERROR]: (state, _) =>
+    setSupplementalOverrides(state, {
+      statusModal: {
+        ...state.statusModal,
+        loading: false,
+        showAlert: true,
+        alertMsg: 'We were unable to make the update, please try again.'
+      }
+    }),
   [ACTIONS.LEASE_AND_ASSISTANCES_UPDATED]: (
     state,
     { lease, rentalAssistances, newLeaseSectionState }
@@ -80,6 +90,15 @@ const APPLICATION_DETAILS_ACTIONS = {
         rental_assistances: rentalAssistances
       },
       leaseSectionState: newLeaseSectionState
+    }),
+  [ACTIONS.LEASE_DELETED]: (state) =>
+    setSupplementalOverrides(state, {
+      application: {
+        ...state.supplemental.application,
+        lease: {},
+        rental_assistances: []
+      },
+      leaseSectionState: NO_LEASE_STATE
     }),
   [ACTIONS.RENTAL_ASSISTANCE_CREATE_SUCCESS]: (state, { newRentalAssistance }) =>
     setSupplementalOverrides(state, {
@@ -112,7 +131,11 @@ const APPLICATION_DETAILS_ACTIONS = {
         rental_assistances: newAssistances
       }
     })
-  }
+  },
+  [ACTIONS.LEASE_SECTION_STATE_CHANGED]: (state, data) =>
+    setSupplementalOverrides(state, {
+      leaseSectionState: data
+    })
 }
 
 const ApplicationDetailsSubreducer = {

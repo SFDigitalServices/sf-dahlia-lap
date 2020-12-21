@@ -7,6 +7,11 @@ import TableWrapper from 'components/atoms/TableWrapper'
 import ExpandableTable from 'components/molecules/ExpandableTable'
 import FormGrid from 'components/molecules/FormGrid'
 import InlineModal from 'components/molecules/InlineModal'
+import {
+  createRentalAssistance,
+  deleteRentalAssistance,
+  updateRentalAssistance
+} from 'context/actionCreators/application_details/applicationDetailsActionCreators'
 import { AppContext } from 'context/Provider'
 import { getApplicationMembers } from 'utils/applicationDetailsUtils'
 import {
@@ -267,7 +272,7 @@ const RentalAssistance = ({ form, visited, disabled }) => {
     {
       applicationDetailsData: { supplemental: state }
     },
-    actions
+    dispatch
   ] = useContext(AppContext)
 
   /**
@@ -297,11 +302,11 @@ const RentalAssistance = ({ form, visited, disabled }) => {
     const rentalAssistance = convertCurrency(entireForm.rental_assistances[index])
 
     return (action === 'update'
-      ? actions.updateRentalAssistance(state.application.id, {
+      ? updateRentalAssistance(dispatch, state.application.id, {
           ...rentalAssistance,
           ...(rentalAssistance.type_of_assistance !== 'Other' && { other_assistance_name: null })
         })
-      : actions.createRentalAssistance(state.application.id, rentalAssistance)
+      : createRentalAssistance(dispatch, state.application.id, rentalAssistance)
     ).then(() => setIsEditingNewAssistance(false))
   }
 
@@ -314,7 +319,7 @@ const RentalAssistance = ({ form, visited, disabled }) => {
           rentalAssistances={state.application.rental_assistances}
           applicationMembers={applicationMembers}
           onCancelEdit={handleCancelEdit}
-          onDelete={(rentalAssistance) => actions.deleteRentalAssistance(rentalAssistance.id)}
+          onDelete={(rentalAssistance) => deleteRentalAssistance(dispatch, rentalAssistance.id)}
           onSave={(index) => handleSave(index, 'update')}
           form={form}
           loading={state.loading}

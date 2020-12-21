@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 
 import Loading from 'components/molecules/Loading'
+import { listingsPageMounted, listingRowClicked } from 'context/actionCreators/actionCreators'
 import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
 import { useAsyncOnMount } from 'utils/customHooks'
@@ -15,11 +16,11 @@ const LeaseUpListingsPage = ({ history }) => {
   const [loading, setLoading] = useState(true)
   const [listings, setListings] = useState(true)
 
-  const [, actions] = useContext(AppContext)
+  const [, dispatch] = useContext(AppContext)
 
   useAsyncOnMount(
     () => {
-      actions.listingsPageMounted()
+      listingsPageMounted(dispatch)
       return getLeaseUpListings()
     },
     {
@@ -33,7 +34,7 @@ const LeaseUpListingsPage = ({ history }) => {
   }
 
   const onCellClick = ({ original: listing }) => {
-    actions.listingRowClicked(listing)
+    listingRowClicked(dispatch, listing)
 
     history.push(appPaths.toLeaseUpApplications(listing.id))
   }

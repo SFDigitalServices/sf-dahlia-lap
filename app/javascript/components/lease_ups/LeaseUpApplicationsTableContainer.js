@@ -4,6 +4,7 @@ import { capitalize, compact, map, cloneDeep } from 'lodash'
 import { useHistory } from 'react-router-dom'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
+import { applicationRowClicked } from 'context/actionCreators/actionCreators'
 import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
 
@@ -50,11 +51,11 @@ const LeaseUpTableContainer = ({
   }
 
   const history = useHistory()
-  const [, actions] = useContext(AppContext)
+  const [, dispatch] = useContext(AppContext)
 
   const handleCellClick = (rowInfo) => {
     const application = rowInfo.original
-    actions.applicationRowClicked(application)
+    applicationRowClicked(dispatch, application)
     history.push(appPaths.toApplicationSupplementals(rowInfo.original.application_id))
   }
 
@@ -88,7 +89,7 @@ const LeaseUpTableContainer = ({
         isOpen={statusModal.isOpen}
         loading={statusModal.loading}
         numApplicationsToUpdate={statusModal.applicationIds?.length}
-        onAlertCloseClick={actions.closeSuppAppStatusModalAlert}
+        onAlertCloseClick={statusModal.onAlertCloseClick}
         onClose={onCloseStatusModal}
         onSubmit={onSubmitStatusModal}
         showAlert={statusModal.showAlert}

@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom'
 import { getShortFormApplication } from 'components/lease_ups/shortFormActions'
 import Loading from 'components/molecules/Loading'
 import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
+import { applicationPageLoadComplete } from 'context/actionCreators/application_details/applicationDetailsActionCreators'
 import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
 import { useAsyncOnMount, useQueryParamBoolean } from 'utils/customHooks'
@@ -53,14 +54,15 @@ const ApplicationPage = ({ isLeaseUp = false }) => {
   const [loading, setLoading] = useState(true)
 
   const { applicationId } = useParams()
-  const [{ breadcrumbData, applicationDetailsData }, actions] = useContext(AppContext)
+  const [{ breadcrumbData, applicationDetailsData }, dispatch] = useContext(AppContext)
   const showAddBtn = useQueryParamBoolean('showAddBtn')
 
   useAsyncOnMount(
     () => !isPageLoaded(applicationDetailsData) && getShortFormApplication(applicationId),
     {
       onSuccess: (response) => {
-        actions.applicationPageLoadComplete(
+        applicationPageLoadComplete(
+          dispatch,
           response.application,
           response.application?.listing,
           response.fileBaseUrl,

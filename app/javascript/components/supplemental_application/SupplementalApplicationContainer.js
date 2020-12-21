@@ -3,7 +3,17 @@ import React, { useContext, useState } from 'react'
 import Button from 'components/atoms/Button'
 import AlertBox from 'components/molecules/AlertBox'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
-import { NO_LEASE_STATE } from 'context/actionCreators/applicationDetailsActionHelpers'
+import {
+  closeSuppAppStatusModal,
+  closeSuppAppStatusModalAlert,
+  leaseCreated,
+  openSuppAppAddCommentModal,
+  openSuppAppUpdateStatusModal,
+  preferencesFailedChanged,
+  submitSuppAppStatusModal,
+  updateSavedPreference
+} from 'context/actionCreators/application_details/applicationDetailsActionCreators'
+import { NO_LEASE_STATE } from 'context/actionCreators/application_details/leaseUiStates'
 import { AppContext } from 'context/Provider'
 import { getApplicationMembers } from 'utils/applicationDetailsUtils'
 import { touchAllFields, convertPercentAndCurrency } from 'utils/form/validations'
@@ -122,7 +132,7 @@ const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values,
     {
       applicationDetailsData: { supplemental: state }
     },
-    actions
+    dispatch
   ] = useContext(AppContext)
 
   const checkForValidationErrors = (form, touched) => {
@@ -137,11 +147,11 @@ const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values,
 
   const handleAddCommentClicked = (form, touched) =>
     !checkForValidationErrors(form, touched)
-      ? actions.openSuppAppAddCommentModal(state.statusHistory)
+      ? openSuppAppAddCommentModal(dispatch, state.statusHistory)
       : null
 
   const onChangeStatus = (form, touched, value) =>
-    !checkForValidationErrors(form, touched) ? actions.openSuppAppUpdateStatusModal(value) : null
+    !checkForValidationErrors(form, touched) ? openSuppAppUpdateStatusModal(dispatch, value) : null
 
   return (
     <>
@@ -152,21 +162,17 @@ const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values,
           message='Please resolve any errors before saving the application.'
         />
       )}
-      <form
-        onSubmit={handleSubmit}
-        onChange={() => actions.supplementalAppTouched(true)}
-        style={{ margin: '0px' }}
-        id='shortForm'
-        noValidate
-      >
+      <form onSubmit={handleSubmit} style={{ margin: '0px' }} id='shortForm' noValidate>
         <AsymColumnLayout.Container>
           <AsymColumnLayout.MainContent>
             <ConfirmedPreferencesSection
               application={state.application}
               applicationMembers={getApplicationMembers(state.application)}
               fileBaseUrl={state.fileBaseUrl}
-              onSave={actions.updateSavedPreference}
-              onDismissError={() => actions.preferencesFailedChanged(false)}
+              onSave={(preferenceIndex, formApplicationValues) =>
+                updateSavedPreference(dispatch, preferenceIndex, formApplicationValues)
+              }
+              onDismissError={() => preferencesFailedChanged(dispatch, false)}
               confirmedPreferencesFailed={state.confirmedPreferencesFailed}
               form={form}
             />
@@ -175,7 +181,7 @@ const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values,
               form={form}
               values={values}
               showLeaseSection={state.leaseSectionState !== NO_LEASE_STATE}
-              onCreateLeaseClick={actions.leaseCreated}
+              onCreateLeaseClick={() => leaseCreated(dispatch)}
             />
             <DemographicsSection />
           </AsymColumnLayout.MainContent>
@@ -194,11 +200,12 @@ const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values,
         alertMsg={state.statusModal.alertMsg}
         isOpen={state.statusModal.isOpen}
         loading={state.statusModal.loading}
-        onAlertCloseClick={actions.closeSuppAppStatusModalAlert}
-        onClose={actions.closeSuppAppStatusModal}
+        onAlertCloseClick={() => closeSuppAppStatusModalAlert(dispatch)}
+        onClose={() => closeSuppAppStatusModal(dispatch)}
         onSubmit={(submittedValues) => {
           const { application: prevApplication, leaseSectionState } = state
-          return actions.submitSuppAppStatusModal(
+          return submitSuppAppStatusModal(
+            dispatch,
             submittedValues,
             convertPercentAndCurrency(form.getState().values),
             prevApplication,
