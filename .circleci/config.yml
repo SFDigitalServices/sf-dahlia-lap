@@ -79,6 +79,8 @@ commands:
 jobs:
   build:
     executor: ruby_node
+    pre:
+      - echo "_auth=${AXE_NPM_TOKEN}" >> ~/.npmrc
     steps:
       - checkout
       - prepare_workspace
