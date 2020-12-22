@@ -43,10 +43,6 @@ const setSupplementalOverrides = (state, overrides = {}) => ({
   supplemental: {
     ...state.supplemental,
     ...overrides,
-    applicationMembers: [
-      state.supplemental.application?.applicant,
-      ...(state.supplemental.application?.household_members || [])
-    ].filter((v) => !!v),
     statusModal: {
       ...state.supplemental.statusModal,
       ...overrides.statusModal

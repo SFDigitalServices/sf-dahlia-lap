@@ -20,10 +20,6 @@ import ACTIONS from 'context/actions'
 const getListingAmiCharts = (units) =>
   uniqBy(units, (u) => [u.ami_chart_type, u.ami_chart_year].join())
 
-/*
- * Initial page loads
- */
-
 export const loadSupplementalPageData = async (dispatch, applicationId, listingId = null) =>
   wrapAsync(
     dispatch,
