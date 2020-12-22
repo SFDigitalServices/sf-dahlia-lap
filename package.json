@@ -48,6 +48,8 @@
     "webpacker-react": "^0.3.2"
   },
   "devDependencies": {
+    "@axe-devtools/puppeteer": "^4.1.0",
+    "@axe-devtools/reporter": "^4.1.0",
     "@babel/eslint-parser": "^7.11.5",
     "@babel/eslint-plugin": "^7.11.5",
     "babel-eslint": "8.0.3",

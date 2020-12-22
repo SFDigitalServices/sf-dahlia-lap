@@ -1,3 +1,5 @@
+import { AxeDevToolsPuppeteer } from '@axe-devtools/puppeteer'
+
 import {
   NON_LEASE_UP_LISTING_ID,
   DEFAULT_E2E_TIME_OUT,
@@ -24,7 +26,9 @@ import { applicationRedirectRouteCheck } from '../support/puppeteer/steps/applic
 import sharedSteps from '../support/puppeteer/steps/sharedSteps'
 import utils from '../support/puppeteer/utils'
 import SetupBrowserAndPage from '../utils/SetupBrowserAndPage'
+
 let testBrowser
+const Reporter = require('@axe-devtools/reporter').default
 
 describe('ApplicationNewPage', () => {
   test(
@@ -32,9 +36,15 @@ describe('ApplicationNewPage', () => {
     async () => {
       const { browser, page } = await SetupBrowserAndPage()
       testBrowser = browser
+      const reporter = new Reporter('puppeteer', './a11y_Results')
 
       await sharedSteps.loginAsAgent(page)
       await sharedSteps.goto(page, `/listings/${NON_LEASE_UP_LISTING_ID}/applications/new`)
+      console.log('trying to analyze with axe devtools')
+      const results = await new AxeDevToolsPuppeteer(page).analyze()
+      console.log('Axe devtools results', results)
+      reporter.logTestResult('Tested Page', results)
+      reporter.buildHTML('./a11y_Results')
 
       await page.click('.save-btn')
       await page.waitForSelector('.alert-box')
