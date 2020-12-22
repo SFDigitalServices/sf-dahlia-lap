@@ -317,7 +317,6 @@ export const submitSuppAppStatusModal = (
 export const applicationPageLoadComplete = (
   dispatch,
   application,
-  listing,
   fileBaseUrl,
   updateBreadcrumbs = false
 ) =>
@@ -325,11 +324,11 @@ export const applicationPageLoadComplete = (
     type: ACTIONS.SHORTFORM_LOADED,
     data: {
       ...(updateBreadcrumbs && {
-        breadcrumbData: getApplicationDetailsBreadcrumbsData(application, listing)
+        breadcrumbData: getApplicationDetailsBreadcrumbsData(application, application?.listing)
       }),
       pageData: {
         application,
-        listing,
+        listing: application?.listing,
         fileBaseUrl
       }
     }

@@ -1,6 +1,3 @@
-const toApplicationSupplementals = (applicationId) =>
-  `/lease-ups/applications/${applicationId}/supplemental`
-
 const toApplication = (applicationId, showAddBtn = false) => {
   const queryParams = showAddBtn ? '?showAddBtn=true' : ''
 
@@ -9,8 +6,7 @@ const toApplication = (applicationId, showAddBtn = false) => {
 
 const toListings = () => '/listings'
 
-// To short form application with lease up headers and tabs
-const toLeaseUpShortForm = (applicationId) => `/lease-ups/applications/${applicationId}`
+const toLeaseUpApplication = (applicationId) => `/lease-ups/applications/${applicationId}`
 
 const toApplicationEdit = (applicationId) => `/applications/${applicationId}/edit`
 
@@ -44,10 +40,9 @@ const toAttachmentDownload = (fileBaseUrl, file) => {
 }
 
 export default {
-  toApplicationSupplementals,
   toApplication,
   toApplications,
-  toLeaseUpShortForm,
+  toLeaseUpApplication,
   toApplicationsFlagged,
   toApplicationsFlaggedIndex,
   toApplicationsFlaggedIndexBase,

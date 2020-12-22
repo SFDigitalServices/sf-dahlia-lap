@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom'
 
 import { getShortFormApplication } from 'components/lease_ups/shortFormActions'
 import Loading from 'components/molecules/Loading'
-import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
 import { applicationPageLoadComplete } from 'context/actionCreators/application_details/applicationDetailsActionCreators'
 import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
@@ -48,26 +47,20 @@ const buildActionLinkIfNecessary = (app, showAddBtn) => {
 
 const isPageLoaded = (applicationDetailsData) => applicationDetailsData.application !== null
 
-const ApplicationPage = ({ isLeaseUp = false }) => {
+const ApplicationPage = () => {
   const [application, setApplication] = useState(null)
   const [fileBaseUrl, setFileBaseUrl] = useState(null)
   const [loading, setLoading] = useState(true)
 
   const { applicationId } = useParams()
-  const [{ breadcrumbData, applicationDetailsData }, dispatch] = useContext(AppContext)
+  const [{ applicationDetailsData }, dispatch] = useContext(AppContext)
   const showAddBtn = useQueryParamBoolean('showAddBtn')
 
   useAsyncOnMount(
     () => !isPageLoaded(applicationDetailsData) && getShortFormApplication(applicationId),
     {
       onSuccess: (response) => {
-        applicationPageLoadComplete(
-          dispatch,
-          response.application,
-          response.application?.listing,
-          response.fileBaseUrl,
-          true
-        )
+        applicationPageLoadComplete(dispatch, response.application, response.fileBaseUrl, true)
         setApplication(response.application)
         setFileBaseUrl(response.fileBaseUrl)
       },
@@ -84,37 +77,17 @@ const ApplicationPage = ({ isLeaseUp = false }) => {
   let pageHeader = {}
   let tabSection
 
-  if (isLeaseUp) {
-    pageHeader = getPageHeaderData(breadcrumbData.application, breadcrumbData.listing)
-
-    tabSection = {
-      items: [
-        {
-          title: 'Short Form Application',
-          url: appPaths.toLeaseUpShortForm(applicationId),
-          active: true,
-          renderAsRouterLink: true
-        },
-        {
-          title: 'Supplemental Information',
-          url: appPaths.toApplicationSupplementals(applicationId),
-          renderAsRouterLink: true
-        }
-      ]
-    }
-  } else {
-    pageHeader = {
-      title: `Application ${application?.name ?? ''}`,
-      content: (
-        <span>
-          Name of Listing:{' '}
-          {application && (
-            <a href={appPaths.toListing(application.listing.id)}>{application.listing.name}</a>
-          )}
-        </span>
-      ),
-      action: application && buildActionLinkIfNecessary(application, showAddBtn)
-    }
+  pageHeader = {
+    title: `Application ${application?.name ?? ''}`,
+    content: (
+      <span>
+        Name of Listing:{' '}
+        {application && (
+          <a href={appPaths.toListing(application.listing.id)}>{application.listing.name}</a>
+        )}
+      </span>
+    ),
+    action: application && buildActionLinkIfNecessary(application, showAddBtn)
   }
 
   return (

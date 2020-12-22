@@ -21,8 +21,34 @@ const mockState = {
     page: 1
   },
   applicationDetailsData: {
-    shortform: null,
-    supplemental: null
+    shortform: {
+      application: null,
+      fileBaseUrl: null
+    },
+    supplemental: {
+      application: null,
+      applicationMembers: [],
+      confirmedPreferencesFailed: false,
+      fileBaseUrl: null,
+      leaseSectionState: null,
+      leaveConfirmationModalOpen: false,
+      listing: null,
+      listingAmiCharts: null,
+      loading: false,
+      rentalAssistances: null,
+      statusHistory: null,
+      statusModal: {
+        alertMsg: null,
+        header: null,
+        isOpen: false,
+        loading: false,
+        showAlert: false,
+        status: null,
+        submitButton: null,
+        substatus: null
+      },
+      units: null
+    }
   }
 }
 
@@ -170,13 +196,15 @@ describe('Reducer', () => {
     })
   })
 
-  describe('ACTIONS.SUPP_APP_LOAD_SUCCESS', () => {
+  describe('ACTIONS.SUPP_APP_INITIAL_LOAD_SUCCESS', () => {
     test('should override listing and application data', () => {
       const newState = Reducer(
         mockState,
-        getMockAction(ACTIONS.SUPP_APP_LOAD_SUCCESS, {
-          application: mockNewApplication,
-          listing: mockNewListing
+        getMockAction(ACTIONS.SUPP_APP_INITIAL_LOAD_SUCCESS, {
+          breadcrumbData: {
+            application: mockNewApplication,
+            listing: mockNewListing
+          }
         })
       )
 
@@ -186,13 +214,6 @@ describe('Reducer', () => {
           ...mockState.breadcrumbData,
           application: mockNewApplication,
           listing: mockNewListing
-        },
-        applicationDetailsData: {
-          ...mockState.applicationDetailsData,
-          supplemental: {
-            application: mockNewApplication,
-            listing: mockNewListing
-          }
         }
       })
     })
@@ -203,8 +224,13 @@ describe('Reducer', () => {
       const newState = Reducer(
         mockState,
         getMockAction(ACTIONS.SHORTFORM_LOADED, {
-          application: mockNewApplication,
-          listing: mockNewListing
+          breadcrumbData: {
+            application: mockNewApplication,
+            listing: mockNewListing
+          },
+          pageData: {
+            application: { id: 'testShortFormLoadedId' }
+          }
         })
       )
 
@@ -218,8 +244,8 @@ describe('Reducer', () => {
         applicationDetailsData: {
           ...mockState.applicationDetailsData,
           shortform: {
-            application: mockNewApplication,
-            listing: mockNewListing
+            ...mockState.applicationDetailsData.shortform,
+            application: { id: 'testShortFormLoadedId' }
           }
         }
       })

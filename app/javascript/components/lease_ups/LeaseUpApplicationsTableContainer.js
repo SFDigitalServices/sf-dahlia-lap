@@ -56,7 +56,7 @@ const LeaseUpTableContainer = ({
   const handleCellClick = (rowInfo) => {
     const application = rowInfo.original
     applicationRowClicked(dispatch, application)
-    history.push(appPaths.toApplicationSupplementals(rowInfo.original.application_id))
+    history.push(appPaths.toLeaseUpApplication(rowInfo.original.application_id))
   }
 
   const rowsData = (applications) => map(applications, buildRowData)

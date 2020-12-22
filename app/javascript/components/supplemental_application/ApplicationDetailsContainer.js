@@ -73,7 +73,7 @@ const ApplicationDetailsContainer = () => {
 
   useAsyncOnMount(() => getShortFormApplication(applicationId), {
     onSuccess: ({ application, fileBaseUrl }) => {
-      applicationPageLoadComplete(dispatch, application, application?.listing, fileBaseUrl)
+      applicationPageLoadComplete(dispatch, application, fileBaseUrl)
     },
     onComplete: () => {
       setLoadingShortform(false)

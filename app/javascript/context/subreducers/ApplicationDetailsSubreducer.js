@@ -37,7 +37,7 @@ export const getEmptyApplicationDetailsState = () => ({
   }
 })
 
-const setSupplementalOverrides = (state, overrides) => ({
+const setSupplementalOverrides = (state, overrides = {}) => ({
   ...state,
   supplemental: {
     ...state.supplemental,
@@ -45,7 +45,7 @@ const setSupplementalOverrides = (state, overrides) => ({
     applicationMembers: [
       state.supplemental.application?.applicant,
       ...(state.supplemental.application?.household_members || [])
-    ],
+    ].filter((v) => !!v),
     statusModal: {
       ...state.supplemental.statusModal,
       ...overrides.statusModal
@@ -57,7 +57,10 @@ const APPLICATION_DETAILS_ACTIONS = {
   [ACTIONS.LEFT_APPLICATION_SCOPE]: (_, __) => getEmptyApplicationDetailsState(),
   [ACTIONS.SHORTFORM_LOADED]: (state, { pageData }) => ({
     ...state,
-    shortform: pageData
+    shortform: {
+      ...state.shortform,
+      ...pageData
+    }
   }),
   [ACTIONS.SUPP_APP_LOAD_START]: (state, data = {}) =>
     setSupplementalOverrides(state, { loading: true, ...data }),

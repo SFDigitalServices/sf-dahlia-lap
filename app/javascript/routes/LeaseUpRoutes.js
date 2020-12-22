@@ -28,10 +28,7 @@ const LeaseUpRoutes = () => (
     <Route exact path={appPaths.toLeaseUps()}>
       <LeaseUpListingsPage />
     </Route>
-    <Route exact path={appPaths.toApplicationSupplementals(':applicationId')}>
-      <ApplicationDetailsContainer />
-    </Route>
-    <Route exact path={appPaths.toLeaseUpShortForm(':applicationId')}>
+    <Route exact path={appPaths.toLeaseUpApplication(':applicationId')}>
       <ApplicationDetailsContainer />
     </Route>
     <Route exact path={appPaths.toApplication(':applicationId')}>
