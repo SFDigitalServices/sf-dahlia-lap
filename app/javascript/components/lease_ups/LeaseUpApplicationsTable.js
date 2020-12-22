@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
 import classNames from 'classnames'
 import { trim } from 'lodash'
@@ -9,7 +9,7 @@ import CheckboxCell from 'components/lease_ups/application_page/CheckboxCell'
 import PreferenceRankCell from 'components/lease_ups/application_page/PreferenceRankCell'
 import StatusCell from 'components/lease_ups/application_page/StatusCell'
 import { applicationsTablePageChanged } from 'context/actionCreators/actionCreators'
-import { AppContext } from 'context/Provider'
+import { useAppContext } from 'utils/customHooks'
 import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
 import { cellFormat } from 'utils/reactTableUtils'
 import { getLeaseUpStatusClass } from 'utils/statusUtils'
@@ -55,7 +55,7 @@ const LeaseUpApplicationsTable = ({
       applicationsListData: { page }
     },
     dispatch
-  ] = useContext(AppContext)
+  ] = useAppContext()
 
   const maxPagesMsg = `Unfortunately, we can only display the first ${
     MAX_SERVER_LIMIT / rowsPerPage

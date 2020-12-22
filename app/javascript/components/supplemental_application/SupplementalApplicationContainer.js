@@ -1,21 +1,23 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 
 import Button from 'components/atoms/Button'
 import AlertBox from 'components/molecules/AlertBox'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 import {
-  closeSuppAppStatusModal,
-  closeSuppAppStatusModalAlert,
-  leaseCreated,
-  openSuppAppAddCommentModal,
-  openSuppAppUpdateStatusModal,
   preferencesFailedChanged,
-  submitSuppAppStatusModal,
   updateSavedPreference
 } from 'context/actionCreators/application_details/applicationDetailsActionCreators'
-import { NO_LEASE_STATE } from 'context/actionCreators/application_details/leaseUiStates'
-import { AppContext } from 'context/Provider'
+import { leaseCreated } from 'context/actionCreators/application_details/leaseActionCreators'
+import { hasLease } from 'context/actionCreators/application_details/leaseSectionStates'
+import {
+  closeSuppAppStatusModal,
+  closeSuppAppStatusModalAlert,
+  openSuppAppAddCommentModal,
+  openSuppAppUpdateStatusModal,
+  submitSuppAppStatusModal
+} from 'context/actionCreators/application_details/statusModalActionCreators'
 import { getApplicationMembers } from 'utils/applicationDetailsUtils'
+import { useAppContext } from 'utils/customHooks'
 import { touchAllFields, convertPercentAndCurrency } from 'utils/form/validations'
 
 import ContentSection from '../molecules/ContentSection'
@@ -133,7 +135,7 @@ const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values,
       applicationDetailsData: { supplemental: state }
     },
     dispatch
-  ] = useContext(AppContext)
+  ] = useAppContext()
 
   const checkForValidationErrors = (form, touched) => {
     touchAllFields(form, touched)
@@ -180,7 +182,7 @@ const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values,
             <LeaseSection
               form={form}
               values={values}
-              showLeaseSection={state.leaseSectionState !== NO_LEASE_STATE}
+              showLeaseSection={hasLease(state.leaseSectionState)}
               onCreateLeaseClick={() => leaseCreated(dispatch)}
             />
             <DemographicsSection />
@@ -214,9 +216,9 @@ const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values,
         }}
         showAlert={state.statusModal.showAlert}
         status={state.statusModal.status}
-        submitButton={state.statusModal.submitButton}
+        submitButton={state.statusModal.isInAddCommentMode ? 'Save' : 'Update'}
         subStatus={state.statusModal.substatus}
-        title={state.statusModal.header}
+        title={state.statusModal.isInAddCommentMode ? 'Add New Comment' : 'Update Status'}
       />
     </>
   )

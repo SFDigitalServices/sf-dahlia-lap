@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
 import { capitalize, compact, map, cloneDeep } from 'lodash'
 import { useHistory } from 'react-router-dom'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 import { applicationRowClicked } from 'context/actionCreators/actionCreators'
-import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
+import { useAppContext } from 'utils/customHooks'
 
 import { withContext } from './context'
 import LeaseUpApplicationsFilterContainer from './LeaseUpApplicationsFilterContainer'
@@ -51,7 +51,7 @@ const LeaseUpTableContainer = ({
   }
 
   const history = useHistory()
-  const [, dispatch] = useContext(AppContext)
+  const [, dispatch] = useAppContext()
 
   const handleCellClick = (rowInfo) => {
     const application = rowInfo.original

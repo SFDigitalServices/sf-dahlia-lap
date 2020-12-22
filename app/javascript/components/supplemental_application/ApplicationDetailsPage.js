@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 
 import arrayMutators from 'final-form-arrays'
 import { isEmpty } from 'lodash'
@@ -17,8 +17,7 @@ import {
   loadSupplementalPageData,
   updateSupplementalApplication
 } from 'context/actionCreators/application_details/applicationDetailsActionCreators'
-import { AppContext } from 'context/Provider'
-import { useAsyncOnMount } from 'utils/customHooks'
+import { useAppContext, useAsyncOnMount } from 'utils/customHooks'
 import validate, { convertPercentAndCurrency } from 'utils/form/validations'
 
 import labelMapperFields from '../applications/application_details/applicationDetailsFieldsDesc'
@@ -26,39 +25,10 @@ import labelMapperFields from '../applications/application_details/applicationDe
 const SUPP_TAB_KEY = 'supplemental_tab'
 const SHORTFORM_TAB_KEY = 'shortform_tab'
 
-// We need to do this outside of the SupplementalApplicationController component
-// so the form fields don't get cleared out
-// when the child component is unmounted on tab switch.
-const WrappedWithSuppAppForm = ({ onSubmit, applicationSinceLastSave, render }) => {
-  const validateForm = (values) => {
-    const errors = { lease: {} }
-    // only validate lease_start_date when any of the fields is present
-    if (!isEmpty(values.lease) && !isEmpty(values.lease.lease_start_date)) {
-      const dateErrors = validate.isValidDate(values.lease.lease_start_date, {})
-
-      // only set any error fields if there were actually any date errors.
-      if (dateErrors?.all || dateErrors?.day || dateErrors?.month || dateErrors?.year) {
-        errors.lease.lease_start_date = dateErrors
-      }
-    }
-    return errors
-  }
-
-  return (
-    <Form
-      onSubmit={(values) => onSubmit(convertPercentAndCurrency(values))}
-      initialValues={applicationSinceLastSave}
-      // Keep dirty on reinitialize ensures the whole form doesn't refresh
-      // when only a piece of it is saved (eg. when the lease is saved)
-      keepDirtyOnReinitialize
-      validate={validateForm}
-      mutators={{ ...arrayMutators }}
-      render={render}
-    />
-  )
-}
-
-const ApplicationDetailsContainer = () => {
+/**
+ * Supplemental application page with both supplemental and shortform tabs
+ */
+const ApplicationDetailsPage = () => {
   const { applicationId } = useParams()
   const [selectedTabKey, setSelectedTabKey] = useState(SUPP_TAB_KEY)
   const [
@@ -67,7 +37,7 @@ const ApplicationDetailsContainer = () => {
       applicationDetailsData: { supplemental, shortform }
     },
     dispatch
-  ] = useContext(AppContext)
+  ] = useAppContext()
 
   const [loadingShortform, setLoadingShortform] = useState(true)
 
@@ -164,4 +134,36 @@ const ApplicationDetailsContainer = () => {
   )
 }
 
-export default ApplicationDetailsContainer
+// We need to do this outside of the SupplementalApplicationController component
+// so the form fields don't get cleared out
+// when the child component is unmounted on tab switch.
+const WrappedWithSuppAppForm = ({ onSubmit, applicationSinceLastSave, render }) => {
+  const validateForm = (values) => {
+    const errors = { lease: {} }
+    // only validate lease_start_date when any of the fields is present
+    if (!isEmpty(values.lease) && !isEmpty(values.lease.lease_start_date)) {
+      const dateErrors = validate.isValidDate(values.lease.lease_start_date, {})
+
+      // only set any error fields if there were actually any date errors.
+      if (dateErrors?.all || dateErrors?.day || dateErrors?.month || dateErrors?.year) {
+        errors.lease.lease_start_date = dateErrors
+      }
+    }
+    return errors
+  }
+
+  return (
+    <Form
+      onSubmit={(values) => onSubmit(convertPercentAndCurrency(values))}
+      initialValues={applicationSinceLastSave}
+      // Keep dirty on reinitialize ensures the whole form doesn't refresh
+      // when only a piece of it is saved (eg. when the lease is saved)
+      keepDirtyOnReinitialize
+      validate={validateForm}
+      mutators={{ ...arrayMutators }}
+      render={render}
+    />
+  )
+}
+
+export default ApplicationDetailsPage

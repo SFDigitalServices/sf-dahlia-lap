@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
@@ -11,7 +11,7 @@ import LeaseUpApplicationsFilters from 'components/lease_ups/LeaseUpApplications
 import Loading from 'components/molecules/Loading'
 import ShowHideFiltersButton from 'components/molecules/ShowHideFiltersButton'
 import StatusDropdown from 'components/molecules/StatusDropdown'
-import { AppContext } from 'context/Provider'
+import { useAppContext } from 'utils/customHooks'
 import SearchField from 'utils/form/final_form/SearchField'
 import formUtils from 'utils/formUtils'
 
@@ -50,7 +50,7 @@ const LeaseUpApplicationsFilterContainer = ({
     {
       applicationsListData: { appliedFilters }
     }
-  ] = useContext(AppContext)
+  ] = useAppContext()
 
   const onClickShowHideFilters = () => setIsShowingFilters(!isShowingFilters)
 

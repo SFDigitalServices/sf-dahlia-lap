@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 
 import { isEmpty } from 'lodash'
 import PropTypes from 'prop-types'
@@ -7,9 +7,8 @@ import { useParams } from 'react-router-dom'
 import { getShortFormApplication } from 'components/lease_ups/shortFormActions'
 import Loading from 'components/molecules/Loading'
 import { applicationPageLoadComplete } from 'context/actionCreators/application_details/applicationDetailsActionCreators'
-import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
-import { useAsyncOnMount, useQueryParamBoolean } from 'utils/customHooks'
+import { useAppContext, useAsyncOnMount, useQueryParamBoolean } from 'utils/customHooks'
 
 import CardLayout from '../layouts/CardLayout'
 import ApplicationDetails from './application_details/ApplicationDetails'
@@ -45,34 +44,32 @@ const buildActionLinkIfNecessary = (app, showAddBtn) => {
   return actions
 }
 
-const isPageLoaded = (applicationDetailsData) => applicationDetailsData.application !== null
-
+/**
+ * Non-lease up application page.
+ */
 const ApplicationPage = () => {
   const [application, setApplication] = useState(null)
   const [fileBaseUrl, setFileBaseUrl] = useState(null)
   const [loading, setLoading] = useState(true)
 
   const { applicationId } = useParams()
-  const [{ applicationDetailsData }, dispatch] = useContext(AppContext)
+  const [, dispatch] = useAppContext()
   const showAddBtn = useQueryParamBoolean('showAddBtn')
 
-  useAsyncOnMount(
-    () => !isPageLoaded(applicationDetailsData) && getShortFormApplication(applicationId),
-    {
-      onSuccess: (response) => {
-        applicationPageLoadComplete(dispatch, response.application, response.fileBaseUrl, true)
-        setApplication(response.application)
-        setFileBaseUrl(response.fileBaseUrl)
-      },
-      onFail: (e) => {
-        // Alert window pauses state updates so we set loading to false instead of
-        // waiting for the finally block
-        setLoading(false)
-        window.alert('The application you requested could not be found.')
-      },
-      onComplete: () => setLoading(false)
-    }
-  )
+  useAsyncOnMount(() => getShortFormApplication(applicationId), {
+    onSuccess: (response) => {
+      applicationPageLoadComplete(dispatch, response.application, response.fileBaseUrl, true)
+      setApplication(response.application)
+      setFileBaseUrl(response.fileBaseUrl)
+    },
+    onFail: (e) => {
+      // Alert window pauses state updates so we set loading to false instead of
+      // waiting for the finally block
+      setLoading(false)
+      window.alert('The application you requested could not be found.')
+    },
+    onComplete: () => setLoading(false)
+  })
 
   let pageHeader = {}
   let tabSection

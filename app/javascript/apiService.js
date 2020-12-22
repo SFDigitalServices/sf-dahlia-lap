@@ -1,6 +1,6 @@
 import { request } from 'api/request'
 
-import { isLeaseAlreadyCreated } from './utils/leaseUtils'
+import { isLeaseAlreadyCreated } from './utils/applicationDetailsUtils'
 
 const getLeaseUpListings = async () =>
   request.get('/lease-ups/listings', null, true).then((r) => r.listings)

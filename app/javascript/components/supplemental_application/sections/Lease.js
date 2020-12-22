@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 
 import classNames from 'classnames'
 import { capitalize, each, filter, map, isEmpty } from 'lodash'
@@ -11,17 +11,20 @@ import ConfirmationModal from 'components/organisms/ConfirmationModal'
 import {
   leaseEditClicked,
   leaseCanceled,
-  leaseDeleted,
-  leaseSaved
-} from 'context/actionCreators/application_details/applicationDetailsActionCreators'
-import { EDIT_LEASE_STATE } from 'context/actionCreators/application_details/leaseUiStates'
-import { AppContext } from 'context/Provider'
-import { getApplicationMembers } from 'utils/applicationDetailsUtils'
+  deleteLeaseClicked,
+  updateLease
+} from 'context/actionCreators/application_details/leaseActionCreators'
+import LEASE_STATES from 'context/actionCreators/application_details/leaseSectionStates'
+import {
+  doesApplicationHaveLease,
+  getApplicationMembers,
+  totalSetAsidesForPref
+} from 'utils/applicationDetailsUtils'
+import { useAppContext } from 'utils/customHooks'
 import { CurrencyField, FieldError, Label, SelectField } from 'utils/form/final_form/Field'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import { areLeaseAndRentalAssistancesValid } from 'utils/form/formSectionValidations'
 import formUtils from 'utils/formUtils'
-import { doesApplicationHaveLease, totalSetAsidesForPref } from 'utils/leaseUtils'
 import { pluck } from 'utils/utils'
 
 import { convertPercentAndCurrency, validateLeaseCurrency } from '../../../utils/form/validations'
@@ -118,11 +121,11 @@ const Lease = ({ form, values }) => {
       applicationDetailsData: { supplemental: state }
     },
     dispatch
-  ] = useContext(AppContext)
+  ] = useAppContext()
 
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
 
-  const isEditingMode = state.leaseSectionState === EDIT_LEASE_STATE
+  const isEditingMode = state.leaseSectionState === LEASE_STATES.EDIT_LEASE
   const disabled = !isEditingMode
   const getVisited = (fieldName) => form.getFieldState(fieldName)?.visited
 
@@ -130,10 +133,9 @@ const Lease = ({ form, values }) => {
   const closeDeleteLeaseConfirmation = () => setShowDeleteConfirmation(false)
 
   const handleDeleteLeaseConfirmed = () => {
-    const { application } = state
     setShowDeleteConfirmation(false)
 
-    leaseDeleted(dispatch, application)
+    deleteLeaseClicked(dispatch, state.application)
   }
 
   const confirmedPreferences = filter(state.application.preferences, {
@@ -184,19 +186,17 @@ const Lease = ({ form, values }) => {
   )
 
   const handleCancelLeaseClick = (form) => {
-    const { application } = state
-
     leaseCanceled(dispatch, state.application)
 
     // Reset lease and assistances on the form
-    form.change('lease', application.lease)
-    form.change('rental_assistances', application.rental_assistances)
+    form.change('lease', state.application.lease)
+    form.change('rental_assistances', state.application.rental_assistances)
   }
 
   const validateAndSaveLease = (form) => {
     if (areLeaseAndRentalAssistancesValid(form)) {
       const { application: prevApplication } = state
-      leaseSaved(dispatch, convertPercentAndCurrency(form.getState().values), prevApplication)
+      updateLease(dispatch, convertPercentAndCurrency(form.getState().values), prevApplication)
     } else {
       // submit to force errors to display
       form.submit()
@@ -300,12 +300,12 @@ const Lease = ({ form, values }) => {
           </FormGrid.Item>
         </FormGrid.Row>
         <RentalAssistance
-          form={form}
-          disabled={disabled}
-          loading={state.loading}
-          applicationMembers={getApplicationMembers(state.application)}
-          rentalAssistances={state.application.rental_assistances || []}
           applicationId={state.application.id}
+          applicationMembers={getApplicationMembers(state.application)}
+          disabled={disabled}
+          form={form}
+          loading={state.loading}
+          rentalAssistances={state.application.rental_assistances || []}
         />
         <FormGrid.Row>
           <FormGrid.Item>

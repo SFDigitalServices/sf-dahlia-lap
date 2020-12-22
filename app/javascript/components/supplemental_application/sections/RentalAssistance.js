@@ -11,7 +11,7 @@ import {
   createRentalAssistance,
   deleteRentalAssistance,
   updateRentalAssistance
-} from 'context/actionCreators/application_details/applicationDetailsActionCreators'
+} from 'context/actionCreators/application_details/rentalAssistanceActionCreators'
 import { useAppContext } from 'utils/customHooks'
 import {
   CurrencyField,
@@ -303,13 +303,14 @@ const RentalAssistance = ({
     const entireForm = form.getState().values
     const rentalAssistance = convertCurrency(entireForm.rental_assistances[index])
 
-    return (action === 'update'
+    return action === 'update'
       ? updateRentalAssistance(dispatch, applicationId, {
           ...rentalAssistance,
           ...(rentalAssistance.type_of_assistance !== 'Other' && { other_assistance_name: null })
         })
-      : createRentalAssistance(dispatch, applicationId, rentalAssistance)
-    ).then(() => setIsEditingNewAssistance(false))
+      : createRentalAssistance(dispatch, applicationId, rentalAssistance).then(() =>
+          setIsEditingNewAssistance(false)
+        )
   }
 
   return (

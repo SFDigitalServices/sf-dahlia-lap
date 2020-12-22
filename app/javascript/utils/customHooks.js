@@ -135,4 +135,9 @@ export const useStateObject = (initialStateObject) => {
   return [state, setState, overrideEntireState]
 }
 
-export const useAppContext = () => useContext(AppContext) || [undefined, () => {}]
+/**
+ * Use this instead of useContext(AppContext) directly. The only reason this is better is it
+ * provides a default that will destructure nicely when useContext returns false, like when
+ * shallow rendering a component.
+ */
+export const useAppContext = () => useContext(AppContext) ?? [undefined, () => {}]

@@ -1,6 +1,6 @@
 import { cloneDeep, findIndex } from 'lodash'
 
-import { NO_LEASE_STATE } from 'context/actionCreators/application_details/leaseUiStates'
+import LEASE_STATES from 'context/actionCreators/application_details/leaseSectionStates'
 
 import ACTIONS from '../actions'
 
@@ -12,7 +12,8 @@ export const getEmptyStatusModalState = () => ({
   showAlert: false,
   status: null,
   substatus: null,
-  submitButton: null
+  submitButton: null,
+  isInAddCommentMode: false
 })
 
 export const getEmptyApplicationDetailsState = () => ({
@@ -101,7 +102,7 @@ const APPLICATION_DETAILS_ACTIONS = {
         lease: {},
         rental_assistances: []
       },
-      leaseSectionState: NO_LEASE_STATE
+      leaseSectionState: LEASE_STATES.NO_LEASE
     }),
   [ACTIONS.RENTAL_ASSISTANCE_CREATE_SUCCESS]: (state, { newRentalAssistance }) =>
     setSupplementalOverrides(state, {

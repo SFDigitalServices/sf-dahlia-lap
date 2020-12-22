@@ -1,6 +1,6 @@
 /* global SALESFORCE_BASE_URL */
 
-import React, { useContext } from 'react'
+import React from 'react'
 
 import { map } from 'lodash'
 import moment from 'moment'
@@ -11,14 +11,14 @@ import {
   applicationsPageMounted,
   applicationsTableFiltersApplied
 } from 'context/actionCreators/actionCreators'
-import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
 import {
   useAsync,
   useAsyncOnMount,
   useStateObject,
   useEffectOnMount,
-  useIsMountedRef
+  useIsMountedRef,
+  useAppContext
 } from 'utils/customHooks'
 import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
@@ -76,7 +76,7 @@ const getPreferences = (listing) => {
 }
 
 const LeaseUpApplicationsPage = () => {
-  const [{ breadcrumbData, applicationsListData }, dispatch] = useContext(AppContext)
+  const [{ breadcrumbData, applicationsListData }, dispatch] = useAppContext()
 
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()

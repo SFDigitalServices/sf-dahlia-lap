@@ -6,13 +6,13 @@ import { MemoryRouter as Router } from 'react-router-dom'
 import LeaseUpRoutes from 'routes/LeaseUpRoutes'
 
 jest.mock(
-  '../../../app/javascript/components/supplemental_application/ApplicationDetailsContainer',
+  '../../../app/javascript/components/supplemental_application/ApplicationDetailsPage',
   ({ id } = {}) => {
-    const MockApplicationDetailsContainer = ({ applicationId }) => <div />
+    const MockApplicationDetailsPage = ({ applicationId }) => <div />
     return {
       __esModule: true,
       default: ({ applicationId }) => {
-        return <MockApplicationDetailsContainer applicationId={applicationId} />
+        return <MockApplicationDetailsPage applicationId={applicationId} />
       }
     }
   }
@@ -48,7 +48,7 @@ jest.mock('../../../app/javascript/components/applications/ApplicationPage', () 
   }
 })
 
-const MOCK_NAME_APP_DETAILS = 'MockApplicationDetailsContainer'
+const MOCK_NAME_APP_DETAILS = 'MockApplicationDetailsPage'
 const MOCK_NAME_LISTINGS = 'MockListingsPageComponent'
 const MOCK_NAME_SHORT_FORM = 'MockShortFormComponent'
 const MOCK_NAME_APPLICATIONS = 'MockApplicationsPageComponent'

@@ -1,12 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 
 import { withRouter } from 'react-router-dom'
 
 import Loading from 'components/molecules/Loading'
 import { listingsPageMounted, listingRowClicked } from 'context/actionCreators/actionCreators'
-import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
-import { useAsyncOnMount } from 'utils/customHooks'
+import { useAppContext, useAsyncOnMount } from 'utils/customHooks'
 
 import TableLayout from '../layouts/TableLayout'
 import { getLeaseUpListings } from './leaseUpActions'
@@ -16,7 +15,7 @@ const LeaseUpListingsPage = ({ history }) => {
   const [loading, setLoading] = useState(true)
   const [listings, setListings] = useState(true)
 
-  const [, dispatch] = useContext(AppContext)
+  const [, dispatch] = useAppContext()
 
   useAsyncOnMount(
     () => {
