@@ -259,7 +259,7 @@ const LeaseUpApplicationsPage = () => {
         obj[application.application_id] = {
           application: application.application_id,
           status: value || application.lease_up_status,
-          ...(!value && { sub_status: application.sub_status })
+          ...(!value && { subStatus: application.sub_status })
         }
         return obj
       }, {})
