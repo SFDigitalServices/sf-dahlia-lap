@@ -1,18 +1,14 @@
-import { cloneDeep, findIndex } from 'lodash'
-
 import LEASE_STATES from 'context/actionCreators/application_details/leaseSectionStates'
 
 import ACTIONS from '../actions'
 
 export const getEmptyStatusModalState = () => ({
   alertMsg: null,
-  header: null,
   isOpen: false,
   loading: false,
   showAlert: false,
   status: null,
   substatus: null,
-  submitButton: null,
   isInAddCommentMode: false
 })
 
@@ -111,24 +107,24 @@ const APPLICATION_DETAILS_ACTIONS = {
       }
     }),
   [ACTIONS.RENTAL_ASSISTANCE_UPDATE_SUCCESS]: (state, { updatedRentalAssistance }) => {
-    const newAssistances = cloneDeep(state.supplemental.application.rental_assistances)
-    const idx = findIndex(newAssistances, { id: updatedRentalAssistance.id })
-    newAssistances[idx] = updatedRentalAssistance
+    const { application } = state.supplemental
     return setSupplementalOverrides(state, {
       application: {
-        ...state.supplemental.application,
-        rental_assistances: newAssistances
+        ...application,
+        rental_assistances: application.rental_assistances.map((ra) =>
+          ra.id === updatedRentalAssistance.id ? updatedRentalAssistance : ra
+        )
       }
     })
   },
   [ACTIONS.RENTAL_ASSISTANCE_DELETE_SUCCESS]: (state, { assistanceId }) => {
-    const newAssistances = cloneDeep(state.supplemental.application.rental_assistances)
-    const idx = findIndex(newAssistances, { id: assistanceId })
-    newAssistances.splice(idx)
+    const { application } = state.supplemental
     return setSupplementalOverrides(state, {
       application: {
-        ...state.supplemental.application,
-        rental_assistances: newAssistances
+        ...application,
+        rental_assistances: application.rental_assistances
+          .map((ra) => (ra.id === assistanceId ? null : ra))
+          .filter((ra) => !!ra)
       }
     })
   },
