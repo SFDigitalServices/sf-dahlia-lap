@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { isEmpty, findIndex } from 'lodash'
 
@@ -12,8 +12,7 @@ import {
   deleteRentalAssistance,
   updateRentalAssistance
 } from 'context/actionCreators/application_details/applicationDetailsActionCreators'
-import { AppContext } from 'context/Provider'
-import { getApplicationMembers } from 'utils/applicationDetailsUtils'
+import { useAppContext } from 'utils/customHooks'
 import {
   CurrencyField,
   HelpText,
@@ -266,14 +265,17 @@ export const RentalAssistanceForm = ({
   )
 }
 
-const RentalAssistance = ({ form, visited, disabled }) => {
+const RentalAssistance = ({
+  form,
+  rentalAssistances,
+  applicationId,
+  applicationMembers,
+  visited,
+  disabled,
+  loading
+}) => {
   const [isEditingNewAssistance, setIsEditingNewAssistance] = useState(false)
-  const [
-    {
-      applicationDetailsData: { supplemental: state }
-    },
-    dispatch
-  ] = useContext(AppContext)
+  const [, dispatch] = useAppContext()
 
   /**
    * When the disabled prop changes to false, hide the new assistance panel.
@@ -288,12 +290,12 @@ const RentalAssistance = ({ form, visited, disabled }) => {
 
   const handleCloseNewPanel = () => {
     setIsEditingNewAssistance(false)
-    handleCancelEdit(state.application.rental_assistances.length)
+    handleCancelEdit(rentalAssistances.length)
   }
 
   const handleCancelEdit = (index) => {
-    const isNewAssistance = index === state.application.rental_assistances.length
-    const assistanceToRevertTo = isNewAssistance ? {} : state.application.rental_assistances[index]
+    const isNewAssistance = index === rentalAssistances.length
+    const assistanceToRevertTo = isNewAssistance ? {} : rentalAssistances[index]
     form.change(`rental_assistances.${index}`, assistanceToRevertTo)
   }
 
@@ -302,27 +304,25 @@ const RentalAssistance = ({ form, visited, disabled }) => {
     const rentalAssistance = convertCurrency(entireForm.rental_assistances[index])
 
     return (action === 'update'
-      ? updateRentalAssistance(dispatch, state.application.id, {
+      ? updateRentalAssistance(dispatch, applicationId, {
           ...rentalAssistance,
           ...(rentalAssistance.type_of_assistance !== 'Other' && { other_assistance_name: null })
         })
-      : createRentalAssistance(dispatch, state.application.id, rentalAssistance)
+      : createRentalAssistance(dispatch, applicationId, rentalAssistance)
     ).then(() => setIsEditingNewAssistance(false))
   }
 
-  const applicationMembers = getApplicationMembers(state.application)
-
   return (
     <>
-      {!isEmpty(state.application.rental_assistances) && (
+      {!isEmpty(rentalAssistances) && (
         <RentalAssistanceTable
-          rentalAssistances={state.application.rental_assistances}
+          rentalAssistances={rentalAssistances}
           applicationMembers={applicationMembers}
           onCancelEdit={handleCancelEdit}
           onDelete={(rentalAssistance) => deleteRentalAssistance(dispatch, rentalAssistance.id)}
           onSave={(index) => handleSave(index, 'update')}
           form={form}
-          loading={state.loading}
+          loading={loading}
           disabled={disabled}
         />
       )}
@@ -333,9 +333,9 @@ const RentalAssistance = ({ form, visited, disabled }) => {
             onSave={(index) => handleSave(index, 'create')}
             onClose={handleCloseNewPanel}
             applicationMembers={applicationMembers}
-            loading={state.loading}
+            loading={loading}
             values={{ type_of_assistance: null }}
-            index={state.application.rental_assistances.length}
+            index={rentalAssistances.length}
             form={form}
             visited={visited}
             isNew
@@ -350,7 +350,7 @@ const RentalAssistance = ({ form, visited, disabled }) => {
                 id='add-rental-assistance'
                 text='Add Rental Assistance'
                 small
-                disabled={state.loading}
+                disabled={loading}
                 onClick={handleOpenNewPanel}
               />
             )}

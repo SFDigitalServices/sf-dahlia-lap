@@ -16,6 +16,7 @@ import {
 } from 'context/actionCreators/application_details/applicationDetailsActionCreators'
 import { EDIT_LEASE_STATE } from 'context/actionCreators/application_details/leaseUiStates'
 import { AppContext } from 'context/Provider'
+import { getApplicationMembers } from 'utils/applicationDetailsUtils'
 import { CurrencyField, FieldError, Label, SelectField } from 'utils/form/final_form/Field'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import { areLeaseAndRentalAssistancesValid } from 'utils/form/formSectionValidations'
@@ -298,7 +299,14 @@ const Lease = ({ form, values }) => {
             <Label label='Rental Assistance' />
           </FormGrid.Item>
         </FormGrid.Row>
-        <RentalAssistance form={form} disabled={disabled} loading={state.loading} />
+        <RentalAssistance
+          form={form}
+          disabled={disabled}
+          loading={state.loading}
+          applicationMembers={getApplicationMembers(state.application)}
+          rentalAssistances={state.application.rental_assistances || []}
+          applicationId={state.application.id}
+        />
         <FormGrid.Row>
           <FormGrid.Item>
             <CurrencyField
