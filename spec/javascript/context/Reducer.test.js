@@ -31,7 +31,6 @@ const mockState = {
       confirmedPreferencesFailed: false,
       fileBaseUrl: null,
       leaseSectionState: null,
-      leaveConfirmationModalOpen: false,
       listing: null,
       listingAmiCharts: null,
       loading: false,
