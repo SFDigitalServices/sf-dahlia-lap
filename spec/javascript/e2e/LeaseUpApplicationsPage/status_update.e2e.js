@@ -112,39 +112,36 @@ describe('LeaseUpApplicationsPage status update', () => {
         expect(secondRowUpdatedStatus).toBe(APPEALED)
         thirdRowUpdatedStatus = await sharedSteps.getText(page, nthRowStatusDropdown(3))
         expect(thirdRowUpdatedStatus).toBe(APPEALED)
-
-        await testBrowser.close()
       },
       DEFAULT_E2E_TIME_OUT
     )
+    describe('add a comment button', () => {
+      test(
+        'should not update status and substatus',
+        async () => {
+          const { page } = await SetupBrowserAndPage(testBrowser, true)
+          await waitForLeaseUpAppTableToLoad(page)
 
-    test(
-      'should add comment for selected checkboxes',
-      async () => {
-        const { page } = await SetupBrowserAndPage(testBrowser, true)
-        await waitForLeaseUpAppTableToLoad(page)
+          const originalStatus = await sharedSteps.getText(page, nthRowStatusDropdown(2))
+          const originalSubStatus = await sharedSteps.getText(page, secondRowSubstatus)
+          console.log('original status and substatus', originalStatus, originalSubStatus)
+          // Check the checkbox in the 2nd row
+          await page.click(checkboxById(SECOND_ROW_LEASE_UP_APP_ID))
 
-        const originalSubStatus = await sharedSteps.getText(page, secondRowSubstatus)
-        // Check the checkboxes in the 2nd and 3rd row
-        await page.click(checkboxById(SECOND_ROW_LEASE_UP_APP_ID))
-        await page.click(checkboxById(THIRD_ROW_LEASE_UP_APP_ID))
+          // Click on Add Comment
+          await page.click('.filter-group_action button:nth-child(2)')
 
-        // Click on Add Comment
-        await page.click('.filter-group_action button:nth-child(2)')
+          await fillOutAndSubmitStatusModal(page, true)
+          // Expect checkboxes to be unchecked and statuses not to change
+          const currentStatus = await sharedSteps.getText(page, nthRowStatusDropdown(2))
+          expect(currentStatus).toBe(originalStatus)
+          const currentSubStatus = await sharedSteps.getText(page, secondRowSubstatus)
+          expect(currentSubStatus).toBe(originalSubStatus)
 
-        await fillOutAndSubmitStatusModal(page)
-        // Expect checkboxes to be unchecked and statuses not to change
-        const secondRowUpdatedStatus = await sharedSteps.getText(page, nthRowStatusDropdown(2))
-        expect(secondRowUpdatedStatus).toBe(APPEALED)
-        const thirdRowUpdatedStatus = await sharedSteps.getText(page, nthRowStatusDropdown(3))
-        expect(thirdRowUpdatedStatus).toBe(APPEALED)
-
-        const currentSubStatus = await sharedSteps.getText(page, secondRowSubstatus)
-        expect(currentSubStatus).toBe(originalSubStatus)
-
-        await testBrowser.close()
-      },
-      DEFAULT_E2E_TIME_OUT
-    )
+          await testBrowser.close()
+        },
+        DEFAULT_E2E_TIME_OUT
+      )
+    })
   })
 })
