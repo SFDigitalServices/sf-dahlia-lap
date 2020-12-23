@@ -12,6 +12,7 @@ exports[`RentalAssistance matches snapshot 1`] = `
         },
       ]
     }
+    disabled={false}
     form={
       Object {
         "batch": [Function],
@@ -36,6 +37,7 @@ exports[`RentalAssistance matches snapshot 1`] = `
         "subscribe": [Function],
       }
     }
+    loading={false}
     onCancelEdit={[Function]}
     onDelete={[Function]}
     onSave={[Function]}
@@ -55,6 +57,7 @@ exports[`RentalAssistance matches snapshot 1`] = `
   >
     <Component>
       <Button
+        disabled={false}
         id="add-rental-assistance"
         onClick={[Function]}
         small={true}

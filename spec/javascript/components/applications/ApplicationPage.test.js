@@ -64,15 +64,8 @@ jest.mock('apiService', () => {
 const mockApplication = application
 const mockSaleApplication = saleApplication
 
-const getWrapper = async ({
-  applicationId,
-  withLeaseUpUrl = false,
-  waitForLoadingFinish = false,
-  queryParams = ''
-}) => {
-  const url = withLeaseUpUrl
-    ? `/lease-ups/applications/${applicationId}${queryParams}`
-    : `/applications/${applicationId}${queryParams}`
+const getWrapper = async ({ applicationId, waitForLoadingFinish = false, queryParams = '' }) => {
+  const url = `/applications/${applicationId}${queryParams}`
 
   let wrapper
 
@@ -236,22 +229,6 @@ describe('ApplicationPage', () => {
     })
   })
 
-  describe('with leaseUp url', () => {
-    let wrapper
-    beforeEach(async () => {
-      wrapper = await getWrapper({
-        applicationId: REGULAR_APP_ID,
-        withLeaseUpUrl: true,
-        waitForLoadingFinish: true
-      })
-    })
-
-    test('renders the tab headers', async () => {
-      expect(wrapper.text()).toContain('Supplemental Information')
-      expect(wrapper.text()).toContain('Short Form Application')
-    })
-  })
-
   describe('with showAppBtn query param = false', () => {
     let wrapper
     beforeEach(async () => {
@@ -279,96 +256,6 @@ describe('ApplicationPage', () => {
 
     test('renders add button link', async () => {
       expect(wrapper.text()).toContain('Add new application')
-    })
-  })
-
-  describe('with leaseup url and showAppBtn', () => {
-    describe('before app is loaded', () => {
-      let wrapper
-      beforeEach(async () => {
-        wrapper = await getWrapper({
-          applicationId: REGULAR_APP_ID,
-          withLeaseUpUrl: true,
-          waitForLoadingFinish: false,
-          queryParams: '?showAddBtn=true'
-        })
-      })
-
-      test('renders the correct header title and content', () => {
-        const titleText = shallow(wrapper.find(CardLayout).props().pageHeader.title)
-        const nbspUnicode = '\u00a0'
-        expect(titleText.text()).toEqual(nbspUnicode)
-
-        expect(
-          wrapper
-            .find(CardLayout)
-            .props()
-            .pageHeader.breadcrumbs.map((crumb) => crumb.title)
-        ).toEqual(['Lease Ups', '', ''])
-      })
-
-      test('renders the tab section', () => {
-        expect(
-          wrapper
-            .find(CardLayout)
-            .props()
-            .tabSection.items.map((i) => i.title)
-        ).toEqual(['Short Form Application', 'Supplemental Information'])
-      })
-
-      test('does not render add button link', async () => {
-        // add button link behavior isn't possible with lease up view
-        expect(wrapper.text()).not.toContain('Add new application')
-      })
-
-      test('renders the tab headers', async () => {
-        expect(wrapper.text()).toContain('Supplemental Information')
-        expect(wrapper.text()).toContain('Short Form Application')
-      })
-    })
-
-    describe('after loading finish', () => {
-      let wrapper
-      beforeEach(async () => {
-        wrapper = await getWrapper({
-          applicationId: REGULAR_APP_ID,
-          withLeaseUpUrl: true,
-          waitForLoadingFinish: true,
-          queryParams: '?showAddBtn=true'
-        })
-      })
-
-      test('renders the correct header title and content', () => {
-        expect(wrapper.find(CardLayout).props().pageHeader.title).toEqual(
-          'APP-00191270: karen elizabeth jones'
-        )
-
-        expect(
-          wrapper
-            .find(CardLayout)
-            .props()
-            .pageHeader.breadcrumbs.map((crumb) => crumb.title)
-        ).toEqual(['Lease Ups', 'Test 5/30', 'APP-00191270'])
-      })
-
-      test('renders the tab section', () => {
-        expect(
-          wrapper
-            .find(CardLayout)
-            .props()
-            .tabSection.items.map((i) => i.title)
-        ).toEqual(['Short Form Application', 'Supplemental Information'])
-      })
-
-      test('does not render add button link', async () => {
-        // add button link behavior isn't possible with lease up view
-        expect(wrapper.text()).not.toContain('Add new application')
-      })
-
-      test('renders the tab headers', async () => {
-        expect(wrapper.text()).toContain('Supplemental Information')
-        expect(wrapper.text()).toContain('Short Form Application')
-      })
     })
   })
 })

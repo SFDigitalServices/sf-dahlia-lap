@@ -38,13 +38,12 @@ const mockState = {
       statusHistory: null,
       statusModal: {
         alertMsg: null,
-        header: null,
         isOpen: false,
         loading: false,
         showAlert: false,
         status: null,
-        submitButton: null,
-        substatus: null
+        substatus: null,
+        isInAddCommentMode: false
       },
       units: null
     }
