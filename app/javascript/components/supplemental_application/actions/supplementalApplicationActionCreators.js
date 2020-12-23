@@ -1,6 +1,6 @@
 import { uniqBy } from 'lodash'
 
-import { getApplicationDetailsBreadcrumbsData } from 'components/lease_ups/actions/breadcrumbActionHelpers'
+import { getSupplementalBreadcrumbData } from 'components/lease_ups/actions/breadcrumbActionHelpers'
 import {
   getApplicationStateOverridesAfterUpdate,
   logErrorAndAlert,
@@ -27,7 +27,7 @@ export const loadSupplementalPageData = async (dispatch, applicationId, listingI
     ({ application, statusHistory, fileBaseUrl, units, listing }) => ({
       type: ACTIONS.SUPP_APP_INITIAL_LOAD_SUCCESS,
       data: {
-        breadcrumbData: getApplicationDetailsBreadcrumbsData(application, listing),
+        breadcrumbData: getSupplementalBreadcrumbData(application, listing),
         pageData: {
           application: setApplicationDefaults(application),
           units,

@@ -30,7 +30,7 @@ const getFullNameFromApplication = (application) => {
   return getFullName(first_name, middle_name, last_name)
 }
 
-export const getApplicationDetailsBreadcrumbsData = (application, listing) => ({
+export const getSupplementalBreadcrumbData = (application, listing) => ({
   application: formatApplicationStateData(
     application?.id,
     application?.name,

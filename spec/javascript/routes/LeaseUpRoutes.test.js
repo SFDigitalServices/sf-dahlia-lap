@@ -6,7 +6,7 @@ import { MemoryRouter as Router } from 'react-router-dom'
 import LeaseUpRoutes from 'routes/LeaseUpRoutes'
 
 jest.mock(
-  '../../../app/javascript/components/supplemental_application/ApplicationDetailsPage',
+  '../../../app/javascript/components/supplemental_application/SupplementalApplicationPage',
   ({ id } = {}) => {
     const MockApplicationDetailsPage = ({ applicationId }) => <div />
     return {

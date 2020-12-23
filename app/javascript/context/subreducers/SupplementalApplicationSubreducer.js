@@ -12,7 +12,7 @@ export const getEmptyStatusModalState = () => ({
   isInAddCommentMode: false
 })
 
-export const getEmptyApplicationDetailsState = () => ({
+const getEmptySupplementalPageState = () => ({
   shortform: {
     application: null,
     fileBaseUrl: null
@@ -46,7 +46,7 @@ const setSupplementalOverrides = (state, overrides = {}) => ({
 })
 
 const APPLICATION_DETAILS_ACTIONS = {
-  [ACTIONS.LEFT_APPLICATION_SCOPE]: (_, __) => getEmptyApplicationDetailsState(),
+  [ACTIONS.LEFT_APPLICATION_SCOPE]: (_, __) => getEmptySupplementalPageState(),
   [ACTIONS.SHORTFORM_LOADED]: (state, { pageData }) => ({
     ...state,
     shortform: {
@@ -136,13 +136,13 @@ const APPLICATION_DETAILS_ACTIONS = {
 const SupplementalApplicationSubreducer = {
   reducer: (state, action) => {
     if (!(action.type in APPLICATION_DETAILS_ACTIONS)) {
-      throw new Error(`ApplicationDetailsReducer: Unhandled action type: ${action.type}`)
+      throw new Error(`SupplementalApplicationReducer: Unhandled action type: ${action.type}`)
     }
 
     return APPLICATION_DETAILS_ACTIONS[action.type](state, action.data)
   },
   handlesActionType: (actionType) => actionType in APPLICATION_DETAILS_ACTIONS,
-  getInitialState: () => getEmptyApplicationDetailsState()
+  getInitialState: () => getEmptySupplementalPageState()
 }
 
 export default SupplementalApplicationSubreducer
