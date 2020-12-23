@@ -113,6 +113,17 @@ describe('LeaseUpApplicationsPage status update', () => {
         thirdRowUpdatedStatus = await sharedSteps.getText(page, nthRowStatusDropdown(3))
         expect(thirdRowUpdatedStatus).toBe(APPEALED)
 
+        await testBrowser.close()
+      },
+      DEFAULT_E2E_TIME_OUT
+    )
+
+    test(
+      'should add comment for selected checkboxes',
+      async () => {
+        const { page } = await SetupBrowserAndPage(testBrowser, true)
+        await waitForLeaseUpAppTableToLoad(page)
+
         const originalSubStatus = await sharedSteps.getText(page, secondRowSubstatus)
         // Check the checkboxes in the 2nd and 3rd row
         await page.click(checkboxById(SECOND_ROW_LEASE_UP_APP_ID))
@@ -123,9 +134,9 @@ describe('LeaseUpApplicationsPage status update', () => {
 
         await fillOutAndSubmitStatusModal(page)
         // Expect checkboxes to be unchecked and statuses not to change
-        secondRowUpdatedStatus = await sharedSteps.getText(page, nthRowStatusDropdown(2))
+        const secondRowUpdatedStatus = await sharedSteps.getText(page, nthRowStatusDropdown(2))
         expect(secondRowUpdatedStatus).toBe(APPEALED)
-        thirdRowUpdatedStatus = await sharedSteps.getText(page, nthRowStatusDropdown(3))
+        const thirdRowUpdatedStatus = await sharedSteps.getText(page, nthRowStatusDropdown(3))
         expect(thirdRowUpdatedStatus).toBe(APPEALED)
 
         const currentSubStatus = await sharedSteps.getText(page, secondRowSubstatus)
