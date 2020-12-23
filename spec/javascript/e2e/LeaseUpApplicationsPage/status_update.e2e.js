@@ -16,6 +16,7 @@ import SetupBrowserAndPage from '../../utils/SetupBrowserAndPage'
 let testBrowser
 
 const firstRowStatusDropdown = '.rt-tr-group:first-child .rt-td .dropdown .dropdown-button'
+const secondRowSubstatus = '.rt-tr-group:nth-child(2) .rt-td:nth-child(9)'
 
 const waitForLeaseUpAppTableToLoad = async (page) => {
   await sharedSteps.goto(page, `/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
@@ -111,6 +112,25 @@ describe('LeaseUpApplicationsPage status update', () => {
         expect(secondRowUpdatedStatus).toBe(APPEALED)
         thirdRowUpdatedStatus = await sharedSteps.getText(page, nthRowStatusDropdown(3))
         expect(thirdRowUpdatedStatus).toBe(APPEALED)
+
+        const originalSubStatus = await sharedSteps.getText(page, secondRowSubstatus)
+        // Check the checkboxes in the 2nd and 3rd row
+        await page.click(checkboxById(SECOND_ROW_LEASE_UP_APP_ID))
+        await page.click(checkboxById(THIRD_ROW_LEASE_UP_APP_ID))
+
+        // Click on Add Comment
+        await page.click('.filter-group_action button:nth-child(2)')
+
+        await fillOutAndSubmitStatusModal(page)
+        // Expect checkboxes to be unchecked and statuses not to change
+        secondRowUpdatedStatus = await sharedSteps.getText(page, nthRowStatusDropdown(2))
+        expect(secondRowUpdatedStatus).toBe(APPEALED)
+        thirdRowUpdatedStatus = await sharedSteps.getText(page, nthRowStatusDropdown(3))
+        expect(thirdRowUpdatedStatus).toBe(APPEALED)
+
+        const currentSubStatus = await sharedSteps.getText(page, secondRowSubstatus)
+        expect(currentSubStatus).toBe(originalSubStatus)
+
         await testBrowser.close()
       },
       DEFAULT_E2E_TIME_OUT
