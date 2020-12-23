@@ -1,4 +1,4 @@
-import { doesApplicationHaveLease } from 'utils/applicationDetailsUtils'
+import { doesApplicationHaveLease } from 'components/supplemental_application/utils/supplementalApplicationUtils'
 
 const LEASE_STATES = {
   SHOW_LEASE: 'SHOW_LEASE',

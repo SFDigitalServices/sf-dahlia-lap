@@ -1,11 +1,11 @@
-import { updateApplicationAndAddComment } from 'components/supplemental_application/actions'
 import {
   getApplicationStateOverridesAfterUpdate,
   shouldSaveLeaseOnApplicationSave,
   wrapAsync
-} from 'context/actionCreators/application_details/utils'
+} from 'components/supplemental_application/actions/supplementalActionUtils'
+import { updateApplicationAndAddComment } from 'components/supplemental_application/utils/supplementalRequestUtils'
 import ACTIONS from 'context/actions'
-import { getEmptyStatusModalState } from 'context/subreducers/ApplicationDetailsSubreducer'
+import { getEmptyStatusModalState } from 'context/subreducers/SupplementalApplicationSubreducer'
 
 export const openSuppAppAddCommentModal = (dispatch, statusHistory) => {
   const currentStatusItem = statusHistory?.[0]

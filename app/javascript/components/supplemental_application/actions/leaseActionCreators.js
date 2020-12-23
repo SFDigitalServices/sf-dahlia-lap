@@ -1,8 +1,14 @@
-import { deleteLease, saveLeaseAndAssistances } from 'components/supplemental_application/actions'
+import {
+  logErrorAndAlert,
+  wrapAsync
+} from 'components/supplemental_application/actions/supplementalActionUtils'
 import LEASE_STATES, {
   getInitialLeaseState
-} from 'context/actionCreators/application_details/leaseSectionStates'
-import { logErrorAndAlert, wrapAsync } from 'context/actionCreators/application_details/utils'
+} from 'components/supplemental_application/utils/leaseSectionStates'
+import {
+  deleteLease,
+  saveLeaseAndAssistances
+} from 'components/supplemental_application/utils/supplementalRequestUtils'
 import ACTIONS from 'context/actions'
 
 export const leaseCreated = (dispatch) =>

@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 
 import { withRouter } from 'react-router-dom'
 
+import { listingsPageMounted, listingRowClicked } from 'components/lease_ups/actions/actionCreators'
 import Loading from 'components/molecules/Loading'
-import { listingsPageMounted, listingRowClicked } from 'context/actionCreators/actionCreators'
 import appPaths from 'utils/appPaths'
 import { useAppContext, useAsyncOnMount } from 'utils/customHooks'
 
 import TableLayout from '../layouts/TableLayout'
-import { getLeaseUpListings } from './leaseUpActions'
 import LeaseUpListingsTable from './LeaseUpListingsTable'
+import { getLeaseUpListings } from './utils/leaseUpRequestUtils'
 
 const LeaseUpListingsPage = ({ history }) => {
   const [loading, setLoading] = useState(true)

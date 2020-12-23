@@ -4,9 +4,9 @@ import { isEmpty } from 'lodash'
 import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
 
-import { getShortFormApplication } from 'components/lease_ups/shortFormActions'
+import { applicationPageLoadComplete } from 'components/applications/actions/applicationActionCreators'
+import { getShortFormApplication } from 'components/lease_ups/utils/shortFormRequestUtils'
 import Loading from 'components/molecules/Loading'
-import { applicationPageLoadComplete } from 'context/actionCreators/application_details/applicationDetailsActionCreators'
 import appPaths from 'utils/appPaths'
 import { useAppContext, useAsyncOnMount, useQueryParamBoolean } from 'utils/customHooks'
 

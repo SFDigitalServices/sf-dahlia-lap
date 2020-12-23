@@ -10,7 +10,7 @@ import {
   applicationsPageLoadComplete,
   applicationsPageMounted,
   applicationsTableFiltersApplied
-} from 'context/actionCreators/actionCreators'
+} from 'components/lease_ups/actions/actionCreators'
 import appPaths from 'utils/appPaths'
 import {
   useAsync,
@@ -24,10 +24,10 @@ import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
 import TableLayout from '../layouts/TableLayout'
-import { createFieldUpdateComment } from '../supplemental_application/actions'
+import { createFieldUpdateComment } from '../supplemental_application/utils/supplementalRequestUtils'
 import Context from './context'
-import { getApplications, getListing } from './leaseUpActions'
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
+import { getApplications, getListing } from './utils/leaseUpRequestUtils'
 
 const ROWS_PER_PAGE = 20
 

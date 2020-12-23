@@ -3,20 +3,20 @@ import React, { useState } from 'react'
 import Button from 'components/atoms/Button'
 import AlertBox from 'components/molecules/AlertBox'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
-import {
-  preferencesFailedChanged,
-  updateSavedPreference
-} from 'context/actionCreators/application_details/applicationDetailsActionCreators'
-import { leaseCreated } from 'context/actionCreators/application_details/leaseActionCreators'
-import { hasLease } from 'context/actionCreators/application_details/leaseSectionStates'
+import { leaseCreated } from 'components/supplemental_application/actions/leaseActionCreators'
 import {
   closeSuppAppStatusModal,
   closeSuppAppStatusModalAlert,
   openSuppAppAddCommentModal,
   openSuppAppUpdateStatusModal,
   submitSuppAppStatusModal
-} from 'context/actionCreators/application_details/statusModalActionCreators'
-import { getApplicationMembers } from 'utils/applicationDetailsUtils'
+} from 'components/supplemental_application/actions/statusModalActionCreators'
+import {
+  preferencesFailedChanged,
+  updateSavedPreference
+} from 'components/supplemental_application/actions/supplementalApplicationActionCreators'
+import { hasLease } from 'components/supplemental_application/utils/leaseSectionStates'
+import { getApplicationMembers } from 'components/supplemental_application/utils/supplementalApplicationUtils'
 import { useAppContext } from 'utils/customHooks'
 import { touchAllFields, convertPercentAndCurrency } from 'utils/form/validations'
 
@@ -132,7 +132,7 @@ const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values,
   const [failed, setFailed] = useState(false)
   const [
     {
-      applicationDetailsData: { supplemental: state }
+      supplementalApplicationData: { supplemental: state }
     },
     dispatch
   ] = useAppContext()

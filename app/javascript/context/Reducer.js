@@ -1,13 +1,13 @@
-import ApplicationDetailsSubreducer from 'context/subreducers/ApplicationDetailsSubreducer'
 import ApplicationsListSubreducer from 'context/subreducers/ApplicationsListSubreducer'
 import BreadcrumbSubreducer from 'context/subreducers/BreadcrumbSubreducer'
+import SupplementalApplicationSubreducer from 'context/subreducers/SupplementalApplicationSubreducer'
 
 // If a new sub-reducer is added, you should just need to add it to this object
 // and it will be integrated into the root reducer automatically.
 const DATA_KEYS_TO_SUB_REDUCERS = {
   breadcrumbData: BreadcrumbSubreducer,
   applicationsListData: ApplicationsListSubreducer,
-  applicationDetailsData: ApplicationDetailsSubreducer
+  supplementalApplicationData: SupplementalApplicationSubreducer
 }
 
 const mapEachSubReducer = (mapFn) => {

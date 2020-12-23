@@ -3,8 +3,8 @@ import React from 'react'
 import { capitalize, compact, map, cloneDeep } from 'lodash'
 import { useHistory } from 'react-router-dom'
 
+import { applicationRowClicked } from 'components/lease_ups/actions/actionCreators'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
-import { applicationRowClicked } from 'context/actionCreators/actionCreators'
 import appPaths from 'utils/appPaths'
 import { useAppContext } from 'utils/customHooks'
 

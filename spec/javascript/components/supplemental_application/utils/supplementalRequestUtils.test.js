@@ -6,9 +6,9 @@ import {
   saveLeaseAndAssistances,
   updateApplication,
   updateApplicationAndAddComment
-} from 'components/supplemental_application/actions'
+} from 'components/supplemental_application/utils/supplementalRequestUtils'
 
-import supplementalApplication from '../../fixtures/supplemental_application'
+import supplementalApplication from '../../../fixtures/supplemental_application'
 
 const mockSubmitAppFn = jest.fn()
 const mockCreateLeaseFn = jest.fn()
@@ -25,7 +25,7 @@ const mockCreateFieldUpdateCommentFn = jest.fn()
 const mockGetRentalAssistancesFn = jest.fn()
 
 jest.mock('apiService', () => {
-  const _supplementalApplication = require('../../fixtures/supplemental_application').default
+  const _supplementalApplication = require('../../../fixtures/supplemental_application').default
 
   const mockGetLease = async (applicationId) => {
     mockGetLeaseFn(applicationId)

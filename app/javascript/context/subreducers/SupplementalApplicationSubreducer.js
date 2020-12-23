@@ -1,4 +1,4 @@
-import LEASE_STATES from 'context/actionCreators/application_details/leaseSectionStates'
+import LEASE_STATES from 'components/supplemental_application/utils/leaseSectionStates'
 
 import ACTIONS from '../actions'
 
@@ -133,7 +133,7 @@ const APPLICATION_DETAILS_ACTIONS = {
     })
 }
 
-const ApplicationDetailsSubreducer = {
+const SupplementalApplicationSubreducer = {
   reducer: (state, action) => {
     if (!(action.type in APPLICATION_DETAILS_ACTIONS)) {
       throw new Error(`ApplicationDetailsReducer: Unhandled action type: ${action.type}`)
@@ -145,4 +145,4 @@ const ApplicationDetailsSubreducer = {
   getInitialState: () => getEmptyApplicationDetailsState()
 }
 
-export default ApplicationDetailsSubreducer
+export default SupplementalApplicationSubreducer

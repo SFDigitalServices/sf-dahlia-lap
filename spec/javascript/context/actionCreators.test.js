@@ -6,7 +6,7 @@ import {
   applicationsPageLoadComplete,
   listingsPageMounted,
   applicationsTableFiltersApplied
-} from 'context/actionCreators/actionCreators'
+} from 'components/lease_ups/actions/actionCreators'
 import ACTIONS from 'context/actions'
 
 const mockDispatch = jest.fn()

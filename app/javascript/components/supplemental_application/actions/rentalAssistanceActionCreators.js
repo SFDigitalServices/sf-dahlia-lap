@@ -1,5 +1,5 @@
 import apiService from 'apiService'
-import { wrapAsync } from 'context/actionCreators/application_details/utils'
+import { wrapAsync } from 'components/supplemental_application/actions/supplementalActionUtils'
 import ACTIONS from 'context/actions'
 import formUtils from 'utils/formUtils'
 

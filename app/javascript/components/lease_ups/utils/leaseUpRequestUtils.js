@@ -3,7 +3,7 @@ import { map } from 'lodash'
 import apiService from 'apiService'
 import { performInSequence } from 'utils/promiseUtils'
 
-import { buildLeaseUpAppPrefModel } from './leaseUpAppPrefModel'
+import { buildLeaseUpAppPrefModel } from '../leaseUpAppPrefModel'
 
 export const getLeaseUpListings = async () => apiService.getLeaseUpListings()
 

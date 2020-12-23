@@ -1,20 +1,20 @@
 import { uniqBy } from 'lodash'
 
-import {
-  getSupplementalPageData,
-  updateApplication,
-  updatePreference,
-  updateTotalHouseholdRent
-} from 'components/supplemental_application/actions'
-import { getInitialLeaseState } from 'context/actionCreators/application_details/leaseSectionStates'
+import { getApplicationDetailsBreadcrumbsData } from 'components/lease_ups/actions/breadcrumbActionHelpers'
 import {
   getApplicationStateOverridesAfterUpdate,
   logErrorAndAlert,
   setApplicationDefaults,
   shouldSaveLeaseOnApplicationSave,
   wrapAsync
-} from 'context/actionCreators/application_details/utils'
-import { getApplicationDetailsBreadcrumbsData } from 'context/actionCreators/breadcrumbActionHelpers'
+} from 'components/supplemental_application/actions/supplementalActionUtils'
+import { getInitialLeaseState } from 'components/supplemental_application/utils/leaseSectionStates'
+import {
+  getSupplementalPageData,
+  updateApplication,
+  updatePreference,
+  updateTotalHouseholdRent
+} from 'components/supplemental_application/utils/supplementalRequestUtils'
 import ACTIONS from 'context/actions'
 
 const getListingAmiCharts = (units) =>
@@ -43,26 +43,6 @@ export const loadSupplementalPageData = async (dispatch, applicationId, listingI
     }),
     logErrorAndAlert
   )
-
-export const applicationPageLoadComplete = (
-  dispatch,
-  application,
-  fileBaseUrl,
-  updateBreadcrumbs = false
-) =>
-  dispatch({
-    type: ACTIONS.SHORTFORM_LOADED,
-    data: {
-      ...(updateBreadcrumbs && {
-        breadcrumbData: getApplicationDetailsBreadcrumbsData(application, application?.listing)
-      }),
-      pageData: {
-        application,
-        listing: application?.listing,
-        fileBaseUrl
-      }
-    }
-  })
 
 export const updateSupplementalApplication = async (
   dispatch,

@@ -3,7 +3,7 @@ import React from 'react'
 import appPaths from 'utils/appPaths'
 import mapProps from 'utils/mapProps'
 
-import { fetchApplications } from '../applications/actions'
+import { fetchApplications } from '../applications/applicationRequestUtils'
 import ApplicationsTableContainer from '../applications/ApplicationsTableContainer'
 import TableLayout from '../layouts/TableLayout'
 

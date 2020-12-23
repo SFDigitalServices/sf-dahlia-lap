@@ -20,7 +20,7 @@ const mockState = {
     },
     page: 1
   },
-  applicationDetailsData: {
+  supplementalApplicationData: {
     shortform: {
       application: null,
       fileBaseUrl: null
@@ -239,10 +239,10 @@ describe('Reducer', () => {
           application: mockNewApplication,
           listing: mockNewListing
         },
-        applicationDetailsData: {
-          ...mockState.applicationDetailsData,
+        supplementalApplicationData: {
+          ...mockState.supplementalApplicationData,
           shortform: {
-            ...mockState.applicationDetailsData.shortform,
+            ...mockState.supplementalApplicationData.shortform,
             application: { id: 'testShortFormLoadedId' }
           }
         }

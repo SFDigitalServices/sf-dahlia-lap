@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash'
 
 import Alerts from 'components/Alerts'
-import LEASE_STATES from 'context/actionCreators/application_details/leaseSectionStates'
+import LEASE_STATES from 'components/supplemental_application/utils/leaseSectionStates'
 import ACTIONS from 'context/actions'
 
 export const wrapAsync = async (

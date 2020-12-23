@@ -11,7 +11,7 @@ import {
   createRentalAssistance,
   deleteRentalAssistance,
   updateRentalAssistance
-} from 'context/actionCreators/application_details/rentalAssistanceActionCreators'
+} from 'components/supplemental_application/actions/rentalAssistanceActionCreators'
 import { useAppContext } from 'utils/customHooks'
 import {
   CurrencyField,

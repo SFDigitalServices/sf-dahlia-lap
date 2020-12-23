@@ -6,17 +6,17 @@ import { Form } from 'react-final-form'
 import { useParams } from 'react-router-dom'
 
 import Alerts from 'components/Alerts'
+import { applicationPageLoadComplete } from 'components/applications/actions/applicationActionCreators'
 import ApplicationDetails from 'components/applications/application_details/ApplicationDetails'
 import CardLayout from 'components/layouts/CardLayout'
-import { getShortFormApplication } from 'components/lease_ups/shortFormActions'
+import { getShortFormApplication } from 'components/lease_ups/utils/shortFormRequestUtils'
 import Loading from 'components/molecules/Loading'
-import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
-import SupplementalApplicationContainer from 'components/supplemental_application/SupplementalApplicationContainer'
 import {
-  applicationPageLoadComplete,
   loadSupplementalPageData,
   updateSupplementalApplication
-} from 'context/actionCreators/application_details/applicationDetailsActionCreators'
+} from 'components/supplemental_application/actions/supplementalApplicationActionCreators'
+import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
+import SupplementalApplicationContainer from 'components/supplemental_application/SupplementalApplicationContainer'
 import { useAppContext, useAsyncOnMount } from 'utils/customHooks'
 import validate, { convertPercentAndCurrency } from 'utils/form/validations'
 
@@ -28,13 +28,13 @@ const SHORTFORM_TAB_KEY = 'shortform_tab'
 /**
  * Supplemental application page with both supplemental and shortform tabs
  */
-const ApplicationDetailsPage = () => {
+const SupplementalApplicationPage = () => {
   const { applicationId } = useParams()
   const [selectedTabKey, setSelectedTabKey] = useState(SUPP_TAB_KEY)
   const [
     {
       breadcrumbData,
-      applicationDetailsData: { supplemental, shortform }
+      supplementalApplicationData: { supplemental, shortform }
     },
     dispatch
   ] = useAppContext()
@@ -166,4 +166,4 @@ const WrappedWithSuppAppForm = ({ onSubmit, applicationSinceLastSave, render }) 
   )
 }
 
-export default ApplicationDetailsPage
+export default SupplementalApplicationPage

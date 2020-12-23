@@ -2,7 +2,7 @@ import { isEmpty, find, isEqual, reject } from 'lodash'
 
 import apiService from 'apiService'
 import Alerts from 'components/Alerts'
-import { isLeaseAlreadyCreated } from 'utils/applicationDetailsUtils'
+import { isLeaseAlreadyCreated } from 'components/supplemental_application/utils/supplementalApplicationUtils'
 import { convertCurrency } from 'utils/form/validations'
 import { performOrDefault, performInSequence } from 'utils/promiseUtils'
 import { isChanged, filterChanged } from 'utils/utils'

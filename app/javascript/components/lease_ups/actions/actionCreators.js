@@ -1,7 +1,7 @@
 import {
   formatListingStateData,
   getApplicationRowClickedBreadcrumbData
-} from 'context/actionCreators/breadcrumbActionHelpers'
+} from 'components/lease_ups/actions/breadcrumbActionHelpers'
 import ACTIONS from 'context/actions'
 
 const getListingChangedAction = (listing) => ({

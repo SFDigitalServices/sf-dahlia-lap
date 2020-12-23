@@ -13,13 +13,13 @@ import {
   leaseCanceled,
   deleteLeaseClicked,
   updateLease
-} from 'context/actionCreators/application_details/leaseActionCreators'
-import LEASE_STATES from 'context/actionCreators/application_details/leaseSectionStates'
+} from 'components/supplemental_application/actions/leaseActionCreators'
+import LEASE_STATES from 'components/supplemental_application/utils/leaseSectionStates'
 import {
   doesApplicationHaveLease,
   getApplicationMembers,
   totalSetAsidesForPref
-} from 'utils/applicationDetailsUtils'
+} from 'components/supplemental_application/utils/supplementalApplicationUtils'
 import { useAppContext } from 'utils/customHooks'
 import { CurrencyField, FieldError, Label, SelectField } from 'utils/form/final_form/Field'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
@@ -118,7 +118,7 @@ const LeaseActions = ({
 const Lease = ({ form, values }) => {
   const [
     {
-      applicationDetailsData: { supplemental: state }
+      supplementalApplicationData: { supplemental: state }
     },
     dispatch
   ] = useAppContext()
