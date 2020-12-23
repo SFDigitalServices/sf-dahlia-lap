@@ -59,7 +59,6 @@ export const getApplicationStateOverridesAfterUpdate = (
 
   return {
     application: setApplicationDefaults(applicationResponse),
-    loading: false,
     leaseSectionState: leaveEditMode(prevLeaseSectionState),
     ...additionalFieldsToUpdate
   }
