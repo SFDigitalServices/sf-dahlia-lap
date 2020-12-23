@@ -12,8 +12,7 @@ import { getInitialLeaseState } from 'components/supplemental_application/utils/
 import {
   getSupplementalPageData,
   updateApplication,
-  updatePreference,
-  updateTotalHouseholdRent
+  updatePreference
 } from 'components/supplemental_application/utils/supplementalRequestUtils'
 import ACTIONS from 'context/actions'
 
@@ -66,32 +65,18 @@ export const updateSupplementalApplication = async (
   )
 
 export const updateSavedPreference = async (dispatch, preferenceIndex, formApplicationValues) =>
-  wrapAsync(dispatch, () => {
-    const preference = formApplicationValues.preferences[preferenceIndex]
-    const updates = [updatePreference(preference)]
-    if (preference.individual_preference === 'Rent Burdened') {
-      updates.push(
-        updateTotalHouseholdRent(formApplicationValues.id, formApplicationValues.total_monthly_rent)
-      )
-    }
-
-    return Promise.all(updates).then((responses) => {
-      const failed = responses.some((r) => r === false)
-      dispatch({
-        type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
-        data: {
-          application: formApplicationValues,
-          confirmedPreferencesFailed: false
-        }
-      })
-
-      if (failed) {
-        dispatch({ type: ACTIONS.CONFIRMED_PREFERENCES_FAILED, data: { failed: true } })
+  wrapAsync(
+    dispatch,
+    () => updatePreference(preferenceIndex, formApplicationValues),
+    () => ({
+      type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
+      data: {
+        application: formApplicationValues,
+        confirmedPreferencesFailed: false
       }
-
-      return !failed
-    })
-  })
+    }),
+    () => ({ type: ACTIONS.CONFIRMED_PREFERENCES_FAILED, data: { failed: true } })
+  )
 
 export const preferencesFailedChanged = (dispatch, failed) =>
   dispatch({ type: ACTIONS.CONFIRMED_PREFERENCES_FAILED, data: { failed } })

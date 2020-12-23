@@ -15,8 +15,10 @@ export const openSuppAppAddCommentModal = (dispatch, statusHistory) => {
       ...getEmptyStatusModalState(),
       isInAddCommentMode: true,
       isOpen: true,
-      status: currentStatusItem?.status,
-      substatus: currentStatusItem?.substatus
+      ...(currentStatusItem && {
+        status: currentStatusItem.status,
+        substatus: currentStatusItem.substatus
+      })
     }
   })
 }
