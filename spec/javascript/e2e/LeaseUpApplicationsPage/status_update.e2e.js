@@ -124,7 +124,7 @@ describe('LeaseUpApplicationsPage status update', () => {
 
           const originalStatus = await sharedSteps.getText(page, nthRowStatusDropdown(2))
           const originalSubStatus = await sharedSteps.getText(page, secondRowSubstatus)
-          console.log('original status and substatus', originalStatus, originalSubStatus)
+
           // Check the checkbox in the 2nd row
           await page.click(checkboxById(SECOND_ROW_LEASE_UP_APP_ID))
 
