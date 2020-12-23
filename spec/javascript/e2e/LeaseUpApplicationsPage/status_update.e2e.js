@@ -1,6 +1,7 @@
 import {
   DEFAULT_E2E_TIME_OUT,
   FIRST_ROW_LEASE_UP_APP_ID,
+  FOURTH_ROW_LEASE_UP_APP_ID,
   LEASE_UP_LISTING_ID,
   SECOND_ROW_LEASE_UP_APP_ID,
   THIRD_ROW_LEASE_UP_APP_ID
@@ -16,7 +17,8 @@ import SetupBrowserAndPage from '../../utils/SetupBrowserAndPage'
 let testBrowser
 
 const firstRowStatusDropdown = '.rt-tr-group:first-child .rt-td .dropdown .dropdown-button'
-const secondRowSubstatus = '.rt-tr-group:nth-child(2) .rt-td:nth-child(9)'
+const fourthRowStatus = '.rt-tr-group:nth-child(4) .rt-td .dropdown .dropdown-button'
+const fourthRowSubstatus = '.rt-tr-group:nth-child(4) .rt-td:nth-child(9)'
 
 const waitForLeaseUpAppTableToLoad = async (page) => {
   await sharedSteps.goto(page, `/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
@@ -124,22 +126,19 @@ describe('LeaseUpApplicationsPage status update', () => {
         const { page } = await SetupBrowserAndPage(testBrowser, true)
         await waitForLeaseUpAppTableToLoad(page)
 
-        const originalSubStatus = await sharedSteps.getText(page, secondRowSubstatus)
+        const originalStatus = await sharedSteps.getText(page, fourthRowStatus)
+        const originalSubStatus = await sharedSteps.getText(page, fourthRowSubstatus)
         // Check the checkboxes in the 2nd and 3rd row
-        await page.click(checkboxById(SECOND_ROW_LEASE_UP_APP_ID))
-        await page.click(checkboxById(THIRD_ROW_LEASE_UP_APP_ID))
+        await page.click(checkboxById(FOURTH_ROW_LEASE_UP_APP_ID))
 
         // Click on Add Comment
         await page.click('.filter-group_action button:nth-child(2)')
 
         await fillOutAndSubmitStatusModal(page)
         // Expect checkboxes to be unchecked and statuses not to change
-        const secondRowUpdatedStatus = await sharedSteps.getText(page, nthRowStatusDropdown(2))
-        expect(secondRowUpdatedStatus).toBe(APPEALED)
-        const thirdRowUpdatedStatus = await sharedSteps.getText(page, nthRowStatusDropdown(3))
-        expect(thirdRowUpdatedStatus).toBe(APPEALED)
-
-        const currentSubStatus = await sharedSteps.getText(page, secondRowSubstatus)
+        const fourthRowUpdatedStatus = await sharedSteps.getText(page, nthRowStatusDropdown(4))
+        expect(fourthRowUpdatedStatus).toBe(originalStatus)
+        const currentSubStatus = await sharedSteps.getText(page, fourthRowSubstatus)
         expect(currentSubStatus).toBe(originalSubStatus)
 
         await testBrowser.close()

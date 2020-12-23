@@ -14,6 +14,8 @@ export const SECOND_ROW_LEASE_UP_APP_ID =
   process.env.SECOND_ROW_LEASE_UP_APP_ID || 'a0o0P00000GZazsQAD'
 export const THIRD_ROW_LEASE_UP_APP_ID =
   process.env.THIRD_ROW_LEASE_UP_APP_ID || 'a0o0P00000IvWgXQAV'
+export const FOURTH_ROW_LEASE_UP_APP_ID =
+  process.env.FOURTH_ROW_LEASE_UP_APP_ID || 'a0o0P00000IvWt8QAF'
 
 export const DEFAULT_E2E_TIME_OUT = 120000 // 2 minutes
 
