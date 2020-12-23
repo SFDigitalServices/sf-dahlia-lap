@@ -28,6 +28,7 @@ const StatusDropdown = ({
   size = null,
   expand = false,
   minWidthPx = null,
+  tertiary = true,
   // when true, never display the current status in the dropdown toggle,
   // always show the placeholder.
   forceDisplayPlaceholderText = false
@@ -41,7 +42,7 @@ const StatusDropdown = ({
 
     return (
       <Button
-        classes={classNames(classes, val?.statusClassName || 'tertiary')}
+        classes={classNames(classes, val?.statusClassName || (tertiary && 'tertiary'))}
         type='button'
         disabled={disabled}
         minWidthPx={minWidthPx}
@@ -86,7 +87,8 @@ StatusDropdown.propTypes = {
   minWidthPx: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['tiny', 'small']),
-  status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES)
+  status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
+  tertiary: PropTypes.bool
 }
 
 export default StatusDropdown

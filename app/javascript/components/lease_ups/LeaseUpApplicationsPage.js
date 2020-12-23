@@ -87,14 +87,13 @@ const LeaseUpApplicationsPage = () => {
   const [bulkCheckboxesState, setBulkCheckboxesState] = useStateObject({})
   const [statusModalState, setStatusModalState] = useStateObject({
     alertMsg: null,
-    applicationIds: null,
+    isCommentModal: false,
     isBulkUpdate: false,
     isOpen: false,
     loading: false,
     onSubmit: null,
     showAlert: null,
-    status: null,
-    subStatus: null
+    applicationsData: null
   })
 
   const isMountedRef = useIsMountedRef()
@@ -168,27 +167,30 @@ const LeaseUpApplicationsPage = () => {
 
   const handleStatusModalSubmit = async (submittedValues) => {
     setStatusModalState({ loading: true })
-    const { applicationIds } = statusModalState
+    const { applicationsData } = statusModalState
     const { status, subStatus } = submittedValues
-    const data = {
-      applicationIds,
-      status,
-      comment: submittedValues.comment?.trim(),
-      subStatus
-    }
 
-    createStatusUpdates(data)
+    Object.keys(applicationsData).forEach((appId) => {
+      applicationsData[appId].comment = submittedValues.comment?.trim()
+      if (status) {
+        applicationsData[appId].status = status
+        applicationsData[appId].subStatus = subStatus
+      }
+    })
+
+    createStatusUpdates(applicationsData)
   }
 
-  const createStatusUpdates = async ({ applicationIds, comment, status, subStatus }) => {
-    const statusUpdateRequests = applicationIds.map((appId) =>
-      createFieldUpdateComment(appId, status, comment, subStatus)
-        .then((_) => ({ application: appId }))
+  const createStatusUpdates = async (applicationsData) => {
+    const statusUpdateRequests = Object.keys(applicationsData).map((applicationId) => {
+      const { status, comment, subStatus } = applicationsData[applicationId]
+      return createFieldUpdateComment(applicationId, status, comment, subStatus)
+        .then((_) => ({ application: applicationId }))
         .catch((e) => ({
           error: true,
-          application: appId
+          application: applicationId
         }))
-    )
+    })
 
     return Promise.all(statusUpdateRequests).then((values) => {
       if (!isMountedRef.current) {
@@ -197,13 +199,20 @@ const LeaseUpApplicationsPage = () => {
 
       const successfulIds = values.filter((v) => !v.error).map((v) => v.application)
       const errorIds = values.filter((v) => v.error).map((v) => v.application)
-      updateApplicationState(successfulIds, status, subStatus)
+      const successfulData = {}
+
+      successfulIds.forEach((applicationId) => {
+        successfulData[applicationId] = applicationsData[applicationId]
+        delete applicationsData[applicationId]
+      })
+
+      updateApplicationState(successfulData)
 
       const wasBulkUpdate = statusModalState.isBulkUpdate
 
       if (errorIds.length !== 0) {
         setStatusModalState({
-          applicationIds: errorIds,
+          applicationsData: applicationsData,
           loading: false,
           showAlert: true,
           alertMsg: `We were unable to make the update for ${errorIds.length} out of ${values.length} applications, please try again.`,
@@ -211,7 +220,7 @@ const LeaseUpApplicationsPage = () => {
         })
       } else {
         setStatusModalState({
-          applicationIds: [],
+          applicationsData: {},
           isOpen: false,
           loading: false,
           showAlert: false,
@@ -229,10 +238,10 @@ const LeaseUpApplicationsPage = () => {
     setStatusModalState({
       isOpen: false,
       showAlert: false,
-      applicationIds: []
+      applicationsData: {}
     })
   }
-  const handleLeaseUpStatusChange = (value, applicationId) => {
+  const handleLeaseUpStatusChange = (value, applicationId, isCommentModal) => {
     const isBulkUpdate = !applicationId
     const appsToUpdate = isBulkUpdate
       ? Object.entries(bulkCheckboxesState)
@@ -240,24 +249,43 @@ const LeaseUpApplicationsPage = () => {
           .map(([id, _]) => id)
       : [applicationId]
 
+    const applicationsData = state.applications
+      .filter(
+        (application, position, self) =>
+          appsToUpdate.includes(application.application_id) &&
+          self.indexOf(application) === position
+      )
+      .reduce((obj, application) => {
+        obj[application.application_id] = {
+          application: application.application_id,
+          status: value || application.lease_up_status,
+          ...(!value && { subStatus: application.sub_status })
+        }
+        return obj
+      }, {})
+
     setStatusModalState({
-      applicationIds: appsToUpdate,
       isBulkUpdate,
+      isCommentModal: isCommentModal,
       isOpen: true,
-      status: value
+      status: value,
+      applicationsData: applicationsData
     })
   }
 
   // Updated the visible status, substatus, and status last updated for one or many applications
-  const updateApplicationState = (applicationIds, status, subStatus) => {
-    const updatedApplications = state.applications.map((app) => ({
-      ...app,
-      ...(applicationIds.includes(app.application_id) && {
-        lease_up_status: status,
-        status_last_updated: moment().format(SALESFORCE_DATE_FORMAT),
-        sub_status: subStatus
-      })
-    }))
+  const updateApplicationState = (applicationsData) => {
+    const updatedApplications = state.applications.map((app) => {
+      const updatedApp = applicationsData[app.application_id]
+      return {
+        ...app,
+        ...(updatedApp && {
+          lease_up_status: updatedApp.status,
+          status_last_updated: moment().format(SALESFORCE_DATE_FORMAT),
+          sub_status: updatedApp.subStatus
+        })
+      }
+    })
     setState({
       applications: updatedApplications
     })
