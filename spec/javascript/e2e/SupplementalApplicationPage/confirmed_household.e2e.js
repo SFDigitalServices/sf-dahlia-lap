@@ -13,10 +13,7 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
       const { browser, page } = await SetupBrowserAndPage()
 
       await sharedSteps.loginAsAgent(page)
-      await sharedSteps.goto(
-        page,
-        `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplemental`
-      )
+      await sharedSteps.goto(page, `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
 
       const hhAssetsSelector = '#form-household_assets'
       const hhImputedAssetsSelector = '#form-imputed_income_from_assets'

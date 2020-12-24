@@ -13,10 +13,7 @@ describe('SupplementalApplicationPage lease section', () => {
       const { browser, page } = await SetupBrowserAndPage()
 
       await sharedSteps.loginAsAgent(page)
-      await sharedSteps.goto(
-        page,
-        `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}/supplemental`
-      )
+      await sharedSteps.goto(page, `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
       await page.waitForSelector('button#save-supplemental-application')
       await page.click('button#edit-lease-button')
 
