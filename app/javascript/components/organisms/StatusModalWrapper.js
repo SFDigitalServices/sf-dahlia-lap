@@ -19,8 +19,14 @@ import {
 
 import FormModal from './FormModal'
 
+const bulkUpdateSubtitle = (isCommentModal, count) => {
+  const prefix = isCommentModal ? 'Add a comment to' : 'Update the status for'
+  return `${prefix} ${count} selected item${count === 1 ? '' : 's'}`
+}
+
 const StatusModalWrapper = ({
   alertMsg = null,
+  isCommentModal = false,
   isBulkUpdate = false,
   isOpen = false,
   loading = false,
@@ -34,20 +40,17 @@ const StatusModalWrapper = ({
   subStatus = null,
   title = null
 }) => {
-  const bulkUpdateSubtitle =
-    numApplicationsToUpdate === 1
-      ? 'Update the status for 1 selected item'
-      : `Update the status for ${numApplicationsToUpdate} selected items`
-
   return (
     <FormModal
       title={title}
-      subtitle={isBulkUpdate ? bulkUpdateSubtitle : null}
+      subtitle={isBulkUpdate ? bulkUpdateSubtitle(isCommentModal, numApplicationsToUpdate) : null}
       primary={submitButton}
       secondary='cancel'
       isOpen={isOpen}
       handleClose={onClose}
-      onSubmit={(values) => (validateStatusForm(values) ? onSubmit(values) : null)}
+      onSubmit={(values) =>
+        isCommentModal || validateStatusForm(values) ? onSubmit(values) : null
+      }
       onSecondaryClick={onClose}
       type='status'
       showAlert={showAlert}
@@ -64,7 +67,10 @@ const StatusModalWrapper = ({
         if (values.status && LEASE_UP_SUBSTATUS_OPTIONS[values.status] && !values.subStatus) {
           errors.subStatus = 'Please provide status details.'
         }
-        if (!values.comment && statusRequiresComments(values.status, values.subStatus)) {
+        if (
+          !values.comment &&
+          (isCommentModal || statusRequiresComments(values.status, values.subStatus))
+        ) {
           errors.comment = 'Please provide a comment.'
         }
         return errors
@@ -72,56 +78,60 @@ const StatusModalWrapper = ({
     >
       {(values, changeFieldValue) => (
         <div className={'form-group'}>
-          <FormGrid.Row paddingBottom>
-            <FormGrid.Item width='100%'>
-              <Field
-                name='status'
-                validate={validate.isPresent('Status is required')}
-                component={({ input: { onChange }, meta, ...rest }) => {
-                  const hasError = !values.status && meta.touched && meta.error
-                  return (
-                    <div className={classNames('form-group', hasError && 'error')}>
-                      <Label label='Status' />
-                      <StatusDropdown
-                        status={values.status}
-                        onChange={(val) => {
-                          onChange(val)
-                          changeFieldValue('subStatus', null)
-                        }}
-                        expand
-                        size='small'
-                      />
-                      <FieldError meta={meta} />
-                    </div>
-                  )
-                }}
-              />
-            </FormGrid.Item>
-          </FormGrid.Row>
-          {values.status && LEASE_UP_SUBSTATUS_OPTIONS[values.status] && (
-            <FormGrid.Row paddingBottom>
-              <FormGrid.Item width='100%'>
-                <Field
-                  name='subStatus'
-                  component={({ input: { onChange }, meta }) => {
-                    const hasError = !values.subStatus && meta.error && meta.touched
-                    return (
-                      <div className={classNames('form-group', hasError && 'error')}>
-                        <Label label='Status Detail' blockNote='(required)' />
-                        <SubstatusDropdown
-                          status={values.status}
-                          subStatus={values.subStatus}
-                          onChange={onChange}
-                          hasError={hasError}
-                          expand
-                        />
-                        <FieldError meta={meta} />
-                      </div>
-                    )
-                  }}
-                />
-              </FormGrid.Item>
-            </FormGrid.Row>
+          {!isCommentModal && (
+            <>
+              <FormGrid.Row paddingBottom>
+                <FormGrid.Item width='100%'>
+                  <Field
+                    name='status'
+                    validate={validate.isPresent('Status is required')}
+                    component={({ input: { onChange }, meta, ...rest }) => {
+                      const hasError = !values.status && meta.touched && meta.error
+                      return (
+                        <div className={classNames('form-group', hasError && 'error')}>
+                          <Label label='Status' />
+                          <StatusDropdown
+                            status={values.status}
+                            onChange={(val) => {
+                              onChange(val)
+                              changeFieldValue('subStatus', null)
+                            }}
+                            expand
+                            size='small'
+                          />
+                          <FieldError meta={meta} />
+                        </div>
+                      )
+                    }}
+                  />
+                </FormGrid.Item>
+              </FormGrid.Row>
+              {values.status && LEASE_UP_SUBSTATUS_OPTIONS[values.status] && (
+                <FormGrid.Row paddingBottom>
+                  <FormGrid.Item width='100%'>
+                    <Field
+                      name='subStatus'
+                      component={({ input: { onChange }, meta }) => {
+                        const hasError = !values.subStatus && meta.error && meta.touched
+                        return (
+                          <div className={classNames('form-group', hasError && 'error')}>
+                            <Label label='Status Detail' blockNote='(required)' />
+                            <SubstatusDropdown
+                              status={values.status}
+                              subStatus={values.subStatus}
+                              onChange={onChange}
+                              hasError={hasError}
+                              expand
+                            />
+                            <FieldError meta={meta} />
+                          </div>
+                        )
+                      }}
+                    />
+                  </FormGrid.Item>
+                </FormGrid.Row>
+              )}
+            </>
           )}
           <FormGrid.Row>
             <FormGrid.Item width='100%'>
@@ -150,6 +160,7 @@ export default StatusModalWrapper
 StatusModalWrapper.propTypes = {
   alertMsg: PropTypes.string,
   isBulkUpdate: PropTypes.bool,
+  isCommentModal: PropTypes.bool,
   isOpen: PropTypes.bool,
   loading: PropTypes.bool,
   numApplicationsToUpdate: PropTypes.number,

@@ -38,9 +38,11 @@ export const selectSubstatusIfRequired = async (selectedStatus, page) => {
 export const getStatusInModal = async (page) =>
   sharedSteps.getText(page, '.form-modal_form_wrapper .status-dropdown__control button')
 
-export const fillOutAndSubmitStatusModal = async (page) => {
-  const statusInModal = await getStatusInModal(page)
-  await selectSubstatusIfRequired(statusInModal, page)
+export const fillOutAndSubmitStatusModal = async (page, isCommentModal = false) => {
+  if (!isCommentModal) {
+    const statusInModal = await getStatusInModal(page)
+    await selectSubstatusIfRequired(statusInModal, page)
+  }
   await page.type(commentInputSelector, 'some comment')
   await page.click(submitStatusModalSelector)
 }

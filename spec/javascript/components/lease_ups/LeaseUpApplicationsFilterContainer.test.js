@@ -24,6 +24,7 @@ const getNode = (bulkCheckboxesState = {}) => (
       onSelectAllApplications={mockOnSelectAllApplications}
       bulkCheckboxesState={bulkCheckboxesState}
       onBulkLeaseUpStatusChange={() => {}}
+      onBulkLeaseUpCommentChange={() => {}}
       preferences={['pref option 1', 'pref option 2']}
     />
   </Provider>
