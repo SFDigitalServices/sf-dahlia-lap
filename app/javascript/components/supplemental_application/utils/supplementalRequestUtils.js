@@ -200,7 +200,7 @@ export const getAMIAction = async ({ chartType, chartYear }) => {
 
 export const updatePreference = async (preferenceIndex, formApplicationValues) => {
   const preference = formApplicationValues.preferences[preferenceIndex]
-  const updates = [updatePreference(preference)]
+  const updates = [apiService.updatePreference(preference)]
   if (preference.individual_preference === 'Rent Burdened') {
     updates.push(
       updateTotalHouseholdRent(formApplicationValues.id, formApplicationValues.total_monthly_rent)

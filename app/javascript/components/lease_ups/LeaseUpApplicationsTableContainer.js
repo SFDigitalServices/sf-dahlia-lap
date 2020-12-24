@@ -69,7 +69,8 @@ const LeaseUpTableContainer = ({
         bulkCheckboxesState={bulkCheckboxesState}
         onClearSelectedApplications={onClearSelectedApplications}
         onSelectAllApplications={onSelectAllApplications}
-        onBulkLeaseUpStatusChange={(val) => onLeaseUpStatusChange(val, null)}
+        onBulkLeaseUpStatusChange={(val) => onLeaseUpStatusChange(val, null, false)}
+        onBulkLeaseUpCommentChange={(val) => onLeaseUpStatusChange(null, null, true)}
       />
       <LeaseUpApplicationsTable
         dataSet={rowsData(applications)}
@@ -88,14 +89,17 @@ const LeaseUpTableContainer = ({
         isBulkUpdate={statusModal.isBulkUpdate}
         isOpen={statusModal.isOpen}
         loading={statusModal.loading}
-        numApplicationsToUpdate={statusModal.applicationIds?.length}
+        numApplicationsToUpdate={
+          statusModal.applicationsData ? Object.keys(statusModal.applicationsData).length : 1
+        }
         onAlertCloseClick={statusModal.onAlertCloseClick}
         onClose={onCloseStatusModal}
         onSubmit={onSubmitStatusModal}
         showAlert={statusModal.showAlert}
         status={statusModal.status}
-        submitButton='Update'
-        title='Update Status'
+        submitButton={statusModal.isCommentModal ? 'Submit' : 'Update'}
+        title={statusModal.isCommentModal ? 'Add Comment' : 'Update Status'}
+        isCommentModal={statusModal.isCommentModal}
       />
     </>
   )
