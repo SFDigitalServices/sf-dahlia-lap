@@ -16,7 +16,7 @@ window.scrollTo = jest.fn()
 
 const getMockApplication = () => cloneDeep(supplementalApplication)
 
-const getWindowUrl = (id) => `/lease-ups/applications/${id}/supplemental`
+const getWindowUrl = (id) => `/lease-ups/applications/${id}`
 
 const ID_NO_AVAILABLE_UNITS = 'idwithnoavailableunits'
 const ID_WITH_TOTAL_MONTHLY_RENT = 'idwithtotalmonthlyrent'

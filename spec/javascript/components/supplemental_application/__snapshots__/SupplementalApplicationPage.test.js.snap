@@ -33,10 +33,10 @@ Array [
             >
               <a
                 aria-current={null}
-                href="/lease-ups/listings/a0W0P00000GbyuQUAR"
+                href="/lease-ups/listings/a0W0P00000F8YG4UAN"
                 onClick={[Function]}
               >
-                Partners Test Listing (do not modify) - Yellow Acres
+                Automated Test Listing (do not modify)
               </a>
             </li>
             <li
@@ -71,10 +71,28 @@ Array [
       role="menubar"
     >
       <li
+        className="tab-title active"
+        role="none"
+      >
+        <button
+          aria-selected={true}
+          className="button-unstyled"
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          role="menuitem"
+          tabIndex="-1"
+          type="button"
+        >
+          Supplemental Information
+        </button>
+      </li>
+      <li
         className="tab-title"
         role="none"
       >
         <button
+          aria-selected={false}
           className="button-unstyled"
           onClick={[Function]}
           onFocus={[Function]}
@@ -85,23 +103,6 @@ Array [
         >
           Short Form Application
         </button>
-      </li>
-      <li
-        className="tab-title active"
-        role="none"
-      >
-        <a
-          aria-selected={true}
-          className="button-unstyled"
-          href="/lease-ups/applications/a0o0P00000GZazOQAT/supplemental"
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          role="menuitem"
-          tabIndex="-1"
-        >
-          Supplemental Information
-        </a>
       </li>
     </ul>
   </div>,
@@ -114,7 +115,6 @@ Array [
       <form
         id="shortForm"
         noValidate={true}
-        onChange={[Function]}
         onSubmit={[Function]}
         style={
           Object {
@@ -1807,7 +1807,7 @@ Array [
                                     aria-autocomplete="list"
                                     className="css-62g3xt-dummyInput"
                                     disabled={true}
-                                    id="react-select-7-input"
+                                    id="react-select-5-input"
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onFocus={[Function]}
