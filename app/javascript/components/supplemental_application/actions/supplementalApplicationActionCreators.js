@@ -64,19 +64,29 @@ export const updateSupplementalApplication = async (
     logErrorAndAlert
   )
 
-export const updateSavedPreference = async (dispatch, preferenceIndex, formApplicationValues) =>
-  wrapAsync(
-    dispatch,
-    () => updatePreference(preferenceIndex, formApplicationValues),
-    () => ({
-      type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
-      data: {
-        application: formApplicationValues,
-        confirmedPreferencesFailed: false
-      }
-    }),
-    () => ({ type: ACTIONS.CONFIRMED_PREFERENCES_FAILED, data: { failed: true } })
-  )
+/**
+ * Returns a promise that resolves to true if the save was successful, false otherwise.
+ */
+export const updateSavedPreference = async (dispatch, preferenceIndex, formApplicationValues) => {
+  dispatch({ type: ACTIONS.SUPP_APP_LOAD_START })
+
+  return updatePreference(preferenceIndex, formApplicationValues)
+    .then(() => {
+      dispatch({
+        type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
+        data: {
+          application: formApplicationValues,
+          confirmedPreferencesFailed: false
+        }
+      })
+      return true
+    })
+    .catch(() => {
+      dispatch({ type: ACTIONS.CONFIRMED_PREFERENCES_FAILED, data: { failed: true } })
+      return false
+    })
+    .finally(() => dispatch({ type: ACTIONS.SUPP_APP_LOAD_COMPLETE }))
+}
 
 export const preferencesFailedChanged = (dispatch, failed) =>
   dispatch({ type: ACTIONS.CONFIRMED_PREFERENCES_FAILED, data: { failed } })

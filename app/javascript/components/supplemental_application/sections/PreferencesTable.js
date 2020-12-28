@@ -68,10 +68,9 @@ const expandedRowRenderer = (
     toggle()
     onPanelClose && onPanelClose(preferenceIndex)
   }
-  const handleOnSave = async (preferenceIndex, application) => {
-    const response = await onSave(preferenceIndex, application)
-    response && handleOnClose()
-  }
+
+  const handleOnSave = async (preferenceIndex, application) =>
+    onSave(preferenceIndex, application).then((success) => success && handleOnClose())
 
   return (
     <Panel
