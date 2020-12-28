@@ -176,14 +176,14 @@ describe('supplementalApplicationActionCreators', () => {
 
     test('should fire the correct actions', () => {
       expect(firedActions).toEqual([
-        { type: ACTIONS.SUPP_APP_LOAD_START, data: null },
+        { type: ACTIONS.SUPP_APP_LOAD_START },
         {
           type: ACTIONS.CONFIRMED_PREFERENCES_FAILED,
           data: {
             failed: true
           }
         },
-        { type: ACTIONS.SUPP_APP_LOAD_COMPLETE, data: null }
+        { type: ACTIONS.SUPP_APP_LOAD_COMPLETE }
       ])
     })
   })
