@@ -222,4 +222,20 @@ describe('filterChanged', () => {
     const diff = filterChanged(prevApp, newApp)
     expect(diff).toEqual(expectedFilteredApp)
   })
+
+  test('should pass the whole date object', async () => {
+    const prevApp = { id: 'abc', date: { day: '01', month: '01', year: '2021' } }
+    const newApp = { id: 'abc', date: { day: '01', month: '02', year: '2021' } }
+    const expectedFilteredApp = { id: 'abc', date: { day: '01', month: '02', year: '2021' } }
+    const diff = filterChanged(prevApp, newApp)
+    expect(diff).toEqual(expectedFilteredApp)
+  })
+
+  test('should not return unchanged date', async () => {
+    const prevApp = { id: 'abc', a: '1', b: { day: '01', month: '01', year: '2021' } }
+    const newApp = { id: 'abc', a: '1', b: { day: '01', month: '01', year: '2021' } }
+    const expectedFilteredApp = { id: 'abc' }
+    const diff = filterChanged(prevApp, newApp)
+    expect(diff).toEqual(expectedFilteredApp)
+  })
 })

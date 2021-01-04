@@ -32,7 +32,8 @@ export const filterChanged = (prev, current) => {
   const changedFields = {}
   forEach(current, (value, key) => {
     if (!isEqual(prev[key], value)) {
-      if (isPlainObject(value) && prev[key] !== null) {
+      // date fields need to be treated as whole
+      if (isPlainObject(value) && prev[key] !== null && !('year' in value)) {
         const obj = filterChanged(prev[key], value)
         if (!isEmpty(obj)) {
           if (value.id) {

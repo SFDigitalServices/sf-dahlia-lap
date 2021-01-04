@@ -18,6 +18,7 @@ import {
 import { hasLease } from 'components/supplemental_application/utils/leaseSectionStates'
 import { getApplicationMembers } from 'components/supplemental_application/utils/supplementalApplicationUtils'
 import { useAppContext } from 'utils/customHooks'
+import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import { touchAllFields, convertPercentAndCurrency } from 'utils/form/validations'
 
 import ContentSection from '../molecules/ContentSection'
@@ -65,6 +66,24 @@ const ConfirmedPreferencesSection = ({
         fileBaseUrl={fileBaseUrl}
         form={form}
         visited={visited}
+      />
+    </ContentSection.Sub>
+    <ContentSection.Sub
+      title='Application signature'
+      description={
+        <>
+          Complete this section by filling in the date of the applicant’s supplemental application
+          once it has been received. Be sure to enter the date from the application itself, not the
+          date on which you received it.
+        </>
+      }
+    >
+      <MultiDateField
+        form={form}
+        formName='supp_app_signed_date'
+        fieldName='supp_app_signed_date'
+        id='supp_app_signed_date'
+        label='Application Signature Date'
       />
     </ContentSection.Sub>
     <ContentSection.Sub title='Household Reserved and Priority Units'>
