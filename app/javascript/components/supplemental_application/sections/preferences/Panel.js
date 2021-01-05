@@ -17,6 +17,15 @@ const isPreference = (recordType, preferenceName) => (pref) => {
   const recordtypeDevelopername = pref.recordtype_developername
   const individualPreference = pref.individual_preference
 
+  console.log(
+    'isPreference',
+    recordtypeDevelopername,
+    individualPreference,
+    recordtypeDevelopername === recordType &&
+      (!preferenceName || individualPreference === preferenceName),
+    recordType,
+    preferenceName
+  )
   // If preferenceName is provided, check that the individual preference matches it.
   return (
     recordtypeDevelopername === recordType &&

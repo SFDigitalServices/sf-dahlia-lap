@@ -1,10 +1,16 @@
 import React from 'react'
 
-import { map, reject, overSome, findIndex, orderBy, kebabCase } from 'lodash'
+import { reject, overSome, findIndex, orderBy, kebabCase } from 'lodash'
 
 import { memberNameFromPref } from 'components/applications/application_form/preferences/utils'
 import TableWrapper from 'components/atoms/TableWrapper'
 import ExpandableTable from 'components/molecules/ExpandableTable'
+import StatefulExpandableTable from 'components/molecules/StatefulExpandableTable'
+import {
+  preferenceRowClosed,
+  editPreferenceClicked
+} from 'components/supplemental_application/actions/preferenceActionCreators'
+import { useAppContext } from 'utils/customHooks'
 
 import Panel from './preferences/Panel'
 import PreferenceIcon from './preferences/PreferenceIcon'
@@ -42,7 +48,7 @@ const buildRows = (application, applicationMembers, fileBaseUrl) => {
   const { preferences } = application
   const proofFiles = application.proof_files
   const sortedPreferences = orderBy(preferences, 'preference_order', 'asc')
-  return map(onlyValid(sortedPreferences), buildRow(proofFiles, applicationMembers, fileBaseUrl))
+  return onlyValid(sortedPreferences).map(buildRow(proofFiles, applicationMembers, fileBaseUrl))
 }
 
 const columns = [
@@ -55,48 +61,25 @@ const columns = [
   { content: '' }
 ]
 
-const expandedRowRenderer = (
-  application,
-  applicationMembers,
-  onSave,
-  onPanelClose,
-  form,
-  visited
-) => (row, toggle) => {
-  const preferenceIndex = findIndex(application.preferences, matchingPreference(row))
-  const handleOnClose = (preferenceIndex) => {
-    toggle()
-    onPanelClose && onPanelClose(preferenceIndex)
-  }
+/**
+ * Get the index of the preference row in the application preferences array.
+ *
+ * Note that this is different from the index on the UI table, since what's shown is sorted and filtered.
+ */
+const getPreferenceIndex = (row, application) =>
+  findIndex(application.preferences, matchingPreference(row))
 
-  const handleOnSave = async (preferenceIndex, application) =>
-    onSave(preferenceIndex, application).then((success) => success && handleOnClose())
-
-  return (
-    <Panel
-      application={application}
-      applicationMembers={applicationMembers}
-      preferenceIndex={preferenceIndex}
-      onSave={handleOnSave}
-      onClose={handleOnClose}
-      form={form}
-      visited={visited}
-    />
+const convertPreferenceToTableIndices = (preferenceIndices, tableRows, application) => {
+  // map preference indices to UI table indices
+  const preferenceIndexToRowIndex = Object.fromEntries(
+    tableRows.map((row, index) => [getPreferenceIndex(row, application), index])
   )
-}
 
-const expanderAction = (row, expanded, expandedRowToggler) => {
-  const prefName = row[1].content
-  return (
-    !expanded &&
-    hasExpanderButton(prefName) && (
-      <ExpanderButton
-        label='Edit'
-        onClick={expandedRowToggler}
-        id={`${kebabCase(prefName)}-edit`}
-      />
-    )
-  )
+  const expandedRowIndicesList = [...preferenceIndices]
+    .map((preferenceIndex) => preferenceIndexToRowIndex[preferenceIndex])
+    .filter((tableIndex) => tableIndex !== undefined)
+
+  return new Set(expandedRowIndicesList)
 }
 
 const PreferencesTable = ({
@@ -104,27 +87,61 @@ const PreferencesTable = ({
   applicationMembers,
   fileBaseUrl,
   onSave,
-  onPanelClose,
   form,
   visited
 }) => {
+  const [
+    {
+      supplementalApplicationData: { supplemental: state }
+    },
+    dispatch
+  ] = useAppContext()
+
   const rows = buildRows(application, applicationMembers, fileBaseUrl)
+
+  const expandedRowIndices = convertPreferenceToTableIndices(
+    state.openedConfirmedPreferenceIndices,
+    rows,
+    application
+  )
+
   return (
     <div className='preferences-table'>
       <TableWrapper>
-        <ExpandableTable
+        <StatefulExpandableTable
           columns={columns}
           rows={rows}
           rowKeyIndex={1}
-          expanderRenderer={expanderAction}
-          expandedRowRenderer={expandedRowRenderer(
-            application,
-            applicationMembers,
-            onSave,
-            onPanelClose,
-            form,
-            visited
-          )}
+          expandedRowIndices={expandedRowIndices}
+          renderExpanderButton={(_, row, expanded) => {
+            const prefName = row[1].content
+            return (
+              !expanded &&
+              hasExpanderButton(prefName) && (
+                <ExpanderButton
+                  label='Edit'
+                  onClick={() =>
+                    editPreferenceClicked(dispatch, getPreferenceIndex(row, application))
+                  }
+                  id={`${kebabCase(prefName)}-edit`}
+                />
+              )
+            )
+          }}
+          renderRow={(_, row) => {
+            const preferenceIndex = getPreferenceIndex(row, application)
+            return (
+              <Panel
+                application={application}
+                applicationMembers={applicationMembers}
+                preferenceIndex={preferenceIndex}
+                onSave={onSave}
+                onClose={() => preferenceRowClosed(dispatch, preferenceIndex)}
+                form={form}
+                visited={visited}
+              />
+            )
+          }}
         />
       </TableWrapper>
     </div>

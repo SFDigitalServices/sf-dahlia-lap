@@ -5,16 +5,16 @@ import AlertBox from 'components/molecules/AlertBox'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 import { leaseCreated } from 'components/supplemental_application/actions/leaseActionCreators'
 import {
+  updateSavedPreference,
+  preferenceAlertCloseClicked
+} from 'components/supplemental_application/actions/preferenceActionCreators'
+import {
   closeSuppAppStatusModal,
   closeSuppAppStatusModalAlert,
   openSuppAppAddCommentModal,
   openSuppAppUpdateStatusModal,
   submitSuppAppStatusModal
 } from 'components/supplemental_application/actions/statusModalActionCreators'
-import {
-  preferencesFailedChanged,
-  updateSavedPreference
-} from 'components/supplemental_application/actions/supplementalApplicationActionCreators'
 import { hasLease } from 'components/supplemental_application/utils/leaseSectionStates'
 import { getApplicationMembers } from 'components/supplemental_application/utils/supplementalApplicationUtils'
 import { useAppContext } from 'utils/customHooks'
@@ -63,7 +63,6 @@ const ConfirmedPreferencesSection = ({
         applicationMembers={applicationMembers}
         onSave={onSave}
         fileBaseUrl={fileBaseUrl}
-        onPanelClose={onDismissError}
         form={form}
         visited={visited}
       />
@@ -174,7 +173,7 @@ const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values,
               onSave={(preferenceIndex, formApplicationValues) =>
                 updateSavedPreference(dispatch, preferenceIndex, formApplicationValues)
               }
-              onDismissError={() => preferencesFailedChanged(dispatch, false)}
+              onDismissError={() => preferenceAlertCloseClicked(dispatch)}
               confirmedPreferencesFailed={state.confirmedPreferencesFailed}
               form={form}
             />

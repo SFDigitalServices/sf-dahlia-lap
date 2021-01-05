@@ -56,6 +56,7 @@ const mockState = ({
         isInAddCommentMode: false
       },
       units: null,
+      openedConfirmedPreferenceIndices: new Set(),
       ...supplementalOverrides
     }
   }
@@ -351,6 +352,91 @@ describe('Reducer', () => {
       })
 
       expect(newState).toEqual(expectedState)
+    })
+  })
+
+  describe('Preference table actions', () => {
+    const getStateWithPrefs = (preferenceList) =>
+      mockState({
+        supplementalOverrides: { openedConfirmedPreferenceIndices: new Set(preferenceList) }
+      })
+
+    describe('ACTIONS.PREF_TABLE_ROW_OPENED', () => {
+      test('should add index to empty set', () => {
+        const newState = applyAction(ACTIONS.PREF_TABLE_ROW_OPENED, { rowIndex: 0 })
+        const expectedState = getStateWithPrefs([0])
+        expect(newState).toEqual(expectedState)
+      })
+
+      test('should not add duplicate index', () => {
+        const newState = applyAction(
+          ACTIONS.PREF_TABLE_ROW_OPENED,
+          { rowIndex: 0 },
+          getStateWithPrefs([0, 1, 2])
+        )
+
+        expect(newState).toEqual(getStateWithPrefs([0, 1, 2]))
+      })
+
+      test('should add new index to set with 3 indexes', () => {
+        const newState = applyAction(
+          ACTIONS.PREF_TABLE_ROW_OPENED,
+          { rowIndex: 3 },
+          getStateWithPrefs([0, 1, 2])
+        )
+
+        expect(newState).toEqual(getStateWithPrefs([0, 1, 2, 3]))
+      })
+    })
+
+    describe('ACTIONS.PREF_TABLE_ROW_CLOSED', () => {
+      test('should not do anything when set is empty', () => {
+        const newState = applyAction(ACTIONS.PREF_TABLE_ROW_CLOSED, { rowIndex: 0 })
+        expect(newState).toEqual(mockState())
+      })
+
+      test('should remove the index from the set', () => {
+        const stateWithSingleItemOpen = getStateWithPrefs([0])
+
+        const newState = applyAction(
+          ACTIONS.PREF_TABLE_ROW_CLOSED,
+          { rowIndex: 0 },
+          stateWithSingleItemOpen
+        )
+
+        expect(newState).toEqual(mockState())
+      })
+
+      test('should remove only the selected index from the set', () => {
+        const newState = applyAction(
+          ACTIONS.PREF_TABLE_ROW_CLOSED,
+          { rowIndex: 0 },
+          getStateWithPrefs([0, 1, 2])
+        )
+
+        expect(newState).toEqual(getStateWithPrefs([1, 2]))
+      })
+    })
+
+    describe('ACTIONS.PREF_TABLE_ALL_ROWS_CLOSED', () => {
+      test('should not do anything when set is empty', () => {
+        const newState = applyAction(ACTIONS.PREF_TABLE_ALL_ROWS_CLOSED)
+        expect(newState).toEqual(mockState())
+      })
+
+      test('should remove all indexes from the set', () => {
+        const stateWithManyItemsOpen = mockState({
+          supplementalOverrides: { openedConfirmedPreferenceIndices: new Set([0, 1, 2, 3]) }
+        })
+
+        const newState = applyAction(
+          ACTIONS.PREF_TABLE_ALL_ROWS_CLOSED,
+          null,
+          stateWithManyItemsOpen
+        )
+
+        expect(newState).toEqual(mockState())
+      })
     })
   })
 })

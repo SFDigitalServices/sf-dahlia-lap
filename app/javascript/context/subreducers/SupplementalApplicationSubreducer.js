@@ -29,7 +29,8 @@ const getEmptySupplementalPageState = () => ({
     statusHistory: null,
     units: null,
     applicationMembers: [],
-    statusModal: getEmptyStatusModalState()
+    statusModal: getEmptyStatusModalState(),
+    openedConfirmedPreferenceIndices: new Set()
   }
 })
 
@@ -56,6 +57,20 @@ const APPLICATION_DETAILS_ACTIONS = {
   }),
   [ACTIONS.SUPP_APP_LOAD_START]: (state, data = {}) =>
     setSupplementalOverrides(state, { loading: true, ...data }),
+  [ACTIONS.PREF_TABLE_ROW_OPENED]: (state, data) =>
+    setSupplementalOverrides(state, {
+      openedConfirmedPreferenceIndices: new Set([
+        ...state.supplemental.openedConfirmedPreferenceIndices,
+        data.rowIndex
+      ])
+    }),
+  [ACTIONS.PREF_TABLE_ROW_CLOSED]: (state, data) => {
+    const newSet = new Set(state.supplemental.openedConfirmedPreferenceIndices)
+    newSet.delete(data.rowIndex)
+    return setSupplementalOverrides(state, { openedConfirmedPreferenceIndices: newSet })
+  },
+  [ACTIONS.PREF_TABLE_ALL_ROWS_CLOSED]: (state) =>
+    setSupplementalOverrides(state, { openedConfirmedPreferenceIndices: new Set() }),
   [ACTIONS.SUPP_APP_INITIAL_LOAD_SUCCESS]: (state, { pageData }) =>
     setSupplementalOverrides(state, pageData),
   [ACTIONS.SUPP_APP_LOAD_SUCCESS]: (state, data = {}) => setSupplementalOverrides(state, data),
@@ -68,7 +83,7 @@ const APPLICATION_DETAILS_ACTIONS = {
   [ACTIONS.STATUS_MODAL_ERROR]: (state, _) =>
     setSupplementalOverrides(state, {
       statusModal: {
-        ...state.statusModal,
+        ...state.supplemental.statusModal,
         loading: false,
         showAlert: true,
         alertMsg: 'We were unable to make the update, please try again.'

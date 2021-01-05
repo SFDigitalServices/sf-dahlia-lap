@@ -38,7 +38,7 @@ export const withForm = (application, formToChildrenFunc, shouldMount = false) =
     ? mountWithForm(application, formToChildrenFunc)
     : shallowWithForm(application, formToChildrenFunc)
 
-const nameOrTypeMatches = (node, nodeNameOrType) =>
+export const nameOrTypeMatches = (node, nodeNameOrType) =>
   typeof nodeNameOrType === 'string'
     ? node.name() === nodeNameOrType
     : node.type() === nodeNameOrType
