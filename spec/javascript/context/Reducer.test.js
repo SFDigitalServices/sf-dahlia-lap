@@ -37,7 +37,6 @@ const mockState = ({
     },
     supplemental: {
       application: null,
-      applicationMembers: [],
       confirmedPreferencesFailed: false,
       fileBaseUrl: null,
       leaseSectionState: null,
@@ -56,7 +55,8 @@ const mockState = ({
         isInAddCommentMode: false
       },
       units: null,
-      openedConfirmedPreferenceIndices: new Set(),
+      preferenceRowsOpened: new Set(),
+      assistanceRowsOpened: new Set(),
       ...supplementalOverrides
     }
   }
@@ -358,7 +358,7 @@ describe('Reducer', () => {
   describe('Preference table actions', () => {
     const getStateWithPrefs = (preferenceList) =>
       mockState({
-        supplementalOverrides: { openedConfirmedPreferenceIndices: new Set(preferenceList) }
+        supplementalOverrides: { preferenceRowsOpened: new Set(preferenceList) }
       })
 
     describe('ACTIONS.PREF_TABLE_ROW_OPENED', () => {
@@ -417,25 +417,68 @@ describe('Reducer', () => {
         expect(newState).toEqual(getStateWithPrefs([1, 2]))
       })
     })
+  })
 
-    describe('ACTIONS.PREF_TABLE_ALL_ROWS_CLOSED', () => {
+  describe('Assistance table actions', () => {
+    const getStateWithAssistanceIds = (assistanceIds) =>
+      mockState({
+        supplementalOverrides: { assistanceRowsOpened: new Set(assistanceIds) }
+      })
+
+    describe('ACTIONS.PREF_TABLE_ROW_OPENED', () => {
+      test('should add index to empty set', () => {
+        const newState = applyAction(ACTIONS.ASSISTANCE_TABLE_ROW_OPENED, { assistanceId: '0' })
+        const expectedState = getStateWithAssistanceIds(['0'])
+        expect(newState).toEqual(expectedState)
+      })
+
+      test('should not add duplicate index', () => {
+        const newState = applyAction(
+          ACTIONS.ASSISTANCE_TABLE_ROW_OPENED,
+          { assistanceId: '0' },
+          getStateWithAssistanceIds(['0', '1', '2'])
+        )
+
+        expect(newState).toEqual(getStateWithAssistanceIds(['0', '1', '2']))
+      })
+
+      test('should add new index to set with 3 indexes', () => {
+        const newState = applyAction(
+          ACTIONS.ASSISTANCE_TABLE_ROW_OPENED,
+          { assistanceId: '3' },
+          getStateWithAssistanceIds(['0', '1', '2'])
+        )
+
+        expect(newState).toEqual(getStateWithAssistanceIds(['0', '1', '2', '3']))
+      })
+    })
+
+    describe('ACTIONS.PREF_TABLE_ROW_CLOSED', () => {
       test('should not do anything when set is empty', () => {
-        const newState = applyAction(ACTIONS.PREF_TABLE_ALL_ROWS_CLOSED)
+        const newState = applyAction(ACTIONS.ASSISTANCE_TABLE_ROW_CLOSED, { assistanceId: '0' })
         expect(newState).toEqual(mockState())
       })
 
-      test('should remove all indexes from the set', () => {
-        const stateWithManyItemsOpen = mockState({
-          supplementalOverrides: { openedConfirmedPreferenceIndices: new Set([0, 1, 2, 3]) }
-        })
+      test('should remove the index from the set', () => {
+        const stateWithSingleItemOpen = getStateWithAssistanceIds(['0'])
 
         const newState = applyAction(
-          ACTIONS.PREF_TABLE_ALL_ROWS_CLOSED,
-          null,
-          stateWithManyItemsOpen
+          ACTIONS.ASSISTANCE_TABLE_ROW_CLOSED,
+          { assistanceId: '0' },
+          stateWithSingleItemOpen
         )
 
         expect(newState).toEqual(mockState())
+      })
+
+      test('should remove only the selected index from the set', () => {
+        const newState = applyAction(
+          ACTIONS.ASSISTANCE_TABLE_ROW_CLOSED,
+          { assistanceId: '0' },
+          getStateWithAssistanceIds(['0', '1', '2'])
+        )
+
+        expect(newState).toEqual(getStateWithAssistanceIds(['1', '2']))
       })
     })
   })

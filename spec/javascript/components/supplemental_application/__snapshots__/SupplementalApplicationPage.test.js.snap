@@ -6353,6 +6353,7 @@ Array [
                       disabled={false}
                       id="add-status-history-comment"
                       onClick={[Function]}
+                      type="button"
                     >
                       Add a comment
                     </button>
@@ -6468,6 +6469,7 @@ Array [
                       disabled={false}
                       id="add-status-history-comment"
                       onClick={[Function]}
+                      type="button"
                     >
                       Add a comment
                     </button>

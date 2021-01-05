@@ -23,6 +23,10 @@ const shallowWithForm = (application, formToChildrenFunc) =>
 const mountWithForm = (application, formToChildrenFunc) =>
   mount(formNode(application, formToChildrenFunc))
 
+/** similar to withForm but doesn't actually render the node */
+export const withFormNode = (application, formToChildrenFunc) =>
+  formNode(application, formToChildrenFunc)
+
 /**
  * Return a component wrapper for any component that uses react-final-form
  *

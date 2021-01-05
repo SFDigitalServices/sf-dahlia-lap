@@ -1,6 +1,7 @@
 import apiService from 'apiService'
 import { wrapAsync } from 'components/supplemental_application/actions/supplementalActionUtils'
 import ACTIONS from 'context/actions'
+import { NEW_ASSISTANCE_PSEUDO_ID } from 'context/subreducers/SupplementalApplicationSubreducer'
 import formUtils from 'utils/formUtils'
 
 export const createRentalAssistance = (dispatch, applicationId, rentalAssistance) =>
@@ -46,3 +47,15 @@ export const deleteRentalAssistance = async (dispatch, idToDelete) =>
       data: { assistanceId: idToDelete }
     })
   )
+
+export const cancelEditRentalAssistance = async (dispatch, id = null) =>
+  dispatch({
+    type: ACTIONS.ASSISTANCE_TABLE_ROW_CLOSED,
+    data: { assistanceId: id ?? NEW_ASSISTANCE_PSEUDO_ID }
+  })
+
+export const editRentalAssistance = async (dispatch, id = null) =>
+  dispatch({
+    type: ACTIONS.ASSISTANCE_TABLE_ROW_OPENED,
+    data: { assistanceId: id ?? NEW_ASSISTANCE_PSEUDO_ID }
+  })
