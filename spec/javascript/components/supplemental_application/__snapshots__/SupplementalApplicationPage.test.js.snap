@@ -1020,7 +1020,7 @@ Array [
                 className=""
                 style={
                   Object {
-                    "marginBottom": "1.75rem",
+                    "marginBottom": "3rem",
                   }
                 }
               >

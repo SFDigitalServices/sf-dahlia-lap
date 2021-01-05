@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash'
 
 import { convertCurrency } from 'utils/form/validations'
-import { filterChanged, isChanged } from 'utils/utils'
+import { filterChanged, isChanged, isDateObject } from 'utils/utils'
 
 const defaultFormObject = {
   applicant: {
@@ -237,5 +237,22 @@ describe('filterChanged', () => {
     const expectedFilteredApp = { id: 'abc' }
     const diff = filterChanged(prevApp, newApp)
     expect(diff).toEqual(expectedFilteredApp)
+  })
+})
+
+describe('isDateObject', () => {
+  test('should return true for date object', async () => {
+    const object = { month: '01', day: '01', year: '2021' }
+    expect(isDateObject(object)).toBeTruthy()
+  })
+
+  test('should return false for date object with extra keys', async () => {
+    const object = { month: '01', day: '01', year: '2021', a: '12' }
+    expect(isDateObject(object)).toBeFalsy()
+  })
+
+  test('should return false for date object with missing key', async () => {
+    const object = { month: '01', day: '01', a: '12' }
+    expect(isDateObject(object)).toBeFalsy()
   })
 })

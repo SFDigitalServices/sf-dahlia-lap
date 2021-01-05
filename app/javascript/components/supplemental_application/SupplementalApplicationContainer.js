@@ -70,6 +70,7 @@ const ConfirmedPreferencesSection = ({
     </ContentSection.Sub>
     <ContentSection.Sub
       title='Application signature'
+      marginBottom='3rem'
       description={
         <>
           Complete this section by filling in the date of the applicant’s supplemental application
