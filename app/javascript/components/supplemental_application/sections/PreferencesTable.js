@@ -4,7 +4,6 @@ import { reject, overSome, findIndex, orderBy, kebabCase } from 'lodash'
 
 import { memberNameFromPref } from 'components/applications/application_form/preferences/utils'
 import TableWrapper from 'components/atoms/TableWrapper'
-import ExpandableTable from 'components/molecules/ExpandableTable'
 import StatefulExpandableTable from 'components/molecules/StatefulExpandableTable'
 import {
   preferenceRowClosed,
@@ -17,7 +16,7 @@ import PreferenceIcon from './preferences/PreferenceIcon'
 import { getTypeOfProof } from './preferences/typeOfProof'
 import { isCOP, isDTHP, isAliceGriffith, getPreferenceName } from './preferences/utils'
 
-const { ExpanderButton } = ExpandableTable
+const { ExpanderButton } = StatefulExpandableTable
 
 const hasExpanderButton = (prefName) => !overSome(isCOP, isDTHP, isAliceGriffith)(prefName)
 
