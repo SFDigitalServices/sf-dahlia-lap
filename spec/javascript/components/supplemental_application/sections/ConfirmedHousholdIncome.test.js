@@ -84,7 +84,10 @@ describe('ConfirmedHouseholdIncome', () => {
           value: 'chart2'
         }
       ]
-      const expectedYearOptions = [{ label: 2021, value: 2021 }]
+      const expectedYearOptions = [
+        { label: 2020, value: 2020 },
+        { label: 2021, value: 2021 }
+      ]
       expect(wrapper.find('SelectField#ami_chart_type').props().options).toEqual(
         expectedChartOptions
       )
@@ -99,8 +102,7 @@ describe('ConfirmedHouseholdIncome', () => {
       const expectedYearOptions = [
         { label: 2018, value: 2018 },
         { label: 2019, value: 2019 },
-        { label: 2020, value: 2020 },
-        { label: 2021, value: 2021 }
+        { label: 2020, value: 2020 }
       ]
 
       expect(wrapper.find('SelectField#ami_chart_year').props().options).toEqual(
