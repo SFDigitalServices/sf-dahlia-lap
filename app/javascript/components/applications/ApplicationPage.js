@@ -1,15 +1,14 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 
 import { isEmpty } from 'lodash'
 import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
 
-import { getShortFormApplication } from 'components/lease_ups/shortFormActions'
+import { applicationPageLoadComplete } from 'components/applications/actions/applicationActionCreators'
+import { getShortFormApplication } from 'components/lease_ups/utils/shortFormRequestUtils'
 import Loading from 'components/molecules/Loading'
-import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
-import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
-import { useAsyncOnMount, useQueryParamBoolean } from 'utils/customHooks'
+import { useAppContext, useAsyncOnMount, useQueryParamBoolean } from 'utils/customHooks'
 
 import CardLayout from '../layouts/CardLayout'
 import ApplicationDetails from './application_details/ApplicationDetails'
@@ -45,18 +44,21 @@ const buildActionLinkIfNecessary = (app, showAddBtn) => {
   return actions
 }
 
-const ApplicationPage = ({ isLeaseUp = false }) => {
+/**
+ * Non-lease up application page.
+ */
+const ApplicationPage = () => {
   const [application, setApplication] = useState(null)
   const [fileBaseUrl, setFileBaseUrl] = useState(null)
   const [loading, setLoading] = useState(true)
 
   const { applicationId } = useParams()
-  const [{ breadcrumbData }, actions] = useContext(AppContext)
+  const [, dispatch] = useAppContext()
   const showAddBtn = useQueryParamBoolean('showAddBtn')
 
   useAsyncOnMount(() => getShortFormApplication(applicationId), {
     onSuccess: (response) => {
-      actions.applicationPageLoadComplete(response.application, response.application?.listing)
+      applicationPageLoadComplete(dispatch, response.application, response.fileBaseUrl, true)
       setApplication(response.application)
       setFileBaseUrl(response.fileBaseUrl)
     },
@@ -72,37 +74,17 @@ const ApplicationPage = ({ isLeaseUp = false }) => {
   let pageHeader = {}
   let tabSection
 
-  if (isLeaseUp) {
-    pageHeader = getPageHeaderData(breadcrumbData.application, breadcrumbData.listing)
-
-    tabSection = {
-      items: [
-        {
-          title: 'Short Form Application',
-          url: appPaths.toLeaseUpShortForm(applicationId),
-          active: true,
-          renderAsRouterLink: true
-        },
-        {
-          title: 'Supplemental Information',
-          url: appPaths.toApplicationSupplementals(applicationId),
-          renderAsRouterLink: true
-        }
-      ]
-    }
-  } else {
-    pageHeader = {
-      title: `Application ${application?.name ?? ''}`,
-      content: (
-        <span>
-          Name of Listing:{' '}
-          {application && (
-            <a href={appPaths.toListing(application.listing.id)}>{application.listing.name}</a>
-          )}
-        </span>
-      ),
-      action: application && buildActionLinkIfNecessary(application, showAddBtn)
-    }
+  pageHeader = {
+    title: `Application ${application?.name ?? ''}`,
+    content: (
+      <span>
+        Name of Listing:{' '}
+        {application && (
+          <a href={appPaths.toListing(application.listing.id)}>{application.listing.name}</a>
+        )}
+      </span>
+    ),
+    action: application && buildActionLinkIfNecessary(application, showAddBtn)
   }
 
   return (

@@ -24,9 +24,7 @@ Rails.application.routes.draw do
   end
 
   scope '/lease-ups' do
-    resources :applications, as: 'application_lease_up', only: %w[show] do
-      get 'supplemental', :to => 'applications/supplementals#show'
-    end
+    resources :applications, as: 'application_lease_up', only: %w[show]
 
     scope module: 'listings' do
         resources :lease_ups, :path => '/listings', only: %w[index] do

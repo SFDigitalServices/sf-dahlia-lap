@@ -3,7 +3,7 @@ import React from 'react'
 import mapProps from 'utils/mapProps'
 
 import TableLayout from '../layouts/TableLayout'
-import { fetchApplications } from './actions'
+import { fetchApplications } from './applicationRequestUtils'
 import ApplicationsTableContainer from './ApplicationsTableContainer'
 
 const ApplicationsPage = (props) => {

@@ -2,8 +2,8 @@ import { isEmpty, find, isEqual, reject } from 'lodash'
 
 import apiService from 'apiService'
 import Alerts from 'components/Alerts'
+import { isLeaseAlreadyCreated } from 'components/supplemental_application/utils/supplementalApplicationUtils'
 import { convertCurrency } from 'utils/form/validations'
-import { isLeaseAlreadyCreated } from 'utils/leaseUtils'
 import { performOrDefault, performInSequence } from 'utils/promiseUtils'
 import { isChanged, filterChanged } from 'utils/utils'
 
@@ -198,17 +198,25 @@ export const getAMIAction = async ({ chartType, chartYear }) => {
   return response.ami
 }
 
-export const updatePreference = async (preference) => {
-  const response = await apiService.updatePreference(preference)
-  return response
+export const updatePreference = async (preferenceIndex, formApplicationValues) => {
+  const preference = formApplicationValues.preferences[preferenceIndex]
+  const updates = [apiService.updatePreference(preference)]
+  if (preference.individual_preference === 'Rent Burdened') {
+    updates.push(
+      updateTotalHouseholdRent(formApplicationValues.id, formApplicationValues.total_monthly_rent)
+    )
+  }
+
+  return Promise.all(updates).then((responses) => {
+    const anyRequestsFailed = responses.some((r) => r === false)
+    return anyRequestsFailed ? Promise.reject(Error('Updating preferences failed.')) : true
+  })
 }
 
-export const updateTotalHouseholdRent = async (id, totalMonthlyRent) => {
+const updateTotalHouseholdRent = async (id, totalMonthlyRent) => {
   const attributes = convertCurrency({
     id: id,
     total_monthly_rent: totalMonthlyRent
   })
-  const response = await apiService.updateApplication(attributes)
-
-  return response
+  return apiService.updateApplication(attributes)
 }

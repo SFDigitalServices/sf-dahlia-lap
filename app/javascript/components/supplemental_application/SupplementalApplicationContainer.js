@@ -1,24 +1,33 @@
 import React, { useState } from 'react'
 
-import arrayMutators from 'final-form-arrays'
-import { isEmpty } from 'lodash'
-import { Form } from 'react-final-form'
-
 import Button from 'components/atoms/Button'
 import AlertBox from 'components/molecules/AlertBox'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
-import validate, { touchAllFields, convertPercentAndCurrency } from 'utils/form/validations'
+import { leaseCreated } from 'components/supplemental_application/actions/leaseActionCreators'
+import {
+  updateSavedPreference,
+  preferenceAlertCloseClicked
+} from 'components/supplemental_application/actions/preferenceActionCreators'
+import {
+  closeSuppAppStatusModal,
+  closeSuppAppStatusModalAlert,
+  openSuppAppAddCommentModal,
+  openSuppAppUpdateStatusModal,
+  submitSuppAppStatusModal
+} from 'components/supplemental_application/actions/statusModalActionCreators'
+import { hasLease } from 'components/supplemental_application/utils/leaseSectionStates'
+import { getApplicationMembers } from 'components/supplemental_application/utils/supplementalApplicationUtils'
+import { useAppContext } from 'utils/customHooks'
+import { touchAllFields, convertPercentAndCurrency } from 'utils/form/validations'
 
 import ContentSection from '../molecules/ContentSection'
 import LeaseUpSidebar from '../molecules/lease_up_sidebar/LeaseUpSidebar'
 import AsymColumnLayout from '../organisms/AsymColumnLayout'
-import { withContext } from './context'
 import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import DemographicsInputs from './sections/DemographicsInputs'
 import Lease from './sections/Lease'
 import PreferencesTable from './sections/PreferencesTable'
-import { NO_LEASE_STATE } from './SupplementalApplicationPage'
 
 const ConfirmedPreferencesSection = ({
   application,
@@ -54,7 +63,6 @@ const ConfirmedPreferencesSection = ({
         applicationMembers={applicationMembers}
         onSave={onSave}
         fileBaseUrl={fileBaseUrl}
-        onPanelClose={onDismissError}
         form={form}
         visited={visited}
       />
@@ -99,38 +107,34 @@ const DemographicsSection = () => (
   </ContentSection>
 )
 
-const Sidebar = withContext(
-  ({ store: { statusHistory, loading }, onChangeStatus, onAddCommentClicked, onSaveClicked }) => {
-    return (
-      <div className='sticky-sidebar-large-up'>
-        <LeaseUpSidebar
-          statusItems={statusHistory}
-          isLoading={loading}
-          onChangeStatus={onChangeStatus}
-          onAddCommentClicked={onAddCommentClicked}
-          onSaveClicked={onSaveClicked}
-        />
-      </div>
-    )
-  }
-)
+const Sidebar = ({
+  statusHistory,
+  loading,
+  onChangeStatus,
+  onAddCommentClicked,
+  onSaveClicked
+}) => {
+  return (
+    <div className='sticky-sidebar-large-up'>
+      <LeaseUpSidebar
+        statusItems={statusHistory}
+        isLoading={loading}
+        onChangeStatus={onChangeStatus}
+        onAddCommentClicked={onAddCommentClicked}
+        onSaveClicked={onSaveClicked}
+      />
+    </div>
+  )
+}
 
-const SupplementalApplicationContainer = ({ store }) => {
+const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values, visited }) => {
   const [failed, setFailed] = useState(false)
-
-  const validateForm = (values) => {
-    const errors = { lease: {} }
-    // only validate lease_start_date when any of the fields is present
-    if (!isEmpty(values.lease) && !isEmpty(values.lease.lease_start_date)) {
-      const dateErrors = validate.isValidDate(values.lease.lease_start_date, {})
-
-      // only set any error fields if there were actually any date errors.
-      if (dateErrors?.all || dateErrors?.day || dateErrors?.month || dateErrors?.year) {
-        errors.lease.lease_start_date = dateErrors
-      }
-    }
-    return errors
-  }
+  const [
+    {
+      supplementalApplicationData: { supplemental: state }
+    },
+    dispatch
+  ] = useAppContext()
 
   const checkForValidationErrors = (form, touched) => {
     touchAllFields(form, touched)
@@ -142,99 +146,81 @@ const SupplementalApplicationContainer = ({ store }) => {
     return failed
   }
 
-  const {
-    application,
-    applicationMembers,
-    fileBaseUrl,
-    onSavePreference,
-    confirmedPreferencesFailed,
-    onDismissError,
-    listingAmiCharts,
-    onSubmit,
-    statusModal,
-    handleCreateLeaseClick,
-    handleStatusModalClose,
-    handleStatusModalSubmit,
-    assignSupplementalAppTouched,
-    openAddStatusCommentModal,
-    openUpdateStatusModal,
-    leaseSectionState
-  } = store
-
-  const onAddCommentClicked = (form, touched) =>
-    !checkForValidationErrors(form, touched) ? openAddStatusCommentModal() : null
+  const handleAddCommentClicked = (form, touched) =>
+    !checkForValidationErrors(form, touched)
+      ? openSuppAppAddCommentModal(dispatch, state.statusHistory)
+      : null
 
   const onChangeStatus = (form, touched, value) =>
-    !checkForValidationErrors(form, touched) ? openUpdateStatusModal(value) : null
+    !checkForValidationErrors(form, touched) ? openSuppAppUpdateStatusModal(dispatch, value) : null
 
   return (
-    <Form
-      onSubmit={(values) => onSubmit(convertPercentAndCurrency(values))}
-      initialValues={application}
-      // Keep dirty on reinitialize ensures the whole form doesn't refresh
-      // when only a piece of it is saved (eg. when the lease is saved)
-      keepDirtyOnReinitialize
-      validate={validateForm}
-      mutators={{ ...arrayMutators }}
-      render={({ handleSubmit, form, touched, values, visited }) => (
-        <>
-          {failed && (
-            <AlertBox
-              invert
-              onCloseClick={() => setFailed(false)}
-              message='Please resolve any errors before saving the application.'
-            />
-          )}
-          <form
-            onSubmit={handleSubmit}
-            onChange={assignSupplementalAppTouched}
-            style={{ margin: '0px' }}
-            id='shortForm'
-            noValidate
-          >
-            <AsymColumnLayout.Container>
-              <AsymColumnLayout.MainContent>
-                <ConfirmedPreferencesSection
-                  application={application}
-                  applicationMembers={applicationMembers}
-                  fileBaseUrl={fileBaseUrl}
-                  onSave={onSavePreference}
-                  onDismissError={onDismissError}
-                  confirmedPreferencesFailed={confirmedPreferencesFailed}
-                  form={form}
-                />
-                <Income listingAmiCharts={listingAmiCharts} visited={visited} form={form} />
-                <LeaseSection
-                  form={form}
-                  values={values}
-                  showLeaseSection={leaseSectionState !== NO_LEASE_STATE}
-                  onCreateLeaseClick={handleCreateLeaseClick}
-                />
-                <DemographicsSection />
-              </AsymColumnLayout.MainContent>
-              <AsymColumnLayout.Sidebar>
-                <Sidebar
-                  onAddCommentClicked={() => onAddCommentClicked(form, touched)}
-                  onChangeStatus={(value) => onChangeStatus(form, touched, value)}
-                  onSaveClicked={() => checkForValidationErrors(form, touched)}
-                />
-              </AsymColumnLayout.Sidebar>
-            </AsymColumnLayout.Container>
-          </form>
-          <StatusModalWrapper
-            {...statusModal}
-            onClose={handleStatusModalClose}
-            onSubmit={(submittedValues) =>
-              handleStatusModalSubmit(
-                submittedValues,
-                convertPercentAndCurrency(form.getState().values)
-              )
-            }
-          />
-        </>
+    <>
+      {failed && (
+        <AlertBox
+          invert
+          onCloseClick={() => setFailed(false)}
+          message='Please resolve any errors before saving the application.'
+        />
       )}
-    />
+      <form onSubmit={handleSubmit} style={{ margin: '0px' }} id='shortForm' noValidate>
+        <AsymColumnLayout.Container>
+          <AsymColumnLayout.MainContent>
+            <ConfirmedPreferencesSection
+              application={state.application}
+              applicationMembers={getApplicationMembers(state.application)}
+              fileBaseUrl={state.fileBaseUrl}
+              onSave={(preferenceIndex, formApplicationValues) =>
+                updateSavedPreference(dispatch, preferenceIndex, formApplicationValues)
+              }
+              onDismissError={() => preferenceAlertCloseClicked(dispatch)}
+              confirmedPreferencesFailed={state.confirmedPreferencesFailed}
+              form={form}
+            />
+            <Income listingAmiCharts={state.listingAmiCharts} visited={visited} form={form} />
+            <LeaseSection
+              form={form}
+              values={values}
+              showLeaseSection={hasLease(state.leaseSectionState)}
+              onCreateLeaseClick={() => leaseCreated(dispatch)}
+            />
+            <DemographicsSection />
+          </AsymColumnLayout.MainContent>
+          <AsymColumnLayout.Sidebar>
+            <Sidebar
+              statusHistory={state.statusHistory}
+              loading={state.loading}
+              onAddCommentClicked={() => handleAddCommentClicked(form, touched)}
+              onChangeStatus={(value) => onChangeStatus(form, touched, value)}
+              onSaveClicked={() => checkForValidationErrors(form, touched)}
+            />
+          </AsymColumnLayout.Sidebar>
+        </AsymColumnLayout.Container>
+      </form>
+      <StatusModalWrapper
+        alertMsg={state.statusModal.alertMsg}
+        isOpen={state.statusModal.isOpen}
+        loading={state.statusModal.loading}
+        onAlertCloseClick={() => closeSuppAppStatusModalAlert(dispatch)}
+        onClose={() => closeSuppAppStatusModal(dispatch)}
+        onSubmit={(submittedValues) => {
+          const { application: prevApplication, leaseSectionState } = state
+          return submitSuppAppStatusModal(
+            dispatch,
+            submittedValues,
+            convertPercentAndCurrency(form.getState().values),
+            prevApplication,
+            leaseSectionState
+          )
+        }}
+        showAlert={state.statusModal.showAlert}
+        status={state.statusModal.status}
+        submitButton={state.statusModal.isInAddCommentMode ? 'Save' : 'Update'}
+        subStatus={state.statusModal.substatus}
+        title={state.statusModal.isInAddCommentMode ? 'Add New Comment' : 'Update Status'}
+      />
+    </>
   )
 }
 
-export default withContext(SupplementalApplicationContainer)
+export default SupplementalApplicationContainer

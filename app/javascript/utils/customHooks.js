@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 
 import { isFunction } from 'lodash'
 import { useLocation } from 'react-router-dom'
+
+import { AppContext } from 'context/Provider'
 
 /**
  * Perform the useEffect hook one time only on component mount.
@@ -132,3 +134,10 @@ export const useStateObject = (initialStateObject) => {
 
   return [state, setState, overrideEntireState]
 }
+
+/**
+ * Use this instead of useContext(AppContext) directly. The only reason this is better is it
+ * provides a default that will destructure nicely when useContext returns false, like when
+ * shallow rendering a component.
+ */
+export const useAppContext = () => useContext(AppContext) ?? [undefined, () => {}]

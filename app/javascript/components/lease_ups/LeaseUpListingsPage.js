@@ -1,25 +1,25 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 
 import { withRouter } from 'react-router-dom'
 
+import { listingsPageMounted, listingRowClicked } from 'components/lease_ups/actions/actionCreators'
 import Loading from 'components/molecules/Loading'
-import { AppContext } from 'context/Provider'
 import appPaths from 'utils/appPaths'
-import { useAsyncOnMount } from 'utils/customHooks'
+import { useAppContext, useAsyncOnMount } from 'utils/customHooks'
 
 import TableLayout from '../layouts/TableLayout'
-import { getLeaseUpListings } from './leaseUpActions'
 import LeaseUpListingsTable from './LeaseUpListingsTable'
+import { getLeaseUpListings } from './utils/leaseUpRequestUtils'
 
 const LeaseUpListingsPage = ({ history }) => {
   const [loading, setLoading] = useState(true)
   const [listings, setListings] = useState(true)
 
-  const [, actions] = useContext(AppContext)
+  const [, dispatch] = useAppContext()
 
   useAsyncOnMount(
     () => {
-      actions.listingsPageMounted()
+      listingsPageMounted(dispatch)
       return getLeaseUpListings()
     },
     {
@@ -33,7 +33,7 @@ const LeaseUpListingsPage = ({ history }) => {
   }
 
   const onCellClick = ({ original: listing }) => {
-    actions.listingRowClicked(listing)
+    listingRowClicked(dispatch, listing)
 
     history.push(appPaths.toLeaseUpApplications(listing.id))
   }

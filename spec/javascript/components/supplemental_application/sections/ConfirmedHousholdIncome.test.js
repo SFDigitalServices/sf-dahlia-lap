@@ -21,7 +21,13 @@ jest.mock('apiService', () => ({
 const getWrapper = (application, mockAmiCharts, shouldMount = false) => {
   return withForm(
     application,
-    (form) => <ConfirmedHouseholdIncome visited={{}} listingAmiCharts={mockAmiCharts} />,
+    (form) => (
+      <ConfirmedHouseholdIncome
+        visited={{}}
+        listingAmiCharts={mockAmiCharts}
+        currentYearOverride={2020}
+      />
+    ),
     shouldMount
   )
 }
@@ -59,11 +65,13 @@ describe('ConfirmedHouseholdIncome', () => {
         ami_chart_year: 2020
       }
     ]
+
     test('it sets chart options correctly when charts are empty', () => {
       const wrapper = getWrapper({}, [], true)
       expect(wrapper.find('SelectField#ami_chart_type').props().options).toEqual([])
       expect(wrapper.find('SelectField#ami_chart_year').props().options).toEqual([])
     })
+
     test('it presents all available chart types when provided', () => {
       const wrapper = getWrapper({}, mockAmiCharts, true)
       const expectedChartOptions = [
@@ -76,6 +84,7 @@ describe('ConfirmedHouseholdIncome', () => {
           value: 'chart2'
         }
       ]
+
       const expectedYearOptions = [{ label: 2020, value: 2020 }]
       expect(wrapper.find('SelectField#ami_chart_type').props().options).toEqual(
         expectedChartOptions
@@ -93,6 +102,7 @@ describe('ConfirmedHouseholdIncome', () => {
         { label: 2019, value: 2019 },
         { label: 2020, value: 2020 }
       ]
+
       expect(wrapper.find('SelectField#ami_chart_year').props().options).toEqual(
         expectedYearOptions
       )

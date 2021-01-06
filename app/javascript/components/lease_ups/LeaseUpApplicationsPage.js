@@ -1,28 +1,33 @@
 /* global SALESFORCE_BASE_URL */
 
-import React, { useContext } from 'react'
+import React from 'react'
 
 import { map } from 'lodash'
 import moment from 'moment'
 import { useParams } from 'react-router-dom'
 
-import { AppContext } from 'context/Provider'
+import {
+  applicationsPageLoadComplete,
+  applicationsPageMounted,
+  applicationsTableFiltersApplied
+} from 'components/lease_ups/actions/actionCreators'
 import appPaths from 'utils/appPaths'
 import {
   useAsync,
   useAsyncOnMount,
   useStateObject,
   useEffectOnMount,
-  useIsMountedRef
+  useIsMountedRef,
+  useAppContext
 } from 'utils/customHooks'
 import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
 import TableLayout from '../layouts/TableLayout'
-import { createFieldUpdateComment } from '../supplemental_application/actions'
+import { createFieldUpdateComment } from '../supplemental_application/utils/supplementalRequestUtils'
 import Context from './context'
-import { getApplications, getListing } from './leaseUpActions'
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
+import { getApplications, getListing } from './utils/leaseUpRequestUtils'
 
 const ROWS_PER_PAGE = 20
 
@@ -71,7 +76,7 @@ const getPreferences = (listing) => {
 }
 
 const LeaseUpApplicationsPage = () => {
-  const [{ breadcrumbData, applicationsListData }, actions] = useContext(AppContext)
+  const [{ breadcrumbData, applicationsListData }, dispatch] = useAppContext()
 
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
@@ -106,7 +111,7 @@ const LeaseUpApplicationsPage = () => {
         listingPreferences: getPreferences(listing)
       })
 
-      actions.applicationsPageLoadComplete(listing)
+      applicationsPageLoadComplete(dispatch, listing)
     }
   })
 
@@ -143,7 +148,7 @@ const LeaseUpApplicationsPage = () => {
     [applicationsListData.appliedFilters, applicationsListData.page]
   )
 
-  useEffectOnMount(actions.applicationsPageMounted)
+  useEffectOnMount(() => applicationsPageMounted(dispatch))
 
   const setInitialCheckboxState = (applications) => {
     // get unique applications
@@ -162,7 +167,7 @@ const LeaseUpApplicationsPage = () => {
 
   const handleOnFilter = (filters) => {
     state.eagerPagination.reset()
-    actions.applicationsTableFiltersApplied(filters)
+    applicationsTableFiltersApplied(dispatch, filters)
   }
 
   const handleStatusModalSubmit = async (submittedValues) => {

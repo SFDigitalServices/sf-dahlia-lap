@@ -10,7 +10,7 @@ import RentalAssistance, {
 } from 'components/supplemental_application/sections/RentalAssistance'
 import { InputField, SelectField } from 'utils/form/final_form/Field'
 
-import { withForm, shallowWithFormAndContext, findWithProps } from '../../../testUtils/wrapperUtil'
+import { withForm, findWithProps } from '../../../testUtils/wrapperUtil'
 
 const baseContext = {
   application: { rental_assistances: [] },
@@ -26,7 +26,16 @@ const rentalAssistance = {
 
 describe('RentalAssistance', () => {
   const getWrapper = (context) =>
-    shallowWithFormAndContext(context, (form) => <RentalAssistance form={form} />)
+    withForm(context.application, (form) => (
+      <RentalAssistance
+        form={form}
+        disabled={false}
+        loading={false}
+        applicationMembers={context.applicationMembers}
+        rentalAssistances={context.application.rental_assistances}
+        applicationId={context.application.id}
+      />
+    ))
 
   test('matches snapshot', () => {
     const context = cloneDeep(baseContext)

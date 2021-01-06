@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import { isNil, isString } from 'lodash'
+import { PropTypes } from 'prop-types'
 
 import ContentSection from 'components/molecules/ContentSection'
 import FormGrid from 'components/molecules/FormGrid'
@@ -37,14 +38,21 @@ export const getAmiPercent = ({ income, ami }) => {
   return formatPercent(incomeFloat / Number(ami))
 }
 
-const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
+const ConfirmedHouseholdIncome = ({
+  listingAmiCharts,
+  visited = false,
+  currentYearOverride = null
+}) => {
   const [amiChartTypes, setAmiChartTypes] = useState([])
   const [amiChartYears, setAmiChartYears] = useState([])
 
   useEffectOnMount(() => {
     const getAmiCharts = async () => {
       if (listingAmiCharts.length > 0) {
-        setAmiChartYears(formUtils.toOptions(getAmiChartYears(listingAmiCharts)))
+        const amiChartYears = currentYearOverride
+          ? getAmiChartYears(listingAmiCharts, currentYearOverride)
+          : getAmiChartYears(listingAmiCharts)
+        setAmiChartYears(formUtils.toOptions(amiChartYears))
         setAmiChartTypes(formUtils.toOptions(listingAmiCharts.map((x) => x.ami_chart_type)))
       }
     }
@@ -142,6 +150,13 @@ const ConfirmedHouseholdIncome = ({ listingAmiCharts, visited }) => {
       </ContentSection.Sub>
     </>
   )
+}
+
+ConfirmedHouseholdIncome.propTypes = {
+  listingAmiCharts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  visited: PropTypes.object,
+  // used only for testing
+  currentYearOverride: PropTypes.number
 }
 
 export default ConfirmedHouseholdIncome

@@ -8,18 +8,28 @@ import ContentSection from 'components/molecules/ContentSection'
 import FormGrid from 'components/molecules/FormGrid'
 import InlineModal from 'components/molecules/InlineModal'
 import ConfirmationModal from 'components/organisms/ConfirmationModal'
+import {
+  leaseEditClicked,
+  leaseCanceled,
+  deleteLeaseClicked,
+  updateLease
+} from 'components/supplemental_application/actions/leaseActionCreators'
+import LEASE_STATES from 'components/supplemental_application/utils/leaseSectionStates'
+import {
+  doesApplicationHaveLease,
+  getApplicationMembers,
+  totalSetAsidesForPref
+} from 'components/supplemental_application/utils/supplementalApplicationUtils'
+import { useAppContext } from 'utils/customHooks'
 import { CurrencyField, FieldError, Label, SelectField } from 'utils/form/final_form/Field'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import { areLeaseAndRentalAssistancesValid } from 'utils/form/formSectionValidations'
 import formUtils from 'utils/formUtils'
-import { doesApplicationHaveLease, totalSetAsidesForPref } from 'utils/leaseUtils'
 import { pluck } from 'utils/utils'
 
 import { convertPercentAndCurrency, validateLeaseCurrency } from '../../../utils/form/validations'
 import Button from '../../atoms/Button'
 import UnitDropdown from '../../molecules/UnitDropdown'
-import { withContext } from '../context'
-import { EDIT_LEASE_STATE } from '../SupplementalApplicationPage'
 import ParkingInformationInputs from './ParkingInformationInputs'
 import RentalAssistance from './RentalAssistance'
 
@@ -105,22 +115,17 @@ const LeaseActions = ({
   )
 }
 
-const Lease = ({ form, values, store }) => {
-  const {
-    application,
-    handleSaveLease,
-    handleDeleteLease,
-    handleEditLeaseClick,
-    handleCancelLeaseClick,
-    leaseSectionState,
-    listing,
-    loading,
-    units
-  } = store
+const Lease = ({ form, values }) => {
+  const [
+    {
+      supplementalApplicationData: { supplemental: state }
+    },
+    dispatch
+  ] = useAppContext()
 
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
 
-  const isEditingMode = leaseSectionState === EDIT_LEASE_STATE
+  const isEditingMode = state.leaseSectionState === LEASE_STATES.EDIT_LEASE
   const disabled = !isEditingMode
   const getVisited = (fieldName) => form.getFieldState(fieldName)?.visited
 
@@ -129,10 +134,11 @@ const Lease = ({ form, values, store }) => {
 
   const handleDeleteLeaseConfirmed = () => {
     setShowDeleteConfirmation(false)
-    handleDeleteLease()
+
+    deleteLeaseClicked(dispatch, state.application)
   }
 
-  const confirmedPreferences = filter(application.preferences, {
+  const confirmedPreferences = filter(state.application.preferences, {
     post_lottery_validation: 'Confirmed'
   })
 
@@ -141,8 +147,8 @@ const Lease = ({ form, values, store }) => {
     ...map(confirmedPreferences, pluck('id', 'preference_name'))
   ])
 
-  const availableUnits = units.filter(
-    (unit) => !unit.application_id || unit.application_id === application.id
+  const availableUnits = state.units.filter(
+    (unit) => !unit.application_id || unit.application_id === state.application.id
   )
 
   const availableUnitsOptions = formUtils.toOptions(
@@ -162,26 +168,35 @@ const Lease = ({ form, values, store }) => {
 
   const unitIsUsedWithPrefElsewhere = (unit, pref) =>
     unit.application_id &&
-    unit.application_id !== application.id &&
+    unit.application_id !== state.application.id &&
     unit.preference_used_name === pref
 
   const numUnitsUsingPref = (pref) =>
-    units.filter(
+    state.units.filter(
       (unit) =>
         (unit.id === selectedUnit && isSelected(pref)) || unitIsUsedWithPrefElsewhere(unit, pref)
     ).length
 
   const remainingSetAsidesForPref = (pref) =>
-    totalSetAsidesForPref(listing, pref) - numUnitsUsingPref(pref)
+    totalSetAsidesForPref(state.listing, pref) - numUnitsUsingPref(pref)
 
   // Selected unit does not count in available a11y units.
   const remainingPriorityUnits = availableUnits.filter(
     (unit) => unit.id !== selectedUnit && unit.priority_type?.match(/Mobility|Hearing|Vision/)
   )
 
+  const handleCancelLeaseClick = (form) => {
+    leaseCanceled(dispatch, state.application)
+
+    // Reset lease and assistances on the form
+    form.change('lease', state.application.lease)
+    form.change('rental_assistances', state.application.rental_assistances)
+  }
+
   const validateAndSaveLease = (form) => {
     if (areLeaseAndRentalAssistancesValid(form)) {
-      handleSaveLease(convertPercentAndCurrency(form.getState().values))
+      const { application: prevApplication } = state
+      updateLease(dispatch, convertPercentAndCurrency(form.getState().values), prevApplication)
     } else {
       // submit to force errors to display
       form.submit()
@@ -189,7 +204,7 @@ const Lease = ({ form, values, store }) => {
   }
 
   const accessibilityRequests = []
-  each(application.has_ada_priorities_selected, (value, request) => {
+  each(state.application.has_ada_priorities_selected, (value, request) => {
     if (value) {
       accessibilityRequests.push(capitalize(request.replace('_impairments', '')))
     }
@@ -229,7 +244,9 @@ const Lease = ({ form, values, store }) => {
           <FormGrid.Item width='25%'>
             <strong className='form-note micro h-caps'>Members</strong>
             <p className='margin-top'>
-              <strong className='form-note'>{application.household_members.length + 1}</strong>
+              <strong className='form-note'>
+                {state.application.household_members.length + 1}
+              </strong>
             </p>
           </FormGrid.Item>
           <FormGrid.Item width='50%'>
@@ -282,7 +299,14 @@ const Lease = ({ form, values, store }) => {
             <Label label='Rental Assistance' />
           </FormGrid.Item>
         </FormGrid.Row>
-        <RentalAssistance form={form} disabled={disabled} loading={loading} />
+        <RentalAssistance
+          applicationId={state.application.id}
+          applicationMembers={getApplicationMembers(state.application)}
+          disabled={disabled}
+          form={form}
+          loading={state.loading}
+          rentalAssistances={state.application.rental_assistances || []}
+        />
         <FormGrid.Row>
           <FormGrid.Item>
             <CurrencyField
@@ -325,10 +349,10 @@ const Lease = ({ form, values, store }) => {
         <LeaseActions
           onSave={() => validateAndSaveLease(form)}
           onCancelLeaseClick={() => handleCancelLeaseClick(form)}
-          onEditLeaseClick={handleEditLeaseClick}
+          onEditLeaseClick={() => leaseEditClicked(dispatch)}
           onDelete={openDeleteLeaseConfirmation}
-          loading={loading}
-          leaseExists={doesApplicationHaveLease(application)}
+          loading={state.loading}
+          leaseExists={doesApplicationHaveLease(state.application)}
           isEditing={isEditingMode}
         />
       </FormGrid.Row>
@@ -347,4 +371,4 @@ const Lease = ({ form, values, store }) => {
   )
 }
 
-export default withContext(Lease)
+export default Lease
