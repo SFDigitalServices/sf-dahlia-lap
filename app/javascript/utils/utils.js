@@ -56,6 +56,11 @@ export const filterChanged = (prev, current) => {
     }
   })
   changedFields.id = prev.id
+  // Set removed keys to null
+  const missingKeys = difference(Object.keys(prev), Object.keys(current))
+  forEach(missingKeys, (key) => {
+    changedFields[key] = null
+  })
   return changedFields
 }
 

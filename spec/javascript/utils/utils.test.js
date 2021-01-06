@@ -238,6 +238,14 @@ describe('filterChanged', () => {
     const diff = filterChanged(prevApp, newApp)
     expect(diff).toEqual(expectedFilteredApp)
   })
+
+  test('should set removed field to null', async () => {
+    const prevApp = { id: 'abc', a: '1', b: { day: '01', month: '01', year: '2021' } }
+    const newApp = { id: 'abc', a: '1' }
+    const expectedFilteredApp = { id: 'abc', b: null }
+    const diff = filterChanged(prevApp, newApp)
+    expect(diff).toEqual(expectedFilteredApp)
+  })
 })
 
 describe('isDateObject', () => {

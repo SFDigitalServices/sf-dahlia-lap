@@ -40,13 +40,22 @@ export const MultiDateField = ({
   })
   let errorField
   if (formName) {
-    errorField = form.getState().errors[formName] ? form.getState().errors[formName][index] : null
+    if (form.getState().errors[formName]) {
+      errorField = index
+        ? form.getState().errors[formName][index]
+        : form.getState().errors[formName]
+    } else {
+      errorField = null
+    }
   } else {
     errorField = form.getState().errors[fieldName.split('.')[0]]
   }
   const baseFieldName = last(fieldName.split('.'))
   const error =
-    form && touched && errorField && errorField[baseFieldName] && errorField[baseFieldName].all
+    form &&
+    touched &&
+    errorField &&
+    ((errorField[baseFieldName] && errorField[baseFieldName].all) || errorField.all)
   return (
     <div className={classNames('form-group', (error && 'error') || '')}>
       <label className='form-label' htmlFor={id || `form-${fieldName}`}>
