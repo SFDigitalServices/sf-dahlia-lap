@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import Button from 'components/atoms/Button'
 import AlertBox from 'components/molecules/AlertBox'
+import FormGrid from 'components/molecules/FormGrid'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 import { leaseCreated } from 'components/supplemental_application/actions/leaseActionCreators'
 import {
@@ -69,8 +70,7 @@ const ConfirmedPreferencesSection = ({
       />
     </ContentSection.Sub>
     <ContentSection.Sub
-      title='Application signature'
-      marginBottom='3rem'
+      title='Application Signature'
       description={
         <>
           Complete this section by filling in the date of the applicant’s supplemental application
@@ -79,13 +79,17 @@ const ConfirmedPreferencesSection = ({
         </>
       }
     >
-      <MultiDateField
-        form={form}
-        formName='supp_app_signed_date'
-        fieldName='supp_app_signed_date'
-        id='supp_app_signed_date'
-        label='Application Signature Date'
-      />
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <MultiDateField
+            form={form}
+            formName='supp_app_signed_date'
+            fieldName='supp_app_signed_date'
+            id='supp_app_signed_date'
+            label='Application Signature Date'
+          />
+        </FormGrid.Item>
+      </FormGrid.Row>
     </ContentSection.Sub>
     <ContentSection.Sub title='Household Reserved and Priority Units'>
       <ConfirmedUnits form={form} />

@@ -62,40 +62,44 @@ export const MultiDateField = ({
         {label}
         {blockNote && <BlockNote value={blockNote} />}
       </label>
-      <div className='form-group-month'>
-        <InputField
-          type='text'
-          fieldName={`${fieldName}.month`}
-          id={id ? `${id}_month` : `form-${fieldName}_month`}
-          placeholder='MM'
-          pattern='\d*'
-          maxLength={maxLengthMap.month}
-          disabled={disabled}
-        />
+      <div style={{ display: 'flex' }} id='date-group'>
+        <div className='form-group-month'>
+          <InputField
+            type='text'
+            fieldName={`${fieldName}.month`}
+            id={id ? `${id}_month` : `form-${fieldName}_month`}
+            placeholder='MM'
+            pattern='\d*'
+            maxLength={maxLengthMap.month}
+            disabled={disabled}
+          />
+        </div>
+        <div className='form-group-day'>
+          <InputField
+            type='text'
+            fieldName={`${fieldName}.day`}
+            id={id ? `${id}_day` : `form-${fieldName}_day`}
+            placeholder='DD'
+            pattern='\d*'
+            maxLength={maxLengthMap.day}
+            disabled={disabled}
+          />
+        </div>
+        <div className='form-group-year'>
+          <InputField
+            type='text'
+            fieldName={`${fieldName}.year`}
+            id={id ? `${id}_year` : `form-${fieldName}_year`}
+            placeholder='YYYY'
+            pattern='\d*'
+            maxLength={maxLengthMap.year}
+            disabled={disabled}
+          />
+        </div>
       </div>
-      <div className='form-group-day'>
-        <InputField
-          type='text'
-          fieldName={`${fieldName}.day`}
-          id={id ? `${id}_day` : `form-${fieldName}_day`}
-          placeholder='DD'
-          pattern='\d*'
-          maxLength={maxLengthMap.day}
-          disabled={disabled}
-        />
+      <div style={{ display: 'flex', flexDirection: 'column', alignSelf: 'flex-end' }}>
+        {error && <span className='form-note error'>{error}</span>}
       </div>
-      <div className='form-group-year'>
-        <InputField
-          type='text'
-          fieldName={`${fieldName}.year`}
-          id={id ? `${id}_year` : `form-${fieldName}_year`}
-          placeholder='YYYY'
-          pattern='\d*'
-          maxLength={maxLengthMap.year}
-          disabled={disabled}
-        />
-      </div>
-      <div className='d-inline-block'>{error && <span className='small error'>{error}</span>}</div>
     </div>
   )
 }

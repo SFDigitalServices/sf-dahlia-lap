@@ -23,24 +23,22 @@ ContentSection.SubHeader = ({ title, description }) => (
   </>
 )
 
-ContentSection.Content = ({ children, borderBottom, marginTop, marginBottom = '1.75rem' }) => {
+ContentSection.Content = ({ children, borderBottom, marginTop }) => {
   const divClassName = classNames({
     'border-bottom': borderBottom,
     'margin-top': marginTop
   })
   return (
-    <div className={divClassName} style={{ marginBottom: marginBottom }}>
+    <div className={divClassName} style={{ marginBottom: '1.75rem' }}>
       {children}
     </div>
   )
 }
 
-ContentSection.Sub = ({ title, description, borderBottom = false, marginBottom, children }) => (
+ContentSection.Sub = ({ title, description, borderBottom = false, children }) => (
   <>
     <ContentSection.SubHeader title={title} description={description} />
-    <ContentSection.Content borderBottom={borderBottom} marginBottom={marginBottom}>
-      {children}
-    </ContentSection.Content>
+    <ContentSection.Content borderBottom={borderBottom}>{children}</ContentSection.Content>
   </>
 )
 
