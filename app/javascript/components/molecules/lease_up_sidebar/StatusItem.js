@@ -10,11 +10,12 @@ import StatusPill from '../../atoms/StatusPill'
 const StatusDate = ({ timestamp }) => (
   <div className='status-item-date'>{moment.unix(timestamp).format('MMM D, YYYY')}</div>
 )
+const StatusCreatedBy = ({ createdBy }) => <div className='status-item-created-by'>{createdBy}</div>
 
 StatusDate.propTypes = { timestamp: PropTypes.number }
 
 const StatusItem = ({ statusItem }) => {
-  const { status, substatus, comment, timestamp } = statusItem
+  const { status, substatus, comment, timestamp, created_by } = statusItem
 
   const substatusLabel = getSubStatusLabel(status, substatus)
 
@@ -22,10 +23,13 @@ const StatusItem = ({ statusItem }) => {
     <div className='status-item'>
       <div className='status-item-header'>
         <StatusPill status={status} />
-        <StatusDate timestamp={timestamp} />
       </div>
       {substatusLabel && <div className='item-substatus-text'>{substatusLabel}</div>}
       <div className='status-item-text'>{comment}</div>
+      <div>
+        <StatusCreatedBy createdBy={created_by} />
+        <StatusDate timestamp={timestamp} />
+      </div>
     </div>
   )
 }
