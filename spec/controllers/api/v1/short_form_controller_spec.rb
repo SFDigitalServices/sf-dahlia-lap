@@ -4,11 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::ShortFormController, type: :controller do
   login_admin
-  application = {
-    applicant: {
-      marital_status: 'Single',
-      id: 'a0n0P00000DowdHQAR'
-    },
+  supplemental_application = {
     number_of_dependents: 2,
     number_of_seniors: 2,
     confirmed_household_annual_income: 123,
@@ -17,10 +13,12 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
     has_ada_priorities_selected: {vision_impairments: true},
     application_submitted_date: '2019-03-12',
     application_submission_type: 'Electronic',
-    id: 'a0o0P00000JQawYQAT'
+    id: 'a0o0P00000Iv7H4QAJ' #APP-00299776
   }
 
   pre_lottery_listing_id = 'a0W0P00000F8YG4UAN' # Automated Test Listing
+  post_lottery_listing_id = 'a0W0P00000GbyuQUAR' # Partners Test Listing
+
   new_application = {
     application_submission_type: 'Paper',
     application_submitted_date: '2019-03-12',
@@ -124,7 +122,7 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
       describe 'with supplemental param' do
         it 'receives a successful response with updated application from Salesforce' do
           VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param') do
-            put :submit, params: { application: application, supplemental: true }, as: :json
+            put :submit, params: { application: supplemental_application, supplemental: true }, as: :json
           end
           expect(response).to have_http_status(:success)
           json = JSON.parse(response.body)
@@ -135,22 +133,22 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
         it 'calls put method' do
           expect_any_instance_of(Force::Base).to receive(:api_put).and_call_original
           VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param') do
-            put :submit, params: { application: application, supplemental: true }, as: :json
+            put :submit, params: { application: supplemental_application, supplemental: true }, as: :json
           end
         end
 
         it 'does not override type when it is not provided' do
           # First reset the application to make sure it has type = electronic and old submitted date
           VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param') do
-            put :submit, params: { application: application, supplemental: true }, as: :json
+            put :submit, params: { application: supplemental_application, supplemental: true }, as: :json
           end
           expect(response).to have_http_status(:success)
           json = JSON.parse(response.body)
           expect(json['application']['application_submission_type']).to eq('Electronic')
 
 
-          # Then call put again without type or date to make sure thos fields aren't overridden
-          application_without_type_or_date = application.except('application_submitted_date', 'application_submission_type')
+          # Then call put again without type or date to make sure those fields aren't overridden
+          application_without_type_or_date = supplemental_application.except('application_submitted_date', 'application_submission_type')
           VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param-no-type') do
             put :submit, params: { application: application_without_type_or_date, supplemental: true }, as: :json
           end
@@ -162,7 +160,7 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
         end
 
         it 'does not override the listing id when one is provided' do
-          application_with_listing_id = application.clone
+          application_with_listing_id = supplemental_application.clone
           application_with_listing_id['listing_id'] = "invalidID"
 
           # First reset the application to make sure it has type = electronic and old submitted date
@@ -171,7 +169,7 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
           end
           expect(response).to have_http_status(:success)
           json = JSON.parse(response.body)
-          expect(json['application']['listing_id']).to eq('a0W0P00000HbtLhUAJ')
+          expect(json['application']['listing_id']).to eq(post_lottery_listing_id)
         end
       end
     end
