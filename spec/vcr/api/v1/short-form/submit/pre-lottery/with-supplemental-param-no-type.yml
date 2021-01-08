@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 10 Oct 2020 02:13:03 GMT
+      - Tue, 05 Jan 2021 23:31:03 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -33,16 +33,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - ec43ca0c19cc2feb
+      - eee589a6b36a1d09
       X-B3-Spanid:
-      - ec43ca0c19cc2feb
+      - eee589a6b36a1d09
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=IMO3YQqeEeug8nFXzxR1AA; domain=.salesforce.com; path=/; expires=Sun,
-        10-Oct-2021 02:13:03 GMT; Max-Age=31536000
+      - BrowserId=E1YEf0-uEeumwZmla9nFvA; domain=.salesforce.com; path=/; expires=Wed,
+        05-Jan-2022 23:31:03 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -55,9 +55,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1602295983710","signature":"9mI1yIOmPnL0JBV9JooxGdQAJCn/yJ2LtusLtBF3l04="}'
-    http_version: null
-  recorded_at: Sat, 10 Oct 2020 02:13:03 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1609889463316","signature":"7JM65sGhohk3m8cdAwDHnsoJ5nmhEjr94uDIEg0VPDQ="}'
+    http_version:
+  recorded_at: Tue, 05 Jan 2021 23:31:03 GMT
 - request:
     method: put
     uri: https://<<SALESFORCE_HOST>>/services/apexrest/LeasingAgentPortal/shortForm
@@ -81,7 +81,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 10 Oct 2020 02:13:03 GMT
+      - Tue, 05 Jan 2021 23:31:04 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -93,33 +93,33 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 1697fcfbbeebaaa2
+      - a13f5b04fdaf3173
       X-B3-Spanid:
-      - 1697fcfbbeebaaa2
+      - a13f5b04fdaf3173
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=IO2GhwqeEeuGE6U0z2eQ-w; domain=.salesforce.com; path=/; expires=Sun,
-        10-Oct-2021 02:13:03 GMT; Max-Age=31536000
+      - BrowserId=E-XAZE-uEeu-8VGyGQ2KCg; domain=.salesforce.com; path=/; expires=Wed,
+        05-Jan-2022 23:31:04 GMT; Max-Age=31536000
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"totalMonthlyRent":0,"subStatus":null,"status":"Submitted","snapshotId":null,"shortFormPreferences":[{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000QGONSQA5","requiresProof":false,"recordTypeDevName":"COP","preferenceProof":null,"postLotteryValidation":"Confirmed","optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Sj8chQAB","individualPreference":null,"city":null,"certificateNumber":"0253HP-C2","appMemberID":"a0n0P00000DowdHQAR","applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000QGONTQA5","requiresProof":false,"recordTypeDevName":"DTHP","preferenceProof":null,"postLotteryValidation":"Confirmed","optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Sj8cmQAB","individualPreference":null,"city":null,"certificateNumber":"0253HP-C2","appMemberID":"a0n0P00000DowdHQAR","applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000QGONUQA5","requiresProof":false,"recordTypeDevName":"L_W","preferenceProof":null,"postLotteryValidation":"Unconfirmed","optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Sj8ciQAB","individualPreference":"Work
-        in SF","city":null,"certificateNumber":"0253HP-C2","appMemberID":"a0n0P00000DowdHQAR","applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1F0000016QxWQAU","requiresProof":false,"recordTypeDevName":"COP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1vxUQAR","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1F0000016QxXQAU","requiresProof":false,"recordTypeDevName":"DTHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1vxyQAB","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1F0000016QxYQAU","requiresProof":false,"recordTypeDevName":"RB_AHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1w0mQAB","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1F0000016QxZQAU","requiresProof":false,"recordTypeDevName":"L_W","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1w1BQAR","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1F0000016QxaQAE","requiresProof":false,"recordTypeDevName":"AG","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001QRPiaQAH","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1F0000016QxbQAE","requiresProof":false,"recordTypeDevName":"NRHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001QRQGzQAP","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1F0000016QxcQAE","requiresProof":false,"recordTypeDevName":"ADHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001RbKCJQA3","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000JQawYQAT","address":null}],"referral":null,"processingStatus":"Processing","primaryApplicant":{"zip":"25303-9671","yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":"Ne","sexualOrientationOther":null,"sexualOrientation":"Straight/Heterosexual","sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":"Other/Multiracial","primaryLanguage":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":"Cell","phone":"425.467.5007x8176","pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":"Tina
+      string: '{"totalMonthlyRent":0,"suppAppSignedDate":null,"subStatus":null,"status":"Submitted","snapshotId":null,"shortFormPreferences":[{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000QGONSQA5","requiresProof":false,"recordTypeDevName":"COP","preferenceProof":null,"postLotteryValidation":"Confirmed","optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Sj8chQAB","individualPreference":null,"city":null,"certificateNumber":"0253HP-C2","appMemberID":"a0n0P00000DowdHQAR","applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000QGONTQA5","requiresProof":false,"recordTypeDevName":"DTHP","preferenceProof":null,"postLotteryValidation":"Confirmed","optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Sj8cmQAB","individualPreference":null,"city":null,"certificateNumber":"0253HP-C2","appMemberID":"a0n0P00000DowdHQAR","applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000QGONUQA5","requiresProof":false,"recordTypeDevName":"L_W","preferenceProof":null,"postLotteryValidation":"Unconfirmed","optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Sj8ciQAB","individualPreference":"Work
+        in SF","city":null,"certificateNumber":"0253HP-C2","appMemberID":"a0n0P00000DowdHQAR","applicationID":"a0o0P00000JQawYQAT","address":null}],"referral":null,"processingStatus":"Processing","primaryApplicant":{"zip":"25303-9671","yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":"Ne","sexualOrientationOther":null,"sexualOrientation":"Straight/Heterosexual","sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":"Other/Multiracial","primaryLanguage":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":"Cell","phone":"425.467.5007x8176","pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":"Tina
         Rodriguez","menaOther":null,"maritalStatus":"Single","mailingZip":"89401-4041","mailingState":"No","mailingCity":"Williamshire","mailingAddress":"469
         Galloway Avenue","lendingAgentStatus":null,"latinoOther":null,"lastName":"Perez","indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasAltMailingAddress":false,"genderOther":null,"gender":"Female","firstName":"Timothy","ethnicity":"Not
         Hispanic/Latino","email":"patricia71@example.org","DOB":"1966-12-27","contactId":"0030P00002FQ4FLQA1","city":"SAN
         FRANCISCO","candidateScore":null,"blackOther":null,"asianOther":null,"appMemberType":"Primary
         Applicant","appMemberId":"a0n0P00000DowdHQAR","applicationId":"a0o0P00000JQawYQAT","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":"469
-        Galloway Avenue"},"otherHousingCounselingAgency":null,"numberOfSeniors":2,"numberOfMinors":null,"numberOfDependents":2,"name":"APP-00474764","monthlyIncome":null,"lotteryNumberManual":null,"lotteryNumber":"00474764","listingID":"a0W0P00000GbyuQUAR","lendingAgent":null,"isFirstTimeHomebuyer":false,"interviewScheduledDate":null,"imputedIncomeFromAssets":null,"id":"a0o0P00000JQawYQAT","housingCounselingAgency":null,"householdVouchersSubsidies":"false","householdMembers":[],"householdAssets":null,"HHTotalIncomeWithAssets":null,"hasSenior":"Yes","hasPublicHousing":null,"hasMilitaryService":"Yes","hasLoanPreapproval":false,"hasDevelopmentalDisability":"No","hasCompletedHomebuyerEducation":false,"formMetadata":null,"externalSessionId":"","didApplicantUseHousingCounselingAgency":null,"confirmedHouseholdAnnualIncome":123.00,"appRTType":"Rental_Short_Form","applicationSubmittedDate":"2019-03-12","applicationSubmissionType":"Electronic","applicationLanguage":"English","answeredCommunityScreening":null,"annualIncome":67000.00,"amiPercentage":null,"amiChartYear":"2020","amiChartType":null,"alternateContact":null,"agreeToTerms":true,"adaPrioritiesSelected":"Vision
+        Galloway Avenue"},"otherHousingCounselingAgency":null,"numberOfSeniors":2,"numberOfMinors":null,"numberOfDependents":2,"name":"APP-00474764","monthlyIncome":null,"lotteryNumberManual":null,"lotteryNumber":"00474764","listingID":"a0W0P00000HbtLhUAJ","lendingAgent":null,"isFirstTimeHomebuyer":false,"interviewScheduledDate":null,"imputedIncomeFromAssets":null,"id":"a0o0P00000JQawYQAT","housingCounselingAgency":null,"householdVouchersSubsidies":"false","householdMembers":[],"householdAssets":null,"HHTotalIncomeWithAssets":null,"hasSenior":"Yes","hasPublicHousing":null,"hasMilitaryService":"Yes","hasLoanPreapproval":false,"hasDevelopmentalDisability":"No","hasCompletedHomebuyerEducation":false,"formMetadata":null,"externalSessionId":"","didApplicantUseHousingCounselingAgency":null,"confirmedHouseholdAnnualIncome":123.00,"appRTType":"Rental_Short_Form","applicationSubmittedDate":"2019-03-12","applicationSubmissionType":"Electronic","applicationLanguage":"English","answeredCommunityScreening":null,"annualIncome":67000.00,"amiPercentage":null,"amiChartYear":"2020","amiChartType":null,"alternateContact":null,"agreeToTerms":true,"adaPrioritiesSelected":"Vision
         impairments"}'
-    http_version: null
-  recorded_at: Sat, 10 Oct 2020 02:13:05 GMT
+    http_version:
+  recorded_at: Tue, 05 Jan 2021 23:31:05 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/apexrest/LeasingAgentPortal/shortForm/a0o0P00000JQawYQAT
@@ -141,7 +141,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 10 Oct 2020 02:13:05 GMT
+      - Tue, 05 Jan 2021 23:31:06 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -153,16 +153,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 333e4dde27ec8e44
+      - 7284ac819314a253
       X-B3-Spanid:
-      - 333e4dde27ec8e44
+      - 7284ac819314a253
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=IbajjwqeEeumpY2P9gj4iw; domain=.salesforce.com; path=/; expires=Sun,
-        10-Oct-2021 02:13:05 GMT; Max-Age=31536000
+      - BrowserId=FT8PkU-uEeuqsaMP6H33RQ; domain=.salesforce.com; path=/; expires=Wed,
+        05-Jan-2022 23:31:06 GMT; Max-Age=31536000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -171,17 +171,17 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"totalMonthlyRent":0,"subStatus":null,"status":"Submitted","snapshotId":null,"shortFormPreferences":[{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000QGONSQA5","requiresProof":false,"recordTypeDevName":"COP","preferenceProof":null,"postLotteryValidation":"Confirmed","optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Sj8chQAB","individualPreference":null,"city":null,"certificateNumber":"0253HP-C2","appMemberID":"a0n0P00000DowdHQAR","applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000QGONTQA5","requiresProof":false,"recordTypeDevName":"DTHP","preferenceProof":null,"postLotteryValidation":"Confirmed","optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Sj8cmQAB","individualPreference":null,"city":null,"certificateNumber":"0253HP-C2","appMemberID":"a0n0P00000DowdHQAR","applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000QGONUQA5","requiresProof":false,"recordTypeDevName":"L_W","preferenceProof":null,"postLotteryValidation":"Unconfirmed","optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Sj8ciQAB","individualPreference":"Work
-        in SF","city":null,"certificateNumber":"0253HP-C2","appMemberID":"a0n0P00000DowdHQAR","applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1F0000016QxWQAU","requiresProof":false,"recordTypeDevName":"COP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1vxUQAR","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1F0000016QxXQAU","requiresProof":false,"recordTypeDevName":"DTHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1vxyQAB","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1F0000016QxYQAU","requiresProof":false,"recordTypeDevName":"RB_AHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1w0mQAB","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1F0000016QxZQAU","requiresProof":false,"recordTypeDevName":"L_W","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1w1BQAR","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1F0000016QxaQAE","requiresProof":false,"recordTypeDevName":"AG","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001QRPiaQAH","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1F0000016QxbQAE","requiresProof":false,"recordTypeDevName":"NRHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001QRQGzQAP","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w1F0000016QxcQAE","requiresProof":false,"recordTypeDevName":"ADHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001RbKCJQA3","individualPreference":null,"city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000JQawYQAT","address":null}],"referral":null,"processingStatus":"Processing","primaryApplicant":{"zip":"25303-9671","yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":"Ne","sexualOrientationOther":null,"sexualOrientation":"Straight/Heterosexual","sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":"Other/Multiracial","primaryLanguage":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":"Cell","phone":"425.467.5007x8176","pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":"Tina
+      string: '{"totalMonthlyRent":0,"suppAppSignedDate":null,"subStatus":null,"status":"Submitted","snapshotId":null,"shortFormPreferences":[{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000QGONSQA5","requiresProof":false,"recordTypeDevName":"COP","preferenceProof":null,"postLotteryValidation":"Confirmed","optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Sj8chQAB","individualPreference":null,"city":null,"certificateNumber":"0253HP-C2","appMemberID":"a0n0P00000DowdHQAR","applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000QGONTQA5","requiresProof":false,"recordTypeDevName":"DTHP","preferenceProof":null,"postLotteryValidation":"Confirmed","optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Sj8cmQAB","individualPreference":null,"city":null,"certificateNumber":"0253HP-C2","appMemberID":"a0n0P00000DowdHQAR","applicationID":"a0o0P00000JQawYQAT","address":null},{"zip":null,"state":null,"shortformPreferenceID":"a0w0P00000QGONUQA5","requiresProof":false,"recordTypeDevName":"L_W","preferenceProof":null,"postLotteryValidation":"Unconfirmed","optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Sj8ciQAB","individualPreference":"Work
+        in SF","city":null,"certificateNumber":"0253HP-C2","appMemberID":"a0n0P00000DowdHQAR","applicationID":"a0o0P00000JQawYQAT","address":null}],"referral":null,"processingStatus":"Processing","primaryApplicant":{"zip":"25303-9671","yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":"Ne","sexualOrientationOther":null,"sexualOrientation":"Straight/Heterosexual","sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":"Other/Multiracial","primaryLanguage":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":"Cell","phone":"425.467.5007x8176","pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":"Tina
         Rodriguez","menaOther":null,"maritalStatus":"Single","mailingZip":"89401-4041","mailingState":"No","mailingCity":"Williamshire","mailingAddress":"469
         Galloway Avenue","lendingAgentStatus":null,"latinoOther":null,"lastName":"Perez","indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasAltMailingAddress":false,"genderOther":null,"gender":"Female","firstName":"Timothy","ethnicity":"Not
         Hispanic/Latino","email":"patricia71@example.org","DOB":"1966-12-27","contactId":"0030P00002FQ4FLQA1","city":"SAN
         FRANCISCO","candidateScore":null,"blackOther":null,"asianOther":null,"appMemberType":"Primary
         Applicant","appMemberId":"a0n0P00000DowdHQAR","applicationId":"a0o0P00000JQawYQAT","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":"469
-        Galloway Avenue"},"otherHousingCounselingAgency":null,"numberOfSeniors":2,"numberOfMinors":null,"numberOfDependents":2,"name":"APP-00474764","monthlyIncome":null,"lotteryNumberManual":null,"lotteryNumber":"00474764","listingID":"a0W0P00000GbyuQUAR","lendingAgent":null,"isFirstTimeHomebuyer":false,"interviewScheduledDate":null,"imputedIncomeFromAssets":null,"id":"a0o0P00000JQawYQAT","housingCounselingAgency":null,"householdVouchersSubsidies":"false","householdMembers":[],"householdAssets":null,"HHTotalIncomeWithAssets":null,"hasSenior":"Yes","hasPublicHousing":null,"hasMilitaryService":"Yes","hasLoanPreapproval":false,"hasDevelopmentalDisability":"No","hasCompletedHomebuyerEducation":false,"formMetadata":null,"externalSessionId":"","didApplicantUseHousingCounselingAgency":null,"confirmedHouseholdAnnualIncome":123.00,"appRTType":"Rental_Short_Form","applicationSubmittedDate":"2019-03-12","applicationSubmissionType":"Electronic","applicationLanguage":"English","answeredCommunityScreening":null,"annualIncome":67000.00,"amiPercentage":null,"amiChartYear":"2020","amiChartType":null,"alternateContact":null,"agreeToTerms":true,"adaPrioritiesSelected":"Vision
+        Galloway Avenue"},"otherHousingCounselingAgency":null,"numberOfSeniors":2,"numberOfMinors":null,"numberOfDependents":2,"name":"APP-00474764","monthlyIncome":null,"lotteryNumberManual":null,"lotteryNumber":"00474764","listingID":"a0W0P00000HbtLhUAJ","lendingAgent":null,"isFirstTimeHomebuyer":false,"interviewScheduledDate":null,"imputedIncomeFromAssets":null,"id":"a0o0P00000JQawYQAT","housingCounselingAgency":null,"householdVouchersSubsidies":"false","householdMembers":[],"householdAssets":null,"HHTotalIncomeWithAssets":null,"hasSenior":"Yes","hasPublicHousing":null,"hasMilitaryService":"Yes","hasLoanPreapproval":false,"hasDevelopmentalDisability":"No","hasCompletedHomebuyerEducation":false,"formMetadata":null,"externalSessionId":"","didApplicantUseHousingCounselingAgency":null,"confirmedHouseholdAnnualIncome":123.00,"appRTType":"Rental_Short_Form","applicationSubmittedDate":"2019-03-12","applicationSubmissionType":"Electronic","applicationLanguage":"English","answeredCommunityScreening":null,"annualIncome":67000.00,"amiPercentage":null,"amiChartYear":"2020","amiChartType":null,"alternateContact":null,"agreeToTerms":true,"adaPrioritiesSelected":"Vision
         impairments"}'
-    http_version: null
-  recorded_at: Sat, 10 Oct 2020 02:13:05 GMT
+    http_version:
+  recorded_at: Tue, 05 Jan 2021 23:31:06 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -203,7 +203,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 10 Oct 2020 02:13:06 GMT
+      - Tue, 05 Jan 2021 23:31:07 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -215,16 +215,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 6440a83c9139b2f8
+      - 4cd8e2404ebab12d
       X-B3-Spanid:
-      - 6440a83c9139b2f8
+      - 4cd8e2404ebab12d
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=IkqmVQqeEeupu5NmxmIPuw; domain=.salesforce.com; path=/; expires=Sun,
-        10-Oct-2021 02:13:06 GMT; Max-Age=31536000
+      - BrowserId=Ffia9k-uEeu0aR1T1c-QYg; domain=.salesforce.com; path=/; expires=Wed,
+        05-Jan-2022 23:31:07 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -237,9 +237,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1602295986262","signature":"MbO1RT0IR93FNPWLr7ClMESYqz/VFFbbFF15K+y/Lt4="}'
-    http_version: null
-  recorded_at: Sat, 10 Oct 2020 02:13:06 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1609889467760","signature":"/+oFUF4Cu/g5TGFtfBNVsdDV4bvEp7ehi6CYtvOgcm8="}'
+    http_version:
+  recorded_at: Tue, 05 Jan 2021 23:31:07 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Preference_Name__c,%20Person_who_claimed_Name__c,%20Type_of_proof__c,%20Opt_Out__c,%20Lottery_Status__c,%20Preference_Lottery_Rank__c,%20Listing_Preference_ID__c,%20Receives_Preference__c,%20Application_Member__c,%20Application_Member__r.First_Name__c,%20Application_Member__r.Last_Name__c,%20Application_Member__r.Date_of_Birth__c,%20Application_Member__r.Id,%20Individual_preference__c,%20Certificate_Number__c,%20Preference_Order__c,%20RecordType.DeveloperName,%20LW_Type_of_Proof__c,%20City__c,%20State__c,%20Street__c,%20Zip_Code__c,%20Post_Lottery_Validation__c,%20Total_Household_Rent__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o0P00000JQawYQAT%27%0A%20%20%20%20%20%20%20%20
@@ -261,7 +261,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 10 Oct 2020 02:13:06 GMT
+      - Tue, 05 Jan 2021 23:31:08 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -273,18 +273,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 86c60feb5af612ac
+      - 135e3d44b2e58db2
       X-B3-Spanid:
-      - 86c60feb5af612ac
+      - 135e3d44b2e58db2
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=InURwQqeEeumpY2P9gj4iw; domain=.salesforce.com; path=/; expires=Sun,
-        10-Oct-2021 02:13:06 GMT; Max-Age=31536000
+      - BrowserId=FojNI0-uEeu9VRW0GPLwYg; domain=.salesforce.com; path=/; expires=Wed,
+        05-Jan-2022 23:31:08 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12659/400000
+      - api-usage=14667/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -293,24 +293,17 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"totalSize":10,"done":true,"records":[{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1F0000016QxWQAU"},"Id":"a0w1F0000016QxWQAU","Name":"AP-0002197424","Preference_Name__c":"Certificate
-        of Preference (COP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Q1vxUQAR","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":1.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BHQA0"},"DeveloperName":"COP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000QGONSQA5"},"Id":"a0w0P00000QGONSQA5","Name":"AP-0001626875","Preference_Name__c":"Certificate
+      string: '{"totalSize":3,"done":true,"records":[{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000QGONSQA5"},"Id":"a0w0P00000QGONSQA5","Name":"AP-0001626875","Preference_Name__c":"Certificate
         of Preference (COP)","Person_who_claimed_Name__c":"Timothy Tina Rodriguez
         Perez","Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Valid
-        for lottery","Preference_Lottery_Rank__c":1.0,"Listing_Preference_ID__c":"a0l0P00001Sj8chQAB","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000DowdHQAR","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000DowdHQAR"},"First_Name__c":"Timothy","Last_Name__c":"Perez","Date_of_Birth__c":"1966-12-27","Id":"a0n0P00000DowdHQAR"},"Individual_preference__c":null,"Certificate_Number__c":"0253HP-C2","Preference_Order__c":1.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BHQA0"},"DeveloperName":"COP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Confirmed","Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1F0000016QxZQAU"},"Id":"a0w1F0000016QxZQAU","Name":"AP-0002197427","Preference_Name__c":"Live
-        or Work in San Francisco Preference","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Q1w1BQAR","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":4.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"},"DeveloperName":"L_W"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000QGONUQA5"},"Id":"a0w0P00000QGONUQA5","Name":"AP-0001626877","Preference_Name__c":"Live
-        or Work in San Francisco Preference","Person_who_claimed_Name__c":"Timothy
-        Tina Rodriguez Perez","Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":88.0,"Listing_Preference_ID__c":"a0l0P00001Sj8ciQAB","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000DowdHQAR","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000DowdHQAR"},"First_Name__c":"Timothy","Last_Name__c":"Perez","Date_of_Birth__c":"1966-12-27","Id":"a0n0P00000DowdHQAR"},"Individual_preference__c":"Work
-        in SF","Certificate_Number__c":"0253HP-C2","Preference_Order__c":3.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"},"DeveloperName":"L_W"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Unconfirmed","Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1F0000016QxXQAU"},"Id":"a0w1F0000016QxXQAU","Name":"AP-0002197425","Preference_Name__c":"Displaced
-        Tenant Housing Preference (DTHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Q1vxyQAB","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":2.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BJQA0"},"DeveloperName":"DTHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000QGONTQA5"},"Id":"a0w0P00000QGONTQA5","Name":"AP-0001626876","Preference_Name__c":"Displaced
+        for lottery","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Sj8chQAB","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000DowdHQAR","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000DowdHQAR"},"First_Name__c":"Timothy","Last_Name__c":"Perez","Date_of_Birth__c":"1966-12-27","Id":"a0n0P00000DowdHQAR"},"Individual_preference__c":null,"Certificate_Number__c":"0253HP-C2","Preference_Order__c":1.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BHQA0"},"DeveloperName":"COP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Confirmed","Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000QGONTQA5"},"Id":"a0w0P00000QGONTQA5","Name":"AP-0001626876","Preference_Name__c":"Displaced
         Tenant Housing Preference (DTHP)","Person_who_claimed_Name__c":"Timothy Tina
-        Rodriguez Perez","Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Sj8cmQAB","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000DowdHQAR","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000DowdHQAR"},"First_Name__c":"Timothy","Last_Name__c":"Perez","Date_of_Birth__c":"1966-12-27","Id":"a0n0P00000DowdHQAR"},"Individual_preference__c":null,"Certificate_Number__c":"0253HP-C2","Preference_Order__c":2.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BJQA0"},"DeveloperName":"DTHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Confirmed","Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1F0000016QxbQAE"},"Id":"a0w1F0000016QxbQAE","Name":"AP-0002197429","Preference_Name__c":"Neighborhood
-        Resident Housing Preference (NRHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001QRQGzQAP","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":6.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BLQA0"},"DeveloperName":"NRHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1F0000016QxcQAE"},"Id":"a0w1F0000016QxcQAE","Name":"AP-0002197430","Preference_Name__c":"Anti-Displacement
-        Housing Preference (ADHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001RbKCJQA3","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":8.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BGQA0"},"DeveloperName":"ADHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1F0000016QxYQAU"},"Id":"a0w1F0000016QxYQAU","Name":"AP-0002197426","Preference_Name__c":"Rent
-        Burdened / Assisted Housing Preference","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Q1w0mQAB","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":3.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BMQA0"},"DeveloperName":"RB_AHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1F0000016QxaQAE"},"Id":"a0w1F0000016QxaQAE","Name":"AP-0002197428","Preference_Name__c":"Alice
-        Griffith Housing Development Resident","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001QRPiaQAH","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":5.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000NHVqQAO"},"DeveloperName":"AG"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0}]}'
-    http_version: null
-  recorded_at: Sat, 10 Oct 2020 02:13:06 GMT
+        Rodriguez Perez","Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Sj8cmQAB","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000DowdHQAR","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000DowdHQAR"},"First_Name__c":"Timothy","Last_Name__c":"Perez","Date_of_Birth__c":"1966-12-27","Id":"a0n0P00000DowdHQAR"},"Individual_preference__c":null,"Certificate_Number__c":"0253HP-C2","Preference_Order__c":2.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BJQA0"},"DeveloperName":"DTHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Confirmed","Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000QGONUQA5"},"Id":"a0w0P00000QGONUQA5","Name":"AP-0001626877","Preference_Name__c":"Live
+        or Work in San Francisco Preference","Person_who_claimed_Name__c":"Timothy
+        Tina Rodriguez Perez","Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Sj8ciQAB","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000DowdHQAR","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000DowdHQAR"},"First_Name__c":"Timothy","Last_Name__c":"Perez","Date_of_Birth__c":"1966-12-27","Id":"a0n0P00000DowdHQAR"},"Individual_preference__c":"Work
+        in SF","Certificate_Number__c":"0253HP-C2","Preference_Order__c":3.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"},"DeveloperName":"L_W"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Unconfirmed","Total_Household_Rent__c":0.0}]}'
+    http_version:
+  recorded_at: Tue, 05 Jan 2021 23:31:08 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -332,7 +325,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 10 Oct 2020 02:13:06 GMT
+      - Tue, 05 Jan 2021 23:31:09 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -344,16 +337,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - ef3142866b06f1c3
+      - 17444429cae84aa8
       X-B3-Spanid:
-      - ef3142866b06f1c3
+      - 17444429cae84aa8
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=IpdmXgqeEeuGE6U0z2eQ-w; domain=.salesforce.com; path=/; expires=Sun,
-        10-Oct-2021 02:13:06 GMT; Max-Age=31536000
+      - BrowserId=FxXKuk-uEeuvNh0OZWHfrg; domain=.salesforce.com; path=/; expires=Wed,
+        05-Jan-2022 23:31:09 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -366,12 +359,12 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1602295986764","signature":"9unulZ77urNSL/LGKGUEIe91xUwV5H7/PUE2M4omKvM="}'
-    http_version: null
-  recorded_at: Sat, 10 Oct 2020 02:13:06 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1609889469619","signature":"i4lM8pH2sWQSrsRWFTQH/roTl+lZxglS+TB9M06sxlk="}'
+    http_version:
+  recorded_at: Tue, 05 Jan 2021 23:31:09 GMT
 - request:
     method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Applicant__c,%20Primary_Applicant__c,%20Alternate_Contact__c,%20Listing__c,%20Listing__r.Name,%20Listing__r.Id,%20Status__c,%20Listing__r.Reserved_community_type__c,%20Total_Household_Size__c,%20Application_Submission_Type__c,%20Application_Submitted_Date__c,%20CreatedBy.Name,%20Annual_Income__c,%20Confirmed_Household_Annual_Income__c,%20Household_Assets__c,%20HH_Total_Income_with_Assets_Annual__c,%20Imputed_Income_from_Assets__c,%20Monthly_Income__c,%20Housing_Voucher_or_Subsidy__c,%20Referral_Source__c,%20Application_Language__c,%20Lottery_Number_Manual__c,%20Lottery_Number__c,%20Total_Monthly_Rent__c,%20General_Lottery__c,%20General_Lottery_Rank__c,%20Answered_Community_Screening__c,%20Has_Military_Service__c,%20Reserved_Senior__c,%20Has_DevelopmentalDisability__c,%20Has_ADA_Priorities_Selected__c,%20Terms_Acknowledged__c,%20Applicant__r.Id,%20Applicant__r.First_Name__c,%20Applicant__r.Last_Name__c,%20Applicant__r.Middle_Name__c,%20Applicant__r.Name__c,%20Applicant__r.Date_of_Birth__c,%20Applicant__r.Phone_Type__c,%20Applicant__r.Phone__c,%20Applicant__r.Second_Phone_Type__c,%20Applicant__r.Second_Phone__c,%20Applicant__r.Email__c,%20Applicant__r.Primary_Language__c,%20Applicant__r.Residence_Address__c,%20Applicant__r.Street__c,%20Applicant__r.City__c,%20Applicant__r.State__c,%20Applicant__r.Zip_Code__c,%20Applicant__r.Mailing_Address__c,%20Applicant__r.Mailing_Street__c,%20Applicant__r.Mailing_City__c,%20Applicant__r.Mailing_State__c,%20Applicant__r.Mailing_Zip_Code__c,%20Applicant__r.Marital_Status__c,%20Applicant__r.Ethnicity__c,%20Applicant__r.Race__c,%20Applicant__r.Gender__c,%20Applicant__r.Gender_Other__c,%20Applicant__r.Sexual_Orientation__c,%20Applicant__r.Sexual_Orientation_Other__c,%20Alternate_Contact__r.Id,%20Alternate_Contact__r.First_Name__c,%20Alternate_Contact__r.Middle_Name__c,%20Alternate_Contact__r.Last_Name__c,%20Alternate_Contact__r.Phone_Type__c,%20Alternate_Contact__r.Phone__c,%20Alternate_Contact__r.Email__c,%20Alternate_Contact__r.Agency_Name__c,%20Alternate_Contact__r.Alternate_Contact_Type__c,%20Alternate_Contact__r.Alternate_Contact_Type_Other__c,%20Number_of_Dependents__c,%20Number_of_Seniors__c,%20Number_of_Minors__c,%20Alternate_Contact__r.Residence_Address__c,%20Alternate_Contact__r.Street__c,%20Alternate_Contact__r.City__c,%20Alternate_Contact__r.State__c,%20Alternate_Contact__r.Zip_Code__c,%20Alternate_Contact__r.Mailing_Address__c,%20Alternate_Contact__r.Mailing_Street__c,%20Alternate_Contact__r.Mailing_City__c,%20Alternate_Contact__r.Mailing_State__c,%20Alternate_Contact__r.Mailing_Zip_Code__c,%20Alternate_Contact__r.Marital_Status__c,%20Processing_Status__c,%20Is_First_Time_Homebuyer__c,%20Has_Completed_Homebuyer_Education__c,%20Has_Loan_Pre_approval__c,%20Lending_Agent__c,%20AMI_Percentage__c,%20AMI_Chart_Type__c,%20AMI_Chart_Year__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id%20=%20%27a0o0P00000JQawYQAT%27%0A%20%20%20%20%20%20%20%20%20%20AND%20Status__c%20!=%20%27Draft%27%0A%20%20%20%20%20%20%20%20%20%20LIMIT%201%0A%20%20%20%20%20%20%20%20
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Applicant__c,%20Primary_Applicant__c,%20Alternate_Contact__c,%20Listing__c,%20Listing__r.Name,%20Listing__r.Id,%20Status__c,%20Listing__r.Reserved_community_type__c,%20Total_Household_Size__c,%20Application_Submission_Type__c,%20Application_Submitted_Date__c,%20CreatedBy.Name,%20Annual_Income__c,%20Confirmed_Household_Annual_Income__c,%20Household_Assets__c,%20HH_Total_Income_with_Assets_Annual__c,%20Imputed_Income_from_Assets__c,%20Monthly_Income__c,%20Housing_Voucher_or_Subsidy__c,%20Referral_Source__c,%20Application_Language__c,%20Lottery_Number_Manual__c,%20Lottery_Number__c,%20Total_Monthly_Rent__c,%20General_Lottery__c,%20General_Lottery_Rank__c,%20Answered_Community_Screening__c,%20Has_Military_Service__c,%20Reserved_Senior__c,%20Has_DevelopmentalDisability__c,%20Has_ADA_Priorities_Selected__c,%20Terms_Acknowledged__c,%20Applicant__r.Id,%20Applicant__r.First_Name__c,%20Applicant__r.Last_Name__c,%20Applicant__r.Middle_Name__c,%20Applicant__r.Name__c,%20Applicant__r.Date_of_Birth__c,%20Applicant__r.Phone_Type__c,%20Applicant__r.Phone__c,%20Applicant__r.Second_Phone_Type__c,%20Applicant__r.Second_Phone__c,%20Applicant__r.Email__c,%20Applicant__r.Primary_Language__c,%20Applicant__r.Residence_Address__c,%20Applicant__r.Street__c,%20Applicant__r.City__c,%20Applicant__r.State__c,%20Applicant__r.Zip_Code__c,%20Applicant__r.Mailing_Address__c,%20Applicant__r.Mailing_Street__c,%20Applicant__r.Mailing_City__c,%20Applicant__r.Mailing_State__c,%20Applicant__r.Mailing_Zip_Code__c,%20Applicant__r.Marital_Status__c,%20Applicant__r.Ethnicity__c,%20Applicant__r.Race__c,%20Applicant__r.Gender__c,%20Applicant__r.Gender_Other__c,%20Applicant__r.Sexual_Orientation__c,%20Applicant__r.Sexual_Orientation_Other__c,%20Alternate_Contact__r.Id,%20Alternate_Contact__r.First_Name__c,%20Alternate_Contact__r.Middle_Name__c,%20Alternate_Contact__r.Last_Name__c,%20Alternate_Contact__r.Phone_Type__c,%20Alternate_Contact__r.Phone__c,%20Alternate_Contact__r.Email__c,%20Alternate_Contact__r.Agency_Name__c,%20Alternate_Contact__r.Alternate_Contact_Type__c,%20Alternate_Contact__r.Alternate_Contact_Type_Other__c,%20Number_of_Dependents__c,%20Number_of_Seniors__c,%20Number_of_Minors__c,%20Alternate_Contact__r.Residence_Address__c,%20Alternate_Contact__r.Street__c,%20Alternate_Contact__r.City__c,%20Alternate_Contact__r.State__c,%20Alternate_Contact__r.Zip_Code__c,%20Alternate_Contact__r.Mailing_Address__c,%20Alternate_Contact__r.Mailing_Street__c,%20Alternate_Contact__r.Mailing_City__c,%20Alternate_Contact__r.Mailing_State__c,%20Alternate_Contact__r.Mailing_Zip_Code__c,%20Alternate_Contact__r.Marital_Status__c,%20Processing_Status__c,%20Is_First_Time_Homebuyer__c,%20Has_Completed_Homebuyer_Education__c,%20Has_Loan_Pre_approval__c,%20Lending_Agent__c,%20AMI_Percentage__c,%20AMI_Chart_Type__c,%20AMI_Chart_Year__c,%20Supp_App_Signed_Date__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id%20=%20%27a0o0P00000JQawYQAT%27%0A%20%20%20%20%20%20%20%20%20%20AND%20Status__c%20!=%20%27Draft%27%0A%20%20%20%20%20%20%20%20%20%20LIMIT%201%0A%20%20%20%20%20%20%20%20
     body:
       encoding: US-ASCII
       string: ''
@@ -390,7 +383,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 10 Oct 2020 02:13:06 GMT
+      - Tue, 05 Jan 2021 23:31:10 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -402,18 +395,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 057e083b7b51263b
+      - 71d5c40783b522e2
       X-B3-Spanid:
-      - 057e083b7b51263b
+      - 71d5c40783b522e2
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=IsP0hwqeEeuDQTM9XqwM7g; domain=.salesforce.com; path=/; expires=Sun,
-        10-Oct-2021 02:13:06 GMT; Max-Age=31536000
+      - BrowserId=F6lYY0-uEeuqsaMP6H33RQ; domain=.salesforce.com; path=/; expires=Wed,
+        05-Jan-2022 23:31:10 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12658/400000
+      - api-usage=14671/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -422,8 +415,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000JQawYQAT"},"Id":"a0o0P00000JQawYQAT","Name":"APP-00474764","Applicant__c":"a0n0P00000DowdHQAR","Primary_Applicant__c":"0030P00002FQ4FLQA1","Alternate_Contact__c":null,"Listing__c":"a0W0P00000GbyuQUAR","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Name":"Partners
-        Test Listing (do not modify) - Yellow Acres","Id":"a0W0P00000GbyuQUAR","Reserved_community_type__c":null},"Status__c":"Submitted","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Electronic","Application_Submitted_Date__c":"2019-03-12","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/0050P000007QAY9QAO"},"Name":"DAHLIA
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000JQawYQAT"},"Id":"a0o0P00000JQawYQAT","Name":"APP-00474764","Applicant__c":"a0n0P00000DowdHQAR","Primary_Applicant__c":"0030P00002FQ4FLQA1","Alternate_Contact__c":null,"Listing__c":"a0W0P00000HbtLhUAJ","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000HbtLhUAJ"},"Name":"1015
+        Shotwell Units 1, 3, 4, 10","Id":"a0W0P00000HbtLhUAJ","Reserved_community_type__c":null},"Status__c":"Submitted","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Electronic","Application_Submitted_Date__c":"2019-03-12","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/0050P000007QAY9QAO"},"Name":"DAHLIA
         API"},"Annual_Income__c":67000.0,"Confirmed_Household_Annual_Income__c":123.0,"Household_Assets__c":null,"HH_Total_Income_with_Assets_Annual__c":null,"Imputed_Income_from_Assets__c":null,"Monthly_Income__c":null,"Housing_Voucher_or_Subsidy__c":"false","Referral_Source__c":null,"Application_Language__c":"English","Lottery_Number_Manual__c":null,"Lottery_Number__c":"00474764","Total_Monthly_Rent__c":0.0,"General_Lottery__c":false,"General_Lottery_Rank__c":null,"Answered_Community_Screening__c":null,"Has_Military_Service__c":"Yes","Reserved_Senior__c":"Yes","Has_DevelopmentalDisability__c":"No","Has_ADA_Priorities_Selected__c":"Vision
         impairments","Terms_Acknowledged__c":true,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000DowdHQAR"},"Id":"a0n0P00000DowdHQAR","First_Name__c":"Timothy","Last_Name__c":"Perez","Middle_Name__c":"Tina
         Rodriguez","Name__c":"Timothy Tina Rodriguez Perez","Date_of_Birth__c":"1966-12-27","Phone_Type__c":"Cell","Phone__c":"425.467.5007x8176","Second_Phone_Type__c":null,"Second_Phone__c":null,"Email__c":"patricia71@example.org","Primary_Language__c":null,"Residence_Address__c":"469
@@ -431,9 +424,9 @@ http_interactions:
         Avenue","City__c":"SAN FRANCISCO","State__c":"Ne","Zip_Code__c":"25303-9671","Mailing_Address__c":"469
         Galloway Avenue, Williamshire, No, 89401-4041","Mailing_Street__c":"469 Galloway
         Avenue","Mailing_City__c":"Williamshire","Mailing_State__c":"No","Mailing_Zip_Code__c":"89401-4041","Marital_Status__c":"Single","Ethnicity__c":"Not
-        Hispanic/Latino","Race__c":"Other/Multiracial","Gender__c":"Female","Gender_Other__c":null,"Sexual_Orientation__c":"Straight/Heterosexual","Sexual_Orientation_Other__c":null},"Alternate_Contact__r":null,"Number_of_Dependents__c":2.0,"Number_of_Seniors__c":2.0,"Number_of_Minors__c":null,"Processing_Status__c":"Processing","Is_First_Time_Homebuyer__c":false,"Has_Completed_Homebuyer_Education__c":false,"Has_Loan_Pre_approval__c":false,"Lending_Agent__c":null,"AMI_Percentage__c":null,"AMI_Chart_Type__c":null,"AMI_Chart_Year__c":"2020"}]}'
-    http_version: null
-  recorded_at: Sat, 10 Oct 2020 02:13:07 GMT
+        Hispanic/Latino","Race__c":"Other/Multiracial","Gender__c":"Female","Gender_Other__c":null,"Sexual_Orientation__c":"Straight/Heterosexual","Sexual_Orientation_Other__c":null},"Alternate_Contact__r":null,"Number_of_Dependents__c":2.0,"Number_of_Seniors__c":2.0,"Number_of_Minors__c":null,"Processing_Status__c":"Processing","Is_First_Time_Homebuyer__c":false,"Has_Completed_Homebuyer_Education__c":false,"Has_Loan_Pre_approval__c":false,"Lending_Agent__c":null,"AMI_Percentage__c":null,"AMI_Chart_Type__c":null,"AMI_Chart_Year__c":"2020","Supp_App_Signed_Date__c":null}]}'
+    http_version:
+  recorded_at: Tue, 05 Jan 2021 23:31:10 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -455,7 +448,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 10 Oct 2020 02:13:07 GMT
+      - Tue, 05 Jan 2021 23:31:11 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -467,16 +460,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 82c759934218b038
+      - 55183a0424246146
       X-B3-Spanid:
-      - 82c759934218b038
+      - 55183a0424246146
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=Iuq3CwqeEeumpY2P9gj4iw; domain=.salesforce.com; path=/; expires=Sun,
-        10-Oct-2021 02:13:07 GMT; Max-Age=31536000
+      - BrowserId=GD7hy0-uEeuqsaMP6H33RQ; domain=.salesforce.com; path=/; expires=Wed,
+        05-Jan-2022 23:31:11 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -489,9 +482,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1602295987295","signature":"lOruQfQZD016KivAnQt6paSrVETrxhJEBJzDdGuOpDM="}'
-    http_version: null
-  recorded_at: Sat, 10 Oct 2020 02:13:07 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1609889471553","signature":"qGC3FsseRRTjKPn+F7fC1zTTVc73B5K3TgtoXwGhLgw="}'
+    http_version:
+  recorded_at: Tue, 05 Jan 2021 23:31:11 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Preference_Name__c,%20Person_who_claimed_Name__c,%20Type_of_proof__c,%20Opt_Out__c,%20Lottery_Status__c,%20Preference_Lottery_Rank__c,%20Listing_Preference_ID__c,%20Receives_Preference__c,%20Application_Member__c,%20Application_Member__r.First_Name__c,%20Application_Member__r.Last_Name__c,%20Application_Member__r.Date_of_Birth__c,%20Application_Member__r.Id,%20Individual_preference__c,%20Certificate_Number__c,%20Preference_Order__c,%20RecordType.DeveloperName,%20LW_Type_of_Proof__c,%20City__c,%20State__c,%20Street__c,%20Zip_Code__c,%20Post_Lottery_Validation__c,%20Total_Household_Rent__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o0P00000JQawYQAT%27%0A%20%20%20%20%20%20%20%20
@@ -513,7 +506,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 10 Oct 2020 02:13:07 GMT
+      - Tue, 05 Jan 2021 23:31:12 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -525,18 +518,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 2e640596dce35a53
+      - a986f987324c440f
       X-B3-Spanid:
-      - 2e640596dce35a53
+      - a986f987324c440f
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=Ixij4wqeEeupu5NmxmIPuw; domain=.salesforce.com; path=/; expires=Sun,
-        10-Oct-2021 02:13:07 GMT; Max-Age=31536000
+      - BrowserId=GM2z7E-uEeu-8VGyGQ2KCg; domain=.salesforce.com; path=/; expires=Wed,
+        05-Jan-2022 23:31:12 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12658/400000
+      - api-usage=14668/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -545,24 +538,17 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"totalSize":10,"done":true,"records":[{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1F0000016QxWQAU"},"Id":"a0w1F0000016QxWQAU","Name":"AP-0002197424","Preference_Name__c":"Certificate
-        of Preference (COP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Q1vxUQAR","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":1.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BHQA0"},"DeveloperName":"COP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000QGONSQA5"},"Id":"a0w0P00000QGONSQA5","Name":"AP-0001626875","Preference_Name__c":"Certificate
+      string: '{"totalSize":3,"done":true,"records":[{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000QGONSQA5"},"Id":"a0w0P00000QGONSQA5","Name":"AP-0001626875","Preference_Name__c":"Certificate
         of Preference (COP)","Person_who_claimed_Name__c":"Timothy Tina Rodriguez
         Perez","Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Valid
-        for lottery","Preference_Lottery_Rank__c":1.0,"Listing_Preference_ID__c":"a0l0P00001Sj8chQAB","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000DowdHQAR","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000DowdHQAR"},"First_Name__c":"Timothy","Last_Name__c":"Perez","Date_of_Birth__c":"1966-12-27","Id":"a0n0P00000DowdHQAR"},"Individual_preference__c":null,"Certificate_Number__c":"0253HP-C2","Preference_Order__c":1.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BHQA0"},"DeveloperName":"COP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Confirmed","Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1F0000016QxZQAU"},"Id":"a0w1F0000016QxZQAU","Name":"AP-0002197427","Preference_Name__c":"Live
-        or Work in San Francisco Preference","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Q1w1BQAR","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":4.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"},"DeveloperName":"L_W"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000QGONUQA5"},"Id":"a0w0P00000QGONUQA5","Name":"AP-0001626877","Preference_Name__c":"Live
-        or Work in San Francisco Preference","Person_who_claimed_Name__c":"Timothy
-        Tina Rodriguez Perez","Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":88.0,"Listing_Preference_ID__c":"a0l0P00001Sj8ciQAB","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000DowdHQAR","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000DowdHQAR"},"First_Name__c":"Timothy","Last_Name__c":"Perez","Date_of_Birth__c":"1966-12-27","Id":"a0n0P00000DowdHQAR"},"Individual_preference__c":"Work
-        in SF","Certificate_Number__c":"0253HP-C2","Preference_Order__c":3.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"},"DeveloperName":"L_W"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Unconfirmed","Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1F0000016QxXQAU"},"Id":"a0w1F0000016QxXQAU","Name":"AP-0002197425","Preference_Name__c":"Displaced
-        Tenant Housing Preference (DTHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Q1vxyQAB","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":2.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BJQA0"},"DeveloperName":"DTHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000QGONTQA5"},"Id":"a0w0P00000QGONTQA5","Name":"AP-0001626876","Preference_Name__c":"Displaced
+        for lottery","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Sj8chQAB","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000DowdHQAR","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000DowdHQAR"},"First_Name__c":"Timothy","Last_Name__c":"Perez","Date_of_Birth__c":"1966-12-27","Id":"a0n0P00000DowdHQAR"},"Individual_preference__c":null,"Certificate_Number__c":"0253HP-C2","Preference_Order__c":1.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BHQA0"},"DeveloperName":"COP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Confirmed","Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000QGONTQA5"},"Id":"a0w0P00000QGONTQA5","Name":"AP-0001626876","Preference_Name__c":"Displaced
         Tenant Housing Preference (DTHP)","Person_who_claimed_Name__c":"Timothy Tina
-        Rodriguez Perez","Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Sj8cmQAB","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000DowdHQAR","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000DowdHQAR"},"First_Name__c":"Timothy","Last_Name__c":"Perez","Date_of_Birth__c":"1966-12-27","Id":"a0n0P00000DowdHQAR"},"Individual_preference__c":null,"Certificate_Number__c":"0253HP-C2","Preference_Order__c":2.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BJQA0"},"DeveloperName":"DTHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Confirmed","Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1F0000016QxbQAE"},"Id":"a0w1F0000016QxbQAE","Name":"AP-0002197429","Preference_Name__c":"Neighborhood
-        Resident Housing Preference (NRHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001QRQGzQAP","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":6.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BLQA0"},"DeveloperName":"NRHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1F0000016QxcQAE"},"Id":"a0w1F0000016QxcQAE","Name":"AP-0002197430","Preference_Name__c":"Anti-Displacement
-        Housing Preference (ADHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001RbKCJQA3","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":8.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BGQA0"},"DeveloperName":"ADHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1F0000016QxYQAU"},"Id":"a0w1F0000016QxYQAU","Name":"AP-0002197426","Preference_Name__c":"Rent
-        Burdened / Assisted Housing Preference","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Q1w0mQAB","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":3.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BMQA0"},"DeveloperName":"RB_AHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w1F0000016QxaQAE"},"Id":"a0w1F0000016QxaQAE","Name":"AP-0002197428","Preference_Name__c":"Alice
-        Griffith Housing Development Resident","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001QRPiaQAH","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":5.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000NHVqQAO"},"DeveloperName":"AG"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0}]}'
-    http_version: null
-  recorded_at: Sat, 10 Oct 2020 02:13:07 GMT
+        Rodriguez Perez","Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Sj8cmQAB","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000DowdHQAR","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000DowdHQAR"},"First_Name__c":"Timothy","Last_Name__c":"Perez","Date_of_Birth__c":"1966-12-27","Id":"a0n0P00000DowdHQAR"},"Individual_preference__c":null,"Certificate_Number__c":"0253HP-C2","Preference_Order__c":2.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BJQA0"},"DeveloperName":"DTHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Confirmed","Total_Household_Rent__c":0.0},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000QGONUQA5"},"Id":"a0w0P00000QGONUQA5","Name":"AP-0001626877","Preference_Name__c":"Live
+        or Work in San Francisco Preference","Person_who_claimed_Name__c":"Timothy
+        Tina Rodriguez Perez","Type_of_proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Sj8ciQAB","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000DowdHQAR","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000DowdHQAR"},"First_Name__c":"Timothy","Last_Name__c":"Perez","Date_of_Birth__c":"1966-12-27","Id":"a0n0P00000DowdHQAR"},"Individual_preference__c":"Work
+        in SF","Certificate_Number__c":"0253HP-C2","Preference_Order__c":3.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"},"DeveloperName":"L_W"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Unconfirmed","Total_Household_Rent__c":0.0}]}'
+    http_version:
+  recorded_at: Tue, 05 Jan 2021 23:31:12 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -584,7 +570,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 10 Oct 2020 02:13:07 GMT
+      - Tue, 05 Jan 2021 23:31:13 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -596,16 +582,16 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 4982e35fa244ef87
+      - e73d9b4acd779a55
       X-B3-Spanid:
-      - 4982e35fa244ef87
+      - e73d9b4acd779a55
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=Izr5twqeEeuVbb8UmZcwyA; domain=.salesforce.com; path=/; expires=Sun,
-        10-Oct-2021 02:13:07 GMT; Max-Age=31536000
+      - BrowserId=GWAJFU-uEeumwZmla9nFvA; domain=.salesforce.com; path=/; expires=Wed,
+        05-Jan-2022 23:31:13 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -618,9 +604,9 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1602295987835","signature":"xqLWFkrVjQPfOXV/kZfhmzSAbaar00j0S60Uoqi3mHw="}'
-    http_version: null
-  recorded_at: Sat, 10 Oct 2020 02:13:07 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1609889473450","signature":"HbXJtmGjSJp7THdOv7/CT6oCPE4VheEhhwhOM0mnHmc="}'
+    http_version:
+  recorded_at: Tue, 05 Jan 2021 23:31:13 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Document_Type__c,%20Related_Application__c,%20Related_Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Attachment__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Related_Application__c%20=%20%27a0o0P00000JQawYQAT%27%0A%20%20%20%20%20%20%20%20
@@ -642,7 +628,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 10 Oct 2020 02:13:07 GMT
+      - Tue, 05 Jan 2021 23:31:14 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -654,18 +640,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - '08cb3eeee101c544'
+      - 9afdefe9d921f138
       X-B3-Spanid:
-      - '08cb3eeee101c544'
+      - 9afdefe9d921f138
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=I2LMWQqeEeumpY2P9gj4iw; domain=.salesforce.com; path=/; expires=Sun,
-        10-Oct-2021 02:13:07 GMT; Max-Age=31536000
+      - BrowserId=Gf3PaE-uEeu9VRW0GPLwYg; domain=.salesforce.com; path=/; expires=Wed,
+        05-Jan-2022 23:31:14 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12660/400000
+      - api-usage=14670/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -675,8 +661,8 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Attachment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Attachment__c/a0x0P00000EgORJQA3"},"Id":"a0x0P00000EgORJQA3","Document_Type__c":"Paystub","Related_Application__c":"a0o0P00000JQawYQAT","Related_Application_Preference__c":"a0w0P00000QGONUQA5"}]}'
-    http_version: null
-  recorded_at: Sat, 10 Oct 2020 02:13:08 GMT
+    http_version:
+  recorded_at: Tue, 05 Jan 2021 23:31:14 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id%0A%20%20%20%20%20%20%20%20%20%20FROM%20Attachment%0A%20%20%20%20%20%20%20%20%20%20WHERE%20ParentId%20=%20%27a0x0P00000EgORJQA3%27%0A%20%20%20%20%20%20%20%20
@@ -698,7 +684,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 10 Oct 2020 02:13:08 GMT
+      - Tue, 05 Jan 2021 23:31:15 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -710,18 +696,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - de6677bd6d966b46
+      - 72295503fe202968
       X-B3-Spanid:
-      - de6677bd6d966b46
+      - 72295503fe202968
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=I3k7JgqeEeu293kOYPVr3Q; domain=.salesforce.com; path=/; expires=Sun,
-        10-Oct-2021 02:13:08 GMT; Max-Age=31536000
+      - BrowserId=Gn1fsE-uEeuF6B8VRYfbJw; domain=.salesforce.com; path=/; expires=Wed,
+        05-Jan-2022 23:31:15 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12658/400000
+      - api-usage=14670/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -731,8 +717,8 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":0,"done":true,"records":[]}'
-    http_version: null
-  recorded_at: Sat, 10 Oct 2020 02:13:08 GMT
+    http_version:
+  recorded_at: Tue, 05 Jan 2021 23:31:15 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,LinkedEntityId,ContentDocumentId,ContentDocument.LatestPublishedVersionId%0A%20%20%20%20%20%20%20%20%20%20FROM%20ContentDocumentLink%0A%20%20%20%20%20%20%20%20%20%20WHERE%20LinkedEntityId%20=%20%27a0x0P00000EgORJQA3%27
@@ -754,7 +740,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 10 Oct 2020 02:13:08 GMT
+      - Tue, 05 Jan 2021 23:31:16 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -766,18 +752,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - a53bf81e654eb63d
+      - '0991dbe0ea2ba440'
       X-B3-Spanid:
-      - a53bf81e654eb63d
+      - '0991dbe0ea2ba440'
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=I5HMdgqeEeuaWf35Z6Kctw; domain=.salesforce.com; path=/; expires=Sun,
-        10-Oct-2021 02:13:08 GMT; Max-Age=31536000
+      - BrowserId=Gv4Btk-uEeuCW40XN6idXw; domain=.salesforce.com; path=/; expires=Wed,
+        05-Jan-2022 23:31:16 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12658/400000
+      - api-usage=14670/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -787,8 +773,8 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"ContentDocumentLink","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/ContentDocumentLink/06A0P000006xs96UAA"},"Id":"06A0P000006xs96UAA","LinkedEntityId":"a0x0P00000EgORJQA3","ContentDocumentId":"0690P000006QleMQAS","ContentDocument":{"attributes":{"type":"ContentDocument","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/ContentDocument/0690P000006QleMQAS"},"LatestPublishedVersionId":"0680P0000072YeRQAU"}}]}'
-    http_version: null
-  recorded_at: Sat, 10 Oct 2020 02:13:08 GMT
+    http_version:
+  recorded_at: Tue, 05 Jan 2021 23:31:16 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name__c,%20First_Name__c,%20Last_Name__c,%20Middle_Name__c,%20Relationship_to_Applicant__c,%20Date_of_Birth__c,%20Street__c,%20City__c,%20State__c,%20Zip_Code__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Member__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o0P00000JQawYQAT%27%0A%20%20%20%20%20%20%20%20%20%20AND%20Id%20!=%20%27a0n0P00000DowdHQAR%27%0A%20%20%20%20%20%20%20%20%20%20AND%20Id%20!=%20%27%27%0A%20%20%20%20%20%20%20%20
@@ -810,7 +796,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 10 Oct 2020 02:13:08 GMT
+      - Tue, 05 Jan 2021 23:31:16 GMT
       Strict-Transport-Security:
       - max-age=31536002; includeSubDomains
       Public-Key-Pins-Report-Only:
@@ -822,18 +808,18 @@ http_interactions:
       X-Robots-Tag:
       - none
       X-B3-Traceid:
-      - 4ccd82e3a1b2c9f8
+      - e712e111d0f0f509
       X-B3-Spanid:
-      - 4ccd82e3a1b2c9f8
+      - e712e111d0f0f509
       X-B3-Sampled:
       - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=I6lLRwqeEeuN2vkdGnxTMQ; domain=.salesforce.com; path=/; expires=Sun,
-        10-Oct-2021 02:13:08 GMT; Max-Age=31536000
+      - BrowserId=G4VZ-U-uEeuOmv9R2pYfAA; domain=.salesforce.com; path=/; expires=Wed,
+        05-Jan-2022 23:31:16 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=12658/400000
+      - api-usage=14670/400000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -843,6 +829,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":0,"done":true,"records":[]}'
-    http_version: null
-  recorded_at: Sat, 10 Oct 2020 02:13:08 GMT
+    http_version:
+  recorded_at: Tue, 05 Jan 2021 23:31:16 GMT
 recorded_with: VCR 5.1.0
