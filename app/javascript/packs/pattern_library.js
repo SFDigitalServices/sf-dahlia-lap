@@ -1,4 +1,3 @@
-import Turbolinks from 'turbolinks'
 import WebpackerReact from 'webpacker-react'
 
 // All imports for Pattern Library
@@ -46,8 +45,6 @@ import MultiSelectWrapper from 'components/pattern_library/wrappers/MultiSelectW
 import PopoverWrapper from 'components/pattern_library/wrappers/PopoverWrapper'
 import ShowHideFiltersButtonWrapper from 'components/pattern_library/wrappers/ShowHideFiltersButtonWrapper'
 import TabCardWrapper from 'components/pattern_library/wrappers/TabCardWrapper'
-
-Turbolinks.start()
 
 // All setup components after this
 WebpackerReact.setup({ Properties })

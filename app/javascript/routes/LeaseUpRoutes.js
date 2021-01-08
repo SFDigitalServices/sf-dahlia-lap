@@ -9,7 +9,7 @@ import SupplementalApplicationPage from 'components/supplemental_application/Sup
 import appPaths from 'utils/appPaths'
 
 // List of URLs that need to be routed via rails but that conflict with react-routed
-// paths. Ex: /applicaitons/flagged matches the /applications/:applicationId route, but
+// paths. Ex: /applications/flagged matches the /applications/:applicationId route, but
 // should be routed via rails instead.
 const conflictingPathsWithoutRouting = [
   appPaths.toApplicationsFlaggedIndexBase(),

@@ -1,5 +1,4 @@
 import ReactModal from 'react-modal'
-import Turbolinks from 'turbolinks'
 import WebpackerReact from 'webpacker-react'
 
 import ApplicationEditPage from 'components/applications/ApplicationEditPage'
@@ -14,8 +13,6 @@ import HomePage from 'components/pages/HomePage'
 import LeaseUpApp from 'routes/LeaseUpApp'
 
 import './pattern_library'
-
-Turbolinks.start()
 
 WebpackerReact.setup({ ApplicationEditPage }) // ES6 shorthand for {ApplicationEditPage: ApplicationEditPage}
 WebpackerReact.setup({ ApplicationNewPage })
