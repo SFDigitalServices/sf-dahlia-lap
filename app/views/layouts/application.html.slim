@@ -10,16 +10,16 @@ html
         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga')
 
         ga('create', "#{ENV['GOOGLE_ANALYTICS_TRACKING_ID']}", 'auto')
-        // turbolinks:load event fires on each rails route so send the pageview to GA when event fires
-        window.addEventListener('turbolinks:load', () => ga('send', 'pageview', location.pathname + location.search))
+
+        // remove this when all of partners is routed via react-router (LeaseUpApp.js)
+        window.addEventListener('load', (event) => {
+          ga('send', 'pageview', location.pathname + location.search);
+        });
 
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
     title
       = content_for?(:title) ? yield(:title) : 'SF DAHLIA Partners'
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'SF DAHLIA Partners'}"
-
-    / turned off turbolinks caching bc of weird behavior with react-table
-    meta name="turbolinks-cache-control" content="no-cache"
 
     / not much from application.js other than rails-ujs
     == javascript_include_tag 'application'
@@ -28,7 +28,7 @@ html
     == javascript_pack_tag 'sentry'
     == javascript_pack_tag 'react_application'
     / include toolkit.css and other CSS overrides
-    == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => 'reload'
+    == stylesheet_link_tag "application", :media => 'all'
     == csrf_meta_tags
   body
     .site-container

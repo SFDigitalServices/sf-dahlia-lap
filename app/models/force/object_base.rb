@@ -118,7 +118,8 @@ module Force
         if v.key? :object
           { v[:domain] => get_domain_keys(v[:object]) }
         elsif v[:type] == 'date'
-          { v[:domain] => %w[day year month] }
+          # Allow date to be set to nil
+          [v[:domain], { v[:domain] => %w[day year month] }]
         elsif v[:type] == 'ada_priorities'
           { v[:domain] => %w[vision_impairments hearing_impairments mobility_impairments] }
         else

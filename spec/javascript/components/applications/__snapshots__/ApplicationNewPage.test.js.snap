@@ -330,55 +330,70 @@ Array [
                         </span>
                       </label>
                       <div
-                        className="form-group-month"
+                        id="date-group"
+                        style={
+                          Object {
+                            "display": "flex",
+                          }
+                        }
                       >
-                        <input
-                          className=""
-                          id="date_of_birth_month"
-                          maxLength={2}
-                          name="applicant.date_of_birth.month"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          onFocus={[Function]}
-                          placeholder="MM"
-                          type="text"
-                          value=""
-                        />
+                        <div
+                          className="form-group-month"
+                        >
+                          <input
+                            className=""
+                            id="date_of_birth_month"
+                            maxLength={2}
+                            name="applicant.date_of_birth.month"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            placeholder="MM"
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                        <div
+                          className="form-group-day"
+                        >
+                          <input
+                            className=""
+                            id="date_of_birth_day"
+                            maxLength={2}
+                            name="applicant.date_of_birth.day"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            placeholder="DD"
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                        <div
+                          className="form-group-year"
+                        >
+                          <input
+                            className=""
+                            id="date_of_birth_year"
+                            maxLength={4}
+                            name="applicant.date_of_birth.year"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            placeholder="YYYY"
+                            type="text"
+                            value=""
+                          />
+                        </div>
                       </div>
                       <div
-                        className="form-group-day"
-                      >
-                        <input
-                          className=""
-                          id="date_of_birth_day"
-                          maxLength={2}
-                          name="applicant.date_of_birth.day"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          onFocus={[Function]}
-                          placeholder="DD"
-                          type="text"
-                          value=""
-                        />
-                      </div>
-                      <div
-                        className="form-group-year"
-                      >
-                        <input
-                          className=""
-                          id="date_of_birth_year"
-                          maxLength={4}
-                          name="applicant.date_of_birth.year"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          onFocus={[Function]}
-                          placeholder="YYYY"
-                          type="text"
-                          value=""
-                        />
-                      </div>
-                      <div
-                        className="d-inline-block"
+                        style={
+                          Object {
+                            "alignSelf": "flex-end",
+                            "display": "flex",
+                            "flexDirection": "column",
+                          }
+                        }
                       />
                     </div>
                   </div>

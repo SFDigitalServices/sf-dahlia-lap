@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import Button from 'components/atoms/Button'
 import AlertBox from 'components/molecules/AlertBox'
+import FormGrid from 'components/molecules/FormGrid'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 import { leaseCreated } from 'components/supplemental_application/actions/leaseActionCreators'
 import {
@@ -18,6 +19,7 @@ import {
 import { hasLease } from 'components/supplemental_application/utils/leaseSectionStates'
 import { getApplicationMembers } from 'components/supplemental_application/utils/supplementalApplicationUtils'
 import { useAppContext } from 'utils/customHooks'
+import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import { touchAllFields, convertPercentAndCurrency } from 'utils/form/validations'
 
 import ContentSection from '../molecules/ContentSection'
@@ -66,6 +68,28 @@ const ConfirmedPreferencesSection = ({
         form={form}
         visited={visited}
       />
+    </ContentSection.Sub>
+    <ContentSection.Sub
+      title='Application Signature'
+      description={
+        <>
+          Complete this section by filling in the date of the applicant’s supplemental application
+          once it has been received. Be sure to enter the date from the application itself, not the
+          date on which you received it.
+        </>
+      }
+    >
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <MultiDateField
+            form={form}
+            formName='supp_app_signed_date'
+            fieldName='supp_app_signed_date'
+            id='supp_app_signed_date'
+            label='Application Signature Date'
+          />
+        </FormGrid.Item>
+      </FormGrid.Row>
     </ContentSection.Sub>
     <ContentSection.Sub title='Household Reserved and Priority Units'>
       <ConfirmedUnits form={form} />
