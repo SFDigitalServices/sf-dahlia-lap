@@ -78,6 +78,7 @@ module Force
       { custom_api: 'processingStatus', domain: 'processing_status', salesforce: 'Processing_Status' },
       { custom_api: 'subStatus', domain: 'sub_status', salesforce: 'Sub_Status' },
       { custom_api: '', domain: 'status_last_updated', salesforce: 'Processing_Date_Updated' },
+      { custom_api: 'suppAppSignedDate', domain: 'supp_app_signed_date', salesforce: 'Supp_App_Signed_Date', type: 'date' },
     ].freeze
 
     def to_domain
@@ -131,6 +132,11 @@ module Force
         domain_fields.listing_id = domain_fields.listing.id
       end
 
+      if domain_fields['supp_app_signed_date']
+        supp_app_signed_date_string = domain_fields['supp_app_signed_date']
+        domain_fields.supp_app_signed_date = self.class.date_to_json(supp_app_signed_date_string)
+      end
+
       domain_fields
     end
 
@@ -177,6 +183,11 @@ module Force
         ada_string = ada_hash.select { |_, v| v }.keys.map { |v| v.humanize.capitalize }.join(';')
         custom_api_fields['adaPrioritiesSelected'] = ada_string
       end
+
+      # Convert array date into string
+      if domain_fields['supp_app_signed_date']
+        custom_api_fields['suppAppSignedDate'] = self.class.date_to_salesforce(domain_fields['supp_app_signed_date'])
+      end
       custom_api_fields
     end
 
@@ -190,6 +201,11 @@ module Force
     # Salesforce field names. Then remove this function as it won't be needed.
     def to_salesforce
       salesforce_fields = super
+
+      if salesforce_fields.Supp_App_Signed_Date && !salesforce_fields.Supp_App_Signed_Date.is_a?(String)
+        salesforce_fields.Supp_App_Signed_Date = self.class.json_to_date(salesforce_fields.Supp_App_Signed_Date)
+      end
+
       add_salesforce_suffix(salesforce_fields)
     end
   end

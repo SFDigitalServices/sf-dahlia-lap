@@ -1,17 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
-import { isEmpty, findIndex } from 'lodash'
+import { isEmpty } from 'lodash'
 
 import Button from 'components/atoms/Button'
 import TableWrapper from 'components/atoms/TableWrapper'
-import ExpandableTable from 'components/molecules/ExpandableTable'
+import ExpandableTable, { ExpanderButton } from 'components/molecules/ExpandableTable'
 import FormGrid from 'components/molecules/FormGrid'
 import InlineModal from 'components/molecules/InlineModal'
 import {
+  cancelEditRentalAssistance,
   createRentalAssistance,
   deleteRentalAssistance,
+  editRentalAssistance,
   updateRentalAssistance
 } from 'components/supplemental_application/actions/rentalAssistanceActionCreators'
+import {
+  convertIdsToIndices,
+  isCreateAssistanceFormOpen
+} from 'components/supplemental_application/utils/rentalAssistanceUtils'
 import { useAppContext } from 'utils/customHooks'
 import {
   CurrencyField,
@@ -23,8 +29,6 @@ import {
 import { isSingleRentalAssistanceValid } from 'utils/form/formSectionValidations'
 import validate, { convertCurrency } from 'utils/form/validations'
 import formUtils from 'utils/formUtils'
-
-const { ExpanderButton } = ExpandableTable
 
 const typeOfAssistance = [
   'Catholic Charities',
@@ -51,6 +55,8 @@ const isOther = (values) => values && values.type_of_assistance === 'Other'
 export const RentalAssistanceTable = ({
   form,
   rentalAssistances,
+  assistanceRowsOpened,
+  onEdit,
   onCancelEdit,
   onSave,
   onDelete,
@@ -65,39 +71,6 @@ export const RentalAssistanceTable = ({
     { content: 'Recurring' },
     { content: '' }
   ]
-
-  const expanderRenderer = (row, expanded, expandedRowToggler) => {
-    return !expanded && !disabled && <ExpanderButton label='Edit' onClick={expandedRowToggler} />
-  }
-
-  const expandedRowRenderer = (rentalAssistances, form) => (row, toggle, original) => {
-    const index = findIndex(rentalAssistances, original)
-
-    // Run the async function, if the result doesn't throw an error, toggle the panel to show/hide
-    const toggleIfSuccessful = (asyncFunc) => (...args) => asyncFunc(...args).then(toggle)
-
-    const handleClose = () => {
-      onCancelEdit(index)
-      toggle()
-    }
-
-    const handleDelete = () => toggleIfSuccessful(onDelete)(rentalAssistances[index])
-    const handleSave = (index) => toggleIfSuccessful(onSave)(index)
-
-    return (
-      <RentalAssistanceForm
-        values={original}
-        row={row}
-        onSave={handleSave}
-        onClose={handleClose}
-        onDelete={handleDelete}
-        index={index}
-        applicationMembers={applicationMembers}
-        loading={loading}
-        form={form}
-      />
-    )
-  }
 
   const buildRows = () =>
     rentalAssistances.map((ra) => {
@@ -120,9 +93,24 @@ export const RentalAssistanceTable = ({
         originals={rentalAssistances}
         columns={columns}
         rows={rows}
-        expanderRenderer={expanderRenderer}
-        expandedRowRenderer={expandedRowRenderer(rentalAssistances, form)}
-        closeAllRows={disabled}
+        expandedRowIndices={convertIdsToIndices(rentalAssistances, assistanceRowsOpened)}
+        renderExpanderButton={(index, row, original, expanded) =>
+          !expanded &&
+          !disabled && <ExpanderButton label='Edit' onClick={() => onEdit(original, index)} />
+        }
+        renderRow={(index, row, original) => (
+          <RentalAssistanceForm
+            values={original}
+            row={row}
+            onSave={() => onSave(original, index)}
+            onClose={() => onCancelEdit(original, index)}
+            onDelete={() => onDelete(original, index)}
+            index={index}
+            applicationMembers={applicationMembers}
+            loading={loading}
+            form={form}
+          />
+        )}
         classes={['rental-assistances']}
       />
     </TableWrapper>
@@ -161,12 +149,6 @@ export const RentalAssistanceForm = ({
     label: `${member.first_name} ${member.last_name}`,
     value: member.id
   }))
-
-  const handleSave = () => {
-    if (isFormValid()) {
-      onSave(index)
-    }
-  }
 
   const getField = (assistanceField) => `rental_assistances.${index}.${assistanceField}`
 
@@ -233,7 +215,7 @@ export const RentalAssistanceForm = ({
           <Button
             classes='primary margin-right'
             tiny
-            onClick={handleSave}
+            onClick={() => isFormValid() && onSave()}
             disabled={loading}
             noBottomMargin
             text={loading ? 'Saving...' : 'Save'}
@@ -267,36 +249,22 @@ export const RentalAssistanceForm = ({
 
 const RentalAssistance = ({
   form,
+  applicationMembers,
   rentalAssistances,
   applicationId,
-  applicationMembers,
-  visited,
-  disabled,
-  loading
+  assistanceRowsOpened,
+  loading,
+  disabled
 }) => {
-  const [isEditingNewAssistance, setIsEditingNewAssistance] = useState(false)
   const [, dispatch] = useAppContext()
 
-  /**
-   * When the disabled prop changes to false, hide the new assistance panel.
-   */
-  useEffect(() => {
-    if (disabled) {
-      setIsEditingNewAssistance(false)
-    }
-  }, [disabled])
-
-  const handleOpenNewPanel = () => setIsEditingNewAssistance(true)
-
-  const handleCloseNewPanel = () => {
-    setIsEditingNewAssistance(false)
-    handleCancelEdit(rentalAssistances.length)
-  }
+  const isEditingNewAssistance = isCreateAssistanceFormOpen(assistanceRowsOpened)
 
   const handleCancelEdit = (index) => {
     const isNewAssistance = index === rentalAssistances.length
     const assistanceToRevertTo = isNewAssistance ? {} : rentalAssistances[index]
     form.change(`rental_assistances.${index}`, assistanceToRevertTo)
+    cancelEditRentalAssistance(dispatch, assistanceToRevertTo.id)
   }
 
   const handleSave = async (index, action = 'update') => {
@@ -308,9 +276,7 @@ const RentalAssistance = ({
           ...rentalAssistance,
           ...(rentalAssistance.type_of_assistance !== 'Other' && { other_assistance_name: null })
         })
-      : createRentalAssistance(dispatch, applicationId, rentalAssistance).then(() =>
-          setIsEditingNewAssistance(false)
-        )
+      : createRentalAssistance(dispatch, applicationId, rentalAssistance)
   }
 
   return (
@@ -319,9 +285,11 @@ const RentalAssistance = ({
         <RentalAssistanceTable
           rentalAssistances={rentalAssistances}
           applicationMembers={applicationMembers}
-          onCancelEdit={handleCancelEdit}
+          assistanceRowsOpened={assistanceRowsOpened}
+          onEdit={(rentalAssistance) => editRentalAssistance(dispatch, rentalAssistance.id)}
+          onCancelEdit={(_, index) => handleCancelEdit(index)}
           onDelete={(rentalAssistance) => deleteRentalAssistance(dispatch, rentalAssistance.id)}
-          onSave={(index) => handleSave(index, 'update')}
+          onSave={(assistance, index) => handleSave(index, 'update')}
           form={form}
           loading={loading}
           disabled={disabled}
@@ -331,14 +299,13 @@ const RentalAssistance = ({
       {!disabled && isEditingNewAssistance && (
         <FormGrid.Row expand={false}>
           <RentalAssistanceForm
-            onSave={(index) => handleSave(index, 'create')}
-            onClose={handleCloseNewPanel}
+            onSave={() => handleSave(rentalAssistances.length, 'create')}
+            onClose={() => handleCancelEdit(rentalAssistances.length)}
             applicationMembers={applicationMembers}
             loading={loading}
             values={{ type_of_assistance: null }}
             index={rentalAssistances.length}
             form={form}
-            visited={visited}
             isNew
           />
         </FormGrid.Row>
@@ -352,7 +319,7 @@ const RentalAssistance = ({
                 text='Add Rental Assistance'
                 small
                 disabled={loading}
-                onClick={handleOpenNewPanel}
+                onClick={() => editRentalAssistance(dispatch, null)}
               />
             )}
             <div className={disabled ? 'margin-top' : 'margin-top--half'} />

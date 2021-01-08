@@ -1009,6 +1009,109 @@ Array [
               <h3
                 className="app-card_h3 t-sans"
               >
+                Application Signature
+              </h3>
+              <p
+                className="form-note max-width margin-bottom--3halves"
+              >
+                Complete this section by filling in the date of the applicant’s supplemental application once it has been received. Be sure to enter the date from the application itself, not the date on which you received it.
+              </p>
+              <div
+                className=""
+                style={
+                  Object {
+                    "marginBottom": "1.75rem",
+                  }
+                }
+              >
+                <div
+                  className="form-grid row expand"
+                >
+                  <div
+                    className="form-grid_item column small-6"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="form-label"
+                        htmlFor="supp_app_signed_date"
+                      >
+                        Application Signature Date
+                      </label>
+                      <div
+                        id="date-group"
+                        style={
+                          Object {
+                            "display": "flex",
+                          }
+                        }
+                      >
+                        <div
+                          className="form-group-month"
+                        >
+                          <input
+                            className=""
+                            id="supp_app_signed_date_month"
+                            maxLength={2}
+                            name="supp_app_signed_date.month"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            placeholder="MM"
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                        <div
+                          className="form-group-day"
+                        >
+                          <input
+                            className=""
+                            id="supp_app_signed_date_day"
+                            maxLength={2}
+                            name="supp_app_signed_date.day"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            placeholder="DD"
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                        <div
+                          className="form-group-year"
+                        >
+                          <input
+                            className=""
+                            id="supp_app_signed_date_year"
+                            maxLength={4}
+                            name="supp_app_signed_date.year"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            placeholder="YYYY"
+                            type="text"
+                            value=""
+                          />
+                        </div>
+                      </div>
+                      <div
+                        style={
+                          Object {
+                            "alignSelf": "flex-end",
+                            "display": "flex",
+                            "flexDirection": "column",
+                          }
+                        }
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h3
+                className="app-card_h3 t-sans"
+              >
                 Household Reserved and Priority Units
               </h3>
               <div
@@ -5751,58 +5854,73 @@ Array [
                           Lease Start Date
                         </label>
                         <div
-                          className="form-group-month"
+                          id="date-group"
+                          style={
+                            Object {
+                              "display": "flex",
+                            }
+                          }
                         >
-                          <input
-                            className=""
-                            disabled={true}
-                            id="lease_start_date_month"
-                            maxLength={2}
-                            name="lease.lease_start_date.month"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
-                            placeholder="MM"
-                            type="text"
-                            value="01"
-                          />
+                          <div
+                            className="form-group-month"
+                          >
+                            <input
+                              className=""
+                              disabled={true}
+                              id="lease_start_date_month"
+                              maxLength={2}
+                              name="lease.lease_start_date.month"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              onFocus={[Function]}
+                              placeholder="MM"
+                              type="text"
+                              value="01"
+                            />
+                          </div>
+                          <div
+                            className="form-group-day"
+                          >
+                            <input
+                              className=""
+                              disabled={true}
+                              id="lease_start_date_day"
+                              maxLength={2}
+                              name="lease.lease_start_date.day"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              onFocus={[Function]}
+                              placeholder="DD"
+                              type="text"
+                              value="01"
+                            />
+                          </div>
+                          <div
+                            className="form-group-year"
+                          >
+                            <input
+                              className=""
+                              disabled={true}
+                              id="lease_start_date_year"
+                              maxLength={4}
+                              name="lease.lease_start_date.year"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              onFocus={[Function]}
+                              placeholder="YYYY"
+                              type="text"
+                              value="2019"
+                            />
+                          </div>
                         </div>
                         <div
-                          className="form-group-day"
-                        >
-                          <input
-                            className=""
-                            disabled={true}
-                            id="lease_start_date_day"
-                            maxLength={2}
-                            name="lease.lease_start_date.day"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
-                            placeholder="DD"
-                            type="text"
-                            value="01"
-                          />
-                        </div>
-                        <div
-                          className="form-group-year"
-                        >
-                          <input
-                            className=""
-                            disabled={true}
-                            id="lease_start_date_year"
-                            maxLength={4}
-                            name="lease.lease_start_date.year"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
-                            placeholder="YYYY"
-                            type="text"
-                            value="2019"
-                          />
-                        </div>
-                        <div
-                          className="d-inline-block"
+                          style={
+                            Object {
+                              "alignSelf": "flex-end",
+                              "display": "flex",
+                              "flexDirection": "column",
+                            }
+                          }
                         />
                       </div>
                     </div>
@@ -6353,6 +6471,7 @@ Array [
                       disabled={false}
                       id="add-status-history-comment"
                       onClick={[Function]}
+                      type="button"
                     >
                       Add a comment
                     </button>
@@ -6468,6 +6587,7 @@ Array [
                       disabled={false}
                       id="add-status-history-comment"
                       onClick={[Function]}
+                      type="button"
                     >
                       Add a comment
                     </button>
