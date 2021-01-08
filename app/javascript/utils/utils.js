@@ -1,4 +1,13 @@
-import { forEach, isEmpty, isEqual, isPlainObject, map, mapValues, propertyOf } from 'lodash'
+import {
+  difference,
+  forEach,
+  isEmpty,
+  isEqual,
+  isPlainObject,
+  map,
+  mapValues,
+  propertyOf
+} from 'lodash'
 
 // FIXME Rename to a more useful filename.
 export const SALESFORCE_DATE_FORMAT = 'YYYY-MM-DDTHH:mm:ss.SSSZZ'
@@ -32,7 +41,8 @@ export const filterChanged = (prev, current) => {
   const changedFields = {}
   forEach(current, (value, key) => {
     if (!isEqual(prev[key], value)) {
-      if (isPlainObject(value) && prev[key] !== null) {
+      // date fields need to be treated as whole
+      if (isPlainObject(value) && prev[key] !== null && !isDateObject(value)) {
         const obj = filterChanged(prev[key], value)
         if (!isEmpty(obj)) {
           if (value.id) {
@@ -46,7 +56,21 @@ export const filterChanged = (prev, current) => {
     }
   })
   changedFields.id = prev.id
+  // Set removed keys to null
+  const missingKeys = difference(Object.keys(prev), Object.keys(current))
+  forEach(missingKeys, (key) => {
+    changedFields[key] = null
+  })
   return changedFields
+}
+
+export const isDateObject = (object) => {
+  if (!object || !isPlainObject(object)) {
+    return false
+  }
+  const objectKeys = Object.keys(object)
+
+  return difference(objectKeys, ['month', 'day', 'year']).length === 0
 }
 
 export default {

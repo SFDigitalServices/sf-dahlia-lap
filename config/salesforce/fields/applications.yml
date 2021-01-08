@@ -181,6 +181,7 @@ applications:
     AMI_Percentage__c:
     AMI_Chart_Type__c:
     AMI_Chart_Year__c:
+    Supp_App_Signed_Date__c:
 
 flagged_record_sets:
   pending_review_fields:

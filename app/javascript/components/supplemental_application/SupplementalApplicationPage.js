@@ -149,6 +149,14 @@ const WrappedWithSuppAppForm = ({ onSubmit, applicationSinceLastSave, render }) 
         errors.lease.lease_start_date = dateErrors
       }
     }
+    if (!isEmpty(values.supp_app_signed_date)) {
+      const dateErrors = validate.isValidDate(values.supp_app_signed_date, {})
+
+      // only set any error fields if there were actually any date errors.
+      if (dateErrors?.all || dateErrors?.day || dateErrors?.month || dateErrors?.year) {
+        errors.supp_app_signed_date = dateErrors
+      }
+    }
     return errors
   }
 
