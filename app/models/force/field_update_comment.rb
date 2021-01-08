@@ -16,7 +16,7 @@ module Force
       domain_fields = super
 
       domain_fields.timestamp = domain_fields.date.to_time.to_i if domain_fields.date
-      domain_fields.created_by = @fields.salesforce.CreatedBy.Name
+      domain_fields.created_by = @fields.salesforce.CreatedBy && @fields.salesforce.CreatedBy.Name
 
       domain_fields
     end

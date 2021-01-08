@@ -11,6 +11,7 @@ RSpec.describe Force::FieldUpdateComment do
       'date' => '2020-05-28T20:13:19.000+0000',
       'substatus' => 'Approval letter sent',
       'timestamp' => 1590696799,
+      'created_by' => 'User Name',
     }
   end
   let(:mock_salesforce) do
@@ -20,6 +21,7 @@ RSpec.describe Force::FieldUpdateComment do
       'Processing_Status' => 'Approved',
       'Processing_Date_Updated' => '2020-05-28T20:13:19.000+0000',
       'Sub_Status' => 'Approval letter sent',
+      'CreatedBy' => { 'Name': 'User Name' },
     }
   end
   let(:mock_salesforce_with_suffix) do
@@ -29,6 +31,7 @@ RSpec.describe Force::FieldUpdateComment do
       'Processing_Status__c' => 'Approved',
       'Processing_Date_Updated__c' => '2020-05-28T20:13:19.000+0000',
       'Sub_Status__c' => 'Approval letter sent',
+      'CreatedBy.Name__c': 'User Name',
     }
   end
 
