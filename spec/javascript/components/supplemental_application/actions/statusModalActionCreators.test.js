@@ -164,7 +164,10 @@ describe('statusModalActionCreators', () => {
             statusHistory: [],
             statusModal: {
               isOpen: false
-            }
+            },
+            confirmedPreferencesFailed: false,
+            preferenceRowsOpened: new Set(),
+            assistanceRowsOpened: new Set()
           }
         },
         { type: ACTIONS.SUPP_APP_LOAD_COMPLETE, data: { statusModal: { loading: false } } }

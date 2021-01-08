@@ -60,6 +60,9 @@ export const getApplicationStateOverridesAfterUpdate = (
   return {
     application: setApplicationDefaults(applicationResponse),
     leaseSectionState: leaveEditMode(prevLeaseSectionState),
+    preferenceRowsOpened: new Set(),
+    assistanceRowsOpened: new Set(),
+    confirmedPreferencesFailed: false,
     ...additionalFieldsToUpdate
   }
 }
