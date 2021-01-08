@@ -4,7 +4,7 @@ import ACTIONS from '../actions'
 
 // This id is never sent to the backend, only used to identify frontend
 // "new" assistance objects that haven't been persisted yet.
-export const NEW_ASSISTANCE_PSEUDO_ID = -101
+export const NEW_ASSISTANCE_PSEUDO_ID = 'new_assistance_pseudo_id'
 
 export const getEmptyStatusModalState = () => ({
   alertMsg: null,
