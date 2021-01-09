@@ -21,7 +21,6 @@ RSpec.describe Force::FieldUpdateComment do
       'Processing_Status' => 'Approved',
       'Processing_Date_Updated' => '2020-05-28T20:13:19.000+0000',
       'Sub_Status' => 'Approval letter sent',
-      'CreatedBy' => { 'Name': 'User Name' },
     }
   end
   let(:mock_salesforce_with_suffix) do
@@ -31,12 +30,12 @@ RSpec.describe Force::FieldUpdateComment do
       'Processing_Status__c' => 'Approved',
       'Processing_Date_Updated__c' => '2020-05-28T20:13:19.000+0000',
       'Sub_Status__c' => 'Approval letter sent',
-      'CreatedBy.Name__c': 'User Name',
     }
   end
 
   describe '#to_domain' do
     it 'should convert from salesforce fields to domain' do
+      mock_salesforce['CreatedBy'] = { 'Name': 'User Name' }
       result = Force::FieldUpdateComment.from_salesforce(mock_salesforce).to_domain
       expect(result).to eq(mock_domain)
     end
