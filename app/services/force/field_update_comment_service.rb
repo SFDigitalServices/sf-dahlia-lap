@@ -22,7 +22,7 @@ module Force
     def status_history_by_application(application_id)
       result = parsed_index_query(
         %(
-          SELECT Application__c, Processing_Comment__c, Processing_Date_Updated__c, Processing_Status__c, Sub_Status__c
+          SELECT Application__c, Processing_Comment__c, Processing_Date_Updated__c, Processing_Status__c, Sub_Status__c, CreatedBy.Name
           FROM Field_Update_Comment__c
           WHERE Application__c = '#{application_id}'
           ORDER BY Processing_Date_Updated__c DESC

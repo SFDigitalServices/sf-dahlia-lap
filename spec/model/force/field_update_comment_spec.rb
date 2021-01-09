@@ -11,6 +11,7 @@ RSpec.describe Force::FieldUpdateComment do
       'date' => '2020-05-28T20:13:19.000+0000',
       'substatus' => 'Approval letter sent',
       'timestamp' => 1590696799,
+      'created_by' => 'User Name',
     }
   end
   let(:mock_salesforce) do
@@ -34,6 +35,7 @@ RSpec.describe Force::FieldUpdateComment do
 
   describe '#to_domain' do
     it 'should convert from salesforce fields to domain' do
+      mock_salesforce['CreatedBy'] = { 'Name': 'User Name' }
       result = Force::FieldUpdateComment.from_salesforce(mock_salesforce).to_domain
       expect(result).to eq(mock_domain)
     end

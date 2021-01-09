@@ -10,9 +10,6 @@ exports[`StatusItem should render an approved status with substatus and comments
     <StatusPill
       status="Approved"
     />
-    <StatusDate
-      timestamp={1598385600}
-    />
   </div>
   <div
     className="item-substatus-text"
@@ -23,6 +20,14 @@ exports[`StatusItem should render an approved status with substatus and comments
     className="status-item-text"
   >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+  </div>
+  <div
+    className="status-item-footer"
+  >
+    <StatusCreatedBy />
+    <StatusDate
+      timestamp={1598385600}
+    />
   </div>
 </div>
 `;
@@ -37,13 +42,18 @@ exports[`StatusItem should render properly when no comment or substatus provided
     <StatusPill
       status="Approved"
     />
-    <StatusDate
-      timestamp={1598385600}
-    />
   </div>
   <div
     className="status-item-text"
   />
+  <div
+    className="status-item-footer"
+  >
+    <StatusCreatedBy />
+    <StatusDate
+      timestamp={1598385600}
+    />
+  </div>
 </div>
 `;
 
@@ -57,9 +67,6 @@ exports[`StatusItem should render properly when no comment provided 1`] = `
     <StatusPill
       status="Approved"
     />
-    <StatusDate
-      timestamp={1598385600}
-    />
   </div>
   <div
     className="item-substatus-text"
@@ -69,6 +76,14 @@ exports[`StatusItem should render properly when no comment provided 1`] = `
   <div
     className="status-item-text"
   />
+  <div
+    className="status-item-footer"
+  >
+    <StatusCreatedBy />
+    <StatusDate
+      timestamp={1598385600}
+    />
+  </div>
 </div>
 `;
 
@@ -82,14 +97,19 @@ exports[`StatusItem should render properly when no substatus provided 1`] = `
     <StatusPill
       status="Approved"
     />
-    <StatusDate
-      timestamp={1598385600}
-    />
   </div>
   <div
     className="status-item-text"
   >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+  </div>
+  <div
+    className="status-item-footer"
+  >
+    <StatusCreatedBy />
+    <StatusDate
+      timestamp={1598385600}
+    />
   </div>
 </div>
 `;
@@ -104,14 +124,19 @@ exports[`StatusItem should render properly with Appealed status 1`] = `
     <StatusPill
       status="Appealed"
     />
-    <StatusDate
-      timestamp={1598385600}
-    />
   </div>
   <div
     className="status-item-text"
   >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+  </div>
+  <div
+    className="status-item-footer"
+  >
+    <StatusCreatedBy />
+    <StatusDate
+      timestamp={1598385600}
+    />
   </div>
 </div>
 `;
@@ -126,14 +151,19 @@ exports[`StatusItem should render properly with Disqualified status 1`] = `
     <StatusPill
       status="Disqualified"
     />
-    <StatusDate
-      timestamp={1598385600}
-    />
   </div>
   <div
     className="status-item-text"
   >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+  </div>
+  <div
+    className="status-item-footer"
+  >
+    <StatusCreatedBy />
+    <StatusDate
+      timestamp={1598385600}
+    />
   </div>
 </div>
 `;
@@ -148,14 +178,19 @@ exports[`StatusItem should render properly with Lease Signed status 1`] = `
     <StatusPill
       status="Lease Signed"
     />
-    <StatusDate
-      timestamp={1598385600}
-    />
   </div>
   <div
     className="status-item-text"
   >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+  </div>
+  <div
+    className="status-item-footer"
+  >
+    <StatusCreatedBy />
+    <StatusDate
+      timestamp={1598385600}
+    />
   </div>
 </div>
 `;
@@ -170,14 +205,19 @@ exports[`StatusItem should render properly with Processing status 1`] = `
     <StatusPill
       status="Processing"
     />
-    <StatusDate
-      timestamp={1598385600}
-    />
   </div>
   <div
     className="status-item-text"
   >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+  </div>
+  <div
+    className="status-item-footer"
+  >
+    <StatusCreatedBy />
+    <StatusDate
+      timestamp={1598385600}
+    />
   </div>
 </div>
 `;
@@ -192,14 +232,19 @@ exports[`StatusItem should render properly with withdrawn status 1`] = `
     <StatusPill
       status="Withdrawn"
     />
-    <StatusDate
-      timestamp={1598385600}
-    />
   </div>
   <div
     className="status-item-text"
   >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+  </div>
+  <div
+    className="status-item-footer"
+  >
+    <StatusCreatedBy />
+    <StatusDate
+      timestamp={1598385600}
+    />
   </div>
 </div>
 `;
