@@ -28,8 +28,12 @@ const LiveOrWorkInSanFranciscoPanel = ({
   preferenceIndex,
   applicationMembersOptions
 }) => {
+  const getFormPreferenceOrNull = () => form.getState().values?.preferences?.[preferenceIndex]
+
   const [prefProofTypeOptions, setProofTypeOptions] = useState(
-    getLWPrefProofTypeOptions(preference.individual_preference)
+    getLWPrefProofTypeOptions(
+      getFormPreferenceOrNull()?.individual_preference ?? preference.individual_preference
+    )
   )
 
   const updatePrefProofOptions = (event) => {
