@@ -49,17 +49,10 @@ class EagerPagination {
     return getServerPageForEagerPage(page, this.eager.size, this.server.size)
   }
 
-  // /**
-  //  * Update all record data. Useful when you make a change that may affect records on other pages and you need
-  //  * the changes to be visible when the
-  //  * @param {(record) => record} recordMapperFn function that modifies a record and returns the result.
-  //  */
-  // mapRecords(recordMapperFn) {}
-
   /**
    * @param {number} eagerPage page number to fetch
    * @param {() => { records, pages }} fetchPage function to fetch the new server page
-   * @param {*} forceRefresh true if the records should be refreshed even if they
+   * @param {boolean} forceRefresh true if the records should be refreshed even if they
    *   exist on the server.
    */
   async getPage(eagerPage, fetchPage, forceRefresh = false) {
