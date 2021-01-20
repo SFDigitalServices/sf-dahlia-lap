@@ -154,6 +154,9 @@ const LeaseUpApplicationsTable = ({
       minWidth: getCellWidth(STATUS_COLUMN_WIDTH_PX, true),
       Cell: (cell) => {
         const { application_id: applicationId } = cell.original
+        if (cell.original.first_name === 'Kara') {
+          console.log(cell)
+        }
         return (
           <StatusCell
             applicationId={applicationId}

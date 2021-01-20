@@ -32,6 +32,7 @@ const LeaseUpTableContainer = ({
     statusModal
   }
 }) => {
+  console.log(applications.length)
   const buildRowData = (result) => {
     const rowData = cloneDeep(result)
     // get keys and remove empty values

@@ -89,7 +89,10 @@ const LeaseUpApplicationsPage = () => {
     eagerPagination: new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
   })
 
-  const [bulkCheckboxesState, setBulkCheckboxesState] = useStateObject({})
+  const [bulkCheckboxesState, setBulkCheckboxesState, overrideBulkCheckboxesState] = useStateObject(
+    {}
+  )
+
   const [statusModalState, setStatusModalState] = useStateObject({
     alertMsg: null,
     isCommentModal: false,
@@ -157,8 +160,10 @@ const LeaseUpApplicationsPage = () => {
       a[b] = false
       return a
     }, {})
+
     // set state to false for all of the initial applications
-    setBulkCheckboxesState(emptyCheckboxes)
+    // and clear out any application entries from a previous page.
+    overrideBulkCheckboxesState(emptyCheckboxes)
   }
 
   const handleBulkCheckboxClick = (appId) => {
