@@ -2,13 +2,17 @@ import React from 'react'
 
 import classNames from 'classnames'
 import { trim } from 'lodash'
+import { Link, useHistory } from 'react-router-dom'
 import ReactTable from 'react-table'
 
-import Button from 'components/atoms/Button'
-import { applicationsTablePageChanged } from 'components/lease_ups/actions/actionCreators'
+import {
+  applicationRowClicked,
+  applicationsTablePageChanged
+} from 'components/lease_ups/actions/actionCreators'
 import CheckboxCell from 'components/lease_ups/application_page/CheckboxCell'
 import PreferenceRankCell from 'components/lease_ups/application_page/PreferenceRankCell'
 import StatusCell from 'components/lease_ups/application_page/StatusCell'
+import appPaths from 'utils/appPaths'
 import { useAppContext } from 'utils/customHooks'
 import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
 import { cellFormat } from 'utils/reactTableUtils'
@@ -42,7 +46,6 @@ const textCell = ({ value }) => {
 const LeaseUpApplicationsTable = ({
   dataSet,
   onLeaseUpStatusChange,
-  onCellClick,
   loading,
   pages,
   rowsPerPage,
@@ -56,6 +59,16 @@ const LeaseUpApplicationsTable = ({
     },
     dispatch
   ] = useAppContext()
+
+  const history = useHistory()
+
+  const updateSelectedApplicationState = (application, navigateToApplication = false) => {
+    applicationRowClicked(dispatch, application)
+
+    if (navigateToApplication) {
+      history.push(appPaths.toLeaseUpApplication(application.application_id))
+    }
+  }
 
   const maxPagesMsg = `Unfortunately, we can only display the first ${
     MAX_SERVER_LIMIT / rowsPerPage
@@ -96,9 +109,12 @@ const LeaseUpApplicationsTable = ({
       headerClassName: 'non-resizable',
       width: getCellWidth(96),
       Cell: (cell) => (
-        <Button classes='button-link' onClick={() => onCellClick(cell)}>
+        <Link
+          to={appPaths.toLeaseUpApplication(cell.original.application_id)}
+          onClick={() => updateSelectedApplicationState(cell.original, false)}
+        >
           {cell.value}
-        </Button>
+        </Link>
       )
     },
     {
@@ -175,7 +191,7 @@ const LeaseUpApplicationsTable = ({
       column.id !== 'bulk_checkbox'
     ) {
       attrs.onClick = (e, handleOriginal) => {
-        if (rowInfo) onCellClick(rowInfo)
+        if (rowInfo) updateSelectedApplicationState(rowInfo.original, true)
       }
     }
 

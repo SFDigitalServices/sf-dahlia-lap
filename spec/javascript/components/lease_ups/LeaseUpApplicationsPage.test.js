@@ -1,5 +1,6 @@
 /* eslint-disable jest/no-conditional-expect */
 import { act } from 'react-dom/test-utils'
+import { Link } from 'react-router-dom'
 import Select from 'react-select'
 
 import Button from 'components/atoms/Button'
@@ -184,7 +185,7 @@ describe('LeaseUpApplicationsPage', () => {
 
   test('should render application links as routed links', () => {
     const mockAppNames = mockApplications.map((app) => app.application.name)
-    const applicationLinkWrappers = mockAppNames.map((name) => findWithText(wrapper, Button, name))
+    const applicationLinkWrappers = mockAppNames.map((name) => findWithText(wrapper, Link, name))
 
     // Just double check that our list has the same length as mockApplications, because if
     // for some reason it had length 0 the .every(..) call would always return true by default

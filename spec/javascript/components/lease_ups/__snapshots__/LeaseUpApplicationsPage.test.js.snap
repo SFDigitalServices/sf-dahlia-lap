@@ -2530,7 +2530,6 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
               listingId="listingId"
               loading={false}
               onBulkCheckboxClick={[Function]}
-              onCellClick={[Function]}
               onLeaseUpStatusChange={[Function]}
               pages={NaN}
               rowsPerPage={20}
@@ -3959,30 +3958,23 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         viewIndex={0}
                                         width={112}
                                       >
-                                        <Button
-                                          classes="button-link"
+                                        <Link
                                           onClick={[Function]}
+                                          to="/lease-ups/applications/1001"
                                         >
-                                          <button
-                                            className="button-link"
+                                          <LinkAnchor
+                                            href="/lease-ups/applications/1001"
+                                            navigate={[Function]}
                                             onClick={[Function]}
-                                            style={Object {}}
-                                            type="button"
                                           >
-                                            <div
-                                              style={
-                                                Object {
-                                                  "alignItems": "center",
-                                                  "display": "flex",
-                                                  "justifyContent": "space-between",
-                                                  "width": "100%",
-                                                }
-                                              }
+                                            <a
+                                              href="/lease-ups/applications/1001"
+                                              onClick={[Function]}
                                             >
                                               Application Name 1001
-                                            </div>
-                                          </button>
-                                        </Button>
+                                            </a>
+                                          </LinkAnchor>
+                                        </Link>
                                       </Cell>
                                     </div>
                                   </TdComponent>
@@ -7313,30 +7305,23 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         viewIndex={1}
                                         width={112}
                                       >
-                                        <Button
-                                          classes="button-link"
+                                        <Link
                                           onClick={[Function]}
+                                          to="/lease-ups/applications/1002"
                                         >
-                                          <button
-                                            className="button-link"
+                                          <LinkAnchor
+                                            href="/lease-ups/applications/1002"
+                                            navigate={[Function]}
                                             onClick={[Function]}
-                                            style={Object {}}
-                                            type="button"
                                           >
-                                            <div
-                                              style={
-                                                Object {
-                                                  "alignItems": "center",
-                                                  "display": "flex",
-                                                  "justifyContent": "space-between",
-                                                  "width": "100%",
-                                                }
-                                              }
+                                            <a
+                                              href="/lease-ups/applications/1002"
+                                              onClick={[Function]}
                                             >
                                               Application Name 1002
-                                            </div>
-                                          </button>
-                                        </Button>
+                                            </a>
+                                          </LinkAnchor>
+                                        </Link>
                                       </Cell>
                                     </div>
                                   </TdComponent>
@@ -10667,30 +10652,23 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         viewIndex={2}
                                         width={112}
                                       >
-                                        <Button
-                                          classes="button-link"
+                                        <Link
                                           onClick={[Function]}
+                                          to="/lease-ups/applications/1003"
                                         >
-                                          <button
-                                            className="button-link"
+                                          <LinkAnchor
+                                            href="/lease-ups/applications/1003"
+                                            navigate={[Function]}
                                             onClick={[Function]}
-                                            style={Object {}}
-                                            type="button"
                                           >
-                                            <div
-                                              style={
-                                                Object {
-                                                  "alignItems": "center",
-                                                  "display": "flex",
-                                                  "justifyContent": "space-between",
-                                                  "width": "100%",
-                                                }
-                                              }
+                                            <a
+                                              href="/lease-ups/applications/1003"
+                                              onClick={[Function]}
                                             >
                                               Application Name 1003
-                                            </div>
-                                          </button>
-                                        </Button>
+                                            </a>
+                                          </LinkAnchor>
+                                        </Link>
                                       </Cell>
                                     </div>
                                   </TdComponent>
@@ -14021,30 +13999,23 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         viewIndex={3}
                                         width={112}
                                       >
-                                        <Button
-                                          classes="button-link"
+                                        <Link
                                           onClick={[Function]}
+                                          to="/lease-ups/applications/1004"
                                         >
-                                          <button
-                                            className="button-link"
+                                          <LinkAnchor
+                                            href="/lease-ups/applications/1004"
+                                            navigate={[Function]}
                                             onClick={[Function]}
-                                            style={Object {}}
-                                            type="button"
                                           >
-                                            <div
-                                              style={
-                                                Object {
-                                                  "alignItems": "center",
-                                                  "display": "flex",
-                                                  "justifyContent": "space-between",
-                                                  "width": "100%",
-                                                }
-                                              }
+                                            <a
+                                              href="/lease-ups/applications/1004"
+                                              onClick={[Function]}
                                             >
                                               Application Name 1004
-                                            </div>
-                                          </button>
-                                        </Button>
+                                            </a>
+                                          </LinkAnchor>
+                                        </Link>
                                       </Cell>
                                     </div>
                                   </TdComponent>
@@ -17375,30 +17346,23 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         viewIndex={4}
                                         width={112}
                                       >
-                                        <Button
-                                          classes="button-link"
+                                        <Link
                                           onClick={[Function]}
+                                          to="/lease-ups/applications/1005"
                                         >
-                                          <button
-                                            className="button-link"
+                                          <LinkAnchor
+                                            href="/lease-ups/applications/1005"
+                                            navigate={[Function]}
                                             onClick={[Function]}
-                                            style={Object {}}
-                                            type="button"
                                           >
-                                            <div
-                                              style={
-                                                Object {
-                                                  "alignItems": "center",
-                                                  "display": "flex",
-                                                  "justifyContent": "space-between",
-                                                  "width": "100%",
-                                                }
-                                              }
+                                            <a
+                                              href="/lease-ups/applications/1005"
+                                              onClick={[Function]}
                                             >
                                               Application Name 1005
-                                            </div>
-                                          </button>
-                                        </Button>
+                                            </a>
+                                          </LinkAnchor>
+                                        </Link>
                                       </Cell>
                                     </div>
                                   </TdComponent>
@@ -20729,30 +20693,23 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         viewIndex={5}
                                         width={112}
                                       >
-                                        <Button
-                                          classes="button-link"
+                                        <Link
                                           onClick={[Function]}
+                                          to="/lease-ups/applications/1005"
                                         >
-                                          <button
-                                            className="button-link"
+                                          <LinkAnchor
+                                            href="/lease-ups/applications/1005"
+                                            navigate={[Function]}
                                             onClick={[Function]}
-                                            style={Object {}}
-                                            type="button"
                                           >
-                                            <div
-                                              style={
-                                                Object {
-                                                  "alignItems": "center",
-                                                  "display": "flex",
-                                                  "justifyContent": "space-between",
-                                                  "width": "100%",
-                                                }
-                                              }
+                                            <a
+                                              href="/lease-ups/applications/1005"
+                                              onClick={[Function]}
                                             >
                                               Application Name 1005
-                                            </div>
-                                          </button>
-                                        </Button>
+                                            </a>
+                                          </LinkAnchor>
+                                        </Link>
                                       </Cell>
                                     </div>
                                   </TdComponent>
