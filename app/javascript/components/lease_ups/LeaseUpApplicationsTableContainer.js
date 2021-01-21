@@ -1,12 +1,8 @@
 import React from 'react'
 
 import { capitalize, compact, map, cloneDeep } from 'lodash'
-import { useHistory } from 'react-router-dom'
 
-import { applicationRowClicked } from 'components/lease_ups/actions/actionCreators'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
-import appPaths from 'utils/appPaths'
-import { useAppContext } from 'utils/customHooks'
 
 import { withContext } from './context'
 import LeaseUpApplicationsFilterContainer from './LeaseUpApplicationsFilterContainer'
@@ -50,15 +46,6 @@ const LeaseUpTableContainer = ({
     return rowData
   }
 
-  const history = useHistory()
-  const [, dispatch] = useAppContext()
-
-  const handleCellClick = (rowInfo) => {
-    const application = rowInfo.original
-    applicationRowClicked(dispatch, application)
-    history.push(appPaths.toLeaseUpApplication(rowInfo.original.application_id))
-  }
-
   const rowsData = (applications) => map(applications, buildRowData)
   return (
     <>
@@ -76,7 +63,6 @@ const LeaseUpTableContainer = ({
         dataSet={rowsData(applications)}
         listingId={listingId}
         onLeaseUpStatusChange={onLeaseUpStatusChange}
-        onCellClick={handleCellClick}
         loading={loading}
         pages={pages}
         rowsPerPage={rowsPerPage}
