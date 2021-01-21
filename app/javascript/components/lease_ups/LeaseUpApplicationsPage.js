@@ -86,10 +86,14 @@ const LeaseUpApplicationsPage = () => {
     applications: [],
     pages: 0,
     atMaxPages: false,
+    forceRefreshNextPageUpdate: false,
     eagerPagination: new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
   })
 
-  const [bulkCheckboxesState, setBulkCheckboxesState] = useStateObject({})
+  const [bulkCheckboxesState, setBulkCheckboxesState, overrideBulkCheckboxesState] = useStateObject(
+    {}
+  )
+
   const [statusModalState, setStatusModalState] = useStateObject({
     alertMsg: null,
     isCommentModal: false,
@@ -134,12 +138,12 @@ const LeaseUpApplicationsPage = () => {
 
       setState({ loading: true })
 
-      return state.eagerPagination.getPage(page, fetcher)
+      return state.eagerPagination.getPage(page, fetcher, state.forceRefreshNextPageUpdate)
     },
     {
       onSuccess: ({ records, pages }) => {
         setInitialCheckboxState(records)
-        setState({ applications: records, pages })
+        setState({ forceRefreshNextPageUpdate: false, applications: records, pages })
       },
       onComplete: () => {
         setState({ loading: false })
@@ -157,8 +161,10 @@ const LeaseUpApplicationsPage = () => {
       a[b] = false
       return a
     }, {})
+
     // set state to false for all of the initial applications
-    setBulkCheckboxesState(emptyCheckboxes)
+    // and clear out any application entries from a previous page.
+    overrideBulkCheckboxesState(emptyCheckboxes)
   }
 
   const handleBulkCheckboxClick = (appId) => {
@@ -236,6 +242,10 @@ const LeaseUpApplicationsPage = () => {
       if (wasBulkUpdate) {
         setBulkCheckboxValues(false, successfulIds)
       }
+
+      // Force the next page update to refresh because changing the status on a preference row
+      // on page 1 could update a preference row attached to the same application on page 2.
+      setState({ forceRefreshNextPageUpdate: true })
     })
   }
 
