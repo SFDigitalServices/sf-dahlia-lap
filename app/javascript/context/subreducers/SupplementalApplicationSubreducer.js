@@ -2,6 +2,10 @@ import LEASE_STATES from 'components/supplemental_application/utils/leaseSection
 
 import ACTIONS from '../actions'
 
+// This id is never sent to the backend, only used to identify frontend
+// "new" assistance objects that haven't been persisted yet.
+export const NEW_ASSISTANCE_PSEUDO_ID = 'new_assistance_pseudo_id'
+
 export const getEmptyStatusModalState = () => ({
   alertMsg: null,
   isOpen: false,
@@ -28,9 +32,9 @@ const getEmptySupplementalPageState = () => ({
     rentalAssistances: null,
     statusHistory: null,
     units: null,
-    applicationMembers: [],
     statusModal: getEmptyStatusModalState(),
-    openedConfirmedPreferenceIndices: new Set()
+    preferenceRowsOpened: new Set(), // set of indexes corresponding to preferences on an application
+    assistanceRowsOpened: new Set() // set of assistance IDs
   }
 })
 
@@ -46,6 +50,13 @@ const setSupplementalOverrides = (state, overrides = {}) => ({
   }
 })
 
+const plus = (set, newItem) => new Set([...set, newItem])
+const minus = (set, itemToDelete) => {
+  const clonedSet = new Set([...set])
+  clonedSet.delete(itemToDelete)
+  return clonedSet
+}
+
 const APPLICATION_DETAILS_ACTIONS = {
   [ACTIONS.LEFT_APPLICATION_SCOPE]: (_, __) => getEmptySupplementalPageState(),
   [ACTIONS.SHORTFORM_LOADED]: (state, { pageData }) => ({
@@ -59,18 +70,20 @@ const APPLICATION_DETAILS_ACTIONS = {
     setSupplementalOverrides(state, { loading: true, ...data }),
   [ACTIONS.PREF_TABLE_ROW_OPENED]: (state, data) =>
     setSupplementalOverrides(state, {
-      openedConfirmedPreferenceIndices: new Set([
-        ...state.supplemental.openedConfirmedPreferenceIndices,
-        data.rowIndex
-      ])
+      preferenceRowsOpened: plus(state.supplemental.preferenceRowsOpened, data.rowIndex)
     }),
-  [ACTIONS.PREF_TABLE_ROW_CLOSED]: (state, data) => {
-    const newSet = new Set(state.supplemental.openedConfirmedPreferenceIndices)
-    newSet.delete(data.rowIndex)
-    return setSupplementalOverrides(state, { openedConfirmedPreferenceIndices: newSet })
-  },
-  [ACTIONS.PREF_TABLE_ALL_ROWS_CLOSED]: (state) =>
-    setSupplementalOverrides(state, { openedConfirmedPreferenceIndices: new Set() }),
+  [ACTIONS.PREF_TABLE_ROW_CLOSED]: (state, data) =>
+    setSupplementalOverrides(state, {
+      preferenceRowsOpened: minus(state.supplemental.preferenceRowsOpened, data.rowIndex)
+    }),
+  [ACTIONS.ASSISTANCE_TABLE_ROW_OPENED]: (state, data) =>
+    setSupplementalOverrides(state, {
+      assistanceRowsOpened: plus(state.supplemental.assistanceRowsOpened, data.assistanceId)
+    }),
+  [ACTIONS.ASSISTANCE_TABLE_ROW_CLOSED]: (state, data) =>
+    setSupplementalOverrides(state, {
+      assistanceRowsOpened: minus(state.supplemental.assistanceRowsOpened, data.assistanceId)
+    }),
   [ACTIONS.SUPP_APP_INITIAL_LOAD_SUCCESS]: (state, { pageData }) =>
     setSupplementalOverrides(state, pageData),
   [ACTIONS.SUPP_APP_LOAD_SUCCESS]: (state, data = {}) => setSupplementalOverrides(state, data),
@@ -99,7 +112,8 @@ const APPLICATION_DETAILS_ACTIONS = {
         lease,
         rental_assistances: rentalAssistances
       },
-      leaseSectionState: newLeaseSectionState
+      leaseSectionState: newLeaseSectionState,
+      assistanceRowsOpened: new Set()
     }),
   [ACTIONS.LEASE_DELETED]: (state) =>
     setSupplementalOverrides(state, {
@@ -108,7 +122,8 @@ const APPLICATION_DETAILS_ACTIONS = {
         lease: {},
         rental_assistances: []
       },
-      leaseSectionState: LEASE_STATES.NO_LEASE
+      leaseSectionState: LEASE_STATES.NO_LEASE,
+      assistanceRowsOpened: new Set()
     }),
   [ACTIONS.RENTAL_ASSISTANCE_CREATE_SUCCESS]: (state, { newRentalAssistance }) =>
     setSupplementalOverrides(state, {
@@ -118,7 +133,8 @@ const APPLICATION_DETAILS_ACTIONS = {
           ...state.supplemental.application.rental_assistances,
           newRentalAssistance
         ]
-      }
+      },
+      assistanceRowsOpened: minus(state.supplemental.assistanceRowsOpened, NEW_ASSISTANCE_PSEUDO_ID)
     }),
   [ACTIONS.RENTAL_ASSISTANCE_UPDATE_SUCCESS]: (state, { updatedRentalAssistance }) => {
     const { application } = state.supplemental
@@ -128,7 +144,11 @@ const APPLICATION_DETAILS_ACTIONS = {
         rental_assistances: application.rental_assistances.map((ra) =>
           ra.id === updatedRentalAssistance.id ? updatedRentalAssistance : ra
         )
-      }
+      },
+      assistanceRowsOpened: minus(
+        state.supplemental.assistanceRowsOpened,
+        updatedRentalAssistance.id ?? NEW_ASSISTANCE_PSEUDO_ID
+      )
     })
   },
   [ACTIONS.RENTAL_ASSISTANCE_DELETE_SUCCESS]: (state, { assistanceId }) => {
@@ -139,12 +159,17 @@ const APPLICATION_DETAILS_ACTIONS = {
         rental_assistances: application.rental_assistances
           .map((ra) => (ra.id === assistanceId ? null : ra))
           .filter((ra) => !!ra)
-      }
+      },
+      assistanceRowsOpened: minus(state.supplemental.assistanceRowsOpened, assistanceId)
     })
   },
   [ACTIONS.LEASE_SECTION_STATE_CHANGED]: (state, data) =>
     setSupplementalOverrides(state, {
-      leaseSectionState: data
+      leaseSectionState: data,
+      // If you're no longer editing the lease, all "edit assistance" forms should close.
+      ...(data !== LEASE_STATES.EDIT_LEASE && {
+        assistanceRowsOpened: new Set()
+      })
     })
 }
 

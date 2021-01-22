@@ -1,7 +1,6 @@
 import { uniqBy } from 'lodash'
 
 import { getSupplementalBreadcrumbData } from 'components/lease_ups/actions/breadcrumbActionHelpers'
-import { preferenceSaveSuccess } from 'components/supplemental_application/actions/preferenceActionCreators'
 import {
   getApplicationStateOverridesAfterUpdate,
   logErrorAndAlert,
@@ -57,12 +56,9 @@ export const updateSupplementalApplication = async (
         prevApplication,
         shouldSaveLeaseOnApplicationSave(leaseSectionState)
       ),
-    (responseApplication) => {
-      preferenceSaveSuccess(dispatch)
-      return {
-        type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
-        data: getApplicationStateOverridesAfterUpdate(leaseSectionState, responseApplication)
-      }
-    },
+    (responseApplication) => ({
+      type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
+      data: getApplicationStateOverridesAfterUpdate(leaseSectionState, responseApplication)
+    }),
     logErrorAndAlert
   )

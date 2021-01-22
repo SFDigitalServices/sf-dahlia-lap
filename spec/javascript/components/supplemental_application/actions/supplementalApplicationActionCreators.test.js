@@ -104,16 +104,14 @@ describe('supplementalApplicationActionCreators', () => {
     test('should fire the correct actions', () => {
       expect(firedActions).toEqual([
         { type: ACTIONS.SUPP_APP_LOAD_START, data: null },
-        { type: ACTIONS.PREF_TABLE_ALL_ROWS_CLOSED },
-        {
-          type: ACTIONS.CONFIRMED_PREFERENCES_FAILED,
-          data: { failed: false }
-        },
         {
           type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
           data: {
             application: { id: 'applicationId' },
-            leaseSectionState: LEASE_STATES.NO_LEASE
+            assistanceRowsOpened: new Set(),
+            confirmedPreferencesFailed: false,
+            leaseSectionState: LEASE_STATES.NO_LEASE,
+            preferenceRowsOpened: new Set()
           }
         },
         { type: ACTIONS.SUPP_APP_LOAD_COMPLETE, data: null }

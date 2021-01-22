@@ -2,7 +2,7 @@ import React from 'react'
 
 import { mount } from 'enzyme'
 
-import StatefulExpandableTable from 'components/molecules/StatefulExpandableTable'
+import ExpandableTable from 'components/molecules/ExpandableTable'
 
 const mockColumns = [{ content: 'id' }, { content: 'name' }]
 
@@ -14,7 +14,7 @@ const mockRows = [
 
 const getWrapper = (expandedIndices) =>
   mount(
-    <StatefulExpandableTable
+    <ExpandableTable
       columns={mockColumns}
       rows={mockRows}
       expandedRowIndices={expandedIndices}
@@ -23,12 +23,12 @@ const getWrapper = (expandedIndices) =>
     />
   )
 
-describe('StatefulExpandableTable', () => {
+describe('ExpandableTable', () => {
   describe('when no rows are expanded', () => {
     test('it renders properly', () => {
       const wrapper = getWrapper(new Set())
       expect(
-        wrapper.find('StatefulExpandableTableRow').map((rowWrapper) => rowWrapper.props().expanded)
+        wrapper.find('ExpandableTableRow').map((rowWrapper) => rowWrapper.props().expanded)
       ).toEqual([false, false, false])
       expect(wrapper.find('div.testExpanderButton')).toHaveLength(3)
     })
@@ -38,7 +38,7 @@ describe('StatefulExpandableTable', () => {
     test('it renders properly', () => {
       const wrapper = getWrapper(new Set([0]))
       expect(
-        wrapper.find('StatefulExpandableTableRow').map((rowWrapper) => rowWrapper.props().expanded)
+        wrapper.find('ExpandableTableRow').map((rowWrapper) => rowWrapper.props().expanded)
       ).toEqual([true, false, false])
       expect(wrapper.find('div.testRow').first().text()).toEqual('id1')
       expect(wrapper.find('div.testExpanderButton')).toHaveLength(3)
@@ -49,7 +49,7 @@ describe('StatefulExpandableTable', () => {
     test('it renders properly', () => {
       const wrapper = getWrapper(new Set([0, 1, 2]))
       expect(
-        wrapper.find('StatefulExpandableTableRow').map((rowWrapper) => rowWrapper.props().expanded)
+        wrapper.find('ExpandableTableRow').map((rowWrapper) => rowWrapper.props().expanded)
       ).toEqual([true, true, true])
       expect(wrapper.find('div.testExpanderButton')).toHaveLength(3)
     })
