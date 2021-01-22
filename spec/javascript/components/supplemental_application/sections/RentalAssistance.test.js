@@ -1,21 +1,21 @@
 import React from 'react'
 
-import { cloneDeep } from 'lodash'
-
 import Button from 'components/atoms/Button'
-import ExpandableTable from 'components/molecules/ExpandableTable'
+import ExpandableTable, { ExpanderButton } from 'components/molecules/ExpandableTable'
 import RentalAssistance, {
   RentalAssistanceForm,
   RentalAssistanceTable
 } from 'components/supplemental_application/sections/RentalAssistance'
+import { NEW_ASSISTANCE_PSEUDO_ID } from 'context/subreducers/SupplementalApplicationSubreducer'
 import { InputField, SelectField } from 'utils/form/final_form/Field'
 
 import { withForm, findWithProps } from '../../../testUtils/wrapperUtil'
 
-const baseContext = {
-  application: { rental_assistances: [] },
-  applicationMembers: [{ id: '123', first_name: 'Test', last_name: 'Tester' }]
-}
+const withContext = ({ rentalAssistances = [], assistanceRowsOpened = new Set() } = {}) => ({
+  application: { id: 'applicationid', rental_assistances: rentalAssistances },
+  applicationMembers: [{ id: '123', first_name: 'Test', last_name: 'Tester' }],
+  assistanceRowsOpened
+})
 
 const rentalAssistance = {
   type_of_assistance: 'Compass Family',
@@ -25,103 +25,121 @@ const rentalAssistance = {
 }
 
 describe('RentalAssistance', () => {
-  const getWrapper = (context) =>
+  const getRentalAssistanceWrapper = (context = withContext()) =>
     withForm(context.application, (form) => (
       <RentalAssistance
         form={form}
         disabled={false}
         loading={false}
         applicationMembers={context.applicationMembers}
+        assistanceRowsOpened={context.assistanceRowsOpened}
         rentalAssistances={context.application.rental_assistances}
         applicationId={context.application.id}
       />
     ))
 
-  test('matches snapshot', () => {
-    const context = cloneDeep(baseContext)
-    context.application.rental_assistances = [rentalAssistance]
-    const wrapper = getWrapper(context)
-    expect(wrapper).toMatchSnapshot()
+  describe('without rental assistances', () => {
+    let wrapper
+    beforeEach(() => {
+      wrapper = getRentalAssistanceWrapper()
+    })
+
+    test('should not render a table', () => {
+      expect(wrapper.find(RentalAssistanceTable)).toHaveLength(0)
+    })
+
+    test('should render the Add Rental Assistance button', () => {
+      expect(findWithProps(wrapper, Button, { text: 'Add Rental Assistance' })).toHaveLength(1)
+    })
+
+    test('does not render the create new assistance form', () => {
+      expect(wrapper.find(RentalAssistanceForm)).toHaveLength(0)
+    })
   })
 
-  test('should not render a table if rental assistances is empty', () => {
-    const context = cloneDeep(baseContext)
-    const wrapper = getWrapper(context)
-    expect(wrapper.find(RentalAssistanceTable)).toHaveLength(0)
-  })
-
-  test('should render a table if rental assistances are present', () => {
-    const context = cloneDeep(baseContext)
-    context.application.rental_assistances = [rentalAssistance]
-    const wrapper = getWrapper(context)
-    expect(wrapper.find(RentalAssistanceTable)).toHaveLength(1)
-  })
-
-  test('should render the Add Rental Assistance button by default', () => {
-    const context = cloneDeep(baseContext)
-    const wrapper = getWrapper(context)
-    expect(findWithProps(wrapper, Button, { text: 'Add Rental Assistance' })).toHaveLength(1)
-  })
-
-  test('does not render the create new assistance form by default', () => {
-    const context = cloneDeep(baseContext)
-    const wrapper = getWrapper(context)
-    expect(wrapper.find(RentalAssistanceForm)).toHaveLength(0)
-  })
-
-  describe('after the rental assistance button is clicked', () => {
+  describe('with rental assistances', () => {
     let wrapper
 
     beforeEach(() => {
-      wrapper = getWrapper(cloneDeep(baseContext))
-      findWithProps(wrapper, Button, { text: 'Add Rental Assistance' }).simulate('click')
+      wrapper = getRentalAssistanceWrapper(withContext({ rentalAssistances: [rentalAssistance] }))
+    })
+
+    test('matches snapshot', () => {
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    test('should render a table', () => {
+      expect(wrapper.find(RentalAssistanceTable)).toHaveLength(1)
+    })
+
+    test('should render the Add Rental Assistance button', () => {
+      expect(findWithProps(wrapper, Button, { text: 'Add Rental Assistance' })).toHaveLength(1)
+    })
+
+    test('does not render the create new assistance form', () => {
+      expect(wrapper.find(RentalAssistanceForm)).toHaveLength(0)
+    })
+  })
+
+  describe('when assistanceRowsOpened contains a new rental assistance id', () => {
+    let wrapper
+
+    beforeEach(() => {
+      wrapper = getRentalAssistanceWrapper(
+        withContext({ assistanceRowsOpened: new Set([NEW_ASSISTANCE_PSEUDO_ID]) })
+      )
     })
 
     test('should render the new rental assistance form after the add rental assistance button is clicked', () => {
       expect(wrapper.find(RentalAssistanceForm)).toHaveLength(1)
     })
-
-    test('should hide the new rental assistance form after cancel is clicked', () => {
-      wrapper.find(RentalAssistanceForm).prop('onClose')()
-      expect(wrapper.find(RentalAssistanceForm)).toHaveLength(0)
-      expect(findWithProps(wrapper, Button, { text: 'Add Rental Assistance' })).toHaveLength(1)
-    })
   })
 })
 
 describe('RentalAssistanceTable', () => {
-  const getWrapper = ({ disabled = false }) => {
-    const context = cloneDeep(baseContext)
-    context.application.rental_assistances = [rentalAssistance]
+  const getTableWrapper = ({ disabled = false }) => {
+    const context = withContext({ rentalAssistances: [rentalAssistance] })
 
-    return withForm(context, (form) => (
-      <RentalAssistanceTable
-        form={form}
-        rentalAssistances={[rentalAssistance]}
-        applicationMembers={[]}
-        disabled={disabled}
-      />
-    ))
+    return withForm(
+      context.application,
+      (form) => (
+        <RentalAssistanceTable
+          form={form}
+          rentalAssistances={[rentalAssistance]}
+          applicationMembers={[]}
+          assistanceRowsOpened={new Set()}
+          disabled={disabled}
+        />
+      ),
+      true
+    )
   }
 
-  test('should render an ExpanderTable', () => {
-    const wrapper = getWrapper({})
-    expect(wrapper.find(ExpandableTable)).toHaveLength(1)
+  describe('when not disabled', () => {
+    let wrapper
+    beforeEach(() => {
+      wrapper = getTableWrapper({})
+    })
+
+    test('renders an expander button', () => {
+      expect(wrapper.find(ExpanderButton)).toHaveLength(1)
+    })
+
+    test('should render an ExpanderTable', () => {
+      expect(wrapper.find(ExpandableTable)).toHaveLength(1)
+    })
   })
 
-  test('should not close all panels if not disabled', () => {
-    const wrapper = getWrapper({})
-    expect(wrapper.find(ExpandableTable).prop('closeAllRows')).toBeFalsy()
-  })
-
-  test('should close all panels when disabled', () => {
-    const wrapper = getWrapper({ disabled: true })
-    expect(wrapper.find(ExpandableTable).prop('closeAllRows')).toBeTruthy()
+  describe('when  disabled', () => {
+    test('does not render any expander buttons', () => {
+      const wrapper = getTableWrapper({ disabled: true })
+      expect(wrapper.find(ExpanderButton)).toHaveLength(0)
+    })
   })
 })
 
 describe('RentalAssistanceForm', () => {
-  const getWrapper = ({
+  const getFormWrapper = ({
     assistance,
     isNew = false,
     onSave = () => {},
@@ -130,8 +148,7 @@ describe('RentalAssistanceForm', () => {
     shouldMount = false,
     loading = false
   }) => {
-    const context = cloneDeep(baseContext)
-    context.application.rental_assistances = assistance ? [assistance] : []
+    const context = withContext({ rentalAssistances: assistance ? [assistance] : [] })
 
     return withForm(
       context.application,
@@ -153,12 +170,12 @@ describe('RentalAssistanceForm', () => {
   }
 
   test('should not show the Other Assistance Name input when Type of Assistance is not Other', () => {
-    const wrapper = getWrapper({ assistance: rentalAssistance })
+    const wrapper = getFormWrapper({ assistance: rentalAssistance })
     expect(wrapper.find(InputField)).toHaveLength(0)
   })
 
   test('should show the Other Assistance Name when Type of Assistance is Other', () => {
-    const wrapper = getWrapper({
+    const wrapper = getFormWrapper({
       assistance: {
         ...rentalAssistance,
         type_of_assistance: 'Other',
@@ -171,7 +188,7 @@ describe('RentalAssistanceForm', () => {
 
   test('should validate that type of assistance is present upon save of the form panel', () => {
     // need to mount it to access the error classes
-    const wrapper = getWrapper({ assistance: null, shouldMount: true })
+    const wrapper = getFormWrapper({ assistance: null, shouldMount: true })
 
     findWithProps(wrapper, Button, { text: 'Save' }).simulate('click')
     expect(wrapper.find('.rental-assistance-type.error').exists()).toBeTruthy()
@@ -184,7 +201,7 @@ describe('RentalAssistanceForm', () => {
     let deleteButtonWrapper
 
     beforeEach(() => {
-      wrapper = getWrapper({
+      wrapper = getFormWrapper({
         assistance: rentalAssistance,
         loading: false
       })
@@ -216,7 +233,7 @@ describe('RentalAssistanceForm', () => {
     let deleteButtonWrapper
 
     beforeEach(() => {
-      wrapper = getWrapper({
+      wrapper = getFormWrapper({
         assistance: rentalAssistance,
         loading: true
       })
@@ -252,7 +269,7 @@ describe('RentalAssistanceForm', () => {
       mockCloseCallback = jest.fn()
       mockDeleteCallback = jest.fn()
 
-      wrapper = getWrapper({
+      wrapper = getFormWrapper({
         assistance: rentalAssistance,
         isNew: true,
         onSave: mockSaveCallback,
@@ -309,7 +326,7 @@ describe('RentalAssistanceForm', () => {
       mockCloseCallback = jest.fn()
       mockDeleteCallback = jest.fn()
 
-      wrapper = getWrapper({
+      wrapper = getFormWrapper({
         assistance: rentalAssistance,
         onSave: mockSaveCallback,
         onClose: mockCloseCallback,

@@ -46,12 +46,7 @@ export const editPreferenceClicked = async (dispatch, index) =>
 /**
  * @param {*} index the index of the preference that was closed, if null, close all rows
  */
-export const preferenceRowClosed = async (dispatch, index = null) => {
-  if (index === null) {
-    dispatch({ type: ACTIONS.PREF_TABLE_ALL_ROWS_CLOSED })
-  } else {
-    dispatch({ type: ACTIONS.PREF_TABLE_ROW_CLOSED, data: { rowIndex: index } })
-  }
-
+export const preferenceRowClosed = async (dispatch, index) => {
+  dispatch({ type: ACTIONS.PREF_TABLE_ROW_CLOSED, data: { rowIndex: index } })
   dispatch({ type: ACTIONS.CONFIRMED_PREFERENCES_FAILED, data: { failed: false } })
 }

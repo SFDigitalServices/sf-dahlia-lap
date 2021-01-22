@@ -16,7 +16,7 @@ RSpec.describe Api::V1::FieldUpdateCommentsController, type: :controller do
             status: 'Withdrawn',
             comment: 'rspec test comment',
             application: field_update_comments_application_id,
-            substatus: 'Verbal withdrawal'
+            substatus: 'Verbal withdrawal',
           }
         }
       end

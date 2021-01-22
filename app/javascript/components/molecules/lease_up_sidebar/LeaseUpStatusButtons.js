@@ -18,6 +18,7 @@ const LeaseUpStatusButtons = ({ status, isLoading, onChangeStatus, onAddCommentC
       id='add-status-history-comment'
       className='tertiary tight-padding'
       disabled={isLoading}
+      type='button'
       onClick={onAddCommentClicked}
     >
       Add a comment

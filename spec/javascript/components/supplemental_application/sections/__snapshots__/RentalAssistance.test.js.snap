@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RentalAssistance matches snapshot 1`] = `
+exports[`RentalAssistance with rental assistances matches snapshot 1`] = `
 <Fragment>
   <RentalAssistanceTable
     applicationMembers={
@@ -12,6 +12,7 @@ exports[`RentalAssistance matches snapshot 1`] = `
         },
       ]
     }
+    assistanceRowsOpened={Set {}}
     disabled={false}
     form={
       Object {
@@ -40,6 +41,7 @@ exports[`RentalAssistance matches snapshot 1`] = `
     loading={false}
     onCancelEdit={[Function]}
     onDelete={[Function]}
+    onEdit={[Function]}
     onSave={[Function]}
     rentalAssistances={
       Array [

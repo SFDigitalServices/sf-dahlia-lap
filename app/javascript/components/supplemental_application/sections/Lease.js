@@ -301,6 +301,7 @@ const Lease = ({ form, values }) => {
         </FormGrid.Row>
         <RentalAssistance
           applicationId={state.application.id}
+          assistanceRowsOpened={state.assistanceRowsOpened}
           applicationMembers={getApplicationMembers(state.application)}
           disabled={disabled}
           form={form}

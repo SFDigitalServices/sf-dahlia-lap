@@ -115,6 +115,25 @@ describe('LeaseUpApplicationsPage status update', () => {
       },
       DEFAULT_E2E_TIME_OUT
     )
+
+    test(
+      'should clear bulk checkboxes when next page is clicked',
+      async () => {
+        const bulkEditCheckboxId = '#bulk-edit-controller'
+
+        const { page } = await SetupBrowserAndPage(testBrowser, true)
+        await waitForLeaseUpAppTableToLoad(page)
+
+        await page.click(bulkEditCheckboxId)
+
+        expect(await sharedSteps.getCheckboxVal(page, bulkEditCheckboxId)).toBe(true)
+
+        await page.click('.-pagination .-next .-btn')
+        expect(await sharedSteps.getCheckboxVal(page, bulkEditCheckboxId)).toBe(false)
+      },
+      DEFAULT_E2E_TIME_OUT
+    )
+
     describe('add a comment button', () => {
       test(
         'should not update status and substatus',
