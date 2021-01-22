@@ -9,14 +9,22 @@ module Force
       { domain: 'date', salesforce: 'Processing_Date_Updated' },
       { domain: 'substatus', salesforce: 'Sub_Status' },
       { domain: 'timestamp', salesforce: '' },
+      { domain: 'created_by', salesforce: 'CreatedBy' },
     ].freeze
 
     def to_domain
       domain_fields = super
 
       domain_fields.timestamp = domain_fields.date.to_time.to_i if domain_fields.date
+      domain_fields.created_by = @fields.salesforce.CreatedBy && @fields.salesforce.CreatedBy.Name
 
       domain_fields
+    end
+
+    def to_salesforce
+      fields = super
+      fields.delete 'CreatedBy'
+      fields
     end
 
     def to_salesforce_with_suffix

@@ -4,7 +4,7 @@ import { reject, overSome, findIndex, orderBy, kebabCase } from 'lodash'
 
 import { memberNameFromPref } from 'components/applications/application_form/preferences/utils'
 import TableWrapper from 'components/atoms/TableWrapper'
-import StatefulExpandableTable from 'components/molecules/StatefulExpandableTable'
+import ExpandableTable, { ExpanderButton } from 'components/molecules/ExpandableTable'
 import {
   preferenceRowClosed,
   editPreferenceClicked
@@ -15,8 +15,6 @@ import Panel from './preferences/Panel'
 import PreferenceIcon from './preferences/PreferenceIcon'
 import { getTypeOfProof } from './preferences/typeOfProof'
 import { isCOP, isDTHP, isAliceGriffith, getPreferenceName } from './preferences/utils'
-
-const { ExpanderButton } = StatefulExpandableTable
 
 const hasExpanderButton = (prefName) => !overSome(isCOP, isDTHP, isAliceGriffith)(prefName)
 
@@ -99,7 +97,7 @@ const PreferencesTable = ({
   const rows = buildRows(application, applicationMembers, fileBaseUrl)
 
   const expandedRowIndices = convertPreferenceToTableIndices(
-    state.openedConfirmedPreferenceIndices,
+    state.preferenceRowsOpened,
     rows,
     application
   )
@@ -107,7 +105,7 @@ const PreferencesTable = ({
   return (
     <div className='preferences-table'>
       <TableWrapper>
-        <StatefulExpandableTable
+        <ExpandableTable
           columns={columns}
           rows={rows}
           rowKeyIndex={1}

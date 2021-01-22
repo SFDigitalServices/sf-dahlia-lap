@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 import classNames from 'classnames'
 import { kebabCase } from 'lodash'
@@ -7,23 +7,14 @@ import formUtils from 'utils/formUtils'
 
 const ExpandableTableRow = ({
   row,
+  idx,
   rowKeyIndex,
   numColumns,
-  expanderRenderer,
-  expandedRowRenderer,
+  renderRow,
+  renderExpanderButton,
   original,
-  closeRow = false
+  expanded
 }) => {
-  const [expanded, setExpanded] = useState(false)
-
-  useEffect(() => {
-    if (closeRow) {
-      setExpanded(false)
-    }
-  }, [closeRow])
-
-  const toggleExpandedRow = () => setExpanded(!expanded)
-
   const cells = row.map((datum, j) => (
     <td className={datum.classes ? datum.classes.join(' ') : ''} key={j}>
       {datum.formatType === 'currency' ? formUtils.formatPrice(datum.content) : datum.content}
@@ -36,9 +27,7 @@ const ExpandableTableRow = ({
     <>
       <tr className='tr-expand' aria-expanded={expanded} id={rowId ? `${rowId}-row` : null}>
         {cells}
-        <td key='expander'>
-          {expanderRenderer && expanderRenderer(row, expanded, toggleExpandedRow)}
-        </td>
+        <td key='expander'>{renderExpanderButton(idx, row, original, expanded)}</td>
       </tr>
       <tr
         className='tr-expand-content'
@@ -46,22 +35,26 @@ const ExpandableTableRow = ({
         id={rowId ? `${rowId}-panel` : null}
       >
         <td colSpan={numColumns} className='td-expand-nested no-padding'>
-          {expandedRowRenderer && expandedRowRenderer(row, toggleExpandedRow, original)}
+          {renderRow(idx, row, original)}
         </td>
       </tr>
     </>
   )
 }
 
+/**
+ * A rewrite of ExpandableTable that uses props to determine whether the rows are expanded or not.
+ * This allows us to write components in a more idiomatic way.
+ */
 const ExpandableTable = ({
   columns,
   rows,
   rowKeyIndex,
-  expanderRenderer,
-  expandedRowRenderer,
+  renderExpanderButton,
+  renderRow,
   originals,
   classes,
-  closeAllRows
+  expandedRowIndices = new Set()
 }) => (
   <table
     className={classNames('td-light td-plain th-plain', classes)}
@@ -86,16 +79,16 @@ const ExpandableTable = ({
           original={originals && originals[i]}
           row={row}
           numColumns={columns.length}
-          expanderRenderer={expanderRenderer}
-          expandedRowRenderer={expandedRowRenderer}
-          closeRow={closeAllRows}
+          renderExpanderButton={renderExpanderButton}
+          renderRow={renderRow}
+          expanded={expandedRowIndices.has(i)}
         />
       ))}
     </tbody>
   </table>
 )
 
-ExpandableTable.ExpanderButton = ({ onClick, label = 'Expand', id }) => (
+export const ExpanderButton = ({ onClick, label = 'Expand', id }) => (
   <button type='button' className='button button-link action-link' onClick={onClick} id={id}>
     {label}
   </button>
