@@ -6,6 +6,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Rails depends on 0.3.5, this has since been taken down (as of 3/24/2021),
+# so we have to force 0.3.8
+gem 'mimemagic', '~> 0.3.8'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4'
 # Set a minimum version for Rack to avoid security vulnerability in Rack <2.2.3
