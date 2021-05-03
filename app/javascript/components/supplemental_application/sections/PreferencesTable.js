@@ -16,6 +16,7 @@ import PreferenceIcon from './preferences/PreferenceIcon'
 import { getTypeOfProof } from './preferences/typeOfProof'
 import { isCOP, isDTHP, isAliceGriffith, getPreferenceName } from './preferences/utils'
 
+// Add isRTR check here.
 const hasExpanderButton = (prefName) => !overSome(isCOP, isDTHP, isAliceGriffith)(prefName)
 
 const onlyValid = (preferences) => {
