@@ -25,6 +25,7 @@ const PreferenceAdditionalOptions = ({ i, form, householdMembers, listingPrefere
         return <AntiDisplacementFields {...propsFields} />
       case 'Rent Burdened / Assisted Housing Preference':
         return <RentBurdenedAssistedHousingFields {...propsFields} />
+      // Add right to return case here
       case 'Alice Griffith Housing Development Resident':
         return <AliceGriffithFields {...propsFields} />
       default:
