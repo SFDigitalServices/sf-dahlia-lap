@@ -13,7 +13,6 @@ export const isDTHP = testRegex(/DTHP/)
 
 export const isAliceGriffith = testRegex(/Griffith/)
 
-// FIXME: Not sure what this is checking against
 export const isRightToReturn = testRegex(/Right to Return/)
 
 export const isLWinSF = (value) => value === 'Live or Work in San Francisco Preference'
