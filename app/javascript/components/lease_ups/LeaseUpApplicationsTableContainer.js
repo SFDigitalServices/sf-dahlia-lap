@@ -21,9 +21,9 @@ export const buildRowData = (application) => {
 
   // Override the key we display for certain cases
   var prefKey
-  if (application.preference_name.includes('General')) {
+  if (application.preference_name?.includes('General')) {
     prefKey = 'General'
-  } else if (application.preference_name.includes('Right to Return')) {
+  } else if (application.preference_name?.includes('Right to Return')) {
     prefKey = 'RtR'
   } else {
     prefKey = application.preference_record_type
