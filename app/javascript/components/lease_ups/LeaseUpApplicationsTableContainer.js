@@ -8,6 +8,34 @@ import { withContext } from './context'
 import LeaseUpApplicationsFilterContainer from './LeaseUpApplicationsFilterContainer'
 import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
 
+// Format applications for the Lease Up applications table
+export const buildRowData = (application) => {
+  const rowData = cloneDeep(application)
+
+  // get keys and remove empty values
+  const accessibilityKeys = compact(Object.keys(application.has_ada_priorities_selected || []))
+
+  if (accessibilityKeys && accessibilityKeys.length > 0) {
+    rowData.accessibility = accessibilityKeys.map((key) => capitalize(key.split('_')[0])).join(', ')
+  }
+
+  // Override the key we display for certain cases
+  var prefKey
+  if (application.preference_name?.includes('General')) {
+    prefKey = 'General'
+  } else if (application.preference_name?.includes('Right to Return')) {
+    prefKey = 'RtR'
+  } else {
+    prefKey = application.preference_record_type
+  }
+
+  rowData.preference_rank = `${prefKey} ${application.preference_lottery_rank}`
+  var prefNum = parseFloat(application.preference_order)
+  var rankNum = parseFloat(application.preference_lottery_rank)
+  rowData.rankOrder = prefNum + rankNum * 0.0001
+  return rowData
+}
+
 const LeaseUpTableContainer = ({
   store: {
     applications,
@@ -28,25 +56,6 @@ const LeaseUpTableContainer = ({
     statusModal
   }
 }) => {
-  const buildRowData = (result) => {
-    const rowData = cloneDeep(result)
-    // get keys and remove empty values
-    const accessibilityKeys = compact(Object.keys(result.has_ada_priorities_selected || []))
-
-    if (accessibilityKeys && accessibilityKeys.length > 0) {
-      rowData.accessibility = accessibilityKeys
-        .map((key) => capitalize(key.split('_')[0]))
-        .join(', ')
-    }
-
-    rowData.preference_rank = `${result.preference_record_type} ${result.preference_lottery_rank}`
-    var prefNum = parseFloat(result.preference_order)
-    var rankNum = parseFloat(result.preference_lottery_rank)
-    rowData.rankOrder = prefNum + rankNum * 0.0001
-    return rowData
-  }
-
-  const rowsData = (applications) => map(applications, buildRowData)
   return (
     <>
       <LeaseUpApplicationsFilterContainer
@@ -60,7 +69,7 @@ const LeaseUpTableContainer = ({
         onBulkLeaseUpCommentChange={(val) => onLeaseUpStatusChange(null, null, true)}
       />
       <LeaseUpApplicationsTable
-        dataSet={rowsData(applications)}
+        dataSet={map(applications, buildRowData)}
         listingId={listingId}
         onLeaseUpStatusChange={onLeaseUpStatusChange}
         loading={loading}
