@@ -125,7 +125,7 @@ const LeaseSection = ({ form, values, onCreateLeaseClick, showLeaseSection }) =>
 const DemographicsSection = () => (
   <ContentSection
     title='Demographics'
-    description='Finish up by completing this section once a lease is signed. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs.'
+    description='Complete this section when a household has gone through income qualification. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs. You must complete this section even if the household is over or under income eligibility.'
   >
     <DemographicsInputs />
   </ContentSection>
@@ -202,13 +202,13 @@ const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values,
               form={form}
             />
             <Income listingAmiCharts={state.listingAmiCharts} visited={visited} form={form} />
+            <DemographicsSection />
             <LeaseSection
               form={form}
               values={values}
               showLeaseSection={hasLease(state.leaseSectionState)}
               onCreateLeaseClick={() => leaseCreated(dispatch)}
             />
-            <DemographicsSection />
           </AsymColumnLayout.MainContent>
           <AsymColumnLayout.Sidebar>
             <Sidebar
