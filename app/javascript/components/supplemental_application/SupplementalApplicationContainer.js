@@ -17,7 +17,10 @@ import {
   submitSuppAppStatusModal
 } from 'components/supplemental_application/actions/statusModalActionCreators'
 import { hasLease } from 'components/supplemental_application/utils/leaseSectionStates'
-import { getApplicationMembers } from 'components/supplemental_application/utils/supplementalApplicationUtils'
+import {
+  getApplicationMembers,
+  getPrefProofCutoff
+} from 'components/supplemental_application/utils/supplementalApplicationUtils'
 import { useAppContext } from 'utils/customHooks'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import { touchAllFields, convertPercentAndCurrency } from 'utils/form/validations'
@@ -45,10 +48,23 @@ const ConfirmedPreferencesSection = ({
     title='Preferences and Priorities'
     description={
       <>
-        Complete this section first.{' '}
-        <b>You must confirm claimed preferences before sending out a post-lottery letter.</b> Please
-        allow the applicant 24 hours to provide appropriate preference proof if not previously
-        supplied.
+        <p>
+          Complete this section first.{' '}
+          <b>You must confirm claimed preferences before sending out a post-lottery letter.</b>{' '}
+          Please allow the applicant 24 hours to provide appropriate preference proof if not
+          previously supplied.
+        </p>
+        <p>
+          Their document must include:
+          <ul className='bullet-list'>
+            <li>Their name</li>
+            <li>The address where they live or work in San Francisco</li>
+            <li>
+              A date on or after {getPrefProofCutoff(application.application_submitted_date)} (45
+              days before they submitted their application)
+            </li>
+          </ul>
+        </p>
       </>
     }
   >
