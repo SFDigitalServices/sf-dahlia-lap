@@ -1713,7 +1713,7 @@ Array [
               <p
                 className="form-note max-width margin-bottom--3halves"
               >
-                Complete this section when a household has gone through income qualification. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs. You must complete this section even if the household is over or under income eligibility.
+                Complete this section when a household has gone through income qualification. You must complete this section even if the household is over or under income eligibility.
               </p>
               <div
                 className="form-grid row expand"

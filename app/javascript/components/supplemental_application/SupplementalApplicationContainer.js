@@ -141,7 +141,7 @@ const LeaseSection = ({ form, values, onCreateLeaseClick, showLeaseSection }) =>
 const DemographicsSection = () => (
   <ContentSection
     title='Demographics'
-    description='Complete this section when a household has gone through income qualification. This information is required to track dependents, seniors, and minors in households that have obtained housing through MOHCD programs. You must complete this section even if the household is over or under income eligibility.'
+    description='Complete this section when a household has gone through income qualification. You must complete this section even if the household is over or under income eligibility.'
   >
     <DemographicsInputs />
   </ContentSection>
