@@ -2,11 +2,10 @@ import { isEmpty } from 'lodash'
 
 const isNullOrEmptyString = (value) => value === undefined || value === null || value === ''
 
-const labelize = (options, attrs = {}, noPlaceholder = false) => {
+const labelize = (options, attrs = {}) => {
   if (isEmpty(options)) return []
 
   const emptyInitialOptionPresent =
-    noPlaceholder ||
     isEmpty(options) ||
     options[0] === '' ||
     (Object.prototype.hasOwnProperty.call(options[0], 'value') &&

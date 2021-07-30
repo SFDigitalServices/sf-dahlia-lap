@@ -18,7 +18,7 @@
     "@rails/webpacker": "^4.0.2",
     "@sentry/browser": "^5.0.7",
     "@sentry/node": "^5.0.7",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "babel-plugin-root-import": "^6.1.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "classnames": "^2.2.5",
