@@ -94,3 +94,11 @@
 .button.has-icon--right {
   padding-left: 1rem;
 }
+
+// Override default bullet point style from pattern lib
+ul.bullet-list {
+  li {
+    list-style: disc;
+    margin-bottom: 0rem;
+  }
+}

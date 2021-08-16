@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 export const isLeaseAlreadyCreated = (lease) => lease && !!lease.id
 
 export const doesApplicationHaveLease = (application) => isLeaseAlreadyCreated(application?.lease)
@@ -11,3 +13,9 @@ export const getApplicationMembers = (application) => [
   ...([application?.applicant] || []),
   ...(application?.household_members || [])
 ]
+
+// Preference proofs must have a date within 45 days of when they submit their application
+export const getPrefProofCutoff = (applicationSubmittedDate) => {
+  const d = moment(applicationSubmittedDate).subtract(45, 'd')
+  return d.format('MMMM Do, YYYY')
+}
