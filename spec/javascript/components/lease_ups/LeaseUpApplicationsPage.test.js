@@ -69,6 +69,7 @@ const buildMockApplicationWithPreference = ({
   preference_order: prefOrder,
   preference_lottery_rank: prefRank,
   record_type_for_app_preferences: 'COP',
+  preference_name: 'Certificate of Preference',
   application: {
     id: applicationId,
     name: `Application Name ${applicationId}`,
