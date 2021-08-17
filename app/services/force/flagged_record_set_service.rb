@@ -12,7 +12,7 @@ module Force
     # marked duplicates - already marked, can unmark if needed :)
 
     def pending_review_record_sets
-      listing_ids = listing_ids_user_can_access
+      listing_ids = active_listing_ids_user_can_access
       if @user.admin?
         result = parsed_index_query(%(
           SELECT #{query_fields(:pending_review)} FROM Flagged_Record_Set__c
@@ -32,7 +32,7 @@ module Force
     end
 
     def marked_duplicate_record_sets
-      listing_ids = listing_ids_user_can_access
+      listing_ids = active_listing_ids_user_can_access
       result = parsed_index_query(%(
         SELECT #{query_fields(:marked_duplicate)} FROM Flagged_Record_Set__c
         WHERE Listing__c in ('#{listing_ids.join("', '")}')
@@ -84,9 +84,10 @@ module Force
 
     private
 
-    def listing_ids_user_can_access
+    def active_listing_ids_user_can_access
       parsed_index_query(%(
-        SELECT Id FROM Listing__c
+        SELECT Id, Status__c FROM Listing__c
+        WHERE Status__c in ('Active', 'Lease Up')
       )).map(&:Id)
     end
   end
