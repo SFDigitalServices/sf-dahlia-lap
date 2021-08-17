@@ -132,7 +132,6 @@ const ConfirmedHouseholdIncome = ({
               fieldName='ami_chart_type'
               label='AMI Chart Type'
               options={amiChartTypes}
-              noPlaceholder={amiChartTypes.length <= 1}
             />
           </FormGrid.Item>
         </FormGrid.Row>
@@ -143,7 +142,6 @@ const ConfirmedHouseholdIncome = ({
               fieldName='ami_chart_year'
               label='AMI Chart Year'
               options={amiChartYears}
-              noPlaceholder={amiChartYears.length <= 1}
             />
           </FormGrid.Item>
         </FormGrid.Row>
