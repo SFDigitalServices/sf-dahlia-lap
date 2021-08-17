@@ -35,8 +35,10 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
       await sharedSteps.enterValue(page, confirmedAnnualSelector, confirmedAnnualValue.currency)
       await sharedSteps.enterValue(page, finalHHAnnualSelector, finalHHAnnualValue.currency)
 
-      // Enter AMI Percentage
+      // Enter AMI Info
       await sharedSteps.enterValue(page, amiPercentageSelector, '5.55')
+      await page.select(amiChartTypeSelector, 'HUD Unadjusted')
+      await page.select(amiChartYearSelector, '2018')
 
       // Click save
       await supplementalApplicationSteps.savePage(page)

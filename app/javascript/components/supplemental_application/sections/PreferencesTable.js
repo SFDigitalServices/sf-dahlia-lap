@@ -14,9 +14,16 @@ import { useAppContext } from 'utils/customHooks'
 import Panel from './preferences/Panel'
 import PreferenceIcon from './preferences/PreferenceIcon'
 import { getTypeOfProof } from './preferences/typeOfProof'
-import { isCOP, isDTHP, isAliceGriffith, getPreferenceName } from './preferences/utils'
+import {
+  isCOP,
+  isDTHP,
+  isAliceGriffith,
+  isRightToReturn,
+  getPreferenceName
+} from './preferences/utils'
 
-const hasExpanderButton = (prefName) => !overSome(isCOP, isDTHP, isAliceGriffith)(prefName)
+const hasExpanderButton = (prefName) =>
+  !overSome(isCOP, isDTHP, isAliceGriffith, isRightToReturn)(prefName)
 
 const onlyValid = (preferences) => {
   return reject(preferences, (pref) => {

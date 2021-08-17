@@ -34,19 +34,15 @@ describe('labelize', () => {
       const option = ''
       expect(labelize([option])[0]).toEqual({ value: '', label: '' })
     })
-    test('does not add an empty option with noPlaceholder=true', () => {
-      const option = { value: 'test', label: 'test' }
-      expect(labelize([option], {}, true)[0]).toEqual(option)
-    })
   })
   describe('when all or part of an option is null', () => {
     test('it keeps label as null', () => {
       const option = { value: 'test', label: null }
-      expect(labelize([option], {}, true)[0]).toEqual(option)
+      expect(labelize([option], {})[1]).toEqual(option)
     })
     test('it keeps value as null', () => {
       const option = { value: null, label: 'label' }
-      expect(labelize([option], {}, true)[0]).toEqual(option)
+      expect(labelize([option], {})[0]).toEqual(option)
     })
   })
 })
