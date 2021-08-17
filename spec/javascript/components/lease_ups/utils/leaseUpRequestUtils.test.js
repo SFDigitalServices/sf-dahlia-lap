@@ -35,8 +35,8 @@ jest.mock('apiService', () => {
         preference_all_lottery_rank: 1,
         post_lottery_validation: 'Confirmed',
         preference_lottery_rank: 1,
-        record_type_for_app_preferences: 'L_W',
-        preference_name: 'Live or Work in San Francisco Preference'
+        preference_name: 'Live or Work in San Francisco Preference',
+        record_type_for_app_preferences: 'L_W'
       }
       return { pages: 10, records: [sampleRowResponse] }
     }
@@ -95,6 +95,7 @@ describe('leaseUpActions', () => {
         phone: '(845)136-8280',
         post_lottery_validation: 'Confirmed',
         preference_lottery_rank: 1,
+        preference_name: 'Live or Work in San Francisco Preference',
         preference_order: 3,
         preference_record_type: 'L_W',
         residence_address: '',

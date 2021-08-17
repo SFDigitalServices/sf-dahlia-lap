@@ -13,6 +13,8 @@ export const isDTHP = testRegex(/DTHP/)
 
 export const isAliceGriffith = testRegex(/Griffith/)
 
+export const isRightToReturn = testRegex(/Right to Return/)
+
 export const isLWinSF = (value) => value === 'Live or Work in San Francisco Preference'
 
 export const isADHP = testRegex(/ADHP/)

@@ -187,7 +187,6 @@ export const SelectField = ({
   disabled = false,
   disabledOptions,
   selectValue,
-  noPlaceholder,
   format,
   isDirty = true,
   helpText
@@ -201,8 +200,7 @@ export const SelectField = ({
     formatOnBlur={isDirty}
   >
     {({ input, meta }) => {
-      const selectOptions =
-        disabled && disabledOptions ? disabledOptions : labelize(options, {}, noPlaceholder)
+      const selectOptions = disabled && disabledOptions ? disabledOptions : labelize(options, {})
       return (
         <>
           <div className={classNames('form-group', { error: meta.error && meta.touched })}>
