@@ -15,6 +15,8 @@ const loginAsAgent = async (page) => {
   await page.waitForSelector('#username_container')
   await page.type('#username', process.env.E2E_SALESFORCE_USERNAME)
   await page.type('#password', process.env.E2E_SALESFORCE_PASSWORD)
+
+  await page.waitForSelector('#Login')
   await page.click('#Login')
 
   await page.waitForNavigation()
