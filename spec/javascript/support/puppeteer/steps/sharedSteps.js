@@ -1,3 +1,5 @@
+import { DEFAULT_E2E_TIME_OUT } from '../consts'
+
 const HOST = 'http://localhost:3000'
 
 const loginAsAgent = async (page) => {
@@ -5,7 +7,10 @@ const loginAsAgent = async (page) => {
   await page.waitForSelector('#root')
 
   // Sign in
-  const navigationPromise = page.waitForNavigation()
+  const navigationPromise = page.waitForNavigation({
+    timeout: DEFAULT_E2E_TIME_OUT,
+    waitUntil: 'networkidle2'
+  })
   // Clicking the link will indirectly cause a navigation
   await page.click('.sign-in-btn')
   // The navigationPromise resolves after navigation has finished
