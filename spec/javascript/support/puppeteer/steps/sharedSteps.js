@@ -24,7 +24,10 @@ const loginAsAgent = async (page) => {
   await page.waitForSelector('#Login')
   await page.click('#Login')
 
-  await page.waitForNavigation()
+  await page.waitForNavigation({
+    timeout: DEFAULT_E2E_TIME_OUT,
+    waitUntil: 'networkidle2'
+  })
   await page.waitForSelector('#root')
 }
 
