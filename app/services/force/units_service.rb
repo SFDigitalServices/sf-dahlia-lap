@@ -13,7 +13,7 @@ module Force
     # what preference was used.
     def units_and_leases_for_listing(listing_id)
       lease_query = builder.from(:Leases__r)
-                         .select('Application__c, Preference_Used_Name__c')
+                         .select('Application__c, Lease_Status__c, Preference_Used_Name__c')
                          .to_soql
 
       result = builder.from(:Unit__c)
