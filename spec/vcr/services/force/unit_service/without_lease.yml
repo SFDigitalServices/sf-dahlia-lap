@@ -21,28 +21,21 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 09 Dec 2020 21:37:57 GMT
+      - Tue, 01 Nov 2022 23:50:22 GMT
+      Set-Cookie:
+      - BrowserId=8sTaQ1o_Ee26GS2W5OJxXA; domain=.salesforce.com; path=/; expires=Wed,
+        01-Nov-2023 23:50:22 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:0; path=/; expires=Wed, 01-Nov-2023 23:50:22 GMT; Max-Age=31536000
+      - LSKey-c$CookieConsentPolicy=0:0; path=/; expires=Wed, 01-Nov-2023 23:50:22
+        GMT; Max-Age=31536000
       Strict-Transport-Security:
-      - max-age=31536002; includeSubDomains
-      Public-Key-Pins-Report-Only:
-      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
-        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
-        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
-      Expect-Ct:
-      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
-      X-Robots-Tag:
-      - none
-      X-B3-Traceid:
-      - b47eb394e1f3c310
-      X-B3-Spanid:
-      - b47eb394e1f3c310
-      X-B3-Sampled:
-      - '0'
+      - max-age=63072000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
-      Set-Cookie:
-      - BrowserId=zUo2YDpmEeueBfMd9MpvJg; domain=.salesforce.com; path=/; expires=Thu,
-        09-Dec-2021 21:37:57 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -55,12 +48,12 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1607549877126","signature":"OcPuoVy/bGhFLNWWxLFIYU8bJdHzUJzao06AxQcf8Ic="}'
-    http_version: null
-  recorded_at: Wed, 09 Dec 2020 21:37:57 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D8H0000004dNlUAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1667346623192","signature":"YgnKOeMy/I4WBOy9jRBlp1uekjom2he56fgmXlQA8gE="}'
+    http_version:
+  recorded_at: Tue, 01 Nov 2022 23:50:23 GMT
 - request:
     method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Priority_Type__c,%20AMI_chart_type__c,%20Max_AMI_for_Qualifying_Unit__c,%20Unit_Number__c,%20Unit_Type__c,%20AMI_chart_year__c,%20(SELECT%20Application__c,%20Preference_Used_Name__c%20FROM%20Leases__r)%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000F8YG4UAN%27)
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Priority_Type__c,%20AMI_chart_type__c,%20Max_AMI_for_Qualifying_Unit__c,%20Unit_Number__c,%20Unit_Type__c,%20AMI_chart_year__c,%20(SELECT%20Application__c,%20Lease_Status__c,%20Preference_Used_Name__c%20FROM%20Leases__r)%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000F8YG4UAN%27)"
     body:
       encoding: US-ASCII
       string: ''
@@ -79,30 +72,21 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 09 Dec 2020 21:37:57 GMT
+      - Tue, 01 Nov 2022 23:50:23 GMT
+      Set-Cookie:
+      - BrowserId=88MQcVo_Ee2VWnfIL_6SUA; domain=.salesforce.com; path=/; expires=Wed,
+        01-Nov-2023 23:50:23 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Wed, 01-Nov-2023 23:50:23 GMT; Max-Age=31536000
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 01-Nov-2023 23:50:23
+        GMT; Max-Age=31536000
       Strict-Transport-Security:
-      - max-age=31536002; includeSubDomains
-      Public-Key-Pins-Report-Only:
-      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
-        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
-        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
-      Expect-Ct:
-      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      - max-age=63072000; includeSubDomains
       X-Robots-Tag:
       - none
-      X-B3-Traceid:
-      - 5e02b2b27a6ceaee
-      X-B3-Spanid:
-      - 5e02b2b27a6ceaee
-      X-B3-Sampled:
-      - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
-      Set-Cookie:
-      - BrowserId=zXO3ljpmEeux8BGQLsQiEg; domain=.salesforce.com; path=/; expires=Thu,
-        09-Dec-2021 21:37:57 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=16848/400000
+      - api-usage=24732/770000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -114,11 +98,11 @@ http_interactions:
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001Fb3yNQAR"},"Id":"a0b0P00001Fb3yNQAR","Priority_Type__c":null,"AMI_chart_type__c":"HUD
         Unadjusted","Max_AMI_for_Qualifying_Unit__c":100.0,"Unit_Number__c":"311","Unit_Type__c":"1
         BR","AMI_chart_year__c":2016.0,"Leases__r":null}]}'
-    http_version: null
-  recorded_at: Wed, 09 Dec 2020 21:37:57 GMT
+    http_version:
+  recorded_at: Tue, 01 Nov 2022 23:50:23 GMT
 - request:
     method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000F8YG4UAN%27)
+    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000F8YG4UAN%27)"
     body:
       encoding: US-ASCII
       string: ''
@@ -137,30 +121,21 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 09 Dec 2020 21:37:57 GMT
+      - Tue, 01 Nov 2022 23:50:24 GMT
+      Set-Cookie:
+      - BrowserId=9Aqg8Vo_Ee2kqoNtq1ogdQ; domain=.salesforce.com; path=/; expires=Wed,
+        01-Nov-2023 23:50:24 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Wed, 01-Nov-2023 23:50:24 GMT; Max-Age=31536000
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 01-Nov-2023 23:50:24
+        GMT; Max-Age=31536000
       Strict-Transport-Security:
-      - max-age=31536002; includeSubDomains
-      Public-Key-Pins-Report-Only:
-      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
-        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
-        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
-      Expect-Ct:
-      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      - max-age=63072000; includeSubDomains
       X-Robots-Tag:
       - none
-      X-B3-Traceid:
-      - 8ac073aef2de3673
-      X-B3-Spanid:
-      - 8ac073aef2de3673
-      X-B3-Sampled:
-      - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
-      Set-Cookie:
-      - BrowserId=zYv6WTpmEeueBfMd9MpvJg; domain=.salesforce.com; path=/; expires=Thu,
-        09-Dec-2021 21:37:57 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=16852/400000
+      - api-usage=24731/770000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -170,6 +145,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[]}'
-    http_version: null
-  recorded_at: Wed, 09 Dec 2020 21:37:57 GMT
+    http_version:
+  recorded_at: Tue, 01 Nov 2022 23:50:24 GMT
 recorded_with: VCR 5.1.0
