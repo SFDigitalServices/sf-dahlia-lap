@@ -21,19 +21,17 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 01 Nov 2022 23:50:22 GMT
+      - Wed, 02 Nov 2022 20:24:48 GMT
       Set-Cookie:
-      - BrowserId=8sTaQ1o_Ee26GS2W5OJxXA; domain=.salesforce.com; path=/; expires=Wed,
-        01-Nov-2023 23:50:22 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:0; path=/; expires=Wed, 01-Nov-2023 23:50:22 GMT; Max-Age=31536000
-      - LSKey-c$CookieConsentPolicy=0:0; path=/; expires=Wed, 01-Nov-2023 23:50:22
+      - BrowserId=ZdcXdVrsEe2oKmn48XduPg; domain=.salesforce.com; path=/; expires=Thu,
+        02-Nov-2023 20:24:48 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Thu, 02-Nov-2023 20:24:48 GMT; Max-Age=31536000
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 02-Nov-2023 20:24:48
         GMT; Max-Age=31536000
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Xss-Protection:
-      - 1; mode=block
+      X-Robots-Tag:
+      - none
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Expires:
@@ -48,12 +46,12 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D8H0000004dNlUAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1667346623192","signature":"YgnKOeMy/I4WBOy9jRBlp1uekjom2he56fgmXlQA8gE="}'
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D8H0000004dNlUAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1667420688651","signature":"BLqauZ6LXZDnbs/t8fFf9Mq5lv4PpQYVvfYHMi1xS7k="}'
     http_version:
-  recorded_at: Tue, 01 Nov 2022 23:50:23 GMT
+  recorded_at: Wed, 02 Nov 2022 20:24:48 GMT
 - request:
     method: get
-    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Priority_Type__c,%20AMI_chart_type__c,%20Max_AMI_for_Qualifying_Unit__c,%20Unit_Number__c,%20Unit_Type__c,%20AMI_chart_year__c,%20(SELECT%20Application__c,%20Lease_Status__c,%20Preference_Used_Name__c%20FROM%20Leases__r)%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000F8YG4UAN%27)"
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Priority_Type__c,%20AMI_chart_type__c,%20Max_AMI_for_Qualifying_Unit__c,%20Unit_Number__c,%20Unit_Type__c,%20AMI_chart_year__c,%20(SELECT%20Application__c,%20Lease_Status__c,%20Preference_Used_Name__c%20FROM%20Leases__r)%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000F8YG4UAN%27)
     body:
       encoding: US-ASCII
       string: ''
@@ -72,12 +70,12 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 01 Nov 2022 23:50:23 GMT
+      - Wed, 02 Nov 2022 20:24:49 GMT
       Set-Cookie:
-      - BrowserId=88MQcVo_Ee2VWnfIL_6SUA; domain=.salesforce.com; path=/; expires=Wed,
-        01-Nov-2023 23:50:23 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 01-Nov-2023 23:50:23 GMT; Max-Age=31536000
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 01-Nov-2023 23:50:23
+      - BrowserId=ZjbDdVrsEe2QJ4OHTmKTVg; domain=.salesforce.com; path=/; expires=Thu,
+        02-Nov-2023 20:24:49 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Thu, 02-Nov-2023 20:24:49 GMT; Max-Age=31536000
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 02-Nov-2023 20:24:49
         GMT; Max-Age=31536000
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
@@ -86,7 +84,7 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Sforce-Limit-Info:
-      - api-usage=24732/770000
+      - api-usage=26264/770000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -99,10 +97,10 @@ http_interactions:
         Unadjusted","Max_AMI_for_Qualifying_Unit__c":100.0,"Unit_Number__c":"311","Unit_Type__c":"1
         BR","AMI_chart_year__c":2016.0,"Leases__r":null}]}'
     http_version:
-  recorded_at: Tue, 01 Nov 2022 23:50:23 GMT
+  recorded_at: Wed, 02 Nov 2022 20:24:49 GMT
 - request:
     method: get
-    uri: "<<SALESFORCE_INSTANCE_URL>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000F8YG4UAN%27)"
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000F8YG4UAN%27)
     body:
       encoding: US-ASCII
       string: ''
@@ -121,12 +119,12 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 01 Nov 2022 23:50:24 GMT
+      - Wed, 02 Nov 2022 20:24:49 GMT
       Set-Cookie:
-      - BrowserId=9Aqg8Vo_Ee2kqoNtq1ogdQ; domain=.salesforce.com; path=/; expires=Wed,
-        01-Nov-2023 23:50:24 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 01-Nov-2023 23:50:24 GMT; Max-Age=31536000
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 01-Nov-2023 23:50:24
+      - BrowserId=ZnRogFrsEe21h4n99L1cFg; domain=.salesforce.com; path=/; expires=Thu,
+        02-Nov-2023 20:24:49 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Thu, 02-Nov-2023 20:24:49 GMT; Max-Age=31536000
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 02-Nov-2023 20:24:49
         GMT; Max-Age=31536000
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
@@ -135,7 +133,7 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Sforce-Limit-Info:
-      - api-usage=24731/770000
+      - api-usage=26265/770000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -146,5 +144,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"totalSize":1,"done":true,"records":[]}'
     http_version:
-  recorded_at: Tue, 01 Nov 2022 23:50:24 GMT
+  recorded_at: Wed, 02 Nov 2022 20:24:49 GMT
 recorded_with: VCR 5.1.0
