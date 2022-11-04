@@ -148,7 +148,10 @@ const Lease = ({ form, values }) => {
   ])
 
   const availableUnits = state.units.filter(
-    (unit) => !unit.application_id || unit.application_id === state.application.id
+    (unit) =>
+      !unit.application_id ||
+      unit.application_id === state.application.id ||
+      (unit.application_id && unit.lease_status === 'Ended')
   )
 
   const availableUnitsOptions = formUtils.toOptions(

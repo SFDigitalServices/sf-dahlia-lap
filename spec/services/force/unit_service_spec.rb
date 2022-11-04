@@ -12,6 +12,7 @@ RSpec.describe Force::UnitsService do
   describe '#units_and_leases_for_listing' do
     expected_lease_keys = %i[
       application_id
+      lease_status
       preference_used_name
     ]
 
