@@ -156,9 +156,8 @@ const Lease = ({ form, values }) => {
   const availableUnits = state.units.filter(
     (unit) =>
       !Object.prototype.hasOwnProperty.call(unit, 'leases') ||
-      (unit.leases &&
-        !unit.leases.some((lease) => ['draft', 'signed'].includes(lease.lease_status))) ||
-      (unit.leases && unit.leases.some((lease) => lease.application_id === state.application.id))
+      !unit?.leases?.some((lease) => ['Draft', 'Signed'].includes(lease.lease_status)) ||
+      unit?.leases?.some((lease) => lease.application_id === state.application.id)
   )
 
   const availableUnitsOptions = formUtils.toOptions(
