@@ -147,11 +147,17 @@ const Lease = ({ form, values }) => {
     ...map(confirmedPreferences, pluck('id', 'preference_name'))
   ])
 
+  /**
+   * available units fit the following criteria
+   *  - if it doesn't have any leases
+   *  - if there are leases, they cannot be in draft or signed status
+   *  - if the unit has an application, it must match the current one
+   */
   const availableUnits = state.units.filter(
     (unit) =>
-      !unit.application_id ||
-      unit.application_id === state.application.id ||
-      (unit.application_id && unit.lease_status === 'Ended')
+      !Array.isArray(unit.leases) ||
+      !unit.leases.some((lease) => ['Draft', 'Signed'].includes(lease.lease_status)) ||
+      unit.leases.some((lease) => lease.application_id === state.application.id)
   )
 
   const availableUnitsOptions = formUtils.toOptions(
@@ -169,10 +175,18 @@ const Lease = ({ form, values }) => {
     return prefUsed?.preference_name === pref
   }
 
+  /**
+   * Checks if a given unit is using the same preference as the provided preference
+   * @param unit
+   * @param pref
+   * @return {false|*} returns true if the unit is used with the same preference on a different application
+   */
   const unitIsUsedWithPrefElsewhere = (unit, pref) =>
-    unit.application_id &&
-    unit.application_id !== state.application.id &&
-    unit.preference_used_name === pref
+    Array.isArray(unit.leases) &&
+    unit.leases.some(
+      (lease) =>
+        lease.application_id !== state.application.id && pref === lease.preference_used_name
+    )
 
   const numUnitsUsingPref = (pref) =>
     state.units.filter(

@@ -24,14 +24,18 @@ RSpec.describe Force::UnitsService do
       unit_number
       unit_type
       ami_chart_year
+      leases
     ]
 
     it 'should return lease fields when there is a lease on the unit' do
       VCR.use_cassette('services/force/unit_service/with_lease') do
         units = subject.units_and_leases_for_listing(LEASE_UP_LISTING_ID)
 
-        (expected_lease_keys + expected_unit_keys).each do |key|
+        (expected_unit_keys).each do |key|
           expect(units.first).to have_key(key)
+        end
+        (expected_lease_keys).each do |key|
+          expect(units.first.leases.first).to have_key(key)
         end
       end
     end

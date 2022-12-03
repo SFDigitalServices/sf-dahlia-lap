@@ -8,9 +8,8 @@ module Force
     FIELDS = load_fields(FIELD_NAME).freeze
 
     # Returns units and relevant lease information for specified listing.
-    # Units contain info about unit number + eligibility. We merge
-    # this with Lease info about which application is assigned to a unit and
-    # what preference was used.
+    # Units contain info about unit number + eligibility. We join
+    # this with info from Leases
     def units_and_leases_for_listing(listing_id)
       lease_query = builder.from(:Leases__r)
                          .select('Application__c, Lease_Status__c, Preference_Used_Name__c')
@@ -23,12 +22,15 @@ module Force
              .query
              .records
 
+      #format/convert unit and lease objects
       domain_units = result.map do |unit|
-        # Flatten lease fields and merge with unit fields
-        lease = unit['Leases'] ? unit['Leases'][0] : nil
-        domain_lease_fields = Force::Lease.from_salesforce(lease).to_domain if lease
         domain_unit = Force::Unit.from_salesforce(unit).to_domain
-        domain_unit.merge(domain_lease_fields || {})
+        if domain_unit['leases']
+          domain_unit['leases'] = domain_unit['leases']
+                                    .filter do |lease| true if lease end
+                                    .map do |lease| Force::Lease.from_salesforce(lease).to_domain end
+        end
+        domain_unit
       end
       domain_units
     end
