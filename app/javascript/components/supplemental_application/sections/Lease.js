@@ -155,9 +155,9 @@ const Lease = ({ form, values }) => {
    */
   const availableUnits = state.units.filter(
     (unit) =>
-      !Object.prototype.hasOwnProperty.call(unit, 'leases') ||
-      !unit?.leases?.some((lease) => ['Draft', 'Signed'].includes(lease.lease_status)) ||
-      unit?.leases?.some((lease) => lease.application_id === state.application.id)
+      !Array.isArray(unit.leases) ||
+      !unit.leases.some((lease) => ['Draft', 'Signed'].includes(lease.lease_status)) ||
+      unit.leases.some((lease) => lease.application_id === state.application.id)
   )
 
   const availableUnitsOptions = formUtils.toOptions(
@@ -182,7 +182,7 @@ const Lease = ({ form, values }) => {
    * @return {false|*} returns true if the unit is used with the same preference on a different application
    */
   const unitIsUsedWithPrefElsewhere = (unit, pref) =>
-    unit.leases &&
+    Array.isArray(unit.leases) &&
     unit.leases.some(
       (lease) =>
         lease.application_id !== state.application.id && pref === lease.preference_used_name

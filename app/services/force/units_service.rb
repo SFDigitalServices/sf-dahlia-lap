@@ -26,10 +26,9 @@ module Force
       domain_units = result.map do |unit|
         domain_unit = Force::Unit.from_salesforce(unit).to_domain
         if domain_unit['leases']
-          domain_leases = domain_unit['leases'].map do |lease|
-            domain_lease = Force::Lease.from_salesforce(lease).to_domain if lease
-          end
-          domain_unit['leases'] = domain_leases
+          domain_unit['leases'] = domain_unit['leases']
+                                    .filter do |lease| true if lease end
+                                    .map do |lease| Force::Lease.from_salesforce(lease).to_domain end
         end
         domain_unit
       end
