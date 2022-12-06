@@ -153,10 +153,11 @@ const Lease = ({ form, values }) => {
    *  - if there are leases, they cannot be in draft or signed status
    *  - if the unit has an application, it must match the current one
    */
+  const unavailableStatuses = ['Draft', 'Signed']
   const availableUnits = state.units.filter(
     (unit) =>
       !Array.isArray(unit.leases) ||
-      !unit.leases.some((lease) => ['Draft', 'Signed'].includes(lease.lease_status)) ||
+      !unit.leases.some((lease) => unavailableStatuses.includes(lease.lease_status)) ||
       unit.leases.some((lease) => lease.application_id === state.application.id)
   )
 
