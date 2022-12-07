@@ -3,7 +3,7 @@ version: 2.1
 executors:
   ruby_node:
     docker:
-      - image: 'circleci/ruby:2.7.0-node-browsers'
+      - image: 'cimg/ruby:2.7.7-node-browsers'
         environment:
           - RAILS_ENV: development
           - PGHOST: 127.0.0.1
