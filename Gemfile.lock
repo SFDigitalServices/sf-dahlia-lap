@@ -364,6 +364,7 @@ DEPENDENCIES
   hashie (~> 3.5)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  mini_portile2 (~> 2.5, >= 2.5.1)
   newrelic_rpm
   oj
   omniauth-rails_csrf_protection

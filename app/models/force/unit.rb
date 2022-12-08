@@ -18,6 +18,7 @@ module Force
       { domain: 'max_ami_for_qualifying_unit', salesforce: 'Max_AMI_for_Qualifying_Unit' },
       { domain: 'reserved_type', salesforce: 'Reserved_Type' },
       { domain: 'priority_type', salesforce: 'Priority_Type' },
+      { domain: 'leases', salesforce: 'Leases' }
     ].freeze
   end
 end
