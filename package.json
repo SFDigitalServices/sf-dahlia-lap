@@ -72,7 +72,7 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.2",
     "eslint-plugin-standard": "^4.0.1",
-    "grunt": "^1.3.0",
+    "grunt": "^1.5.3",
     "grunt-contrib-clean": "2.0.0",
     "grunt-contrib-copy": "1.0.0",
     "grunt-json-remove-fields": "^0.1.2",
