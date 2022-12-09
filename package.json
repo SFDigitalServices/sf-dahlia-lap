@@ -2,7 +2,7 @@
   "name": "sf-dahlia-lap",
   "private": true,
   "engines": {
-    "node": "12.22.x",
+    "node": "14.21.x",
     "yarn": "1.x.x"
   },
   "dependencies": {
