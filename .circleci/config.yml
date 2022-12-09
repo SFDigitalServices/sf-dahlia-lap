@@ -8,6 +8,7 @@ executors:
           - RAILS_ENV: development
           - PGHOST: 127.0.0.1
           - PGUSER: root
+      - image: cimg/node:12.22
     working_directory: ~/tmp
 non_production_jobs: &non_production_jobs
   filters:
