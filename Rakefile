@@ -6,7 +6,7 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
-Rails.logger = Logger.new(STDOUT)
+Rails.logger = Logger.new($stdout)
 
 begin
   require 'rspec/core/rake_task'
