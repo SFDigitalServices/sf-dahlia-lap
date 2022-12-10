@@ -1,4 +1,5 @@
 AllCops:
+  NewCops: enable
   TargetRubyVersion: 2.7
   Include:
     - "**/Rakefile"
@@ -71,3 +72,6 @@ Metrics/BlockLength:
     - "config/routes.rb"
     - "spec/**/*_spec.rb"
     - "spec/support/**/*"
+
+Lint/EmptyFile:
+  Enabled: false
