@@ -17,24 +17,13 @@ module.exports = function (api) {
 
   return {
     presets: [
-      isTestEnv && [
-        require('@babel/preset-env').default,
-        {
-          targets: {
-            node: 'current'
-          }
-        }
-      ],
-      (isProductionEnv || isDevelopmentEnv) && [
-        require('@babel/preset-env').default,
+      [
+        '@babel/preset-env',
         {
           forceAllTransforms: true,
           useBuiltIns: false,
           modules: false,
-          exclude: ['transform-typeof-symbol'],
-          targets: {
-            browsers: '> 1%'
-          }
+          exclude: ['transform-typeof-symbol']
         }
       ],
       [
@@ -48,21 +37,6 @@ module.exports = function (api) {
     plugins: [
       require('babel-plugin-macros'),
       require('@babel/plugin-syntax-dynamic-import').default,
-      isTestEnv && require('babel-plugin-dynamic-import-node'),
-      require('@babel/plugin-transform-async-to-generator').default,
-      require('@babel/plugin-transform-destructuring').default,
-      [
-        require('@babel/plugin-proposal-class-properties').default,
-        {
-          loose: true
-        }
-      ],
-      [
-        require('@babel/plugin-proposal-object-rest-spread').default,
-        {
-          useBuiltIns: true
-        }
-      ],
       [
         require('@babel/plugin-transform-runtime').default,
         {

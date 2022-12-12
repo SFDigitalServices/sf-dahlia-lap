@@ -8,6 +8,8 @@ executors:
           - RAILS_ENV: development
           - PGHOST: 127.0.0.1
           - PGUSER: root
+          # https://stackoverflow.com/questions/69394632/webpack-build-failing-with-err-ossl-evp-unsupported
+          - NODE_OPTIONS: --openssl-legacy-provider
     working_directory: ~/tmp
 non_production_jobs: &non_production_jobs
   filters:
