@@ -118,6 +118,7 @@ jobs:
       - prepare_workspace
       - run: bundle --path vendor/bundle
       - run: bundle exec rubocop
+      - run: bundle exec rake assets:precompile
       - run: bundle exec rake spec
       - run: ls .
       - store_artifacts:
