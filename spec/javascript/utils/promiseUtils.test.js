@@ -123,10 +123,9 @@ describe('performOrDefault', () => {
 describe('performInSequence', () => {
   describe('when all promises are successful', () => {
     test('it returns the responses in order', async () => {
-      await performInSequence(
-        getPromiseFunc({ value: 1 }),
-        getPromiseFunc({ value: 2 })
-      ).then((responses) => expect(responses).toEqual([1, 2]))
+      await performInSequence(getPromiseFunc({ value: 1 }), getPromiseFunc({ value: 2 })).then(
+        (responses) => expect(responses).toEqual([1, 2])
+      )
     })
 
     test('it returns the responses in order even when slow promise is first', async () => {

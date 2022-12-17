@@ -113,9 +113,11 @@ validate.isUnderMaxValue = (maxVal) => decorateValidator(isUnderMaxValue(maxVal)
 validate.isPresent = decorateValidator(isPresent)
 validate.isChecked = decorateValidator(isChecked)
 validate.list = (fn) => (list) => map(list, fn)
-validate.any = (...fns) => (value) => {
-  return first(compact(map(fns, (fn) => fn(value))))
-}
+validate.any =
+  (...fns) =>
+  (value) => {
+    return first(compact(map(fns, (fn) => fn(value))))
+  }
 
 // Options accept:
 // - isPrimaryApplicant: validates also minimum age of 18 years

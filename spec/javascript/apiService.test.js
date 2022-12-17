@@ -252,14 +252,16 @@ describe('apiService', () => {
         id: 'lease_id',
         monthly_parking_rent: 100
       }
-      let throwsError = false
-      await apiService.createLease(lease, fakeContact, fakeAppId).catch((err) => {
-        throwsError = true
+      let err
+      try {
+        await apiService.createLease(lease, fakeContact, fakeAppId)
+      } catch (e) {
+        err = e
+      } finally {
         expect(err.message).toEqual('Trying to create a lease that already exists.')
-      })
+      }
 
       expect(mockLeasePostRequest.mock.calls).toHaveLength(0)
-      expect(throwsError).toBeTruthy()
     })
   })
 
@@ -292,14 +294,17 @@ describe('apiService', () => {
       var lease = {
         monthly_parking_rent: 100
       }
-      let throwsError = false
-      await apiService.updateLease(lease, fakeContact, fakeAppId).catch((err) => {
-        throwsError = true
+
+      let err
+      try {
+        await apiService.updateLease(lease, fakeContact, fakeAppId)
+      } catch (e) {
+        err = e
+      } finally {
         expect(err.message).toEqual('Trying to update a lease that doesn’t yet exist.')
-      })
+      }
 
       expect(mockLeasePutRequest.mock.calls).toHaveLength(0)
-      expect(throwsError).toBeTruthy()
     })
   })
 

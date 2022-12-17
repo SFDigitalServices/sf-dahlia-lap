@@ -14,6 +14,7 @@ AllCops:
     - "node_modules/**/*"
     - "config/environments/production.rb"
     - "config/initializers/devise.rb"
+    - "lib/tasks/*"
 
 # We don't care about method length, since we check method cyclomatic
 # complexity.
@@ -72,6 +73,3 @@ Metrics/BlockLength:
     - "config/routes.rb"
     - "spec/**/*_spec.rb"
     - "spec/support/**/*"
-
-Lint/EmptyFile:
-  Enabled: false
