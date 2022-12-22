@@ -23,7 +23,8 @@ module.exports = function (api) {
           forceAllTransforms: true,
           useBuiltIns: false,
           modules: false,
-          exclude: ['transform-typeof-symbol']
+          exclude: ['transform-typeof-symbol'],
+          targets: isTestEnv && { node: 'current' }
         }
       ],
       [
