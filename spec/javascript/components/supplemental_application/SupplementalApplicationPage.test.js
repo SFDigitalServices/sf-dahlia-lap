@@ -89,7 +89,13 @@ jest.mock('apiService', () => {
         unit_type: 'studio',
         priority_type: null,
         max_ami_for_qualifying_unit: 50,
-        application_id: 'other application'
+        leases: [
+          {
+            application_id: 'testId',
+            preference_used_name: '',
+            lease_status: 'Signed'
+          }
+        ]
       })
 
       return listingId === _ID_NO_AVAILABLE_UNITS

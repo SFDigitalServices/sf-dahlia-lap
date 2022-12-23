@@ -33,10 +33,15 @@ yarn-debug.log*
 .env
 /public/packs
 /public/packs-test
-/node_modules
 npm-debug.log
 
 # Using yarn rather than npm
 package-lock.json
 coverage
 TAGS
+
+# IDE
+.vscode/*
+!.vscode-default/*
+.idea/*
+*.iml

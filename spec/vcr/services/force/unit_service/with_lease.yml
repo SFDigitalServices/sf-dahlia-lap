@@ -21,28 +21,19 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 09 Dec 2020 21:36:41 GMT
+      - Wed, 02 Nov 2022 20:24:47 GMT
+      Set-Cookie:
+      - BrowserId=ZO2hX1rsEe2QJ4OHTmKTVg; domain=.salesforce.com; path=/; expires=Thu,
+        02-Nov-2023 20:24:47 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Thu, 02-Nov-2023 20:24:47 GMT; Max-Age=31536000
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 02-Nov-2023 20:24:47
+        GMT; Max-Age=31536000
       Strict-Transport-Security:
-      - max-age=31536002; includeSubDomains
-      Public-Key-Pins-Report-Only:
-      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
-        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
-        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
-      Expect-Ct:
-      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      - max-age=63072000; includeSubDomains
       X-Robots-Tag:
       - none
-      X-B3-Traceid:
-      - f4eaba5ac465155f
-      X-B3-Spanid:
-      - f4eaba5ac465155f
-      X-B3-Sampled:
-      - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
-      Set-Cookie:
-      - BrowserId=oBDB8DpmEeux8BGQLsQiEg; domain=.salesforce.com; path=/; expires=Thu,
-        09-Dec-2021 21:36:41 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -55,12 +46,12 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1607549801274","signature":"OncR4INi4/9QGY8RCOXA6zNvGU/T1Fi2PnbcCkyMie0="}'
-    http_version: null
-  recorded_at: Wed, 09 Dec 2020 21:36:41 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D8H0000004dNlUAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1667420687136","signature":"WDLUJrunDGgpaTUmKJBSaBN6leAy+KdNGBUsN+uCXUw="}'
+    http_version:
+  recorded_at: Wed, 02 Nov 2022 20:24:47 GMT
 - request:
     method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Priority_Type__c,%20AMI_chart_type__c,%20Max_AMI_for_Qualifying_Unit__c,%20Unit_Number__c,%20Unit_Type__c,%20AMI_chart_year__c,%20(SELECT%20Application__c,%20Preference_Used_Name__c%20FROM%20Leases__r)%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000GbyuQUAR%27)
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Priority_Type__c,%20AMI_chart_type__c,%20Max_AMI_for_Qualifying_Unit__c,%20Unit_Number__c,%20Unit_Type__c,%20AMI_chart_year__c,%20(SELECT%20Application__c,%20Lease_Status__c,%20Preference_Used_Name__c%20FROM%20Leases__r)%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000GbyuQUAR%27)
     body:
       encoding: US-ASCII
       string: ''
@@ -79,30 +70,21 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 09 Dec 2020 21:36:41 GMT
+      - Wed, 02 Nov 2022 20:24:47 GMT
+      Set-Cookie:
+      - BrowserId=ZTiM5VrsEe21h4n99L1cFg; domain=.salesforce.com; path=/; expires=Thu,
+        02-Nov-2023 20:24:47 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Thu, 02-Nov-2023 20:24:47 GMT; Max-Age=31536000
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 02-Nov-2023 20:24:47
+        GMT; Max-Age=31536000
       Strict-Transport-Security:
-      - max-age=31536002; includeSubDomains
-      Public-Key-Pins-Report-Only:
-      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
-        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
-        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
-      Expect-Ct:
-      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      - max-age=63072000; includeSubDomains
       X-Robots-Tag:
       - none
-      X-B3-Traceid:
-      - f7c800ced9d159aa
-      X-B3-Spanid:
-      - f7c800ced9d159aa
-      X-B3-Sampled:
-      - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
-      Set-Cookie:
-      - BrowserId=oDtU1TpmEeukpO0zQ0i_uQ; domain=.salesforce.com; path=/; expires=Thu,
-        09-Dec-2021 21:36:41 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=16833/400000
+      - api-usage=26264/770000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -113,28 +95,31 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"totalSize":9,"done":true,"records":[{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHr9QAH"},"Id":"a0b0P00001HIHr9QAH","Priority_Type__c":null,"AMI_chart_type__c":"HUD
         Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"101","Unit_Type__c":"1
-        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6tcQAC"},"Application__c":"a0o0P00000GZayuQAD","Preference_Used_Name__c":"Neighborhood
-        Resident Housing Preference (NRHP)"}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrEQAX"},"Id":"a0b0P00001HIHrEQAX","Priority_Type__c":"Hearing/Vision
+        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007B4ugQAC"},"Application__c":"a0o0P00000ItlpiQAB","Lease_Status__c":"Signed","Preference_Used_Name__c":"Live
+        or Work in San Francisco Preference"}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrEQAX"},"Id":"a0b0P00001HIHrEQAX","Priority_Type__c":"Hearing/Vision
         impairments","AMI_chart_type__c":"HUD Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"201","Unit_Type__c":"1
-        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6trQAC"},"Application__c":"a0o0P00000IvWghQAF","Preference_Used_Name__c":null}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrJQAX"},"Id":"a0b0P00001HIHrJQAX","Priority_Type__c":null,"AMI_chart_type__c":"HUD
+        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6trQAC"},"Application__c":"a0o0P00000IvWghQAF","Lease_Status__c":"Signed","Preference_Used_Name__c":"Displaced
+        Tenant Housing Preference (DTHP)"}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrJQAX"},"Id":"a0b0P00001HIHrJQAX","Priority_Type__c":null,"AMI_chart_type__c":"HUD
         Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"301","Unit_Type__c":"1
-        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6tgQAC"},"Application__c":"a0o0P00000Iv7H4QAJ","Preference_Used_Name__c":null}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrTQAX"},"Id":"a0b0P00001HIHrTQAX","Priority_Type__c":"Mobility
+        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6tgQAC"},"Application__c":"a0o0P00000Iv7H4QAJ","Lease_Status__c":"Draft","Preference_Used_Name__c":null}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrTQAX"},"Id":"a0b0P00001HIHrTQAX","Priority_Type__c":"Mobility
         impairments","AMI_chart_type__c":"HUD Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"103","Unit_Type__c":"2
-        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6tjQAC"},"Application__c":"a0o0P00000IvMoaQAF","Preference_Used_Name__c":"Certificate
+        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6tjQAC"},"Application__c":"a0o0P00000IvMoaQAF","Lease_Status__c":null,"Preference_Used_Name__c":"Certificate
         of Preference (COP)"}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrYQAX"},"Id":"a0b0P00001HIHrYQAX","Priority_Type__c":null,"AMI_chart_type__c":"HUD
         Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"203","Unit_Type__c":"2
-        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a131F000002R2dWQAS"},"Application__c":"a0o0P00000IvWt8QAF","Preference_Used_Name__c":null}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrdQAH"},"Id":"a0b0P00001HIHrdQAH","Priority_Type__c":null,"AMI_chart_type__c":"HUD
+        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6tiQAC"},"Application__c":"a0o0P00000GZazsQAD","Lease_Status__c":"Draft","Preference_Used_Name__c":"Certificate
+        of Preference (COP)"}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrdQAH"},"Id":"a0b0P00001HIHrdQAH","Priority_Type__c":null,"AMI_chart_type__c":"HUD
         Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"303","Unit_Type__c":"2
-        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6tfQAC"},"Application__c":"a0o0P00000Isnf4QAB","Preference_Used_Name__c":null}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrnQAH"},"Id":"a0b0P00001HIHrnQAH","Priority_Type__c":"Mobility/Hearing/Vision
+        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6tfQAC"},"Application__c":"a0o0P00000Isnf4QAB","Lease_Status__c":"Draft","Preference_Used_Name__c":"Displaced
+        Tenant Housing Preference (DTHP)"}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrnQAH"},"Id":"a0b0P00001HIHrnQAH","Priority_Type__c":"Mobility/Hearing/Vision
         impairments","AMI_chart_type__c":"HUD Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"105","Unit_Type__c":"3
-        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6tkQAC"},"Application__c":"a0o0P00000GZazOQAT","Preference_Used_Name__c":null}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrsQAH"},"Id":"a0b0P00001HIHrsQAH","Priority_Type__c":null,"AMI_chart_type__c":"HUD
+        BR","AMI_chart_year__c":2018.0,"Leases__r":null},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrsQAH"},"Id":"a0b0P00001HIHrsQAH","Priority_Type__c":null,"AMI_chart_type__c":"HUD
         Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"205","Unit_Type__c":"3
-        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6thQAC"},"Application__c":"a0o0P00000IvWgXQAV","Preference_Used_Name__c":"Live
+        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6thQAC"},"Application__c":"a0o0P00000IvWgXQAV","Lease_Status__c":"Draft","Preference_Used_Name__c":"Live
         or Work in San Francisco Preference"}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrxQAH"},"Id":"a0b0P00001HIHrxQAH","Priority_Type__c":null,"AMI_chart_type__c":"HUD
         Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"305","Unit_Type__c":"3
         BR","AMI_chart_year__c":2018.0,"Leases__r":null}]}'
-    http_version: null
-  recorded_at: Wed, 09 Dec 2020 21:36:41 GMT
+    http_version:
+  recorded_at: Wed, 02 Nov 2022 20:24:47 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000GbyuQUAR%27)
@@ -156,30 +141,21 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 09 Dec 2020 21:36:41 GMT
+      - Wed, 02 Nov 2022 20:24:48 GMT
+      Set-Cookie:
+      - BrowserId=ZZrRuVrsEe2oKmn48XduPg; domain=.salesforce.com; path=/; expires=Thu,
+        02-Nov-2023 20:24:48 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Thu, 02-Nov-2023 20:24:48 GMT; Max-Age=31536000
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 02-Nov-2023 20:24:48
+        GMT; Max-Age=31536000
       Strict-Transport-Security:
-      - max-age=31536002; includeSubDomains
-      Public-Key-Pins-Report-Only:
-      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
-        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
-        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
-      Expect-Ct:
-      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      - max-age=63072000; includeSubDomains
       X-Robots-Tag:
       - none
-      X-B3-Traceid:
-      - '078fd2d431df1129'
-      X-B3-Spanid:
-      - '078fd2d431df1129'
-      X-B3-Sampled:
-      - '0'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
-      Set-Cookie:
-      - BrowserId=oFXhbTpmEeuPjgvnSLyJcA; domain=.salesforce.com; path=/; expires=Thu,
-        09-Dec-2021 21:36:41 GMT; Max-Age=31536000
       Sforce-Limit-Info:
-      - api-usage=16832/400000
+      - api-usage=26264/770000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -189,6 +165,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":9,"done":true,"records":[]}'
-    http_version: null
-  recorded_at: Wed, 09 Dec 2020 21:36:41 GMT
+    http_version:
+  recorded_at: Wed, 02 Nov 2022 20:24:48 GMT
 recorded_with: VCR 5.1.0
