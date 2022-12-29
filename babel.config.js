@@ -2,7 +2,7 @@ module.exports = function (api) {
   var validEnv = ['development', 'test', 'production']
   var currentEnv = api.env()
   var isDevelopmentEnv = api.env('development')
-  var isProductionEnv = api.env('production')
+  // var isProductionEnv = api.env('production')
   var isTestEnv = api.env('test')
 
   if (!validEnv.includes(currentEnv)) {
@@ -22,7 +22,7 @@ module.exports = function (api) {
         {
           forceAllTransforms: true,
           useBuiltIns: false,
-          modules: false,
+          // modules: false,
           exclude: ['transform-typeof-symbol'],
           targets: isTestEnv && { node: 'current' }
         }
@@ -36,33 +36,33 @@ module.exports = function (api) {
       ]
     ].filter(Boolean),
     plugins: [
-      require('babel-plugin-macros'),
-      require('@babel/plugin-syntax-dynamic-import').default,
-      [
-        require('@babel/plugin-transform-runtime').default,
-        {
-          helpers: false,
-          regenerator: true
-        }
-      ],
-      [
-        require('@babel/plugin-transform-regenerator').default,
-        {
-          async: false
-        }
-      ],
-      [
-        require('babel-plugin-root-import').default,
-        {
-          rootPathSuffix: 'app/javascript'
-        }
-      ],
-      isProductionEnv && [
-        require('babel-plugin-transform-react-remove-prop-types').default,
-        {
-          removeImport: true
-        }
-      ]
+      //   require('babel-plugin-macros'),
+      //   require('@babel/plugin-syntax-dynamic-import').default,
+      //   [
+      //     require('@babel/plugin-transform-runtime').default,
+      //     {
+      //       helpers: false,
+      //       regenerator: true
+      //     }
+      //   ],
+      //   [
+      //     require('@babel/plugin-transform-regenerator').default,
+      //     {
+      //       async: false
+      //     }
+      //   ],
+      //   [
+      //     require('babel-plugin-root-import').default,
+      //     {
+      //       rootPathSuffix: 'app/javascript'
+      //     }
+      //   ],
+      //   isProductionEnv && [
+      //     require('babel-plugin-transform-react-remove-prop-types').default,
+      //     {
+      //       removeImport: true
+      //     }
+      //   ]
     ].filter(Boolean)
   }
 }
