@@ -4,7 +4,7 @@ const config = {
   coverageReporters: ['lcov'],
   clearMocks: true,
   moduleDirectories: ['node_modules', 'app/javascript'],
-  // resetModules: true,
+  resetModules: true,
   roots: ['spec/javascript'],
   setupFiles: ['jest-prop-type-error', './spec/javascript/jestsetup.js'],
   snapshotSerializers: ['enzyme-to-json/serializer'],

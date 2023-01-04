@@ -5,12 +5,12 @@ exports[`TabsMenu it should render correctly 1`] = `
   background="snow"
   currentUrl="/url1"
   items={
-    Array [
-      Object {
+    [
+      {
         "title": "Short Form Application",
         "url": "/url1",
       },
-      Object {
+      {
         "active": true,
         "title": "Supplemental Information",
         "url": "/url2",
@@ -24,12 +24,12 @@ exports[`TabsMenu it should render correctly 1`] = `
     <TabsMenu
       currentUrl="/url1"
       items={
-        Array [
-          Object {
+        [
+          {
             "title": "Short Form Application",
             "url": "/url1",
           },
-          Object {
+          {
             "active": true,
             "title": "Supplemental Information",
             "url": "/url2",
@@ -47,7 +47,7 @@ exports[`TabsMenu it should render correctly 1`] = `
           onFocus={[Function]}
           onKeyDown={[Function]}
           tabItem={
-            Object {
+            {
               "title": "Short Form Application",
               "url": "/url1",
             }
@@ -75,7 +75,7 @@ exports[`TabsMenu it should render correctly 1`] = `
           onFocus={[Function]}
           onKeyDown={[Function]}
           tabItem={
-            Object {
+            {
               "active": true,
               "title": "Supplemental Information",
               "url": "/url2",

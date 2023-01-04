@@ -3,23 +3,23 @@
 exports[`IndexTable rows should be expandable 1`] = `
 <IndexTable
   fields={
-    Object {
+    {
       "first_name": null,
       "last_name": null,
     }
   }
   links={
-    Array [
+    [
       "View Listing",
     ]
   }
   results={
-    Array [
-      Object {
+    [
+      {
         "first_name": "xxx1",
         "last_name": "zzz1",
       },
-      Object {
+      {
         "first_name": "xxx2",
         "last_name": "zzz2",
       },
@@ -51,7 +51,7 @@ exports[`IndexTable rows should be expandable 1`] = `
     collapseOnPageChange={true}
     collapseOnSortingChange={true}
     column={
-      Object {
+      {
         "Aggregated": undefined,
         "Cell": undefined,
         "Expander": undefined,
@@ -67,31 +67,31 @@ exports[`IndexTable rows should be expandable 1`] = `
         "filterMethod": undefined,
         "filterable": undefined,
         "footerClassName": "",
-        "footerStyle": Object {},
+        "footerStyle": {},
         "getFooterProps": [Function],
         "getHeaderProps": [Function],
         "getProps": [Function],
         "headerClassName": "",
-        "headerStyle": Object {},
+        "headerStyle": {},
         "minResizeWidth": 11,
         "minWidth": 100,
         "resizable": undefined,
         "show": true,
         "sortMethod": undefined,
         "sortable": undefined,
-        "style": Object {},
+        "style": {},
       }
     }
     columns={
-      Array [
-        Object {
+      [
+        {
           "Cell": [Function],
           "Header": "first name",
           "accessor": [Function],
           "filterMethod": [Function],
           "id": "first_name",
         },
-        Object {
+        {
           "Cell": [Function],
           "Header": "last name",
           "accessor": [Function],
@@ -101,33 +101,33 @@ exports[`IndexTable rows should be expandable 1`] = `
       ]
     }
     data={
-      Array [
-        Object {
+      [
+        {
           "first_name": "xxx1",
           "last_name": "zzz1",
         },
-        Object {
+        {
           "first_name": "xxx2",
           "last_name": "zzz2",
         },
       ]
     }
-    defaultExpanded={Object {}}
+    defaultExpanded={{}}
     defaultFilterMethod={[Function]}
-    defaultFiltered={Array []}
+    defaultFiltered={[]}
     defaultPage={0}
     defaultPageSize={20}
-    defaultResized={Array []}
+    defaultResized={[]}
     defaultSortDesc={false}
     defaultSortMethod={[Function]}
-    defaultSorted={Array []}
+    defaultSorted={[]}
     expanded={
-      Object {
+      {
         "0": true,
       }
     }
     expanderDefaults={
-      Object {
+      {
         "filterable": false,
         "resizable": false,
         "sortable": false,
@@ -171,7 +171,7 @@ exports[`IndexTable rows should be expandable 1`] = `
     originalKey="_original"
     pageJumpText="jump to page"
     pageSizeOptions={
-      Array [
+      [
         5,
         10,
         20,
@@ -181,7 +181,7 @@ exports[`IndexTable rows should be expandable 1`] = `
       ]
     }
     pageText="Page"
-    pivotDefaults={Object {}}
+    pivotDefaults={{}}
     pivotIDKey="_pivotID"
     pivotValKey="_pivotVal"
     previousText="Previous"
@@ -195,12 +195,12 @@ exports[`IndexTable rows should be expandable 1`] = `
     showPaginationBottom={true}
     showPaginationTop={false}
     sortable={true}
-    style={Object {}}
+    style={{}}
     subRowsKey="_subRows"
   >
     <div
       className="ReactTable"
-      style={Object {}}
+      style={{}}
     >
       <TableComponent
         className=""
@@ -212,7 +212,7 @@ exports[`IndexTable rows should be expandable 1`] = `
           <Thead
             className="-header"
             style={
-              Object {
+              {
                 "minWidth": "235px",
               }
             }
@@ -220,7 +220,7 @@ exports[`IndexTable rows should be expandable 1`] = `
             <div
               className="rt-thead -header"
               style={
-                Object {
+                {
                   "minWidth": "235px",
                 }
               }
@@ -234,7 +234,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                     className=""
                     key="0-undefined"
                     style={
-                      Object {
+                      {
                         "flex": "35 0 auto",
                         "maxWidth": "35px",
                         "width": "35px",
@@ -247,7 +247,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                       onClick={[Function]}
                       role="columnheader"
                       style={
-                        Object {
+                        {
                           "flex": "35 0 auto",
                           "maxWidth": "35px",
                           "width": "35px",
@@ -264,7 +264,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                     className="rt-resizable-header -cursor-pointer"
                     key="1-first_name"
                     style={
-                      Object {
+                      {
                         "flex": "100 0 auto",
                         "maxWidth": null,
                         "width": "100px",
@@ -277,7 +277,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                       onClick={[Function]}
                       role="columnheader"
                       style={
-                        Object {
+                        {
                           "flex": "100 0 auto",
                           "maxWidth": null,
                           "width": "100px",
@@ -306,7 +306,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                     className="rt-resizable-header -cursor-pointer"
                     key="2-last_name"
                     style={
-                      Object {
+                      {
                         "flex": "100 0 auto",
                         "maxWidth": null,
                         "width": "100px",
@@ -319,7 +319,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                       onClick={[Function]}
                       role="columnheader"
                       style={
-                        Object {
+                        {
                           "flex": "100 0 auto",
                           "maxWidth": null,
                           "width": "100px",
@@ -351,7 +351,7 @@ exports[`IndexTable rows should be expandable 1`] = `
           <Tbody
             className=""
             style={
-              Object {
+              {
                 "minWidth": "235px",
               }
             }
@@ -359,7 +359,7 @@ exports[`IndexTable rows should be expandable 1`] = `
             <div
               className="rt-tbody"
               style={
-                Object {
+                {
                   "minWidth": "235px",
                 }
               }
@@ -385,7 +385,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         key="0-undefined"
                         onClick={[Function]}
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -397,7 +397,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           onClick={[Function]}
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -406,14 +406,14 @@ exports[`IndexTable rows should be expandable 1`] = `
                         >
                           <ExpanderComponent
                             classes={
-                              Array [
+                              [
                                 undefined,
                                 "",
                                 undefined,
                               ]
                             }
                             column={
-                              Object {
+                              {
                                 "Aggregated": undefined,
                                 "Cell": undefined,
                                 "Expander": undefined,
@@ -431,26 +431,26 @@ exports[`IndexTable rows should be expandable 1`] = `
                                 "filterMethod": undefined,
                                 "filterable": false,
                                 "footerClassName": "",
-                                "footerStyle": Object {},
+                                "footerStyle": {},
                                 "getFooterProps": [Function],
                                 "getHeaderProps": [Function],
                                 "getProps": [Function],
                                 "headerClassName": "",
-                                "headerStyle": Object {},
+                                "headerStyle": {},
                                 "minResizeWidth": 11,
                                 "minWidth": 100,
                                 "resizable": false,
                                 "show": true,
                                 "sortMethod": undefined,
                                 "sortable": false,
-                                "style": Object {},
+                                "style": {},
                                 "width": 35,
                               }
                             }
                             columnProps={
-                              Object {
+                              {
                                 "className": undefined,
-                                "rest": Object {},
+                                "rest": {},
                                 "style": undefined,
                               }
                             }
@@ -461,24 +461,24 @@ exports[`IndexTable rows should be expandable 1`] = `
                             level={0}
                             maxWidth={35}
                             nestingPath={
-                              Array [
+                              [
                                 0,
                               ]
                             }
                             original={
-                              Object {
+                              {
                                 "first_name": "xxx1",
                                 "last_name": "zzz1",
                               }
                             }
                             page={0}
                             pageSize={20}
-                            resized={Array []}
+                            resized={[]}
                             row={
-                              Object {
+                              {
                                 "_index": 0,
                                 "_nestingLevel": 0,
-                                "_original": Object {
+                                "_original": {
                                   "first_name": "xxx1",
                                   "last_name": "zzz1",
                                 },
@@ -489,11 +489,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                               }
                             }
                             show={true}
-                            styles={Object {}}
+                            styles={{}}
                             tdProps={
-                              Object {
+                              {
                                 "className": undefined,
-                                "rest": Object {},
+                                "rest": {},
                                 "style": undefined,
                               }
                             }
@@ -513,7 +513,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         key="1-first_name"
                         onClick={[Function]}
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -525,7 +525,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           onClick={[Function]}
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -534,14 +534,14 @@ exports[`IndexTable rows should be expandable 1`] = `
                         >
                           <Cell
                             classes={
-                              Array [
+                              [
                                 undefined,
                                 "",
                                 undefined,
                               ]
                             }
                             column={
-                              Object {
+                              {
                                 "Aggregated": undefined,
                                 "Cell": [Function],
                                 "Expander": undefined,
@@ -558,12 +558,12 @@ exports[`IndexTable rows should be expandable 1`] = `
                                 "filterMethod": [Function],
                                 "filterable": undefined,
                                 "footerClassName": "",
-                                "footerStyle": Object {},
+                                "footerStyle": {},
                                 "getFooterProps": [Function],
                                 "getHeaderProps": [Function],
                                 "getProps": [Function],
                                 "headerClassName": "",
-                                "headerStyle": Object {},
+                                "headerStyle": {},
                                 "id": "first_name",
                                 "minResizeWidth": 11,
                                 "minWidth": 100,
@@ -571,13 +571,13 @@ exports[`IndexTable rows should be expandable 1`] = `
                                 "show": true,
                                 "sortMethod": undefined,
                                 "sortable": undefined,
-                                "style": Object {},
+                                "style": {},
                               }
                             }
                             columnProps={
-                              Object {
+                              {
                                 "className": undefined,
-                                "rest": Object {},
+                                "rest": {},
                                 "style": undefined,
                               }
                             }
@@ -585,24 +585,24 @@ exports[`IndexTable rows should be expandable 1`] = `
                             isExpanded={true}
                             level={0}
                             nestingPath={
-                              Array [
+                              [
                                 0,
                               ]
                             }
                             original={
-                              Object {
+                              {
                                 "first_name": "xxx1",
                                 "last_name": "zzz1",
                               }
                             }
                             page={0}
                             pageSize={20}
-                            resized={Array []}
+                            resized={[]}
                             row={
-                              Object {
+                              {
                                 "_index": 0,
                                 "_nestingLevel": 0,
-                                "_original": Object {
+                                "_original": {
                                   "first_name": "xxx1",
                                   "last_name": "zzz1",
                                 },
@@ -613,11 +613,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                               }
                             }
                             show={true}
-                            styles={Object {}}
+                            styles={{}}
                             tdProps={
-                              Object {
+                              {
                                 "className": undefined,
-                                "rest": Object {},
+                                "rest": {},
                                 "style": undefined,
                               }
                             }
@@ -626,7 +626,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                             width={100}
                           >
                             <IndexTableCell
-                              attrs={Object {}}
+                              attrs={{}}
                               val="xxx1"
                             >
                               xxx1
@@ -639,7 +639,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         key="2-last_name"
                         onClick={[Function]}
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -651,7 +651,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           onClick={[Function]}
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -660,14 +660,14 @@ exports[`IndexTable rows should be expandable 1`] = `
                         >
                           <Cell
                             classes={
-                              Array [
+                              [
                                 undefined,
                                 "",
                                 undefined,
                               ]
                             }
                             column={
-                              Object {
+                              {
                                 "Aggregated": undefined,
                                 "Cell": [Function],
                                 "Expander": undefined,
@@ -684,12 +684,12 @@ exports[`IndexTable rows should be expandable 1`] = `
                                 "filterMethod": [Function],
                                 "filterable": undefined,
                                 "footerClassName": "",
-                                "footerStyle": Object {},
+                                "footerStyle": {},
                                 "getFooterProps": [Function],
                                 "getHeaderProps": [Function],
                                 "getProps": [Function],
                                 "headerClassName": "",
-                                "headerStyle": Object {},
+                                "headerStyle": {},
                                 "id": "last_name",
                                 "minResizeWidth": 11,
                                 "minWidth": 100,
@@ -697,13 +697,13 @@ exports[`IndexTable rows should be expandable 1`] = `
                                 "show": true,
                                 "sortMethod": undefined,
                                 "sortable": undefined,
-                                "style": Object {},
+                                "style": {},
                               }
                             }
                             columnProps={
-                              Object {
+                              {
                                 "className": undefined,
-                                "rest": Object {},
+                                "rest": {},
                                 "style": undefined,
                               }
                             }
@@ -711,24 +711,24 @@ exports[`IndexTable rows should be expandable 1`] = `
                             isExpanded={true}
                             level={0}
                             nestingPath={
-                              Array [
+                              [
                                 0,
                               ]
                             }
                             original={
-                              Object {
+                              {
                                 "first_name": "xxx1",
                                 "last_name": "zzz1",
                               }
                             }
                             page={0}
                             pageSize={20}
-                            resized={Array []}
+                            resized={[]}
                             row={
-                              Object {
+                              {
                                 "_index": 0,
                                 "_nestingLevel": 0,
-                                "_original": Object {
+                                "_original": {
                                   "first_name": "xxx1",
                                   "last_name": "zzz1",
                                 },
@@ -739,11 +739,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                               }
                             }
                             show={true}
-                            styles={Object {}}
+                            styles={{}}
                             tdProps={
-                              Object {
+                              {
                                 "className": undefined,
-                                "rest": Object {},
+                                "rest": {},
                                 "style": undefined,
                               }
                             }
@@ -752,7 +752,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                             width={100}
                           >
                             <IndexTableCell
-                              attrs={Object {}}
+                              attrs={{}}
                               val="zzz1"
                             >
                               zzz1
@@ -799,7 +799,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         key="0-undefined"
                         onClick={[Function]}
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -811,7 +811,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           onClick={[Function]}
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -820,14 +820,14 @@ exports[`IndexTable rows should be expandable 1`] = `
                         >
                           <ExpanderComponent
                             classes={
-                              Array [
+                              [
                                 undefined,
                                 "",
                                 undefined,
                               ]
                             }
                             column={
-                              Object {
+                              {
                                 "Aggregated": undefined,
                                 "Cell": undefined,
                                 "Expander": undefined,
@@ -845,26 +845,26 @@ exports[`IndexTable rows should be expandable 1`] = `
                                 "filterMethod": undefined,
                                 "filterable": false,
                                 "footerClassName": "",
-                                "footerStyle": Object {},
+                                "footerStyle": {},
                                 "getFooterProps": [Function],
                                 "getHeaderProps": [Function],
                                 "getProps": [Function],
                                 "headerClassName": "",
-                                "headerStyle": Object {},
+                                "headerStyle": {},
                                 "minResizeWidth": 11,
                                 "minWidth": 100,
                                 "resizable": false,
                                 "show": true,
                                 "sortMethod": undefined,
                                 "sortable": false,
-                                "style": Object {},
+                                "style": {},
                                 "width": 35,
                               }
                             }
                             columnProps={
-                              Object {
+                              {
                                 "className": undefined,
-                                "rest": Object {},
+                                "rest": {},
                                 "style": undefined,
                               }
                             }
@@ -874,24 +874,24 @@ exports[`IndexTable rows should be expandable 1`] = `
                             level={0}
                             maxWidth={35}
                             nestingPath={
-                              Array [
+                              [
                                 1,
                               ]
                             }
                             original={
-                              Object {
+                              {
                                 "first_name": "xxx2",
                                 "last_name": "zzz2",
                               }
                             }
                             page={0}
                             pageSize={20}
-                            resized={Array []}
+                            resized={[]}
                             row={
-                              Object {
+                              {
                                 "_index": 1,
                                 "_nestingLevel": 0,
-                                "_original": Object {
+                                "_original": {
                                   "first_name": "xxx2",
                                   "last_name": "zzz2",
                                 },
@@ -902,11 +902,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                               }
                             }
                             show={true}
-                            styles={Object {}}
+                            styles={{}}
                             tdProps={
-                              Object {
+                              {
                                 "className": undefined,
-                                "rest": Object {},
+                                "rest": {},
                                 "style": undefined,
                               }
                             }
@@ -926,7 +926,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         key="1-first_name"
                         onClick={[Function]}
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -938,7 +938,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           onClick={[Function]}
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -947,14 +947,14 @@ exports[`IndexTable rows should be expandable 1`] = `
                         >
                           <Cell
                             classes={
-                              Array [
+                              [
                                 undefined,
                                 "",
                                 undefined,
                               ]
                             }
                             column={
-                              Object {
+                              {
                                 "Aggregated": undefined,
                                 "Cell": [Function],
                                 "Expander": undefined,
@@ -971,12 +971,12 @@ exports[`IndexTable rows should be expandable 1`] = `
                                 "filterMethod": [Function],
                                 "filterable": undefined,
                                 "footerClassName": "",
-                                "footerStyle": Object {},
+                                "footerStyle": {},
                                 "getFooterProps": [Function],
                                 "getHeaderProps": [Function],
                                 "getProps": [Function],
                                 "headerClassName": "",
-                                "headerStyle": Object {},
+                                "headerStyle": {},
                                 "id": "first_name",
                                 "minResizeWidth": 11,
                                 "minWidth": 100,
@@ -984,37 +984,37 @@ exports[`IndexTable rows should be expandable 1`] = `
                                 "show": true,
                                 "sortMethod": undefined,
                                 "sortable": undefined,
-                                "style": Object {},
+                                "style": {},
                               }
                             }
                             columnProps={
-                              Object {
+                              {
                                 "className": undefined,
-                                "rest": Object {},
+                                "rest": {},
                                 "style": undefined,
                               }
                             }
                             index={1}
                             level={0}
                             nestingPath={
-                              Array [
+                              [
                                 1,
                               ]
                             }
                             original={
-                              Object {
+                              {
                                 "first_name": "xxx2",
                                 "last_name": "zzz2",
                               }
                             }
                             page={0}
                             pageSize={20}
-                            resized={Array []}
+                            resized={[]}
                             row={
-                              Object {
+                              {
                                 "_index": 1,
                                 "_nestingLevel": 0,
-                                "_original": Object {
+                                "_original": {
                                   "first_name": "xxx2",
                                   "last_name": "zzz2",
                                 },
@@ -1025,11 +1025,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                               }
                             }
                             show={true}
-                            styles={Object {}}
+                            styles={{}}
                             tdProps={
-                              Object {
+                              {
                                 "className": undefined,
-                                "rest": Object {},
+                                "rest": {},
                                 "style": undefined,
                               }
                             }
@@ -1038,7 +1038,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                             width={100}
                           >
                             <IndexTableCell
-                              attrs={Object {}}
+                              attrs={{}}
                               val="xxx2"
                             >
                               xxx2
@@ -1051,7 +1051,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         key="2-last_name"
                         onClick={[Function]}
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -1063,7 +1063,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           onClick={[Function]}
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -1072,14 +1072,14 @@ exports[`IndexTable rows should be expandable 1`] = `
                         >
                           <Cell
                             classes={
-                              Array [
+                              [
                                 undefined,
                                 "",
                                 undefined,
                               ]
                             }
                             column={
-                              Object {
+                              {
                                 "Aggregated": undefined,
                                 "Cell": [Function],
                                 "Expander": undefined,
@@ -1096,12 +1096,12 @@ exports[`IndexTable rows should be expandable 1`] = `
                                 "filterMethod": [Function],
                                 "filterable": undefined,
                                 "footerClassName": "",
-                                "footerStyle": Object {},
+                                "footerStyle": {},
                                 "getFooterProps": [Function],
                                 "getHeaderProps": [Function],
                                 "getProps": [Function],
                                 "headerClassName": "",
-                                "headerStyle": Object {},
+                                "headerStyle": {},
                                 "id": "last_name",
                                 "minResizeWidth": 11,
                                 "minWidth": 100,
@@ -1109,37 +1109,37 @@ exports[`IndexTable rows should be expandable 1`] = `
                                 "show": true,
                                 "sortMethod": undefined,
                                 "sortable": undefined,
-                                "style": Object {},
+                                "style": {},
                               }
                             }
                             columnProps={
-                              Object {
+                              {
                                 "className": undefined,
-                                "rest": Object {},
+                                "rest": {},
                                 "style": undefined,
                               }
                             }
                             index={1}
                             level={0}
                             nestingPath={
-                              Array [
+                              [
                                 1,
                               ]
                             }
                             original={
-                              Object {
+                              {
                                 "first_name": "xxx2",
                                 "last_name": "zzz2",
                               }
                             }
                             page={0}
                             pageSize={20}
-                            resized={Array []}
+                            resized={[]}
                             row={
-                              Object {
+                              {
                                 "_index": 1,
                                 "_nestingLevel": 0,
-                                "_original": Object {
+                                "_original": {
                                   "first_name": "xxx2",
                                   "last_name": "zzz2",
                                 },
@@ -1150,11 +1150,11 @@ exports[`IndexTable rows should be expandable 1`] = `
                               }
                             }
                             show={true}
-                            styles={Object {}}
+                            styles={{}}
                             tdProps={
-                              Object {
+                              {
                                 "className": undefined,
-                                "rest": Object {},
+                                "rest": {},
                                 "style": undefined,
                               }
                             }
@@ -1163,7 +1163,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                             width={100}
                           >
                             <IndexTableCell
-                              attrs={Object {}}
+                              attrs={{}}
                               val="zzz2"
                             >
                               zzz2
@@ -1184,18 +1184,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -odd"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -1206,7 +1206,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -1224,7 +1224,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -1235,7 +1235,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -1253,7 +1253,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -1264,7 +1264,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -1291,18 +1291,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -even"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -even"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -1313,7 +1313,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -1331,7 +1331,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -1342,7 +1342,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -1360,7 +1360,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -1371,7 +1371,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -1398,18 +1398,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -odd"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -1420,7 +1420,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -1438,7 +1438,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -1449,7 +1449,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -1467,7 +1467,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -1478,7 +1478,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -1505,18 +1505,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -even"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -even"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -1527,7 +1527,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -1545,7 +1545,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -1556,7 +1556,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -1574,7 +1574,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -1585,7 +1585,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -1612,18 +1612,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -odd"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -1634,7 +1634,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -1652,7 +1652,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -1663,7 +1663,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -1681,7 +1681,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -1692,7 +1692,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -1719,18 +1719,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -even"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -even"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -1741,7 +1741,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -1759,7 +1759,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -1770,7 +1770,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -1788,7 +1788,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -1799,7 +1799,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -1826,18 +1826,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -odd"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -1848,7 +1848,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -1866,7 +1866,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -1877,7 +1877,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -1895,7 +1895,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -1906,7 +1906,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -1933,18 +1933,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -even"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -even"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -1955,7 +1955,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -1973,7 +1973,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -1984,7 +1984,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2002,7 +2002,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2013,7 +2013,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2040,18 +2040,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -odd"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -2062,7 +2062,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -2080,7 +2080,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2091,7 +2091,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2109,7 +2109,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2120,7 +2120,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2147,18 +2147,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -even"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -even"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -2169,7 +2169,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -2187,7 +2187,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2198,7 +2198,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2216,7 +2216,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2227,7 +2227,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2254,18 +2254,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -odd"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -2276,7 +2276,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -2294,7 +2294,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2305,7 +2305,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2323,7 +2323,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2334,7 +2334,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2361,18 +2361,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -even"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -even"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -2383,7 +2383,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -2401,7 +2401,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2412,7 +2412,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2430,7 +2430,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2441,7 +2441,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2468,18 +2468,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -odd"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -2490,7 +2490,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -2508,7 +2508,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2519,7 +2519,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2537,7 +2537,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2548,7 +2548,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2575,18 +2575,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -even"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -even"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -2597,7 +2597,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -2615,7 +2615,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2626,7 +2626,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2644,7 +2644,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2655,7 +2655,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2682,18 +2682,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -odd"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -2704,7 +2704,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -2722,7 +2722,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2733,7 +2733,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2751,7 +2751,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2762,7 +2762,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2789,18 +2789,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -even"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -even"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -2811,7 +2811,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -2829,7 +2829,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2840,7 +2840,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2858,7 +2858,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2869,7 +2869,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2896,18 +2896,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -odd"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -odd"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -2918,7 +2918,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -2936,7 +2936,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2947,7 +2947,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -2965,7 +2965,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -2976,7 +2976,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -3003,18 +3003,18 @@ exports[`IndexTable rows should be expandable 1`] = `
                 >
                   <TrComponent
                     className="-padRow -even"
-                    style={Object {}}
+                    style={{}}
                   >
                     <div
                       className="rt-tr -padRow -even"
                       role="row"
-                      style={Object {}}
+                      style={{}}
                     >
                       <TdComponent
                         className=""
                         key="0-undefined"
                         style={
-                          Object {
+                          {
                             "flex": "35 0 auto",
                             "maxWidth": "35px",
                             "width": "35px",
@@ -3025,7 +3025,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "35 0 auto",
                               "maxWidth": "35px",
                               "width": "35px",
@@ -3043,7 +3043,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="1-first_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -3054,7 +3054,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -3072,7 +3072,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                         className=""
                         key="2-last_name"
                         style={
-                          Object {
+                          {
                             "flex": "100 0 auto",
                             "maxWidth": null,
                             "width": "100px",
@@ -3083,7 +3083,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                           className="rt-td"
                           role="gridcell"
                           style={
-                            Object {
+                            {
                               "flex": "100 0 auto",
                               "maxWidth": null,
                               "width": "100px",
@@ -3131,8 +3131,8 @@ exports[`IndexTable rows should be expandable 1`] = `
           TrGroupComponent={[Function]}
           aggregatedKey="_aggregated"
           allDecoratedColumns={
-            Array [
-              Object {
+            [
+              {
                 "Aggregated": undefined,
                 "Cell": undefined,
                 "Expander": undefined,
@@ -3150,22 +3150,22 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "filterMethod": undefined,
                 "filterable": false,
                 "footerClassName": "",
-                "footerStyle": Object {},
+                "footerStyle": {},
                 "getFooterProps": [Function],
                 "getHeaderProps": [Function],
                 "getProps": [Function],
                 "headerClassName": "",
-                "headerStyle": Object {},
+                "headerStyle": {},
                 "minResizeWidth": 11,
                 "minWidth": 100,
                 "resizable": false,
                 "show": true,
                 "sortMethod": undefined,
                 "sortable": false,
-                "style": Object {},
+                "style": {},
                 "width": 35,
               },
-              Object {
+              {
                 "Aggregated": undefined,
                 "Cell": [Function],
                 "Expander": undefined,
@@ -3182,12 +3182,12 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "filterMethod": [Function],
                 "filterable": undefined,
                 "footerClassName": "",
-                "footerStyle": Object {},
+                "footerStyle": {},
                 "getFooterProps": [Function],
                 "getHeaderProps": [Function],
                 "getProps": [Function],
                 "headerClassName": "",
-                "headerStyle": Object {},
+                "headerStyle": {},
                 "id": "first_name",
                 "minResizeWidth": 11,
                 "minWidth": 100,
@@ -3195,9 +3195,9 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "show": true,
                 "sortMethod": undefined,
                 "sortable": undefined,
-                "style": Object {},
+                "style": {},
               },
-              Object {
+              {
                 "Aggregated": undefined,
                 "Cell": [Function],
                 "Expander": undefined,
@@ -3214,12 +3214,12 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "filterMethod": [Function],
                 "filterable": undefined,
                 "footerClassName": "",
-                "footerStyle": Object {},
+                "footerStyle": {},
                 "getFooterProps": [Function],
                 "getHeaderProps": [Function],
                 "getProps": [Function],
                 "headerClassName": "",
-                "headerStyle": Object {},
+                "headerStyle": {},
                 "id": "last_name",
                 "minResizeWidth": 11,
                 "minWidth": 100,
@@ -3227,13 +3227,13 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "show": true,
                 "sortMethod": undefined,
                 "sortable": undefined,
-                "style": Object {},
+                "style": {},
               },
             ]
           }
           allVisibleColumns={
-            Array [
-              Object {
+            [
+              {
                 "Aggregated": undefined,
                 "Cell": undefined,
                 "Expander": undefined,
@@ -3251,22 +3251,22 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "filterMethod": undefined,
                 "filterable": false,
                 "footerClassName": "",
-                "footerStyle": Object {},
+                "footerStyle": {},
                 "getFooterProps": [Function],
                 "getHeaderProps": [Function],
                 "getProps": [Function],
                 "headerClassName": "",
-                "headerStyle": Object {},
+                "headerStyle": {},
                 "minResizeWidth": 11,
                 "minWidth": 100,
                 "resizable": false,
                 "show": true,
                 "sortMethod": undefined,
                 "sortable": false,
-                "style": Object {},
+                "style": {},
                 "width": 35,
               },
-              Object {
+              {
                 "Aggregated": undefined,
                 "Cell": [Function],
                 "Expander": undefined,
@@ -3283,12 +3283,12 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "filterMethod": [Function],
                 "filterable": undefined,
                 "footerClassName": "",
-                "footerStyle": Object {},
+                "footerStyle": {},
                 "getFooterProps": [Function],
                 "getHeaderProps": [Function],
                 "getProps": [Function],
                 "headerClassName": "",
-                "headerStyle": Object {},
+                "headerStyle": {},
                 "id": "first_name",
                 "minResizeWidth": 11,
                 "minWidth": 100,
@@ -3296,9 +3296,9 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "show": true,
                 "sortMethod": undefined,
                 "sortable": undefined,
-                "style": Object {},
+                "style": {},
               },
-              Object {
+              {
                 "Aggregated": undefined,
                 "Cell": [Function],
                 "Expander": undefined,
@@ -3315,12 +3315,12 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "filterMethod": [Function],
                 "filterable": undefined,
                 "footerClassName": "",
-                "footerStyle": Object {},
+                "footerStyle": {},
                 "getFooterProps": [Function],
                 "getHeaderProps": [Function],
                 "getProps": [Function],
                 "headerClassName": "",
-                "headerStyle": Object {},
+                "headerStyle": {},
                 "id": "last_name",
                 "minResizeWidth": 11,
                 "minWidth": 100,
@@ -3328,7 +3328,7 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "show": true,
                 "sortMethod": undefined,
                 "sortable": undefined,
-                "style": Object {},
+                "style": {},
               },
             ]
           }
@@ -3338,7 +3338,7 @@ exports[`IndexTable rows should be expandable 1`] = `
           collapseOnPageChange={true}
           collapseOnSortingChange={true}
           column={
-            Object {
+            {
               "Aggregated": undefined,
               "Cell": undefined,
               "Expander": undefined,
@@ -3354,31 +3354,31 @@ exports[`IndexTable rows should be expandable 1`] = `
               "filterMethod": undefined,
               "filterable": undefined,
               "footerClassName": "",
-              "footerStyle": Object {},
+              "footerStyle": {},
               "getFooterProps": [Function],
               "getHeaderProps": [Function],
               "getProps": [Function],
               "headerClassName": "",
-              "headerStyle": Object {},
+              "headerStyle": {},
               "minResizeWidth": 11,
               "minWidth": 100,
               "resizable": undefined,
               "show": true,
               "sortMethod": undefined,
               "sortable": undefined,
-              "style": Object {},
+              "style": {},
             }
           }
           columns={
-            Array [
-              Object {
+            [
+              {
                 "Cell": [Function],
                 "Header": "first name",
                 "accessor": [Function],
                 "filterMethod": [Function],
                 "id": "first_name",
               },
-              Object {
+              {
                 "Cell": [Function],
                 "Header": "last name",
                 "accessor": [Function],
@@ -3389,33 +3389,33 @@ exports[`IndexTable rows should be expandable 1`] = `
           }
           currentlyResizing={false}
           data={
-            Array [
-              Object {
+            [
+              {
                 "first_name": "xxx1",
                 "last_name": "zzz1",
               },
-              Object {
+              {
                 "first_name": "xxx2",
                 "last_name": "zzz2",
               },
             ]
           }
-          defaultExpanded={Object {}}
+          defaultExpanded={{}}
           defaultFilterMethod={[Function]}
-          defaultFiltered={Array []}
+          defaultFiltered={[]}
           defaultPage={0}
           defaultPageSize={20}
-          defaultResized={Array []}
+          defaultResized={[]}
           defaultSortDesc={false}
           defaultSortMethod={[Function]}
-          defaultSorted={Array []}
+          defaultSorted={[]}
           expanded={
-            Object {
+            {
               "0": true,
             }
           }
           expanderDefaults={
-            Object {
+            {
               "filterable": false,
               "resizable": false,
               "sortable": false,
@@ -3423,7 +3423,7 @@ exports[`IndexTable rows should be expandable 1`] = `
             }
           }
           filterable={false}
-          filtered={Array []}
+          filtered={[]}
           freezeWhenExpanded={false}
           frozen={false}
           getLoadingProps={[Function]}
@@ -3450,7 +3450,7 @@ exports[`IndexTable rows should be expandable 1`] = `
           getTrProps={[Function]}
           groupedByPivotKey="_groupedByPivot"
           hasHeaderGroups={false}
-          headerGroups={Array []}
+          headerGroups={[]}
           indexKey="_index"
           isTop={false}
           loading={false}
@@ -3468,7 +3468,7 @@ exports[`IndexTable rows should be expandable 1`] = `
           pageJumpText="jump to page"
           pageSize={20}
           pageSizeOptions={
-            Array [
+            [
               5,
               10,
               20,
@@ -3479,7 +3479,7 @@ exports[`IndexTable rows should be expandable 1`] = `
           }
           pageText="Page"
           pages={1}
-          pivotDefaults={Object {}}
+          pivotDefaults={{}}
           pivotIDKey="_pivotID"
           pivotValKey="_pivotVal"
           previousText="Previous"
@@ -3488,14 +3488,14 @@ exports[`IndexTable rows should be expandable 1`] = `
           renderPageSizeOptions={[Function]}
           renderTotalPagesCount={[Function]}
           resizable={true}
-          resized={Array []}
+          resized={[]}
           resolveData={[Function]}
           resolvedData={
-            Array [
-              Object {
+            [
+              {
                 "_index": 0,
                 "_nestingLevel": 0,
-                "_original": Object {
+                "_original": {
                   "first_name": "xxx1",
                   "last_name": "zzz1",
                 },
@@ -3503,10 +3503,10 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "first_name": "xxx1",
                 "last_name": "zzz1",
               },
-              Object {
+              {
                 "_index": 1,
                 "_nestingLevel": 0,
-                "_original": Object {
+                "_original": {
                   "first_name": "xxx2",
                   "last_name": "zzz2",
                 },
@@ -3525,13 +3525,13 @@ exports[`IndexTable rows should be expandable 1`] = `
           showPaginationTop={false}
           skipNextSort={false}
           sortable={true}
-          sorted={Array []}
+          sorted={[]}
           sortedData={
-            Array [
-              Object {
+            [
+              {
                 "_index": 0,
                 "_nestingLevel": 0,
-                "_original": Object {
+                "_original": {
                   "first_name": "xxx1",
                   "last_name": "zzz1",
                 },
@@ -3539,10 +3539,10 @@ exports[`IndexTable rows should be expandable 1`] = `
                 "first_name": "xxx1",
                 "last_name": "zzz1",
               },
-              Object {
+              {
                 "_index": 1,
                 "_nestingLevel": 0,
-                "_original": Object {
+                "_original": {
                   "first_name": "xxx2",
                   "last_name": "zzz2",
                 },
@@ -3692,7 +3692,7 @@ exports[`IndexTable rows should be expandable 1`] = `
 exports[`IndexTable should render IndexTable 1`] = `
 <div
   className="ReactTable"
-  style={Object {}}
+  style={{}}
 >
   <div
     className="rt-table"
@@ -3701,7 +3701,7 @@ exports[`IndexTable should render IndexTable 1`] = `
     <div
       className="rt-thead -header"
       style={
-        Object {
+        {
           "minWidth": "235px",
         }
       }
@@ -3715,7 +3715,7 @@ exports[`IndexTable should render IndexTable 1`] = `
           onClick={[Function]}
           role="columnheader"
           style={
-            Object {
+            {
               "flex": "35 0 auto",
               "maxWidth": "35px",
               "width": "35px",
@@ -3732,7 +3732,7 @@ exports[`IndexTable should render IndexTable 1`] = `
           onClick={[Function]}
           role="columnheader"
           style={
-            Object {
+            {
               "flex": "100 0 auto",
               "maxWidth": null,
               "width": "100px",
@@ -3756,7 +3756,7 @@ exports[`IndexTable should render IndexTable 1`] = `
           onClick={[Function]}
           role="columnheader"
           style={
-            Object {
+            {
               "flex": "100 0 auto",
               "maxWidth": null,
               "width": "100px",
@@ -3780,7 +3780,7 @@ exports[`IndexTable should render IndexTable 1`] = `
     <div
       className="rt-tbody"
       style={
-        Object {
+        {
           "minWidth": "235px",
         }
       }
@@ -3799,7 +3799,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             onClick={[Function]}
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -3817,7 +3817,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             onClick={[Function]}
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -3831,7 +3831,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             onClick={[Function]}
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -3856,7 +3856,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             onClick={[Function]}
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -3874,7 +3874,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             onClick={[Function]}
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -3888,7 +3888,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             onClick={[Function]}
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -3906,13 +3906,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -odd"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -3927,7 +3927,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -3942,7 +3942,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -3962,13 +3962,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -even"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -3983,7 +3983,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -3998,7 +3998,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4018,13 +4018,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -odd"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -4039,7 +4039,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4054,7 +4054,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4074,13 +4074,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -even"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -4095,7 +4095,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4110,7 +4110,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4130,13 +4130,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -odd"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -4151,7 +4151,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4166,7 +4166,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4186,13 +4186,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -even"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -4207,7 +4207,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4222,7 +4222,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4242,13 +4242,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -odd"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -4263,7 +4263,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4278,7 +4278,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4298,13 +4298,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -even"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -4319,7 +4319,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4334,7 +4334,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4354,13 +4354,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -odd"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -4375,7 +4375,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4390,7 +4390,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4410,13 +4410,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -even"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -4431,7 +4431,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4446,7 +4446,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4466,13 +4466,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -odd"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -4487,7 +4487,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4502,7 +4502,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4522,13 +4522,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -even"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -4543,7 +4543,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4558,7 +4558,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4578,13 +4578,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -odd"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -4599,7 +4599,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4614,7 +4614,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4634,13 +4634,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -even"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -4655,7 +4655,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4670,7 +4670,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4690,13 +4690,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -odd"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -4711,7 +4711,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4726,7 +4726,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4746,13 +4746,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -even"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -4767,7 +4767,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4782,7 +4782,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4802,13 +4802,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -odd"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -4823,7 +4823,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4838,7 +4838,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4858,13 +4858,13 @@ exports[`IndexTable should render IndexTable 1`] = `
         <div
           className="rt-tr -padRow -even"
           role="row"
-          style={Object {}}
+          style={{}}
         >
           <div
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "35 0 auto",
                 "maxWidth": "35px",
                 "width": "35px",
@@ -4879,7 +4879,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",
@@ -4894,7 +4894,7 @@ exports[`IndexTable should render IndexTable 1`] = `
             className="rt-td"
             role="gridcell"
             style={
-              Object {
+              {
                 "flex": "100 0 auto",
                 "maxWidth": null,
                 "width": "100px",

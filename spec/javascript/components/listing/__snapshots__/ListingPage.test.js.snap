@@ -236,7 +236,7 @@ exports[`ListingPage individual fields Additional Information fields 1`] = `
           </h4>
           <p
             dangerouslySetInnerHTML={
-              Object {
+              {
                 "__html": "some disclaimer",
               }
             }
@@ -797,7 +797,7 @@ exports[`ListingPage individual fields Lottery Information fields 1`] = `
 `;
 
 exports[`ListingPage should render succesfully 1`] = `
-Array [
+[
   <header
     className="lead-header short  bg-snow"
   >
@@ -1658,7 +1658,7 @@ Mitigating circumstances may be considered.
                 </h4>
                 <p
                   dangerouslySetInnerHTML={
-                    Object {
+                    {
                       "__html": "some disclaimer",
                     }
                   }

@@ -4,8 +4,8 @@ exports[`RentalAssistance with rental assistances matches snapshot 1`] = `
 <Fragment>
   <RentalAssistanceTable
     applicationMembers={
-      Array [
-        Object {
+      [
+        {
           "first_name": "Test",
           "id": "123",
           "last_name": "Tester",
@@ -15,7 +15,7 @@ exports[`RentalAssistance with rental assistances matches snapshot 1`] = `
     assistanceRowsOpened={Set {}}
     disabled={false}
     form={
-      Object {
+      {
         "batch": [Function],
         "blur": [Function],
         "change": [Function],
@@ -26,7 +26,7 @@ exports[`RentalAssistance with rental assistances matches snapshot 1`] = `
         "getState": [Function],
         "initialize": [Function],
         "isValidationPaused": [Function],
-        "mutators": Object {},
+        "mutators": {},
         "pauseValidation": [Function],
         "registerField": [Function],
         "reset": [Function],
@@ -44,8 +44,8 @@ exports[`RentalAssistance with rental assistances matches snapshot 1`] = `
     onEdit={[Function]}
     onSave={[Function]}
     rentalAssistances={
-      Array [
-        Object {
+      [
+        {
           "assistance_amount": "100",
           "recipient": "123",
           "recurring_assistance": "Yes",
@@ -91,8 +91,8 @@ exports[`RentalAssistanceForm when it already exists on salesforce matches snaps
         fieldName="rental_assistances.0.recipient"
         label="Recipient"
         options={
-          Array [
-            Object {
+          [
+            {
               "label": "Test Tester",
               "value": "123",
             },
@@ -110,64 +110,64 @@ exports[`RentalAssistanceForm when it already exists on salesforce matches snaps
         fieldName="rental_assistances.0.type_of_assistance"
         label="Type of Assistance"
         options={
-          Array [
-            Object {
+          [
+            {
               "label": "Catholic Charities",
               "value": "Catholic Charities",
             },
-            Object {
+            {
               "label": "Compass Family",
               "value": "Compass Family",
             },
-            Object {
+            {
               "label": "Glide",
               "value": "Glide",
             },
-            Object {
+            {
               "label": "Hamilton Family",
               "value": "Hamilton Family",
             },
-            Object {
+            {
               "label": "Homeless Prenatal",
               "value": "Homeless Prenatal",
             },
-            Object {
+            {
               "label": "HOPWA",
               "value": "HOPWA",
             },
-            Object {
+            {
               "label": "Q Foundation: First Month’s Rent",
               "value": "Q Foundation: First Month’s Rent",
             },
-            Object {
+            {
               "label": "Q Foundation: Move-in Deposit",
               "value": "Q Foundation: Move-in Deposit",
             },
-            Object {
+            {
               "label": "Q Foundation: Person with Disability Rent Subsidy",
               "value": "Q Foundation: Person with Disability Rent Subsidy",
             },
-            Object {
+            {
               "label": "Q Foundation: Senior Rent Subsidy",
               "value": "Q Foundation: Senior Rent Subsidy",
             },
-            Object {
+            {
               "label": "San Francisco AIDS Foundation",
               "value": "San Francisco AIDS Foundation",
             },
-            Object {
+            {
               "label": "Section 8 HCV (tenant) voucher",
               "value": "Section 8 HCV (tenant) voucher",
             },
-            Object {
+            {
               "label": "Self-Help for the Elderly",
               "value": "Self-Help for the Elderly",
             },
-            Object {
+            {
               "label": "VASH voucher",
               "value": "VASH voucher",
             },
-            Object {
+            {
               "label": "Other",
               "value": "Other",
             },
@@ -256,8 +256,8 @@ exports[`RentalAssistanceForm when it is new matches snapshot 1`] = `
         fieldName="rental_assistances.0.recipient"
         label="Recipient"
         options={
-          Array [
-            Object {
+          [
+            {
               "label": "Test Tester",
               "value": "123",
             },
@@ -275,64 +275,64 @@ exports[`RentalAssistanceForm when it is new matches snapshot 1`] = `
         fieldName="rental_assistances.0.type_of_assistance"
         label="Type of Assistance"
         options={
-          Array [
-            Object {
+          [
+            {
               "label": "Catholic Charities",
               "value": "Catholic Charities",
             },
-            Object {
+            {
               "label": "Compass Family",
               "value": "Compass Family",
             },
-            Object {
+            {
               "label": "Glide",
               "value": "Glide",
             },
-            Object {
+            {
               "label": "Hamilton Family",
               "value": "Hamilton Family",
             },
-            Object {
+            {
               "label": "Homeless Prenatal",
               "value": "Homeless Prenatal",
             },
-            Object {
+            {
               "label": "HOPWA",
               "value": "HOPWA",
             },
-            Object {
+            {
               "label": "Q Foundation: First Month’s Rent",
               "value": "Q Foundation: First Month’s Rent",
             },
-            Object {
+            {
               "label": "Q Foundation: Move-in Deposit",
               "value": "Q Foundation: Move-in Deposit",
             },
-            Object {
+            {
               "label": "Q Foundation: Person with Disability Rent Subsidy",
               "value": "Q Foundation: Person with Disability Rent Subsidy",
             },
-            Object {
+            {
               "label": "Q Foundation: Senior Rent Subsidy",
               "value": "Q Foundation: Senior Rent Subsidy",
             },
-            Object {
+            {
               "label": "San Francisco AIDS Foundation",
               "value": "San Francisco AIDS Foundation",
             },
-            Object {
+            {
               "label": "Section 8 HCV (tenant) voucher",
               "value": "Section 8 HCV (tenant) voucher",
             },
-            Object {
+            {
               "label": "Self-Help for the Elderly",
               "value": "Self-Help for the Elderly",
             },
-            Object {
+            {
               "label": "VASH voucher",
               "value": "VASH voucher",
             },
-            Object {
+            {
               "label": "Other",
               "value": "Other",
             },
