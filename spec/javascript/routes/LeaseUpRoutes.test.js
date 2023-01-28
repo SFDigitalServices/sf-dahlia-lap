@@ -5,53 +5,34 @@ import { MemoryRouter as Router } from 'react-router-dom'
 
 import LeaseUpRoutes from 'routes/LeaseUpRoutes'
 
-jest.mock(
-  '../../../app/javascript/components/supplemental_application/SupplementalApplicationPage',
-  ({ id } = {}) => {
-    const MockApplicationDetailsPage = ({ applicationId }) => <div />
-    return {
-      __esModule: true,
-      default: ({ applicationId }) => {
-        return <MockApplicationDetailsPage applicationId={applicationId} />
-      }
-    }
-  }
-)
-
-jest.mock('../../../app/javascript/components/lease_ups/LeaseUpListingsPage', () => {
-  const MockListingsPageComponent = () => <div />
-  return {
-    __esModule: true,
-    default: () => {
-      return <MockListingsPageComponent />
-    }
-  }
-})
-
-jest.mock('../../../app/javascript/components/lease_ups/LeaseUpApplicationsPage', () => {
-  const MockApplicationsPageComponent = () => <div />
-  return {
-    __esModule: true,
-    default: () => {
-      return <MockApplicationsPageComponent />
-    }
-  }
-})
-
-jest.mock('../../../app/javascript/components/applications/ApplicationPage', () => {
-  const MockShortFormComponent = () => <div />
-  return {
-    __esModule: true,
-    default: ({ isLeaseUp }) => {
-      return <MockShortFormComponent isLeaseUp={isLeaseUp} />
-    }
-  }
-})
-
 const MOCK_NAME_APP_DETAILS = 'MockApplicationDetailsPage'
 const MOCK_NAME_LISTINGS = 'MockListingsPageComponent'
 const MOCK_NAME_SHORT_FORM = 'MockShortFormComponent'
 const MOCK_NAME_APPLICATIONS = 'MockApplicationsPageComponent'
+
+jest.mock(
+  '../../../app/javascript/components/supplemental_application/SupplementalApplicationPage',
+  () => getNamedComponentStub('MockApplicationDetailsPage')
+)
+
+jest.mock('../../../app/javascript/components/lease_ups/LeaseUpListingsPage', () =>
+  getNamedComponentStub('MockListingsPageComponent')
+)
+
+jest.mock('../../../app/javascript/components/lease_ups/LeaseUpApplicationsPage', () =>
+  getNamedComponentStub('MockApplicationsPageComponent')
+)
+
+jest.mock('../../../app/javascript/components/applications/ApplicationPage', () =>
+  getNamedComponentStub('MockShortFormComponent')
+)
+
+const getNamedComponentStub = (name) => {
+  const component = () => <div />
+  component.displayName = name
+
+  return component
+}
 
 const getWrapper = (url) => {
   return mount(
