@@ -46,7 +46,7 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.2'
   gem 'pry-rails'
   gem 'binding_of_caller'
-  gem 'rspec-rails', '~> 3.7'
+  gem 'rspec-rails', '~> 4.0.2'
   gem 'webmock'
   gem "pry-byebug", '~> 3.9.0'
   gem 'awesome_print'
@@ -78,7 +78,7 @@ group :development do
 end
 
 gem 'rails_12factor', group: :production
-gem "sentry-raven", "~> 2.9.0"
+gem "sentry-raven"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
