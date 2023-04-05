@@ -1,6 +1,6 @@
 {
   "name": "sf-dahlia-lap",
-  "stack": "heroku-18",
+  "stack": "heroku-22",
   "scripts": {
     "postdeploy": "rake db:migrate"
   },

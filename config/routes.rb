@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # Devise routes
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
   as :user do
-    root to: 'pages#home'
+    root to: 'pages#home', as: nil
     delete '/users/sign_out' => 'overrides/sessions#destroy'
   end
 
