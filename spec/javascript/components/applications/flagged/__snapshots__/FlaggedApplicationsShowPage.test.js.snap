@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FlaggedApplicationsShowPage should render succesfully 1`] = `
-Array [
+[
   <header
     className="lead-header short  bg-dust"
   >
@@ -28,7 +28,7 @@ Array [
   >
     <div
       className="ReactTable"
-      style={Object {}}
+      style={{}}
     >
       <div
         className="rt-table"
@@ -37,7 +37,7 @@ Array [
         <div
           className="rt-thead -header"
           style={
-            Object {
+            {
               "minWidth": "635px",
             }
           }
@@ -51,7 +51,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "35 0 auto",
                   "maxWidth": "35px",
                   "width": "35px",
@@ -68,7 +68,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -92,7 +92,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -116,7 +116,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -140,7 +140,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -164,7 +164,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -188,7 +188,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -212,7 +212,7 @@ Array [
         <div
           className="rt-tbody"
           style={
-            Object {
+            {
               "minWidth": "635px",
             }
           }
@@ -231,7 +231,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -249,7 +249,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -263,7 +263,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -277,7 +277,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -291,7 +291,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -303,7 +303,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -317,7 +317,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -340,7 +340,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -358,7 +358,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -372,7 +372,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -386,7 +386,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -400,7 +400,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -412,7 +412,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -426,7 +426,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -449,7 +449,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -467,7 +467,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -481,7 +481,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -495,7 +495,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -509,7 +509,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -521,7 +521,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -535,7 +535,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -558,7 +558,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -576,7 +576,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -590,7 +590,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -604,7 +604,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -618,7 +618,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -630,7 +630,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -644,7 +644,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -660,13 +660,13 @@ Array [
             <div
               className="rt-tr -padRow -odd"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -681,7 +681,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -696,7 +696,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -711,7 +711,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -726,7 +726,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -741,7 +741,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -756,7 +756,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -776,13 +776,13 @@ Array [
             <div
               className="rt-tr -padRow -even"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -797,7 +797,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -812,7 +812,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -827,7 +827,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -842,7 +842,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -857,7 +857,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -872,7 +872,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -892,13 +892,13 @@ Array [
             <div
               className="rt-tr -padRow -odd"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -913,7 +913,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -928,7 +928,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -943,7 +943,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -958,7 +958,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -973,7 +973,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -988,7 +988,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1008,13 +1008,13 @@ Array [
             <div
               className="rt-tr -padRow -even"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -1029,7 +1029,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1044,7 +1044,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1059,7 +1059,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1074,7 +1074,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1089,7 +1089,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1104,7 +1104,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1124,13 +1124,13 @@ Array [
             <div
               className="rt-tr -padRow -odd"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -1145,7 +1145,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1160,7 +1160,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1175,7 +1175,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1190,7 +1190,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1205,7 +1205,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1220,7 +1220,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1240,13 +1240,13 @@ Array [
             <div
               className="rt-tr -padRow -even"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -1261,7 +1261,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1276,7 +1276,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1291,7 +1291,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1306,7 +1306,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1321,7 +1321,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1336,7 +1336,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1356,13 +1356,13 @@ Array [
             <div
               className="rt-tr -padRow -odd"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -1377,7 +1377,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1392,7 +1392,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1407,7 +1407,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1422,7 +1422,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1437,7 +1437,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1452,7 +1452,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1472,13 +1472,13 @@ Array [
             <div
               className="rt-tr -padRow -even"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -1493,7 +1493,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1508,7 +1508,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1523,7 +1523,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1538,7 +1538,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1553,7 +1553,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1568,7 +1568,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1588,13 +1588,13 @@ Array [
             <div
               className="rt-tr -padRow -odd"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -1609,7 +1609,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1624,7 +1624,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1639,7 +1639,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1654,7 +1654,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1669,7 +1669,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1684,7 +1684,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1704,13 +1704,13 @@ Array [
             <div
               className="rt-tr -padRow -even"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -1725,7 +1725,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1740,7 +1740,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1755,7 +1755,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1770,7 +1770,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1785,7 +1785,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1800,7 +1800,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1820,13 +1820,13 @@ Array [
             <div
               className="rt-tr -padRow -odd"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -1841,7 +1841,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1856,7 +1856,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1871,7 +1871,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1886,7 +1886,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1901,7 +1901,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1916,7 +1916,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1936,13 +1936,13 @@ Array [
             <div
               className="rt-tr -padRow -even"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -1957,7 +1957,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1972,7 +1972,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1987,7 +1987,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2002,7 +2002,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2017,7 +2017,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2032,7 +2032,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2052,13 +2052,13 @@ Array [
             <div
               className="rt-tr -padRow -odd"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -2073,7 +2073,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2088,7 +2088,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2103,7 +2103,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2118,7 +2118,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2133,7 +2133,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2148,7 +2148,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2168,13 +2168,13 @@ Array [
             <div
               className="rt-tr -padRow -even"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -2189,7 +2189,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2204,7 +2204,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2219,7 +2219,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2234,7 +2234,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2249,7 +2249,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2264,7 +2264,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2284,13 +2284,13 @@ Array [
             <div
               className="rt-tr -padRow -odd"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -2305,7 +2305,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2320,7 +2320,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2335,7 +2335,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2350,7 +2350,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2365,7 +2365,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2380,7 +2380,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2400,13 +2400,13 @@ Array [
             <div
               className="rt-tr -padRow -even"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -2421,7 +2421,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2436,7 +2436,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2451,7 +2451,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2466,7 +2466,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2481,7 +2481,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2496,7 +2496,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",

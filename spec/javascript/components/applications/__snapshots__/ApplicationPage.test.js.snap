@@ -4,8 +4,8 @@ exports[`ApplicationPage with regular application After the application finishes
 <ApplicationPage>
   <CardLayout
     pageHeader={
-      Object {
-        "action": Array [],
+      {
+        "action": [],
         "content": <span>
           Name of Listing:
            
@@ -20,9 +20,9 @@ exports[`ApplicationPage with regular application After the application finishes
     }
   >
     <PageHeader
-      action={Array []}
+      action={[]}
       background="snow"
-      breadcrumbs={Array []}
+      breadcrumbs={[]}
       content={
         <span>
           Name of Listing:
@@ -69,7 +69,7 @@ exports[`ApplicationPage with regular application After the application finishes
                 </p>
               </div>
               <Actions
-                actions={Array []}
+                actions={[]}
               >
                 <div
                   className="medium-4 columns no-padding"
@@ -104,8 +104,8 @@ exports[`ApplicationPage with regular application After the application finishes
               >
                 <ApplicationDetails
                   application={
-                    Object {
-                      "alternate_contact": Object {
+                    {
+                      "alternate_contact": {
                         "alternate_contact_type": "Friend",
                         "alternate_contact_type_other": null,
                         "email": "fede@eee.com",
@@ -122,9 +122,9 @@ exports[`ApplicationPage with regular application After the application finishes
                       },
                       "annual_income": 110000,
                       "answered_community_screening": null,
-                      "applicant": Object {
+                      "applicant": {
                         "city": "SAN FRANCISCO",
-                        "date_of_birth": Object {
+                        "date_of_birth": {
                           "day": "01",
                           "month": "01",
                           "year": "1950",
@@ -158,10 +158,10 @@ exports[`ApplicationPage with regular application After the application finishes
                       "application_language": "English",
                       "application_submission_type": "Electronic",
                       "application_submitted_date": "2018-06-19",
-                      "createdby": Object {
+                      "createdby": {
                         "name": "Prod Vertiba",
                       },
-                      "demographics": Object {
+                      "demographics": {
                         "ethnicity": "Decline to state",
                         "gender": "Decline to state",
                         "gender_other": "gender other",
@@ -169,18 +169,18 @@ exports[`ApplicationPage with regular application After the application finishes
                         "sexual_orientation": "Decline to state",
                         "sexual_orientation_other": "sexual orientation other",
                       },
-                      "flagged_applications": Array [],
-                      "has_ada_priorities_selected": Object {
+                      "flagged_applications": [],
+                      "has_ada_priorities_selected": {
                         "hearing_impairments": true,
                         "mobility_impairments": true,
                         "vision_impairments": true,
                       },
                       "has_developmental_disability": null,
                       "has_military_service": null,
-                      "household_members": Array [
-                        Object {
+                      "household_members": [
+                        {
                           "city": "buenos aires",
-                          "date_of_birth": Object {
+                          "date_of_birth": {
                             "day": "11",
                             "month": "06",
                             "year": "1976",
@@ -198,7 +198,7 @@ exports[`ApplicationPage with regular application After the application finishes
                       ],
                       "housing_voucher_or_subsidy": "true",
                       "id": "a0o0x000000OcOzAAK",
-                      "listing": Object {
+                      "listing": {
                         "id": "a0W0x000000GhJUEA0",
                         "name": "Test 5/30",
                       },
@@ -206,10 +206,10 @@ exports[`ApplicationPage with regular application After the application finishes
                       "lottery_number_manual": null,
                       "monthly_income": null,
                       "name": "APP-00191270",
-                      "preferences": Array [
-                        Object {
-                          "application_member": Object {
-                            "date_of_birth": Object {
+                      "preferences": [
+                        {
+                          "application_member": {
+                            "date_of_birth": {
                               "day": "01",
                               "month": "01",
                               "year": "1950",
@@ -235,9 +235,9 @@ exports[`ApplicationPage with regular application After the application finishes
                           "type_of_proof": null,
                           "zip_code": null,
                         },
-                        Object {
-                          "application_member": Object {
-                            "date_of_birth": Object {
+                        {
+                          "application_member": {
+                            "date_of_birth": {
                               "day": "11",
                               "month": "06",
                               "year": "1976",
@@ -262,13 +262,13 @@ exports[`ApplicationPage with regular application After the application finishes
                           "zip_code": null,
                         },
                       ],
-                      "proof_files": Array [
-                        Object {
+                      "proof_files": [
+                        {
                           "document_type": "Namexxx1",
                           "file_type": "Attachment",
                           "id": "xxxx1",
                         },
-                        Object {
+                        {
                           "document_type": "Namexxx2",
                           "file_type": "File",
                           "id": "xxxx2",
@@ -282,13 +282,13 @@ exports[`ApplicationPage with regular application After the application finishes
                     }
                   }
                   fields={
-                    Object {
+                    {
                       "alternate_contact": null,
                       "alternate_contact.agency_name": null,
-                      "alternate_contact.alternate_contact_type": Object {
+                      "alternate_contact.alternate_contact_type": {
                         "label": "Relationship",
                       },
-                      "alternate_contact.alternate_contact_type_other": Object {
+                      "alternate_contact.alternate_contact_type_other": {
                         "label": "Relationship - Other",
                       },
                       "alternate_contact.email": null,
@@ -327,14 +327,14 @@ exports[`ApplicationPage with regular application After the application finishes
                       "application_language": null,
                       "application_submission_type": null,
                       "application_submitted_date": null,
-                      "createdby.name": Object {
+                      "createdby.name": {
                         "label": "Created By",
                       },
                       "general_lottery": null,
                       "general_lottery_rank": null,
                       "has_ada_priorities_selected": null,
                       "has_completed_homebuyer_education": null,
-                      "has_developmental_disability": Object {
+                      "has_developmental_disability": {
                         "label": "Has Developmental Disability",
                       },
                       "has_loan_preapproval": null,
@@ -346,14 +346,14 @@ exports[`ApplicationPage with regular application After the application finishes
                       "listing": null,
                       "listing.id": null,
                       "listing.is_lottery_complete": null,
-                      "listing.name": Object {
+                      "listing.name": {
                         "label": "Listing Name",
                       },
                       "listing.reserved_community_type": null,
                       "lottery_number": null,
                       "lottery_number_manual": null,
                       "monthly_income": null,
-                      "name": Object {
+                      "name": {
                         "label": "Application Number",
                       },
                       "name_of_lender": null,
@@ -374,20 +374,20 @@ exports[`ApplicationPage with regular application After the application finishes
                   >
                     <ApplicationCard
                       fields={
-                        Array [
+                        [
                           "lottery_number",
                           "application_submission_type",
                           "application_submitted_date",
                           "application_language",
                           "total_household_size",
-                          Object {
+                          {
                             "field": "total_monthly_rent",
                             "formatType": "currency",
                             "label": "Total Monthly Rent",
                           },
                           "status",
                           "referral_source",
-                          Object {
+                          {
                             "field": "createdby.name",
                             "formatType": null,
                             "label": "Created By",
@@ -395,13 +395,13 @@ exports[`ApplicationPage with regular application After the application finishes
                         ]
                       }
                       labelMapper={
-                        Object {
+                        {
                           "alternate_contact": null,
                           "alternate_contact.agency_name": null,
-                          "alternate_contact.alternate_contact_type": Object {
+                          "alternate_contact.alternate_contact_type": {
                             "label": "Relationship",
                           },
-                          "alternate_contact.alternate_contact_type_other": Object {
+                          "alternate_contact.alternate_contact_type_other": {
                             "label": "Relationship - Other",
                           },
                           "alternate_contact.email": null,
@@ -440,14 +440,14 @@ exports[`ApplicationPage with regular application After the application finishes
                           "application_language": null,
                           "application_submission_type": null,
                           "application_submitted_date": null,
-                          "createdby.name": Object {
+                          "createdby.name": {
                             "label": "Created By",
                           },
                           "general_lottery": null,
                           "general_lottery_rank": null,
                           "has_ada_priorities_selected": null,
                           "has_completed_homebuyer_education": null,
-                          "has_developmental_disability": Object {
+                          "has_developmental_disability": {
                             "label": "Has Developmental Disability",
                           },
                           "has_loan_preapproval": null,
@@ -459,14 +459,14 @@ exports[`ApplicationPage with regular application After the application finishes
                           "listing": null,
                           "listing.id": null,
                           "listing.is_lottery_complete": null,
-                          "listing.name": Object {
+                          "listing.name": {
                             "label": "Listing Name",
                           },
                           "listing.reserved_community_type": null,
                           "lottery_number": null,
                           "lottery_number_manual": null,
                           "monthly_income": null,
-                          "name": Object {
+                          "name": {
                             "label": "Application Number",
                           },
                           "name_of_lender": null,
@@ -484,8 +484,8 @@ exports[`ApplicationPage with regular application After the application finishes
                     >
                       <ApplicationDetailsContentCard
                         dataCollection={
-                          Object {
-                            "alternate_contact": Object {
+                          {
+                            "alternate_contact": {
                               "alternate_contact_type": "Friend",
                               "alternate_contact_type_other": null,
                               "email": "fede@eee.com",
@@ -502,9 +502,9 @@ exports[`ApplicationPage with regular application After the application finishes
                             },
                             "annual_income": 110000,
                             "answered_community_screening": null,
-                            "applicant": Object {
+                            "applicant": {
                               "city": "SAN FRANCISCO",
-                              "date_of_birth": Object {
+                              "date_of_birth": {
                                 "day": "01",
                                 "month": "01",
                                 "year": "1950",
@@ -538,10 +538,10 @@ exports[`ApplicationPage with regular application After the application finishes
                             "application_language": "English",
                             "application_submission_type": "Electronic",
                             "application_submitted_date": "2018-06-19",
-                            "createdby": Object {
+                            "createdby": {
                               "name": "Prod Vertiba",
                             },
-                            "demographics": Object {
+                            "demographics": {
                               "ethnicity": "Decline to state",
                               "gender": "Decline to state",
                               "gender_other": "gender other",
@@ -549,18 +549,18 @@ exports[`ApplicationPage with regular application After the application finishes
                               "sexual_orientation": "Decline to state",
                               "sexual_orientation_other": "sexual orientation other",
                             },
-                            "flagged_applications": Array [],
-                            "has_ada_priorities_selected": Object {
+                            "flagged_applications": [],
+                            "has_ada_priorities_selected": {
                               "hearing_impairments": true,
                               "mobility_impairments": true,
                               "vision_impairments": true,
                             },
                             "has_developmental_disability": null,
                             "has_military_service": null,
-                            "household_members": Array [
-                              Object {
+                            "household_members": [
+                              {
                                 "city": "buenos aires",
-                                "date_of_birth": Object {
+                                "date_of_birth": {
                                   "day": "11",
                                   "month": "06",
                                   "year": "1976",
@@ -578,7 +578,7 @@ exports[`ApplicationPage with regular application After the application finishes
                             ],
                             "housing_voucher_or_subsidy": "true",
                             "id": "a0o0x000000OcOzAAK",
-                            "listing": Object {
+                            "listing": {
                               "id": "a0W0x000000GhJUEA0",
                               "name": "Test 5/30",
                             },
@@ -586,10 +586,10 @@ exports[`ApplicationPage with regular application After the application finishes
                             "lottery_number_manual": null,
                             "monthly_income": null,
                             "name": "APP-00191270",
-                            "preferences": Array [
-                              Object {
-                                "application_member": Object {
-                                  "date_of_birth": Object {
+                            "preferences": [
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
                                     "day": "01",
                                     "month": "01",
                                     "year": "1950",
@@ -615,9 +615,9 @@ exports[`ApplicationPage with regular application After the application finishes
                                 "type_of_proof": null,
                                 "zip_code": null,
                               },
-                              Object {
-                                "application_member": Object {
-                                  "date_of_birth": Object {
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
                                     "day": "11",
                                     "month": "06",
                                     "year": "1976",
@@ -642,13 +642,13 @@ exports[`ApplicationPage with regular application After the application finishes
                                 "zip_code": null,
                               },
                             ],
-                            "proof_files": Array [
-                              Object {
+                            "proof_files": [
+                              {
                                 "document_type": "Namexxx1",
                                 "file_type": "Attachment",
                                 "id": "xxxx1",
                               },
-                              Object {
+                              {
                                 "document_type": "Namexxx2",
                                 "file_type": "File",
                                 "id": "xxxx2",
@@ -662,20 +662,20 @@ exports[`ApplicationPage with regular application After the application finishes
                           }
                         }
                         fields={
-                          Array [
+                          [
                             "lottery_number",
                             "application_submission_type",
                             "application_submitted_date",
                             "application_language",
                             "total_household_size",
-                            Object {
+                            {
                               "field": "total_monthly_rent",
                               "formatType": "currency",
                               "label": "Total Monthly Rent",
                             },
                             "status",
                             "referral_source",
-                            Object {
+                            {
                               "field": "createdby.name",
                               "formatType": null,
                               "label": "Created By",
@@ -683,13 +683,13 @@ exports[`ApplicationPage with regular application After the application finishes
                           ]
                         }
                         labelMapper={
-                          Object {
+                          {
                             "alternate_contact": null,
                             "alternate_contact.agency_name": null,
-                            "alternate_contact.alternate_contact_type": Object {
+                            "alternate_contact.alternate_contact_type": {
                               "label": "Relationship",
                             },
-                            "alternate_contact.alternate_contact_type_other": Object {
+                            "alternate_contact.alternate_contact_type_other": {
                               "label": "Relationship - Other",
                             },
                             "alternate_contact.email": null,
@@ -728,14 +728,14 @@ exports[`ApplicationPage with regular application After the application finishes
                             "application_language": null,
                             "application_submission_type": null,
                             "application_submitted_date": null,
-                            "createdby.name": Object {
+                            "createdby.name": {
                               "label": "Created By",
                             },
                             "general_lottery": null,
                             "general_lottery_rank": null,
                             "has_ada_priorities_selected": null,
                             "has_completed_homebuyer_education": null,
-                            "has_developmental_disability": Object {
+                            "has_developmental_disability": {
                               "label": "Has Developmental Disability",
                             },
                             "has_loan_preapproval": null,
@@ -747,14 +747,14 @@ exports[`ApplicationPage with regular application After the application finishes
                             "listing": null,
                             "listing.id": null,
                             "listing.is_lottery_complete": null,
-                            "listing.name": Object {
+                            "listing.name": {
                               "label": "Listing Name",
                             },
                             "listing.reserved_community_type": null,
                             "lottery_number": null,
                             "lottery_number_manual": null,
                             "monthly_income": null,
-                            "name": Object {
+                            "name": {
                               "label": "Application Number",
                             },
                             "name_of_lender": null,
@@ -920,9 +920,9 @@ exports[`ApplicationPage with regular application After the application finishes
                     </ApplicationCard>
                     <ApplicationDetailsContentCard
                       dataCollection={
-                        Object {
+                        {
                           "city": "SAN FRANCISCO",
-                          "date_of_birth": Object {
+                          "date_of_birth": {
                             "day": "01",
                             "month": "01",
                             "year": "1950",
@@ -955,7 +955,7 @@ exports[`ApplicationPage with regular application After the application finishes
                         }
                       }
                       fields={
-                        Array [
+                        [
                           "first_name",
                           "middle_name",
                           "last_name",
@@ -1146,7 +1146,7 @@ exports[`ApplicationPage with regular application After the application finishes
                     </ApplicationDetailsContentCard>
                     <ApplicationDetailsContentCard
                       dataCollection={
-                        Object {
+                        {
                           "alternate_contact_type": "Friend",
                           "alternate_contact_type_other": null,
                           "email": "fede@eee.com",
@@ -1163,7 +1163,7 @@ exports[`ApplicationPage with regular application After the application finishes
                         }
                       }
                       fields={
-                        Array [
+                        [
                           "first_name",
                           "middle_name",
                           "last_name",
@@ -1340,7 +1340,7 @@ exports[`ApplicationPage with regular application After the application finishes
                     </ApplicationDetailsContentCard>
                     <Table
                       fields={
-                        Array [
+                        [
                           "name",
                           "relationship_to_applicant",
                           "date_of_birth",
@@ -1355,8 +1355,8 @@ exports[`ApplicationPage with regular application After the application finishes
                     >
                       <ApplicationDetailsContentTable
                         data={
-                          Object {
-                            "alternate_contact": Object {
+                          {
+                            "alternate_contact": {
                               "alternate_contact_type": "Friend",
                               "alternate_contact_type_other": null,
                               "email": "fede@eee.com",
@@ -1373,9 +1373,9 @@ exports[`ApplicationPage with regular application After the application finishes
                             },
                             "annual_income": 110000,
                             "answered_community_screening": null,
-                            "applicant": Object {
+                            "applicant": {
                               "city": "SAN FRANCISCO",
-                              "date_of_birth": Object {
+                              "date_of_birth": {
                                 "day": "01",
                                 "month": "01",
                                 "year": "1950",
@@ -1409,10 +1409,10 @@ exports[`ApplicationPage with regular application After the application finishes
                             "application_language": "English",
                             "application_submission_type": "Electronic",
                             "application_submitted_date": "2018-06-19",
-                            "createdby": Object {
+                            "createdby": {
                               "name": "Prod Vertiba",
                             },
-                            "demographics": Object {
+                            "demographics": {
                               "ethnicity": "Decline to state",
                               "gender": "Decline to state",
                               "gender_other": "gender other",
@@ -1420,18 +1420,18 @@ exports[`ApplicationPage with regular application After the application finishes
                               "sexual_orientation": "Decline to state",
                               "sexual_orientation_other": "sexual orientation other",
                             },
-                            "flagged_applications": Array [],
-                            "has_ada_priorities_selected": Object {
+                            "flagged_applications": [],
+                            "has_ada_priorities_selected": {
                               "hearing_impairments": true,
                               "mobility_impairments": true,
                               "vision_impairments": true,
                             },
                             "has_developmental_disability": null,
                             "has_military_service": null,
-                            "household_members": Array [
-                              Object {
+                            "household_members": [
+                              {
                                 "city": "buenos aires",
-                                "date_of_birth": Object {
+                                "date_of_birth": {
                                   "day": "11",
                                   "month": "06",
                                   "year": "1976",
@@ -1449,7 +1449,7 @@ exports[`ApplicationPage with regular application After the application finishes
                             ],
                             "housing_voucher_or_subsidy": "true",
                             "id": "a0o0x000000OcOzAAK",
-                            "listing": Object {
+                            "listing": {
                               "id": "a0W0x000000GhJUEA0",
                               "name": "Test 5/30",
                             },
@@ -1457,10 +1457,10 @@ exports[`ApplicationPage with regular application After the application finishes
                             "lottery_number_manual": null,
                             "monthly_income": null,
                             "name": "APP-00191270",
-                            "preferences": Array [
-                              Object {
-                                "application_member": Object {
-                                  "date_of_birth": Object {
+                            "preferences": [
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
                                     "day": "01",
                                     "month": "01",
                                     "year": "1950",
@@ -1486,9 +1486,9 @@ exports[`ApplicationPage with regular application After the application finishes
                                 "type_of_proof": null,
                                 "zip_code": null,
                               },
-                              Object {
-                                "application_member": Object {
-                                  "date_of_birth": Object {
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
                                     "day": "11",
                                     "month": "06",
                                     "year": "1976",
@@ -1513,13 +1513,13 @@ exports[`ApplicationPage with regular application After the application finishes
                                 "zip_code": null,
                               },
                             ],
-                            "proof_files": Array [
-                              Object {
+                            "proof_files": [
+                              {
                                 "document_type": "Namexxx1",
                                 "file_type": "Attachment",
                                 "id": "xxxx1",
                               },
-                              Object {
+                              {
                                 "document_type": "Namexxx2",
                                 "file_type": "File",
                                 "id": "xxxx2",
@@ -1533,7 +1533,7 @@ exports[`ApplicationPage with regular application After the application finishes
                           }
                         }
                         fields={
-                          Array [
+                          [
                             "name",
                             "relationship_to_applicant",
                             "date_of_birth",
@@ -1640,14 +1640,14 @@ exports[`ApplicationPage with regular application After the application finishes
                     </Table>
                     <ApplicationCard
                       fields={
-                        Array [
+                        [
                           "has_military_service",
-                          Object {
+                          {
                             "field": "has_developmental_disability",
                             "formatType": null,
                             "label": "Has Developmental Disability",
                           },
-                          Object {
+                          {
                             "field": "has_ada_priorities_selected",
                             "formatType": null,
                             "label": "Has ADA Priorities Selected",
@@ -1657,13 +1657,13 @@ exports[`ApplicationPage with regular application After the application finishes
                         ]
                       }
                       labelMapper={
-                        Object {
+                        {
                           "alternate_contact": null,
                           "alternate_contact.agency_name": null,
-                          "alternate_contact.alternate_contact_type": Object {
+                          "alternate_contact.alternate_contact_type": {
                             "label": "Relationship",
                           },
-                          "alternate_contact.alternate_contact_type_other": Object {
+                          "alternate_contact.alternate_contact_type_other": {
                             "label": "Relationship - Other",
                           },
                           "alternate_contact.email": null,
@@ -1702,14 +1702,14 @@ exports[`ApplicationPage with regular application After the application finishes
                           "application_language": null,
                           "application_submission_type": null,
                           "application_submitted_date": null,
-                          "createdby.name": Object {
+                          "createdby.name": {
                             "label": "Created By",
                           },
                           "general_lottery": null,
                           "general_lottery_rank": null,
                           "has_ada_priorities_selected": null,
                           "has_completed_homebuyer_education": null,
-                          "has_developmental_disability": Object {
+                          "has_developmental_disability": {
                             "label": "Has Developmental Disability",
                           },
                           "has_loan_preapproval": null,
@@ -1721,14 +1721,14 @@ exports[`ApplicationPage with regular application After the application finishes
                           "listing": null,
                           "listing.id": null,
                           "listing.is_lottery_complete": null,
-                          "listing.name": Object {
+                          "listing.name": {
                             "label": "Listing Name",
                           },
                           "listing.reserved_community_type": null,
                           "lottery_number": null,
                           "lottery_number_manual": null,
                           "monthly_income": null,
-                          "name": Object {
+                          "name": {
                             "label": "Application Number",
                           },
                           "name_of_lender": null,
@@ -1746,8 +1746,8 @@ exports[`ApplicationPage with regular application After the application finishes
                     >
                       <ApplicationDetailsContentCard
                         dataCollection={
-                          Object {
-                            "alternate_contact": Object {
+                          {
+                            "alternate_contact": {
                               "alternate_contact_type": "Friend",
                               "alternate_contact_type_other": null,
                               "email": "fede@eee.com",
@@ -1764,9 +1764,9 @@ exports[`ApplicationPage with regular application After the application finishes
                             },
                             "annual_income": 110000,
                             "answered_community_screening": null,
-                            "applicant": Object {
+                            "applicant": {
                               "city": "SAN FRANCISCO",
-                              "date_of_birth": Object {
+                              "date_of_birth": {
                                 "day": "01",
                                 "month": "01",
                                 "year": "1950",
@@ -1800,10 +1800,10 @@ exports[`ApplicationPage with regular application After the application finishes
                             "application_language": "English",
                             "application_submission_type": "Electronic",
                             "application_submitted_date": "2018-06-19",
-                            "createdby": Object {
+                            "createdby": {
                               "name": "Prod Vertiba",
                             },
-                            "demographics": Object {
+                            "demographics": {
                               "ethnicity": "Decline to state",
                               "gender": "Decline to state",
                               "gender_other": "gender other",
@@ -1811,18 +1811,18 @@ exports[`ApplicationPage with regular application After the application finishes
                               "sexual_orientation": "Decline to state",
                               "sexual_orientation_other": "sexual orientation other",
                             },
-                            "flagged_applications": Array [],
-                            "has_ada_priorities_selected": Object {
+                            "flagged_applications": [],
+                            "has_ada_priorities_selected": {
                               "hearing_impairments": true,
                               "mobility_impairments": true,
                               "vision_impairments": true,
                             },
                             "has_developmental_disability": null,
                             "has_military_service": null,
-                            "household_members": Array [
-                              Object {
+                            "household_members": [
+                              {
                                 "city": "buenos aires",
-                                "date_of_birth": Object {
+                                "date_of_birth": {
                                   "day": "11",
                                   "month": "06",
                                   "year": "1976",
@@ -1840,7 +1840,7 @@ exports[`ApplicationPage with regular application After the application finishes
                             ],
                             "housing_voucher_or_subsidy": "true",
                             "id": "a0o0x000000OcOzAAK",
-                            "listing": Object {
+                            "listing": {
                               "id": "a0W0x000000GhJUEA0",
                               "name": "Test 5/30",
                             },
@@ -1848,10 +1848,10 @@ exports[`ApplicationPage with regular application After the application finishes
                             "lottery_number_manual": null,
                             "monthly_income": null,
                             "name": "APP-00191270",
-                            "preferences": Array [
-                              Object {
-                                "application_member": Object {
-                                  "date_of_birth": Object {
+                            "preferences": [
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
                                     "day": "01",
                                     "month": "01",
                                     "year": "1950",
@@ -1877,9 +1877,9 @@ exports[`ApplicationPage with regular application After the application finishes
                                 "type_of_proof": null,
                                 "zip_code": null,
                               },
-                              Object {
-                                "application_member": Object {
-                                  "date_of_birth": Object {
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
                                     "day": "11",
                                     "month": "06",
                                     "year": "1976",
@@ -1904,13 +1904,13 @@ exports[`ApplicationPage with regular application After the application finishes
                                 "zip_code": null,
                               },
                             ],
-                            "proof_files": Array [
-                              Object {
+                            "proof_files": [
+                              {
                                 "document_type": "Namexxx1",
                                 "file_type": "Attachment",
                                 "id": "xxxx1",
                               },
-                              Object {
+                              {
                                 "document_type": "Namexxx2",
                                 "file_type": "File",
                                 "id": "xxxx2",
@@ -1924,14 +1924,14 @@ exports[`ApplicationPage with regular application After the application finishes
                           }
                         }
                         fields={
-                          Array [
+                          [
                             "has_military_service",
-                            Object {
+                            {
                               "field": "has_developmental_disability",
                               "formatType": null,
                               "label": "Has Developmental Disability",
                             },
-                            Object {
+                            {
                               "field": "has_ada_priorities_selected",
                               "formatType": null,
                               "label": "Has ADA Priorities Selected",
@@ -1941,13 +1941,13 @@ exports[`ApplicationPage with regular application After the application finishes
                           ]
                         }
                         labelMapper={
-                          Object {
+                          {
                             "alternate_contact": null,
                             "alternate_contact.agency_name": null,
-                            "alternate_contact.alternate_contact_type": Object {
+                            "alternate_contact.alternate_contact_type": {
                               "label": "Relationship",
                             },
-                            "alternate_contact.alternate_contact_type_other": Object {
+                            "alternate_contact.alternate_contact_type_other": {
                               "label": "Relationship - Other",
                             },
                             "alternate_contact.email": null,
@@ -1986,14 +1986,14 @@ exports[`ApplicationPage with regular application After the application finishes
                             "application_language": null,
                             "application_submission_type": null,
                             "application_submitted_date": null,
-                            "createdby.name": Object {
+                            "createdby.name": {
                               "label": "Created By",
                             },
                             "general_lottery": null,
                             "general_lottery_rank": null,
                             "has_ada_priorities_selected": null,
                             "has_completed_homebuyer_education": null,
-                            "has_developmental_disability": Object {
+                            "has_developmental_disability": {
                               "label": "Has Developmental Disability",
                             },
                             "has_loan_preapproval": null,
@@ -2005,14 +2005,14 @@ exports[`ApplicationPage with regular application After the application finishes
                             "listing": null,
                             "listing.id": null,
                             "listing.is_lottery_complete": null,
-                            "listing.name": Object {
+                            "listing.name": {
                               "label": "Listing Name",
                             },
                             "listing.reserved_community_type": null,
                             "lottery_number": null,
                             "lottery_number_manual": null,
                             "monthly_income": null,
-                            "name": Object {
+                            "name": {
                               "label": "Application Number",
                             },
                             "name_of_lender": null,
@@ -2113,7 +2113,7 @@ exports[`ApplicationPage with regular application After the application finishes
                     </ApplicationCard>
                     <Table
                       fields={
-                        Array [
+                        [
                           "receives_preference",
                           "preference_name",
                           "lottery_status",
@@ -2128,8 +2128,8 @@ exports[`ApplicationPage with regular application After the application finishes
                     >
                       <ApplicationDetailsContentTable
                         data={
-                          Object {
-                            "alternate_contact": Object {
+                          {
+                            "alternate_contact": {
                               "alternate_contact_type": "Friend",
                               "alternate_contact_type_other": null,
                               "email": "fede@eee.com",
@@ -2146,9 +2146,9 @@ exports[`ApplicationPage with regular application After the application finishes
                             },
                             "annual_income": 110000,
                             "answered_community_screening": null,
-                            "applicant": Object {
+                            "applicant": {
                               "city": "SAN FRANCISCO",
-                              "date_of_birth": Object {
+                              "date_of_birth": {
                                 "day": "01",
                                 "month": "01",
                                 "year": "1950",
@@ -2182,10 +2182,10 @@ exports[`ApplicationPage with regular application After the application finishes
                             "application_language": "English",
                             "application_submission_type": "Electronic",
                             "application_submitted_date": "2018-06-19",
-                            "createdby": Object {
+                            "createdby": {
                               "name": "Prod Vertiba",
                             },
-                            "demographics": Object {
+                            "demographics": {
                               "ethnicity": "Decline to state",
                               "gender": "Decline to state",
                               "gender_other": "gender other",
@@ -2193,18 +2193,18 @@ exports[`ApplicationPage with regular application After the application finishes
                               "sexual_orientation": "Decline to state",
                               "sexual_orientation_other": "sexual orientation other",
                             },
-                            "flagged_applications": Array [],
-                            "has_ada_priorities_selected": Object {
+                            "flagged_applications": [],
+                            "has_ada_priorities_selected": {
                               "hearing_impairments": true,
                               "mobility_impairments": true,
                               "vision_impairments": true,
                             },
                             "has_developmental_disability": null,
                             "has_military_service": null,
-                            "household_members": Array [
-                              Object {
+                            "household_members": [
+                              {
                                 "city": "buenos aires",
-                                "date_of_birth": Object {
+                                "date_of_birth": {
                                   "day": "11",
                                   "month": "06",
                                   "year": "1976",
@@ -2222,7 +2222,7 @@ exports[`ApplicationPage with regular application After the application finishes
                             ],
                             "housing_voucher_or_subsidy": "true",
                             "id": "a0o0x000000OcOzAAK",
-                            "listing": Object {
+                            "listing": {
                               "id": "a0W0x000000GhJUEA0",
                               "name": "Test 5/30",
                             },
@@ -2230,10 +2230,10 @@ exports[`ApplicationPage with regular application After the application finishes
                             "lottery_number_manual": null,
                             "monthly_income": null,
                             "name": "APP-00191270",
-                            "preferences": Array [
-                              Object {
-                                "application_member": Object {
-                                  "date_of_birth": Object {
+                            "preferences": [
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
                                     "day": "01",
                                     "month": "01",
                                     "year": "1950",
@@ -2259,9 +2259,9 @@ exports[`ApplicationPage with regular application After the application finishes
                                 "type_of_proof": null,
                                 "zip_code": null,
                               },
-                              Object {
-                                "application_member": Object {
-                                  "date_of_birth": Object {
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
                                     "day": "11",
                                     "month": "06",
                                     "year": "1976",
@@ -2286,13 +2286,13 @@ exports[`ApplicationPage with regular application After the application finishes
                                 "zip_code": null,
                               },
                             ],
-                            "proof_files": Array [
-                              Object {
+                            "proof_files": [
+                              {
                                 "document_type": "Namexxx1",
                                 "file_type": "Attachment",
                                 "id": "xxxx1",
                               },
-                              Object {
+                              {
                                 "document_type": "Namexxx2",
                                 "file_type": "File",
                                 "id": "xxxx2",
@@ -2306,7 +2306,7 @@ exports[`ApplicationPage with regular application After the application finishes
                           }
                         }
                         fields={
-                          Array [
+                          [
                             "receives_preference",
                             "preference_name",
                             "lottery_status",
@@ -2434,13 +2434,13 @@ exports[`ApplicationPage with regular application After the application finishes
                     </Table>
                     <ApplicationCard
                       fields={
-                        Array [
-                          Object {
+                        [
+                          {
                             "field": "annual_income",
                             "formatType": "currency",
                             "label": "Annual Income",
                           },
-                          Object {
+                          {
                             "field": "monthly_income",
                             "formatType": "currency",
                             "label": "Monthly Income",
@@ -2452,8 +2452,8 @@ exports[`ApplicationPage with regular application After the application finishes
                     >
                       <ApplicationDetailsContentCard
                         dataCollection={
-                          Object {
-                            "alternate_contact": Object {
+                          {
+                            "alternate_contact": {
                               "alternate_contact_type": "Friend",
                               "alternate_contact_type_other": null,
                               "email": "fede@eee.com",
@@ -2470,9 +2470,9 @@ exports[`ApplicationPage with regular application After the application finishes
                             },
                             "annual_income": 110000,
                             "answered_community_screening": null,
-                            "applicant": Object {
+                            "applicant": {
                               "city": "SAN FRANCISCO",
-                              "date_of_birth": Object {
+                              "date_of_birth": {
                                 "day": "01",
                                 "month": "01",
                                 "year": "1950",
@@ -2506,10 +2506,10 @@ exports[`ApplicationPage with regular application After the application finishes
                             "application_language": "English",
                             "application_submission_type": "Electronic",
                             "application_submitted_date": "2018-06-19",
-                            "createdby": Object {
+                            "createdby": {
                               "name": "Prod Vertiba",
                             },
-                            "demographics": Object {
+                            "demographics": {
                               "ethnicity": "Decline to state",
                               "gender": "Decline to state",
                               "gender_other": "gender other",
@@ -2517,18 +2517,18 @@ exports[`ApplicationPage with regular application After the application finishes
                               "sexual_orientation": "Decline to state",
                               "sexual_orientation_other": "sexual orientation other",
                             },
-                            "flagged_applications": Array [],
-                            "has_ada_priorities_selected": Object {
+                            "flagged_applications": [],
+                            "has_ada_priorities_selected": {
                               "hearing_impairments": true,
                               "mobility_impairments": true,
                               "vision_impairments": true,
                             },
                             "has_developmental_disability": null,
                             "has_military_service": null,
-                            "household_members": Array [
-                              Object {
+                            "household_members": [
+                              {
                                 "city": "buenos aires",
-                                "date_of_birth": Object {
+                                "date_of_birth": {
                                   "day": "11",
                                   "month": "06",
                                   "year": "1976",
@@ -2546,7 +2546,7 @@ exports[`ApplicationPage with regular application After the application finishes
                             ],
                             "housing_voucher_or_subsidy": "true",
                             "id": "a0o0x000000OcOzAAK",
-                            "listing": Object {
+                            "listing": {
                               "id": "a0W0x000000GhJUEA0",
                               "name": "Test 5/30",
                             },
@@ -2554,10 +2554,10 @@ exports[`ApplicationPage with regular application After the application finishes
                             "lottery_number_manual": null,
                             "monthly_income": null,
                             "name": "APP-00191270",
-                            "preferences": Array [
-                              Object {
-                                "application_member": Object {
-                                  "date_of_birth": Object {
+                            "preferences": [
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
                                     "day": "01",
                                     "month": "01",
                                     "year": "1950",
@@ -2583,9 +2583,9 @@ exports[`ApplicationPage with regular application After the application finishes
                                 "type_of_proof": null,
                                 "zip_code": null,
                               },
-                              Object {
-                                "application_member": Object {
-                                  "date_of_birth": Object {
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
                                     "day": "11",
                                     "month": "06",
                                     "year": "1976",
@@ -2610,13 +2610,13 @@ exports[`ApplicationPage with regular application After the application finishes
                                 "zip_code": null,
                               },
                             ],
-                            "proof_files": Array [
-                              Object {
+                            "proof_files": [
+                              {
                                 "document_type": "Namexxx1",
                                 "file_type": "Attachment",
                                 "id": "xxxx1",
                               },
-                              Object {
+                              {
                                 "document_type": "Namexxx2",
                                 "file_type": "File",
                                 "id": "xxxx2",
@@ -2630,13 +2630,13 @@ exports[`ApplicationPage with regular application After the application finishes
                           }
                         }
                         fields={
-                          Array [
-                            Object {
+                          [
+                            {
                               "field": "annual_income",
                               "formatType": "currency",
                               "label": "Annual Income",
                             },
-                            Object {
+                            {
                               "field": "monthly_income",
                               "formatType": "currency",
                               "label": "Monthly Income",
@@ -2728,13 +2728,13 @@ exports[`ApplicationPage with regular application After the application finishes
                         <ProofListItems
                           fileBaseUrl="test_file_url"
                           files={
-                            Array [
-                              Object {
+                            [
+                              {
                                 "document_type": "Namexxx1",
                                 "file_type": "Attachment",
                                 "id": "xxxx1",
                               },
-                              Object {
+                              {
                                 "document_type": "Namexxx2",
                                 "file_type": "File",
                                 "id": "xxxx2",

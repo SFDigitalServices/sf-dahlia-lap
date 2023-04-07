@@ -37,8 +37,8 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
         shouldFocusAfterRender={true}
         shouldReturnFocusAfterClose={true}
         style={
-          Object {
-            "content": Object {
+          {
+            "content": {
               "border": "0",
               "borderRadius": "4px",
               "bottom": "auto",
@@ -53,7 +53,7 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
               "transform": "translate(-50%,-50%)",
               "width": "600px",
             },
-            "overlay": Object {
+            "overlay": {
               "backgroundColor": "rgba(0,0,0,0.3)",
             },
           }
@@ -155,8 +155,8 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
             bodyOpenClassName="ReactModal__Body--open"
             closeTimeoutMS={0}
             defaultStyles={
-              Object {
-                "content": Object {
+              {
+                "content": {
                   "WebkitOverflowScrolling": "touch",
                   "background": "#fff",
                   "border": "1px solid #ccc",
@@ -170,7 +170,7 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
                   "right": "40px",
                   "top": "40px",
                 },
-                "overlay": Object {
+                "overlay": {
                   "backgroundColor": "rgba(255, 255, 255, 0.75)",
                   "bottom": 0,
                   "left": 0,
@@ -190,8 +190,8 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
             shouldFocusAfterRender={true}
             shouldReturnFocusAfterClose={true}
             style={
-              Object {
-                "content": Object {
+              {
+                "content": {
                   "border": "0",
                   "borderRadius": "4px",
                   "bottom": "auto",
@@ -206,7 +206,7 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
                   "transform": "translate(-50%,-50%)",
                   "width": "600px",
                 },
-                "overlay": Object {
+                "overlay": {
                   "backgroundColor": "rgba(0,0,0,0.3)",
                 },
               }
@@ -217,7 +217,7 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
               onClick={[Function]}
               onMouseDown={[Function]}
               style={
-                Object {
+                {
                   "backgroundColor": "rgba(0,0,0,0.3)",
                   "bottom": 0,
                   "left": 0,
@@ -235,7 +235,7 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
                 onMouseUp={[Function]}
                 role="dialog"
                 style={
-                  Object {
+                  {
                     "WebkitOverflowScrolling": "touch",
                     "background": "#fff",
                     "border": "0",

@@ -19,7 +19,7 @@ exports[`StatusHistoryPopover when there are fewer than 4 status items it matche
       >
         <svg
           style={
-            Object {
+            {
               "fill": "#767676",
               "height": "1.2rem",
               "width": "1.2rem",
@@ -28,7 +28,7 @@ exports[`StatusHistoryPopover when there are fewer than 4 status items it matche
         >
           <use
             style={
-              Object {
+              {
                 "fill": "#767676",
               }
             }
@@ -43,7 +43,7 @@ exports[`StatusHistoryPopover when there are fewer than 4 status items it matche
       data-popper-placement="bottom"
       data-popper-reference-hidden={true}
       style={
-        Object {
+        {
           "bottom": "auto",
           "left": "0",
           "position": "absolute",
@@ -56,7 +56,7 @@ exports[`StatusHistoryPopover when there are fewer than 4 status items it matche
       <div
         id="arrow"
         style={
-          Object {
+          {
             "left": "0",
             "position": "absolute",
             "top": "",
@@ -74,14 +74,14 @@ exports[`StatusHistoryPopover when there are fewer than 4 status items it matche
             height={null}
             limit={4}
             statusItems={
-              Array [
-                Object {
+              [
+                {
                   "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
                   "status": "Approved",
                   "substatus": "Approval letter sent",
                   "timestamp": 1598385600,
                 },
-                Object {
+                {
                   "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
                   "status": "Approved",
                   "substatus": "Approval letter sent",
@@ -92,12 +92,12 @@ exports[`StatusHistoryPopover when there are fewer than 4 status items it matche
           >
             <div
               className="status-items"
-              style={Object {}}
+              style={{}}
             >
               <StatusItem
                 key="0"
                 statusItem={
-                  Object {
+                  {
                     "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
                     "status": "Approved",
                     "substatus": "Approval letter sent",
@@ -154,7 +154,7 @@ exports[`StatusHistoryPopover when there are fewer than 4 status items it matche
               <StatusItem
                 key="1"
                 statusItem={
-                  Object {
+                  {
                     "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
                     "status": "Approved",
                     "substatus": "Approval letter sent",
