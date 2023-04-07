@@ -83,14 +83,14 @@ gem "sentry-raven"
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Added at 2017-10-22 23:46:25 -0700 by dkaplan:
-gem "devise", "~> 4.7"
+gem "devise", "~> 4.9.0"
 
 # Added at 2017-10-22 23:48:56 -0700 by dkaplan:
 gem "omniauth-salesforce", "~> 1.0"
 gem "omniauth-rails_csrf_protection"
 
 # Added at 2017-10-24 00:03:53 -0700 by dkaplan:
-gem "restforce", "~> 4.2"
+gem "restforce", "~> 6.2.2"
 # handy ruby extensions
 gem 'facets', require: false
 
