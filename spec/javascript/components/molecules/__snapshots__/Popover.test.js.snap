@@ -29,6 +29,11 @@ exports[`Popover should renders the tooltip content as expected 1`] = `
   >
     <div
       id="arrow"
+      style={
+        {
+          "position": "absolute",
+        }
+      }
     />
     <p>
       popover content

@@ -1253,10 +1253,10 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                             onChange={[Function]}
                             onFocus={[Function]}
                             type="hidden"
-                            value="Yes"
+                            value="No"
                           />
                           <input
-                            checked={true}
+                            checked={false}
                             id="form-ctrl-reserved_senior"
                             onChange={[Function]}
                             type="checkbox"
@@ -1280,10 +1280,10 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                             onChange={[Function]}
                             onFocus={[Function]}
                             type="hidden"
-                            value="Yes"
+                            value="No"
                           />
                           <input
-                            checked={true}
+                            checked={false}
                             id="form-ctrl-has_military_service"
                             onChange={[Function]}
                             type="checkbox"
@@ -1307,10 +1307,10 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                             onChange={[Function]}
                             onFocus={[Function]}
                             type="hidden"
-                            value="Yes"
+                            value="No"
                           />
                           <input
-                            checked={true}
+                            checked={false}
                             id="form-ctrl-has_developmental_disability"
                             onChange={[Function]}
                             type="checkbox"

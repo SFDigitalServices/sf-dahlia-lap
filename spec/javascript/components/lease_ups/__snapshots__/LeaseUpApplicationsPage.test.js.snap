@@ -954,6 +954,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                           }
                                           onKeyDown={[Function]}
                                         >
+                                          <Noop />
                                           <div
                                             className="dropdown status-dropdown--is-disabled css-14jk2my-container"
                                             onKeyDown={[Function]}
@@ -1162,6 +1163,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                 onMouseDown={[Function]}
                                                 onTouchEnd={[Function]}
                                               >
+                                                <Noop />
                                                 <div
                                                   className="status-dropdown__control status-dropdown__control--is-disabled css-uuqjpg-Control"
                                                   onMouseDown={[Function]}
@@ -1615,6 +1617,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                   }
                                                                 }
                                                               >
+                                                                <Noop />
                                                                 <div
                                                                   className="status-dropdown__value-container css-g1d714-ValueContainer"
                                                                 >
@@ -1820,6 +1823,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                         }
                                                                       }
                                                                     >
+                                                                      <Noop />
                                                                       <div
                                                                         className="status-dropdown__placeholder css-1wa3eu0-placeholder"
                                                                       />
@@ -1859,6 +1863,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                       tabIndex="0"
                                                                       value=""
                                                                     >
+                                                                      <Noop />
                                                                       <input
                                                                         aria-autocomplete="list"
                                                                         className="css-62g3xt-dummyInput"
@@ -5562,6 +5567,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                         }
                                                         onKeyDown={[Function]}
                                                       >
+                                                        <Noop />
                                                         <div
                                                           className="dropdown css-2b097c-container"
                                                           onKeyDown={[Function]}
@@ -5770,6 +5776,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
+                                                              <Noop />
                                                               <div
                                                                 className="status-dropdown__control css-uuqjpg-Control"
                                                                 onMouseDown={[Function]}
@@ -6222,6 +6229,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                 }
                                                                               }
                                                                             >
+                                                                              <Noop />
                                                                               <div
                                                                                 className="status-dropdown__value-container css-g1d714-ValueContainer"
                                                                               >
@@ -6427,6 +6435,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                       }
                                                                                     }
                                                                                   >
+                                                                                    <Noop />
                                                                                     <div
                                                                                       className="status-dropdown__placeholder css-1wa3eu0-placeholder"
                                                                                     />
@@ -6466,6 +6475,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                     tabIndex="0"
                                                                                     value=""
                                                                                   >
+                                                                                    <Noop />
                                                                                     <input
                                                                                       aria-autocomplete="list"
                                                                                       className="css-62g3xt-dummyInput"
@@ -8927,6 +8937,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                         }
                                                         onKeyDown={[Function]}
                                                       >
+                                                        <Noop />
                                                         <div
                                                           className="dropdown css-2b097c-container"
                                                           onKeyDown={[Function]}
@@ -9135,6 +9146,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
+                                                              <Noop />
                                                               <div
                                                                 className="status-dropdown__control css-uuqjpg-Control"
                                                                 onMouseDown={[Function]}
@@ -9587,6 +9599,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                 }
                                                                               }
                                                                             >
+                                                                              <Noop />
                                                                               <div
                                                                                 className="status-dropdown__value-container css-g1d714-ValueContainer"
                                                                               >
@@ -9792,6 +9805,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                       }
                                                                                     }
                                                                                   >
+                                                                                    <Noop />
                                                                                     <div
                                                                                       className="status-dropdown__placeholder css-1wa3eu0-placeholder"
                                                                                     />
@@ -9831,6 +9845,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                     tabIndex="0"
                                                                                     value=""
                                                                                   >
+                                                                                    <Noop />
                                                                                     <input
                                                                                       aria-autocomplete="list"
                                                                                       className="css-62g3xt-dummyInput"
@@ -12292,6 +12307,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                         }
                                                         onKeyDown={[Function]}
                                                       >
+                                                        <Noop />
                                                         <div
                                                           className="dropdown css-2b097c-container"
                                                           onKeyDown={[Function]}
@@ -12500,6 +12516,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
+                                                              <Noop />
                                                               <div
                                                                 className="status-dropdown__control css-uuqjpg-Control"
                                                                 onMouseDown={[Function]}
@@ -12952,6 +12969,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                 }
                                                                               }
                                                                             >
+                                                                              <Noop />
                                                                               <div
                                                                                 className="status-dropdown__value-container css-g1d714-ValueContainer"
                                                                               >
@@ -13157,6 +13175,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                       }
                                                                                     }
                                                                                   >
+                                                                                    <Noop />
                                                                                     <div
                                                                                       className="status-dropdown__placeholder css-1wa3eu0-placeholder"
                                                                                     />
@@ -13196,6 +13215,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                     tabIndex="0"
                                                                                     value=""
                                                                                   >
+                                                                                    <Noop />
                                                                                     <input
                                                                                       aria-autocomplete="list"
                                                                                       className="css-62g3xt-dummyInput"
@@ -15657,6 +15677,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                         }
                                                         onKeyDown={[Function]}
                                                       >
+                                                        <Noop />
                                                         <div
                                                           className="dropdown css-2b097c-container"
                                                           onKeyDown={[Function]}
@@ -15865,6 +15886,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
+                                                              <Noop />
                                                               <div
                                                                 className="status-dropdown__control css-uuqjpg-Control"
                                                                 onMouseDown={[Function]}
@@ -16317,6 +16339,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                 }
                                                                               }
                                                                             >
+                                                                              <Noop />
                                                                               <div
                                                                                 className="status-dropdown__value-container css-g1d714-ValueContainer"
                                                                               >
@@ -16522,6 +16545,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                       }
                                                                                     }
                                                                                   >
+                                                                                    <Noop />
                                                                                     <div
                                                                                       className="status-dropdown__placeholder css-1wa3eu0-placeholder"
                                                                                     />
@@ -16561,6 +16585,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                     tabIndex="0"
                                                                                     value=""
                                                                                   >
+                                                                                    <Noop />
                                                                                     <input
                                                                                       aria-autocomplete="list"
                                                                                       className="css-62g3xt-dummyInput"
@@ -19022,6 +19047,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                         }
                                                         onKeyDown={[Function]}
                                                       >
+                                                        <Noop />
                                                         <div
                                                           className="dropdown css-2b097c-container"
                                                           onKeyDown={[Function]}
@@ -19230,6 +19256,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
+                                                              <Noop />
                                                               <div
                                                                 className="status-dropdown__control css-uuqjpg-Control"
                                                                 onMouseDown={[Function]}
@@ -19682,6 +19709,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                 }
                                                                               }
                                                                             >
+                                                                              <Noop />
                                                                               <div
                                                                                 className="status-dropdown__value-container css-g1d714-ValueContainer"
                                                                               >
@@ -19887,6 +19915,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                       }
                                                                                     }
                                                                                   >
+                                                                                    <Noop />
                                                                                     <div
                                                                                       className="status-dropdown__placeholder css-1wa3eu0-placeholder"
                                                                                     />
@@ -19926,6 +19955,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                     tabIndex="0"
                                                                                     value=""
                                                                                   >
+                                                                                    <Noop />
                                                                                     <input
                                                                                       aria-autocomplete="list"
                                                                                       className="css-62g3xt-dummyInput"
@@ -22387,6 +22417,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                         }
                                                         onKeyDown={[Function]}
                                                       >
+                                                        <Noop />
                                                         <div
                                                           className="dropdown css-2b097c-container"
                                                           onKeyDown={[Function]}
@@ -22595,6 +22626,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                               onMouseDown={[Function]}
                                                               onTouchEnd={[Function]}
                                                             >
+                                                              <Noop />
                                                               <div
                                                                 className="status-dropdown__control css-uuqjpg-Control"
                                                                 onMouseDown={[Function]}
@@ -23047,6 +23079,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                 }
                                                                               }
                                                                             >
+                                                                              <Noop />
                                                                               <div
                                                                                 className="status-dropdown__value-container css-g1d714-ValueContainer"
                                                                               >
@@ -23252,6 +23285,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                       }
                                                                                     }
                                                                                   >
+                                                                                    <Noop />
                                                                                     <div
                                                                                       className="status-dropdown__placeholder css-1wa3eu0-placeholder"
                                                                                     />
@@ -23291,6 +23325,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                                                     tabIndex="0"
                                                                                     value=""
                                                                                   >
+                                                                                    <Noop />
                                                                                     <input
                                                                                       aria-autocomplete="list"
                                                                                       className="css-62g3xt-dummyInput"
@@ -29804,10 +29839,13 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     ariaHideApp={false}
                     bodyOpenClassName="ReactModal__Body--open"
                     closeTimeoutMS={0}
+                    contentElement={[Function]}
                     isOpen={false}
                     onRequestClose={[Function]}
+                    overlayElement={[Function]}
                     parentSelector={[Function]}
                     portalClassName="ReactModalPortal"
+                    preventScroll={false}
                     role="dialog"
                     shouldCloseOnEsc={true}
                     shouldCloseOnOverlayClick={true}
@@ -29847,6 +29885,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                         ariaHideApp={false}
                         bodyOpenClassName="ReactModal__Body--open"
                         closeTimeoutMS={0}
+                        contentElement={[Function]}
                         defaultStyles={
                           {
                             "content": {
@@ -29875,8 +29914,10 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                         }
                         isOpen={false}
                         onRequestClose={[Function]}
+                        overlayElement={[Function]}
                         parentSelector={[Function]}
                         portalClassName="ReactModalPortal"
+                        preventScroll={false}
                         role="dialog"
                         shouldCloseOnEsc={true}
                         shouldCloseOnOverlayClick={true}
