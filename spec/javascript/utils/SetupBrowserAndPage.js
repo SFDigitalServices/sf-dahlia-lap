@@ -22,7 +22,8 @@ const IgnoreImageAndCSSLoad = async (page) => {
 const SetupBrowser = async () => {
   const browser = await puppeteer.launch({
     headless: HEADLESS,
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    slowMo: 100
   })
   return browser
 }

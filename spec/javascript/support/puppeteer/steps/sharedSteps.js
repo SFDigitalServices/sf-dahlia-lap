@@ -10,14 +10,12 @@ const loginAsAgent = async (page) => {
   await page.click('.sign-in-btn')
   // The navigationPromise resolves after navigation has finished
   await navigationPromise
-
   // Salesforce login
   await page.waitForSelector('#username_container')
-  await page.type('#username', process.env.E2E_SALESFORCE_USERNAME)
-  await page.type('#password', process.env.E2E_SALESFORCE_PASSWORD)
-  await page.click('#Login')
+  await page.type('#username', process.env.E2E_SALESFORCE_USERNAME, { delay: 100 })
+  await page.type('#password', process.env.E2E_SALESFORCE_PASSWORD, { delay: 100 })
+  await Promise.all([page.waitForNavigation(), page.click('#Login')])
 
-  await page.waitForNavigation()
   await page.waitForSelector('#root')
 }
 

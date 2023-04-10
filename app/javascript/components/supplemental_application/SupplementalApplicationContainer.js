@@ -25,14 +25,14 @@ import { useAppContext } from 'utils/customHooks'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import { touchAllFields, convertPercentAndCurrency } from 'utils/form/validations'
 
-import ContentSection from '../molecules/ContentSection'
-import LeaseUpSidebar from '../molecules/lease_up_sidebar/LeaseUpSidebar'
-import AsymColumnLayout from '../organisms/AsymColumnLayout'
 import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
 import DemographicsInputs from './sections/DemographicsInputs'
 import Lease from './sections/Lease'
 import PreferencesTable from './sections/PreferencesTable'
+import ContentSection from '../molecules/ContentSection'
+import LeaseUpSidebar from '../molecules/lease_up_sidebar/LeaseUpSidebar'
+import AsymColumnLayout from '../organisms/AsymColumnLayout'
 
 const ConfirmedPreferencesSection = ({
   application,

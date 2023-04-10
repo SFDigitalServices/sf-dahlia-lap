@@ -11,7 +11,7 @@ gem 'rails', '~> 6.1.7.3'
 # Set a minimum version for Rack to avoid security vulnerability in Rack <2.2.3
 gem 'rack', '>= 2.2.3'
 # Use Puma as the app server
-gem 'puma', '~> 4.3.12'
+gem 'puma', '~> 6.2.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -86,7 +86,7 @@ gem "sentry-raven"
 gem "devise", "~> 4.9.0"
 
 # Added at 2017-10-22 23:48:56 -0700 by dkaplan:
-gem "omniauth-salesforce", "~> 1.0"
+gem "omniauth-salesforce", "~> 1.0.5"
 gem "omniauth-rails_csrf_protection"
 
 # Added at 2017-10-24 00:03:53 -0700 by dkaplan:
@@ -98,7 +98,7 @@ gem 'facets', require: false
 gem "slim-rails", "~> 3.1"
 
 # Added at 2017-10-25 00:30:33 -0700 by dkaplan:
-gem "hashie", "~> 3.5"
+gem "hashie"
 
 # Added at 2017-10-29 23:29:10 -0700 by dkaplan:
 gem "webpacker", "~> 4.0"
@@ -107,7 +107,7 @@ gem "webpacker", "~> 4.0"
 gem "webpacker-react", "~> 0.3.2"
 
 # Added at 2017-11-10 09:14:41 -0800 by dkaplan:
-gem "pg", "~> 0.21.0"
+gem "pg", "~> 1.4.6"
 
 gem 'scout_apm'
 

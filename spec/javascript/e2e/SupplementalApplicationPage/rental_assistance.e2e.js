@@ -27,19 +27,13 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
       await page.waitForSelector('#rental-assistance-new-form')
 
       // Set up the values we'll use to fill out the rental assistance form
-      const [
-        typeVal,
-        typeLabel
-      ] = await page.$eval(
+      const [typeVal, typeLabel] = await page.$eval(
         '#rental-assistance-new-form .rental-assistance-type option:nth-child(2)',
         (e) => [e.value, e.textContent]
       )
       const recurring = 'Yes'
       const amount = 1100
-      const [
-        recipientVal,
-        recipientLabel
-      ] = await page.$eval(
+      const [recipientVal, recipientLabel] = await page.$eval(
         '#rental-assistance-new-form .rental-assistance-recipient option:nth-child(2)',
         (e) => [e.value, e.textContent]
       )

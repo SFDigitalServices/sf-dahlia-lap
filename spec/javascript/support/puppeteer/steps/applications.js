@@ -1,5 +1,5 @@
-import SetupBrowserAndPage from '../../../utils/SetupBrowserAndPage'
 import sharedSteps from './sharedSteps'
+import SetupBrowserAndPage from '../../../utils/SetupBrowserAndPage'
 
 /**
  * function applicationRedirectRouteCheck

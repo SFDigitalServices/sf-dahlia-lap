@@ -23,13 +23,9 @@ export const performInSequence = (promiseFunc1, promiseFunc2) =>
  */
 export const performAllInSequence = (promiseFuncs) => {
   const reducer = (accumulatorPromise, promiseFunc) =>
-    performInSequence(
-      () => accumulatorPromise,
-      promiseFunc
-    ).then(([completedPromisesArr, currPromiseResult]) => [
-      ...completedPromisesArr,
-      currPromiseResult
-    ])
+    performInSequence(() => accumulatorPromise, promiseFunc).then(
+      ([completedPromisesArr, currPromiseResult]) => [...completedPromisesArr, currPromiseResult]
+    )
 
   return promiseFuncs.reduce(reducer, Promise.resolve([]))
 }

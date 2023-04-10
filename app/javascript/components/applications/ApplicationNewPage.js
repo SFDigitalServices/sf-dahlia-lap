@@ -1,8 +1,8 @@
 import React from 'react'
 
-import CardLayout from '../layouts/CardLayout'
 import PaperApplicationForm from './application_form/PaperApplicationForm'
 import { saveApplication } from './applicationRequestUtils'
+import CardLayout from '../layouts/CardLayout'
 
 const ApplicationNewForm = ({ listing, lendingInstitutions }) => {
   const saveNewApplication = async (submitType, submittedValues, listing, editPage) => {

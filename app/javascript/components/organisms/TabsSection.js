@@ -1,7 +1,7 @@
 import React from 'react'
 
-import TabsMenu from '../molecules/TabsMenu'
 import TabCard from './TabCard'
+import TabsMenu from '../molecules/TabsMenu'
 
 const TabsSection = ({ children, background, padding, ...props }) => {
   return (

@@ -37,14 +37,12 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
       )
       const prefToSetName = await page.$eval(unselectedPreferenceSelector, (e) => e.textContent)
       const prefToSetValue = await page.$eval(unselectedPreferenceSelector, (e) => e.value)
-      console.log({ prefToSetName, prefToSetValue })
       await page.select(individualPreferenceSelector, prefToSetValue)
 
       // Update the type of proof
       const typeOfProofSelector = `${liveWorkExpandedPanelSelector} .type-of-proof-select`
-      const unselectedTypeOfProofSelector = sharedSteps.notSelectedOptionSelector(
-        typeOfProofSelector
-      )
+      const unselectedTypeOfProofSelector =
+        sharedSteps.notSelectedOptionSelector(typeOfProofSelector)
       const typeOfProofToSetName = await page.$eval(
         unselectedTypeOfProofSelector,
         (e) => e.textContent
@@ -87,7 +85,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
       expect(liveWorkRowValues[5]).toBe(prefStatusToSetName)
 
       // Reload the page THIS IS THE CAUSE
-      // await sharedSteps.goto(page, `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
+      await sharedSteps.goto(page, `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
 
       // Open the same preference edit panel as before
       await page.waitForSelector(`${liveWorkRowSelector}`)
@@ -100,7 +98,6 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
         (e) => e.textContent
       )
 
-      console.log('currentIndividualPref', currentIndividualPref)
       expect(currentIndividualPref).toBe(prefToSetName)
 
       const currentTypeOfProof = await page.$eval(
@@ -170,7 +167,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
       expect(assistedHousingRowValues[5]).toBe(prefStatusToSetName)
 
       // Reload the page
-      // await sharedSteps.goto(page, `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
+      await sharedSteps.goto(page, `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
 
       // Open the same preference edit panel as before
       await page.waitForSelector(`${assistedHousingRowSelector}`)

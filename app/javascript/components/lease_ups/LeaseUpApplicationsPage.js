@@ -23,11 +23,11 @@ import {
 import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
-import TableLayout from '../layouts/TableLayout'
-import { createFieldUpdateComment } from '../supplemental_application/utils/supplementalRequestUtils'
 import Context from './context'
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
 import { getApplications, getListing } from './utils/leaseUpRequestUtils'
+import TableLayout from '../layouts/TableLayout'
+import { createFieldUpdateComment } from '../supplemental_application/utils/supplementalRequestUtils'
 
 const ROWS_PER_PAGE = 20
 

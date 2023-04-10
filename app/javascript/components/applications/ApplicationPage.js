@@ -10,9 +10,9 @@ import Loading from 'components/molecules/Loading'
 import appPaths from 'utils/appPaths'
 import { useAppContext, useAsyncOnMount, useQueryParamBoolean } from 'utils/customHooks'
 
-import CardLayout from '../layouts/CardLayout'
 import ApplicationDetails from './application_details/ApplicationDetails'
 import labelMapperFields from './application_details/applicationDetailsFieldsDesc'
+import CardLayout from '../layouts/CardLayout'
 
 const buildActionLinkIfNecessary = (app, showAddBtn) => {
   const actions = []
