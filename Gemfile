@@ -101,7 +101,7 @@ gem "slim-rails", "~> 3.1"
 gem "hashie"
 
 # Added at 2017-10-29 23:29:10 -0700 by dkaplan:
-gem "webpacker", "~> 4.0"
+gem "webpacker", "~> 5.4.4"
 
 # Added at 2017-10-29 23:57:32 -0700 by dkaplan:
 gem "webpacker-react", "~> 0.3.2"
