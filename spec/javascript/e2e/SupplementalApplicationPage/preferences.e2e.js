@@ -18,7 +18,6 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
 
       // The application used here must include a claimed live/work
       // preference for this test to be able to pass.
-      // /lease-ups/applications/a0o0P00000GZazOQAT
       await sharedSteps.goto(page, `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
 
       const liveWorkEditSelector = '[id$=in-san-francisco-preference-edit]'
@@ -84,7 +83,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
       expect(liveWorkRowValues[4]).toBe(typeOfProofToSetName)
       expect(liveWorkRowValues[5]).toBe(prefStatusToSetName)
 
-      // Reload the page THIS IS THE CAUSE
+      // Reload the page
       await sharedSteps.goto(page, `/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
 
       // Open the same preference edit panel as before

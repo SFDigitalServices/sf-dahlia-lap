@@ -5,7 +5,6 @@ module Force
     # Provide Salesforce custom API interactions for rental assistances
     class RentalAssistanceService < Force::Base
       def destroy(id)
-        # require 'pry-byebug';binding.pry
         @client.delete("/services/apexrest/RentalAssistance/#{id}")
       end
 

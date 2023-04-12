@@ -8,7 +8,6 @@ module Force
     end
 
     def api_call(method, endpoint, params)
-      # require 'pry-byebug';binding.pry
       apex_endpoint = "/services/apexrest#{endpoint}"
       response = @client.send(method, apex_endpoint, params.as_json)
       response.body
