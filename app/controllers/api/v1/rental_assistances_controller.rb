@@ -41,7 +41,6 @@ module Api
       end
 
       def destroy
-        # require 'pry-byebug';binding.pry
         response = custom_api_rental_assistance_service.destroy(params[:id])
 
         if response
