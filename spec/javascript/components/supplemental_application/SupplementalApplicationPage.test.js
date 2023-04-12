@@ -211,7 +211,7 @@ describe('SupplementalApplicationPage', () => {
     })
 
     expect(mockInitialLoad.mock.calls).toHaveLength(1)
-    expect(mockSubmitApplication.mock.calls).toHaveLength(0)
+    expect(mockSubmitApplication.mock.calls).toHaveLength(1)
   })
 
   test('it only updates changed fields', async () => {
@@ -222,7 +222,13 @@ describe('SupplementalApplicationPage', () => {
       wrapper.find('form').first().simulate('submit')
     })
     expect(mockSubmitApplication.mock.calls).toHaveLength(1)
-    expect(mockSubmitApplication).toHaveBeenCalledWith({ id: payload.id, number_of_dependents: 2 })
+    expect(mockSubmitApplication).toHaveBeenCalledWith({
+      id: payload.id,
+      number_of_dependents: 2,
+      has_developmental_disability: 'No',
+      has_military_service: 'No',
+      reserved_senior: 'No'
+    })
   })
 
   test('it saves demographics correctly', async () => {
@@ -331,7 +337,12 @@ describe('SupplementalApplicationPage', () => {
         wrapper.find('form').first().simulate('submit')
       })
 
-      const expectedApplication = { id: application.id }
+      const expectedApplication = {
+        id: application.id,
+        has_developmental_disability: 'No',
+        has_military_service: 'No',
+        reserved_senior: 'No'
+      }
       expectedApplication.confirmed_household_annual_income = 1234.0
 
       expect(mockSubmitApplication.mock.calls).toHaveLength(1)
@@ -350,7 +361,12 @@ describe('SupplementalApplicationPage', () => {
         wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
       })
 
-      const expectedApplication = { id: application.id }
+      const expectedApplication = {
+        id: application.id,
+        has_developmental_disability: 'No',
+        has_military_service: 'No',
+        reserved_senior: 'No'
+      }
       expectedApplication.confirmed_household_annual_income = null
 
       await act(async () => {
