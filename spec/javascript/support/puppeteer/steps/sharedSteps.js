@@ -12,10 +12,11 @@ const loginAsAgent = async (page) => {
   await navigationPromise
   // Salesforce login
   await page.waitForSelector('#username_container')
+  await page.waitForTimeout(2000)
   await page.type('#username', process.env.E2E_SALESFORCE_USERNAME, { delay: 100 })
   await page.type('#password', process.env.E2E_SALESFORCE_PASSWORD, { delay: 100 })
   await Promise.all([page.waitForNavigation(), page.click('#Login')])
-
+  await page.waitForTimeout(5000)
   await page.waitForSelector('#root')
 }
 
