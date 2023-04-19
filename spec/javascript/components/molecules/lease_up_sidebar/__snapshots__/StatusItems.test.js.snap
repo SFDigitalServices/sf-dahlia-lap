@@ -3,12 +3,12 @@
 exports[`StatusItems snapshot tests should render a single status item correctly 1`] = `
 <div
   className="status-items"
-  style={Object {}}
+  style={{}}
 >
   <StatusItem
     key="0"
     statusItem={
-      Object {
+      {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Approved",
         "substatus": "Approval letter sent",
@@ -22,19 +22,19 @@ exports[`StatusItems snapshot tests should render a single status item correctly
 exports[`StatusItems snapshot tests should render empty status items correctly 1`] = `
 <div
   className="status-items"
-  style={Object {}}
+  style={{}}
 />
 `;
 
 exports[`StatusItems snapshot tests should render multiple status items correctly 1`] = `
 <div
   className="status-items"
-  style={Object {}}
+  style={{}}
 >
   <StatusItem
     key="0"
     statusItem={
-      Object {
+      {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Approved",
         "substatus": "Approval letter sent",
@@ -45,7 +45,7 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
   <StatusItem
     key="1"
     statusItem={
-      Object {
+      {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Approved",
         "substatus": "Unit selected",
@@ -56,7 +56,7 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
   <StatusItem
     key="2"
     statusItem={
-      Object {
+      {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Approved",
         "substatus": "Waiting for subsidy inspection",
@@ -67,7 +67,7 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
   <StatusItem
     key="3"
     statusItem={
-      Object {
+      {
         "comment": null,
         "status": "Waitlisted",
         "substatus": "Written confirmation sent",
@@ -78,7 +78,7 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
   <StatusItem
     key="4"
     statusItem={
-      Object {
+      {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Lease Signed",
         "substatus": null,
@@ -89,7 +89,7 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
   <StatusItem
     key="5"
     statusItem={
-      Object {
+      {
         "comment": null,
         "status": "Lease Signed",
         "substatus": null,
@@ -103,19 +103,19 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
 exports[`StatusItems snapshot tests should render multiple status items with limit 0 correctly 1`] = `
 <div
   className="status-items"
-  style={Object {}}
+  style={{}}
 />
 `;
 
 exports[`StatusItems snapshot tests should render multiple status items with limit 1 correctly 1`] = `
 <div
   className="status-items"
-  style={Object {}}
+  style={{}}
 >
   <StatusItem
     key="0"
     statusItem={
-      Object {
+      {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Approved",
         "substatus": "Approval letter sent",
@@ -129,12 +129,12 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
 exports[`StatusItems snapshot tests should render multiple status items with limit 100 correctly 1`] = `
 <div
   className="status-items"
-  style={Object {}}
+  style={{}}
 >
   <StatusItem
     key="0"
     statusItem={
-      Object {
+      {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Approved",
         "substatus": "Approval letter sent",
@@ -145,7 +145,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
   <StatusItem
     key="1"
     statusItem={
-      Object {
+      {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Approved",
         "substatus": "Unit selected",
@@ -156,7 +156,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
   <StatusItem
     key="2"
     statusItem={
-      Object {
+      {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Approved",
         "substatus": "Waiting for subsidy inspection",
@@ -167,7 +167,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
   <StatusItem
     key="3"
     statusItem={
-      Object {
+      {
         "comment": null,
         "status": "Waitlisted",
         "substatus": "Written confirmation sent",
@@ -178,7 +178,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
   <StatusItem
     key="4"
     statusItem={
-      Object {
+      {
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
         "status": "Lease Signed",
         "substatus": null,
@@ -189,7 +189,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
   <StatusItem
     key="5"
     statusItem={
-      Object {
+      {
         "comment": null,
         "status": "Lease Signed",
         "substatus": null,

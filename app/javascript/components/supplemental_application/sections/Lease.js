@@ -27,11 +27,11 @@ import { areLeaseAndRentalAssistancesValid } from 'utils/form/formSectionValidat
 import formUtils from 'utils/formUtils'
 import { pluck } from 'utils/utils'
 
+import ParkingInformationInputs from './ParkingInformationInputs'
+import RentalAssistance from './RentalAssistance'
 import { convertPercentAndCurrency, validateLeaseCurrency } from '../../../utils/form/validations'
 import Button from '../../atoms/Button'
 import UnitDropdown from '../../molecules/UnitDropdown'
-import ParkingInformationInputs from './ParkingInformationInputs'
-import RentalAssistance from './RentalAssistance'
 
 const NONE_PREFERENCE_LABEL = 'None'
 const DTHP = 'Displaced Tenant Housing Preference (DTHP)'

@@ -42,16 +42,7 @@ describe('getAmiChartYears', () => {
     expect(getYearsWithMockOptions(2019)).toEqual([2019, 2020])
     expect(getYearsWithMockOptions(2018)).toEqual([2018, 2019, 2020])
     expect(getYearsWithMockOptions(2011)).toEqual([
-      2011,
-      2012,
-      2013,
-      2014,
-      2015,
-      2016,
-      2017,
-      2018,
-      2019,
-      2020
+      2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
     ])
   })
 
@@ -68,16 +59,7 @@ describe('getAmiChartYears', () => {
     expect(getYearsWithMockOptions(2021)).toEqual([2020, 2021])
     expect(getYearsWithMockOptions(2022)).toEqual([2020, 2021, 2022])
     expect(getYearsWithMockOptions(2029)).toEqual([
-      2020,
-      2021,
-      2022,
-      2023,
-      2024,
-      2025,
-      2026,
-      2027,
-      2028,
-      2029
+      2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029
     ])
   })
 
@@ -93,25 +75,8 @@ describe('getAmiChartYears', () => {
     expect(getYearsWithMockOptions(2019, 2021)).toEqual([2019, 2020, 2021])
     expect(getYearsWithMockOptions(2018, 2020, 2021)).toEqual([2018, 2019, 2020, 2021])
     expect(getYearsWithMockOptions(2011, 2029)).toEqual([
-      2011,
-      2012,
-      2013,
-      2014,
-      2015,
-      2016,
-      2017,
-      2018,
-      2019,
-      2020,
-      2021,
-      2022,
-      2023,
-      2024,
-      2025,
-      2026,
-      2027,
-      2028,
-      2029
+      2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025,
+      2026, 2027, 2028, 2029
     ])
   })
 

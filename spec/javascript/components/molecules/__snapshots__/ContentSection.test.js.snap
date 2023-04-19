@@ -27,7 +27,7 @@ exports[`ContentSection should render correctly 1`] = `
   <div
     className=""
     style={
-      Object {
+      {
         "marginBottom": "1.75rem",
       }
     }

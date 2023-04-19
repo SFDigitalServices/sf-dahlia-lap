@@ -7,9 +7,9 @@ import Loading from 'components/molecules/Loading'
 import appPaths from 'utils/appPaths'
 import { useAppContext, useAsyncOnMount } from 'utils/customHooks'
 
-import TableLayout from '../layouts/TableLayout'
 import LeaseUpListingsTable from './LeaseUpListingsTable'
 import { getLeaseUpListings } from './utils/leaseUpRequestUtils'
+import TableLayout from '../layouts/TableLayout'
 
 const LeaseUpListingsPage = ({ history }) => {
   const [loading, setLoading] = useState(true)

@@ -27,21 +27,21 @@ exports[`RentBurdenedPanel should render successfully 1`] = `
       fieldName="preferences.1.post_lottery_validation"
       label="Status"
       options={
-        Array [
-          Object {
+        [
+          {
             "disabled": "disabled",
             "label": "Select One...",
             "value": "",
           },
-          Object {
+          {
             "label": "Unconfirmed",
             "value": "Unconfirmed",
           },
-          Object {
+          {
             "label": "Confirmed",
             "value": "Confirmed",
           },
-          Object {
+          {
             "label": "Invalid",
             "value": "Invalid",
           },

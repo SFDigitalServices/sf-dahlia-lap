@@ -27,18 +27,21 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
         ariaHideApp={false}
         bodyOpenClassName="ReactModal__Body--open"
         closeTimeoutMS={0}
+        contentElement={[Function]}
         isOpen={true}
         onRequestClose={[MockFunction]}
+        overlayElement={[Function]}
         parentSelector={[Function]}
         portalClassName="ReactModalPortal"
+        preventScroll={false}
         role="dialog"
         shouldCloseOnEsc={true}
         shouldCloseOnOverlayClick={true}
         shouldFocusAfterRender={true}
         shouldReturnFocusAfterClose={true}
         style={
-          Object {
-            "content": Object {
+          {
+            "content": {
               "border": "0",
               "borderRadius": "4px",
               "bottom": "auto",
@@ -53,7 +56,7 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
               "transform": "translate(-50%,-50%)",
               "width": "600px",
             },
-            "overlay": Object {
+            "overlay": {
               "backgroundColor": "rgba(0,0,0,0.3)",
             },
           }
@@ -65,11 +68,12 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
               class="ReactModalPortal"
             >
               <div
-                class="ReactModal__Overlay ReactModal__Overlay--after-open"
+                class="ReactModal__Overlay"
                 style="position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; background-color: rgba(0, 0, 0, 0.3);"
               >
                 <div
-                  class="ReactModal__Content ReactModal__Content--after-open"
+                  aria-modal="true"
+                  class="ReactModal__Content"
                   role="dialog"
                   style="position: fixed; top: 50%; left: 50%; border: 0px; background: rgb(255, 255, 255); overflow: visible; border-radius: 4px; outline: none; padding: 0px; opacity: 1; min-height: 10rem; transform: translate(-50%,-50%); width: 600px;"
                   tabindex="-1"
@@ -154,9 +158,10 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
             ariaHideApp={false}
             bodyOpenClassName="ReactModal__Body--open"
             closeTimeoutMS={0}
+            contentElement={[Function]}
             defaultStyles={
-              Object {
-                "content": Object {
+              {
+                "content": {
                   "WebkitOverflowScrolling": "touch",
                   "background": "#fff",
                   "border": "1px solid #ccc",
@@ -170,7 +175,7 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
                   "right": "40px",
                   "top": "40px",
                 },
-                "overlay": Object {
+                "overlay": {
                   "backgroundColor": "rgba(255, 255, 255, 0.75)",
                   "bottom": 0,
                   "left": 0,
@@ -182,16 +187,18 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
             }
             isOpen={true}
             onRequestClose={[MockFunction]}
+            overlayElement={[Function]}
             parentSelector={[Function]}
             portalClassName="ReactModalPortal"
+            preventScroll={false}
             role="dialog"
             shouldCloseOnEsc={true}
             shouldCloseOnOverlayClick={true}
             shouldFocusAfterRender={true}
             shouldReturnFocusAfterClose={true}
             style={
-              Object {
-                "content": Object {
+              {
+                "content": {
                   "border": "0",
                   "borderRadius": "4px",
                   "bottom": "auto",
@@ -206,18 +213,18 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
                   "transform": "translate(-50%,-50%)",
                   "width": "600px",
                 },
-                "overlay": Object {
+                "overlay": {
                   "backgroundColor": "rgba(0,0,0,0.3)",
                 },
               }
             }
           >
             <div
-              className="ReactModal__Overlay ReactModal__Overlay--after-open"
+              className="ReactModal__Overlay"
               onClick={[Function]}
               onMouseDown={[Function]}
               style={
-                Object {
+                {
                   "backgroundColor": "rgba(0,0,0,0.3)",
                   "bottom": 0,
                   "left": 0,
@@ -228,14 +235,15 @@ exports[`LeaveConfirmationModal it should render successfully 1`] = `
               }
             >
               <div
-                className="ReactModal__Content ReactModal__Content--after-open"
+                aria-modal={true}
+                className="ReactModal__Content"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 onMouseDown={[Function]}
                 onMouseUp={[Function]}
                 role="dialog"
                 style={
-                  Object {
+                  {
                     "WebkitOverflowScrolling": "touch",
                     "background": "#fff",
                     "border": "0",
