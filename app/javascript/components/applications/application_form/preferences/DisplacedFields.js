@@ -1,22 +1,28 @@
 import React from 'react'
-import { buildFieldId } from './utils'
-import { Field } from '~/utils/form/Field'
 
-const DisplacedFields = ({ formApi, householdMembers, i }) => {
+import { InputField, SelectField } from 'utils/form/final_form/Field'
+import validate from 'utils/form/validations'
+import { maxLengthMap } from 'utils/formUtils'
+
+import { buildFieldId } from './utils'
+
+const DisplacedFields = ({ householdMembers, i }) => {
   return (
     <div>
       <div className='small-6 columns'>
-        <Field.Select
-          field={buildFieldId(i, 'naturalKey')}
+        <SelectField
+          fieldName={buildFieldId(i, 'naturalKey')}
           label='Person Who Claimed'
           blockNote='(required)'
           options={householdMembers}
+          validation={validate.isPresent('Person Who Claimed is required')}
         />
       </div>
       <div className='small-6 columns'>
-        <Field.Text
-          field={buildFieldId(i, 'certificate_number')}
+        <InputField
+          fieldName={buildFieldId(i, 'certificate_number')}
           label='DTHP Certificate Number'
+          maxLength={maxLengthMap.certificate_number}
         />
       </div>
       <div className='small-12 columns'>

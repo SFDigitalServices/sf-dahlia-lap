@@ -16,6 +16,7 @@ module Force
 
     def initialize(fields, format)
       raise ArgumentError, 'Field format is required when fields are provided.' if fields && !format
+
       @fields = Hashie::Mash.new(FIELD_TYPES.map { |t| [t, Hashie::Mash.new] }.to_h)
       @fields[format] = fields
     end
@@ -50,6 +51,82 @@ module Force
 
         @fields[field_type]
       end
+    end
+    def add_salesforce_suffix(salesforce_fields)
+      # Add the "__c" suffix back onto Salesforce field names
+      field_names = salesforce_fields.keys
+      field_names.each do |field_name|
+        unless %w[Id Name].include?(field_name) || field_name.end_with?('__c')
+          salesforce_fields["#{field_name}__c"] = salesforce_fields[field_name]
+          salesforce_fields.delete(field_name)
+        end
+      end
+      salesforce_fields
+    end
+
+    def float_to_currency(field_name, domain_fields)
+      return unless @fields.domain[field_name]
+
+      domain_fields[field_name] = ActionController::Base.helpers.number_to_currency(@fields.domain[field_name])
+    end
+
+    def currency_to_float(field_name, salesforce_fields)
+      return nil unless @fields.salesforce[field_name]
+
+      salesforce_fields[field_name] = salesforce_fields[field_name].gsub(/[$,]/, '').to_f
+    end
+
+    # convert one object format to another.
+    # example call: Force::Application.convert_object(application_hash, :from_domain, :to_salesforce)
+    def self.convert_object(object, from_method, to_method)
+      send(from_method, object).send(to_method)
+    end
+
+    # convert a list of objects from one format to another
+    # example call: Force::Application.convert_list(application_hash, :from_domain, :to_salesforce)
+    def self.convert_list(list, from_method, to_method)
+      (list || []).map { |i| convert_object(i, from_method, to_method) }
+    end
+
+    # TODO: Automate this conversion for date objects.
+    def self.date_to_json(api_date)
+      return nil if api_date.blank?
+
+      date = api_date.split('-')
+      { year: date[0], month: date[1], day: date[2] }
+    end
+
+    # TODO: Automate this conversion for date objects.
+    def self.json_to_date(date_json)
+      return nil if !date_json
+      [date_json.year, date_json.month, date_json.day].join('-')
+    end
+
+    # TODO: Automate this conversion for date objects.
+    def self.date_to_salesforce(domain_date)
+      return nil unless !domain_date.blank? && %i[year month day].all? {|s| domain_date.key? s}
+
+      lease_date = Date.new(domain_date[:year].to_i, domain_date[:month].to_i, domain_date[:day].to_i)
+      lease_date.strftime('%F')
+    end
+
+    def self.get_domain_keys(obj = self)
+      # Return a list of all domain keys in an object, including nested objects.
+      mapped = obj::FIELD_NAME_MAPPINGS.map do |v|
+        next if v[:domain].empty?
+
+        if v.key? :object
+          { v[:domain] => get_domain_keys(v[:object]) }
+        elsif v[:type] == 'date'
+          # Allow date to be set to nil
+          [v[:domain], { v[:domain] => %w[day year month] }]
+        elsif v[:type] == 'ada_priorities'
+          { v[:domain] => %w[vision_impairments hearing_impairments mobility_impairments] }
+        else
+          v[:domain]
+        end
+      end
+      mapped.compact
     end
   end
 end

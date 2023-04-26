@@ -1,60 +1,123 @@
 import React from 'react'
+
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
-import arrayUtils from '~/utils/arrayUtils'
-import keyboard from '~/utils/keyboard'
+import arrayUtils from 'utils/arrayUtils'
+import keyboard from 'utils/keyboard'
 
-const Tab = ({ title, url, active, onKeyDown, linkRefs, onFocus }) => {
+// visible for testing
+export const Tab = ({ tabItem, onKeyDown, onFocus, linkRefs }) => {
+  const { active, url, title, onClick, renderAsRouterLink } = tabItem
   const liClassName = classNames({
     'tab-title': true,
-    'active': active
+    active: active
   })
+
+  let tabContent
+  if (onClick) {
+    tabContent = (
+      <button
+        type='button'
+        className='button-unstyled'
+        onClick={onClick}
+        role='menuitem'
+        ref={linkRefs}
+        onFocus={onFocus}
+        onKeyDown={onKeyDown}
+        tabIndex={active ? '-1' : '0'}
+        aria-selected={active}
+      >
+        {title}
+      </button>
+    )
+  } else {
+    tabContent = renderAsRouterLink ? (
+      <Link
+        to={url}
+        className='button-unstyled'
+        role='menuitem'
+        ref={linkRefs}
+        onFocus={onFocus}
+        onKeyDown={onKeyDown}
+        tabIndex={active ? '-1' : '0'}
+        aria-selected={active}
+      >
+        {title}
+      </Link>
+    ) : (
+      <a
+        href={url}
+        className='button-unstyled'
+        role='menuitem'
+        ref={linkRefs}
+        onFocus={onFocus}
+        onKeyDown={onKeyDown}
+        tabIndex={active ? '-1' : '0'}
+        aria-selected={active}
+      >
+        {title}
+      </a>
+    )
+  }
 
   return (
     <li className={liClassName} role='none'>
-      <a href={url} role='menuitem' ref={linkRefs} onFocus={onFocus} onKeyDown={onKeyDown} tabIndex={active ? '-1' : '0'} aria-selected={active}>{title}</a>
+      {tabContent}
     </li>
   )
 }
 
-class TabsMenu extends React.Component {
-  tabRefs = arrayUtils.cycle([])
+const TabsMenu = ({ items }) => {
+  const tabRefs = arrayUtils.cycle([])
 
-  handleKeyDown = (e) => {
-    keyboard.forEvent(e)
-      .on('leftArrow', (e) => this.tabRefs.prev().focus())
-      .on('rightArrow', (e) => this.tabRefs.next().focus())
+  const handleKeyDown = (e) => {
+    keyboard
+      .forEvent(e)
+      .on('leftArrow', () => tabRefs.prev().focus())
+      .on('rightArrow', () => tabRefs.next().focus())
   }
 
-  addTabRef = (node) => {
-    this.tabRefs.push(node)
+  const addTabRef = (node) => {
+    tabRefs.push(node)
   }
 
   // NOTE: We need this so arrow navigation and tab navigation play nice together, Fed
-  handleOnFocus = (e) => {
-    const idx = this.tabRefs.values.indexOf(e.target)
-    this.tabRefs.setPosition(idx)
+  const handleOnFocus = (e) => {
+    const idx = tabRefs.values.indexOf(e.target)
+    tabRefs.setPosition(idx)
   }
 
-  render () {
-    const { items, currentUrl } = this.props
+  return (
+    <ul className='tabs' role='menubar'>
+      {items.map((item) => (
+        <Tab
+          key={item.title}
+          tabItem={item}
+          onKeyDown={handleKeyDown}
+          onFocus={handleOnFocus}
+          linkRefs={addTabRef}
+        />
+      ))}
+    </ul>
+  )
+}
 
-    return (
-      <ul className='tabs full-width-small-only' role='menubar'>
-        {
-          items.map((item) => (
-            <Tab
-              {...item}
-              key={item.url}
-              onKeyDown={this.handleKeyDown}
-              onFocus={this.handleOnFocus}
-              linkRefs={this.addTabRef}
-              active={item.url === currentUrl} />)
-          )
-        }
-      </ul>
-    )
-  }
+const tabItemShape = PropTypes.shape({
+  title: PropTypes.string,
+  url: PropTypes.string,
+  active: PropTypes.bool,
+  renderAsRouterLink: PropTypes.bool,
+  onClick: PropTypes.func
+})
+
+Tab.propTypes = {
+  item: tabItemShape
+}
+
+TabsMenu.propTypes = {
+  items: PropTypes.arrayOf(tabItemShape)
 }
 
 export default TabsMenu

@@ -1,5 +1,7 @@
 import React from 'react'
+
 import renderer from 'react-test-renderer'
+
 import ContentSection from 'components/molecules/ContentSection'
 
 describe('ContentSection', () => {
@@ -7,7 +9,7 @@ describe('ContentSection', () => {
     const wrapper = renderer.create(
       <ContentSection title='main title' description='main desc'>
         <ContentSection.Sub title='sub title' description='sub desc'>
-            content
+          content
         </ContentSection.Sub>
       </ContentSection>
     )

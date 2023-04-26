@@ -1,0 +1,18 @@
+{
+    "id": "a0q1D000000msKwQAI",
+    "application": {
+        "id": "a0o1D000001JLrkQAG",
+        "name": "APP-00481308"
+    },
+    "flagged_record": {
+        "rule_name": "Name + DOB",
+        "listing": {
+            "lottery_status": "Not Yet Run",
+            "is_sale": false,
+            "is_rental": true
+        }
+    },
+    "primary_application_applicant_name": "Test 350 flag very Many",
+    "review_status": "Pending Review",
+    "comments": null
+}

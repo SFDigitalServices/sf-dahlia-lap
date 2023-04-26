@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.7
   Include:
     - '**/Rakefile'
     - '**/config.ru'
@@ -33,7 +33,9 @@ Metrics/AbcSize:
 # to have been changed, as it would if it lacked a comma and had one added.
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
 
 # Cop supports --auto-correct.
@@ -69,3 +71,6 @@ Metrics/BlockLength:
     - 'config/routes.rb'
     - 'spec/**/*_spec.rb'
     - 'spec/support/**/*'
+
+Lint/EmptyFile:
+  Enabled: false

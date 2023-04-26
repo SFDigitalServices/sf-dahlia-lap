@@ -1,0 +1,83 @@
+[
+  {
+    "application": "a0o0P00000GZaz9QAD",
+    "comment": "rspec test comment",
+    "created_by": "DAHLIA",
+    "date": "2021-01-08T17:19:18.000+0000",
+    "status": "Withdrawn",
+    "substatus": "Verbal withdrawal",
+    "timestamp": 1610126358
+  },
+  {
+    "application": "a0o0P00000GZaz9QAD",
+    "comment": "test3",
+    "created_by": "James Wills",
+    "date": "2020-12-22T21:49:04.000+0000",
+    "status": "Appealed",
+    "substatus": "Pending documentation from third party",
+    "timestamp": 1608673744
+  },
+  {
+    "application": "a0o0P00000GZaz9QAD",
+    "comment": "test",
+    "created_by": "James Wills",
+    "date": "2020-12-22T21:48:52.000+0000",
+    "status": "Appealed",
+    "substatus": "Pending documentation from third party",
+    "timestamp": 1608673732
+  },
+  {
+    "application": "a0o0P00000GZaz9QAD",
+    "comment": null,
+    "created_by": "Andrea Egan",
+    "date": "2020-12-04T17:39:56.000+0000",
+    "status": "Lease Signed",
+    "substatus": null,
+    "timestamp": 1607103596
+  },
+  {
+    "application": "a0o0P00000GZaz9QAD",
+    "comment": "Update all the applications at once",
+    "created_by": "Andrea Egan",
+    "date": "2020-11-24T23:52:48.000+0000",
+    "status": "Processing",
+    "substatus": null,
+    "timestamp": 1606261968
+  },
+  {
+    "application": "a0o0P00000GZaz9QAD",
+    "comment": "testing",
+    "created_by": "James Wills",
+    "date": "2020-11-24T18:38:25.000+0000",
+    "status": "Withdrawn",
+    "substatus": "Verbal withdrawal",
+    "timestamp": 1606243105
+  },
+  {
+    "application": "a0o0P00000GZaz9QAD",
+    "comment": "test changing status",
+    "created_by": "James Wills",
+    "date": "2020-11-24T18:36:57.000+0000",
+    "status": "Appealed",
+    "substatus": "Pending documentation from third party",
+    "timestamp": 1606243017
+  },
+  {
+    "application": "a0o0P00000GZaz9QAD",
+    "comment": "rspec test comment",
+    "created_by": "DAHLIA",
+    "date": "2020-10-20T00:05:02.000+0000",
+    "status": "Withdrawn",
+    "substatus": "Verbal withdrawal",
+    "timestamp": 1603152302
+  },
+  {
+    "application": "a0o0P00000GZaz9QAD",
+    "comment": "test",
+    "created_by": "Emily Shore",
+    "date": "2019-11-07T18:56:16.000+0000",
+    "status": "Processing",
+    "substatus": null,
+    "timestamp": 1573152976
+  }
+]

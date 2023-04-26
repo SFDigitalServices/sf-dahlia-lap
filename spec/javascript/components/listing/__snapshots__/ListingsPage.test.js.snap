@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ListingsPage should render succesfully 1`] = `
-Array [
+[
   <header
     className="lead-header short  bg-dust"
   >
@@ -24,21 +24,20 @@ Array [
     </div>
   </header>,
   <section
-    className="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x"
+    className="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x bg-white"
   >
     <div
       className="ReactTable"
-      style={Object {}}
+      style={{}}
     >
       <div
         className="rt-table"
         role="grid"
-        style={undefined}
       >
         <div
           className="rt-thead -header"
           style={
-            Object {
+            {
               "minWidth": "860px",
             }
           }
@@ -46,14 +45,13 @@ Array [
           <div
             className="rt-tr"
             role="row"
-            style={undefined}
           >
             <div
               className="rt-th"
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "35 0 auto",
                   "maxWidth": "35px",
                   "width": "35px",
@@ -70,7 +68,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "225 0 auto",
                   "maxWidth": null,
                   "width": "225px",
@@ -94,7 +92,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -118,7 +116,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -142,7 +140,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -166,7 +164,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -190,7 +188,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -214,7 +212,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -238,7 +236,7 @@ Array [
         <div
           className="rt-thead -filters"
           style={
-            Object {
+            {
               "minWidth": "860px",
             }
           }
@@ -246,14 +244,13 @@ Array [
           <div
             className="rt-tr"
             role="row"
-            style={undefined}
           >
             <div
               className="rt-th"
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "35 0 auto",
                   "maxWidth": "35px",
                   "width": "35px",
@@ -266,7 +263,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "225 0 auto",
                   "maxWidth": null,
                   "width": "225px",
@@ -277,20 +274,18 @@ Array [
               <select
                 onChange={[Function]}
                 style={
-                  Object {
+                  {
                     "width": "100%",
                   }
                 }
-                value={undefined}
+                value="all"
               >
                 <option
                   value="all"
                 >
                   Show All
                 </option>
-                <option
-                  value={undefined}
-                />
+                <option />
               </select>
             </div>
             <div
@@ -298,7 +293,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -311,7 +306,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -324,7 +319,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -337,7 +332,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -350,7 +345,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -363,7 +358,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -376,7 +371,7 @@ Array [
         <div
           className="rt-tbody"
           style={
-            Object {
+            {
               "minWidth": "860px",
             }
           }
@@ -389,14 +384,13 @@ Array [
               className="rt-tr -odd"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -414,387 +408,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "225 0 auto",
-                    "maxWidth": null,
-                    "width": "225px",
-                  }
-                }
-              >
-                Krissy New Listing 4/5
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                04/12/18
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              />
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Not Yet Run
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                0
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              className="rt-tr -even"
-              onClick={[Function]}
-              role="row"
-              style={undefined}
-            >
-              <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <div
-                  className="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "225 0 auto",
-                    "maxWidth": null,
-                    "width": "225px",
-                  }
-                }
-              >
-                Krissy Test 411
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                06/28/18
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              />
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Not Yet Run
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                1
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                4
-              </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              className="rt-tr -odd"
-              onClick={[Function]}
-              role="row"
-              style={undefined}
-            >
-              <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <div
-                  className="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "225 0 auto",
-                    "maxWidth": null,
-                    "width": "225px",
-                  }
-                }
-              >
-                Automated Test Listing Senior All (please do not modify)
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                01/01/21
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                01/22/2021
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                03/23/17
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Not Yet Run
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                0
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              className="rt-tr -even"
-              onClick={[Function]}
-              role="row"
-              style={undefined}
-            >
-              <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <div
-                  className="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -808,35 +422,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                05/04/18
+                05/04/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -848,7 +448,19 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -862,7 +474,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -876,7 +488,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -892,17 +504,16 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -odd"
+              className="rt-tr -even"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -920,7 +531,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -934,7 +545,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -946,21 +557,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -972,7 +569,19 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -986,7 +595,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1000,7 +609,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1016,17 +625,16 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -even"
+              className="rt-tr -odd"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -1044,7 +652,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -1058,7 +666,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1070,21 +678,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1096,7 +690,19 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1110,7 +716,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1124,135 +730,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            className="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              className="rt-tr -odd"
-              onClick={[Function]}
-              role="row"
-              style={undefined}
-            >
-              <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
-              >
-                <div
-                  className="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "225 0 auto",
-                    "maxWidth": null,
-                    "width": "225px",
-                  }
-                }
-              >
-                2235 Third (Potrero Launch) Unit  W519
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                02/17/17
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                02/28/2017
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                03/02/17
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Not Yet Run
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                0
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1271,14 +749,13 @@ Array [
               className="rt-tr -even"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -1296,35 +773,35 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
                   }
                 }
               >
-                2235 Third (Potrero Launch) Unit E408
+                2235 Third (Potrero Launch) Unit  W519
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                02/17/17
+                02/07/2017
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1338,21 +815,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                03/02/17
+                03/02/2017
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1366,7 +843,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1380,7 +857,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1399,14 +876,13 @@ Array [
               className="rt-tr -odd"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -1424,77 +900,77 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
                   }
                 }
               >
-                2660 Third (Abaca)
+                2235 Third (Potrero Launch) Unit E408
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                03/10/17
+                02/07/2017
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                03/31/2017
+                02/28/2017
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                04/07/17
+                03/02/2017
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                Lottery Complete
+                Not Yet Run
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1508,7 +984,134 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
+              </div>
+            </div>
+          </div>
+          <div
+            className="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              className="rt-tr -even"
+              onClick={[Function]}
+              role="row"
+            >
+              <div
+                className="rt-td rt-expandable"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <div
+                  className="rt-expander"
+                >
+                  •
+                </div>
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
+                    "flex": "225 0 auto",
+                    "maxWidth": null,
+                    "width": "225px",
+                  }
+                }
+              >
+                2660 Third (Abaca)
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                03/10/2017
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                03/31/2017
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                04/07/2017
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                Lottery Complete
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                0
+              </div>
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1524,17 +1127,16 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -even"
+              className="rt-tr -odd"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -1552,7 +1154,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -1566,21 +1168,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                02/08/18
+                02/08/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1594,21 +1196,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                03/01/18
+                03/01/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1622,7 +1224,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1636,7 +1238,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1652,17 +1254,16 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -odd"
+              className="rt-tr -even"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -1680,7 +1281,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -1694,21 +1295,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                01/31/18
+                01/31/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1722,21 +1323,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                02/20/18
+                02/20/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1750,7 +1351,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1764,7 +1365,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1780,15 +1381,15 @@ Array [
             role="rowgroup"
           >
             <div
-              className="rt-tr -padRow -even"
+              className="rt-tr -padRow -odd"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -1803,7 +1404,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -1818,7 +1419,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1833,7 +1434,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1848,7 +1449,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1863,7 +1464,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1878,7 +1479,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1893,7 +1494,138 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            className="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              className="rt-tr -padRow -even"
+              role="row"
+              style={{}}
+            >
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "225 0 auto",
+                    "maxWidth": null,
+                    "width": "225px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1913,13 +1645,13 @@ Array [
             <div
               className="rt-tr -padRow -odd"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -1934,7 +1666,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -1949,7 +1681,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1964,7 +1696,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1979,7 +1711,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -1994,7 +1726,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2009,7 +1741,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2024,7 +1756,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2044,13 +1776,13 @@ Array [
             <div
               className="rt-tr -padRow -even"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -2065,7 +1797,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -2080,7 +1812,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2095,7 +1827,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2110,7 +1842,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2125,7 +1857,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2140,7 +1872,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2155,7 +1887,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2175,13 +1907,13 @@ Array [
             <div
               className="rt-tr -padRow -odd"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -2196,7 +1928,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -2211,7 +1943,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2226,7 +1958,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2241,7 +1973,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2256,7 +1988,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2271,7 +2003,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2286,7 +2018,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2306,13 +2038,13 @@ Array [
             <div
               className="rt-tr -padRow -even"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -2327,7 +2059,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -2342,7 +2074,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2357,7 +2089,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2372,7 +2104,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2387,7 +2119,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2402,7 +2134,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2417,7 +2149,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2437,13 +2169,13 @@ Array [
             <div
               className="rt-tr -padRow -odd"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -2458,7 +2190,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -2473,7 +2205,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2488,7 +2220,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2503,7 +2235,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2518,7 +2250,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2533,7 +2265,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2548,7 +2280,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2568,13 +2300,13 @@ Array [
             <div
               className="rt-tr -padRow -even"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -2589,7 +2321,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -2604,7 +2336,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2619,7 +2351,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2634,7 +2366,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2649,7 +2381,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2664,7 +2396,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2679,7 +2411,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2699,13 +2431,13 @@ Array [
             <div
               className="rt-tr -padRow -odd"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -2720,7 +2452,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -2735,7 +2467,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2750,7 +2482,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2765,7 +2497,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2780,7 +2512,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2795,7 +2527,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2810,7 +2542,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2830,13 +2562,13 @@ Array [
             <div
               className="rt-tr -padRow -even"
               role="row"
-              style={Object {}}
+              style={{}}
             >
               <div
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -2851,7 +2583,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -2866,7 +2598,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2881,7 +2613,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2896,7 +2628,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2911,7 +2643,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2926,7 +2658,7 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2941,7 +2673,269 @@ Array [
                 className="rt-td"
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            className="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              className="rt-tr -padRow -odd"
+              role="row"
+              style={{}}
+            >
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "225 0 auto",
+                    "maxWidth": null,
+                    "width": "225px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            className="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              className="rt-tr -padRow -even"
+              role="row"
+              style={{}}
+            >
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "35 0 auto",
+                    "maxWidth": "35px",
+                    "width": "35px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "225 0 auto",
+                    "maxWidth": null,
+                    "width": "225px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                className="rt-td"
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -2961,7 +2955,6 @@ Array [
       >
         <div
           className="-pagination"
-          style={undefined}
         >
           <div
             className="-previous"
@@ -2987,6 +2980,7 @@ Array [
                 className="-pageJump"
               >
                 <input
+                  aria-label="jump to page"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onKeyPress={[Function]}
@@ -3007,50 +3001,39 @@ Array [
               className="select-wrap -pageSizeOptions"
             >
               <select
+                aria-label="rows per page"
                 onChange={[Function]}
                 value={20}
               >
                 <option
                   value={5}
                 >
-                  5
-                   
-                  rows
+                  5 rows
                 </option>
                 <option
                   value={10}
                 >
-                  10
-                   
-                  rows
+                  10 rows
                 </option>
                 <option
                   value={20}
                 >
-                  20
-                   
-                  rows
+                  20 rows
                 </option>
                 <option
                   value={25}
                 >
-                  25
-                   
-                  rows
+                  25 rows
                 </option>
                 <option
                   value={50}
                 >
-                  50
-                   
-                  rows
+                  50 rows
                 </option>
                 <option
                   value={100}
                 >
-                  100
-                   
-                  rows
+                  100 rows
                 </option>
               </select>
             </span>
@@ -3084,7 +3067,7 @@ Array [
 `;
 
 exports[`ListingsPage should render succesfully long list 1`] = `
-Array [
+[
   <header
     className="lead-header short  bg-dust"
   >
@@ -3107,21 +3090,20 @@ Array [
     </div>
   </header>,
   <section
-    className="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x"
+    className="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x bg-white"
   >
     <div
       className="ReactTable"
-      style={Object {}}
+      style={{}}
     >
       <div
         className="rt-table"
         role="grid"
-        style={undefined}
       >
         <div
           className="rt-thead -header"
           style={
-            Object {
+            {
               "minWidth": "860px",
             }
           }
@@ -3129,14 +3111,13 @@ Array [
           <div
             className="rt-tr"
             role="row"
-            style={undefined}
           >
             <div
               className="rt-th"
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "35 0 auto",
                   "maxWidth": "35px",
                   "width": "35px",
@@ -3153,7 +3134,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "225 0 auto",
                   "maxWidth": null,
                   "width": "225px",
@@ -3177,7 +3158,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -3201,7 +3182,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -3225,7 +3206,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -3249,7 +3230,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -3273,7 +3254,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -3297,7 +3278,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -3321,7 +3302,7 @@ Array [
         <div
           className="rt-thead -filters"
           style={
-            Object {
+            {
               "minWidth": "860px",
             }
           }
@@ -3329,14 +3310,13 @@ Array [
           <div
             className="rt-tr"
             role="row"
-            style={undefined}
           >
             <div
               className="rt-th"
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "35 0 auto",
                   "maxWidth": "35px",
                   "width": "35px",
@@ -3349,7 +3329,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "225 0 auto",
                   "maxWidth": null,
                   "width": "225px",
@@ -3360,20 +3340,18 @@ Array [
               <select
                 onChange={[Function]}
                 style={
-                  Object {
+                  {
                     "width": "100%",
                   }
                 }
-                value={undefined}
+                value="all"
               >
                 <option
                   value="all"
                 >
                   Show All
                 </option>
-                <option
-                  value={undefined}
-                />
+                <option />
               </select>
             </div>
             <div
@@ -3381,7 +3359,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -3394,7 +3372,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -3407,7 +3385,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -3420,7 +3398,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -3433,7 +3411,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -3446,7 +3424,7 @@ Array [
               onClick={[Function]}
               role="columnheader"
               style={
-                Object {
+                {
                   "flex": "100 0 auto",
                   "maxWidth": null,
                   "width": "100px",
@@ -3459,7 +3437,7 @@ Array [
         <div
           className="rt-tbody"
           style={
-            Object {
+            {
               "minWidth": "860px",
             }
           }
@@ -3472,14 +3450,13 @@ Array [
               className="rt-tr -odd"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -3497,7 +3474,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -3511,35 +3488,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                05/31/18
+                05/31/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -3551,7 +3514,19 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -3565,7 +3540,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -3579,7 +3554,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -3598,14 +3573,13 @@ Array [
               className="rt-tr -even"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -3623,7 +3597,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -3637,35 +3611,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                05/29/18
+                05/29/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -3677,7 +3637,19 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -3691,7 +3663,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -3705,7 +3677,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -3724,14 +3696,13 @@ Array [
               className="rt-tr -odd"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -3749,7 +3720,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -3763,35 +3734,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                06/05/18
+                06/05/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -3803,7 +3760,19 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -3817,7 +3786,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -3829,7 +3798,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -3848,14 +3817,13 @@ Array [
               className="rt-tr -even"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -3873,7 +3841,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -3887,7 +3855,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -3899,21 +3867,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -3925,7 +3879,19 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -3939,7 +3905,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -3951,7 +3917,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -3970,14 +3936,13 @@ Array [
               className="rt-tr -odd"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -3995,7 +3960,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -4009,21 +3974,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                07/03/18
+                07/03/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4037,21 +4002,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                08/24/18
+                08/24/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4065,7 +4030,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4079,7 +4044,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4098,14 +4063,13 @@ Array [
               className="rt-tr -even"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -4123,7 +4087,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -4137,35 +4101,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                04/12/18
+                04/12/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4177,7 +4127,19 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4191,7 +4153,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4205,7 +4167,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4224,14 +4186,13 @@ Array [
               className="rt-tr -odd"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -4249,7 +4210,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -4263,35 +4224,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                06/28/18
+                06/28/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4303,7 +4250,19 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4317,7 +4276,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4331,7 +4290,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4350,14 +4309,13 @@ Array [
               className="rt-tr -even"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -4375,7 +4333,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -4389,21 +4347,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                06/20/18
+                06/20/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4417,7 +4375,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4429,7 +4387,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4443,7 +4401,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4457,7 +4415,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4476,14 +4434,13 @@ Array [
               className="rt-tr -odd"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -4501,7 +4458,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -4515,21 +4472,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                06/23/18
+                06/23/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4543,21 +4500,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                07/20/18
+                07/20/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4571,7 +4528,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4585,7 +4542,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4604,14 +4561,13 @@ Array [
               className="rt-tr -even"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -4629,7 +4585,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -4643,7 +4599,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4655,21 +4611,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4681,7 +4623,19 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4695,7 +4649,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4707,7 +4661,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4726,14 +4680,13 @@ Array [
               className="rt-tr -odd"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -4751,7 +4704,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -4765,7 +4718,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4777,21 +4730,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4803,7 +4742,19 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4817,7 +4768,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4829,7 +4780,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4848,14 +4799,13 @@ Array [
               className="rt-tr -even"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -4873,7 +4823,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -4887,21 +4837,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                07/16/18
+                07/16/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4915,21 +4865,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                08/18/18
+                08/18/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4943,7 +4893,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4957,7 +4907,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -4976,14 +4926,13 @@ Array [
               className="rt-tr -odd"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -5001,7 +4950,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -5015,35 +4964,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                06/18/18
+                06/18/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5055,7 +4990,19 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5069,7 +5016,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5081,7 +5028,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5100,14 +5047,13 @@ Array [
               className="rt-tr -even"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -5125,7 +5071,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -5139,7 +5085,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5151,21 +5097,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5177,7 +5109,19 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5191,7 +5135,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5203,7 +5147,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5222,14 +5166,13 @@ Array [
               className="rt-tr -odd"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -5247,7 +5190,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -5261,21 +5204,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                06/08/18
+                06/08/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5289,21 +5232,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                06/19/18
+                06/19/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5317,7 +5260,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5331,7 +5274,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5350,14 +5293,13 @@ Array [
               className="rt-tr -even"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -5375,7 +5317,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -5389,7 +5331,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5401,21 +5343,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5427,7 +5355,19 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5441,7 +5381,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5455,7 +5395,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5474,14 +5414,13 @@ Array [
               className="rt-tr -odd"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -5499,7 +5438,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -5513,21 +5452,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                01/01/21
+                01/01/2021
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5541,21 +5480,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                03/23/17
+                03/23/2017
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5569,7 +5508,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5583,7 +5522,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5602,14 +5541,13 @@ Array [
               className="rt-tr -even"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -5627,7 +5565,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -5641,35 +5579,21 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
                   }
                 }
               >
-                07/12/18
+                07/12/2018
               </div>
               <div
                 className="rt-td"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5681,7 +5605,19 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5695,7 +5631,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5709,7 +5645,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5728,14 +5664,13 @@ Array [
               className="rt-tr -odd"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -5753,7 +5688,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -5767,7 +5702,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5779,7 +5714,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5793,7 +5728,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5805,7 +5740,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5819,7 +5754,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5833,7 +5768,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5852,14 +5787,13 @@ Array [
               className="rt-tr -even"
               onClick={[Function]}
               role="row"
-              style={undefined}
             >
               <div
                 className="rt-td rt-expandable"
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "35 0 auto",
                     "maxWidth": "35px",
                     "width": "35px",
@@ -5877,7 +5811,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "225 0 auto",
                     "maxWidth": null,
                     "width": "225px",
@@ -5891,7 +5825,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5903,21 +5837,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
-              >
-                Invalid date
-              </div>
-              <div
-                className="rt-td"
-                onClick={[Function]}
-                role="gridcell"
-                style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5929,7 +5849,19 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
+                    "flex": "100 0 auto",
+                    "maxWidth": null,
+                    "width": "100px",
+                  }
+                }
+              />
+              <div
+                className="rt-td"
+                onClick={[Function]}
+                role="gridcell"
+                style={
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5943,7 +5875,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5957,7 +5889,7 @@ Array [
                 onClick={[Function]}
                 role="gridcell"
                 style={
-                  Object {
+                  {
                     "flex": "100 0 auto",
                     "maxWidth": null,
                     "width": "100px",
@@ -5975,7 +5907,6 @@ Array [
       >
         <div
           className="-pagination"
-          style={undefined}
         >
           <div
             className="-previous"
@@ -6001,6 +5932,7 @@ Array [
                 className="-pageJump"
               >
                 <input
+                  aria-label="jump to page"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onKeyPress={[Function]}
@@ -6021,50 +5953,39 @@ Array [
               className="select-wrap -pageSizeOptions"
             >
               <select
+                aria-label="rows per page"
                 onChange={[Function]}
                 value={20}
               >
                 <option
                   value={5}
                 >
-                  5
-                   
-                  rows
+                  5 rows
                 </option>
                 <option
                   value={10}
                 >
-                  10
-                   
-                  rows
+                  10 rows
                 </option>
                 <option
                   value={20}
                 >
-                  20
-                   
-                  rows
+                  20 rows
                 </option>
                 <option
                   value={25}
                 >
-                  25
-                   
-                  rows
+                  25 rows
                 </option>
                 <option
                   value={50}
                 >
-                  50
-                   
-                  rows
+                  50 rows
                 </option>
                 <option
                   value={100}
                 >
-                  100
-                   
-                  rows
+                  100 rows
                 </option>
               </select>
             </span>

@@ -24,9 +24,11 @@ describe('SimpleModal', () => {
         alert={{
           title: "This change will affect this application's preferences",
           subtitle: 'This application would no longer be eligible for Live Work Preference',
-          message: 'Note, you will have the opportunity to grant another household member this preference',
+          message:
+            'Note, you will have the opportunity to grant another household member this preference',
           invert: false
-        }}>
+        }}
+      >
         <div>content</div>
       </SimpleModal>
     )
@@ -48,7 +50,8 @@ describe('SimpleModal', () => {
         handleClose={onCloseClick}
         onPrimaryClick={onPrimaryClick}
         onSecondaryClick={onSecondaryClick}
-        type='status'>
+        type='status'
+      >
         <div>content</div>
       </SimpleModal>
     )
@@ -57,8 +60,8 @@ describe('SimpleModal', () => {
     wrapper.find('.modal-button_secondary button').simulate('click')
     wrapper.find('.close-reveal-modal').simulate('click')
 
-    expect(onPrimaryClick.mock.calls.length).toBe(1)
-    expect(onSecondaryClick.mock.calls.length).toBe(1)
-    expect(onCloseClick.mock.calls.length).toBe(1)
+    expect(onPrimaryClick.mock.calls).toHaveLength(1)
+    expect(onSecondaryClick.mock.calls).toHaveLength(1)
+    expect(onCloseClick.mock.calls).toHaveLength(1)
   })
 })

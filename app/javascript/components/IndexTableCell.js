@@ -1,14 +1,17 @@
 import React from 'react'
+
 import _ from 'lodash'
 
 const IndexTableCell = ({ attrs, val, editVal, editing, onChange }) => {
   if (editing && attrs && attrs.editable) {
     if (attrs.editable_options) {
-      let options = []
+      const options = []
       let i = 0
       _.each(attrs.editable_options, (option) => {
         options.push(
-          <option value={option} key={i++}>{option}</option>
+          <option value={option} key={i++}>
+            {option}
+          </option>
         )
       })
       return (
@@ -24,7 +27,8 @@ const IndexTableCell = ({ attrs, val, editVal, editing, onChange }) => {
       )
     }
   } else {
-    return val
+    // Avoid rendering issues by converting undefined to null.
+    return val === undefined ? null : val
   }
 }
 

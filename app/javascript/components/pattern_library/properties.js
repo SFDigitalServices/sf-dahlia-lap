@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+
 import JSONTree from 'react-json-tree'
 
 const theme = {
@@ -22,42 +23,31 @@ const theme = {
   base0F: '#cc6633'
 }
 
-class Properties extends React.Component {
-  state = {expanded: false}
-  // hardcoding here. Minor component for PL
-  style = {
-    backgroundColor: 'white',
-    padding: '10px',
-    marginTop: '10px',
-    borderTop: '1px solid #0077da',
-    borderRadius: '3px',
-    fontSize: '85%'
-  }
+// hardcoding here. Minor component for PL
+const style = {
+  backgroundColor: 'white',
+  padding: '10px',
+  marginTop: '10px',
+  borderTop: '1px solid #0077da',
+  borderRadius: '3px',
+  fontSize: '85%'
+}
 
-  toggleExpand = () => {
-    this.setState((prevState) => {
-      return { expanded: !prevState.expanded }
-    })
-  }
+const Properties = ({ payload }) => {
+  const [expanded, setExpanded] = useState(false)
 
-  render () {
-    const { payload } = this.props
+  const toggleExpand = () => setExpanded(!expanded)
 
-    if (this.state.expanded) {
-      return (
-        <div style={this.style} >
-          <a onClick={this.toggleExpand} >Hide Properties</a>
-          <JSONTree data={payload} invertTheme theme={theme} hideRoot shouldExpandNode={() => true} />
-        </div>
-      )
-    } else {
-      return (
-        <div style={this.style}>
-          <a onClick={this.toggleExpand}>Show Properties</a>
-        </div>
-      )
-    }
-  }
+  return expanded ? (
+    <div style={style}>
+      <a onClick={toggleExpand}>Hide Properties</a>
+      <JSONTree data={payload} invertTheme theme={theme} hideRoot shouldExpandNode={() => true} />
+    </div>
+  ) : (
+    <div style={style}>
+      <a onClick={toggleExpand}>Show Properties</a>
+    </div>
+  )
 }
 
 export default Properties

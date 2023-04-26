@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.7'
+ruby '3.1.3'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -7,11 +7,11 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
-# Set a minimum version for Rack to avoid security vulnerability in Rack <2.0.6
-gem 'rack', '>= 2.0.6'
+gem 'rails', '~> 6.1.7.3'
+# Set a minimum version for Rack to avoid security vulnerability in Rack <2.2.3
+gem 'rack', '>= 2.2.3'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 6.2.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -21,8 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -33,21 +32,33 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'newrelic_rpm'
+gem 'mini_portile2', '~> 2.5', '>= 2.5.1'
+
+gem 'psych', '< 4'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
+  gem 'capybara', '~> 3.39'
+  gem 'selenium-webdriver', '~> 3.142.7'
   gem 'dotenv-rails', '~> 2.2'
   gem 'pry-rails'
   gem 'binding_of_caller'
-  gem 'rspec-rails', '~> 3.7'
+  gem 'rspec-rails', '~> 4.0.2'
   gem 'webmock'
-  gem "pry-byebug", '~> 3.4.0'
+  gem "pry-byebug", '~> 3.9.0'
   gem 'awesome_print'
   gem 'vcr'
   gem 'rails-controller-testing'
+  # Workaround for cc-test-reporter with SimpleCov 0.18.
+  # Stop upgrading SimpleCov until the following issue will be resolved.
+  # https://github.com/codeclimate/test-reporter/issues/418
+  gem 'simplecov', '~> 0.10', '< 0.18', require: false
+  gem 'ruby-debug-ide'
+  gem "debase", "0.2.5.beta2"
+  # gem "debug", ">= 1.0.0"
 end
 
 group :development do
@@ -61,24 +72,25 @@ group :development do
   gem 'rails_best_practices'
   gem 'rails_layout'
   gem 'better_errors'
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
   gem 'rubocop', require: false
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', '~> 1.6.2'
 end
 
 gem 'rails_12factor', group: :production
-
+gem "sentry-raven"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Added at 2017-10-22 23:46:25 -0700 by dkaplan:
-gem "devise", "~> 4.3"
+gem "devise", "~> 4.9.0"
 
 # Added at 2017-10-22 23:48:56 -0700 by dkaplan:
-gem "omniauth-salesforce", "~> 1.0"
+gem "omniauth-salesforce", "~> 1.0.5"
+gem "omniauth-rails_csrf_protection"
 
 # Added at 2017-10-24 00:03:53 -0700 by dkaplan:
-gem "restforce", "~> 3.1"
+gem "restforce", "~> 6.2.2"
 # handy ruby extensions
 gem 'facets', require: false
 
@@ -86,13 +98,17 @@ gem 'facets', require: false
 gem "slim-rails", "~> 3.1"
 
 # Added at 2017-10-25 00:30:33 -0700 by dkaplan:
-gem "hashie", "~> 3.5"
+gem "hashie"
 
 # Added at 2017-10-29 23:29:10 -0700 by dkaplan:
-gem "webpacker", "~> 3.0"
+gem "webpacker", "~> 5.4.4"
 
 # Added at 2017-10-29 23:57:32 -0700 by dkaplan:
 gem "webpacker-react", "~> 0.3.2"
 
 # Added at 2017-11-10 09:14:41 -0800 by dkaplan:
-gem "pg", "~> 0.21.0"
+gem "pg", "~> 1.4.6"
+
+gem 'scout_apm'
+
+gem 'oj'

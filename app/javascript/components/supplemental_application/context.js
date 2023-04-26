@@ -11,11 +11,7 @@ The context is pass to your component as a property named `store`
 */
 export const withContext = (Component) => {
   const ContextComponent = (props) => {
-    return (
-      <Context.Consumer>
-        {value => <Component {...props} store={value} />}
-      </Context.Consumer>
-    )
+    return <Context.Consumer>{(value) => <Component {...props} store={value} />}</Context.Consumer>
   }
 
   return ContextComponent

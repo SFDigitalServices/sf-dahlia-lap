@@ -1,11 +1,10 @@
 import React from 'react'
 
-import { map } from 'lodash'
-import mapProps from '~/utils/mapProps'
-import TableLayout from '../layouts/TableLayout'
+import mapProps from 'utils/mapProps'
+
+import { fetchApplications } from './applicationRequestUtils'
 import ApplicationsTableContainer from './ApplicationsTableContainer'
-import { fetchApplications } from './actions'
-import { mapListing } from '~/components/mappers/soqlToDomain'
+import TableLayout from '../layouts/TableLayout'
 
 const ApplicationsPage = (props) => {
   const pageHeader = {
@@ -13,7 +12,7 @@ const ApplicationsPage = (props) => {
   }
 
   return (
-    <TableLayout pageHeader={pageHeader} >
+    <TableLayout pageHeader={pageHeader}>
       <ApplicationsTableContainer {...props} />
     </TableLayout>
   )
@@ -22,7 +21,7 @@ const ApplicationsPage = (props) => {
 const mapProperties = ({ listings }) => {
   return {
     onFetchData: fetchApplications,
-    listings: map(listings, mapListing)
+    listings
   }
 }
 

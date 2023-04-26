@@ -1,754 +1,2780 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ApplicationPage should render succesfully 1`] = `
-Array [
-  <header
-    className="lead-header short  bg-snow"
+exports[`ApplicationPage with regular application After the application finishes loading should match snapshot 1`] = `
+<ApplicationPage>
+  <CardLayout
+    pageHeader={
+      {
+        "action": [],
+        "content": <span>
+          Name of Listing:
+           
+          <a
+            href="/listings/a0W0x000000GhJUEA0"
+          >
+            Test 5/30
+          </a>
+        </span>,
+        "title": "Application APP-00191270",
+      }
+    }
   >
-    <div
-      className="row full-width inner--3x"
+    <PageHeader
+      action={[]}
+      background="snow"
+      breadcrumbs={[]}
+      content={
+        <span>
+          Name of Listing:
+           
+          <a
+            href="/listings/a0W0x000000GhJUEA0"
+          >
+            Test 5/30
+          </a>
+        </span>
+      }
+      title="Application APP-00191270"
     >
-      <div
-        className="large-12 columns"
-      >
-        <hgroup
-          className="lead-header_group"
-        >
-          <h1
-            className="lead-header_title small-serif c-oil"
-          >
-            Application APP-00191270
-          </h1>
-          <div
-            className="medium-8 columns no-padding"
-          >
-            <p>
-              <span>
-                Name of Listing: 
-                <a
-                  href="/listings/a0W0x000000GhJUEA0"
-                >
-                  Test 5/30
-                </a>
-              </span>
-            </p>
-          </div>
-          <div
-            className="medium-4 columns no-padding"
-          >
-            <span
-              className="lead-header_secondary-action"
-            />
-          </div>
-        </hgroup>
-      </div>
-    </div>
-  </header>,
-  <section
-    className="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x"
-  >
-    <div
-      className="app-card form-card tabs-card max-width expand-on-small"
-    >
-      <div
-        className="application-details"
+      <header
+        className="lead-header short  bg-snow"
       >
         <div
-          className="content-card padding-bottom-none margin-bottom--half bg-trans"
+          className="row full-width inner--3x"
         >
-          <h4
-            className="content-card_title t-serif"
+          <div
+            className="large-12 columns"
           >
-            Application Data
-          </h4>
-          <ul
-            className="content-grid"
-          >
-            <li
-              className="content-item"
+            <hgroup
+              className="lead-header_group"
             >
+              <h1
+                className="lead-header_title small-serif c-oil"
+              >
+                Application APP-00191270
+              </h1>
               <div
-                className="content-card"
+                className="medium-8 columns no-padding"
+              >
+                <p>
+                  <span>
+                    Name of Listing:
+                     
+                    <a
+                      href="/listings/a0W0x000000GhJUEA0"
+                    >
+                      Test 5/30
+                    </a>
+                  </span>
+                </p>
+              </div>
+              <Actions
+                actions={[]}
               >
                 <div
-                  className="margin-bottom--half"
+                  className="medium-4 columns no-padding"
                 >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Lottery Number
-                  </h4>
-                  <p>
-                    00191270
-                  </p>
+                  <span
+                    className="lead-header_secondary-action"
+                  />
                 </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Application Submission Type
-                  </h4>
-                  <p>
-                    Electronic
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Application Submitted Date
-                  </h4>
-                  <p>
-                    06/19/2018
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Application Language
-                  </h4>
-                  <p>
-                    English
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li
-              className="content-item"
-            >
-              <div
-                className="content-card"
-              >
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Total Household Size
-                  </h4>
-                  <p>
-                    2
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Total Monthly Rent
-                  </h4>
-                  <p>
-                    None
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Status
-                  </h4>
-                  <p>
-                    Submitted
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Referral Source
-                  </h4>
-                  <p>
-                    None
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Created By
-                  </h4>
-                  <p>
-                    Prod Vertiba
-                  </p>
-                </div>
-              </div>
-            </li>
-          </ul>
+              </Actions>
+            </hgroup>
+          </div>
         </div>
-        <div
-          className="content-card padding-bottom-none margin-bottom--half bg-trans"
-        >
-          <h4
-            className="content-card_title t-serif"
+      </header>
+    </PageHeader>
+    <TabCard
+      padding={true}
+    >
+      <section
+        className="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x bg-white"
+      >
+        <AppCard>
+          <div
+            className="app-card form-card tabs-card max-width expand-on-small"
           >
-            Primary Applicant
-          </h4>
-          <ul
-            className="content-grid"
-          >
-            <li
-              className="content-item"
+            <Loading
+              isLoading={false}
+              loaderViewHeight="100vh"
+              renderChildrenWhileLoading={false}
             >
               <div
-                className="content-card"
+                className="loading-panel"
               >
-                <div
-                  className="margin-bottom--half"
+                <ApplicationDetails
+                  application={
+                    {
+                      "alternate_contact": {
+                        "alternate_contact_type": "Friend",
+                        "alternate_contact_type_other": null,
+                        "email": "fede@eee.com",
+                        "first_name": "Federic",
+                        "last_name": "dayan",
+                        "mailing_address": "123 Alternate Mailing St, SF Mailing, CA, 94105-1804",
+                        "mailing_city": "SF Mailing",
+                        "mailing_state": "CA",
+                        "mailing_street": "123 Alternate Mailing St",
+                        "mailing_zip_code": "94105-1804",
+                        "middle_name": "Daaaa",
+                        "phone": "9954449943",
+                        "phone_type": "Cell",
+                      },
+                      "annual_income": 110000,
+                      "answered_community_screening": null,
+                      "applicant": {
+                        "city": "SAN FRANCISCO",
+                        "date_of_birth": {
+                          "day": "01",
+                          "month": "01",
+                          "year": "1950",
+                        },
+                        "email": "eee@eeee.com",
+                        "ethnicity": "Decline to state",
+                        "first_name": "karen",
+                        "gender": "Decline to state",
+                        "gender_other": "gender other",
+                        "id": "a0n0x000000AbE6AAK",
+                        "last_name": "jones",
+                        "mailing_address": "123 Mailing St, SF Mailing, CA, 94105-1804",
+                        "mailing_city": "SF Mailing",
+                        "mailing_state": "CA",
+                        "mailing_street": "123 Mailing St",
+                        "mailing_zip_code": "94105-1804",
+                        "middle_name": "elizabeth",
+                        "name": "karen elizabeth jones",
+                        "phone": "9548883321",
+                        "phone_type": "Cell",
+                        "race": "Decline to state",
+                        "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                        "second_phone": null,
+                        "second_phone_type": null,
+                        "sexual_orientation": "Decline to state",
+                        "sexual_orientation_other": "sexual orientation other",
+                        "state": "CA",
+                        "street": "123 MAIN ST",
+                        "zip_code": "94105-1804",
+                      },
+                      "application_language": "English",
+                      "application_submission_type": "Electronic",
+                      "application_submitted_date": "2018-06-19",
+                      "createdby": {
+                        "name": "Prod Vertiba",
+                      },
+                      "demographics": {
+                        "ethnicity": "Decline to state",
+                        "gender": "Decline to state",
+                        "gender_other": "gender other",
+                        "race": "Decline to state",
+                        "sexual_orientation": "Decline to state",
+                        "sexual_orientation_other": "sexual orientation other",
+                      },
+                      "flagged_applications": [],
+                      "has_ada_priorities_selected": {
+                        "hearing_impairments": true,
+                        "mobility_impairments": true,
+                        "vision_impairments": true,
+                      },
+                      "has_developmental_disability": null,
+                      "has_military_service": null,
+                      "household_members": [
+                        {
+                          "city": "buenos aires",
+                          "date_of_birth": {
+                            "day": "11",
+                            "month": "06",
+                            "year": "1976",
+                          },
+                          "first_name": "diego",
+                          "last_name": "maradona",
+                          "middle_name": "m",
+                          "name": "diego m maradona",
+                          "relationship_to_applicant": null,
+                          "residence_address": "9 de julio, buenos aires, fl, 33026",
+                          "state": "fl",
+                          "street": "9 de julio",
+                          "zip_code": "33026",
+                        },
+                      ],
+                      "housing_voucher_or_subsidy": "true",
+                      "id": "a0o0x000000OcOzAAK",
+                      "listing": {
+                        "id": "a0W0x000000GhJUEA0",
+                        "name": "Test 5/30",
+                      },
+                      "lottery_number": "00191270",
+                      "lottery_number_manual": null,
+                      "monthly_income": null,
+                      "name": "APP-00191270",
+                      "preferences": [
+                        {
+                          "application_member": {
+                            "date_of_birth": {
+                              "day": "01",
+                              "month": "01",
+                              "year": "1950",
+                            },
+                            "first_name": "karen",
+                            "last_name": "jones",
+                          },
+                          "application_member_id": "a0n0x000000AbE6AAK",
+                          "certificate_number": null,
+                          "city": null,
+                          "individual_preference": null,
+                          "listing_preference_id": "a0l0x000000RI8nAAG",
+                          "lottery_status": "None",
+                          "name": "AP-0000612141",
+                          "opt_out": null,
+                          "person_who_claimed_name": null,
+                          "preference_name": "Alice Griffith Housing Development Resident",
+                          "preference_order": 0,
+                          "receives_preference": true,
+                          "recordtype_developername": "AG",
+                          "state": null,
+                          "street": null,
+                          "type_of_proof": null,
+                          "zip_code": null,
+                        },
+                        {
+                          "application_member": {
+                            "date_of_birth": {
+                              "day": "11",
+                              "month": "06",
+                              "year": "1976",
+                            },
+                            "first_name": "diego",
+                            "last_name": "maradona",
+                          },
+                          "application_member_id": "a0n0x000000AbE6AAK",
+                          "certificate_number": null,
+                          "city": null,
+                          "individual_preference": null,
+                          "listing_preference_id": "a0l0P00001QRQGzQAP",
+                          "lw_type_of_proof": null,
+                          "opt_out": false,
+                          "post_lottery_validation": null,
+                          "preference_name": "Neighborhood Resident Housing Preference (NRHP)",
+                          "receives_preference": false,
+                          "recordtype_developername": "NRHP",
+                          "state": null,
+                          "street": null,
+                          "type_of_proof": null,
+                          "zip_code": null,
+                        },
+                      ],
+                      "proof_files": [
+                        {
+                          "document_type": "Namexxx1",
+                          "file_type": "Attachment",
+                          "id": "xxxx1",
+                        },
+                        {
+                          "document_type": "Namexxx2",
+                          "file_type": "File",
+                          "id": "xxxx2",
+                        },
+                      ],
+                      "referral_source": null,
+                      "status": "Submitted",
+                      "terms_acknowledged": true,
+                      "total_household_size": 2,
+                      "total_monthly_rent": null,
+                    }
+                  }
+                  fields={
+                    {
+                      "alternate_contact": null,
+                      "alternate_contact.agency_name": null,
+                      "alternate_contact.alternate_contact_type": {
+                        "label": "Relationship",
+                      },
+                      "alternate_contact.alternate_contact_type_other": {
+                        "label": "Relationship - Other",
+                      },
+                      "alternate_contact.email": null,
+                      "alternate_contact.first_name": null,
+                      "alternate_contact.id": null,
+                      "alternate_contact.last_name": null,
+                      "alternate_contact.middle_name": null,
+                      "alternate_contact.phone": null,
+                      "alternate_contact.phone_type": null,
+                      "annual_income": null,
+                      "answered_community_screening": null,
+                      "applicant": null,
+                      "applicant.city": null,
+                      "applicant.date_of_birth": null,
+                      "applicant.email": null,
+                      "applicant.first_name": null,
+                      "applicant.id": null,
+                      "applicant.last_name": null,
+                      "applicant.mailing_address": null,
+                      "applicant.mailing_city": null,
+                      "applicant.mailing_state": null,
+                      "applicant.mailing_street": null,
+                      "applicant.mailing_zip_code": null,
+                      "applicant.marital_status": null,
+                      "applicant.middle_name": null,
+                      "applicant.name": null,
+                      "applicant.phone": null,
+                      "applicant.phone_type": null,
+                      "applicant.primary_language": null,
+                      "applicant.residence_address": null,
+                      "applicant.second_phone": null,
+                      "applicant.second_phone_type": null,
+                      "applicant.state": null,
+                      "applicant.street": null,
+                      "applicant.zip_code": null,
+                      "application_language": null,
+                      "application_submission_type": null,
+                      "application_submitted_date": null,
+                      "createdby.name": {
+                        "label": "Created By",
+                      },
+                      "general_lottery": null,
+                      "general_lottery_rank": null,
+                      "has_ada_priorities_selected": null,
+                      "has_completed_homebuyer_education": null,
+                      "has_developmental_disability": {
+                        "label": "Has Developmental Disability",
+                      },
+                      "has_loan_preapproval": null,
+                      "has_military_service": null,
+                      "housing_voucher_or_subsidy": null,
+                      "id": null,
+                      "is_first_time_homebuyer": null,
+                      "lending_institution": null,
+                      "listing": null,
+                      "listing.id": null,
+                      "listing.is_lottery_complete": null,
+                      "listing.name": {
+                        "label": "Listing Name",
+                      },
+                      "listing.reserved_community_type": null,
+                      "lottery_number": null,
+                      "lottery_number_manual": null,
+                      "monthly_income": null,
+                      "name": {
+                        "label": "Application Number",
+                      },
+                      "name_of_lender": null,
+                      "number_of_dependents": null,
+                      "number_of_minors": null,
+                      "number_of_seniors": null,
+                      "referral_source": null,
+                      "status": null,
+                      "terms_acknowledged": null,
+                      "total_household_size": null,
+                      "total_monthly_rent": null,
+                    }
+                  }
+                  fileBaseUrl="test_file_url"
                 >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
+                  <div
+                    className="application-details"
                   >
-                    First Name
-                  </h4>
-                  <p>
-                    karen
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Last Name
-                  </h4>
-                  <p>
-                    jones
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Date of Birth
-                  </h4>
-                  <p>
-                    01/01/1950
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Phone
-                  </h4>
-                  <p>
-                    9548883321
-                  </p>
-                </div>
+                    <ApplicationCard
+                      fields={
+                        [
+                          "lottery_number",
+                          "application_submission_type",
+                          "application_submitted_date",
+                          "application_language",
+                          "total_household_size",
+                          {
+                            "field": "total_monthly_rent",
+                            "formatType": "currency",
+                            "label": "Total Monthly Rent",
+                          },
+                          "status",
+                          "referral_source",
+                          {
+                            "field": "createdby.name",
+                            "formatType": null,
+                            "label": "Created By",
+                          },
+                        ]
+                      }
+                      labelMapper={
+                        {
+                          "alternate_contact": null,
+                          "alternate_contact.agency_name": null,
+                          "alternate_contact.alternate_contact_type": {
+                            "label": "Relationship",
+                          },
+                          "alternate_contact.alternate_contact_type_other": {
+                            "label": "Relationship - Other",
+                          },
+                          "alternate_contact.email": null,
+                          "alternate_contact.first_name": null,
+                          "alternate_contact.id": null,
+                          "alternate_contact.last_name": null,
+                          "alternate_contact.middle_name": null,
+                          "alternate_contact.phone": null,
+                          "alternate_contact.phone_type": null,
+                          "annual_income": null,
+                          "answered_community_screening": null,
+                          "applicant": null,
+                          "applicant.city": null,
+                          "applicant.date_of_birth": null,
+                          "applicant.email": null,
+                          "applicant.first_name": null,
+                          "applicant.id": null,
+                          "applicant.last_name": null,
+                          "applicant.mailing_address": null,
+                          "applicant.mailing_city": null,
+                          "applicant.mailing_state": null,
+                          "applicant.mailing_street": null,
+                          "applicant.mailing_zip_code": null,
+                          "applicant.marital_status": null,
+                          "applicant.middle_name": null,
+                          "applicant.name": null,
+                          "applicant.phone": null,
+                          "applicant.phone_type": null,
+                          "applicant.primary_language": null,
+                          "applicant.residence_address": null,
+                          "applicant.second_phone": null,
+                          "applicant.second_phone_type": null,
+                          "applicant.state": null,
+                          "applicant.street": null,
+                          "applicant.zip_code": null,
+                          "application_language": null,
+                          "application_submission_type": null,
+                          "application_submitted_date": null,
+                          "createdby.name": {
+                            "label": "Created By",
+                          },
+                          "general_lottery": null,
+                          "general_lottery_rank": null,
+                          "has_ada_priorities_selected": null,
+                          "has_completed_homebuyer_education": null,
+                          "has_developmental_disability": {
+                            "label": "Has Developmental Disability",
+                          },
+                          "has_loan_preapproval": null,
+                          "has_military_service": null,
+                          "housing_voucher_or_subsidy": null,
+                          "id": null,
+                          "is_first_time_homebuyer": null,
+                          "lending_institution": null,
+                          "listing": null,
+                          "listing.id": null,
+                          "listing.is_lottery_complete": null,
+                          "listing.name": {
+                            "label": "Listing Name",
+                          },
+                          "listing.reserved_community_type": null,
+                          "lottery_number": null,
+                          "lottery_number_manual": null,
+                          "monthly_income": null,
+                          "name": {
+                            "label": "Application Number",
+                          },
+                          "name_of_lender": null,
+                          "number_of_dependents": null,
+                          "number_of_minors": null,
+                          "number_of_seniors": null,
+                          "referral_source": null,
+                          "status": null,
+                          "terms_acknowledged": null,
+                          "total_household_size": null,
+                          "total_monthly_rent": null,
+                        }
+                      }
+                      title="Application Data"
+                    >
+                      <ApplicationDetailsContentCard
+                        dataCollection={
+                          {
+                            "alternate_contact": {
+                              "alternate_contact_type": "Friend",
+                              "alternate_contact_type_other": null,
+                              "email": "fede@eee.com",
+                              "first_name": "Federic",
+                              "last_name": "dayan",
+                              "mailing_address": "123 Alternate Mailing St, SF Mailing, CA, 94105-1804",
+                              "mailing_city": "SF Mailing",
+                              "mailing_state": "CA",
+                              "mailing_street": "123 Alternate Mailing St",
+                              "mailing_zip_code": "94105-1804",
+                              "middle_name": "Daaaa",
+                              "phone": "9954449943",
+                              "phone_type": "Cell",
+                            },
+                            "annual_income": 110000,
+                            "answered_community_screening": null,
+                            "applicant": {
+                              "city": "SAN FRANCISCO",
+                              "date_of_birth": {
+                                "day": "01",
+                                "month": "01",
+                                "year": "1950",
+                              },
+                              "email": "eee@eeee.com",
+                              "ethnicity": "Decline to state",
+                              "first_name": "karen",
+                              "gender": "Decline to state",
+                              "gender_other": "gender other",
+                              "id": "a0n0x000000AbE6AAK",
+                              "last_name": "jones",
+                              "mailing_address": "123 Mailing St, SF Mailing, CA, 94105-1804",
+                              "mailing_city": "SF Mailing",
+                              "mailing_state": "CA",
+                              "mailing_street": "123 Mailing St",
+                              "mailing_zip_code": "94105-1804",
+                              "middle_name": "elizabeth",
+                              "name": "karen elizabeth jones",
+                              "phone": "9548883321",
+                              "phone_type": "Cell",
+                              "race": "Decline to state",
+                              "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                              "second_phone": null,
+                              "second_phone_type": null,
+                              "sexual_orientation": "Decline to state",
+                              "sexual_orientation_other": "sexual orientation other",
+                              "state": "CA",
+                              "street": "123 MAIN ST",
+                              "zip_code": "94105-1804",
+                            },
+                            "application_language": "English",
+                            "application_submission_type": "Electronic",
+                            "application_submitted_date": "2018-06-19",
+                            "createdby": {
+                              "name": "Prod Vertiba",
+                            },
+                            "demographics": {
+                              "ethnicity": "Decline to state",
+                              "gender": "Decline to state",
+                              "gender_other": "gender other",
+                              "race": "Decline to state",
+                              "sexual_orientation": "Decline to state",
+                              "sexual_orientation_other": "sexual orientation other",
+                            },
+                            "flagged_applications": [],
+                            "has_ada_priorities_selected": {
+                              "hearing_impairments": true,
+                              "mobility_impairments": true,
+                              "vision_impairments": true,
+                            },
+                            "has_developmental_disability": null,
+                            "has_military_service": null,
+                            "household_members": [
+                              {
+                                "city": "buenos aires",
+                                "date_of_birth": {
+                                  "day": "11",
+                                  "month": "06",
+                                  "year": "1976",
+                                },
+                                "first_name": "diego",
+                                "last_name": "maradona",
+                                "middle_name": "m",
+                                "name": "diego m maradona",
+                                "relationship_to_applicant": null,
+                                "residence_address": "9 de julio, buenos aires, fl, 33026",
+                                "state": "fl",
+                                "street": "9 de julio",
+                                "zip_code": "33026",
+                              },
+                            ],
+                            "housing_voucher_or_subsidy": "true",
+                            "id": "a0o0x000000OcOzAAK",
+                            "listing": {
+                              "id": "a0W0x000000GhJUEA0",
+                              "name": "Test 5/30",
+                            },
+                            "lottery_number": "00191270",
+                            "lottery_number_manual": null,
+                            "monthly_income": null,
+                            "name": "APP-00191270",
+                            "preferences": [
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
+                                    "day": "01",
+                                    "month": "01",
+                                    "year": "1950",
+                                  },
+                                  "first_name": "karen",
+                                  "last_name": "jones",
+                                },
+                                "application_member_id": "a0n0x000000AbE6AAK",
+                                "certificate_number": null,
+                                "city": null,
+                                "individual_preference": null,
+                                "listing_preference_id": "a0l0x000000RI8nAAG",
+                                "lottery_status": "None",
+                                "name": "AP-0000612141",
+                                "opt_out": null,
+                                "person_who_claimed_name": null,
+                                "preference_name": "Alice Griffith Housing Development Resident",
+                                "preference_order": 0,
+                                "receives_preference": true,
+                                "recordtype_developername": "AG",
+                                "state": null,
+                                "street": null,
+                                "type_of_proof": null,
+                                "zip_code": null,
+                              },
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
+                                    "day": "11",
+                                    "month": "06",
+                                    "year": "1976",
+                                  },
+                                  "first_name": "diego",
+                                  "last_name": "maradona",
+                                },
+                                "application_member_id": "a0n0x000000AbE6AAK",
+                                "certificate_number": null,
+                                "city": null,
+                                "individual_preference": null,
+                                "listing_preference_id": "a0l0P00001QRQGzQAP",
+                                "lw_type_of_proof": null,
+                                "opt_out": false,
+                                "post_lottery_validation": null,
+                                "preference_name": "Neighborhood Resident Housing Preference (NRHP)",
+                                "receives_preference": false,
+                                "recordtype_developername": "NRHP",
+                                "state": null,
+                                "street": null,
+                                "type_of_proof": null,
+                                "zip_code": null,
+                              },
+                            ],
+                            "proof_files": [
+                              {
+                                "document_type": "Namexxx1",
+                                "file_type": "Attachment",
+                                "id": "xxxx1",
+                              },
+                              {
+                                "document_type": "Namexxx2",
+                                "file_type": "File",
+                                "id": "xxxx2",
+                              },
+                            ],
+                            "referral_source": null,
+                            "status": "Submitted",
+                            "terms_acknowledged": true,
+                            "total_household_size": 2,
+                            "total_monthly_rent": null,
+                          }
+                        }
+                        fields={
+                          [
+                            "lottery_number",
+                            "application_submission_type",
+                            "application_submitted_date",
+                            "application_language",
+                            "total_household_size",
+                            {
+                              "field": "total_monthly_rent",
+                              "formatType": "currency",
+                              "label": "Total Monthly Rent",
+                            },
+                            "status",
+                            "referral_source",
+                            {
+                              "field": "createdby.name",
+                              "formatType": null,
+                              "label": "Created By",
+                            },
+                          ]
+                        }
+                        labelMapper={
+                          {
+                            "alternate_contact": null,
+                            "alternate_contact.agency_name": null,
+                            "alternate_contact.alternate_contact_type": {
+                              "label": "Relationship",
+                            },
+                            "alternate_contact.alternate_contact_type_other": {
+                              "label": "Relationship - Other",
+                            },
+                            "alternate_contact.email": null,
+                            "alternate_contact.first_name": null,
+                            "alternate_contact.id": null,
+                            "alternate_contact.last_name": null,
+                            "alternate_contact.middle_name": null,
+                            "alternate_contact.phone": null,
+                            "alternate_contact.phone_type": null,
+                            "annual_income": null,
+                            "answered_community_screening": null,
+                            "applicant": null,
+                            "applicant.city": null,
+                            "applicant.date_of_birth": null,
+                            "applicant.email": null,
+                            "applicant.first_name": null,
+                            "applicant.id": null,
+                            "applicant.last_name": null,
+                            "applicant.mailing_address": null,
+                            "applicant.mailing_city": null,
+                            "applicant.mailing_state": null,
+                            "applicant.mailing_street": null,
+                            "applicant.mailing_zip_code": null,
+                            "applicant.marital_status": null,
+                            "applicant.middle_name": null,
+                            "applicant.name": null,
+                            "applicant.phone": null,
+                            "applicant.phone_type": null,
+                            "applicant.primary_language": null,
+                            "applicant.residence_address": null,
+                            "applicant.second_phone": null,
+                            "applicant.second_phone_type": null,
+                            "applicant.state": null,
+                            "applicant.street": null,
+                            "applicant.zip_code": null,
+                            "application_language": null,
+                            "application_submission_type": null,
+                            "application_submitted_date": null,
+                            "createdby.name": {
+                              "label": "Created By",
+                            },
+                            "general_lottery": null,
+                            "general_lottery_rank": null,
+                            "has_ada_priorities_selected": null,
+                            "has_completed_homebuyer_education": null,
+                            "has_developmental_disability": {
+                              "label": "Has Developmental Disability",
+                            },
+                            "has_loan_preapproval": null,
+                            "has_military_service": null,
+                            "housing_voucher_or_subsidy": null,
+                            "id": null,
+                            "is_first_time_homebuyer": null,
+                            "lending_institution": null,
+                            "listing": null,
+                            "listing.id": null,
+                            "listing.is_lottery_complete": null,
+                            "listing.name": {
+                              "label": "Listing Name",
+                            },
+                            "listing.reserved_community_type": null,
+                            "lottery_number": null,
+                            "lottery_number_manual": null,
+                            "monthly_income": null,
+                            "name": {
+                              "label": "Application Number",
+                            },
+                            "name_of_lender": null,
+                            "number_of_dependents": null,
+                            "number_of_minors": null,
+                            "number_of_seniors": null,
+                            "referral_source": null,
+                            "status": null,
+                            "terms_acknowledged": null,
+                            "total_household_size": null,
+                            "total_monthly_rent": null,
+                          }
+                        }
+                        title="Application Data"
+                      >
+                        <div
+                          className="content-card padding-bottom-none margin-bottom--half bg-trans"
+                        >
+                          <h4
+                            className="content-card_title t-serif"
+                          >
+                            Application Data
+                          </h4>
+                          <ul
+                            className="content-grid"
+                          >
+                            <li
+                              className="content-item"
+                            >
+                              <div
+                                className="content-card"
+                              >
+                                <div
+                                  className="margin-bottom--half"
+                                  key="0"
+                                >
+                                  <h4
+                                    className="t-sans t-small t-bold no-margin"
+                                  >
+                                    Lottery Number
+                                  </h4>
+                                  <p>
+                                    00191270
+                                  </p>
+                                </div>
+                                <div
+                                  className="margin-bottom--half"
+                                  key="1"
+                                >
+                                  <h4
+                                    className="t-sans t-small t-bold no-margin"
+                                  >
+                                    Application Submission Type
+                                  </h4>
+                                  <p>
+                                    Electronic
+                                  </p>
+                                </div>
+                                <div
+                                  className="margin-bottom--half"
+                                  key="2"
+                                >
+                                  <h4
+                                    className="t-sans t-small t-bold no-margin"
+                                  >
+                                    Application Submitted Date
+                                  </h4>
+                                  <p>
+                                    06/19/2018
+                                  </p>
+                                </div>
+                                <div
+                                  className="margin-bottom--half"
+                                  key="3"
+                                >
+                                  <h4
+                                    className="t-sans t-small t-bold no-margin"
+                                  >
+                                    Application Language
+                                  </h4>
+                                  <p>
+                                    English
+                                  </p>
+                                </div>
+                              </div>
+                            </li>
+                            <li
+                              className="content-item"
+                            >
+                              <div
+                                className="content-card"
+                              >
+                                <div
+                                  className="margin-bottom--half"
+                                  key="4"
+                                >
+                                  <h4
+                                    className="t-sans t-small t-bold no-margin"
+                                  >
+                                    Total Household Size
+                                  </h4>
+                                  <p>
+                                    2
+                                  </p>
+                                </div>
+                                <div
+                                  className="margin-bottom--half"
+                                  key="5"
+                                >
+                                  <h4
+                                    className="t-sans t-small t-bold no-margin"
+                                  >
+                                    Total Monthly Rent
+                                  </h4>
+                                  <p>
+                                    None
+                                  </p>
+                                </div>
+                                <div
+                                  className="margin-bottom--half"
+                                  key="6"
+                                >
+                                  <h4
+                                    className="t-sans t-small t-bold no-margin"
+                                  >
+                                    Status
+                                  </h4>
+                                  <p>
+                                    Submitted
+                                  </p>
+                                </div>
+                                <div
+                                  className="margin-bottom--half"
+                                  key="7"
+                                >
+                                  <h4
+                                    className="t-sans t-small t-bold no-margin"
+                                  >
+                                    Referral Source
+                                  </h4>
+                                  <p>
+                                    None
+                                  </p>
+                                </div>
+                                <div
+                                  className="margin-bottom--half"
+                                  key="8"
+                                >
+                                  <h4
+                                    className="t-sans t-small t-bold no-margin"
+                                  >
+                                    Created By
+                                  </h4>
+                                  <p>
+                                    Prod Vertiba
+                                  </p>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </ApplicationDetailsContentCard>
+                    </ApplicationCard>
+                    <ApplicationDetailsContentCard
+                      dataCollection={
+                        {
+                          "city": "SAN FRANCISCO",
+                          "date_of_birth": {
+                            "day": "01",
+                            "month": "01",
+                            "year": "1950",
+                          },
+                          "email": "eee@eeee.com",
+                          "ethnicity": "Decline to state",
+                          "first_name": "karen",
+                          "gender": "Decline to state",
+                          "gender_other": "gender other",
+                          "id": "a0n0x000000AbE6AAK",
+                          "last_name": "jones",
+                          "mailing_address": "123 Mailing St, SF Mailing, CA, 94105-1804",
+                          "mailing_city": "SF Mailing",
+                          "mailing_state": "CA",
+                          "mailing_street": "123 Mailing St",
+                          "mailing_zip_code": "94105-1804",
+                          "middle_name": "elizabeth",
+                          "name": "karen elizabeth jones",
+                          "phone": "9548883321",
+                          "phone_type": "Cell",
+                          "race": "Decline to state",
+                          "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                          "second_phone": null,
+                          "second_phone_type": null,
+                          "sexual_orientation": "Decline to state",
+                          "sexual_orientation_other": "sexual orientation other",
+                          "state": "CA",
+                          "street": "123 MAIN ST",
+                          "zip_code": "94105-1804",
+                        }
+                      }
+                      fields={
+                        [
+                          "first_name",
+                          "middle_name",
+                          "last_name",
+                          "date_of_birth",
+                          "email",
+                          "phone",
+                          "phone_type",
+                          "second_phone",
+                          "second_phone_type",
+                          "residence_address",
+                          "mailing_address",
+                        ]
+                      }
+                      title="Primary Applicant"
+                    >
+                      <div
+                        className="content-card padding-bottom-none margin-bottom--half bg-trans"
+                      >
+                        <h4
+                          className="content-card_title t-serif"
+                        >
+                          Primary Applicant
+                        </h4>
+                        <ul
+                          className="content-grid"
+                        >
+                          <li
+                            className="content-item"
+                          >
+                            <div
+                              className="content-card"
+                            >
+                              <div
+                                className="margin-bottom--half"
+                                key="0"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  First Name
+                                </h4>
+                                <p>
+                                  karen
+                                </p>
+                              </div>
+                              <div
+                                className="margin-bottom--half"
+                                key="1"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Middle Name
+                                </h4>
+                                <p>
+                                  elizabeth
+                                </p>
+                              </div>
+                              <div
+                                className="margin-bottom--half"
+                                key="2"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Last Name
+                                </h4>
+                                <p>
+                                  jones
+                                </p>
+                              </div>
+                              <div
+                                className="margin-bottom--half"
+                                key="3"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Date of Birth
+                                </h4>
+                                <p>
+                                  01/01/1950
+                                </p>
+                              </div>
+                              <div
+                                className="margin-bottom--half"
+                                key="4"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Email
+                                </h4>
+                                <p>
+                                  eee@eeee.com
+                                </p>
+                              </div>
+                            </div>
+                          </li>
+                          <li
+                            className="content-item"
+                          >
+                            <div
+                              className="content-card"
+                            >
+                              <div
+                                className="margin-bottom--half"
+                                key="5"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Phone
+                                </h4>
+                                <p>
+                                  9548883321
+                                </p>
+                              </div>
+                              <div
+                                className="margin-bottom--half"
+                                key="6"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Phone Type
+                                </h4>
+                                <p>
+                                  Cell
+                                </p>
+                              </div>
+                              <div
+                                className="margin-bottom--half"
+                                key="7"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Second Phone
+                                </h4>
+                                <p>
+                                  None
+                                </p>
+                              </div>
+                              <div
+                                className="margin-bottom--half"
+                                key="8"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Second Phone Type
+                                </h4>
+                                <p>
+                                  None
+                                </p>
+                              </div>
+                              <div
+                                className="margin-bottom--half"
+                                key="9"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Residence Address
+                                </h4>
+                                <p>
+                                  123 MAIN ST, SAN FRANCISCO, CA, 94105-1804
+                                </p>
+                              </div>
+                              <div
+                                className="margin-bottom--half"
+                                key="10"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Mailing Address
+                                </h4>
+                                <p>
+                                  123 Mailing St, SF Mailing, CA, 94105-1804
+                                </p>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </ApplicationDetailsContentCard>
+                    <ApplicationDetailsContentCard
+                      dataCollection={
+                        {
+                          "alternate_contact_type": "Friend",
+                          "alternate_contact_type_other": null,
+                          "email": "fede@eee.com",
+                          "first_name": "Federic",
+                          "last_name": "dayan",
+                          "mailing_address": "123 Alternate Mailing St, SF Mailing, CA, 94105-1804",
+                          "mailing_city": "SF Mailing",
+                          "mailing_state": "CA",
+                          "mailing_street": "123 Alternate Mailing St",
+                          "mailing_zip_code": "94105-1804",
+                          "middle_name": "Daaaa",
+                          "phone": "9954449943",
+                          "phone_type": "Cell",
+                        }
+                      }
+                      fields={
+                        [
+                          "first_name",
+                          "middle_name",
+                          "last_name",
+                          "phone",
+                          "phone_type",
+                          "agency_name",
+                          "email",
+                          "alternate_contact_type",
+                          "alternate_contact_type_other",
+                          "mailing_address",
+                        ]
+                      }
+                      title="Alternate Contact"
+                    >
+                      <div
+                        className="content-card padding-bottom-none margin-bottom--half bg-trans"
+                      >
+                        <h4
+                          className="content-card_title t-serif"
+                        >
+                          Alternate Contact
+                        </h4>
+                        <ul
+                          className="content-grid"
+                        >
+                          <li
+                            className="content-item"
+                          >
+                            <div
+                              className="content-card"
+                            >
+                              <div
+                                className="margin-bottom--half"
+                                key="0"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  First Name
+                                </h4>
+                                <p>
+                                  Federic
+                                </p>
+                              </div>
+                              <div
+                                className="margin-bottom--half"
+                                key="1"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Middle Name
+                                </h4>
+                                <p>
+                                  Daaaa
+                                </p>
+                              </div>
+                              <div
+                                className="margin-bottom--half"
+                                key="2"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Last Name
+                                </h4>
+                                <p>
+                                  dayan
+                                </p>
+                              </div>
+                              <div
+                                className="margin-bottom--half"
+                                key="3"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Phone
+                                </h4>
+                                <p>
+                                  9954449943
+                                </p>
+                              </div>
+                              <div
+                                className="margin-bottom--half"
+                                key="4"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Phone Type
+                                </h4>
+                                <p>
+                                  Cell
+                                </p>
+                              </div>
+                            </div>
+                          </li>
+                          <li
+                            className="content-item"
+                          >
+                            <div
+                              className="content-card"
+                            >
+                              <div
+                                className="margin-bottom--half"
+                                key="5"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Agency Name
+                                </h4>
+                                <p>
+                                  None
+                                </p>
+                              </div>
+                              <div
+                                className="margin-bottom--half"
+                                key="6"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Email
+                                </h4>
+                                <p>
+                                  fede@eee.com
+                                </p>
+                              </div>
+                              <div
+                                className="margin-bottom--half"
+                                key="7"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Alternate Contact Type
+                                </h4>
+                                <p>
+                                  Friend
+                                </p>
+                              </div>
+                              <div
+                                className="margin-bottom--half"
+                                key="8"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Alternate Contact Type Other
+                                </h4>
+                                <p>
+                                  None
+                                </p>
+                              </div>
+                              <div
+                                className="margin-bottom--half"
+                                key="9"
+                              >
+                                <h4
+                                  className="t-sans t-small t-bold no-margin"
+                                >
+                                  Mailing Address
+                                </h4>
+                                <p>
+                                  123 Alternate Mailing St, SF Mailing, CA, 94105-1804
+                                </p>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </ApplicationDetailsContentCard>
+                    <Table
+                      fields={
+                        [
+                          "name",
+                          "relationship_to_applicant",
+                          "date_of_birth",
+                          "street",
+                          "city",
+                          "state",
+                          "zip_code",
+                        ]
+                      }
+                      table="household_members"
+                      title="Household Members"
+                    >
+                      <ApplicationDetailsContentTable
+                        data={
+                          {
+                            "alternate_contact": {
+                              "alternate_contact_type": "Friend",
+                              "alternate_contact_type_other": null,
+                              "email": "fede@eee.com",
+                              "first_name": "Federic",
+                              "last_name": "dayan",
+                              "mailing_address": "123 Alternate Mailing St, SF Mailing, CA, 94105-1804",
+                              "mailing_city": "SF Mailing",
+                              "mailing_state": "CA",
+                              "mailing_street": "123 Alternate Mailing St",
+                              "mailing_zip_code": "94105-1804",
+                              "middle_name": "Daaaa",
+                              "phone": "9954449943",
+                              "phone_type": "Cell",
+                            },
+                            "annual_income": 110000,
+                            "answered_community_screening": null,
+                            "applicant": {
+                              "city": "SAN FRANCISCO",
+                              "date_of_birth": {
+                                "day": "01",
+                                "month": "01",
+                                "year": "1950",
+                              },
+                              "email": "eee@eeee.com",
+                              "ethnicity": "Decline to state",
+                              "first_name": "karen",
+                              "gender": "Decline to state",
+                              "gender_other": "gender other",
+                              "id": "a0n0x000000AbE6AAK",
+                              "last_name": "jones",
+                              "mailing_address": "123 Mailing St, SF Mailing, CA, 94105-1804",
+                              "mailing_city": "SF Mailing",
+                              "mailing_state": "CA",
+                              "mailing_street": "123 Mailing St",
+                              "mailing_zip_code": "94105-1804",
+                              "middle_name": "elizabeth",
+                              "name": "karen elizabeth jones",
+                              "phone": "9548883321",
+                              "phone_type": "Cell",
+                              "race": "Decline to state",
+                              "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                              "second_phone": null,
+                              "second_phone_type": null,
+                              "sexual_orientation": "Decline to state",
+                              "sexual_orientation_other": "sexual orientation other",
+                              "state": "CA",
+                              "street": "123 MAIN ST",
+                              "zip_code": "94105-1804",
+                            },
+                            "application_language": "English",
+                            "application_submission_type": "Electronic",
+                            "application_submitted_date": "2018-06-19",
+                            "createdby": {
+                              "name": "Prod Vertiba",
+                            },
+                            "demographics": {
+                              "ethnicity": "Decline to state",
+                              "gender": "Decline to state",
+                              "gender_other": "gender other",
+                              "race": "Decline to state",
+                              "sexual_orientation": "Decline to state",
+                              "sexual_orientation_other": "sexual orientation other",
+                            },
+                            "flagged_applications": [],
+                            "has_ada_priorities_selected": {
+                              "hearing_impairments": true,
+                              "mobility_impairments": true,
+                              "vision_impairments": true,
+                            },
+                            "has_developmental_disability": null,
+                            "has_military_service": null,
+                            "household_members": [
+                              {
+                                "city": "buenos aires",
+                                "date_of_birth": {
+                                  "day": "11",
+                                  "month": "06",
+                                  "year": "1976",
+                                },
+                                "first_name": "diego",
+                                "last_name": "maradona",
+                                "middle_name": "m",
+                                "name": "diego m maradona",
+                                "relationship_to_applicant": null,
+                                "residence_address": "9 de julio, buenos aires, fl, 33026",
+                                "state": "fl",
+                                "street": "9 de julio",
+                                "zip_code": "33026",
+                              },
+                            ],
+                            "housing_voucher_or_subsidy": "true",
+                            "id": "a0o0x000000OcOzAAK",
+                            "listing": {
+                              "id": "a0W0x000000GhJUEA0",
+                              "name": "Test 5/30",
+                            },
+                            "lottery_number": "00191270",
+                            "lottery_number_manual": null,
+                            "monthly_income": null,
+                            "name": "APP-00191270",
+                            "preferences": [
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
+                                    "day": "01",
+                                    "month": "01",
+                                    "year": "1950",
+                                  },
+                                  "first_name": "karen",
+                                  "last_name": "jones",
+                                },
+                                "application_member_id": "a0n0x000000AbE6AAK",
+                                "certificate_number": null,
+                                "city": null,
+                                "individual_preference": null,
+                                "listing_preference_id": "a0l0x000000RI8nAAG",
+                                "lottery_status": "None",
+                                "name": "AP-0000612141",
+                                "opt_out": null,
+                                "person_who_claimed_name": null,
+                                "preference_name": "Alice Griffith Housing Development Resident",
+                                "preference_order": 0,
+                                "receives_preference": true,
+                                "recordtype_developername": "AG",
+                                "state": null,
+                                "street": null,
+                                "type_of_proof": null,
+                                "zip_code": null,
+                              },
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
+                                    "day": "11",
+                                    "month": "06",
+                                    "year": "1976",
+                                  },
+                                  "first_name": "diego",
+                                  "last_name": "maradona",
+                                },
+                                "application_member_id": "a0n0x000000AbE6AAK",
+                                "certificate_number": null,
+                                "city": null,
+                                "individual_preference": null,
+                                "listing_preference_id": "a0l0P00001QRQGzQAP",
+                                "lw_type_of_proof": null,
+                                "opt_out": false,
+                                "post_lottery_validation": null,
+                                "preference_name": "Neighborhood Resident Housing Preference (NRHP)",
+                                "receives_preference": false,
+                                "recordtype_developername": "NRHP",
+                                "state": null,
+                                "street": null,
+                                "type_of_proof": null,
+                                "zip_code": null,
+                              },
+                            ],
+                            "proof_files": [
+                              {
+                                "document_type": "Namexxx1",
+                                "file_type": "Attachment",
+                                "id": "xxxx1",
+                              },
+                              {
+                                "document_type": "Namexxx2",
+                                "file_type": "File",
+                                "id": "xxxx2",
+                              },
+                            ],
+                            "referral_source": null,
+                            "status": "Submitted",
+                            "terms_acknowledged": true,
+                            "total_household_size": 2,
+                            "total_monthly_rent": null,
+                          }
+                        }
+                        fields={
+                          [
+                            "name",
+                            "relationship_to_applicant",
+                            "date_of_birth",
+                            "street",
+                            "city",
+                            "state",
+                            "zip_code",
+                          ]
+                        }
+                        table="household_members"
+                        title="Household Members"
+                      >
+                        <div
+                          className="content-card"
+                          id="content-card-household_members"
+                        >
+                          <h4
+                            className="content-card_title t-serif"
+                          >
+                            Household Members
+                          </h4>
+                          <table>
+                            <thead>
+                              <tr>
+                                <th
+                                  key="Name"
+                                >
+                                  Name
+                                </th>
+                                <th
+                                  key="Relationship to Applicant"
+                                >
+                                  Relationship to Applicant
+                                </th>
+                                <th
+                                  key="Date of Birth"
+                                >
+                                  Date of Birth
+                                </th>
+                                <th
+                                  key="Street"
+                                >
+                                  Street
+                                </th>
+                                <th
+                                  key="City"
+                                >
+                                  City
+                                </th>
+                                <th
+                                  key="State"
+                                >
+                                  State
+                                </th>
+                                <th
+                                  key="Zip Code"
+                                >
+                                  Zip Code
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr
+                                key="0"
+                              >
+                                <td
+                                  key="name"
+                                >
+                                  diego m maradona
+                                </td>
+                                <td
+                                  key="relationship_to_applicant"
+                                />
+                                <td
+                                  key="date_of_birth"
+                                >
+                                  06/11/1976
+                                </td>
+                                <td
+                                  key="street"
+                                >
+                                  9 de julio
+                                </td>
+                                <td
+                                  key="city"
+                                >
+                                  buenos aires
+                                </td>
+                                <td
+                                  key="state"
+                                >
+                                  fl
+                                </td>
+                                <td
+                                  key="zip_code"
+                                >
+                                  33026
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </ApplicationDetailsContentTable>
+                    </Table>
+                    <ApplicationCard
+                      fields={
+                        [
+                          "has_military_service",
+                          {
+                            "field": "has_developmental_disability",
+                            "formatType": null,
+                            "label": "Has Developmental Disability",
+                          },
+                          {
+                            "field": "has_ada_priorities_selected",
+                            "formatType": null,
+                            "label": "Has ADA Priorities Selected",
+                            "value": [Function],
+                          },
+                          "answered_community_screening",
+                        ]
+                      }
+                      labelMapper={
+                        {
+                          "alternate_contact": null,
+                          "alternate_contact.agency_name": null,
+                          "alternate_contact.alternate_contact_type": {
+                            "label": "Relationship",
+                          },
+                          "alternate_contact.alternate_contact_type_other": {
+                            "label": "Relationship - Other",
+                          },
+                          "alternate_contact.email": null,
+                          "alternate_contact.first_name": null,
+                          "alternate_contact.id": null,
+                          "alternate_contact.last_name": null,
+                          "alternate_contact.middle_name": null,
+                          "alternate_contact.phone": null,
+                          "alternate_contact.phone_type": null,
+                          "annual_income": null,
+                          "answered_community_screening": null,
+                          "applicant": null,
+                          "applicant.city": null,
+                          "applicant.date_of_birth": null,
+                          "applicant.email": null,
+                          "applicant.first_name": null,
+                          "applicant.id": null,
+                          "applicant.last_name": null,
+                          "applicant.mailing_address": null,
+                          "applicant.mailing_city": null,
+                          "applicant.mailing_state": null,
+                          "applicant.mailing_street": null,
+                          "applicant.mailing_zip_code": null,
+                          "applicant.marital_status": null,
+                          "applicant.middle_name": null,
+                          "applicant.name": null,
+                          "applicant.phone": null,
+                          "applicant.phone_type": null,
+                          "applicant.primary_language": null,
+                          "applicant.residence_address": null,
+                          "applicant.second_phone": null,
+                          "applicant.second_phone_type": null,
+                          "applicant.state": null,
+                          "applicant.street": null,
+                          "applicant.zip_code": null,
+                          "application_language": null,
+                          "application_submission_type": null,
+                          "application_submitted_date": null,
+                          "createdby.name": {
+                            "label": "Created By",
+                          },
+                          "general_lottery": null,
+                          "general_lottery_rank": null,
+                          "has_ada_priorities_selected": null,
+                          "has_completed_homebuyer_education": null,
+                          "has_developmental_disability": {
+                            "label": "Has Developmental Disability",
+                          },
+                          "has_loan_preapproval": null,
+                          "has_military_service": null,
+                          "housing_voucher_or_subsidy": null,
+                          "id": null,
+                          "is_first_time_homebuyer": null,
+                          "lending_institution": null,
+                          "listing": null,
+                          "listing.id": null,
+                          "listing.is_lottery_complete": null,
+                          "listing.name": {
+                            "label": "Listing Name",
+                          },
+                          "listing.reserved_community_type": null,
+                          "lottery_number": null,
+                          "lottery_number_manual": null,
+                          "monthly_income": null,
+                          "name": {
+                            "label": "Application Number",
+                          },
+                          "name_of_lender": null,
+                          "number_of_dependents": null,
+                          "number_of_minors": null,
+                          "number_of_seniors": null,
+                          "referral_source": null,
+                          "status": null,
+                          "terms_acknowledged": null,
+                          "total_household_size": null,
+                          "total_monthly_rent": null,
+                        }
+                      }
+                      title="Reserved and Priority Qualifying Information"
+                    >
+                      <ApplicationDetailsContentCard
+                        dataCollection={
+                          {
+                            "alternate_contact": {
+                              "alternate_contact_type": "Friend",
+                              "alternate_contact_type_other": null,
+                              "email": "fede@eee.com",
+                              "first_name": "Federic",
+                              "last_name": "dayan",
+                              "mailing_address": "123 Alternate Mailing St, SF Mailing, CA, 94105-1804",
+                              "mailing_city": "SF Mailing",
+                              "mailing_state": "CA",
+                              "mailing_street": "123 Alternate Mailing St",
+                              "mailing_zip_code": "94105-1804",
+                              "middle_name": "Daaaa",
+                              "phone": "9954449943",
+                              "phone_type": "Cell",
+                            },
+                            "annual_income": 110000,
+                            "answered_community_screening": null,
+                            "applicant": {
+                              "city": "SAN FRANCISCO",
+                              "date_of_birth": {
+                                "day": "01",
+                                "month": "01",
+                                "year": "1950",
+                              },
+                              "email": "eee@eeee.com",
+                              "ethnicity": "Decline to state",
+                              "first_name": "karen",
+                              "gender": "Decline to state",
+                              "gender_other": "gender other",
+                              "id": "a0n0x000000AbE6AAK",
+                              "last_name": "jones",
+                              "mailing_address": "123 Mailing St, SF Mailing, CA, 94105-1804",
+                              "mailing_city": "SF Mailing",
+                              "mailing_state": "CA",
+                              "mailing_street": "123 Mailing St",
+                              "mailing_zip_code": "94105-1804",
+                              "middle_name": "elizabeth",
+                              "name": "karen elizabeth jones",
+                              "phone": "9548883321",
+                              "phone_type": "Cell",
+                              "race": "Decline to state",
+                              "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                              "second_phone": null,
+                              "second_phone_type": null,
+                              "sexual_orientation": "Decline to state",
+                              "sexual_orientation_other": "sexual orientation other",
+                              "state": "CA",
+                              "street": "123 MAIN ST",
+                              "zip_code": "94105-1804",
+                            },
+                            "application_language": "English",
+                            "application_submission_type": "Electronic",
+                            "application_submitted_date": "2018-06-19",
+                            "createdby": {
+                              "name": "Prod Vertiba",
+                            },
+                            "demographics": {
+                              "ethnicity": "Decline to state",
+                              "gender": "Decline to state",
+                              "gender_other": "gender other",
+                              "race": "Decline to state",
+                              "sexual_orientation": "Decline to state",
+                              "sexual_orientation_other": "sexual orientation other",
+                            },
+                            "flagged_applications": [],
+                            "has_ada_priorities_selected": {
+                              "hearing_impairments": true,
+                              "mobility_impairments": true,
+                              "vision_impairments": true,
+                            },
+                            "has_developmental_disability": null,
+                            "has_military_service": null,
+                            "household_members": [
+                              {
+                                "city": "buenos aires",
+                                "date_of_birth": {
+                                  "day": "11",
+                                  "month": "06",
+                                  "year": "1976",
+                                },
+                                "first_name": "diego",
+                                "last_name": "maradona",
+                                "middle_name": "m",
+                                "name": "diego m maradona",
+                                "relationship_to_applicant": null,
+                                "residence_address": "9 de julio, buenos aires, fl, 33026",
+                                "state": "fl",
+                                "street": "9 de julio",
+                                "zip_code": "33026",
+                              },
+                            ],
+                            "housing_voucher_or_subsidy": "true",
+                            "id": "a0o0x000000OcOzAAK",
+                            "listing": {
+                              "id": "a0W0x000000GhJUEA0",
+                              "name": "Test 5/30",
+                            },
+                            "lottery_number": "00191270",
+                            "lottery_number_manual": null,
+                            "monthly_income": null,
+                            "name": "APP-00191270",
+                            "preferences": [
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
+                                    "day": "01",
+                                    "month": "01",
+                                    "year": "1950",
+                                  },
+                                  "first_name": "karen",
+                                  "last_name": "jones",
+                                },
+                                "application_member_id": "a0n0x000000AbE6AAK",
+                                "certificate_number": null,
+                                "city": null,
+                                "individual_preference": null,
+                                "listing_preference_id": "a0l0x000000RI8nAAG",
+                                "lottery_status": "None",
+                                "name": "AP-0000612141",
+                                "opt_out": null,
+                                "person_who_claimed_name": null,
+                                "preference_name": "Alice Griffith Housing Development Resident",
+                                "preference_order": 0,
+                                "receives_preference": true,
+                                "recordtype_developername": "AG",
+                                "state": null,
+                                "street": null,
+                                "type_of_proof": null,
+                                "zip_code": null,
+                              },
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
+                                    "day": "11",
+                                    "month": "06",
+                                    "year": "1976",
+                                  },
+                                  "first_name": "diego",
+                                  "last_name": "maradona",
+                                },
+                                "application_member_id": "a0n0x000000AbE6AAK",
+                                "certificate_number": null,
+                                "city": null,
+                                "individual_preference": null,
+                                "listing_preference_id": "a0l0P00001QRQGzQAP",
+                                "lw_type_of_proof": null,
+                                "opt_out": false,
+                                "post_lottery_validation": null,
+                                "preference_name": "Neighborhood Resident Housing Preference (NRHP)",
+                                "receives_preference": false,
+                                "recordtype_developername": "NRHP",
+                                "state": null,
+                                "street": null,
+                                "type_of_proof": null,
+                                "zip_code": null,
+                              },
+                            ],
+                            "proof_files": [
+                              {
+                                "document_type": "Namexxx1",
+                                "file_type": "Attachment",
+                                "id": "xxxx1",
+                              },
+                              {
+                                "document_type": "Namexxx2",
+                                "file_type": "File",
+                                "id": "xxxx2",
+                              },
+                            ],
+                            "referral_source": null,
+                            "status": "Submitted",
+                            "terms_acknowledged": true,
+                            "total_household_size": 2,
+                            "total_monthly_rent": null,
+                          }
+                        }
+                        fields={
+                          [
+                            "has_military_service",
+                            {
+                              "field": "has_developmental_disability",
+                              "formatType": null,
+                              "label": "Has Developmental Disability",
+                            },
+                            {
+                              "field": "has_ada_priorities_selected",
+                              "formatType": null,
+                              "label": "Has ADA Priorities Selected",
+                              "value": [Function],
+                            },
+                            "answered_community_screening",
+                          ]
+                        }
+                        labelMapper={
+                          {
+                            "alternate_contact": null,
+                            "alternate_contact.agency_name": null,
+                            "alternate_contact.alternate_contact_type": {
+                              "label": "Relationship",
+                            },
+                            "alternate_contact.alternate_contact_type_other": {
+                              "label": "Relationship - Other",
+                            },
+                            "alternate_contact.email": null,
+                            "alternate_contact.first_name": null,
+                            "alternate_contact.id": null,
+                            "alternate_contact.last_name": null,
+                            "alternate_contact.middle_name": null,
+                            "alternate_contact.phone": null,
+                            "alternate_contact.phone_type": null,
+                            "annual_income": null,
+                            "answered_community_screening": null,
+                            "applicant": null,
+                            "applicant.city": null,
+                            "applicant.date_of_birth": null,
+                            "applicant.email": null,
+                            "applicant.first_name": null,
+                            "applicant.id": null,
+                            "applicant.last_name": null,
+                            "applicant.mailing_address": null,
+                            "applicant.mailing_city": null,
+                            "applicant.mailing_state": null,
+                            "applicant.mailing_street": null,
+                            "applicant.mailing_zip_code": null,
+                            "applicant.marital_status": null,
+                            "applicant.middle_name": null,
+                            "applicant.name": null,
+                            "applicant.phone": null,
+                            "applicant.phone_type": null,
+                            "applicant.primary_language": null,
+                            "applicant.residence_address": null,
+                            "applicant.second_phone": null,
+                            "applicant.second_phone_type": null,
+                            "applicant.state": null,
+                            "applicant.street": null,
+                            "applicant.zip_code": null,
+                            "application_language": null,
+                            "application_submission_type": null,
+                            "application_submitted_date": null,
+                            "createdby.name": {
+                              "label": "Created By",
+                            },
+                            "general_lottery": null,
+                            "general_lottery_rank": null,
+                            "has_ada_priorities_selected": null,
+                            "has_completed_homebuyer_education": null,
+                            "has_developmental_disability": {
+                              "label": "Has Developmental Disability",
+                            },
+                            "has_loan_preapproval": null,
+                            "has_military_service": null,
+                            "housing_voucher_or_subsidy": null,
+                            "id": null,
+                            "is_first_time_homebuyer": null,
+                            "lending_institution": null,
+                            "listing": null,
+                            "listing.id": null,
+                            "listing.is_lottery_complete": null,
+                            "listing.name": {
+                              "label": "Listing Name",
+                            },
+                            "listing.reserved_community_type": null,
+                            "lottery_number": null,
+                            "lottery_number_manual": null,
+                            "monthly_income": null,
+                            "name": {
+                              "label": "Application Number",
+                            },
+                            "name_of_lender": null,
+                            "number_of_dependents": null,
+                            "number_of_minors": null,
+                            "number_of_seniors": null,
+                            "referral_source": null,
+                            "status": null,
+                            "terms_acknowledged": null,
+                            "total_household_size": null,
+                            "total_monthly_rent": null,
+                          }
+                        }
+                        title="Reserved and Priority Qualifying Information"
+                      >
+                        <div
+                          className="content-card padding-bottom-none margin-bottom--half bg-trans"
+                        >
+                          <h4
+                            className="content-card_title t-serif"
+                          >
+                            Reserved and Priority Qualifying Information
+                          </h4>
+                          <ul
+                            className="content-grid"
+                          >
+                            <li
+                              className="content-item"
+                            >
+                              <div
+                                className="content-card"
+                              >
+                                <div
+                                  className="margin-bottom--half"
+                                  key="0"
+                                >
+                                  <h4
+                                    className="t-sans t-small t-bold no-margin"
+                                  >
+                                    Has Military Service
+                                  </h4>
+                                  <p>
+                                    None
+                                  </p>
+                                </div>
+                                <div
+                                  className="margin-bottom--half"
+                                  key="1"
+                                >
+                                  <h4
+                                    className="t-sans t-small t-bold no-margin"
+                                  >
+                                    Has Developmental Disability
+                                  </h4>
+                                  <p>
+                                    None
+                                  </p>
+                                </div>
+                              </div>
+                            </li>
+                            <li
+                              className="content-item"
+                            >
+                              <div
+                                className="content-card"
+                              >
+                                <div
+                                  className="margin-bottom--half"
+                                  key="2"
+                                >
+                                  <h4
+                                    className="t-sans t-small t-bold no-margin"
+                                  >
+                                    Has ADA Priorities Selected
+                                  </h4>
+                                  <p>
+                                    Vision impairments;Mobility impairments;Hearing impairments
+                                  </p>
+                                </div>
+                                <div
+                                  className="margin-bottom--half"
+                                  key="3"
+                                >
+                                  <h4
+                                    className="t-sans t-small t-bold no-margin"
+                                  >
+                                    Answered Community Screening
+                                  </h4>
+                                  <p>
+                                    None
+                                  </p>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </ApplicationDetailsContentCard>
+                    </ApplicationCard>
+                    <Table
+                      fields={
+                        [
+                          "receives_preference",
+                          "preference_name",
+                          "lottery_status",
+                          "person_who_claimed_name",
+                          "type_of_proof",
+                          "preference_lottery_rank",
+                          "opt_out",
+                        ]
+                      }
+                      table="preferences"
+                      title="Application Preferences"
+                    >
+                      <ApplicationDetailsContentTable
+                        data={
+                          {
+                            "alternate_contact": {
+                              "alternate_contact_type": "Friend",
+                              "alternate_contact_type_other": null,
+                              "email": "fede@eee.com",
+                              "first_name": "Federic",
+                              "last_name": "dayan",
+                              "mailing_address": "123 Alternate Mailing St, SF Mailing, CA, 94105-1804",
+                              "mailing_city": "SF Mailing",
+                              "mailing_state": "CA",
+                              "mailing_street": "123 Alternate Mailing St",
+                              "mailing_zip_code": "94105-1804",
+                              "middle_name": "Daaaa",
+                              "phone": "9954449943",
+                              "phone_type": "Cell",
+                            },
+                            "annual_income": 110000,
+                            "answered_community_screening": null,
+                            "applicant": {
+                              "city": "SAN FRANCISCO",
+                              "date_of_birth": {
+                                "day": "01",
+                                "month": "01",
+                                "year": "1950",
+                              },
+                              "email": "eee@eeee.com",
+                              "ethnicity": "Decline to state",
+                              "first_name": "karen",
+                              "gender": "Decline to state",
+                              "gender_other": "gender other",
+                              "id": "a0n0x000000AbE6AAK",
+                              "last_name": "jones",
+                              "mailing_address": "123 Mailing St, SF Mailing, CA, 94105-1804",
+                              "mailing_city": "SF Mailing",
+                              "mailing_state": "CA",
+                              "mailing_street": "123 Mailing St",
+                              "mailing_zip_code": "94105-1804",
+                              "middle_name": "elizabeth",
+                              "name": "karen elizabeth jones",
+                              "phone": "9548883321",
+                              "phone_type": "Cell",
+                              "race": "Decline to state",
+                              "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                              "second_phone": null,
+                              "second_phone_type": null,
+                              "sexual_orientation": "Decline to state",
+                              "sexual_orientation_other": "sexual orientation other",
+                              "state": "CA",
+                              "street": "123 MAIN ST",
+                              "zip_code": "94105-1804",
+                            },
+                            "application_language": "English",
+                            "application_submission_type": "Electronic",
+                            "application_submitted_date": "2018-06-19",
+                            "createdby": {
+                              "name": "Prod Vertiba",
+                            },
+                            "demographics": {
+                              "ethnicity": "Decline to state",
+                              "gender": "Decline to state",
+                              "gender_other": "gender other",
+                              "race": "Decline to state",
+                              "sexual_orientation": "Decline to state",
+                              "sexual_orientation_other": "sexual orientation other",
+                            },
+                            "flagged_applications": [],
+                            "has_ada_priorities_selected": {
+                              "hearing_impairments": true,
+                              "mobility_impairments": true,
+                              "vision_impairments": true,
+                            },
+                            "has_developmental_disability": null,
+                            "has_military_service": null,
+                            "household_members": [
+                              {
+                                "city": "buenos aires",
+                                "date_of_birth": {
+                                  "day": "11",
+                                  "month": "06",
+                                  "year": "1976",
+                                },
+                                "first_name": "diego",
+                                "last_name": "maradona",
+                                "middle_name": "m",
+                                "name": "diego m maradona",
+                                "relationship_to_applicant": null,
+                                "residence_address": "9 de julio, buenos aires, fl, 33026",
+                                "state": "fl",
+                                "street": "9 de julio",
+                                "zip_code": "33026",
+                              },
+                            ],
+                            "housing_voucher_or_subsidy": "true",
+                            "id": "a0o0x000000OcOzAAK",
+                            "listing": {
+                              "id": "a0W0x000000GhJUEA0",
+                              "name": "Test 5/30",
+                            },
+                            "lottery_number": "00191270",
+                            "lottery_number_manual": null,
+                            "monthly_income": null,
+                            "name": "APP-00191270",
+                            "preferences": [
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
+                                    "day": "01",
+                                    "month": "01",
+                                    "year": "1950",
+                                  },
+                                  "first_name": "karen",
+                                  "last_name": "jones",
+                                },
+                                "application_member_id": "a0n0x000000AbE6AAK",
+                                "certificate_number": null,
+                                "city": null,
+                                "individual_preference": null,
+                                "listing_preference_id": "a0l0x000000RI8nAAG",
+                                "lottery_status": "None",
+                                "name": "AP-0000612141",
+                                "opt_out": null,
+                                "person_who_claimed_name": null,
+                                "preference_name": "Alice Griffith Housing Development Resident",
+                                "preference_order": 0,
+                                "receives_preference": true,
+                                "recordtype_developername": "AG",
+                                "state": null,
+                                "street": null,
+                                "type_of_proof": null,
+                                "zip_code": null,
+                              },
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
+                                    "day": "11",
+                                    "month": "06",
+                                    "year": "1976",
+                                  },
+                                  "first_name": "diego",
+                                  "last_name": "maradona",
+                                },
+                                "application_member_id": "a0n0x000000AbE6AAK",
+                                "certificate_number": null,
+                                "city": null,
+                                "individual_preference": null,
+                                "listing_preference_id": "a0l0P00001QRQGzQAP",
+                                "lw_type_of_proof": null,
+                                "opt_out": false,
+                                "post_lottery_validation": null,
+                                "preference_name": "Neighborhood Resident Housing Preference (NRHP)",
+                                "receives_preference": false,
+                                "recordtype_developername": "NRHP",
+                                "state": null,
+                                "street": null,
+                                "type_of_proof": null,
+                                "zip_code": null,
+                              },
+                            ],
+                            "proof_files": [
+                              {
+                                "document_type": "Namexxx1",
+                                "file_type": "Attachment",
+                                "id": "xxxx1",
+                              },
+                              {
+                                "document_type": "Namexxx2",
+                                "file_type": "File",
+                                "id": "xxxx2",
+                              },
+                            ],
+                            "referral_source": null,
+                            "status": "Submitted",
+                            "terms_acknowledged": true,
+                            "total_household_size": 2,
+                            "total_monthly_rent": null,
+                          }
+                        }
+                        fields={
+                          [
+                            "receives_preference",
+                            "preference_name",
+                            "lottery_status",
+                            "person_who_claimed_name",
+                            "type_of_proof",
+                            "preference_lottery_rank",
+                            "opt_out",
+                          ]
+                        }
+                        table="preferences"
+                        title="Application Preferences"
+                      >
+                        <div
+                          className="content-card"
+                          id="content-card-preferences"
+                        >
+                          <h4
+                            className="content-card_title t-serif"
+                          >
+                            Application Preferences
+                          </h4>
+                          <table>
+                            <thead>
+                              <tr>
+                                <th
+                                  key="Receives Preference"
+                                >
+                                  Receives Preference
+                                </th>
+                                <th
+                                  key="Preference Name"
+                                >
+                                  Preference Name
+                                </th>
+                                <th
+                                  key="Lottery Status"
+                                >
+                                  Lottery Status
+                                </th>
+                                <th
+                                  key="Person who claimed Name"
+                                >
+                                  Person who claimed Name
+                                </th>
+                                <th
+                                  key="Type of proof"
+                                >
+                                  Type of proof
+                                </th>
+                                <th
+                                  key="Preference Lottery Rank"
+                                >
+                                  Preference Lottery Rank
+                                </th>
+                                <th
+                                  key="Opt Out"
+                                >
+                                  Opt Out
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr
+                                key="0"
+                              >
+                                <td
+                                  key="receives_preference"
+                                >
+                                  true
+                                </td>
+                                <td
+                                  key="preference_name"
+                                >
+                                  Alice Griffith Housing Development Resident
+                                </td>
+                                <td
+                                  key="lottery_status"
+                                >
+                                  None
+                                </td>
+                                <td
+                                  key="person_who_claimed_name"
+                                />
+                                <td
+                                  key="type_of_proof"
+                                />
+                                <td
+                                  key="preference_lottery_rank"
+                                />
+                                <td
+                                  key="opt_out"
+                                />
+                              </tr>
+                              <tr
+                                key="1"
+                              >
+                                <td
+                                  key="receives_preference"
+                                />
+                                <td
+                                  key="preference_name"
+                                >
+                                  Neighborhood Resident Housing Preference (NRHP)
+                                </td>
+                                <td
+                                  key="lottery_status"
+                                />
+                                <td
+                                  key="person_who_claimed_name"
+                                />
+                                <td
+                                  key="type_of_proof"
+                                />
+                                <td
+                                  key="preference_lottery_rank"
+                                />
+                                <td
+                                  key="opt_out"
+                                />
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </ApplicationDetailsContentTable>
+                    </Table>
+                    <ApplicationCard
+                      fields={
+                        [
+                          {
+                            "field": "annual_income",
+                            "formatType": "currency",
+                            "label": "Annual Income",
+                          },
+                          {
+                            "field": "monthly_income",
+                            "formatType": "currency",
+                            "label": "Monthly Income",
+                          },
+                          "housing_voucher_or_subsidy",
+                        ]
+                      }
+                      title="Declared Household Income"
+                    >
+                      <ApplicationDetailsContentCard
+                        dataCollection={
+                          {
+                            "alternate_contact": {
+                              "alternate_contact_type": "Friend",
+                              "alternate_contact_type_other": null,
+                              "email": "fede@eee.com",
+                              "first_name": "Federic",
+                              "last_name": "dayan",
+                              "mailing_address": "123 Alternate Mailing St, SF Mailing, CA, 94105-1804",
+                              "mailing_city": "SF Mailing",
+                              "mailing_state": "CA",
+                              "mailing_street": "123 Alternate Mailing St",
+                              "mailing_zip_code": "94105-1804",
+                              "middle_name": "Daaaa",
+                              "phone": "9954449943",
+                              "phone_type": "Cell",
+                            },
+                            "annual_income": 110000,
+                            "answered_community_screening": null,
+                            "applicant": {
+                              "city": "SAN FRANCISCO",
+                              "date_of_birth": {
+                                "day": "01",
+                                "month": "01",
+                                "year": "1950",
+                              },
+                              "email": "eee@eeee.com",
+                              "ethnicity": "Decline to state",
+                              "first_name": "karen",
+                              "gender": "Decline to state",
+                              "gender_other": "gender other",
+                              "id": "a0n0x000000AbE6AAK",
+                              "last_name": "jones",
+                              "mailing_address": "123 Mailing St, SF Mailing, CA, 94105-1804",
+                              "mailing_city": "SF Mailing",
+                              "mailing_state": "CA",
+                              "mailing_street": "123 Mailing St",
+                              "mailing_zip_code": "94105-1804",
+                              "middle_name": "elizabeth",
+                              "name": "karen elizabeth jones",
+                              "phone": "9548883321",
+                              "phone_type": "Cell",
+                              "race": "Decline to state",
+                              "residence_address": "123 MAIN ST, SAN FRANCISCO, CA, 94105-1804",
+                              "second_phone": null,
+                              "second_phone_type": null,
+                              "sexual_orientation": "Decline to state",
+                              "sexual_orientation_other": "sexual orientation other",
+                              "state": "CA",
+                              "street": "123 MAIN ST",
+                              "zip_code": "94105-1804",
+                            },
+                            "application_language": "English",
+                            "application_submission_type": "Electronic",
+                            "application_submitted_date": "2018-06-19",
+                            "createdby": {
+                              "name": "Prod Vertiba",
+                            },
+                            "demographics": {
+                              "ethnicity": "Decline to state",
+                              "gender": "Decline to state",
+                              "gender_other": "gender other",
+                              "race": "Decline to state",
+                              "sexual_orientation": "Decline to state",
+                              "sexual_orientation_other": "sexual orientation other",
+                            },
+                            "flagged_applications": [],
+                            "has_ada_priorities_selected": {
+                              "hearing_impairments": true,
+                              "mobility_impairments": true,
+                              "vision_impairments": true,
+                            },
+                            "has_developmental_disability": null,
+                            "has_military_service": null,
+                            "household_members": [
+                              {
+                                "city": "buenos aires",
+                                "date_of_birth": {
+                                  "day": "11",
+                                  "month": "06",
+                                  "year": "1976",
+                                },
+                                "first_name": "diego",
+                                "last_name": "maradona",
+                                "middle_name": "m",
+                                "name": "diego m maradona",
+                                "relationship_to_applicant": null,
+                                "residence_address": "9 de julio, buenos aires, fl, 33026",
+                                "state": "fl",
+                                "street": "9 de julio",
+                                "zip_code": "33026",
+                              },
+                            ],
+                            "housing_voucher_or_subsidy": "true",
+                            "id": "a0o0x000000OcOzAAK",
+                            "listing": {
+                              "id": "a0W0x000000GhJUEA0",
+                              "name": "Test 5/30",
+                            },
+                            "lottery_number": "00191270",
+                            "lottery_number_manual": null,
+                            "monthly_income": null,
+                            "name": "APP-00191270",
+                            "preferences": [
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
+                                    "day": "01",
+                                    "month": "01",
+                                    "year": "1950",
+                                  },
+                                  "first_name": "karen",
+                                  "last_name": "jones",
+                                },
+                                "application_member_id": "a0n0x000000AbE6AAK",
+                                "certificate_number": null,
+                                "city": null,
+                                "individual_preference": null,
+                                "listing_preference_id": "a0l0x000000RI8nAAG",
+                                "lottery_status": "None",
+                                "name": "AP-0000612141",
+                                "opt_out": null,
+                                "person_who_claimed_name": null,
+                                "preference_name": "Alice Griffith Housing Development Resident",
+                                "preference_order": 0,
+                                "receives_preference": true,
+                                "recordtype_developername": "AG",
+                                "state": null,
+                                "street": null,
+                                "type_of_proof": null,
+                                "zip_code": null,
+                              },
+                              {
+                                "application_member": {
+                                  "date_of_birth": {
+                                    "day": "11",
+                                    "month": "06",
+                                    "year": "1976",
+                                  },
+                                  "first_name": "diego",
+                                  "last_name": "maradona",
+                                },
+                                "application_member_id": "a0n0x000000AbE6AAK",
+                                "certificate_number": null,
+                                "city": null,
+                                "individual_preference": null,
+                                "listing_preference_id": "a0l0P00001QRQGzQAP",
+                                "lw_type_of_proof": null,
+                                "opt_out": false,
+                                "post_lottery_validation": null,
+                                "preference_name": "Neighborhood Resident Housing Preference (NRHP)",
+                                "receives_preference": false,
+                                "recordtype_developername": "NRHP",
+                                "state": null,
+                                "street": null,
+                                "type_of_proof": null,
+                                "zip_code": null,
+                              },
+                            ],
+                            "proof_files": [
+                              {
+                                "document_type": "Namexxx1",
+                                "file_type": "Attachment",
+                                "id": "xxxx1",
+                              },
+                              {
+                                "document_type": "Namexxx2",
+                                "file_type": "File",
+                                "id": "xxxx2",
+                              },
+                            ],
+                            "referral_source": null,
+                            "status": "Submitted",
+                            "terms_acknowledged": true,
+                            "total_household_size": 2,
+                            "total_monthly_rent": null,
+                          }
+                        }
+                        fields={
+                          [
+                            {
+                              "field": "annual_income",
+                              "formatType": "currency",
+                              "label": "Annual Income",
+                            },
+                            {
+                              "field": "monthly_income",
+                              "formatType": "currency",
+                              "label": "Monthly Income",
+                            },
+                            "housing_voucher_or_subsidy",
+                          ]
+                        }
+                        title="Declared Household Income"
+                      >
+                        <div
+                          className="content-card padding-bottom-none margin-bottom--half bg-trans"
+                        >
+                          <h4
+                            className="content-card_title t-serif"
+                          >
+                            Declared Household Income
+                          </h4>
+                          <ul
+                            className="content-grid"
+                          >
+                            <li
+                              className="content-item"
+                            >
+                              <div
+                                className="content-card"
+                              >
+                                <div
+                                  className="margin-bottom--half"
+                                  key="0"
+                                >
+                                  <h4
+                                    className="t-sans t-small t-bold no-margin"
+                                  >
+                                    Annual Income
+                                  </h4>
+                                  <p>
+                                    $110,000.00
+                                  </p>
+                                </div>
+                              </div>
+                            </li>
+                            <li
+                              className="content-item"
+                            >
+                              <div
+                                className="content-card"
+                              >
+                                <div
+                                  className="margin-bottom--half"
+                                  key="1"
+                                >
+                                  <h4
+                                    className="t-sans t-small t-bold no-margin"
+                                  >
+                                    Monthly Income
+                                  </h4>
+                                  <p>
+                                    None
+                                  </p>
+                                </div>
+                                <div
+                                  className="margin-bottom--half"
+                                  key="2"
+                                >
+                                  <h4
+                                    className="t-sans t-small t-bold no-margin"
+                                  >
+                                    Housing Voucher or Subsidy
+                                  </h4>
+                                  <p>
+                                    true
+                                  </p>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </ApplicationDetailsContentCard>
+                    </ApplicationCard>
+                    <div
+                      className="content-card"
+                    >
+                      <h4
+                        className="content-card_title t-serif"
+                      >
+                        Attachments
+                      </h4>
+                      <ul>
+                        <ProofListItems
+                          fileBaseUrl="test_file_url"
+                          files={
+                            [
+                              {
+                                "document_type": "Namexxx1",
+                                "file_type": "Attachment",
+                                "id": "xxxx1",
+                              },
+                              {
+                                "document_type": "Namexxx2",
+                                "file_type": "File",
+                                "id": "xxxx2",
+                              },
+                            ]
+                          }
+                        >
+                          <li
+                            key="xxxx1"
+                          >
+                            <a
+                              href="test_file_url/servlet/servlet.FileDownload?file=xxxx1"
+                              rel="noreferrer"
+                              target="_blank"
+                            >
+                              Namexxx1
+                            </a>
+                          </li>
+                          <li
+                            key="xxxx2"
+                          >
+                            <a
+                              href="test_file_url/sfc/servlet.shepherd/version/download/xxxx2"
+                              rel="noreferrer"
+                              target="_blank"
+                            >
+                              Namexxx2
+                            </a>
+                          </li>
+                        </ProofListItems>
+                      </ul>
+                    </div>
+                  </div>
+                </ApplicationDetails>
               </div>
-            </li>
-            <li
-              className="content-item"
-            >
-              <div
-                className="content-card"
-              >
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Second Phone
-                  </h4>
-                  <p>
-                    None
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Email
-                  </h4>
-                  <p>
-                    eee@eeee.com
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Residence Address
-                  </h4>
-                  <p>
-                    123 MAIN ST, SAN FRANCISCO, CA, 94105-1804
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Mailing Address
-                  </h4>
-                  <p>
-                    123 MAIN ST, SAN FRANCISCO, CA, 94105-1804
-                  </p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div
-          className="content-card padding-bottom-none margin-bottom--half bg-trans"
-        >
-          <h4
-            className="content-card_title t-serif"
-          >
-            Alternate Contact
-          </h4>
-          <ul
-            className="content-grid"
-          >
-            <li
-              className="content-item"
-            >
-              <div
-                className="content-card"
-              >
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    First Name
-                  </h4>
-                  <p>
-                    Federic
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Last Name
-                  </h4>
-                  <p>
-                    dayan
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Phone
-                  </h4>
-                  <p>
-                    9954449943
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Agency Name
-                  </h4>
-                  <p>
-                    None
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li
-              className="content-item"
-            >
-              <div
-                className="content-card"
-              >
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Email
-                  </h4>
-                  <p>
-                    fede@eee.com
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Alternate Contact Type
-                  </h4>
-                  <p>
-                    Friend
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Alternate Contact Type Other
-                  </h4>
-                  <p>
-                    None
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Mailing Address
-                  </h4>
-                  <p>
-                    123 MAIN ST, SAN FRANCISCO, CA, 94105-1804
-                  </p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div
-          className="content-card"
-          id="content-card-household_members"
-        >
-          <h4
-            className="content-card_title t-serif"
-          >
-            Household Members
-          </h4>
-          <table>
-            <thead>
-              <tr>
-                <th>
-                  Name
-                </th>
-                <th>
-                  Relationship to Applicant
-                </th>
-                <th>
-                  Date of Birth
-                </th>
-                <th>
-                  Street
-                </th>
-                <th>
-                  City
-                </th>
-                <th>
-                  State
-                </th>
-                <th>
-                  Zip Code
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  diego m maradona
-                </td>
-                <td />
-                <td>
-                  06/11/1976
-                </td>
-                <td>
-                  9 de julio
-                </td>
-                <td>
-                  buenos aires
-                </td>
-                <td>
-                  fl
-                </td>
-                <td>
-                  33026
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div
-          className="content-card padding-bottom-none margin-bottom--half bg-trans"
-        >
-          <h4
-            className="content-card_title t-serif"
-          >
-            Reserved and Priority Qualifying Information
-          </h4>
-          <ul
-            className="content-grid"
-          >
-            <li
-              className="content-item"
-            >
-              <div
-                className="content-card"
-              >
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Has Military Service
-                  </h4>
-                  <p>
-                    None
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Has Developmental Disability
-                  </h4>
-                  <p>
-                    None
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li
-              className="content-item"
-            >
-              <div
-                className="content-card"
-              >
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Has ADA Priorities Selected
-                  </h4>
-                  <p>
-                    Vision impairments;Mobility impairments;Hearing impairments
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Answered Community Screening
-                  </h4>
-                  <p>
-                    None
-                  </p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div
-          className="content-card"
-          id="content-card-preferences"
-        >
-          <h4
-            className="content-card_title t-serif"
-          >
-            Application Preferences
-          </h4>
-          <table>
-            <thead>
-              <tr>
-                <th>
-                  Receives Preference
-                </th>
-                <th>
-                  Preference Name
-                </th>
-                <th>
-                  Lottery Status
-                </th>
-                <th>
-                  Person who claimed Name
-                </th>
-                <th>
-                  Type of proof
-                </th>
-                <th>
-                  Preference Lottery Rank
-                </th>
-                <th>
-                  Opt Out
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td />
-                <td>
-                  Alice Griffith Housing Development Resident
-                </td>
-                <td>
-                  None
-                </td>
-                <td />
-                <td />
-                <td />
-                <td />
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div
-          className="content-card padding-bottom-none margin-bottom--half bg-trans"
-        >
-          <h4
-            className="content-card_title t-serif"
-          >
-            Declared Household Income
-          </h4>
-          <ul
-            className="content-grid"
-          >
-            <li
-              className="content-item"
-            >
-              <div
-                className="content-card"
-              >
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Annual Income
-                  </h4>
-                  <p>
-                    110000
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li
-              className="content-item"
-            >
-              <div
-                className="content-card"
-              >
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Monthly Income
-                  </h4>
-                  <p>
-                    None
-                  </p>
-                </div>
-                <div
-                  className="margin-bottom--half"
-                >
-                  <h4
-                    className="t-sans t-small t-bold no-margin"
-                  >
-                    Housing Voucher or Subsidy
-                  </h4>
-                  <p>
-                    true
-                  </p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div
-          className="content-card"
-          id="content-card-flagged_applications"
-        >
-          <h4
-            className="content-card_title t-serif"
-          >
-            Flagged Applications
-          </h4>
-          <table>
-            <thead>
-              <tr>
-                <th>
-                  Rule Name
-                </th>
-                <th>
-                  Total Number of Pending Review
-                </th>
-                <th>
-                  View Record Set
-                </th>
-              </tr>
-            </thead>
-            <tbody />
-          </table>
-        </div>
-        <div
-          className="content-card"
-        >
-          <h4
-            className="content-card_title t-serif"
-          >
-            Attachments
-          </h4>
-          <ul>
-            <li>
-              <a
-                href="undefined/servlet/servlet.FileDownload?file=xxxx1"
-                target="_blank"
-              >
-                Namexxx1
-              </a>
-            </li>
-            <li>
-              <a
-                href="undefined/servlet/servlet.FileDownload?file=xxxx2"
-                target="_blank"
-              >
-                Namexxx2
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>,
-]
+            </Loading>
+          </div>
+        </AppCard>
+      </section>
+    </TabCard>
+  </CardLayout>
+</ApplicationPage>
 `;

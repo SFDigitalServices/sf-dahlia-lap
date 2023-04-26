@@ -1,6 +1,6 @@
 import React from 'react'
+
 import ReactModal from 'react-modal'
-import { startCase } from 'lodash'
 
 import Alert from '../organisms/Alert'
 
@@ -27,28 +27,26 @@ const styleTypes = {
   }
 }
 
-class Modal extends React.Component {
-  defaultStyleType = 'small'
-
-  render () {
-    const { children, isOpen, handleClose, styleType } = this.props
-    const style = styleTypes[styleType || this.defaultStyleType]
-    return (
-      <ReactModal
-        isOpen={isOpen}
-        style={style}
-        onRequestClose={handleClose}
-        shouldCloseOnOverlayClick>
-        {children}
-      </ReactModal>
-    )
-  }
-}
+const Modal = ({ children, isOpen, handleClose, styleType }) => (
+  <ReactModal
+    isOpen={isOpen}
+    style={styleTypes[styleType || 'small']}
+    onRequestClose={handleClose}
+    shouldCloseOnOverlayClick
+    ariaHideApp={process.env.NODE_ENV !== 'test'}
+  >
+    {children}
+  </ReactModal>
+)
 
 Modal.Body = ({ children, handleClose, hidden }) => (
   <div aria-labelledby='modalTitle' aria-hidden={hidden} role='dialog'>
     {children}
-    <button className='button button-link close-reveal-modal' aria-label='Close modal' onClick={handleClose}>
+    <button
+      className='button button-link close-reveal-modal'
+      aria-label='Close modal'
+      onClick={handleClose}
+    >
       <span className='sr-only'>Close</span>
       <span className='ui-icon ui-medium i-primary'>
         <svg>
@@ -59,28 +57,20 @@ Modal.Body = ({ children, handleClose, hidden }) => (
   </div>
 )
 
-Modal.Header = ({ title }) => (
-  <header className='modal-inner margin-top'>
-    <h1 className='modal-title t-gamma no-margin'>{startCase(title)}</h1>
+Modal.Header = ({ id, title }) => (
+  <header id={id} className='modal-inner margin-top'>
+    <h1 className='modal-title t-gamma no-margin'>{title}</h1>
   </header>
 )
 
-Modal.Content = ({ children }) => (
-  <section className='modal-inner'>
-    {children}
-  </section>
-)
+Modal.Content = ({ children }) => <section className='modal-inner'>{children}</section>
 
 Modal.Footer = ({ children }) => (
   <footer className='modal-footer bg-dust'>
-    <div className='modal-button-group row'>
-      { children }
-    </div>
+    <div className='modal-button-group row'>{children}</div>
   </footer>
 )
 
-Modal.Alert = (props) => {
-  return (<Alert {...props} />)
-}
+Modal.Alert = (props) => <Alert {...props} />
 
 export default Modal

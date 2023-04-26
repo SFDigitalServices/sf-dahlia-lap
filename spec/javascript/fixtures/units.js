@@ -1,35 +1,24 @@
 const units = [
   {
-    "attributes": {
-      "type": "Unit",
-      "url": "/services/data/v26.0/sobjects/Unit/a0b0x000000yyMBAAY"
-    },
-    "Unit_Type": "Studio",
-    "BMR_Rent_Monthly": null,
-    "BMR_Rental_Minimum_Monthly_Income_Needed": 0,
-    "Status": "Available",
-    "Property_Type": null,
-    "AMI_chart_type": "HUD Unadjusted",
-    "AMI_chart_year": 2017,
-    "of_AMI_for_Pricing_Unit": null,
-    "Reserved_Type": null
+    'unit_type': 'Studio',
+    'bmr_rent_monthly': null,
+    'bmr_rental_minimum_monthly_income_needed': 0,
+    'status': 'Available',
+    'property_type': null,
+    'ami_chart_type': 'HUD Unadjusted',
+    'ami_chart_year': 2017,
+    'reserved_type': null
   },
   {
-    "attributes": {
-      "type": "Unit",
-      "url": "/services/data/v26.0/sobjects/Unit/a0b0x000000yyMBAAY"
-    },
-    "Unit_Type": "Studio",
-    "BMR_Rent_Monthly": null,
-    "BMR_Rental_Minimum_Monthly_Income_Needed": 0,
-    "Status": "Available",
-    "Property_Type": null,
-    "AMI_chart_type": "Non-Hera",
-    "AMI_chart_year": 2016,
-    "of_AMI_for_Pricing_Unit": null,
-    "Reserved_Type": null
+    'unit_type': 'Studio',
+    'bmr_rent_monthly': null,
+    'bmr_rental_minimum_monthly_income_needed': 0,
+    'status': 'Available',
+    'property_type': null,
+    'ami_chart_type': 'Non-Hera',
+    'ami_chart_year': 2016,
+    'reserved_type': null
   }
 ]
-
 
 export default units

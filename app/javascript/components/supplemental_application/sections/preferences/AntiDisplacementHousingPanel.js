@@ -1,36 +1,47 @@
 import React from 'react'
-import { Select } from 'react-form'
 
-import FormGrid from '~/components/molecules/FormGrid'
-import { FormItem, Comment, SelectStatus } from './utils'
-import formOptions from '~/components/applications/application_form/formOptions'
-import { buildFieldId, memberNameFromPref } from '~/components/applications/application_form/preferences/utils'
+import formOptions from 'components/applications/application_form/formOptions'
+import { buildFieldId } from 'components/applications/application_form/preferences/utils'
+import FormGrid from 'components/molecules/FormGrid'
+import { SelectField } from 'utils/form/final_form/Field'
 
-const {
-  preferenceProofOptionsDefault
-} = formOptions
+import { FormItem, Comment, statusOptions } from './utils'
 
-export const AntiDisplacementHousingPanel = ({ preferenceIndex, preference }) => {
+const { labelize } = formOptions
+
+const { preferenceProofOptionsDefault } = formOptions
+
+export const AntiDisplacementHousingPanel = ({
+  preferenceIndex,
+  preference,
+  applicationMembersOptions
+}) => {
   return (
-    <React.Fragment>
+    <>
       <FormGrid.Row expand={false}>
         <FormItem label='Preference Name'>
-          <div className='text-value'>
-          Anti-Displacement Housing Preference
-          </div>
+          <div className='text-value'>Anti-Displacement Housing Preference</div>
         </FormItem>
-        <FormItem label='HH Member on Proof'>
-          {/*
-            TODO: Add ability for users to change application member on pref.
-            For now, we just show the current app member in a read-only field.
-          */}
-          <input value={memberNameFromPref(preference)} disabled='true' />
+        <FormItem>
+          <SelectField
+            fieldName={buildFieldId(preferenceIndex, 'application_member_id')}
+            options={labelize(applicationMembersOptions, { disableEmpty: true })}
+            label='HH Member on Proof'
+          />
         </FormItem>
-        <FormItem label='Type of Proof'>
-          <Select field={buildFieldId(preferenceIndex, 'type_of_proof')} options={preferenceProofOptionsDefault} />
+        <FormItem>
+          <SelectField
+            fieldName={buildFieldId(preferenceIndex, 'type_of_proof')}
+            options={preferenceProofOptionsDefault}
+            label='Type of Proof'
+          />
         </FormItem>
-        <FormItem label='Status'>
-          <SelectStatus preferenceIndex={preferenceIndex} />
+        <FormItem>
+          <SelectField
+            fieldName={buildFieldId(preferenceIndex, 'post_lottery_validation')}
+            options={labelize(statusOptions, { disableEmpty: true })}
+            label='Status'
+          />
         </FormItem>
       </FormGrid.Row>
       <FormGrid.Row expand={false}>
@@ -41,14 +52,15 @@ export const AntiDisplacementHousingPanel = ({ preferenceIndex, preference }) =>
               if no proof document is provided, do not confirm this preference.
             </Comment>
             <Comment>
-              If the HH member name on the proof is not the primary applicant,
-              their residence address must have been provided at time of the original application.
-              MOHCD will verify that their address qualifies for this preference.
+              If the HH member name on the proof is not the primary applicant, their residence
+              address must have been provided at time of the original application. MOHCD will verify
+              that their address qualifies for this preference.
             </Comment>
           </div>
         </div>
       </FormGrid.Row>
-    </React.Fragment>)
+    </>
+  )
 }
 
 export default AntiDisplacementHousingPanel

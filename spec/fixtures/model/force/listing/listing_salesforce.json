@@ -1,0 +1,124 @@
+{
+  "Accessibility": "Elevator to all floors",
+  "Account": {
+    "Name": "Exygy"
+  },
+  "Amenities": "Laundry room, underground parking, courtyard, bike room",
+  "Application_City": "San Francisco",
+  "Application_Due_Date": "2020-05-02T00:00:00.000+0000",
+  "Application_Organization": "280 Fell-BMR",
+  "Application_Phone": "(415) 227-2256",
+  "Application_Postal_Code": "94142",
+  "Application_State": "CA",
+  "Application_Street_Address": "P.O. Box 420847",
+  "Building": {
+    "Name": "PR-007828"
+  },
+  "Building_City": "San Francisco",
+  "Building_Name": "Automated Test Building",
+  "Building_Selection_Criteria": "criteria",
+  "Building_State": "CA",
+  "Building_Street_Address": null,
+  "Building_URL": "building_url",
+  "Building_Zip_Code": null,
+  "Costs_Not_Included": "Tenants pay for gas, electricity.\r\n\r\nFor pet \"fees\":  Cat is allowed with a $500 refundable deposit, $250 non-refundable cleaning fee and a pet addendum.  \r\n\r\nDogs are not allowed in the building.  \r\n\r\nOne parking space per unit available for $175 a month.",
+  "Credit_Rating": "Privide a credit report with score from...",
+  "Criminal_History": null,
+  "Deposit_Max": 2355,
+  "Deposit_Min": 2102,
+  "Description": null,
+  "Developer": "TEST Property Manager",
+  "Download_URL": null,
+  "Eviction_History": "Provide minimum of 4 years rental history with at least two prior rentals in which you were responsible for paying the rent.  Applicants without rental history will still be considered. No Guarantors permitted. \r\n\r\nPrevious rental history will be reviewed and must exhibit no derogatory references. \r\n\r\nLandlord references will only check for evictions, payment history, and documented lease violations. No-fault evictions (Ellis Act, Owner Move-in evictions) will not be held against a household. \r\n\r\nAll debt owed to an apartment community must be satisfied. \r\n\r\nMitigating circumstances may be considered.",
+  "Fee": null,
+  "Id": "a0W0P00000F8YG4UAN",
+  "In_Lottery": 5383,
+  "Information_Sessions": [
+    {
+      "City": "San Francisco",
+      "Date": "2020-02-02",
+      "End_Time": "12:00PM",
+      "Start_Time": "11:00AM",
+      "Street_Address": "123 Fake Street",
+      "Venue": "Moscone Center"
+    }
+  ],
+  "LastModifiedDate": null,
+  "Lease_Signed_Application": "",
+  "Leasing_Agent_Email": "abc.xyz@sfgov.org",
+  "Leasing_Agent_Name": "James",
+  "Leasing_Agent_Phone": "(555) 555-5555",
+  "Leasing_Agent_Title": "Agent",
+  "Legal_Disclaimers": "disclaimer",
+  "Listing_Lottery_Preferences": [
+    {
+      "Id": "123prefid",
+      "Total_Submitted_Apps": 4.0,
+      "Order": 2,
+      "Description": "Lottery preference description",
+      "Available_Units": 30,
+      "PDF_URL": "pdfurllink",
+      "Lottery_Preference": {
+        "Id": "lotterypreferenceid1",
+        "Name": "lotterypreferencename1"
+      }
+    }
+  ],
+  "Lottery_City": "San Francisco",
+  "Lottery_Date": "2017-03-22T18:00:00.000+0000",
+  "Lottery_Preferences": null,
+  "Lottery_Results": null,
+  "Lottery_Results_Date": null,
+  "Lottery_Status": "Not Yet Run",
+  "Lottery_Street_Address": "1 S. Van Ness Avenue 5th FL",
+  "Lottery_Summary": null,
+  "Lottery_URL": null,
+  "Lottery_Venue": "MOHCD",
+  "Lottery_Winners": 0,
+  "Max_BR": null,
+  "Max_Income": null,
+  "Max_Occupancy": null,
+  "Min_BR": null,
+  "Min_Income": 5255,
+  "Min_Occupancy": 1,
+  "Name": "Automated Test Listing (do not modify)",
+  "Neighborhood": "Hayes Valley",
+  "nFlagged_Applications": 1,
+  "Office_Hours": null,
+  "Open_Houses": [
+    {
+      "Date": "2018-02-23",
+      "End_Time": "12:00PM",
+      "Start_Time": "9:00AM"
+    }
+  ],
+  "Owner": {
+    "Name": "Brooke"
+  },
+  "OwnerId": "005U0000005KidlIAC",
+  "Pet_Policy": "No Pets",
+  "Report_id": null,
+  "Required_Documents": "Need to fill out a building application.",
+  "Reserved_community_type": null,
+  "Smoking_Policy": "Non-smoking building",
+  "Status": "Active",
+  "Tenure": "Re-rental",
+  "Units": [
+    {
+      "Id": "abc123",
+      "AMI_chart_type": "HUD Unadjusted",
+      "AMI_chart_year": 2016,
+      "AMI_percentage": 5.55,
+      "BMR_Rent_Monthly": 2102,
+      "BMR_Rental_Minimum_Monthly_Income_Needed": 5255,
+      "Max_AMI_for_Qualifying_Unit": 50,
+      "Property_Type": null,
+      "Reserved_Type": null,
+      "Status": "Available",
+      "Unit_Number": 2,
+      "Unit_Type": "1 BR"
+    }
+  ],
+  "Units_Available": 12,
+  "Year_Built": 2009
+}

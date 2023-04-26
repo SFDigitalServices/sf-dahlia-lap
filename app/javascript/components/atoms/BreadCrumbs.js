@@ -1,37 +1,54 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-const Item = ({ item, current }) => {
-  if (current) {
-    return <li className='current'><a href={item.link} aria-current='page'>{item.title}</a></li>
-  } else {
-    return <li><a href={item.link}>{item.title}</a></li>
-  }
+import classNames from 'classnames'
+import PropTypes from 'prop-types'
+import { NavLink } from 'react-router-dom'
+
+// Visible for testing only.
+export const Item = ({ item, current }) => {
+  const ariaCurrentValue = current ? 'page' : undefined
+
+  return (
+    <li className={classNames({ current: current })}>
+      {item.renderAsRouterLink ? (
+        <NavLink to={item.link} aria-current={ariaCurrentValue}>
+          {item.title}
+        </NavLink>
+      ) : (
+        <a href={item.link} aria-current={ariaCurrentValue}>
+          {item.title}
+        </a>
+      )}
+    </li>
+  )
 }
 
 const BreadCrumbs = ({ items }) => {
   if (!items || items.length === 0) return null
 
-  const lastItem = items[items.length - 1]
   return (
     <nav aria-label='breadcrumb'>
       <ol className='breadcrumbs'>
-        {items.slice(0, items.length - 1).map(item => <Item key={item.title} item={item} />)}
-        <Item key={lastItem.name} item={lastItem} current />
+        {items.map((item, idx) => (
+          <Item key={idx} item={item} current={idx === items.length - 1} />
+        ))}
       </ol>
     </nav>
   )
 }
 
+const itemShape = PropTypes.shape({
+  title: PropTypes.node.isRequired,
+  link: PropTypes.node.isRequired,
+  renderAsRouterLink: PropTypes.bool
+})
+
 Item.propTypes = {
-  item: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired
-  })
+  item: itemShape
 }
 
 BreadCrumbs.propTypes = {
-  items: PropTypes.array.isRequired
+  items: PropTypes.arrayOf(itemShape)
 }
 
 export default BreadCrumbs

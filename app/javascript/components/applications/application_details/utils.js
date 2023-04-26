@@ -1,18 +1,22 @@
 import { each, startCase, isPlainObject, includes, last, replace } from 'lodash'
-import utils from '~/utils/utils'
+
+import utils from 'utils/utils'
 
 const cleanupWords = (value) => {
-  each([
-    [' Or ', ' or '],
-    [' Of ', ' of '],
-    ['Proof', 'proof'],
-    ['Who', 'who'],
-    ['Ada', 'ADA'],
-    [' To ', ' to '],
-    ['Claimed', 'claimed']
-  ], ([a, b]) => {
-    value = replace(value, a, b)
-  })
+  each(
+    [
+      [' Or ', ' or '],
+      [' Of ', ' of '],
+      ['Proof', 'proof'],
+      ['Who', 'who'],
+      ['Ada', 'ADA'],
+      [' To ', ' to '],
+      ['Claimed', 'claimed']
+    ],
+    ([a, b]) => {
+      value = replace(value, a, b)
+    }
+  )
 
   return value
 }

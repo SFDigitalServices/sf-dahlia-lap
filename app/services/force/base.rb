@@ -13,20 +13,7 @@ module Force
     end
 
     def revoke_token
-      @client.get("/services/oauth2/revoke?token=#{@client.options[:oauth_token]}")
-    end
-
-    # cache a Salesforce SOQL query
-    # NOTE: because we are also performing updates, we can either:
-    # -- clear cache upon update
-    # -- not use caching for now
-    def cache_query(q)
-      force_refresh = !ENV['CACHE_SALESFORCE_REQUESTS']
-      key = Digest::MD5.hexdigest(q)
-      result = Rails.cache.fetch(key, force: force_refresh) do
-        query(q).as_json
-      end
-      result.map { |i| Hashie::Mash.new(i) }
+      @client.try("/services/oauth2/revoke?token=#{@client.options[:oauth_token]}")
     end
 
     def debug(q)
@@ -34,29 +21,9 @@ module Force
     end
     # run a Salesforce SOQL query
 
-    # This method was added to help developers debug/code faster.
-    # because some queries take way too long (like Applications)
-    # It's not designed to be used in prod.
-    # it can be enable by setting CACHE_SALESFORCE_REQUESTS=yes
-    # I'm not using cache_query since the logic it's different. cache_query should be removed. Also, it's not being used.
-    # Fed
-    def query_with_cache(q)
-      puts 'Using caching for query....'
-      key = Digest::MD5.hexdigest(q)
-      result = Rails.cache.fetch(key) do
-        puts '...not hitting cache'
-        @client.query(q).as_json.take(50) # we do not need all the results..for example in applications
-      end
-      result.map { |i| Hashie::Mash.new(i) }
-    end
-
     def query(q)
       debug(q)
-      if Rails.env.development? && ENV['CACHE_SALESFORCE_REQUESTS']
-        query_with_cache(q)
-      else
-        @client.query(q)
-      end
+      @client.query(q)
     end
 
     def query_first(q)
@@ -87,6 +54,10 @@ module Force
 
     def api_get(endpoint, params = {})
       @api.get(endpoint, params)
+    end
+
+    def api_put(endpoint, params)
+      @api.put(endpoint, params)
     end
 
     private_class_method

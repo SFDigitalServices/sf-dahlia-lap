@@ -1,94 +1,116 @@
 import React from 'react'
-import { Form, NestedForm, Text, Select } from 'react-form'
-import formOptions from './formOptions'
+
+import { InputField, SelectField } from 'utils/form/final_form/Field'
+import { MultiDateField } from 'utils/form/final_form/MultiDateField'
+import validate from 'utils/form/validations'
+import { maxLengthMap } from 'utils/formUtils'
+
 import AddressForm from './AddressForm'
-import validate from '~/utils/form/validations'
-import { Field } from '~/utils/form/Field'
-import { MultiDateField } from '~/utils/form/MultiDateField'
+import formOptions from './formOptions'
 import { mailingAddressFieldMap } from './utils'
 
-let { phoneTypeOptions } = formOptions
+const { phoneTypeOptions } = formOptions
 
-const validateError = validate({
-  date_of_birth: validate.any(
-    validate.isValidDate('Please enter a valid Date of Birth'),
-    validate.isOldEnough('The primary applicant must be 18 years of age or older')
-  ),
-  first_name: validate.isPresent('Please enter a First Name'),
-  last_name: validate.isPresent('Please enter a Last Name')
-})
-
-const PrimaryApplicantSection = ({ formApi, editValues }) => {
-  let autofillValues = {}
-  if (editValues && !formApi.values.primaryApplicant) {
-    autofillValues = editValues.applicant
-  }
+const PrimaryApplicantSection = ({ form }) => {
   return (
-    <NestedForm field='applicant'>
-      <Form defaultValues={autofillValues} validateError={validateError} >
-        { formApi => (
-          <div className='border-bottom margin-bottom--2x'>
-            <div className='row'>
-              <h3>Primary Applicant</h3>
-            </div>
-            <div className='row'>
-              <div className='form-group'>
-                <div className='small-4 columns'>
-                  <Field.Text
-                    id='first_name'
-                    label='First Name'
-                    blockNote='(required)'
-                    field='first_name'
-                    errorMessage={(label, error) => error}
-                  />
-                </div>
-                <div className='small-4 columns'>
-                  <label>Middle Name</label>
-                  <Text field='middle_name' />
-                </div>
-                <div className='small-4 columns'>
-                  <Field.Text
-                    id='last_name'
-                    label='Last Name'
-                    blockNote='(required)'
-                    field='last_name'
-                    errorMessage={(label, error) => error}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className='row'>
-              <div className='small-4 columns'>
-                <label>Email</label>
-                <Text field='email' />
-              </div>
-              <div className='small-4 columns'>
-                <label>Phone</label>
-                <Text field='phone' />
-              </div>
-              <div className='small-4 columns'>
-                <label>Phone Type</label>
-                <Select field='phone_type' options={phoneTypeOptions} />
-              </div>
-            </div>
-            <div className='row'>
-              <div className='small-4 columns form-date-of-birth'>
-                <MultiDateField
-                  id='date_of_birth'
-                  field='date_of_birth'
-                  formApi={formApi}
-                  label='Date of Birth'
-                  blockNote='(required)'
-                  errorMessage={(label, error) => error}
-                />
-              </div>
-            </div>
-            <AddressForm title='Home Address' memberType='primaryApplicant' />
-            <AddressForm title='Mailing Address' memberType='primaryApplicant' fieldMap={mailingAddressFieldMap} />
+    <div className='border-bottom margin-bottom--2x'>
+      <div className='row'>
+        <h3>Primary Applicant</h3>
+      </div>
+      <div className='row'>
+        <div className='form-group'>
+          <div className='small-4 columns'>
+            <InputField
+              fieldName='applicant.first_name'
+              id='first_name'
+              label='First Name'
+              blockNote='(required)'
+              validation={validate.isPresent('Please enter a First Name')}
+              maxLength={maxLengthMap.first_name}
+            />
           </div>
-        )}
-      </Form>
-    </NestedForm>
+          <div className='small-4 columns'>
+            <InputField
+              fieldName='applicant.middle_name'
+              id='middle_name'
+              label='Middle Name'
+              maxLength={maxLengthMap.middle_name}
+            />
+          </div>
+          <div className='small-4 columns'>
+            <InputField
+              fieldName='applicant.last_name'
+              id='last_name'
+              label='Last Name'
+              blockNote='(required)'
+              validation={validate.isPresent('Please enter a Last Name')}
+              maxLength={maxLengthMap.last_name}
+            />
+          </div>
+        </div>
+      </div>
+      <div className='row'>
+        <div className='small-4 columns'>
+          <InputField
+            type='text'
+            label='Email'
+            id='email'
+            fieldName='applicant.email'
+            validation={validate.isValidEmail('Please enter a valid Email')}
+            maxLength={maxLengthMap.email}
+          />
+        </div>
+        <div className='small-4 columns'>
+          <InputField
+            fieldName='applicant.phone'
+            id='phone'
+            label='Primary Phone Number'
+            maxLength={maxLengthMap.phone}
+          />
+        </div>
+        <div className='small-4 columns'>
+          <SelectField
+            fieldName='applicant.phone_type'
+            id='phone_type'
+            label='Primary Phone Number- Type'
+            options={phoneTypeOptions}
+          />
+        </div>
+      </div>
+      <div className='row'>
+        <div className='small-4 columns form-date-of-birth'>
+          <MultiDateField
+            form={form}
+            fieldName='applicant.date_of_birth'
+            id='date_of_birth'
+            label='Date of Birth'
+            blockNote='(required)'
+          />
+        </div>
+        <div className='small-4 columns'>
+          <InputField
+            label='Second Phone Number'
+            fieldName='applicant.second_phone'
+            id='second_phone'
+            maxLength={maxLengthMap.phone}
+          />
+        </div>
+        <div className='small-4 columns'>
+          <SelectField
+            fieldName='applicant.second_phone_type'
+            id='second_phone_type'
+            label='Second Phone Number- Type'
+            options={phoneTypeOptions}
+          />
+        </div>
+      </div>
+      <AddressForm title='Home Address' fieldName='applicant' />
+      <AddressForm
+        title='Mailing Address'
+        fieldName='applicant'
+        addressFieldMap={mailingAddressFieldMap}
+      />
+    </div>
   )
 }
 

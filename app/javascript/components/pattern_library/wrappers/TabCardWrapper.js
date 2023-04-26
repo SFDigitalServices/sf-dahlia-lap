@@ -1,7 +1,7 @@
 import React from 'react'
 
-import ContentSection from '~/components/molecules/ContentSection'
-import TabCard from '~/components/organisms/TabCard'
+import ContentSection from 'components/molecules/ContentSection'
+import TabCard from 'components/organisms/TabCard'
 
 const TabCardWrapper = () => {
   return (
@@ -17,7 +17,8 @@ const TabCardWrapper = () => {
         placeholder='Enter Text'
         describeId='label'
         note='More text'
-        error='Please enter a First Name' />
+        error='Please enter a First Name'
+      />
     </TabCard>
   )
 }

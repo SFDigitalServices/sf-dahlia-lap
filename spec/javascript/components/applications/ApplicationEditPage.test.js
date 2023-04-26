@@ -1,75 +1,153 @@
-/* global wait */
 import React from 'react'
-import renderer from 'react-test-renderer'
-import { clone } from 'lodash'
+
 import { mount } from 'enzyme'
+import { clone } from 'lodash'
+import { act } from 'react-dom/test-utils'
+import renderer from 'react-test-renderer'
 
 import ApplicationEditPage from 'components/applications/ApplicationEditPage'
-import sharedHooks from '../../support/sharedHooks'
+
+import mockApplication from '../../fixtures/application'
+import lendingInstitutions from '../../fixtures/lending_institutions'
 import listing from '../../fixtures/listing'
-import application from '../../fixtures/application'
-import mockApplicationApiEditPayload from '../../fixtures/application_api_edit_payload'
 
 const mockSubmitApplication = jest.fn()
 
 jest.mock('apiService', () => {
   return {
-    submitApplication: async (data) => {
-      mockSubmitApplication(data)
-      return true
+    submitApplication: async (application) => {
+      mockSubmitApplication(application)
+      return { application }
     }
   }
 })
 
 describe('ApplicationEditPage', () => {
+  // navigation helper for tests that change window.location on success
+  const originalLocation = window.location
+  beforeEach(() => {
+    delete window.location
+    window.location = { href: '' }
+  })
+
+  afterEach(() => {
+    window.location = originalLocation
+  })
+
   test('it should save correctly', async () => {
-    const wrapper = mount(
-      <ApplicationEditPage
-        listing={listing}
-        application={application}
-        editPage />
-    )
+    let wrapper
+    await act(async () => {
+      wrapper = mount(
+        <ApplicationEditPage
+          listing={listing}
+          application={mockApplication}
+          lendingInstitutions={lendingInstitutions}
+          editPage
+        />
+      )
+    })
+    await act(async () => {
+      wrapper.find('form').first().simulate('submit')
+    })
 
-    wrapper.find('form').first().simulate('submit')
+    const expectedApplication = {
+      ...mockApplication,
+      listing_id: listing.id
+    }
 
-    await wait(100)
+    expectedApplication.preferences[0].naturalKey = 'karen,jones,1950-01-01'
+    expectedApplication.preferences[1].naturalKey = 'diego,maradona,1976-06-11'
+    expect(mockSubmitApplication.mock.calls).toHaveLength(1)
+    expect(mockSubmitApplication.mock.calls[0][0]).toEqual(expectedApplication)
+  })
 
-    expect(mockSubmitApplication.mock.calls.length).toBe(1)
-    expect(mockSubmitApplication.mock.calls[0][0]).toEqual(mockApplicationApiEditPayload)
+  test('it should not save if preference members dont match with application members', async () => {
+    const applicationWithInvalidPrefs = { ...mockApplication }
+    applicationWithInvalidPrefs.preferences[1].application_member.first_name = 'james'
+
+    let wrapper
+    await act(async () => {
+      wrapper = mount(
+        <ApplicationEditPage
+          listing={listing}
+          application={applicationWithInvalidPrefs}
+          lendingInstitutions={lendingInstitutions}
+          editPage
+        />
+      )
+    })
+    await act(async () => {
+      wrapper.find('form').first().simulate('submit')
+    })
+
+    expect(mockSubmitApplication.mock.calls).toHaveLength(0)
+  })
+
+  test('it should not save with demographics validation errors', async () => {
+    const applicationWithInvalidDemo = {
+      ...mockApplication,
+      demographics: {
+        sexual_orientation: 'not listed',
+        sexual_orientation_other: null
+      }
+    }
+
+    let wrapper
+    await act(async () => {
+      wrapper = mount(
+        <ApplicationEditPage
+          listing={listing}
+          application={applicationWithInvalidDemo}
+          lendingInstitutions={lendingInstitutions}
+          editPage
+        />
+      )
+    })
+    await act(async () => {
+      wrapper.find('form').first().simulate('submit')
+    })
+
+    expect(mockSubmitApplication.mock.calls).toHaveLength(0)
   })
 
   describe('should render', () => {
-    sharedHooks.useFakeTimers()
-
     test('successfully', () => {
       const wrapper = renderer.create(
         <ApplicationEditPage
           listing={listing}
-          application={application}
-          editPage />
+          application={mockApplication}
+          lendingInstitutions={lendingInstitutions}
+          editPage
+        />
       )
 
       expect(wrapper.toJSON()).toMatchSnapshot()
     })
 
     test('successfully with preferences', () => {
-      const applicationWithPreferences = clone(application)
+      const applicationWithPreferences = clone(mockApplication)
 
-      applicationWithPreferences.preferences[0].Application_Member = {
-        Date_of_Birth: '1981-05-04',
-        First_Name: 'Flagby',
-        Id: 'a0n0x000000B3xDAAS',
-        Last_Name: 'Email'
+      applicationWithPreferences.preferences[0].application_member = {
+        date_of_birth: {
+          year: '1981',
+          month: '05',
+          day: '04'
+        },
+        first_name: 'Flagby',
+        id: 'a0n0x000000B3xDAAS',
+        last_name: 'Email'
       }
 
-      expect(applicationWithPreferences.preferences).toHaveLength(1)
-      expect(applicationWithPreferences.preferences[0].Application_Member).toBeTruthy()
+      expect(applicationWithPreferences.preferences).toHaveLength(2)
+      expect(applicationWithPreferences.preferences[0].application_member).toBeTruthy()
 
       const wrapper = renderer.create(
         <ApplicationEditPage
           listing={listing}
-          application={application}
-          editPage />
+          application={mockApplication}
+          lendingInstitutions={lendingInstitutions}
+          editPage
+        />
       )
 
       expect(wrapper.toJSON()).toMatchSnapshot()

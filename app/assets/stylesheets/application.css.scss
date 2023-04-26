@@ -4,8 +4,10 @@
  * - LAP includes some leasing agent portal styles and overrides.
  * - note: react-table.css default style is included via webpack in application.html
  *
- *= require toolkit-lap
+ *= require toolkit
  *= require lap
+ *= require popover
+ *= require multi-select
  *= require pattern-library
  *= require_self
  */
@@ -56,12 +58,10 @@
 
 .form-modal_dropdown-menu {
   max-width: none;
-  top: 54px !important;
 }
 
 .dropdown-menu-bottom {
   max-width: none;
-  bottom: 54px !important;
   top: auto !important;
 }
 

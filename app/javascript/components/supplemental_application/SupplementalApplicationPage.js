@@ -1,374 +1,177 @@
-import React from 'react'
-import { concat, isNil, uniqBy, map, cloneDeep, clone, some, findIndex } from 'lodash'
+import React, { useState } from 'react'
 
-import apiService from '~/apiService'
-import appPaths from '~/utils/appPaths'
-import mapProps from '~/utils/mapProps'
-import CardLayout from '../layouts/CardLayout'
-import { mapApplication, mapFieldUpdateComment, mapUnit } from '~/components/mappers/soqlToDomain'
-import Alerts from '~/components/Alerts'
-import { updateApplicationAction, updatePreference, updateTotalHouseholdRent } from './actions'
-import { mapList } from '~/components/mappers/utils'
-import SupplementalApplicationContainer from './SupplementalApplicationContainer'
-import { getAMIAction } from '~/components/supplemental_application/actions'
-import Context from './context'
+import arrayMutators from 'final-form-arrays'
+import { isEmpty } from 'lodash'
+import { Form } from 'react-final-form'
+import { useParams } from 'react-router-dom'
 
-const getChartsToLoad = (units) => {
-  return uniqBy(units, u => [u.ami_chart_type, u.ami_chart_year].join())
-}
+import Alerts from 'components/Alerts'
+import { applicationPageLoadComplete } from 'components/applications/actions/applicationActionCreators'
+import ApplicationDetails from 'components/applications/application_details/ApplicationDetails'
+import CardLayout from 'components/layouts/CardLayout'
+import { getShortFormApplication } from 'components/lease_ups/utils/shortFormRequestUtils'
+import Loading from 'components/molecules/Loading'
+import {
+  loadSupplementalPageData,
+  updateSupplementalApplication
+} from 'components/supplemental_application/actions/supplementalApplicationActionCreators'
+import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
+import SupplementalApplicationContainer from 'components/supplemental_application/SupplementalApplicationContainer'
+import { useAppContext, useAsyncOnMount } from 'utils/customHooks'
+import validate, { convertPercentAndCurrency } from 'utils/form/validations'
 
-const getAmiCharts = (chartsToLoad) => {
-  return chartsToLoad.map(chart => ({ 'name': chart.ami_chart_type, 'year': chart.ami_chart_year }))
-}
+import labelMapperFields from '../applications/application_details/applicationDetailsFieldsDesc'
 
-const getAmis = async (chartsToLoad) => {
-  const promises = map(chartsToLoad, chart => {
-    return getAMIAction({ chartType: chart.ami_chart_type, chartYear: chart.ami_chart_year })
+const SUPP_TAB_KEY = 'supplemental_tab'
+const SHORTFORM_TAB_KEY = 'shortform_tab'
+
+/**
+ * Supplemental application page with both supplemental and shortform tabs
+ */
+const SupplementalApplicationPage = () => {
+  const { applicationId } = useParams()
+  const [selectedTabKey, setSelectedTabKey] = useState(SUPP_TAB_KEY)
+  const [
+    {
+      breadcrumbData,
+      supplementalApplicationData: { supplemental, shortform }
+    },
+    dispatch
+  ] = useAppContext()
+
+  const [loadingShortform, setLoadingShortform] = useState(true)
+
+  useAsyncOnMount(() => getShortFormApplication(applicationId), {
+    onSuccess: ({ application, fileBaseUrl }) => {
+      applicationPageLoadComplete(dispatch, application, fileBaseUrl)
+    },
+    onComplete: () => {
+      setLoadingShortform(false)
+    }
   })
-  const amis = await Promise.all(promises)
-  return [].concat.apply([], amis)
-}
 
-const getApplicationMembers = (application) => {
-  return concat([application.applicant], application.household_members || [])
-}
+  useAsyncOnMount(() =>
+    loadSupplementalPageData(dispatch, applicationId, breadcrumbData?.listingId?.id)
+  )
 
-class SupplementalApplicationPage extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      // A frozen copy of the application state that is currently persisted to
-      // Salesforce. This is the latest saved copy.
-      persistedApplication: cloneDeep(props.application),
-      confirmedPreferencesFailed: false,
-      amis: {},
-      amiCharts: [],
-      loading: false,
-      statusModal: {
-        loading: false,
-        status: props.application.processing_status
-      },
-      showNewRentalAssistancePanel: false,
-      showAddRentalAssistanceBtn: true,
-      rentalAssistanceLoading: false,
-      rentalAssistances: props.rentalAssistances
+  const tabItems = [
+    {
+      title: 'Supplemental Information',
+      active: selectedTabKey === SUPP_TAB_KEY,
+      onClick: () => setSelectedTabKey(SUPP_TAB_KEY),
+      renderAsRouterLink: true
+    },
+    {
+      title: 'Short Form Application',
+      active: selectedTabKey === SHORTFORM_TAB_KEY,
+      onClick: () => setSelectedTabKey(SHORTFORM_TAB_KEY),
+      renderAsRouterLink: true
     }
-  }
+  ]
 
-  componentDidMount () {
-    const { units } = this.props
-    const chartsToLoad = getChartsToLoad(units)
-    const amiCharts = getAmiCharts(chartsToLoad)
+  const handleSaveApplication = async (formApplication) => {
+    const { application: prevApplication, leaseSectionState } = supplemental
 
-    this.setState({ amiCharts })
-    getAmis(chartsToLoad).then(amis => this.setState({ amis }))
-  }
-
-  setLoading = (loading) => {
-    this.setState({loading})
-  }
-
-  handleSaveApplication = async (application) => {
-    this.setLoading(true)
-
-    const response = await updateApplicationAction(application)
-
-    if (response !== false) {
-      // Reload the page to pull updated data from Salesforce
-      window.location.reload()
-    } else {
+    return updateSupplementalApplication(
+      dispatch,
+      leaseSectionState,
+      formApplication,
+      prevApplication
+    ).catch((e) => {
+      console.error(e)
       Alerts.error()
-      this.setLoading(false)
-    }
-  }
-
-  handleSavePreference = async (preferenceIndex, formApplicationValues) => {
-    const { persistedApplication } = this.state
-    const responses = await Promise.all([
-      updateTotalHouseholdRent(formApplicationValues.id, formApplicationValues.total_monthly_rent),
-      updatePreference(formApplicationValues.preferences[preferenceIndex])
-    ])
-    const failed = some(responses, response => response === false)
-
-    if (!failed) {
-      const updatedApplication = cloneDeep(persistedApplication)
-      updatedApplication.preferences[preferenceIndex] = formApplicationValues.preferences[preferenceIndex]
-      this.setState({
-        persistedApplication: updatedApplication,
-        confirmedPreferencesFailed: false
-      })
-    } else {
-      this.setState({ confirmedPreferencesFailed: true })
-    }
-
-    return !failed
-  }
-
-  handleDismissError = (preferenceIndex) => {
-    this.setState({ confirmedPreferencesFailed: false })
-  }
-
-  updateStatusModal = (values) => {
-    this.setState(prevState => {
-      return {
-        statusModal: {
-          ...clone(prevState.statusModal),
-          ...values
-        }
-      }
     })
   }
 
-  openAddStatusCommentModal = () => {
-    this.setState({
-      statusModal: {
-        header: 'Add New Comment',
-        isOpen: true,
-        status: this.props.application.processing_status,
-        submitButton: 'Save'
-      }
-    })
-  }
+  const performingInitialLoadForTab =
+    selectedTabKey === SUPP_TAB_KEY ? !supplemental.application : loadingShortform
 
-  openUpdateStatusModal = (value) => {
-    this.setState({
-      statusModal: {
-        submitButton: 'Update',
-        header: 'Update Status',
-        isOpen: true,
-        status: value
-      }
-    })
-  }
-
-  handleStatusModalClose = () => {
-    this.updateStatusModal({isOpen: false})
-  }
-
-  handleStatusModalStatusChange = (value) => {
-    this.updateStatusModal({status: value})
-  }
-
-  handleOpenRentalAssistancePanel = () => {
-    this.setState({ showAddRentalAssistanceBtn: false, showNewRentalAssistancePanel: true })
-  }
-
-  handleStatusModalSubmit = async (submittedValues, fromApplication) => {
-    this.setState({loading: true})
-    this.updateStatusModal({loading: true})
-    const data = {
-      status: this.state.statusModal.status,
-      comment: submittedValues.comment,
-      applicationId: this.state.persistedApplication.id
-    }
-    const appResponse = await updateApplicationAction(fromApplication)
-    const commentResponse = appResponse !== false ? await apiService.createFieldUpdateComment(data) : null
-
-    if (appResponse === false || commentResponse === false) {
-      this.updateStatusModal({
-        loading: false,
-        showAlert: true,
-        alertMsg: 'We were unable to make the update, please try again.',
-        onAlertCloseClick: () => this.updateStatusModal({showAlert: false})
-      })
-      this.setState({loading: false})
-    } else {
-      this.updateStatusModal({loading: false, isOpen: false})
-      // Reload the page to fetch the field update comment just created.
-      window.location.reload()
-    }
-  }
-
-  handleCloseRentalAssistancePanel = () => {
-    this.setState({ showAddRentalAssistanceBtn: true, showNewRentalAssistancePanel: false })
-  }
-
-  handleRentalAssistanceAction = (action) => {
-    this.setState({ rentalAssistanceLoading: true })
-
-    return (...args) => {
-      return action(...args).then(response => {
-        if (response) {
-          return response
-        } else {
-          Alerts.error()
-          this.setState({ rentalAssistanceLoading: false })
-          return false
-        }
-      })
-    }
-  }
-
-  handleSaveNewRentalAssistance = async (rentalAssistance) => {
-    const response = await this.handleRentalAssistanceAction(apiService.createRentalAssistance)(
-      rentalAssistance,
-      this.state.persistedApplication.id
-    )
-    if (response) {
-      rentalAssistance.id = response.id
-      this.setState(prev => {
-        return {
-          rentalAssistances: [...prev.rentalAssistances, rentalAssistance],
-          showNewRentalAssistancePanel: false,
-          showAddRentalAssistanceBtn: true,
-          rentalAssistanceLoading: false
-        }
-      })
-    }
-    return response
-  }
-
-  handleUpdateRentalAssistance = async (rentalAssistance) => {
-    if (rentalAssistance.type_of_assistance !== 'Other') {
-      rentalAssistance.other_assistance_name = null
-    }
-    const response = await this.handleRentalAssistanceAction(apiService.updateRentalAssistance)(
-      rentalAssistance,
-      this.state.persistedApplication.id
-    )
-
-    if (response) {
-      this.setState(prev => {
-        const rentalAssistances = cloneDeep(prev.rentalAssistances)
-        const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
-        rentalAssistances[idx] = rentalAssistance
-
-        return {
-          rentalAssistances: rentalAssistances,
-          showNewRentalAssistancePanel: false,
-          showAddRentalAssistanceBtn: true,
-          rentalAssistanceLoading: false
-        }
-      })
-    }
-
-    return response
-  }
-
-  handleDeleteRentalAssistance = async (rentalAssistance) => {
-    const response = await this.handleRentalAssistanceAction(apiService.deleteRentalAssistance)(rentalAssistance.id)
-
-    if (response) {
-      this.setState(prev => {
-        const rentalAssistances = cloneDeep(prev.rentalAssistances)
-        const idx = findIndex(rentalAssistances, { id: rentalAssistance.id })
-        rentalAssistances.splice(idx, 1)
-        return {
-          rentalAssistances: rentalAssistances,
-          showNewRentalAssistancePanel: false,
-          showAddRentalAssistanceBtn: true,
-          rentalAssistanceLoading: false
-        }
-      })
-    }
-
-    return response
-  }
-
-  hideAddRentalAssistanceBtn = () => {
-    this.setState({ showAddRentalAssistanceBtn: false })
-  }
-
-  render () {
-    const { statusHistory, fileBaseUrl, availableUnits } = this.props
-    const {
-      confirmedPreferencesFailed,
-      amis,
-      amiCharts,
-      statusModal,
-      loading,
-      persistedApplication,
-      rentalAssistances,
-      showNewRentalAssistancePanel,
-      showAddRentalAssistanceBtn,
-      rentalAssistanceLoading
-    } = this.state
-    const pageHeader = {
-      title: `${persistedApplication.name}: ${persistedApplication.applicant.name}`,
-      breadcrumbs: [
-        { title: 'Lease Ups', link: appPaths.toLeaseUps() },
-        { title: persistedApplication.listing.name, link: appPaths.toListingLeaseUps(persistedApplication.listing.id) },
-        { title: persistedApplication.name, link: '#' }
-      ]
-    }
-
-    const tabSection = {
-      items: [
-        { title: 'Short Form Application', url: appPaths.toApplication(persistedApplication.id) },
-        { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(persistedApplication.id) }
-      ]
-    }
-
-    const context = {
-      application: persistedApplication,
-      applicationMembers: getApplicationMembers(persistedApplication),
-      amis: amis,
-      amiCharts: amiCharts,
-      availableUnits: availableUnits,
-      statusHistory: statusHistory,
-      fileBaseUrl: fileBaseUrl,
-      loading: loading,
-      rentalAssistanceLoading: rentalAssistanceLoading,
-      setLoading: this.setLoading,
-      onSubmit: this.handleSaveApplication,
-      onSavePreference: this.handleSavePreference,
-      confirmedPreferencesFailed: confirmedPreferencesFailed,
-      onDismissError: this.handleDismissError,
-      statusModal: statusModal,
-      openAddStatusCommentModal: this.openAddStatusCommentModal,
-      openUpdateStatusModal: this.openUpdateStatusModal,
-      handleStatusModalClose: this.handleStatusModalClose,
-      handleStatusModalStatusChange: this.handleStatusModalStatusChange,
-      handleStatusModalSubmit: this.handleStatusModalSubmit,
-      rentalAssistances: rentalAssistances,
-      showNewRentalAssistancePanel: showNewRentalAssistancePanel,
-      showAddRentalAssistanceBtn: showAddRentalAssistanceBtn,
-      hideAddRentalAssistanceBtn: this.hideAddRentalAssistanceBtn,
-      handleOpenRentalAssistancePanel: this.handleOpenRentalAssistancePanel,
-      handleCloseRentalAssistancePanel: this.handleCloseRentalAssistancePanel,
-      handleSaveNewRentalAssistance: this.handleSaveNewRentalAssistance,
-      handleUpdateRentalAssistance: this.handleUpdateRentalAssistance,
-      handleDeleteRentalAssistance: this.handleDeleteRentalAssistance
+  const renderShortform = () => {
+    if (loadingShortform) {
+      return null
+    } else if (!shortform.application && !loadingShortform) {
+      return 'The requested shortform snapshot could not be found.'
     }
 
     return (
-      <Context.Provider value={context}>
-        <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
-          <SupplementalApplicationContainer />
-        </CardLayout>
-      </Context.Provider>
+      <ApplicationDetails
+        application={shortform.application}
+        fileBaseUrl={shortform.fileBaseUrl}
+        fields={labelMapperFields}
+      />
     )
   }
+
+  return (
+    <CardLayout
+      pageHeader={getPageHeaderData(breadcrumbData.application, breadcrumbData.listing)}
+      tabSection={{ items: tabItems }}
+    >
+      <Loading
+        isLoading={performingInitialLoadForTab}
+        renderChildrenWhileLoading={false}
+        loaderViewHeight='100vh'
+      >
+        <WrappedWithSuppAppForm
+          onSubmit={handleSaveApplication}
+          applicationSinceLastSave={supplemental.application}
+          render={({ handleSubmit, form, touched, values, visited }) =>
+            selectedTabKey === SUPP_TAB_KEY ? (
+              <SupplementalApplicationContainer
+                handleSubmit={handleSubmit}
+                form={form}
+                touched={touched}
+                values={values}
+                visited={visited}
+              />
+            ) : (
+              renderShortform()
+            )
+          }
+        />
+      </Loading>
+    </CardLayout>
+  )
 }
 
-const getAnnualIncome = ({ monthlyIncome, annualIncome }) => {
-  if (isNil(annualIncome) && !isNil(monthlyIncome)) {
-    return (monthlyIncome * 12).toFixed(2)
-  } else {
-    return annualIncome
+// We need to do this outside of the SupplementalApplicationController component
+// so the form fields don't get cleared out
+// when the child component is unmounted on tab switch.
+const WrappedWithSuppAppForm = ({ onSubmit, applicationSinceLastSave, render }) => {
+  const validateForm = (values) => {
+    const errors = { lease: {} }
+    // only validate lease_start_date when any of the fields is present
+    if (!isEmpty(values.lease) && !isEmpty(values.lease.lease_start_date)) {
+      const dateErrors = validate.isValidDate(values.lease.lease_start_date, {})
+
+      // only set any error fields if there were actually any date errors.
+      if (dateErrors?.all || dateErrors?.day || dateErrors?.month || dateErrors?.year) {
+        errors.lease.lease_start_date = dateErrors
+      }
+    }
+    if (!isEmpty(values.supp_app_signed_date)) {
+      const dateErrors = validate.isValidDate(values.supp_app_signed_date, {})
+
+      // only set any error fields if there were actually any date errors.
+      if (dateErrors?.all || dateErrors?.day || dateErrors?.month || dateErrors?.year) {
+        errors.supp_app_signed_date = dateErrors
+      }
+    }
+    return errors
   }
+
+  return (
+    <Form
+      onSubmit={(values) => onSubmit(convertPercentAndCurrency(values))}
+      initialValues={applicationSinceLastSave}
+      // Keep dirty on reinitialize ensures the whole form doesn't refresh
+      // when only a piece of it is saved (eg. when the lease is saved)
+      keepDirtyOnReinitialize
+      validate={validateForm}
+      mutators={{ ...arrayMutators }}
+      render={render}
+    />
+  )
 }
 
-const setApplicationsDefaults = (application) => {
-  const applicationWithDefaults = cloneDeep(application)
-  applicationWithDefaults.annual_income = getAnnualIncome({monthlyIncome: application.monthly_income, annualIncome: application.annual_income})
-  // Logic in Lease Section in order to show 'Select One' placeholder on Preference Used if a selection was never made
-  if (applicationWithDefaults.lease && !applicationWithDefaults.lease.no_preference_used && applicationWithDefaults.lease.preference_used == null) {
-    delete applicationWithDefaults.lease.preference_used
-  }
-  return applicationWithDefaults
-}
-
-const mapProperties = ({ application, statusHistory, fileBaseUrl, units, availableUnits, rentalAssistances }) => {
-  return {
-    application: setApplicationsDefaults(mapApplication(application)),
-    statusHistory: mapList(mapFieldUpdateComment, statusHistory),
-    onSubmit: (values) => updateApplicationAction(values),
-    fileBaseUrl: fileBaseUrl,
-    units: mapList(mapUnit, units),
-    availableUnits: mapList(mapUnit, availableUnits),
-    rentalAssistances: rentalAssistances
-  }
-}
-
-export default mapProps(mapProperties)(SupplementalApplicationPage)
+export default SupplementalApplicationPage

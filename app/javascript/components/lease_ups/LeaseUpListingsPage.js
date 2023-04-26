@@ -1,36 +1,52 @@
-import React from 'react'
-import { map } from 'lodash'
+import React, { useState } from 'react'
 
-import mapProps from '~/utils/mapProps'
-import { mapListing } from '~/components/mappers/soqlToDomain'
-import appPaths from '~/utils/appPaths'
+import { withRouter } from 'react-router-dom'
 
-import TableLayout from '../layouts/TableLayout'
+import { listingsPageMounted, listingRowClicked } from 'components/lease_ups/actions/actionCreators'
+import Loading from 'components/molecules/Loading'
+import appPaths from 'utils/appPaths'
+import { useAppContext, useAsyncOnMount } from 'utils/customHooks'
+
 import LeaseUpListingsTable from './LeaseUpListingsTable'
+import { getLeaseUpListings } from './utils/leaseUpRequestUtils'
+import TableLayout from '../layouts/TableLayout'
 
-const LeaseUpListingsPage = ({listings}) => {
+const LeaseUpListingsPage = ({ history }) => {
+  const [loading, setLoading] = useState(true)
+  const [listings, setListings] = useState(true)
+
+  const [, dispatch] = useAppContext()
+
+  useAsyncOnMount(
+    () => {
+      listingsPageMounted(dispatch)
+      return getLeaseUpListings()
+    },
+    {
+      onSuccess: (responseListings) => setListings(responseListings),
+      onComplete: () => setLoading(false)
+    }
+  )
+
   const pageHeader = {
     title: 'Lease Ups'
   }
 
-  const onCellClick = (rowInfo) => {
-    window.location.href = appPaths.toLeaseUpApplications(rowInfo.original.id)
+  const onCellClick = ({ original: listing }) => {
+    listingRowClicked(dispatch, listing)
+
+    history.push(appPaths.toLeaseUpApplications(listing.id))
   }
 
   return (
-    <TableLayout pageHeader={pageHeader} >
-      <LeaseUpListingsTable
-        listings={listings}
-        onCellClick={onCellClick}
-      />
+    <TableLayout pageHeader={pageHeader}>
+      {loading ? (
+        <Loading isLoading />
+      ) : (
+        <LeaseUpListingsTable listings={listings} onCellClick={onCellClick} />
+      )}
     </TableLayout>
   )
 }
 
-const mapProperties = ({listings}) => {
-  return {
-    listings: map(listings, mapListing)
-  }
-}
-
-export default mapProps(mapProperties)(LeaseUpListingsPage)
+export default withRouter(LeaseUpListingsPage)

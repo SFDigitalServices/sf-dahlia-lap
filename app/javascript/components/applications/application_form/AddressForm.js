@@ -1,20 +1,17 @@
 import React from 'react'
-import { Text } from 'react-form'
 
-const buildField = (memberType, nestedField, fieldMap, fieldKey) => {
-  // to do: refactor this to use props
-  if (memberType === 'primaryApplicant') {
-    return fieldMap[fieldKey]
-  } else if (memberType === 'householdMember') {
-    return `${nestedField}.${fieldMap[fieldKey]}`
-  } else if (memberType === 'alternateContact') {
-    return fieldMap[fieldKey]
-  }
+import { isEmpty } from 'lodash'
+
+import { InputField } from 'utils/form/final_form/Field'
+import { maxLengthMap } from 'utils/formUtils'
+
+const buildField = (fieldName, addressFieldMap, addressFieldKey) => {
+  return `${fieldName}.${addressFieldMap[addressFieldKey]}`
 }
 
-const AddressForm = ({ title, memberType, fieldMap, nestedField }) => {
-  if (!fieldMap) {
-    fieldMap = {
+const AddressForm = ({ title, fieldName, addressFieldMap }) => {
+  if (isEmpty(addressFieldMap)) {
+    addressFieldMap = {
       address: 'street',
       city: 'city',
       state: 'state',
@@ -30,20 +27,32 @@ const AddressForm = ({ title, memberType, fieldMap, nestedField }) => {
       <div className='row'>
         <div className='form-group'>
           <div className='small-6 columns'>
-            <label>Street Address</label>
-            <Text field={buildField(memberType, nestedField, fieldMap, 'address')} />
+            <InputField
+              label='Street Address'
+              fieldName={buildField(fieldName, addressFieldMap, 'address')}
+              maxLength={maxLengthMap.address}
+            />
           </div>
           <div className='small-6 columns'>
-            <label>City</label>
-            <Text field={buildField(memberType, nestedField, fieldMap, 'city')} />
+            <InputField
+              label='City'
+              fieldName={buildField(fieldName, addressFieldMap, 'city')}
+              maxLength={maxLengthMap.city}
+            />
           </div>
           <div className='small-6 columns'>
-            <label>State</label>
-            <Text maxLength='2' field={buildField(memberType, nestedField, fieldMap, 'state')} />
+            <InputField
+              label='State'
+              fieldName={buildField(fieldName, addressFieldMap, 'state')}
+              maxLength={maxLengthMap.state}
+            />
           </div>
           <div className='small-6 columns'>
-            <label>Zip</label>
-            <Text field={buildField(memberType, nestedField, fieldMap, 'zip')} />
+            <InputField
+              label='Zip'
+              fieldName={buildField(fieldName, addressFieldMap, 'zip')}
+              maxLength={maxLengthMap.zip}
+            />
           </div>
         </div>
       </div>

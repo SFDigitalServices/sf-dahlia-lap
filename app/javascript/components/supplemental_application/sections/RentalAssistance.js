@@ -1,19 +1,34 @@
 import React from 'react'
+
 import { isEmpty } from 'lodash'
-import { Form } from 'react-form'
-import classNames from 'classnames'
 
-import TableWrapper from '~/components/atoms/TableWrapper'
-import ExpandableTable from '~/components/molecules/ExpandableTable'
-import Button from '~/components/atoms/Button'
-import { withContext } from '../context'
-import FormGrid from '~/components/molecules/FormGrid'
-import ExpandablePanel from '~/components/molecules/ExpandablePanel'
-import YesNoRadioGroup from '../YesNoRadioGroup'
-import formUtils from '~/utils/formUtils'
-import { withField, Field } from '~/utils/form/Field'
-
-const { ExpanderButton } = ExpandableTable
+import Button from 'components/atoms/Button'
+import TableWrapper from 'components/atoms/TableWrapper'
+import ExpandableTable, { ExpanderButton } from 'components/molecules/ExpandableTable'
+import FormGrid from 'components/molecules/FormGrid'
+import InlineModal from 'components/molecules/InlineModal'
+import {
+  cancelEditRentalAssistance,
+  createRentalAssistance,
+  deleteRentalAssistance,
+  editRentalAssistance,
+  updateRentalAssistance
+} from 'components/supplemental_application/actions/rentalAssistanceActionCreators'
+import {
+  convertIdsToIndices,
+  isCreateAssistanceFormOpen
+} from 'components/supplemental_application/utils/rentalAssistanceUtils'
+import { useAppContext } from 'utils/customHooks'
+import {
+  CurrencyField,
+  HelpText,
+  InputField,
+  SelectField,
+  YesNoRadioGroup
+} from 'utils/form/final_form/Field'
+import { isSingleRentalAssistanceValid } from 'utils/form/formSectionValidations'
+import validate, { convertCurrency } from 'utils/form/validations'
+import formUtils from 'utils/formUtils'
 
 const typeOfAssistance = [
   'Catholic Charities',
@@ -35,243 +50,285 @@ const typeOfAssistance = [
 
 const typeOfAssistanceOptions = formUtils.toOptions(typeOfAssistance)
 
-const YesNoRadioGroupField = withField((field, classNames, rest) => {
-  return <YesNoRadioGroup id={field} field={field} className='no-margin' inputClassName={classNames} {...rest} />
-})
+const isOther = (values) => values && values.type_of_assistance === 'Other'
 
-const isOther = (values) => values.type_of_assistance === 'Other'
-
-class RentalAssistanceTable extends React.Component {
-  columns = [
-    { content: 'Type of Assistance' },
-    { content: 'Recurring Assistance' },
-    { content: 'Assistance Amount' },
+export const RentalAssistanceTable = ({
+  form,
+  rentalAssistances,
+  assistanceRowsOpened,
+  onEdit,
+  onCancelEdit,
+  onSave,
+  onDelete,
+  applicationMembers,
+  disabled,
+  loading
+}) => {
+  const columns = [
     { content: 'Recipient' },
-    { content: 'Edit' }
+    { content: 'Type' },
+    { content: 'Amount' },
+    { content: 'Recurring' },
+    { content: '' }
   ]
 
-  expanderRenderer = (row, expanded, expandedRowToggler) => {
-    const handleEdit = () => {
-      this.props.onEdit()
-      expandedRowToggler()
-    }
+  const buildRows = () =>
+    rentalAssistances.map((ra) => {
+      const appMember = applicationMembers.find((m) => m.id === ra.recipient)
+      const appMemberName = appMember ? `${appMember.first_name} ${appMember.last_name}` : ''
 
-    return (!expanded && (
-      <ExpanderButton label='Edit' onClick={handleEdit} />))
-  }
+      return [
+        { content: appMemberName },
+        { content: ra.other_assistance_name || ra.type_of_assistance },
+        { content: ra.assistance_amount ? ra.assistance_amount : '', formatType: 'currency' },
+        { content: ra.recurring_assistance }
+      ]
+    })
 
-  expandedRowRenderer = (row, toggle, original) => {
-    return <Panel toggle={toggle} rentalAssistance={original} />
-  }
+  const rows = buildRows()
 
-  buildRows = () => this.props.rentalAssistances.map(ra => {
-    const appMember = this.props.applicationMembers.find(m => m.id === ra.recipient)
-    const appMemberName = appMember ? `${appMember.first_name} ${appMember.last_name}` : ''
+  return (
+    <TableWrapper marginTop>
+      <ExpandableTable
+        originals={rentalAssistances}
+        columns={columns}
+        rows={rows}
+        expandedRowIndices={convertIdsToIndices(rentalAssistances, assistanceRowsOpened)}
+        renderExpanderButton={(index, row, original, expanded) =>
+          !expanded &&
+          !disabled && <ExpanderButton label='Edit' onClick={() => onEdit(original, index)} />
+        }
+        renderRow={(index, row, original) => (
+          <RentalAssistanceForm
+            values={original}
+            row={row}
+            onSave={() => onSave(original, index)}
+            onClose={() => onCancelEdit(original, index)}
+            onDelete={() => onDelete(original, index)}
+            index={index}
+            applicationMembers={applicationMembers}
+            loading={loading}
+            form={form}
+          />
+        )}
+        classes={['rental-assistances']}
+      />
+    </TableWrapper>
+  )
+}
 
-    return [
-      { content: ra.other_assistance_name || ra.type_of_assistance },
-      { content: ra.recurring_assistance },
-      { content: ra.assistance_amount ? `$${ra.assistance_amount}` : '' },
-      { content: appMemberName }
-    ]
-  })
-
-  render () {
-    const rows = this.buildRows()
-
+export const RentalAssistanceForm = ({
+  values,
+  onSave,
+  loading,
+  onClose,
+  applicationMembers,
+  onDelete,
+  isNew,
+  index,
+  form,
+  visited
+}) => {
+  const validateAssistanceAmount = (value) => {
     return (
-      <TableWrapper>
-        <ExpandableTable
-          originals={this.props.rentalAssistances}
-          columns={this.columns}
-          rows={rows}
-          expanderRenderer={this.expanderRenderer}
-          expandedRowRenderer={this.expandedRowRenderer}
-          classes={['rental-assistances']}
-        />
-      </TableWrapper>
+      validate.isValidCurrency('Please enter a valid dollar amount.')(value) ||
+      validate.isUnderMaxValue(Math.pow(10, 5))('Please enter a smaller number.')(value)
     )
   }
-}
 
-const Panel = withContext(({ idx, rentalAssistance, toggle, store }) => {
-  const {
-    handleUpdateRentalAssistance,
-    handleDeleteRentalAssistance,
-    applicationMembers,
-    handleCloseRentalAssistancePanel,
-    rentalAssistanceLoading
-  } = store
-
-  const onSave = async (values) => {
-    const updateResult = await handleUpdateRentalAssistance(values)
-    if (updateResult) toggle()
-  }
-
-  const onClose = () => {
-    handleCloseRentalAssistancePanel()
-    toggle()
-  }
-
-  const onDelete = async () => {
-    const deleteResult = await handleDeleteRentalAssistance(rentalAssistance)
-    if (deleteResult) toggle()
-  }
-
-  return (
-    <ExpandablePanel>
-      <AddRentalAssistanceForm
-        values={rentalAssistance}
-        onSave={onSave}
-        onClose={onClose}
-        onDelete={onDelete}
-        applicationMembers={applicationMembers}
-        loading={rentalAssistanceLoading}
-      />
-    </ExpandablePanel>
-  )
-})
-
-const isRequired = (value, message) => isEmpty(value) ? message : null
-
-const validateError = (values) => {
-  return {
-    type_of_assistance: isRequired(values.type_of_assistance, 'is required.')
-  }
-}
-
-const AddRentalAssistanceForm = ({ values, onSave, loading, onClose, applicationMembers, onDelete, isNew }) => {
-  const applicationMembersOptions = applicationMembers.map(member => (
-    {
-      label: `${member.first_name} ${member.last_name}`,
-      value: member.id
+  const isFormValid = () => {
+    const isValid = isSingleRentalAssistanceValid(form, index)
+    if (!isValid) {
+      // Force submit to show errors on forms
+      form.submit()
     }
-  ))
+    return isValid
+  }
+
+  const applicationMembersOptions = applicationMembers.map((member) => ({
+    label: `${member.first_name} ${member.last_name}`,
+    value: member.id
+  }))
+
+  const getField = (assistanceField) => `rental_assistances.${index}.${assistanceField}`
+
+  const modalId = isNew ? 'rental-assistance-new-form' : `rental-assistance-edit-form-${index}`
 
   return (
-    <Form onSubmit={onSave} defaultValues={values} validateError={validateError}>
-      {formApi => (
-        <div className={classNames(
-          'app-editable expand-wide scrollable-table-nested',
-          {
-            'rental-assistance-new-form': isNew,
-            'rental-assistance-edit-form': !isNew
-          }
-        )}>
-          <FormGrid.Row expand={false}>
-            <FormGrid.Item>
-              <Field.Select
-                label='Type of Assistance'
-                field='type_of_assistance'
-                options={typeOfAssistanceOptions}
-                className='rental-assistance-type'
-              />
-            </FormGrid.Item>
-            <FormGrid.Item>
-              <YesNoRadioGroupField
-                label='Recurring Assistance'
-                field='recurring_assistance'
-                uniqId={(values && values.id) || 'new'}
-                trueValue='Yes'
-                falseValue='No'
-                className='rental-assistance-recurring'
-              />
-            </FormGrid.Item>
-            <FormGrid.Item>
-              <Field.Text
-                label='Assistance Amount'
-                field='assistance_amount'
-                type='number'
-              />
-            </FormGrid.Item>
-            <FormGrid.Item>
-              <Field.Select
-                label='Recipient'
-                field='recipient'
-                options={applicationMembersOptions}
-                className='rental-assistance-recipient'
-              />
-            </FormGrid.Item>
-          </FormGrid.Row>
-          {isOther(formApi.values) && (
-            <FormGrid.Row expand={false}>
-              <FormGrid.Item>
-                <Field.Text
-                  label='Other Assistance Name'
-                  field='other_assistance_name' />
-              </FormGrid.Item>
-            </FormGrid.Row>
-          )}
-          <FormGrid.Row expand={false}>
-            <div className='form-grid_item column'>
-              <button
-                className='button primary tiny margin-right margin-bottom-none'
-                type='button'
-                onClick={formApi.submitForm}
-                disabled={loading}>
-                Save
-              </button>
-              <button
-                className='button secondary tiny margin-right margin-bottom-none'
-                type='button'
-                onClick={onClose}
-                disabled={loading}>
-                Cancel
-              </button>
-              {!isNew && (
-                <button
-                  className='button alert-fill tiny margin-bottom-none right'
-                  type='button'
-                  onClick={onDelete}
-                  disabled={loading}>
-                  Delete
-                </button>
-              )}
-            </div>
-          </FormGrid.Row>
-        </div>
+    <InlineModal whiteBackground marginBottom={isNew} id={modalId}>
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <SelectField
+            label='Recipient'
+            fieldName={getField('recipient')}
+            options={applicationMembersOptions}
+            className='rental-assistance-recipient'
+          />
+        </FormGrid.Item>
+      </FormGrid.Row>
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <SelectField
+            label='Type of Assistance'
+            fieldName={getField('type_of_assistance')}
+            options={typeOfAssistanceOptions}
+            className='rental-assistance-type'
+            validation={validate.isPresent('Please select a type of assistance.')}
+          />
+        </FormGrid.Item>
+      </FormGrid.Row>
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <CurrencyField
+            label='Assistance Amount'
+            fieldName={getField('assistance_amount')}
+            validation={validateAssistanceAmount}
+            id='assistance_amount'
+            isDirty={visited && visited[getField('assistance_amount')]}
+          />
+        </FormGrid.Item>
+      </FormGrid.Row>
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <YesNoRadioGroup
+            label='Recurring Assistance'
+            fieldName={getField('recurring_assistance')}
+            uniqId={values?.id || 'new'}
+            trueValue='Yes'
+            falseValue='No'
+            className='rental-assistance-recurring'
+          />
+        </FormGrid.Item>
+      </FormGrid.Row>
+      {isOther(form.getState().values.rental_assistances[index]) && (
+        <FormGrid.Row>
+          <FormGrid.Item>
+            <InputField
+              label='Other Assistance Name'
+              fieldName={getField('other_assistance_name')}
+            />
+          </FormGrid.Item>
+        </FormGrid.Row>
       )}
-    </Form>
+      <FormGrid.Row>
+        <div className='form-grid_item column'>
+          <Button
+            classes='primary margin-right'
+            tiny
+            onClick={() => isFormValid() && onSave()}
+            disabled={loading}
+            noBottomMargin
+            text={loading ? 'Saving...' : 'Save'}
+            id='rental-assistance-save'
+          />
+          <Button
+            classes='secondary'
+            tiny
+            onClick={onClose}
+            disabled={loading}
+            noBottomMargin
+            text='Cancel'
+            id='rental-assistance-cancel'
+          />
+          {!isNew && (
+            <Button
+              classes='alert-fill right'
+              tiny
+              onClick={onDelete}
+              disabled={loading}
+              noBottomMargin
+              text='Delete'
+              id='rental-assistance-delete'
+            />
+          )}
+        </div>
+      </FormGrid.Row>
+    </InlineModal>
   )
 }
 
-const RentalAssistance = ({ store }) => {
-  const {
-    rentalAssistances,
-    applicationMembers,
-    showNewRentalAssistancePanel,
-    handleOpenRentalAssistancePanel,
-    handleCloseRentalAssistancePanel,
-    handleSaveNewRentalAssistance,
-    showAddRentalAssistanceBtn,
-    hideAddRentalAssistanceBtn,
-    rentalAssistanceLoading
-  } = store
+const RentalAssistance = ({
+  form,
+  applicationMembers,
+  rentalAssistances,
+  applicationId,
+  assistanceRowsOpened,
+  loading,
+  disabled
+}) => {
+  const [, dispatch] = useAppContext()
+
+  const isEditingNewAssistance = isCreateAssistanceFormOpen(assistanceRowsOpened)
+
+  const handleCancelEdit = (index) => {
+    const isNewAssistance = index === rentalAssistances.length
+    const assistanceToRevertTo = isNewAssistance ? {} : rentalAssistances[index]
+    form.change(`rental_assistances.${index}`, assistanceToRevertTo)
+    cancelEditRentalAssistance(dispatch, assistanceToRevertTo.id)
+  }
+
+  const handleSave = async (index, action = 'update') => {
+    const entireForm = form.getState().values
+    const rentalAssistance = convertCurrency(entireForm.rental_assistances[index])
+
+    return action === 'update'
+      ? updateRentalAssistance(dispatch, applicationId, {
+          ...rentalAssistance,
+          ...(rentalAssistance.type_of_assistance !== 'Other' && { other_assistance_name: null })
+        })
+      : createRentalAssistance(dispatch, applicationId, rentalAssistance)
+  }
 
   return (
-    <React.Fragment>
-      { !isEmpty(rentalAssistances) && (
+    <>
+      {!isEmpty(rentalAssistances) && (
         <RentalAssistanceTable
           rentalAssistances={rentalAssistances}
           applicationMembers={applicationMembers}
-          onEdit={hideAddRentalAssistanceBtn}
+          assistanceRowsOpened={assistanceRowsOpened}
+          onEdit={(rentalAssistance) => editRentalAssistance(dispatch, rentalAssistance.id)}
+          onCancelEdit={(_, index) => handleCancelEdit(index)}
+          onDelete={(rentalAssistance) => deleteRentalAssistance(dispatch, rentalAssistance.id)}
+          onSave={(assistance, index) => handleSave(index, 'update')}
+          form={form}
+          loading={loading}
+          disabled={disabled}
         />
       )}
 
-      { showNewRentalAssistancePanel && (
-        <AddRentalAssistanceForm
-          onSave={handleSaveNewRentalAssistance}
-          onClose={handleCloseRentalAssistancePanel}
-          applicationMembers={applicationMembers}
-          loading={rentalAssistanceLoading}
-          isNew
-        />
+      {!disabled && isEditingNewAssistance && (
+        <FormGrid.Row expand={false}>
+          <RentalAssistanceForm
+            onSave={() => handleSave(rentalAssistances.length, 'create')}
+            onClose={() => handleCancelEdit(rentalAssistances.length)}
+            applicationMembers={applicationMembers}
+            loading={loading}
+            values={{ type_of_assistance: null }}
+            index={rentalAssistances.length}
+            form={form}
+            isNew
+          />
+        </FormGrid.Row>
       )}
-      { showAddRentalAssistanceBtn && (
-        <Button id='add-rental-assistance' text='Add Rental Assistance' small onClick={handleOpenRentalAssistancePanel} />
+      {!isEditingNewAssistance && (
+        <FormGrid.Row>
+          <FormGrid.Item>
+            {!disabled && (
+              <Button
+                id='add-rental-assistance'
+                text='Add Rental Assistance'
+                small
+                disabled={loading}
+                onClick={() => editRentalAssistance(dispatch, null)}
+              />
+            )}
+            <div className={disabled ? 'margin-top' : 'margin-top--half'} />
+            <HelpText note='Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.' />
+          </FormGrid.Item>
+        </FormGrid.Row>
       )}
-    </React.Fragment>
+    </>
   )
 }
 
-export default withContext(RentalAssistance)
+export default RentalAssistance

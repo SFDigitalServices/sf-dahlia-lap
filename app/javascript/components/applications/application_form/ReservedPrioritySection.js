@@ -1,32 +1,37 @@
 import React from 'react'
-import { map, each, includes, keys, toPairs } from 'lodash'
-import { NestedForm, Form, Checkbox, Select } from 'react-form'
+
+import { map, each, includes, keys, toPairs, isEmpty } from 'lodash'
+
+import { SelectField, CheckboxField } from 'utils/form/final_form/Field'
+
 import formOptions from './formOptions'
 
-let {
-  yesNoOptions,
-  adaPriorityValueToLabelMap
-} = formOptions
+const { yesNoOptions, adaPriorityValueToLabelMap } = formOptions
 
-const ReservedPrioritySection = ({editValues, listing}) => {
-  let autofillValues = {}
+const ReservedPrioritySection = ({ editValues, listing }) => {
+  const autofillValues = {}
 
   const adaPriorities = toPairs(adaPriorityValueToLabelMap)
 
-  if (editValues && editValues.has_ada_priorities_selected) {
-    let selected = keys(editValues.has_ada_priorities_selected)
-    each(selected, value => { autofillValues[value] = true })
+  if (!isEmpty(editValues) && editValues.has_ada_priorities_selected) {
+    const selected = keys(editValues.has_ada_priorities_selected)
+    each(selected, (value) => {
+      autofillValues[value] = true
+    })
   }
 
-  let reservedTypes = map(listing.units, unit => unit.reserved_type)
+  const reservedTypes = map(listing.units, (unit) => unit.reserved_type)
 
   const developmentalDisabilityMarkup = () => {
     if (includes(reservedTypes, 'Developmental disabilities')) {
       return (
         <div className='small-6 columns'>
-          <label>Developmentally Disabled</label>
-          <p className='form-note margin-bottom'>One or more units is reserved for applicants who are developmentally disabled. Select "Yes" below if a household member is developmentally disabled.</p>
-          <Select field='has_developmental_disability' options={yesNoOptions} />
+          <SelectField
+            fieldName='has_ada_priorities_selected.has_developmental_disability'
+            label='Developmentally Disabled'
+            blockNote='One or more units is reserved for applicants who are developmentally disabled. Select "Yes" below if a household member is developmentally disabled.'
+            options={yesNoOptions}
+          />
         </div>
       )
     }
@@ -36,9 +41,12 @@ const ReservedPrioritySection = ({editValues, listing}) => {
     if (includes(reservedTypes, 'Veteran')) {
       return (
         <div className='small-6 columns'>
-          <label>U.S. Military</label>
-          <p className='form-note margin-bottom'>One or more units is reserved for applicants who are U.S. Military. Select "Yes" below if a household member is U.S. Military.</p>
-          <Select field='has_military_service' options={yesNoOptions} />
+          <SelectField
+            fieldName='has_ada_priorities_selected.has_military_service'
+            label='U.S. Military'
+            blockNote='One or more units is reserved for applicants who are U.S. Military. Select "Yes" below if a household member is U.S. Military.'
+            options={yesNoOptions}
+          />
         </div>
       )
     }
@@ -50,11 +58,12 @@ const ReservedPrioritySection = ({editValues, listing}) => {
         <div className='margin-bottom--2x small-12 columns'>
           <h4>Qualifying Information for the Building Community Type</h4>
           <div className='margin-bottom--2x small-6 columns'>
-            <label>Meets Community Requirements</label>
-            <p className='form-note margin-bottom'>
-              This building is a senior and/or veteran community. Select "Yes" below if the applicant or household qualifies for the community.
-            </p>
-            <Select field='answered_community_screening' options={yesNoOptions} />
+            <SelectField
+              fieldName='has_ada_priorities_selected.answered_community_screening'
+              label='Meets Community Requirements'
+              blockNote='This building is a senior and/or veteran community. Select "Yes" below if the applicant or household qualifies for the community.'
+              options={yesNoOptions}
+            />
           </div>
         </div>
       )
@@ -71,25 +80,22 @@ const ReservedPrioritySection = ({editValues, listing}) => {
         {developmentalDisabilityMarkup()}
         {militaryServiceMarkup()}
         <div className='small-12 columns margin-bottom--2x'>
-          <NestedForm field='has_ada_priorities_selected'>
-            <Form defaultValues={autofillValues}>
-              { formApi => (
-                <div className='small-6 columns'>
-                  <label>ADA Priorities Selected</label>
-                  <div className='checkbox-group' role='group'>
-                    { adaPriorities.map(([field, label], i) => (
-                      <div className='form-item' key={i} >
-                        <div className='checkbox'>
-                          <Checkbox field={field} id={`adaPrioritiesSelected-${i}`} name='adaPrioritiesSelected' />
-                          <label htmlFor={`adaPrioritiesSelected-${i}`}>{label}</label>
-                        </div>
-                      </div>
-                    ))}
+          <div className='small-6 columns'>
+            <label>ADA Priorities Selected</label>
+            <div className='checkbox-group' role='group'>
+              {adaPriorities.map(([field, label], i) => (
+                <div className='form-item' key={i}>
+                  <div className='checkbox'>
+                    <CheckboxField
+                      fieldName={`has_ada_priorities_selected.${field}`}
+                      // id={`adaPrioritiesSelected-${i}`}
+                      label={label}
+                    />
                   </div>
                 </div>
-              )}
-            </Form>
-          </NestedForm>
+              ))}
+            </div>
+          </div>
         </div>
         {reservedCommunityMarkup()}
       </div>

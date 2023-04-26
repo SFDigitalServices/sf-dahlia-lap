@@ -1,10 +1,14 @@
 import { each, replace, get, toLower, includes, isString, camelCase, startCase, map } from 'lodash'
 import moment from 'moment'
 
-import utils from '~/utils/utils'
+import formUtils from 'utils/formUtils'
+import utils from 'utils/utils'
 
 export const getFormatType = (field) => {
-  if (includes(toLower(field), 'date')) { return 'date' } else { return null }
+  if (includes(toLower(field), 'date')) {
+    return 'date'
+  }
+  return null
 }
 
 const getRenderType = (value) => {
@@ -15,28 +19,39 @@ const getRenderType = (value) => {
   }
 }
 
+const dateIsJson = (date) => {
+  return date && typeof date === 'object' && 'month' in date && 'day' in date && 'year' in date
+}
+
 export const formatValue = (value, type) => {
   if (type === 'date') {
-    // Convert domain date array to string if needed
-    if (value && value.length === 3) { return moment(value.join('-'), utils.API_DATE_FORMAT).format('L') }
+    // Convert domain date object to string if needed
+    if (dateIsJson(value)) {
+      return moment(`${value.year}-${value.month}-${value.day}`, utils.API_DATE_FORMAT).format('L')
+    }
     return moment(value).format('L')
+  } else if (type === 'currency') {
+    return formUtils.formatPrice(value)
   } else {
     return value
   }
 }
 
 const cleanupWords = (value) => {
-  each([
-    [' Or ', ' or '],
-    [' Of ', ' of '],
-    ['Proof', 'proof'],
-    ['Who', 'who'],
-    ['Ada', 'ADA'],
-    [' To ', ' to '],
-    ['Claimed', 'claimed']
-  ], ([a, b]) => {
-    value = replace(value, a, b)
-  })
+  each(
+    [
+      [' Or ', ' or '],
+      [' Of ', ' of '],
+      ['Proof', 'proof'],
+      ['Who', 'who'],
+      ['Ada', 'ADA'],
+      [' To ', ' to '],
+      ['Claimed', 'claimed']
+    ],
+    ([a, b]) => {
+      value = replace(value, a, b)
+    }
+  )
 
   return value
 }
@@ -57,8 +72,8 @@ export const buildFieldEntry = (item, spec, options = {}) => {
     value = spec.value(value)
   }
 
-  let label = utils.cleanField(spec.label)
-  let renderType = spec.renderType || getRenderType(value)
+  const label = utils.cleanField(spec.label)
+  const renderType = spec.renderType || getRenderType(value)
 
   value = formatValue(value, spec.formatType)
 
@@ -70,19 +85,20 @@ export const buildFieldEntry = (item, spec, options = {}) => {
 }
 
 export const buildFieldSpecs = (entry) => {
-  let specs = isString(entry) ? { field: entry } : entry
+  const specs = isString(entry) ? { field: entry } : entry
 
-  specs.field = toLower(specs.field)
   if (!specs.label) {
     specs.label = formatLabel(specs.field)
   }
 
-  if (!specs.formatType) { specs.formatType = getFormatType(specs.field) }
+  if (!specs.formatType) {
+    specs.formatType = getFormatType(specs.field)
+  }
 
   return specs
 }
 
 export const buildFields = (data, fields, options = {}) => {
-  const fieldSpecs = map(fields, buildFieldSpecs)
+  const fieldSpecs = map(fields, (f) => buildFieldSpecs(f))
   return map(fieldSpecs, (f) => buildFieldEntry(data, f, options))
 }

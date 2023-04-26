@@ -1,52 +1,50 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+
 import { each, includes, last, cloneDeep, toLower } from 'lodash'
+import PropTypes from 'prop-types'
 import ReactTable from 'react-table'
-import utils from '~/utils/utils'
-import apiService from '~/apiService'
+
+import apiService from 'apiService'
+import appPaths from 'utils/appPaths'
+import utils from 'utils/utils'
+
 import IndexTableCell from './IndexTableCell'
 
 // NOTE: some aspects of this component are hardcoded to work with Flagged Application Sets
 class SpreadsheetIndexTable extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      expanded: {},
-      loading: {},
-      // [...array] == clone array
-      editData: [...props.results],
-      persistedData: [...props.results]
-    }
+  state = {
+    expanded: {},
+    loading: {},
+    // [...array] == clone array
+    editData: [...this.props.results],
+    persistedData: [...this.props.results]
   }
 
   columnData = () => {
-    let { fields } = this.props
+    const { fields } = this.props
     var columns = []
     each(fields, (attrs, field) => {
       attrs = attrs || {}
       // don't show Id column
       if (toLower(field) === 'id') return
       if (toLower(field) === 'application') return
-      let column = {
+      const column = {
         id: field,
-        accessor: (row) => (
-          row[field]
-        ),
+        accessor: (row) => row[field],
         Cell: (cellInfo) => {
           // we are "editing" this row if we have expanded it
           let editing = this.state.expanded[cellInfo.viewIndex]
-          let lotteryStatus = this.state.persistedData[cellInfo.index]['Flagged_Record_Set.Listing.Lottery_Status']
+          const lotteryStatus =
+            this.state.persistedData[cellInfo.index]['Flagged_Record_Set.Listing.Lottery_Status']
           if (includes(['In Progress', 'Lottery Complete'], lotteryStatus)) {
             // don't allow editing based on certain lotteryStatus values
             editing = false
           }
-          let onChange = this.onCellChange(cellInfo)
-          let val = this.state.persistedData[cellInfo.index][cellInfo.column.id]
-          let editVal = this.state.editData[cellInfo.index][cellInfo.column.id] || ''
-          let props = { attrs, val, editVal, editing, onChange }
-          return (
-            <IndexTableCell {...props} />
-          )
+          const onChange = this.onCellChange(cellInfo)
+          const val = this.state.persistedData[cellInfo.index][cellInfo.column.id]
+          const editVal = this.state.editData[cellInfo.index][cellInfo.column.id] || ''
+          const props = { attrs, val, editVal, editing, onChange }
+          return <IndexTableCell {...props} />
         }
       }
       if (attrs.minWidth) {
@@ -66,6 +64,9 @@ class SpreadsheetIndexTable extends React.Component {
     return columns
   }
 
+  // Columns must be defined outside of ReactTable render (https://github.com/tannerlinsley/react-table/issues/1266)
+  columns = this.columnData()
+
   onCellChange = (cellInfo) => {
     return (e) => {
       var editData = [...this.state.editData]
@@ -77,25 +78,25 @@ class SpreadsheetIndexTable extends React.Component {
   closeRow = (rowInfo, save = false) => {
     return async () => {
       // close the expanded/editing state
-      let expanded = {...this.state.expanded}
+      const expanded = { ...this.state.expanded }
       expanded[rowInfo.viewIndex] = !expanded[rowInfo.viewIndex]
-      let loading = {...this.state.loading}
+      let loading = { ...this.state.loading }
       loading[rowInfo.index] = true
       this.setState({ loading })
 
       // clone array
       let editData = [...this.state.editData]
-      let persistedData = [...this.state.persistedData]
+      const persistedData = [...this.state.persistedData]
 
       if (save) {
-        loading = {...loading}
+        loading = { ...loading }
         loading[rowInfo.index] = false
         persistedData[rowInfo.index] = cloneDeep(editData[rowInfo.index])
         await apiService.updateFlaggedApplication(persistedData[rowInfo.index])
         // ^^ await means that the setState won't happen until the call is made
         this.setState({ expanded, loading, persistedData })
       } else {
-        loading = {...loading}
+        loading = { ...loading }
         loading[rowInfo.index] = false
         editData = [...persistedData]
         this.setState({ expanded, loading, editData })
@@ -103,11 +104,11 @@ class SpreadsheetIndexTable extends React.Component {
     }
   }
 
-  render () {
+  render() {
     var getTrProps = (state, rowInfo, column, instance) => {
       return {
         onClick: (e, handleOriginal) => {
-          let expanded = this.state.expanded
+          const expanded = this.state.expanded
           if (this.state.expanded[rowInfo.viewIndex]) {
             return
           } else {
@@ -119,10 +120,13 @@ class SpreadsheetIndexTable extends React.Component {
     }
 
     const flaggedApplicationRow = (row) => {
-      let lotteryStatus = row.original.flagged_record.listing.lottery_status
-      let viewApplicationLink = (
+      const lotteryStatus = row.original.flagged_record.listing.lottery_status
+      const viewApplicationLink = (
         <li>
-          <a className='button secondary tiny' href={`/applications/${row.original.application}`}>
+          <a
+            className='button secondary tiny'
+            href={appPaths.toApplication(row.original.application)}
+          >
             View Application
           </a>
         </li>
@@ -138,12 +142,20 @@ class SpreadsheetIndexTable extends React.Component {
         <ul className='subcomponent button-radio-group segmented-radios inline-group'>
           {viewApplicationLink}
           <li>
-            <button disabled={this.state.loading[row.index]} onClick={this.closeRow(row, true)} className='button secondary tiny'>
+            <button
+              disabled={this.state.loading[row.index]}
+              onClick={this.closeRow(row, true)}
+              className='button secondary tiny'
+            >
               Save Changes
             </button>
           </li>
           <li>
-            <button disabled={this.state.loading[row.index]} onClick={this.closeRow(row)} className='button secondary tiny'>
+            <button
+              disabled={this.state.loading[row.index]}
+              onClick={this.closeRow(row)}
+              className='button secondary tiny'
+            >
               Cancel
             </button>
           </li>
@@ -154,7 +166,7 @@ class SpreadsheetIndexTable extends React.Component {
     // NOTE: sorting works oddly when expanded rows are open, so it is turned off
     return (
       <ReactTable
-        columns={this.columnData()}
+        columns={this.columns}
         data={this.state.persistedData}
         sortable={false}
         SubComponent={flaggedApplicationRow}

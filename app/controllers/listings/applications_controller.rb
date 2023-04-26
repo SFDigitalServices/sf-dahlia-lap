@@ -6,13 +6,13 @@ module Listings
     before_action :authenticate_user!
     before_action :load_listing
     before_action :validate_listing!
+    before_action :listing_accepts_new_applications, only: [:new]
 
-    def index
-      @applications = soql_application_service.listing_applications(params[:listing_id])
-      @fields = soql_application_service.index_fields
+    def index; end
+
+    def new
+      @lending_institutions = soql_listing_service.sale?(@listing) ? lending_institutions : {}
     end
-
-    def new; end
 
     private
 
@@ -21,15 +21,23 @@ module Listings
     end
 
     def load_listing
-      @listing = listing_service.listing(params[:listing_id])
+      @listing = soql_listing_service.listing(params[:listing_id])
     end
 
-    def listing_service
-      Force::ListingService.new(current_user)
+    def soql_listing_service
+      Force::Soql::ListingService.new(current_user)
     end
 
     def soql_application_service
       Force::Soql::ApplicationService.new(current_user)
+    end
+
+    def lending_institutions
+      Force::CustomApi::LendingInstitutionsService.new(current_user).lending_institutions
+    end
+
+    def listing_accepts_new_applications
+      redirect_to listing_url(id: @listing[:id]) if @listing[:lottery_status] != 'Not Yet Run'
     end
   end
 end

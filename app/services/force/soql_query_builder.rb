@@ -148,7 +148,9 @@ module Force
     end
 
     def _from_soql
-      "FROM #{@from} WHERE #{_where_soql}"
+      _from = "FROM #{@from}"
+      _from += " WHERE #{_where_soql}" if !_where_soql.empty?
+      _from
     end
 
     def _where_soql

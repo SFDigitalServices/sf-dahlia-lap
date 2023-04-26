@@ -1,44 +1,62 @@
 import React from 'react'
+
 import { map, sortBy } from 'lodash'
-import { Form, Text, Select } from 'react-form'
+import { Form } from 'react-final-form'
 
-import formUtils from '~/utils/formUtils'
-import Loading from '~/components/molecules/Loading'
+import Loading from 'components/molecules/Loading'
+import { InputField, SelectField } from 'utils/form/final_form/Field'
+import formUtils from 'utils/formUtils'
 
-const submissionTypeOptions = formUtils.toOptions(['Paper', 'Electronic', [null, 'Any type']])
+const submissionTypeOptions = formUtils.toOptions([
+  formUtils.toEmptyOption('Any type'),
+  'Paper',
+  'Electronic'
+])
 
 const buildListingOptions = (listings) => {
   return formUtils.toOptions([
-    [null, 'Any Listing'],
-    ...map(listings, i => [i.id, i.name])
+    formUtils.toEmptyOption('Any Listing'),
+    ...map(listings, (i) => [i.id, i.name])
   ])
 }
 
 const ApplicationsFilter = ({ onSubmit, listings = [], loading = false }) => {
   const sortedList = sortBy(listings, 'name')
-  const listingOptions = buildListingOptions(sortedList)
+  const initialValues = {}
+  let listingIdField
+  if (listings.length === 1) {
+    initialValues.listing_id = listings[0].id
+    listingIdField = <input value={listings[0].name} type='text' disabled />
+  } else {
+    const listingOptions = buildListingOptions(sortedList)
+    listingIdField = <SelectField fieldName='listing_id' options={listingOptions} />
+  }
 
   return (
     <Loading isLoading={loading}>
-      <Form onSubmit={onSubmit}>
-        { formApi => (
-          <form onSubmit={formApi.submitForm} >
+      <Form
+        onSubmit={(filters) => onSubmit(formUtils.scrubEmptyValues(filters, true))}
+        initialValues={initialValues}
+        render={({ handleSubmit }) => (
+          <form onSubmit={handleSubmit} noValidate>
             <div className='filter-row'>
               <div className='filter-group'>
                 <div className='filter-group_item'>
-                  <Text field='application_number' placeholder='Application Number' />
+                  <InputField fieldName='application_number' placeholder='Application Number' />
+                </div>
+                <div className='filter-group_item'>{listingIdField}</div>
+                <div className='filter-group_item'>
+                  <InputField fieldName='first_name' placeholder='First Name' />
                 </div>
                 <div className='filter-group_item'>
-                  <Select field='listing_id' options={listingOptions} placeholder='Any Listing' />
+                  <InputField fieldName='last_name' placeholder='Last Name' />
                 </div>
                 <div className='filter-group_item'>
-                  <Text field='first_name' placeholder='First Name' />
-                </div>
-                <div className='filter-group_item'>
-                  <Text field='last_name' placeholder='Last Name' />
-                </div>
-                <div className='filter-group_item'>
-                  <Select field='submission_type' options={submissionTypeOptions} placeholder='Submission Type' />
+                  <SelectField
+                    fieldName='submission_type'
+                    options={submissionTypeOptions}
+                    placeholder='Submission Type'
+                  />
                 </div>
                 <div className='filter-group_action'>
                   <button className='small'>Filter</button>
@@ -47,7 +65,7 @@ const ApplicationsFilter = ({ onSubmit, listings = [], loading = false }) => {
             </div>
           </form>
         )}
-      </Form>
+      />
     </Loading>
   )
 }

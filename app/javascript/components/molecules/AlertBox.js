@@ -1,8 +1,21 @@
 import React from 'react'
+
 import classNames from 'classnames'
 
 const getCloseLink = (type, onCloseClick) => {
-  if (type === 'text') { return <button type='button' className='button button-link close text' onClick={onCloseClick}>Close</button> } else { return <button type='button' className='button button-link close' onClick={onCloseClick}>&times;</button> }
+  if (type === 'text') {
+    return (
+      <button type='button' className='button button-link close text' onClick={onCloseClick}>
+        Close
+      </button>
+    )
+  } else {
+    return (
+      <button type='button' className='button button-link close' onClick={onCloseClick}>
+        &times;
+      </button>
+    )
+  }
 }
 
 const AlertBox = ({ message, invert, noMargin, onCloseClick, closeType }) => {
@@ -22,10 +35,8 @@ const AlertBox = ({ message, invert, noMargin, onCloseClick, closeType }) => {
           <use xlinkHref='#i-warning' />
         </svg>
       </span>
-      <p className='alert-body'>
-        {message}
-      </p>
-      { closeLink }
+      <p className='alert-body'>{message}</p>
+      {closeLink}
     </div>
   )
 }

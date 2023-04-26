@@ -1,42 +1,33 @@
 import React from 'react'
 
 import PaperApplicationForm from './application_form/PaperApplicationForm'
+import { saveApplication } from './applicationRequestUtils'
 import CardLayout from '../layouts/CardLayout'
-import mapProps from '~/utils/mapProps'
-import { mapListing } from '~/components/mappers/soqlToDomain/listing'
-import { saveApplication } from './actions'
-import { parseHouseholdIncome } from './application_form/utils'
 
-const ApplicationNewForm = ({ listing }) => {
-  const saveNewApplication = async (submitType, submittedValues, application, listing, editPage) => {
-    submittedValues.listing = { id: listing.id }
-    submittedValues.annual_income = parseHouseholdIncome(submittedValues.annual_income)
-    return saveApplication(submitType, submittedValues, application, listing, editPage)
+const ApplicationNewForm = ({ listing, lendingInstitutions }) => {
+  const saveNewApplication = async (submitType, submittedValues, listing, editPage) => {
+    submittedValues.listing_id = listing.id
+    return saveApplication(submitType, submittedValues, listing, editPage)
   }
 
   return (
     <PaperApplicationForm
       listing={listing}
+      lendingInstitutions={lendingInstitutions}
       onSubmit={saveNewApplication}
     />
   )
 }
 
-const ApplicationNewPage = ({ listing }) => {
+const ApplicationNewPage = ({ listing, lendingInstitutions }) => {
   const pageHeader = {
     title: `New Application: ${listing.name}`
   }
   return (
     <CardLayout pageHeader={pageHeader}>
-      <ApplicationNewForm listing={listing} />
+      <ApplicationNewForm listing={listing} lendingInstitutions={lendingInstitutions} />
     </CardLayout>
   )
 }
 
-const mapProperties = ({ listing }) => {
-  return {
-    listing: mapListing(listing)
-  }
-}
-
-export default mapProps(mapProperties)(ApplicationNewPage)
+export default ApplicationNewPage

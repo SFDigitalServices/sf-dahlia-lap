@@ -4,3 +4,6 @@ field_update_comment:
     Processing_Comment__c:
     Processing_Date_Updated__c:
     Processing_Status__c:
+    Sub_Status__c:
+    CreatedBy.Name:
+      label: 'Created By'

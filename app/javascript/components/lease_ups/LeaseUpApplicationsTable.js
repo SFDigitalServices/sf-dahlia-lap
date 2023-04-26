@@ -1,77 +1,197 @@
 import React from 'react'
-import ReactTable from 'react-table'
-import { trim } from 'lodash'
 
-import StatusDropdown from '../molecules/StatusDropdown'
-import { getLeaseUpStatusClass } from '~/utils/statusUtils'
-import appPaths from '~/utils/appPaths'
-import { cellFormat } from '~/utils/reactTableUtils'
 import classNames from 'classnames'
-import { MAX_SERVER_LIMIT } from '~/utils/EagerPagination'
+import { trim } from 'lodash'
+import { Link, useHistory } from 'react-router-dom'
+import ReactTable from 'react-table'
 
-const LeaseUpStatusCell = ({ cell, onChange }) => {
-  const applicationId = cell.original.application_id
-  const applicationPreferenceId = cell.original.application_preference_id
+import {
+  applicationRowClicked,
+  applicationsTablePageChanged
+} from 'components/lease_ups/actions/actionCreators'
+import CheckboxCell from 'components/lease_ups/application_page/CheckboxCell'
+import PreferenceRankCell from 'components/lease_ups/application_page/PreferenceRankCell'
+import StatusCell from 'components/lease_ups/application_page/StatusCell'
+import appPaths from 'utils/appPaths'
+import { useAppContext } from 'utils/customHooks'
+import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
+import { cellFormat } from 'utils/reactTableUtils'
+import { getLeaseUpStatusClass } from 'utils/statusUtils'
 
-  const value = cell.value || ''
+const CELL_PADDING_PX = 16
+const STATUS_COLUMN_WIDTH_PX = 192
+
+const getCellWidth = (baseSizePx, isAtStartOrEnd = false) => {
+  // We put 1/2 cell padding on either side of every cell so that the total padding between
+  // cells is CELL_PADDING_PX. However, if the cell is at the start or end we want the full
+  // padding on one side and half padding on the other side, so we need to multiply the padding by 1.5x.
+  const padding = isAtStartOrEnd ? 1.5 * CELL_PADDING_PX : CELL_PADDING_PX
+  return baseSizePx + padding
+}
+
+const textCell = ({ value }) => {
+  const textStyle = {
+    width: '100%',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden'
+  }
+
   return (
-    <StatusDropdown
-      status={value}
-      onChange={onChange.bind(null, applicationPreferenceId, applicationId)}
-      styles={{position: 'absolute'}}
-      buttonClasses={['tiny']} />
+    <div style={textStyle} title={value}>
+      {value}
+    </div>
   )
 }
 
-const resizableCell = (cell) => (
-  <span className='rt-resizable-td-content'>{cell.value}</span>
-)
+const LeaseUpApplicationsTable = ({
+  dataSet,
+  onLeaseUpStatusChange,
+  loading,
+  pages,
+  rowsPerPage,
+  atMaxPages,
+  bulkCheckboxesState,
+  onBulkCheckboxClick
+}) => {
+  const [
+    {
+      applicationsListData: { page }
+    },
+    dispatch
+  ] = useAppContext()
 
-const isInvalid = (original) => {
-  return original.post_lottery_validation === 'Invalid'
-}
+  const history = useHistory()
 
-const PreferenceRankCell = ({cell}) => {
-  if (isInvalid(cell.original)) {
-    return (
-      <div>
-        <span className='rt-td-label-rank t-semis'>{cell.original.preference_rank}</span>
-        <span className='rt-td-label-invalid t-semis'>Invalid</span>
-      </div>
-    )
-  } else {
-    return <div>{cell.original.preference_rank}</div>
+  const updateSelectedApplicationState = (application, navigateToApplication = false) => {
+    applicationRowClicked(dispatch, application)
+
+    if (navigateToApplication) {
+      history.push(appPaths.toLeaseUpApplication(application.application_id))
+    }
   }
-}
 
-const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, onCellClick, loading, onFetchData, pages, rowsPerPage, atMaxPages }) => {
-  const maxPagesMsg = `Unfortunately, we can only display the first ${MAX_SERVER_LIMIT / rowsPerPage} pages of applications at this time. Please use the filters above to narrow your results.`
+  const maxPagesMsg = `Unfortunately, we can only display the first ${
+    MAX_SERVER_LIMIT / rowsPerPage
+  } pages of applications at this time. Please use the filters above to narrow your results.`
   const noDataMsg = atMaxPages ? maxPagesMsg : 'No results, try adjusting your filters'
   const columns = [
-    { Header: 'Preference Rank', accessor: 'rankOrder', headerClassName: 'td-min-narrow', Cell: cell => <PreferenceRankCell cell={cell} /> },
-    { Header: 'Application Number', accessor: 'application_number', className: 'text-left', Cell: (cell) => (<a href={appPaths.toApplicationSupplementals(cell.original.application_id)} className='has-border'>{cell.value}</a>) },
-    { Header: 'First Name', accessor: 'first_name', Cell: resizableCell, className: 'text-left' },
-    { Header: 'Last Name', accessor: 'last_name', Cell: resizableCell, className: 'text-left' },
-    { Header: 'Phone', accessor: 'phone', Cell: resizableCell, className: 'text-left' },
-    { Header: 'Email', accessor: 'email', Cell: resizableCell, className: 'text-left' },
-    { Header: 'Address', accessor: 'address', Cell: resizableCell, className: 'text-left' },
-    { Header: 'Status Updated', accessor: 'status_last_updated', headerClassName: 'td-offset-right text-right', Cell: cellFormat.date },
-    { Header: 'Lease Up Status', accessor: 'lease_up_status', headerClassName: 'td-min-wide tr-fixed-right', Cell: cell => <LeaseUpStatusCell cell={cell} onChange={onLeaseUpStatusChange} /> }
+    {
+      Header: '',
+      accessor: 'bulk_checkbox',
+      headerClassName: 'non-resizable',
+      width: getCellWidth(24, true),
+      Cell: (cell) => {
+        const appId = cell.original.application_id
+        return (
+          <CheckboxCell
+            checked={bulkCheckboxesState[appId]}
+            applicationId={appId}
+            onClick={() => onBulkCheckboxClick(appId)}
+          />
+        )
+      }
+    },
+    {
+      Header: 'Rank',
+      accessor: 'rankOrder',
+      headerClassName: 'non-resizable',
+      width: getCellWidth(88),
+      Cell: (cell) => (
+        <PreferenceRankCell
+          preferenceRank={cell.original.preference_rank}
+          preferenceValidation={cell.original.post_lottery_validation}
+        />
+      )
+    },
+    {
+      Header: 'Application',
+      accessor: 'application_number',
+      headerClassName: 'non-resizable',
+      width: getCellWidth(96),
+      Cell: (cell) => (
+        <Link
+          to={appPaths.toLeaseUpApplication(cell.original.application_id)}
+          onClick={() => updateSelectedApplicationState(cell.original, false)}
+        >
+          {cell.value}
+        </Link>
+      )
+    },
+    {
+      Header: 'First Name',
+      accessor: 'first_name',
+      headerClassName: 'non-resizable',
+      minWidth: getCellWidth(98),
+      Cell: textCell
+    },
+    {
+      Header: 'Last Name',
+      accessor: 'last_name',
+      headerClassName: 'non-resizable',
+      minWidth: getCellWidth(98),
+      Cell: textCell
+    },
+    {
+      Header: 'HH',
+      accessor: 'total_household_size',
+      headerClassName: 'non-resizable',
+      width: getCellWidth(24)
+    },
+    {
+      Header: 'Requests',
+      accessor: 'accessibility',
+      headerClassName: 'non-resizable',
+      minWidth: getCellWidth(84),
+      Cell: textCell
+    },
+    {
+      Header: 'Updated',
+      accessor: 'status_last_updated',
+      headerClassName: 'non-resizable',
+      minWidth: getCellWidth(75),
+      Cell: cellFormat.date
+    },
+    {
+      Header: 'Latest Substatus',
+      accessor: 'sub_status',
+      className: 'td-offset-right',
+      headerClassName: 'td-offset-right',
+
+      // this cell actually goes underneath the fixed column,
+      // so it needs to combine both cells' widths.
+      minWidth: getCellWidth(153 + STATUS_COLUMN_WIDTH_PX),
+      Cell: textCell
+    },
+    {
+      Header: 'Status',
+      accessor: 'lease_up_status',
+      className: 'td-status td-fixed-right',
+      headerClassName: 'tr-fixed-right',
+      minWidth: getCellWidth(STATUS_COLUMN_WIDTH_PX, true),
+      Cell: (cell) => {
+        const { application_id: applicationId } = cell.original
+        return (
+          <StatusCell
+            applicationId={applicationId}
+            status={cell.value}
+            onChange={(val) => onLeaseUpStatusChange(val, applicationId, false)}
+          />
+        )
+      }
+    }
   ]
 
-  const getTdProps = (state, rowInfo, column, instance) => {
-    let attrs = {}
+  const getTdProps = (state, rowInfo, column) => {
+    const attrs = {}
 
-    // classes and onClick actions vary depending on the type of column
-    if (column.id === 'lease_up_status') {
-      attrs.className = 'td-min-wide td-status td-fixed-right'
-    } else if (column.id !== 'application_number') {
-      attrs.onClick = (e, handleOriginal) => { if (rowInfo) onCellClick(listingId, rowInfo) }
-
-      if (column.id === 'status_last_updated') {
-        attrs.className = 'td-offset-right text-right'
-      } else if (column.id === 'rankOrder') {
-        attrs.className = 'td-min-narrow'
+    // onClick actions vary depending on the type of column
+    if (
+      column.id !== 'application_number' &&
+      column.id !== 'lease_up_status' &&
+      column.id !== 'bulk_checkbox'
+    ) {
+      attrs.onClick = (e, handleOriginal) => {
+        if (rowInfo) updateSelectedApplicationState(rowInfo.original, true)
       }
     }
 
@@ -79,15 +199,12 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
   }
 
   const getTrProps = (state, rowInfo, column) => {
-    const statusClassName = (rowInfo && !!trim(rowInfo.row.lease_up_status))
-      ? getLeaseUpStatusClass(rowInfo.row.lease_up_status)
-      : ''
+    const statusClassName =
+      rowInfo && !!trim(rowInfo.row.lease_up_status)
+        ? getLeaseUpStatusClass(rowInfo.row.lease_up_status)
+        : ''
 
-    const trClassName = classNames(
-      'rt-tr-status',
-      statusClassName,
-      { 'is-invalid': rowInfo && isInvalid(rowInfo.original) }
-    )
+    const trClassName = classNames('rt-tr-status', statusClassName)
 
     return {
       className: trClassName,
@@ -107,6 +224,8 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
       manual
       className='rt-table-status'
       data={dataSet}
+      page={page}
+      onPageChange={(newPage) => applicationsTablePageChanged(dispatch, newPage)}
       pages={pages}
       columns={columns}
       getTdProps={getTdProps}
@@ -114,7 +233,6 @@ const LeaseUpApplicationsTable = ({ listingId, dataSet, onLeaseUpStatusChange, o
       defaultPageSize={rowsPerPage}
       sortable={false}
       loading={loading}
-      onFetchData={onFetchData}
       noDataText={noDataMsg}
       getPaginationProps={getPaginationProps}
     />

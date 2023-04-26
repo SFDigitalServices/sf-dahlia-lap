@@ -1,30 +1,62 @@
 import React from 'react'
+
 import { range } from 'lodash'
-import { Select } from 'react-form'
 
-import FormGrid from '~/components/molecules/FormGrid'
-import formUtils from '~/utils/formUtils'
+import FormGrid from 'components/molecules/FormGrid'
+import { SelectField } from 'utils/form/final_form/Field'
+import formUtils from 'utils/formUtils'
 
-const DemographicsInputs = ({onChange}) => {
-  const numberOfDependentsOptions = formUtils.toOptions(range(10))
-  const martialStatusOptions = formUtils.toOptions(['Single', 'Married', 'Domestic Partner'])
+const DemographicsInputs = () => {
+  const numberOfPeopleOptions = range(10)
+  const martialStatusOptions = ['Single', 'Married', 'Domestic Partner']
 
   return (
-    <React.Fragment>
-      <FormGrid.Row paddingBottom>
+    <>
+      <FormGrid.Row>
         <FormGrid.Item>
-          <FormGrid.Group label='Number of Dependents'>
-            <Select id='demographics-dependents' field='number_of_dependents' options={numberOfDependentsOptions} placeholder='Select One' />
-          </FormGrid.Group>
-        </FormGrid.Item>
-
-        <FormGrid.Item>
-          <FormGrid.Group label='Primary Applicant Marital Status'>
-            <Select id='demographics-marital-status' field='applicant.marital_status' options={martialStatusOptions} placeholder='Select One' />
-          </FormGrid.Group>
+          <SelectField
+            id='demographics-dependents'
+            fieldName='number_of_dependents'
+            options={numberOfPeopleOptions}
+            format={formUtils.formatNumber}
+            label='Number of Dependents'
+          />
         </FormGrid.Item>
       </FormGrid.Row>
-    </React.Fragment>
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <SelectField
+            id='demographics-seniors'
+            fieldName='number_of_seniors'
+            options={numberOfPeopleOptions}
+            format={formUtils.formatNumber}
+            label='Number of Seniors'
+            helpText='Check the listing to verify the age cutoff for seniors.'
+          />
+        </FormGrid.Item>
+      </FormGrid.Row>
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <SelectField
+            id='demographics-minors'
+            fieldName='number_of_minors'
+            options={numberOfPeopleOptions}
+            format={formUtils.formatNumber}
+            label='Number of Minors'
+          />
+        </FormGrid.Item>
+      </FormGrid.Row>
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <SelectField
+            id='demographics-marital-status'
+            fieldName='applicant.marital_status'
+            options={martialStatusOptions}
+            label='Primary Applicant Marital Status'
+          />
+        </FormGrid.Item>
+      </FormGrid.Row>
+    </>
   )
 }
 

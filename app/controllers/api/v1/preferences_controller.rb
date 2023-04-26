@@ -10,8 +10,6 @@ module Api
         response = rest_preference_service.update(preference_params.merge(id: params[:id]))
         if response
           render json: true
-        else
-          render status: 422, json: false
         end
       end
 
@@ -20,9 +18,11 @@ module Api
       def preference_params
         params.require(:preference).permit(
           :id,
+          :application_member_id,
           :individual_preference,
           :post_lottery_validation,
           :type_of_proof,
+          :lw_type_of_proof,
         )
       end
 

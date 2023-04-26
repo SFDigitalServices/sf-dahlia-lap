@@ -1,6 +1,6 @@
 import React from 'react'
 
-import SimpleModal from '~/components/organisms/SimpleModal'
+import SimpleModal from 'components/organisms/SimpleModal'
 
 class ModalWrapper extends React.Component {
   state = {
@@ -21,7 +21,7 @@ class ModalWrapper extends React.Component {
 
   closeInvertModal = () => this.setState({ invertModalIsOpen: false })
 
-  render () {
+  render() {
     return (
       <div>
         <button onClick={this.openStatusModal}>Open Update Status Modal</button>
@@ -33,12 +33,20 @@ class ModalWrapper extends React.Component {
           handleClose={this.closeStatusModal}
           onPrimaryClick={this.closeStatusModal}
           onSecondaryClick={this.closeStatusModal}
-          type='status'>
-          <p class='c-steel'>Loreum ipsum</p>
+          type='status'
+        >
+          <p className='c-steel'>Loreum ipsum</p>
 
-          <div class='form-group'>
+          <div className='form-group'>
             <label>Comment Required</label>
-            <textarea name='textarea-id' id='textarea-id' cols='30' rows='10' placeholder='Type here' aria-describedby='described-id' />
+            <textarea
+              name='textarea-id'
+              id='textarea-id'
+              cols='30'
+              rows='10'
+              placeholder='Type here'
+              aria-describedby='described-id'
+            />
           </div>
         </SimpleModal>
 
@@ -58,9 +66,11 @@ class ModalWrapper extends React.Component {
           alert={{
             title: "This change will affect this application's preferences",
             subtitle: 'This application would no longer be eligible for Live Work Preference',
-            message: 'Note, you will have the opportunity to grant another household member this preference',
+            message:
+              'Note, you will have the opportunity to grant another household member this preference',
             invert: false
-          }}>
+          }}
+        >
           <div>content</div>
         </SimpleModal>
 
@@ -80,12 +90,13 @@ class ModalWrapper extends React.Component {
           alert={{
             title: "This change will affect this application's preferences",
             subtitle: 'This application woudl no longer be elegible for Live Work Preference',
-            message: 'Note, you will have the opportunity to grant another household member this preference',
+            message:
+              'Note, you will have the opportunity to grant another household member this preference',
             invert: true
-          }}>
+          }}
+        >
           <div>content</div>
         </SimpleModal>
-
       </div>
     )
   }

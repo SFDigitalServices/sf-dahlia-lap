@@ -1,185 +1,203 @@
 import React from 'react'
+
+import arrayMutators from 'final-form-arrays'
+import { includes, isEmpty, map, values as _values } from 'lodash'
 import PropTypes from 'prop-types'
-import { forEach, some, isObjectLike, isNil, includes } from 'lodash'
-import { Form } from 'react-form'
-import ApplicationLanguageSection from './ApplicationLanguageSection'
-import PrimaryApplicantSection from './PrimaryApplicantSection'
+import { Form } from 'react-final-form'
+
+import AlertBox from 'components/molecules/AlertBox'
+import appPaths from 'utils/appPaths'
+import validate, { convertCurrency } from 'utils/form/validations'
+
+import AgreeToTerms from './AgreeToTerms'
 import AlternateContactSection from './AlternateContactSection'
+import ApplicationLanguageSection from './ApplicationLanguageSection'
+import DemographicInfoSection from './DemographicInfoSection'
+import EligibilitySection from './EligibilitySection'
+import HouseholdIncomeSection from './HouseholdIncomeSection'
 import HouseholdMembersSection from './HouseholdMembersSection'
 import PreferencesSection from './preferences/PreferencesSection'
+import { getFullHousehold, naturalKeyFromMember } from './preferences/utils'
+import PrimaryApplicantSection from './PrimaryApplicantSection'
 import ReservedPrioritySection from './ReservedPrioritySection'
-import HouseholdIncomeSection from './HouseholdIncomeSection'
-import DemographicInfoSection from './DemographicInfoSection'
-import AgreeToTerms from './AgreeToTerms'
-import AlertBox from '~/components/molecules/AlertBox'
-import validate from '~/utils/form/validations'
-
-const fieldRequiredMsg = 'is required'
-
-const preferenceRequiredFields = {
-  individual_preference: ['RB_AHP', 'L_W'],
-  type_of_proof: ['NRHP', 'L_W', 'AG'],
-  street: ['AG'],
-  city: ['AG'],
-  state: ['AG'],
-  zip_code: ['AG']
-}
-
-const preferenceRequiresField = (prefName, fieldName) => {
-  if (fieldName === 'naturalKey') {
-    return true
-  } else {
-    return includes(preferenceRequiredFields[fieldName], prefName)
-  }
-}
-
-// In react-form v2, a validation value of null indicates no
-// error, and a validation value of anything other than null
-// indicates an error.
-const getPrefFieldValidation = (pref, fieldName) => {
-  if (preferenceRequiresField(pref.recordtype_developername, fieldName)) {
-    return pref[fieldName] ? null : fieldRequiredMsg
-  } else {
-    return null
-  }
-}
-
-const buildPrefValidations = (prefs) => {
-  let prefValidations = {}
-  forEach(prefs, (pref, index) => {
-    prefValidations[index] = {
-      naturalKey: getPrefFieldValidation(pref, 'naturalKey'),
-      individual_preference: getPrefFieldValidation(pref, 'individual_preference'),
-      type_of_proof: getPrefFieldValidation(pref, 'type_of_proof'),
-      street: getPrefFieldValidation(pref, 'street'),
-      city: getPrefFieldValidation(pref, 'city'),
-      state: getPrefFieldValidation(pref, 'state'),
-      zip_code: getPrefFieldValidation(pref, 'zip_code')
-    }
-  })
-  return prefValidations
-}
-
-const validateAnnualIncome = (value) => {
-  if (isNil(value)) {
-    return null
-  } else {
-    if (/[^0-9$,.]/.test(value)) {
-      return 'Please enter a valid dollar amount.'
-    } else {
-      return null
-    }
-  }
-}
-
-const buildHouseholdMemberValidations = (householdMembers) => {
-  let householdMemberValidations = {}
-  forEach(householdMembers, (member, index) => {
-    // If member is empty, do not validate it.
-    householdMemberValidations[index] = member === '' ? {} : {
-      first_name: validate.isPresent('Please enter a First Name')(member.first_name),
-      last_name: validate.isPresent('Please enter a Last Name')(member.last_name),
-      date_of_birth: validate.isValidDate('Please enter a valid Date of Birth')(member.date_of_birth)
-    }
-  })
-  return householdMemberValidations
-}
-
-const validateError = (values) => ({
-  preferences: buildPrefValidations(values.preferences),
-  annual_income: validateAnnualIncome(values.annual_income),
-  household_members: buildHouseholdMemberValidations(values.household_members)
-})
 
 class PaperApplicationForm extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      loading: false,
-      submittedValues: {},
-      submitType: ''
-    }
+  state = {
+    loading: false,
+    submittedValues: {},
+    submitType: '',
+    genderSpecifyRequired: false,
+    orientationOtherRequired: false
   }
 
   submitShortForm = async (submittedValues) => {
-    const { listing, application, onSubmit, editPage } = this.props
+    const { listing, onSubmit, editPage } = this.props
     const { submitType } = this.state
 
     this.setState({ submittedValues, loading: true, failed: false })
-    await onSubmit(submitType, submittedValues, application, listing, editPage)
-    this.setState({ loading: false })
+
+    const response = await onSubmit(submitType, submittedValues, listing, editPage)
+    if (!response) {
+      this.setState({ loading: false, failed: true })
+    }
   }
 
-  hasErrors = (errors) => {
-    return some(errors, (value, key) => {
-      if (isObjectLike(value)) {
-        return this.hasErrors(value)
-      } else {
-        return !isNil(value)
-      }
+  saveSubmitType = (type, form) => {
+    const failed = form.getState().invalid
+    this.setState({ submitType: type, failed: failed })
+    if (failed) {
+      window.scrollTo(0, 0)
+    }
+  }
+
+  checkNotListed = (demographics, key) => {
+    if (
+      demographics &&
+      demographics[key] &&
+      demographics[key].toLowerCase() === 'not listed' &&
+      !demographics[`${key}_other`]
+    ) {
+      return true
+    }
+    return false
+  }
+
+  validateForm = (values) => {
+    const errors = { applicant: { date_of_birth: {} } }
+    // applicant needs to be initialized for date validation to run on 'required'
+    if (!values.applicant) values.applicant = {}
+    validate.isValidDate(values.applicant.date_of_birth, errors.applicant.date_of_birth, {
+      errorMessage: 'Please enter a Date of Birth',
+      isPrimaryApplicant: true
     })
+    // Only validate alternate contacts that are present and not-empty
+    if (values.alternate_contact && !_values(values.alternate_contact).every(isEmpty)) {
+      errors.alternate_contact = {}
+      errors.alternate_contact.first_name = validate.isPresent('Please enter a First Name')(
+        values.alternate_contact.first_name
+      )
+      errors.alternate_contact.last_name = validate.isPresent('Please enter a Last Name')(
+        values.alternate_contact.last_name
+      )
+      errors.alternate_contact.email = validate.isValidEmail('Please enter a valid Email')(
+        values.alternate_contact.email
+      )
+    }
+
+    // Secondary preference application member validation: Check if selected app member value is still a valid natural key.
+    if (values.preferences) {
+      const naturalKeys = map(getFullHousehold(values), (member) => naturalKeyFromMember(member))
+      errors.preferences = []
+      values.preferences.map((pref, i) => {
+        errors.preferences = errors.preferences.concat({})
+        if (pref.naturalKey && !includes(naturalKeys, pref.naturalKey)) {
+          errors.preferences[i].naturalKey = 'This field is required'
+        }
+      })
+    }
+
+    // Demographics section
+    if (values.demographics) {
+      const { demographics } = values
+      errors.demographics = {}
+
+      const isGenderSpecifyRequired = this.checkNotListed(demographics, 'gender')
+      const isOrientationOtherRequired = this.checkNotListed(demographics, 'sexual_orientation')
+      errors.demographics.gender_other = isGenderSpecifyRequired ? 'Gender is required' : undefined
+      errors.demographics.sexual_orientation_other = isOrientationOtherRequired
+        ? 'Sexual Orientation is required'
+        : undefined
+      this.setState({
+        genderSpecifyRequired: isGenderSpecifyRequired,
+        orientationOtherRequired: isOrientationOtherRequired
+      })
+    }
+    return errors
   }
 
-  saveSubmitType = (type, formApi) => {
-    const failed = this.hasErrors(formApi.errors)
-    this.setState({submitType: type, failed})
-    if (failed) { window.scrollTo(0, 0) }
-  }
-
-  render () {
-    const { listing, application, editPage } = this.props
+  render() {
+    const { listing, application, lendingInstitutions } = this.props
     const { loading, failed } = this.state
     return (
       <div>
-        <Form onSubmit={this.submitShortForm} defaultValues={application} validateError={validateError}>
-          { formApi => (
-            <form onSubmit={formApi.submitForm} id='shortForm'>
+        <Form
+          onSubmit={(values) => this.submitShortForm(convertCurrency(values))}
+          initialValues={application}
+          validate={this.validateForm}
+          mutators={{
+            ...arrayMutators
+          }}
+          render={({ handleSubmit, form, values, visited }) => (
+            <form onSubmit={handleSubmit} id='shortForm' noValidate>
               <div className='app-card form-card medium-centered'>
                 <div className='app-inner inset'>
-                  { failed && (
+                  {failed && (
                     <AlertBox
                       invert
-                      onCloseClick={() => this.setState({failed: false})}
-                      message='Please resolve any errors before saving the application.' />
+                      onCloseClick={() => this.setState({ failed: false })}
+                      message='Please resolve any errors before saving the application.'
+                    />
                   )}
-                  <ApplicationLanguageSection editValues={application} formApi={formApi} />
-                  <PrimaryApplicantSection editValues={application} formApi={formApi} />
-                  <AlternateContactSection editValues={application} />
-                  <HouseholdMembersSection editValues={application} formApi={formApi} />
-                  <ReservedPrioritySection editValues={application} listing={listing} />
+                  <ApplicationLanguageSection />
+                  <EligibilitySection
+                    listing={listing}
+                    lendingInstitutions={lendingInstitutions}
+                    form={form}
+                  />
+                  <PrimaryApplicantSection form={form} />
+                  <AlternateContactSection />
+                  <HouseholdMembersSection editValues={application} form={form} />
+                  <ReservedPrioritySection listing={listing} />
                   <PreferencesSection
-                    formApi={formApi}
+                    form={form}
                     listingPreferences={listing.listing_lottery_preferences}
                     editValues={application}
                   />
-                  <HouseholdIncomeSection />
-                  {!editPage && <DemographicInfoSection />}
+                  <HouseholdIncomeSection visited={visited} />
+                  <DemographicInfoSection
+                    values={values}
+                    genderSpecifyRequired={this.state.genderSpecifyRequired}
+                    orientationOtherRequired={this.state.orientationOtherRequired}
+                  />
                   <AgreeToTerms />
                 </div>
                 <div className='button-pager'>
                   <div className='button-pager_row primary'>
-                    <button className='primary radius margin-right save-btn' type='submit' onClick={() => this.saveSubmitType('Save', formApi)} disabled={loading}>
-                      Save
+                    <button
+                      className='primary radius margin-right save-btn'
+                      type='submit'
+                      onClick={() => this.saveSubmitType('Save', form)}
+                      disabled={loading}
+                    >
+                      {loading ? 'Saving…' : 'Save'}
                     </button>
-                    <button className='primary radius' type='submit' onClick={() => this.saveSubmitType('SaveAndNew', formApi)} disabled={loading}>
+                    <button
+                      className='primary radius'
+                      type='submit'
+                      onClick={() => this.saveSubmitType('SaveAndNew', form)}
+                      disabled={loading}
+                    >
                       Save and New
                     </button>
                   </div>
                   <div className='button-pager_row primary'>
-                    <a className='primary radius' href='/listings'>Cancel</a>
+                    <a className='primary radius' href={appPaths.toListings()}>
+                      Cancel
+                    </a>
                   </div>
                 </div>
               </div>
             </form>
           )}
-        </Form>
+        />
       </div>
     )
   }
 }
 
 PaperApplicationForm.propTypes = {
-  listing: PropTypes.object.isRequired
+  listing: PropTypes.object.isRequired,
+  lendingInstitutions: PropTypes.object.isRequired
 }
 
 export default PaperApplicationForm

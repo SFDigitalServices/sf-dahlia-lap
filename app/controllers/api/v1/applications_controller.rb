@@ -9,6 +9,9 @@ module Api
       def index
         attributes = params.slice(:page, :application_number, :listing_id, :first_name, :last_name, :submission_type)
         applications = soql_application_service.applications(attributes)
+
+        applications[:records] = Force::Application.convert_list(applications[:records], :from_salesforce, :to_domain)
+
         render json: applications
       end
 
@@ -16,8 +19,6 @@ module Api
         response = rest_application_service.update(application_params.merge(id: params[:id]))
         if response
           render json: true
-        else
-          render status: 422, json: false
         end
       end
 

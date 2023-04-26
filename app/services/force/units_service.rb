@@ -7,50 +7,32 @@ module Force
     FIELD_NAME = :units
     FIELDS = load_fields(FIELD_NAME).freeze
 
-    # Returns the available units (units not assigned to any application) for
-    # the specified listing, including the unit for the specified application.
-    def available_units_for_application(listing_id, application_id)
-      sub_query = builder.from(:Lease__c)
-                         .select(:Unit__c)
-                         .where_eq('Application__r.Listing__c', listing_id, :string)
-                         .where("Application__c != '#{application_id}'")
+    # Returns units and relevant lease information for specified listing.
+    # Units contain info about unit number + eligibility. We join
+    # this with info from Leases
+    def units_and_leases_for_listing(listing_id)
+      lease_query = builder.from(:Leases__r)
+                         .select('Application__c, Lease_Status__c, Preference_Used_Name__c')
                          .to_soql
 
-      builder.from(:Unit__c)
-             .select('Id, Unit_Number__c ')
+      result = builder.from(:Unit__c)
+             .select("Id, Priority_Type__c, AMI_chart_type__c, Max_AMI_for_Qualifying_Unit__c, Unit_Number__c, Unit_Type__c, AMI_chart_year__c, (#{lease_query})")
              .where_eq('Listing__c', listing_id, :string)
-             .where("Id NOT IN (#{sub_query})")
              .transform_results { |results| massage(results) }
              .query
              .records
-    end
 
-    # Returns all the units for the specified listing that
-    # do not have an application assigned yet
-    def unassigned_units_by_listing(listing_id)
-      sub_query = builder.from(:Lease__c)
-                         .select(:Unit__c)
-                         .where_eq('Application__r.Listing__c', listing_id, :string)
-                         .to_soql
-
-      builder.from(:Unit__c)
-             .select('Id, Unit_Number__c ')
-             .where_eq('Listing__c', listing_id, :string)
-             .where("Id NOT IN (#{sub_query})")
-             .transform_results { |results| massage(results) }
-             .query
-             .records
-    end
-
-    # Returns all the units for the specified listing that
-    # have an application assigned
-    def assigned_units_by_listing(listing_id)
-      builder.from(:Lease__c)
-             .select('Id, Unit__c')
-             .where_eq('Application__r.Listing__c', "'#{listing_id}'")
-             .transform_results { |results| massage(results) }
-             .query
-             .records
+      #format/convert unit and lease objects
+      domain_units = result.map do |unit|
+        domain_unit = Force::Unit.from_salesforce(unit).to_domain
+        if domain_unit['leases']
+          domain_unit['leases'] = domain_unit['leases']
+                                    .filter { |lease| true if lease }
+                                    .map { |lease| Force::Lease.from_salesforce(lease).to_domain }
+        end
+        domain_unit
+      end
+      domain_units
     end
   end
 end

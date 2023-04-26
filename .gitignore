@@ -14,6 +14,9 @@
 # Ignore package-lock.json - use yarn.lock instead
 /package-lock.json
 
+# Ignore Editor configs
+.DS_Store
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -22,14 +25,23 @@
 
 /node_modules
 /yarn-error.log
+yarn-debug.log*
+.yarn-integrity
 
 .byebug_history
 .ruby-version
 .env
 /public/packs
 /public/packs-test
-/node_modules
 npm-debug.log
 
 # Using yarn rather than npm
 package-lock.json
+coverage
+TAGS
+
+# IDE
+.vscode/*
+!.vscode-default/*
+.idea/*
+*.iml

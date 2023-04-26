@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @listings = service.listings
+    @listings = service.pre_lottery_listings
     @fields = service.index_fields
   end
 
@@ -16,6 +16,6 @@ class ListingsController < ApplicationController
   private
 
   def service
-    Force::ListingService.new(current_user)
+    Force::Soql::ListingService.new(current_user)
   end
 end

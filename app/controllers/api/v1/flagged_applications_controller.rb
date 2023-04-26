@@ -5,7 +5,8 @@ class Api::V1::FlaggedApplicationsController < ApiController
   before_action :authenticate_user!
 
   def update
-    result = service.update_flagged_application(flagged_application_params)
+    params = Force::FlaggedApplication.from_domain(flagged_application_params).to_salesforce_with_suffix
+    result = service.update_flagged_application(params)
     render json: { result: result }
   end
 
@@ -14,9 +15,9 @@ class Api::V1::FlaggedApplicationsController < ApiController
   def flagged_application_params
     params.require(:flagged_application)
           .permit(
-            :Id,
-            :Review_Status__c,
-            :Comments__c,
+            :id,
+            :review_status,
+            :comments,
           )
   end
 

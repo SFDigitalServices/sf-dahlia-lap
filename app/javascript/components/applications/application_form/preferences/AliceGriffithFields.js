@@ -1,57 +1,68 @@
 import React from 'react'
+
 import { map } from 'lodash'
+
+import Column from 'components/atoms/Column'
+import Row from 'components/atoms/Row'
+import { InputField, SelectField } from 'utils/form/final_form/Field'
+import validate from 'utils/form/validations'
+import { maxLengthMap } from 'utils/formUtils'
+
 import { buildFieldId } from './utils'
 import { typeOfProofValues } from './values'
-import Row from '~/components/atoms/Row'
-import Column from '~/components/atoms/Column'
-import { Field } from '~/utils/form/Field'
 
 const buildTypeOfProofOptions = (values) => {
-  return map(values, (option) => (
-    { value: option, label: option }
-  ))
+  return map(values, (option) => ({ value: option, label: option }))
 }
 
-const AddressRow = ({fieldId}) => (
-  <React.Fragment>
+const AddressRow = ({ fieldId }) => (
+  <>
     <Row form>
       <Column span={6} form>
-        <Field.Text
+        <InputField
           label='Alice Griffith Address'
           blockNote='(required)'
-          field={fieldId('street')}
+          fieldName={fieldId('street')}
+          maxLength={maxLengthMap.address}
+          validation={validate.isPresent('Street is required')}
         />
       </Column>
     </Row>
 
     <Row form>
       <Column span={3} form>
-        <Field.Text
+        <InputField
           label='City'
-          field={fieldId('city')}
+          fieldName={fieldId('city')}
+          maxLength={maxLengthMap.city}
+          validation={validate.isPresent('City is required')}
         />
       </Column>
       <Column span={3} end form>
         <Row>
           <Column span={6}>
-            <Field.Text
+            <InputField
               label='State'
-              field={fieldId('state')}
+              fieldName={fieldId('state')}
+              maxLength={maxLengthMap.state}
+              validation={validate.isPresent('State is required')}
             />
           </Column>
           <Column span={6} end>
-            <Field.Text
+            <InputField
               label='Zip'
-              field={fieldId('zip_code')}
+              fieldName={fieldId('zip_code')}
+              maxLength={maxLengthMap.zip}
+              validation={validate.isPresent('Zip is required')}
             />
           </Column>
         </Row>
       </Column>
     </Row>
-  </React.Fragment>
+  </>
 )
 
-const AliceGriffithFields = ({i, householdMembers}) => {
+const AliceGriffithFields = ({ i, householdMembers }) => {
   const typeOfProofOptions = buildTypeOfProofOptions(typeOfProofValues)
   const fieldId = (field) => buildFieldId(i, field)
 
@@ -59,28 +70,33 @@ const AliceGriffithFields = ({i, householdMembers}) => {
     <Column>
       <Row form>
         <Column span={3} form>
-          <Field.Select
+          <SelectField
             label='HH Member on Proof'
             blockNote='(required)'
             id='alice-griffith-hh-member-on-proof'
-            field={fieldId('naturalKey')}
+            fieldName={fieldId('naturalKey')}
             options={householdMembers}
             value={fieldId('naturalKey')}
+            validation={validate.isPresent('HH Member on Proof is required')}
           />
         </Column>
         <Column span={3} form end>
-          <Field.Select
+          <SelectField
             label='Type of Proof'
             blockNote='(required)'
             id='alice-griffith-type-of-proof'
-            field={fieldId('type_of_proof')}
+            fieldName={fieldId('type_of_proof')}
             options={typeOfProofOptions}
             value={fieldId('type_of_proof')}
+            validation={validate.isPresent('Type of Proof is required')}
           />
         </Column>
       </Row>
       <AddressRow fieldId={fieldId} />
-      <p>Please check to make sure that a document proving the preference address was attached to the application. If no proof document was attached, do not select this preference.</p>
+      <p>
+        Please check to make sure that a document proving the preference address was attached to the
+        application. If no proof document was attached, do not select this preference.
+      </p>
       <p>MOHCD will verify that the applicant provided a valid address.</p>
     </Column>
   )

@@ -1,4 +1,6 @@
-import { reduce, mapValues, isObjectLike, isArray } from 'lodash'
+import { isObjectLike, isArray, isNaN, toNumber } from 'lodash'
+
+import { isValidPercent, isValidCurrency } from './form/validations'
 
 const toOption = (item) => {
   if (isArray(item)) {
@@ -10,39 +12,100 @@ const toOption = (item) => {
   }
 }
 
+// return an empty input option. Note that the value isn't set to null because that
+// will cause the input to fall back to the label on submit.
+const toEmptyOption = (label) => toOption(['', label])
+
 const toOptions = (items) => {
   return items.map(toOption)
 }
 
-// Returns an object whose keys are the form fields and whose
-// values indicate whether that field has both been touched
-// and has an error. Based on how react-form 2.x works.
-// react-form evaluates field errors upon form initialization,
-// so for fields that are invalid if blank, react-form assigns
-// them errors as soon as the form renders. So this function
-// lets us know if fields have errors only after user interaction.
-const touchedErrors = (formApi) => {
-  return reduce(formApi.errors, function (obj, error, field) {
-    obj[field] = formApi.touched[field] && error
-    return obj
-  }, {})
+// Formats a number to currency in format eg. $1,000.00
+// If the field is empty, return null to prevent salesforce issues.
+const formatPrice = (value) => {
+  if (!value) return null
+  const valueString = value.toString().replace(/[^.|\d]/g, '')
+
+  // return value if value is not valid number
+  if (isValidCurrency(value) && !isNaN(parseFloat(valueString))) {
+    return (
+      '$' +
+      parseFloat(valueString)
+        .toFixed(2)
+        .replace(/\d(?=(\d{3})+\.)/g, '$&,')
+    )
+  } else {
+    return value
+  }
 }
 
-// Returns an object whose keys are the form fields and whose
-// values indicate whether that field has an error after a
-// form submission has been attempted. Based on how react-form
-// 2.x works. react-form evaluates field errors upon form
-// initialization, so for fields that are invalid if blank,
-// react-form assigns them errors as soon as the form renders.
-// So this function lets us know if fields have errors only
-// after user has tried to submit the form.
-const submitErrors = (formApi) => {
-  return formApi.submits > 0 ? formApi.errors : mapValues(formApi.errors, () => null)
+// Formats a number to percent in format: 50%, 5.5%, etc
+const formatPercent = (value) => {
+  if (!value) return null
+  if (isValidPercent(value) && !isNaN(parseFloat(value))) {
+    // Outer parseFloat removes trailing zeros.
+    return parseFloat(parseFloat(value).toFixed(3)) + '%'
+  } else {
+    return value
+  }
+}
+
+// filter an object to only include keys that correspond to values that pass the given predicate
+const filterValues = (obj, predicate) =>
+  Object.fromEntries(
+    Object.keys(obj)
+      .filter((key) => predicate(obj[key]))
+      .map((key) => [key, obj[key]])
+  )
+
+// remove keys from obj if the values are empty (null or undefined).
+// Optionally scrub empty strings ('') as well.
+const scrubEmptyValues = (obj, scrubEmptyStrings = false) => {
+  const valueIsNonEmpty = (value) =>
+    value !== undefined && value !== null && (!scrubEmptyStrings || value !== '')
+
+  return filterValues(obj, valueIsNonEmpty)
+}
+
+const formatNumber = (value) => {
+  if (value === '' || value === null || value === undefined) return null
+
+  const number = toNumber(value)
+  if (isNaN(number)) {
+    return value
+  } else {
+    return number
+  }
+}
+
+export const maxLengthMap = {
+  first_name: 40,
+  middle_name: 20,
+  last_name: 40,
+  email: 40,
+  password: 50,
+  phone: 40,
+  day: 2,
+  month: 2,
+  year: 4,
+  address: 75,
+  city: 75,
+  state: 2,
+  zip: 15,
+  alternate_contact_type_other: 200,
+  agency_name: 250,
+  certificate_number: 50,
+  gender_other: 100,
+  sexual_orientation_other: 100,
+  income: 16
 }
 
 export default {
+  toEmptyOption,
+  formatNumber,
   toOption,
   toOptions,
-  touchedErrors,
-  submitErrors
+  formatPrice,
+  formatPercent,
+  scrubEmptyValues
 }

@@ -1,52 +1,77 @@
 import React from 'react'
+
+import { SelectField, InputField } from 'utils/form/final_form/Field'
+import validate from 'utils/form/validations'
+import { maxLengthMap } from 'utils/formUtils'
+
 import formOptions from './formOptions'
-import { NestedForm, Form, Select, Text } from 'react-form'
 
-let {
-  genderOptions,
-  sexualOrientationOptions,
-  raceOptions,
-  ethnicityOptions
-} = formOptions
+const { genderOptions, sexualOrientationOptions, raceOptions, ethnicityOptions } = formOptions
 
-const DemographicInfoSection = () => {
+const DemographicInfoSection = ({
+  values: { demographics },
+  genderSpecifyRequired,
+  orientationOtherRequired
+}) => {
   return (
-    <NestedForm field='demographics'>
-      <Form>
-        { formApi => (
-          <div className='border-bottom margin-bottom--2x'>
-            <h3>Demographic Information</h3>
-            <div className='row'>
-              <div className='small-6 columns'>
-                <label>Ethnicity</label>
-                <Select field='ethnicity' options={ethnicityOptions} />
-              </div>
-              <div className='small-6 columns'>
-                <label>Race</label>
-                <Select field='race' options={raceOptions} />
-              </div>
-              <div className='small-6 columns'>
-                <label>Gender</label>
-                <Select field='gender' options={genderOptions} />
-              </div>
-              <div className='small-6 columns'>
-                <label>Gender Specify (if not listed)</label>
-                <Text field='gender_other' />
-              </div>
-              <div className='small-6 columns'>
-                <label>Sexual Orientation</label>
-                <Select field='sexual_orientation' options={sexualOrientationOptions} />
-              </div>
-              <div className='small-6 columns'>
-                <label>Sexual Orientation (if not listed)</label>
-                <Text field='sexual_orientation_other' />
-              </div>
-            </div>
-            <div className='row' />
-          </div>
-        )}
-      </Form>
-    </NestedForm>
+    <div className='border-bottom margin-bottom--2x'>
+      <h3>Demographic Information</h3>
+      <div className='row flex-row'>
+        <div className='small-6 columns'>
+          <SelectField
+            fieldName='demographics.ethnicity'
+            label='Ethnicity'
+            options={ethnicityOptions}
+            blockNote='(required)'
+            validation={validate.isPresent('Ethnicity is required')}
+          />
+        </div>
+        <div className='small-6 columns'>
+          <SelectField
+            fieldName='demographics.race'
+            label='Race'
+            options={raceOptions}
+            blockNote='(required)'
+            validation={validate.isPresent('Race is required')}
+          />
+        </div>
+        <div className='small-6 columns'>
+          <SelectField
+            fieldName='demographics.gender'
+            label='Gender'
+            options={genderOptions}
+            blockNote='(required)'
+            validation={validate.isPresent('Gender is required')}
+          />
+        </div>
+        <div className='small-6 columns'>
+          <InputField
+            fieldName='demographics.gender_other'
+            label='Gender Specify (if not listed)'
+            blockNote={genderSpecifyRequired ? '(required)' : null}
+            maxLength={maxLengthMap.gender_other}
+          />
+        </div>
+        <div className='small-6 columns'>
+          <SelectField
+            fieldName='demographics.sexual_orientation'
+            label='Sexual Orientation'
+            options={sexualOrientationOptions}
+            blockNote='(required)'
+            validation={validate.isPresent('Sexual Orientation is required')}
+          />
+        </div>
+        <div className='small-6 columns'>
+          <InputField
+            fieldName='demographics.sexual_orientation_other'
+            label='Sexual Orientation (if not listed)'
+            blockNote={orientationOtherRequired ? '(required)' : null}
+            maxLength={maxLengthMap.sexual_orientation_other}
+          />
+        </div>
+      </div>
+      <div className='row' />
+    </div>
   )
 }
 

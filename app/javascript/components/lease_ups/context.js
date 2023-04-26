@@ -13,11 +13,7 @@ This context is specifically for the LeaseUps pages.
 */
 export const withContext = (Component) => {
   const ContextComponent = (props) => {
-    return (
-      <Context.Consumer>
-        {value => <Component {...props} store={value} />}
-      </Context.Consumer>
-    )
+    return <Context.Consumer>{(value) => <Component {...props} store={value} />}</Context.Consumer>
   }
 
   return ContextComponent

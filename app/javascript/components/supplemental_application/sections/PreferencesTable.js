@@ -1,28 +1,33 @@
 import React from 'react'
-import { map, reject, isEmpty, overSome, findIndex, orderBy } from 'lodash'
 
-import TableWrapper from '~/components/atoms/TableWrapper'
-import PreferenceIcon from './preferences/PreferenceIcon'
-import ExpandableTable from '~/components/molecules/ExpandableTable'
+import { reject, overSome, findIndex, orderBy, kebabCase } from 'lodash'
+
+import { memberNameFromPref } from 'components/applications/application_form/preferences/utils'
+import TableWrapper from 'components/atoms/TableWrapper'
+import ExpandableTable, { ExpanderButton } from 'components/molecules/ExpandableTable'
+import {
+  preferenceRowClosed,
+  editPreferenceClicked
+} from 'components/supplemental_application/actions/preferenceActionCreators'
+import { useAppContext } from 'utils/customHooks'
+
 import Panel from './preferences/Panel'
+import PreferenceIcon from './preferences/PreferenceIcon'
+import { getTypeOfProof } from './preferences/typeOfProof'
 import {
   isCOP,
   isDTHP,
   isAliceGriffith,
+  isRightToReturn,
   getPreferenceName
 } from './preferences/utils'
-import { getTypeOfProof } from './preferences/typeOfProof'
-import { withContext } from '../context'
 
-const { ExpanderButton } = ExpandableTable
-
-const hasExpanderButton = (prefName) => !overSome(isCOP, isDTHP, isAliceGriffith)(prefName)
+const hasExpanderButton = (prefName) =>
+  !overSome(isCOP, isDTHP, isAliceGriffith, isRightToReturn)(prefName)
 
 const onlyValid = (preferences) => {
   return reject(preferences, (pref) => {
-    return !pref.receives_preference ||
-           pref.lottery_status === 'Invalid for lottery' ||
-           isEmpty(pref.application_member)
+    return !pref.receives_preference
   })
 }
 
@@ -32,75 +37,119 @@ const matchingPreference = (row) => (preference) => {
 
 /** Presenter **/
 
-const buildRow = (proofFiles, fileBaseUrl) => preference => {
+const buildRow = (proofFiles, applicationMembers, fileBaseUrl) => (preference) => {
   return [
     { content: <PreferenceIcon status={preference.post_lottery_validation} /> },
     { content: getPreferenceName(preference) },
-    { content: preference.person_who_claimed_name },
+    { content: memberNameFromPref(preference.application_member_id, applicationMembers) },
     { content: preference.preference_lottery_rank, classes: ['text-right'] },
     { content: getTypeOfProof(preference, proofFiles, fileBaseUrl) },
     { content: preference.post_lottery_validation }
   ]
 }
 
-const buildRows = (application, fileBaseUrl) => {
+const buildRows = (application, applicationMembers, fileBaseUrl) => {
   const { preferences } = application
   const proofFiles = application.proof_files
   const sortedPreferences = orderBy(preferences, 'preference_order', 'asc')
-  return map(onlyValid(sortedPreferences), buildRow(proofFiles, fileBaseUrl))
+  return onlyValid(sortedPreferences).map(buildRow(proofFiles, applicationMembers, fileBaseUrl))
 }
 
 const columns = [
   { content: '' },
-  { content: 'Preference Name' },
-  { content: 'Person Who Claimed' },
-  { content: 'Preference Rank', classes: ['text-right'] },
-  { content: 'Type of proof' },
+  { content: 'Preference' },
+  { content: 'Claimant' },
+  { content: 'Rank', classes: ['text-right'] },
+  { content: 'Proof' },
   { content: 'Status' },
-  { content: 'Actions' }
+  { content: '' }
 ]
 
-const expandedRowRenderer = (application, onSave, onPanelClose, formApi) => (row, toggle) => {
-  const preferenceIndex = findIndex(application.preferences, matchingPreference(row))
-  const handleOnClose = (preferenceIndex) => {
-    toggle()
-    onPanelClose && onPanelClose(preferenceIndex)
-  }
-  const handleOnSave = async (preferenceIndex, application) => {
-    const response = await onSave(preferenceIndex, application)
-    response && handleOnClose()
-  }
+/**
+ * Get the index of the preference row in the application preferences array.
+ *
+ * Note that this is different from the index on the UI table, since what's shown is sorted and filtered.
+ */
+const getPreferenceIndex = (row, application) =>
+  findIndex(application.preferences, matchingPreference(row))
 
-  return (
-    <Panel
-      application={application}
-      preferenceIndex={preferenceIndex}
-      onSave={handleOnSave}
-      onClose={handleOnClose}
-      formApi={formApi}
-    />
+const convertPreferenceToTableIndices = (preferenceIndices, tableRows, application) => {
+  // map preference indices to UI table indices
+  const preferenceIndexToRowIndex = Object.fromEntries(
+    tableRows.map((row, index) => [getPreferenceIndex(row, application), index])
   )
+
+  const expandedRowIndicesList = [...preferenceIndices]
+    .map((preferenceIndex) => preferenceIndexToRowIndex[preferenceIndex])
+    .filter((tableIndex) => tableIndex !== undefined)
+
+  return new Set(expandedRowIndicesList)
 }
 
-const expanderAction = (row, expanded, expandedRowToggler) => {
-  const prefName = row[1].content
-  return (!expanded && hasExpanderButton(prefName) &&
-    <ExpanderButton label='Edit' onClick={expandedRowToggler} />)
-}
+const PreferencesTable = ({
+  application,
+  applicationMembers,
+  fileBaseUrl,
+  onSave,
+  form,
+  visited
+}) => {
+  const [
+    {
+      supplementalApplicationData: { supplemental: state }
+    },
+    dispatch
+  ] = useAppContext()
 
-const PreferencesTable = ({ application, fileBaseUrl, onSave, onPanelClose, formApi }) => {
-  const rows = buildRows(application, fileBaseUrl)
+  const rows = buildRows(application, applicationMembers, fileBaseUrl)
+
+  const expandedRowIndices = convertPreferenceToTableIndices(
+    state.preferenceRowsOpened,
+    rows,
+    application
+  )
+
   return (
     <div className='preferences-table'>
       <TableWrapper>
         <ExpandableTable
           columns={columns}
           rows={rows}
-          expanderRenderer={expanderAction}
-          expandedRowRenderer={expandedRowRenderer(application, onSave, onPanelClose, formApi)}
+          rowKeyIndex={1}
+          expandedRowIndices={expandedRowIndices}
+          renderExpanderButton={(_, row, expanded) => {
+            const prefName = row[1].content
+            return (
+              !expanded &&
+              hasExpanderButton(prefName) && (
+                <ExpanderButton
+                  label='Edit'
+                  onClick={() =>
+                    editPreferenceClicked(dispatch, getPreferenceIndex(row, application))
+                  }
+                  id={`${kebabCase(prefName)}-edit`}
+                />
+              )
+            )
+          }}
+          renderRow={(_, row) => {
+            const preferenceIndex = getPreferenceIndex(row, application)
+            return (
+              <Panel
+                application={application}
+                applicationMembers={applicationMembers}
+                preferenceIndex={preferenceIndex}
+                onSave={onSave}
+                onClose={() => preferenceRowClosed(dispatch, preferenceIndex)}
+                form={form}
+                visited={visited}
+              />
+            )
+          }}
         />
       </TableWrapper>
-    </div>)
+    </div>
+  )
 }
 
-export default withContext(PreferencesTable)
+export default PreferencesTable

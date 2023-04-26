@@ -1,0 +1,135 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 08 Jan 2021 17:19:24 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      X-Robots-Tag:
+      - none
+      X-B3-Traceid:
+      - 64b6e7d898530bca
+      X-B3-Spanid:
+      - 64b6e7d898530bca
+      X-B3-Sampled:
+      - '0'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=p0lha1HVEeulZ2EG3f64rg; domain=.salesforce.com; path=/; expires=Sat,
+        08-Jan-2022 17:19:24 GMT; Max-Age=31536000
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D1F000000I2yHUAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1610126364278","signature":"AB2OGvRlbMfmL5KQu34K2mfItJrsUkx2GMN7jfAvCHw="}'
+    http_version:
+  recorded_at: Fri, 08 Jan 2021 17:19:24 GMT
+- request:
+    method: get
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Application__c,%20Processing_Comment__c,%20Processing_Date_Updated__c,%20Processing_Status__c,%20Sub_Status__c,%20CreatedBy.Name%0A%20%20%20%20%20%20%20%20%20%20FROM%20Field_Update_Comment__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o0P00000GZaz9QAD%27%0A%20%20%20%20%20%20%20%20%20%20ORDER%20BY%20Processing_Date_Updated__c%20DESC%0A%20%20%20%20%20%20%20%20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 08 Jan 2021 17:19:24 GMT
+      Strict-Transport-Security:
+      - max-age=31536002; includeSubDomains
+      Public-Key-Pins-Report-Only:
+      - pin-sha256="9n0izTnSRF+W4W4JTq51avSXkWhQB8duS2bxVLfzXsY="; pin-sha256="5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=";
+        pin-sha256="njN4rRG+22dNXAi+yb8e3UMypgzPUPHlv4+foULwl1g="; max-age=86400;
+        includeSubDomains; report-uri="https://a.forcesslreports.com/hpkp-report/00D1F000000I2yHm";
+      Expect-Ct:
+      - max-age=86400, report-uri="https://a.forcesslreports.com/Expect-CT-report/00D1F000000I2yHm"
+      X-Robots-Tag:
+      - none
+      X-B3-Traceid:
+      - dae7aa4ba1d3830e
+      X-B3-Spanid:
+      - dae7aa4ba1d3830e
+      X-B3-Sampled:
+      - '0'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=p8kYj1HVEeukspsJS_Az8g; domain=.salesforce.com; path=/; expires=Sat,
+        08-Jan-2022 17:19:24 GMT; Max-Age=31536000
+      Sforce-Limit-Info:
+      - api-usage=13443/400000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":9,"done":true,"records":[{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F000005QkoaQAC"},"Application__c":"a0o0P00000GZaz9QAD","Processing_Comment__c":"rspec
+        test comment","Processing_Date_Updated__c":"2021-01-08T17:19:18.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Verbal
+        withdrawal","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/005U00000066jl9IAA"},"Name":"DAHLIA"}},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F000005NqRXQA0"},"Application__c":"a0o0P00000GZaz9QAD","Processing_Comment__c":"test3","Processing_Date_Updated__c":"2020-12-22T21:49:04.000+0000","Processing_Status__c":"Appealed","Sub_Status__c":"Pending
+        documentation from third party","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/0050P000009FXVMQA4"},"Name":"James
+        Wills"}},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F000005NqRSQA0"},"Application__c":"a0o0P00000GZaz9QAD","Processing_Comment__c":"test","Processing_Date_Updated__c":"2020-12-22T21:48:52.000+0000","Processing_Status__c":"Appealed","Sub_Status__c":"Pending
+        documentation from third party","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/0050P000009FXVMQA4"},"Name":"James
+        Wills"}},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F000005KWSTQA4"},"Application__c":"a0o0P00000GZaz9QAD","Processing_Comment__c":null,"Processing_Date_Updated__c":"2020-12-04T17:39:56.000+0000","Processing_Status__c":"Lease
+        Signed","Sub_Status__c":null,"CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/0050P000007WBBRQA4"},"Name":"Andrea
+        Egan"}},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F000005JUjQQAW"},"Application__c":"a0o0P00000GZaz9QAD","Processing_Comment__c":"Update
+        all the applications at once","Processing_Date_Updated__c":"2020-11-24T23:52:48.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null,"CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/0050P000007WBBRQA4"},"Name":"Andrea
+        Egan"}},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F000005JUZBQA4"},"Application__c":"a0o0P00000GZaz9QAD","Processing_Comment__c":"testing","Processing_Date_Updated__c":"2020-11-24T18:38:25.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Verbal
+        withdrawal","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/0050P000009FXVMQA4"},"Name":"James
+        Wills"}},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F000005JUZPQA4"},"Application__c":"a0o0P00000GZaz9QAD","Processing_Comment__c":"test
+        changing status","Processing_Date_Updated__c":"2020-11-24T18:36:57.000+0000","Processing_Status__c":"Appealed","Sub_Status__c":"Pending
+        documentation from third party","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/0050P000009FXVMQA4"},"Name":"James
+        Wills"}},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a121F00000563JxQAI"},"Application__c":"a0o0P00000GZaz9QAD","Processing_Comment__c":"rspec
+        test comment","Processing_Date_Updated__c":"2020-10-20T00:05:02.000+0000","Processing_Status__c":"Withdrawn","Sub_Status__c":"Verbal
+        withdrawal","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/005U00000066jl9IAA"},"Name":"DAHLIA"}},{"attributes":{"type":"Field_Update_Comment__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Field_Update_Comment__c/a120P00000eKBVRQA4"},"Application__c":"a0o0P00000GZaz9QAD","Processing_Comment__c":"test","Processing_Date_Updated__c":"2019-11-07T18:56:16.000+0000","Processing_Status__c":"Processing","Sub_Status__c":null,"CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/0050P000008MPIxQAO"},"Name":"Emily
+        Shore"}}]}'
+    http_version:
+  recorded_at: Fri, 08 Jan 2021 17:19:24 GMT
+recorded_with: VCR 5.1.0

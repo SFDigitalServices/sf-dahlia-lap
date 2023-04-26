@@ -10,7 +10,7 @@ module Force
 
       def applications(opts = { page: 0 })
         query_scope = applications_query(opts)
-
+        query_scope.order_by('CreatedDate DESC')
         query_scope.where_contains(:Name, opts[:application_number]) if opts[:application_number].present?
         query_scope.where_eq('Listing__r.Id', "'#{opts[:listing_id]}'") if opts[:listing_id].present?
         query_scope.where_eq('Applicant__r.First_Name__c', "'#{opts[:first_name]}'") if opts[:first_name].present?
@@ -20,43 +20,39 @@ module Force
 
         if opts[:preference] == 'general'
           query_scope.where_eq('General_Lottery__c', 'true')
+                     .where('General_Lottery_Rank__c != NULL')
                      .order_by('General_Lottery_Rank__c')
         end
 
         query_scope.query
       end
 
-      def application(id)
-        application = query_first(%(
+      def application(id, opts = { include_lease: true, include_rental_assistances: true })
+        application = Force::Application.from_salesforce(query_first(%(
           SELECT #{query_fields(:show)}
           FROM Application__c
           WHERE Id = '#{id}'
           AND Status__c != '#{DRAFT}'
           LIMIT 1
-        ))
-        application['preferences'] = app_preferences(id)
-        application['proof_files'] = app_proof_files(id)
-        application['household_members'] = app_household_members(application)
-        application['lease'] = soql_lease_service.application_lease(id)
-        application
-      end
+        ))).to_domain
+        application['preferences'] = soql_preference_service.app_preferences_for_application(id)
+        application['proof_files'] = soql_attachment_service.app_proof_files(id)
 
-      def listing_applications(listing_id)
-        # NOTE: most listings are <5000 but a couple have been in the 5000-7000 range
-        # pro of doing mega-query: can do client side searching/sorting
-        # con: loading a JSON of 7500 on the page, performance?
-        massage(query(%(
-          SELECT #{query_fields(:index)}
-          FROM Application__c
-          WHERE Status__c != '#{DRAFT}'
-          AND Listing__r.Id='#{listing_id}'
-          LIMIT 10000
-        )))
+        alternate_contact_id = application.alternate_contact && application.alternate_contact.id
+        application['household_members'] = app_household_members(application.id, application.applicant.id, alternate_contact_id)
+
+        if (opts[:include_lease])
+          application['lease'] = soql_lease_service.application_lease(id)
+        end
+        if (opts[:include_rental_assistances])
+          application['rental_assistances'] = soql_rental_assistance_service.application_rental_assistances(id)
+        end
+        application
       end
 
       def application_listing(application_id)
         result = massage(query_first(%(
-          SELECT Listing__r.Id, Listing__r.Name, Listing__r.Status__c
+          SELECT Listing__r.Id, Listing__r.Name, Listing__r.Status__c, Listing__r.Tenure__c, Listing__r.Lottery_Status__c
           FROM Application__c
           WHERE Id = '#{application_id}'
         )))
@@ -77,20 +73,21 @@ module Force
       def applications_query(opts)
         builder.from(:Application__c)
                .select(query_fields(:index))
-               .where("Status__c != '#{DRAFT}'")
+               .where("Status__c != '#{DRAFT}' AND Application_Submitted_Date__c != NULL")
                .paginate(opts)
                .transform_results { |results| massage(results) }
       end
 
-      def app_household_members(application)
-        alternate_contact_id = application.Alternate_Contact ? application.Alternate_Contact.Id : nil
-        parsed_index_query(%(
+      def app_household_members(application_id, applicant_id, alt_contact_id)
+        result = parsed_index_query(%(
           SELECT #{query_fields(:show_household_members)}
           FROM Application_Member__c
-          WHERE Application__c = '#{application.Id}'
-          AND Id != '#{application.Applicant.Id}'
-          AND Id != '#{alternate_contact_id}'
+          WHERE Application__c = '#{application_id}'
+          AND Id != '#{applicant_id}'
+          AND Id != '#{alt_contact_id}'
         ), :show_household_members)
+
+        Force::ApplicationMember.convert_list(result, :from_salesforce, :to_domain)
       end
 
       def app_preferences(application_id)
@@ -99,26 +96,8 @@ module Force
           FROM Application_Preference__c
           WHERE Application__c = '#{application_id}'
         ), :show_preference)
-      end
 
-      def app_proof_files(application_id)
-        parsed_index_query(%(
-          SELECT #{query_fields(:show_proof_files)}
-          FROM Attachment__c
-          WHERE Related_Application__c = '#{application_id}'
-        ), :show_proof_files).map do |attachment|
-          file = query_first(%(
-            SELECT Id
-            FROM Attachment
-            WHERE ParentId = '#{attachment.Id}'
-          ))
-          {
-            Id: file.Id,
-            Document_Type: attachment.Document_Type,
-            Related_Application: attachment.Related_Application,
-            Related_Application_Preference: attachment.Related_Application_Preference,
-          }
-        end
+        Force::Preference.convert_list(result, :from_salesforce, :to_domain)
       end
 
       def application_defaults
@@ -131,6 +110,18 @@ module Force
 
       def soql_lease_service
         Force::Soql::LeaseService.new(@user)
+      end
+
+      def soql_attachment_service
+        Force::Soql::AttachmentService.new(@user)
+      end
+
+      def soql_preference_service
+        Force::Soql::PreferenceService.new(@user)
+      end
+
+      def soql_rental_assistance_service
+        Force::Soql::RentalAssistanceService.new(@user)
       end
     end
   end

@@ -1,46 +1,37 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+
 import { each, includes, last, uniqBy, map, sortBy } from 'lodash'
-import moment from 'moment'
+import moment from 'moment-timezone'
+import PropTypes from 'prop-types'
 import ReactTable from 'react-table'
-import utils from '~/utils/utils'
+
+import appPaths from 'utils/appPaths'
+import { filterMethod } from 'utils/reactTableUtils'
+import utils from 'utils/utils'
+
 import IndexTableCell from './IndexTableCell'
-import appPaths from '~/utils/appPaths'
 
-class IndexTable extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      expanded: {},
-      data: [...props.results]
-    }
-  }
+const IndexTable = ({ fields, results, links, page }) => {
+  const [expanded, setExpanded] = useState({})
 
-  columnData = () => {
-    let { fields } = this.props
+  const columnData = () => {
     var columns = []
     each(fields, (attrs, field) => {
       attrs = attrs || {}
       if (field === 'Id' || field === 'id') return
-      let column = {
+      const column = {
         id: field,
-        accessor: (row) => (
-          row[field]
-        ),
+        accessor: (row) => row[field],
         Cell: (cellInfo) => {
-          let val = this.state.data[cellInfo.index][cellInfo.column.id]
-          if (cellInfo.column.Header === 'Lottery Date') {
+          let val = results[cellInfo.index][cellInfo.column.id]
+          if (cellInfo.column.Header.includes('Date')) {
             // cheap way of knowing when to parse date fields
-            val = moment(val).format('L')
+            // only parse the date if the value is not undefined.
+            val = val ? moment(val).format('L') : undefined
           }
           return <IndexTableCell {...{ attrs, val }} />
         },
-        filterMethod: (filter, row) => {
-          return (
-            // do case insensitive RegExp match instead of the default "startsWith"
-            row[filter.id].match(new RegExp(filter.value, 'ig'))
-          )
-        }
+        filterMethod: (filter, row) => filterMethod(filter, row)
       }
       if (attrs.minWidth) {
         column.minWidth = attrs.minWidth
@@ -64,10 +55,12 @@ class IndexTable extends React.Component {
         column.filterable = true
       }
       // TO DO: update when Mobx is implemented so no need to pass page
-      if (column.Header === 'Listing Name' && this.props.page === 'listing_index') {
+      if (column.Header === 'Listing Name' && page === 'listing_index') {
+        // Allow filtering by typing
         column.filterable = true
       }
-      if (column.Header === 'Listing Name' && !(this.props.page === 'listing_index')) {
+      if (column.Header === 'Listing Name' && !(page === 'listing_index')) {
+        // Filter via dropdown
         column.filterable = true
         column.filterMethod = (filter, row) => {
           if (filter.value === 'all') {
@@ -76,31 +69,30 @@ class IndexTable extends React.Component {
           return row[filter.id] === filter.value
         }
         column.Filter = ({ filter, onChange }) => {
-          let listingOptions = []
-          let i = 0
-          let uniqListings = uniqBy(map(this.props.results, (result) => {
-            return {
-              name: result['Listing.Name'] || result['listing_name'],
-              lotteryDate: moment(result['Listing.Lottery_Date'] || result['listing_lottery_date'])
-            }
-          }), 'name')
-          let sortedUniqListings = sortBy(uniqListings, (listing) => {
-            return listing.lotteryDate
+          const uniqListings = uniqBy(
+            map(results, (result) => {
+              return { name: result['listing.name'] || result.listing_name }
+            }),
+            'name'
+          )
+          const sortedUniqListings = sortBy(uniqListings, (listing) => {
+            return listing.name
           })
 
-          each(sortedUniqListings, (listing) => {
+          const listingOptions = []
+          each(sortedUniqListings, (listing, i) => {
             listingOptions.push(
-              <option value={listing.name} key={i++}>{listing.name}</option>
+              <option value={listing.name} key={i}>
+                {listing.name}
+              </option>
             )
           })
 
-          const selectFilterValue = filter ? filter.value : (sortedUniqListings[0] ? sortedUniqListings[0].name : undefined)
-
           return (
             <select
-              onChange={event => onChange(event.target.value)}
+              onChange={(event) => onChange(event.target.value)}
               style={{ width: '100%' }}
-              value={selectFilterValue}
+              value={filter ? filter.value : 'all'}
             >
               <option value='all'>Show All</option>
               {listingOptions}
@@ -113,60 +105,53 @@ class IndexTable extends React.Component {
     return columns
   }
 
-  render () {
-    let { links } = this.props
-    var getTrProps = (state, rowInfo, column, instance) => {
-      return {
-        onClick: (e, handleOriginal) => {
-          let expanded = {
-            // toggle this row's expanded state onClick
-            [rowInfo.viewIndex]: !this.state.expanded[rowInfo.viewIndex]
-          }
-          this.setState({ expanded })
-        }
-      }
+  const getTrProps = (_, rowInfo) => ({
+    onClick: () => {
+      setExpanded({
+        // toggle this row's expanded state onClick
+        [rowInfo.viewIndex]: !expanded[rowInfo.viewIndex]
+      })
     }
+  })
 
-    return (
-      <ReactTable
-        columns={this.columnData()}
-        data={this.state.data}
-        SubComponent={row => {
-          let linkTags = []
-          let i = 0
-          each(links, (link) => {
-            let href = ''
-            const originalId = row.original.Id || row.original.id
-            if (link === 'View Listing') {
-              href = `/listings/${originalId}`
-            } else if (link === 'Add Application' && row.original.Lottery_Status !== 'Lottery Complete') {
-              href = `/listings/${originalId}/applications/new`
-            } else if (link === 'View Application') {
-              href = `/applications/${originalId}`
-            } else if (link === 'View Flagged Applications') {
-              href = appPaths.toApplicationsFlagged(originalId)
-            }
-            if (href) {
-              linkTags.push(
-                <li key={i++}>
-                  <a className='button secondary tiny' href={href}>
-                    {link}
-                  </a>
-                </li>
-              )
-            }
-          })
-          return (
-            <ul className='subcomponent button-radio-group segmented-radios inline-group'>
-              {linkTags}
-            </ul>
-          )
-        }}
-        getTrProps={getTrProps}
-        expanded={this.state.expanded}
-      />
-    )
-  }
+  return (
+    <ReactTable
+      columns={columnData()}
+      data={results}
+      SubComponent={(row) => {
+        const linkTags = []
+        each(links, (link, i) => {
+          let href = ''
+          const originalId = row.original.Id || row.original.id
+          if (link === 'View Listing') {
+            href = appPaths.toListing(originalId)
+          } else if (link === 'Add Application' && row.row.lottery_status === 'Not Yet Run') {
+            href = appPaths.toApplicationNew(originalId)
+          } else if (link === 'View Application') {
+            href = appPaths.toApplication(originalId)
+          } else if (link === 'View Flagged Applications') {
+            href = appPaths.toApplicationsFlagged(originalId)
+          }
+          if (href) {
+            linkTags.push(
+              <li key={i}>
+                <a className='button secondary tiny' href={href}>
+                  {link}
+                </a>
+              </li>
+            )
+          }
+        })
+        return (
+          <ul className='subcomponent button-radio-group segmented-radios inline-group'>
+            {linkTags}
+          </ul>
+        )
+      }}
+      getTrProps={getTrProps}
+      expanded={expanded}
+    />
+  )
 }
 
 IndexTable.propTypes = {

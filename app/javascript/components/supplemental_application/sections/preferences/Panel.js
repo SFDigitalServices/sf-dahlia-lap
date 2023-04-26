@@ -1,23 +1,27 @@
-import React from 'react'
-import { cond, stubTrue, constant } from 'lodash'
+import React, { useState } from 'react'
 
-import FormGrid from '~/components/molecules/FormGrid'
-import DefaultPanel from './DefaultPanel'
-import RentBurdenedPanel from './RentBurdenedPanel'
-import LiveOrWorkInSanFranciscoPanel from './LiveOrWorkInSanFranciscoPanel'
-import NeighborhoodResidentHousingPanel from './NeighborhoodResidentHousingPanel'
+import { cond, stubTrue, constant, map } from 'lodash'
+
+import FormGrid from 'components/molecules/FormGrid'
+import InlineModal from 'components/molecules/InlineModal'
+
 import AntiDisplacementHousingPanel from './AntiDisplacementHousingPanel'
 import AssistedHousingPanel from './AssistedHousingPanel'
 import Custom from './Custom'
+import DefaultPanel from './DefaultPanel'
+import LiveOrWorkInSanFranciscoPanel from './LiveOrWorkInSanFranciscoPanel'
+import NeighborhoodResidentHousingPanel from './NeighborhoodResidentHousingPanel'
+import RentBurdenedPanel from './RentBurdenedPanel'
 
-const isPreference = (record, preferenceName) => (pref) => {
+const isPreference = (recordType, preferenceName) => (pref) => {
   const recordtypeDevelopername = pref.recordtype_developername
   const individualPreference = pref.individual_preference
-  return recordtypeDevelopername === record &&
-    (
-      !preferenceName ||
-      individualPreference === preferenceName
-    )
+
+  // If preferenceName is provided, check that the individual preference matches it.
+  return (
+    recordtypeDevelopername === recordType &&
+    (!preferenceName || individualPreference === preferenceName)
+  )
 }
 
 const getPreferencePanel = cond([
@@ -30,66 +34,75 @@ const getPreferencePanel = cond([
   [stubTrue, constant(DefaultPanel)]
 ])
 
-const Panel = ({ application, preferenceIndex, onClose, onSave, loading, formApi }) => {
+const Panel = ({
+  application,
+  applicationMembers,
+  preferenceIndex,
+  onClose,
+  onSave,
+  loading,
+  form,
+  visited
+}) => {
   const preference = application.preferences[preferenceIndex]
   const PreferencePanel = getPreferencePanel(preference)
+  const memberOption = (member) => {
+    return { value: member.id, label: `${member.first_name} ${member.last_name}` }
+  }
+  const applicationMembersOptions = map(applicationMembers, memberOption)
   const onSaveWithPreferenceIndex = () => {
-    onSave(preferenceIndex, formApi.values)
+    onSave(preferenceIndex, form.getState().values)
   }
 
   const handleOnClose = () => {
-    formApi.setValue('total_monthly_rent', application.total_monthly_rent)
-    formApi.setValue(['preferences', preferenceIndex], preference)
+    form.change('total_monthly_rent', application.total_monthly_rent)
+    form.change(`preferences[${preferenceIndex}]`, preference)
     onClose(preferenceIndex)
   }
 
   return (
-    <div className='app-editable expand-wide scrollable-table-nested'>
-      <React.Fragment>
-        <PreferencePanel
-          preferenceIndex={preferenceIndex}
-          preference={preference}
-        />
-        <FormGrid.Row expand={false}>
-          <div className='form-grid_item column'>
-            <button
-              className='button primary tiny margin-right margin-bottom-none save-panel-btn'
-              type='button'
-              onClick={onSaveWithPreferenceIndex}
-              disabled={loading}>
-              Save
-            </button>
-            <button
-              className='button secondary tiny margin-bottom-none'
-              type='button'
-              onClick={handleOnClose}
-              disabled={loading}>
-              Cancel
-            </button>
-          </div>
-        </FormGrid.Row>
-      </React.Fragment>
-    </div>
+    <InlineModal>
+      <PreferencePanel
+        preferenceIndex={preferenceIndex}
+        preference={preference}
+        form={form}
+        applicationMembersOptions={applicationMembersOptions}
+        visited={visited}
+      />
+      <FormGrid.Row expand={false}>
+        <div className='form-grid_item column'>
+          <button
+            className='button primary tiny margin-right margin-bottom-none save-panel-btn'
+            type='button'
+            onClick={onSaveWithPreferenceIndex}
+            disabled={loading}
+          >
+            Save
+          </button>
+          <button
+            className='button secondary tiny margin-bottom-none'
+            type='button'
+            onClick={handleOnClose}
+            disabled={loading}
+          >
+            Cancel
+          </button>
+        </div>
+      </FormGrid.Row>
+    </InlineModal>
   )
 }
 
-class PanelContainer extends React.Component {
-  state = { loading: false }
+const PanelContainer = ({ onSave, ...panelProps }) => {
+  const [loading, setLoading] = useState(false)
 
-  handleOnSave = async (preferenceIndex, application) => {
-    const { onSave } = this.props
-
-    this.setState({ loading: true })
+  const handleOnSave = async (preferenceIndex, application) => {
+    setLoading(true)
     await onSave(preferenceIndex, application)
-    this.setState({ loading: false })
+    setLoading(false)
   }
 
-  render () {
-    const { onSave, ...rest } = this.props
-    const { loading } = this.state
-
-    return <Panel {...rest} onSave={this.handleOnSave} loading={loading} />
-  }
+  return <Panel {...panelProps} onSave={handleOnSave} loading={loading} />
 }
 
 export default PanelContainer

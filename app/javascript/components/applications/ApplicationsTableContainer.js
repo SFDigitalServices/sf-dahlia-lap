@@ -1,22 +1,27 @@
 import React from 'react'
 
-import ApplicationsTable from './ApplicationsTable'
+import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
+
 import ApplicationsFilter from './ApplicationsFilter'
-import { EagerPagination, SERVER_PAGE_SIZE } from '~/utils/EagerPagination'
+import ApplicationsTable from './ApplicationsTable'
 
 const ROWS_PER_PAGE = 20
 
 class ApplicationsTableContainer extends React.Component {
-  state = { loading: false, applications: [], pages: 0 }
-
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.eagerPagination = new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
+    this.state = {
+      filters: props.filters,
+      loading: false,
+      applications: [],
+      pages: 0
+    }
   }
 
   loadPage = (page, filters) => {
     const { onFetchData } = this.props
-    const fetcher = p => onFetchData(p, { filters })
+    const fetcher = (p) => onFetchData(p, { filters })
     this.setState({ loading: true, page: page })
     this.eagerPagination.getPage(page, fetcher).then(({ records, pages }) => {
       this.setState({ applications: records, loading: false, pages: pages, atMaxPages: false })
@@ -38,12 +43,11 @@ class ApplicationsTableContainer extends React.Component {
     this.loadPage(0, filters)
   }
 
-  render () {
+  render() {
     const { listings } = this.props
     const { loading, applications, pages, atMaxPages } = this.state
-
     return (
-      <React.Fragment>
+      <>
         <ApplicationsFilter onSubmit={this.handleOnFilter} listings={listings} loading={loading} />
         <ApplicationsTable
           applications={applications}
@@ -53,7 +57,7 @@ class ApplicationsTableContainer extends React.Component {
           rowsPerPage={ROWS_PER_PAGE}
           atMaxPages={atMaxPages}
         />
-      </React.Fragment>
+      </>
     )
   }
 }

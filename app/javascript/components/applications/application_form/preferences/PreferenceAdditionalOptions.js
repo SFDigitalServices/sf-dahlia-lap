@@ -1,21 +1,18 @@
 import React from 'react'
-import { find } from 'lodash'
 
-import CertOfPreferenceFields from './CertOfPreferenceFields'
-import DisplacedFields from './DisplacedFields'
-import AntiDisplacementFields from './AntiDisplacementFields'
-import NeighborhoodResidentFields from './NeighborhoodResidentFields'
-import LiveWorkFields from './LiveWorkFields'
-import RentBurdenedAssistedHousingFields from './RentBurdenedAssistedHousingFields'
-import DefaultPreferenceFields from './DefaultPreferenceFields'
 import AliceGriffithFields from './AliceGriffithFields'
+import AntiDisplacementFields from './AntiDisplacementFields'
+import CertOfPreferenceFields from './CertOfPreferenceFields'
+import DefaultPreferenceFields from './DefaultPreferenceFields'
+import DisplacedFields from './DisplacedFields'
+import LiveWorkFields from './LiveWorkFields'
+import NeighborhoodResidentFields from './NeighborhoodResidentFields'
+import RentBurdenedAssistedHousingFields from './RentBurdenedAssistedHousingFields'
 
-const PreferenceAdditionalOptions = ({ formApi, i, shortFormPreference, householdMembers, listingPreferences, listingPreferenceID }) => {
-  const preference = find(listingPreferences, { id: listingPreferenceID })
-  const propsFields = { formApi, i, householdMembers, shortFormPreference }
-
-  if (preference) {
-    switch (preference.lottery_preference.name) {
+const PreferenceAdditionalOptions = ({ i, form, householdMembers, listingPreference }) => {
+  const propsFields = { i, householdMembers }
+  if (listingPreference) {
+    switch (listingPreference.lottery_preference.name) {
       case 'Certificate of Preference (COP)':
         return <CertOfPreferenceFields {...propsFields} />
       case 'Neighborhood Resident Housing Preference (NRHP)':
@@ -23,7 +20,7 @@ const PreferenceAdditionalOptions = ({ formApi, i, shortFormPreference, househol
       case 'Displaced Tenant Housing Preference (DTHP)':
         return <DisplacedFields {...propsFields} />
       case 'Live or Work in San Francisco Preference':
-        return <LiveWorkFields {...propsFields} />
+        return <LiveWorkFields {...propsFields} form={form} />
       case 'Anti-Displacement Housing Preference (ADHP)':
         return <AntiDisplacementFields {...propsFields} />
       case 'Rent Burdened / Assisted Housing Preference':

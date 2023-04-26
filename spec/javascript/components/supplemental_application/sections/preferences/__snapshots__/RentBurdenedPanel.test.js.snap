@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RentBurdenedPanel should render successfully 1`] = `
+<Component
+  expand={false}
+>
+  <FormItem
+    label="Preference Name"
+  >
+    <div
+      className="text-value"
+    >
+      Rent Burdened Housing Preference
+    </div>
+  </FormItem>
+  <FormItem>
+    <CurrencyField
+      fieldName="total_monthly_rent"
+      label="Total Household Monthly Rent"
+      type="number"
+      validation={[Function]}
+    />
+  </FormItem>
+  <FormItem>
+    <SelectField
+      className="preference-status-select"
+      fieldName="preferences.1.post_lottery_validation"
+      label="Status"
+      options={
+        [
+          {
+            "disabled": "disabled",
+            "label": "Select One...",
+            "value": "",
+          },
+          {
+            "label": "Unconfirmed",
+            "value": "Unconfirmed",
+          },
+          {
+            "label": "Confirmed",
+            "value": "Confirmed",
+          },
+          {
+            "label": "Invalid",
+            "value": "Invalid",
+          },
+        ]
+      }
+    />
+  </FormItem>
+</Component>
+`;

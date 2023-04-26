@@ -1,23 +1,42 @@
-import _ from 'lodash'
+import { isEmpty } from 'lodash'
 
-const labelize = (options) => (
-  _.map(options, (option) => (
-    { value: option, label: option }
-  ))
-)
+const isNullOrEmptyString = (value) => value === undefined || value === null || value === ''
 
-const applicationLanguageOptions = labelize([
-  'English',
-  'Chinese',
-  'Spanish',
-  'Filipino'
-])
+const labelize = (options, attrs = {}) => {
+  if (isEmpty(options)) return []
 
-const phoneTypeOptions = labelize([
-  'Home',
-  'Cell',
-  'Work'
-])
+  const emptyInitialOptionPresent =
+    isEmpty(options) ||
+    options[0] === '' ||
+    (Object.prototype.hasOwnProperty.call(options[0], 'value') &&
+      isNullOrEmptyString(options[0].value))
+
+  const labelizedOptions = []
+  if (!emptyInitialOptionPresent) {
+    const initialValues = { value: '', label: 'Select One...' }
+    if (attrs && attrs.disableEmpty) {
+      initialValues.disabled = 'disabled'
+    }
+    labelizedOptions.push(initialValues)
+  }
+
+  return labelizedOptions.concat(
+    options.map((option) => {
+      return {
+        value: Object.prototype.hasOwnProperty.call(option, 'value') ? option.value : option,
+        label: Object.prototype.hasOwnProperty.call(option, 'label') ? option.label : option,
+        ...(option.disabled && { disabled: option.disabled })
+      }
+    })
+  )
+}
+
+// TODO: Remove the use of labelize on all the below options arrays once the
+// migration to react-final-form is complete. labelize is already being called
+// by the new react-final-form-based SelectField component.
+const applicationLanguageOptions = labelize(['English', 'Chinese', 'Spanish', 'Filipino'])
+
+const phoneTypeOptions = labelize(['Home', 'Cell', 'Work'])
 
 const alternateContactOptions = labelize([
   'Family Member',
@@ -54,11 +73,7 @@ const relationshipOptions = labelize([
   'Other'
 ])
 
-const ethnicityOptions = labelize([
-  'Hispanic/Latino',
-  'Not Hispanic/Latino',
-  'Decline to state'
-])
+const ethnicityOptions = labelize(['Hispanic/Latino', 'Not Hispanic/Latino', 'Decline to state'])
 
 const raceOptions = labelize([
   'American Indian/Alaskan Native',
@@ -79,7 +94,7 @@ const sexualOrientationOptions = labelize([
   'Gay/Lesbian/Same-Gender Loving',
   'Questioning/Unsure',
   'Straight/Heterosexual',
-  'Not listed',
+  'Not Listed',
   'Decline to state'
 ])
 
@@ -139,11 +154,7 @@ const preferenceProofOptionsWorkInSf = labelize([
   'Letter from employer'
 ])
 
-const priorityOptions = [
-  'Mobility impairments',
-  'Vision impairments',
-  'Hearing impairments'
-]
+const priorityOptions = ['Mobility impairments', 'Vision impairments', 'Hearing impairments']
 
 const listingReferralOptions = labelize([
   'Newspaper',
@@ -158,17 +169,19 @@ const listingReferralOptions = labelize([
   'Other'
 ])
 
+const householdVouchersSubsidiesOptions = labelize([
+  { value: 'true', label: 'True' },
+  { value: 'false', label: 'False' },
+  'Left Blank'
+])
+
 const adaPriorityValueToLabelMap = {
   mobility_impairments: 'Mobility impairments',
   vision_impairments: 'Vision impairments',
   hearing_impairments: 'Hearing impairments'
 }
 
-const yesNoOptions = labelize([
-  'Yes',
-  'No',
-  'Left Blank'
-])
+const yesNoOptions = labelize(['Yes', 'No', 'Left Blank'])
 
 export default {
   applicationLanguageOptions,
@@ -187,6 +200,8 @@ export default {
   preferenceProofOptionsWorkInSf,
   priorityOptions,
   listingReferralOptions,
+  householdVouchersSubsidiesOptions,
   yesNoOptions,
-  adaPriorityValueToLabelMap
+  adaPriorityValueToLabelMap,
+  labelize
 }

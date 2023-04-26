@@ -1,104 +1,103 @@
 import React from 'react'
-import { trim, map, cloneDeep } from 'lodash'
 
-import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
-import LeaseUpApplicationsFilter from './LeaseUpApplicationsFilter'
-import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
+import { capitalize, compact, map, cloneDeep } from 'lodash'
 
-import appPaths from '~/utils/appPaths'
+import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
+
 import { withContext } from './context'
+import LeaseUpApplicationsFilterContainer from './LeaseUpApplicationsFilterContainer'
+import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
 
-class LeaseUpTableContainer extends React.Component {
-  closeStatusModal = () => {
-    this.props.store.updateStatusModal({
-      isOpen: false,
-      showAlert: false
-    })
+// Format applications for the Lease Up applications table
+export const buildRowData = (application) => {
+  const rowData = cloneDeep(application)
+
+  // get keys and remove empty values
+  const accessibilityKeys = compact(Object.keys(application.has_ada_priorities_selected || []))
+
+  if (accessibilityKeys && accessibilityKeys.length > 0) {
+    rowData.accessibility = accessibilityKeys.map((key) => capitalize(key.split('_')[0])).join(', ')
   }
 
-  setStatusModalStatus = (value) => this.props.store.updateStatusModal({status: value})
-
-  hideStatusModalAlert = () => this.props.store.updateStatusModal('showAlert', false)
-
-  leaseUpStatusChangeHandler = (applicationPreferenceId, applicationId, status) => {
-    this.props.store.updateStatusModal({
-      applicationId: applicationId,
-      applicationPreferenceId: applicationPreferenceId,
-      isOpen: true,
-      status: status
-    })
+  // Override the key we display for certain cases
+  var prefKey
+  if (application.preference_name?.includes('General')) {
+    prefKey = 'General'
+  } else if (application.preference_name?.includes('Right to Return')) {
+    prefKey = 'RtR'
+  } else {
+    prefKey = application.preference_record_type
   }
 
-  createStatusUpdate = async (submittedValues) => {
-    this.props.store.updateStatusModal({loading: true})
+  rowData.preference_rank = `${prefKey} ${application.preference_lottery_rank}`
+  var prefNum = parseFloat(application.preference_order)
+  var rankNum = parseFloat(application.preference_lottery_rank)
+  rowData.rankOrder = prefNum + rankNum * 0.0001
+  return rowData
+}
 
-    const { status, applicationId } = this.props.store.statusModal
-    var comment = submittedValues.comment && submittedValues.comment.trim()
-    if (status && comment) {
-      const data = {
-        status: status,
-        comment: comment,
-        applicationId: applicationId
-      }
-
-      this.props.store.handleCreateStatusUpdate(data)
-    }
+const LeaseUpTableContainer = ({
+  store: {
+    applications,
+    atMaxPages,
+    bulkCheckboxesState,
+    listingId,
+    loading,
+    onBulkCheckboxClick,
+    onCloseStatusModal,
+    onFilter,
+    onLeaseUpStatusChange,
+    onSubmitStatusModal,
+    onClearSelectedApplications,
+    onSelectAllApplications,
+    pages,
+    preferences,
+    rowsPerPage,
+    statusModal
   }
-
-  buildRowData (result) {
-    let rowData = cloneDeep(result)
-
-    if (trim(result.mailing_address)) {
-      rowData.address = result.mailing_address
-    } else {
-      rowData.address = result.residence_address
-    }
-
-    rowData.preference_rank = `${result.preference_record_type} ${result.preference_lottery_rank}`
-    var prefNum = parseFloat(result.preference_order)
-    var rankNum = parseFloat(result.preference_lottery_rank)
-    rowData.rankOrder = prefNum + (rankNum * 0.0001)
-    return rowData
-  }
-
-  goToSupplementaryInfo = (listingId, rowInfo) => {
-    window.location.href = appPaths.toApplicationSupplementals(rowInfo.original.application_id)
-  }
-
-  rowsData (applications) {
-    const rowsData = map(applications, result => this.buildRowData(result))
-    return rowsData
-  }
-
-  render () {
-    const { store } = this.props
-    const { listing, applications, statusModal, preferences } = store
-
-    return (
-      <div>
-        <LeaseUpApplicationsFilter preferences={preferences} onSubmit={store.handleOnFilter} loading={store.loading} />
-        <LeaseUpApplicationsTable
-          dataSet={this.rowsData(applications)}
-          listingId={listing.id}
-          onLeaseUpStatusChange={this.leaseUpStatusChangeHandler}
-          onCellClick={this.goToSupplementaryInfo}
-          loading={store.loading}
-          onFetchData={store.handleOnFetchData}
-          pages={store.pages}
-          rowsPerPage={store.rowsPerPage}
-          atMaxPages={store.atMaxPages}
-        />
-        <StatusModalWrapper
-          {...statusModal}
-          header='Update Status'
-          submitButton='Update'
-          onStatusChange={this.setStatusModalStatus}
-          onSubmit={this.createStatusUpdate}
-          onClose={this.closeStatusModal}
-          onAlertCloseClick={this.hideStatusModalAlert} />
-      </div>
-    )
-  }
+}) => {
+  return (
+    <>
+      <LeaseUpApplicationsFilterContainer
+        preferences={preferences}
+        onSubmit={onFilter}
+        loading={loading}
+        bulkCheckboxesState={bulkCheckboxesState}
+        onClearSelectedApplications={onClearSelectedApplications}
+        onSelectAllApplications={onSelectAllApplications}
+        onBulkLeaseUpStatusChange={(val) => onLeaseUpStatusChange(val, null, false)}
+        onBulkLeaseUpCommentChange={(val) => onLeaseUpStatusChange(null, null, true)}
+      />
+      <LeaseUpApplicationsTable
+        dataSet={map(applications, buildRowData)}
+        listingId={listingId}
+        onLeaseUpStatusChange={onLeaseUpStatusChange}
+        loading={loading}
+        pages={pages}
+        rowsPerPage={rowsPerPage}
+        atMaxPages={atMaxPages}
+        bulkCheckboxesState={bulkCheckboxesState}
+        onBulkCheckboxClick={onBulkCheckboxClick}
+      />
+      <StatusModalWrapper
+        alertMsg={statusModal.alertMsg}
+        isBulkUpdate={statusModal.isBulkUpdate}
+        isOpen={statusModal.isOpen}
+        loading={statusModal.loading}
+        numApplicationsToUpdate={
+          statusModal.applicationsData ? Object.keys(statusModal.applicationsData).length : 1
+        }
+        onAlertCloseClick={statusModal.onAlertCloseClick}
+        onClose={onCloseStatusModal}
+        onSubmit={onSubmitStatusModal}
+        showAlert={statusModal.showAlert}
+        status={statusModal.status}
+        submitButton={statusModal.isCommentModal ? 'Submit' : 'Update'}
+        title={statusModal.isCommentModal ? 'Add Comment' : 'Update Status'}
+        isCommentModal={statusModal.isCommentModal}
+      />
+    </>
+  )
 }
 
 export default withContext(LeaseUpTableContainer)

@@ -1,30 +1,34 @@
 import React from 'react'
-import { Select } from 'react-form'
-import { Field } from '~/utils/form/Field'
 
-const householdVouchersSubsidiesOptions = [
-  {value: 'true', label: 'true'},
-  {value: 'false', label: 'false'},
-  {value: 'Left Blank', label: 'Left Blank'}
-]
+import { CurrencyField, SelectField } from 'utils/form/final_form/Field'
+import validate from 'utils/form/validations'
+import { maxLengthMap } from 'utils/formUtils'
 
-const HouseholdIncomeSection = () => {
+import formOptions from './formOptions'
+
+const { householdVouchersSubsidiesOptions } = formOptions
+
+const HouseholdIncomeSection = ({ visited }) => {
   return (
     <div className='border-bottom margin-bottom--2x'>
       <h3>Declared Household Income</h3>
       <div className='row'>
         <div className='small-6 columns'>
-          <Field.Text
+          <CurrencyField
+            fieldName='annual_income'
+            id='annual_income'
             label='Annual Income'
-            field='annual_income'
-            errorMessage={(label, error) => error}
+            maxLength={maxLengthMap.income}
+            validation={validate.isValidCurrency('Please enter a valid dollar amount.')}
+            isDirty={visited && visited.annual_income}
           />
         </div>
         <div className='small-6 columns'>
-          <label>Housing Voucher/ Subsidy</label>
-          <Select
-            field='housing_voucher_or_subsidy'
-            options={householdVouchersSubsidiesOptions} />
+          <SelectField
+            fieldName='housing_voucher_or_subsidy'
+            label='Housing Voucher/ Subsidy'
+            options={householdVouchersSubsidiesOptions}
+          />
         </div>
       </div>
     </div>

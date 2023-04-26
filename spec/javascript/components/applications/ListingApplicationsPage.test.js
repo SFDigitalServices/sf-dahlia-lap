@@ -1,49 +1,28 @@
 import React from 'react'
+
 import renderer from 'react-test-renderer'
+
 import ListingApplicationsPage from 'components/listings/ListingApplicationsPage'
 
-const applications = [
-  {
-    'Id': 'a0o0x000000OcOzAAK',
-    'Name': 'APP-00191270',
-    'Application_Submitted_Date': '05/30/18',
-    'Total_Household_Size': 0,
-    'Application_Submission_Type': 'Electronic',
-    'Listing': {
-      'Name': 'Test 5/30',
-      'Lottery_Date': null
-    },
-    'Applicant': {
-      'First_Name': 'karen',
-      'Last_Name': 'jones'
-    }
-  },
-  {
-    'Id': 'a0o0x000000OkHSAA0',
-    'Name': 'APP-00192942',
-    'Application_Submitted_Date': '06/12/18',
-    'Total_Household_Size': 0,
-    'Application_Submission_Type': 'Electronic',
-    'Listing': {
-      'Name': 'Test 5/30',
-      'Lottery_Date': null
-    },
-    'Applicant': {
-      'First_Name': 'Grace',
-      'Last_Name': 'Jones'
+import mockApplicationsPage from '../../fixtures/applications_page'
+
+jest.mock('apiService', () => {
+  return {
+    fetchApplications: async () => {
+      return mockApplicationsPage
     }
   }
-]
+})
+
 describe('ListingApplicationsPage', () => {
-  test('should render succesfully', () => {
-    const listing = { Id: 1, Name: 'xxxxListing' }
+  const listing = {
+    id: 'listingId',
+    name: 'listing name',
+    lottery_date: '2017-03-22T18:00:00.000+0000'
+  }
 
-    const wrapper = renderer.create(
-      <ListingApplicationsPage
-        listing={listing}
-        applications={applications} />
-    )
-
+  test('should render successfully', () => {
+    const wrapper = renderer.create(<ListingApplicationsPage listing={listing} />)
     expect(wrapper.toJSON()).toMatchSnapshot()
   })
 })

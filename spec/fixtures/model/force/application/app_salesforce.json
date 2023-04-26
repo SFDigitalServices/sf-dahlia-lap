@@ -24,15 +24,23 @@
       "Mailing_City":"SAN FRANCISCO",
       "Mailing_State":"CA",
       "Mailing_Zip_Code":"94104-2806",
-      "Marital_Status":null
+      "Marital_Status":null,
+      "Ethnicity": "Decline to state",
+      "Race": "Decline to state",
+      "Gender": "Not Listed",
+      "Gender_Other": "other gender",
+      "Sexual_Orientation": "Not Listed",
+      "Sexual_Orientation_Other": "other orientation"
    },
    "Primary_Applicant":"0030U00000P8lxaQAB",
-   "Alternate_Contact":null,
-   "Listing":{
-      "Name":"LAP Test Listing (Do not Modify) - Yellow Acres",
-      "Id":"a0W0U000000MX4vUAG",
-      "Reserved_community_type":null
+   "Alternate_Contact": {
+      "Id":"alternateContactId",
+      "First_Name":"James",
+      "Last_Name":"Doe",
+      "Middle_Name": "Ben",
+      "Name":"James Ben Doe"
    },
+   "ListingID": "a0W0U000000MX4vUAG",
    "Status":"Submitted",
    "Total_Household_Size":3,
    "Application_Submission_Type":"Paper",
@@ -41,10 +49,10 @@
       "Name":"Prod Vertiba"
    },
    "Annual_Income":null,
-   "Household_Assets":null,
-   "HH_Total_Income_with_Assets_Annual":null,
+   "Household_Assets":456,
+   "HH_Total_Income_with_Assets_Annual":111,
+   "Imputed_Income_from_Assets":123,
    "Monthly_Income":null,
-   "Is_Lottery_Complete":false,
    "Housing_Voucher_or_Subsidy":"true",
    "Referral_Source":null,
    "Application_Language":"English",
@@ -167,10 +175,10 @@
          "Total_Household_Rent":0
       }
    ],
-   "proof_files":[
+   "Proof_Files":[
 
    ],
-   "household_members":[
+   "Household_Members":[
       {
          "Id":"a0n0U0000030tBhQAI",
          "Name":"Flappy Laptest",
@@ -198,7 +206,8 @@
          "Zip_Code":null
       }
    ],
-   "flagged_applications":[
+   "Flagged_Applications":[
 
-   ]
+   ],
+   "Confirmed_Household_Annual_Income": 10000.0
 }

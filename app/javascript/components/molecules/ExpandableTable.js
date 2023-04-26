@@ -1,85 +1,97 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+
 import classNames from 'classnames'
+import { kebabCase } from 'lodash'
 
-class ExpandableTableRow extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {expanded: false}
-  }
+import formUtils from 'utils/formUtils'
 
-  toggleExpandedRow = () => {
-    this.setState((prevState) => {
-      return {expanded: !prevState.expanded}
-    })
-  }
+const ExpandableTableRow = ({
+  row,
+  idx,
+  rowKeyIndex,
+  numColumns,
+  renderRow,
+  renderExpanderButton,
+  original,
+  expanded
+}) => {
+  const cells = row.map((datum, j) => (
+    <td className={datum.classes ? datum.classes.join(' ') : ''} key={j}>
+      {datum.formatType === 'currency' ? formUtils.formatPrice(datum.content) : datum.content}
+    </td>
+  ))
 
-  render () {
-    const { row, numColumns, expanderRenderer, expandedRowRenderer, original } = this.props
-    const cells = row.map((datum, j) =>
-      <td className={datum.classes ? datum.classes.join(' ') : ''} key={j}>{datum.content}</td>
-    )
+  const rowId = rowKeyIndex ? kebabCase(row[rowKeyIndex].content) : null
 
-    return (
-      <Fragment>
-        <tr className='tr-expand' aria-expanded={this.state.expanded}>
-          {cells}
-          <td key='expander'>
-            {expanderRenderer && expanderRenderer(row, this.state.expanded, this.toggleExpandedRow)}
-          </td>
-        </tr>
-        <tr className='tr-expand-content' aria-hidden={!this.state.expanded}>
-          <td colSpan={numColumns} className='td-expand-nested no-padding'>
-            {expandedRowRenderer && expandedRowRenderer(row, this.toggleExpandedRow, original)}
-          </td>
-        </tr>
-      </Fragment>
-    )
-  }
-}
-
-class ExpandableTable extends React.Component {
-  render () {
-    const { columns, rows, expanderRenderer, expandedRowRenderer, originals, classes } = this.props
-
-    const numColumns = columns.length
-
-    return (
-      <table className={classNames('td-light td-plain th-plain', classes)} role='grid'>
-        <thead>
-          <tr>
-            {columns.map((column, i) => (
-              <th key={i} scope='col' className={column.classes ? column.classes.join(' ') : ''}>
-                {column.content}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, i) => (
-            <ExpandableTableRow
-              key={i}
-              idx={i}
-              original={originals && originals[i]}
-              row={row}
-              numColumns={numColumns}
-              expanderRenderer={expanderRenderer}
-              expandedRowRenderer={expandedRowRenderer} />
-          ))}
-        </tbody>
-      </table>
-    )
-  }
-}
-
-ExpandableTable.ExpanderButton = ({ onClick, label = 'Expand' }) => {
   return (
-    <button
-      type='button'
-      className='button button-link action-link'
-      onClick={onClick}>
-      {label}
-    </button>
+    <>
+      <tr className='tr-expand' aria-expanded={expanded} id={rowId ? `${rowId}-row` : null}>
+        {cells}
+        <td key='expander'>{renderExpanderButton(idx, row, original, expanded)}</td>
+      </tr>
+      <tr
+        className='tr-expand-content'
+        aria-hidden={!expanded}
+        id={rowId ? `${rowId}-panel` : null}
+      >
+        <td colSpan={numColumns} className='td-expand-nested no-padding'>
+          {renderRow(idx, row, original)}
+        </td>
+      </tr>
+    </>
   )
 }
+
+/**
+ * A rewrite of ExpandableTable that uses props to determine whether the rows are expanded or not.
+ * This allows us to write components in a more idiomatic way.
+ */
+const ExpandableTable = ({
+  columns,
+  rows,
+  rowKeyIndex,
+  renderExpanderButton,
+  renderRow,
+  originals,
+  classes,
+  expandedRowIndices = new Set()
+}) => (
+  <table
+    className={classNames('td-light td-plain th-plain', classes)}
+    style={{ background: 'transparent' }}
+    role='grid'
+  >
+    <thead>
+      <tr>
+        {columns.map((column, i) => (
+          <th key={i} scope='col' className={column.classes ? column.classes.join(' ') : ''}>
+            {column.content}
+          </th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((row, i) => (
+        <ExpandableTableRow
+          key={i}
+          rowKeyIndex={rowKeyIndex} // index for element in row to use as a css id.
+          idx={i}
+          original={originals && originals[i]}
+          row={row}
+          numColumns={columns.length}
+          renderExpanderButton={renderExpanderButton}
+          renderRow={renderRow}
+          expanded={expandedRowIndices.has(i)}
+        />
+      ))}
+    </tbody>
+  </table>
+)
+
+export const ExpanderButton = ({ onClick, label = 'Expand', id }) => (
+  <button type='button' className='button button-link action-link' onClick={onClick} id={id}>
+    {label}
+  </button>
+)
 
 export default ExpandableTable

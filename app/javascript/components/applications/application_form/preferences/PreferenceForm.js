@@ -1,51 +1,73 @@
 import React from 'react'
-import { Select } from 'react-form'
-import { find, map, omitBy, sortBy } from 'lodash'
-import Row from '~/components/atoms/Row'
-import Column from '~/components/atoms/Column'
-import FormGroup from '~/components/atoms/FormGroup'
+
+import { find, map, omitBy, sortBy, cloneDeep } from 'lodash'
+
+import Column from 'components/atoms/Column'
+import FormGroup from 'components/atoms/FormGroup'
+import Row from 'components/atoms/Row'
+import { SelectField } from 'utils/form/final_form/Field'
 
 import PreferenceAdditionalOptions from './PreferenceAdditionalOptions'
+import { FIELD_NAME, buildHouseholdMembersOptions } from './utils'
 import { recordTypeMap } from './values'
-import { FIELD_NAME, buildFieldId, buildHouseholdMembersOptions } from './utils'
 
-const setRecordTypeDevName = (i, formApi, matched) => {
-  if (!!matched && matched.lottery_preference) {
-    const prefName = matched.lottery_preference.name
-    formApi.values.preferences[i].recordtype_developername = recordTypeMap[prefName] || 'Custom'
-  }
-}
-
-const findSelectedPreference = (i, formApi, listingPreferences, selectedPreference) => {
-  let selected = formApi.values.preferences[i] || {}
-  let matched = find(listingPreferences, pref => pref.id === selected.listing_preference_id)
-  setRecordTypeDevName(i, formApi, matched)
-  return selected
-}
-
-// omit any listingPreferences that are already selected, excluding the current one
-const findPreferencesNotSelected = (formApi, listingPreferences, selectedPreference) => {
-  return omitBy(listingPreferences, (listingPref) => {
-    let isSelected = find(formApi.values.preferences, { listing_preference_id: listingPref.id })
-    return (isSelected && isSelected !== selectedPreference)
+const buildListingPreferencesOptions = (form, listingPreferences, selectedId) => {
+  // Exclude preferences that are already present in application elsewhere
+  // The currently selected preference is a valid option
+  const preferenceOptions = omitBy(listingPreferences, (listingPref) => {
+    const isSelected = find(form.getState().values.preferences, {
+      listing_preference_id: listingPref.id
+    })
+    return isSelected && isSelected.listing_preference_id !== selectedId
   })
-}
 
-const buildListingPreferencesOptions = (preferencesNotSelected) => {
-  const listingPrefOptions = map(preferencesNotSelected, (listingPref) => {
+  const listingPrefOptions = map(preferenceOptions, (listingPref) => {
     return {
       value: listingPref.id,
       label: listingPref.lottery_preference.name,
       order: listingPref.order
     }
   })
-  return sortBy(listingPrefOptions, opt => opt.order)
+  return sortBy(listingPrefOptions, (opt) => opt.order)
 }
 
-const PreferenceForm = ({ i, pref, formApi, listingPreferences, fullHousehold }) => {
-  const selectedPreference = findSelectedPreference(i, formApi, listingPreferences)
-  const preferencesNotSelected = findPreferencesNotSelected(formApi, listingPreferences, selectedPreference)
-  const listingPreferencesOptions = buildListingPreferencesOptions(preferencesNotSelected)
+const removePreference = (form, i) => {
+  const preferences = cloneDeep(form.getState().values[FIELD_NAME])
+  preferences.splice(i, 1)
+  form.change(FIELD_NAME, preferences)
+}
+
+const clearPreference = (form, i, target) => {
+  // If user switches to "Select One..." empty the preference state
+  if (target === '') {
+    form.change(`preferences[${i}]`, {})
+  } else {
+    // Reset the form state for preference additional options
+    // if they've been touched so they don't show errors
+    for (const field in form.getState().touched) {
+      if (field.startsWith(`preferences.${i}`)) {
+        form.resetFieldState(field)
+      }
+    }
+    // Keep the new listing preference id, but clear all other state.
+    form.change(`preferences[${i}]`, { listing_preference_id: target })
+  }
+}
+
+const PreferenceForm = ({ i, name, form, listingPreferences, fullHousehold }) => {
+  const selectedId = (form.getState().values.preferences[i] || {}).listing_preference_id
+  const selectedPreference = find(listingPreferences, (pref) => pref.id === selectedId)
+  const listingPreferencesOptions = buildListingPreferencesOptions(
+    form,
+    listingPreferences,
+    selectedId
+  )
+
+  // Set the hidden recordType DeveloperName value
+  if (!!selectedPreference && selectedPreference.lottery_preference) {
+    const prefName = selectedPreference.lottery_preference.name
+    form.change(`preferences[${i}].recordtype_developername`, recordTypeMap[prefName] || 'Custom')
+  }
   const householdMembersOptions = buildHouseholdMembersOptions(fullHousehold)
 
   return (
@@ -53,29 +75,28 @@ const PreferenceForm = ({ i, pref, formApi, listingPreferences, fullHousehold })
       <Row>
         <Column span={6}>
           <label>Preference</label>
-          <Select
-            field={buildFieldId(i, 'listing_preference_id')}
+          <SelectField
+            fieldName={`${name}.listing_preference_id`}
             options={listingPreferencesOptions}
-            value={buildFieldId(i, 'listing_preference_id')}
             id={`select-paper-preference-${i}`}
+            onChange={(event) => clearPreference(form, i, event.target.value)}
           />
         </Column>
         <PreferenceAdditionalOptions
           i={i}
-          formApi={formApi}
-          shortFormPreference={pref}
-          listingPreferenceID={selectedPreference.listing_preference_id}
-          listingPreferences={listingPreferences}
+          form={form}
+          listingPreference={selectedPreference}
           householdMembers={householdMembersOptions}
         />
       </Row>
       <Row>
         <Column span={4}>
           <button
-            onClick={() => formApi.removeValue(FIELD_NAME, i)}
+            onClick={() => removePreference(form, i)}
             type='button'
-            className='mb-4 btn btn-danger'>
-              Remove
+            className='mb-4 btn btn-danger'
+          >
+            Remove
           </button>
         </Column>
       </Row>

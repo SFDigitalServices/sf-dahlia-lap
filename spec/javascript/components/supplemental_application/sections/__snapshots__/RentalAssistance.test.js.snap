@@ -1,1439 +1,398 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RentalAssistance should be able to show the add rental assistance form along with the table 1`] = `
-Array [
-  <div
-    className="form-grid row expand"
+exports[`RentalAssistance with rental assistances matches snapshot 1`] = `
+<Fragment>
+  <RentalAssistanceTable
+    applicationMembers={
+      [
+        {
+          "first_name": "Test",
+          "id": "123",
+          "last_name": "Tester",
+        },
+      ]
+    }
+    assistanceRowsOpened={Set {}}
+    disabled={false}
+    form={
+      {
+        "batch": [Function],
+        "blur": [Function],
+        "change": [Function],
+        "destroyOnUnregister": false,
+        "focus": [Function],
+        "getFieldState": [Function],
+        "getRegisteredFields": [Function],
+        "getState": [Function],
+        "initialize": [Function],
+        "isValidationPaused": [Function],
+        "mutators": {},
+        "pauseValidation": [Function],
+        "registerField": [Function],
+        "reset": [Function],
+        "resetFieldState": [Function],
+        "restart": [Function],
+        "resumeValidation": [Function],
+        "setConfig": [Function],
+        "submit": [Function],
+        "subscribe": [Function],
+      }
+    }
+    loading={false}
+    onCancelEdit={[Function]}
+    onDelete={[Function]}
+    onEdit={[Function]}
+    onSave={[Function]}
+    rentalAssistances={
+      [
+        {
+          "assistance_amount": "100",
+          "recipient": "123",
+          "recurring_assistance": "Yes",
+          "type_of_assistance": "Compass Family",
+        },
+      ]
+    }
+  />
+  <Component
+    expand={true}
   >
-    <div
-      className="small-12 column"
-    >
+    <Component>
+      <Button
+        disabled={false}
+        id="add-rental-assistance"
+        onClick={[Function]}
+        small={true}
+        text="Add Rental Assistance"
+      />
       <div
-        className="scrollable-table-container-under-xlarge"
-      >
-        <table
-          className="td-light td-plain th-plain rental-assistances"
-          role="grid"
-        >
-          <thead>
-            <tr>
-              <th
-                className=""
-                scope="col"
-              >
-                Type of Assistance
-              </th>
-              <th
-                className=""
-                scope="col"
-              >
-                Recurring Assistance
-              </th>
-              <th
-                className=""
-                scope="col"
-              >
-                Assistance Amount
-              </th>
-              <th
-                className=""
-                scope="col"
-              >
-                Recipient
-              </th>
-              <th
-                className=""
-                scope="col"
-              >
-                Edit
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              aria-expanded={false}
-              className="tr-expand"
-            >
-              <td
-                className=""
-              >
-                Compass Family
-              </td>
-              <td
-                className=""
-              >
-                Yes
-              </td>
-              <td
-                className=""
-              >
-                $100
-              </td>
-              <td
-                className=""
-              >
-                Test Tester
-              </td>
-              <td>
-                <button
-                  className="button button-link action-link"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Edit
-                </button>
-              </td>
-            </tr>
-            <tr
-              aria-hidden={true}
-              className="tr-expand-content"
-            >
-              <td
-                className="td-expand-nested no-padding"
-                colSpan={5}
-              >
-                <div
-                  className="app-editable expand-wide scrollable-table-nested"
-                >
-                  <div
-                    className="app-editable expand-wide scrollable-table-nested rental-assistance-edit-form"
-                  >
-                    <div
-                      className="form-grid row"
-                    >
-                      <div
-                        className="form-grid_item small-12 medium-6 large-3 column"
-                      >
-                        <div
-                          className="form-group"
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="type_of_assistance"
-                          >
-                            Type of Assistance 
-                          </label>
-                          <select
-                            className="rental-assistance-type"
-                            id="type_of_assistance"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value={2}
-                          >
-                            <option
-                              disabled={true}
-                              value={0}
-                            >
-                              Select One...
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={1}
-                            >
-                              Catholic Charities
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={2}
-                            >
-                              Compass Family
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={3}
-                            >
-                              Glide
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={4}
-                            >
-                              Hamilton Family
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={5}
-                            >
-                              Homeless Prenatal
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={6}
-                            >
-                              HOPWA
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={7}
-                            >
-                              Q Foundation: First Month’s Rent
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={8}
-                            >
-                              Q Foundation: Move-in Deposit
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={9}
-                            >
-                              Q Foundation: Person with Disability Rent Subsidy
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={10}
-                            >
-                              Q Foundation: Senior Rent Subsidy
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={11}
-                            >
-                              San Francisco AIDS Foundation
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={12}
-                            >
-                              Section 8 HCV (tenant) voucher
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={13}
-                            >
-                              Self-Help for the Elderly
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={14}
-                            >
-                              VASH voucher
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={15}
-                            >
-                              Other
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                      <div
-                        className="form-grid_item small-12 medium-6 large-3 column"
-                      >
-                        <div
-                          className="form-group"
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="recurring_assistance"
-                          >
-                            Recurring Assistance 
-                          </label>
-                          <div
-                            className="no-margin radio-group-inline"
-                          >
-                            <p
-                              className="radio-inline"
-                            >
-                              <input
-                                checked={true}
-                                className="rental-assistance-recurring"
-                                id="recurring_assistance-new-yes"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                type="radio"
-                              />
-                              <label
-                                className="radio-inline_label"
-                                htmlFor="recurring_assistance-new-yes"
-                              >
-                                Yes
-                              </label>
-                            </p>
-                            <p
-                              className="radio-inline"
-                            >
-                              <input
-                                checked={false}
-                                className="rental-assistance-recurring"
-                                id="recurring_assistance-new-no"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                type="radio"
-                              />
-                              <label
-                                className="radio-inline_label"
-                                htmlFor="recurring_assistance-new-no"
-                              >
-                                No
-                              </label>
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="form-grid_item small-12 medium-6 large-3 column"
-                      >
-                        <div
-                          className="form-group"
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="assistance_amount"
-                          >
-                            Assistance Amount 
-                          </label>
-                          <input
-                            className=""
-                            id="assistance_amount"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            type="number"
-                            value="100"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        className="form-grid_item small-12 medium-6 large-3 column"
-                      >
-                        <div
-                          className="form-group"
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="recipient"
-                          >
-                            Recipient 
-                          </label>
-                          <select
-                            className="rental-assistance-recipient"
-                            id="recipient"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value={1}
-                          >
-                            <option
-                              disabled={true}
-                              value={0}
-                            >
-                              Select One...
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={1}
-                            >
-                              Test Tester
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="form-grid row"
-                    >
-                      <div
-                        className="form-grid_item column"
-                      >
-                        <button
-                          className="button primary tiny margin-right margin-bottom-none"
-                          disabled={undefined}
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Save
-                        </button>
-                        <button
-                          className="button secondary tiny margin-right margin-bottom-none"
-                          disabled={undefined}
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          className="button alert-fill tiny margin-bottom-none right"
-                          disabled={undefined}
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>,
-  <div
-    className="app-editable expand-wide scrollable-table-nested rental-assistance-new-form"
-  >
-    <div
-      className="form-grid row"
-    >
-      <div
-        className="form-grid_item small-12 medium-6 large-3 column"
-      >
-        <div
-          className="form-group"
-        >
-          <label
-            className="form-label"
-            htmlFor="type_of_assistance"
-          >
-            Type of Assistance 
-          </label>
-          <select
-            className="rental-assistance-type"
-            id="type_of_assistance"
-            onBlur={[Function]}
-            onChange={[Function]}
-            value={0}
-          >
-            <option
-              disabled={true}
-              value={0}
-            >
-              Select One...
-            </option>
-            <option
-              disabled={undefined}
-              value={1}
-            >
-              Catholic Charities
-            </option>
-            <option
-              disabled={undefined}
-              value={2}
-            >
-              Compass Family
-            </option>
-            <option
-              disabled={undefined}
-              value={3}
-            >
-              Glide
-            </option>
-            <option
-              disabled={undefined}
-              value={4}
-            >
-              Hamilton Family
-            </option>
-            <option
-              disabled={undefined}
-              value={5}
-            >
-              Homeless Prenatal
-            </option>
-            <option
-              disabled={undefined}
-              value={6}
-            >
-              HOPWA
-            </option>
-            <option
-              disabled={undefined}
-              value={7}
-            >
-              Q Foundation: First Month’s Rent
-            </option>
-            <option
-              disabled={undefined}
-              value={8}
-            >
-              Q Foundation: Move-in Deposit
-            </option>
-            <option
-              disabled={undefined}
-              value={9}
-            >
-              Q Foundation: Person with Disability Rent Subsidy
-            </option>
-            <option
-              disabled={undefined}
-              value={10}
-            >
-              Q Foundation: Senior Rent Subsidy
-            </option>
-            <option
-              disabled={undefined}
-              value={11}
-            >
-              San Francisco AIDS Foundation
-            </option>
-            <option
-              disabled={undefined}
-              value={12}
-            >
-              Section 8 HCV (tenant) voucher
-            </option>
-            <option
-              disabled={undefined}
-              value={13}
-            >
-              Self-Help for the Elderly
-            </option>
-            <option
-              disabled={undefined}
-              value={14}
-            >
-              VASH voucher
-            </option>
-            <option
-              disabled={undefined}
-              value={15}
-            >
-              Other
-            </option>
-          </select>
-        </div>
-      </div>
-      <div
-        className="form-grid_item small-12 medium-6 large-3 column"
-      >
-        <div
-          className="form-group"
-        >
-          <label
-            className="form-label"
-            htmlFor="recurring_assistance"
-          >
-            Recurring Assistance 
-          </label>
-          <div
-            className="no-margin radio-group-inline"
-          >
-            <p
-              className="radio-inline"
-            >
-              <input
-                checked={false}
-                className="rental-assistance-recurring"
-                id="recurring_assistance-new-yes"
-                onBlur={[Function]}
-                onChange={[Function]}
-                type="radio"
-              />
-              <label
-                className="radio-inline_label"
-                htmlFor="recurring_assistance-new-yes"
-              >
-                Yes
-              </label>
-            </p>
-            <p
-              className="radio-inline"
-            >
-              <input
-                checked={false}
-                className="rental-assistance-recurring"
-                id="recurring_assistance-new-no"
-                onBlur={[Function]}
-                onChange={[Function]}
-                type="radio"
-              />
-              <label
-                className="radio-inline_label"
-                htmlFor="recurring_assistance-new-no"
-              >
-                No
-              </label>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div
-        className="form-grid_item small-12 medium-6 large-3 column"
-      >
-        <div
-          className="form-group"
-        >
-          <label
-            className="form-label"
-            htmlFor="assistance_amount"
-          >
-            Assistance Amount 
-          </label>
-          <input
-            className=""
-            id="assistance_amount"
-            onBlur={[Function]}
-            onChange={[Function]}
-            type="number"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        className="form-grid_item small-12 medium-6 large-3 column"
-      >
-        <div
-          className="form-group"
-        >
-          <label
-            className="form-label"
-            htmlFor="recipient"
-          >
-            Recipient 
-          </label>
-          <select
-            className="rental-assistance-recipient"
-            id="recipient"
-            onBlur={[Function]}
-            onChange={[Function]}
-            value={0}
-          >
-            <option
-              disabled={true}
-              value={0}
-            >
-              Select One...
-            </option>
-            <option
-              disabled={undefined}
-              value={1}
-            >
-              Test Tester
-            </option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div
-      className="form-grid row"
-    >
-      <div
-        className="form-grid_item column"
-      >
-        <button
-          className="button primary tiny margin-right margin-bottom-none"
-          disabled={undefined}
-          onClick={[Function]}
-          type="button"
-        >
-          Save
-        </button>
-        <button
-          className="button secondary tiny margin-right margin-bottom-none"
-          disabled={undefined}
-          onClick={[Function]}
-          type="button"
-        >
-          Cancel
-        </button>
-      </div>
-    </div>
-  </div>,
-  <button
-    className="button small"
-    id="add-rental-assistance"
-    onClick={[Function]}
-  >
-    Add Rental Assistance
-  </button>,
-]
+        className="margin-top--half"
+      />
+      <HelpText
+        note="Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance."
+      />
+    </Component>
+  </Component>
+</Fragment>
 `;
 
-exports[`RentalAssistance should not render a table if rental assistances is empty 1`] = `
-<button
-  className="button small"
-  id="add-rental-assistance"
-  onClick={[Function]}
+exports[`RentalAssistanceForm when it already exists on salesforce matches snapshot 1`] = `
+<InlineModal
+  id="rental-assistance-edit-form-0"
+  marginBottom={false}
+  whiteBackground={true}
 >
-  Add Rental Assistance
-</button>
-`;
-
-exports[`RentalAssistance should render a table when rental assistances are present 1`] = `
-Array [
-  <div
-    className="form-grid row expand"
+  <Component
+    expand={true}
+  >
+    <Component>
+      <SelectField
+        className="rental-assistance-recipient"
+        fieldName="rental_assistances.0.recipient"
+        label="Recipient"
+        options={
+          [
+            {
+              "label": "Test Tester",
+              "value": "123",
+            },
+          ]
+        }
+      />
+    </Component>
+  </Component>
+  <Component
+    expand={true}
+  >
+    <Component>
+      <SelectField
+        className="rental-assistance-type"
+        fieldName="rental_assistances.0.type_of_assistance"
+        label="Type of Assistance"
+        options={
+          [
+            {
+              "label": "Catholic Charities",
+              "value": "Catholic Charities",
+            },
+            {
+              "label": "Compass Family",
+              "value": "Compass Family",
+            },
+            {
+              "label": "Glide",
+              "value": "Glide",
+            },
+            {
+              "label": "Hamilton Family",
+              "value": "Hamilton Family",
+            },
+            {
+              "label": "Homeless Prenatal",
+              "value": "Homeless Prenatal",
+            },
+            {
+              "label": "HOPWA",
+              "value": "HOPWA",
+            },
+            {
+              "label": "Q Foundation: First Month’s Rent",
+              "value": "Q Foundation: First Month’s Rent",
+            },
+            {
+              "label": "Q Foundation: Move-in Deposit",
+              "value": "Q Foundation: Move-in Deposit",
+            },
+            {
+              "label": "Q Foundation: Person with Disability Rent Subsidy",
+              "value": "Q Foundation: Person with Disability Rent Subsidy",
+            },
+            {
+              "label": "Q Foundation: Senior Rent Subsidy",
+              "value": "Q Foundation: Senior Rent Subsidy",
+            },
+            {
+              "label": "San Francisco AIDS Foundation",
+              "value": "San Francisco AIDS Foundation",
+            },
+            {
+              "label": "Section 8 HCV (tenant) voucher",
+              "value": "Section 8 HCV (tenant) voucher",
+            },
+            {
+              "label": "Self-Help for the Elderly",
+              "value": "Self-Help for the Elderly",
+            },
+            {
+              "label": "VASH voucher",
+              "value": "VASH voucher",
+            },
+            {
+              "label": "Other",
+              "value": "Other",
+            },
+          ]
+        }
+        validation={[Function]}
+      />
+    </Component>
+  </Component>
+  <Component
+    expand={true}
+  >
+    <Component>
+      <CurrencyField
+        fieldName="rental_assistances.0.assistance_amount"
+        id="assistance_amount"
+        label="Assistance Amount"
+        validation={[Function]}
+      />
+    </Component>
+  </Component>
+  <Component
+    expand={true}
+  >
+    <Component>
+      <YesNoRadioGroup
+        className="rental-assistance-recurring"
+        falseValue="No"
+        fieldName="rental_assistances.0.recurring_assistance"
+        label="Recurring Assistance"
+        trueValue="Yes"
+        uniqId="new"
+      />
+    </Component>
+  </Component>
+  <Component
+    expand={true}
   >
     <div
-      className="small-12 column"
+      className="form-grid_item column"
     >
-      <div
-        className="scrollable-table-container-under-xlarge"
-      >
-        <table
-          className="td-light td-plain th-plain rental-assistances"
-          role="grid"
-        >
-          <thead>
-            <tr>
-              <th
-                className=""
-                scope="col"
-              >
-                Type of Assistance
-              </th>
-              <th
-                className=""
-                scope="col"
-              >
-                Recurring Assistance
-              </th>
-              <th
-                className=""
-                scope="col"
-              >
-                Assistance Amount
-              </th>
-              <th
-                className=""
-                scope="col"
-              >
-                Recipient
-              </th>
-              <th
-                className=""
-                scope="col"
-              >
-                Edit
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              aria-expanded={false}
-              className="tr-expand"
-            >
-              <td
-                className=""
-              >
-                Compass Family
-              </td>
-              <td
-                className=""
-              >
-                Yes
-              </td>
-              <td
-                className=""
-              >
-                $100
-              </td>
-              <td
-                className=""
-              >
-                Test Tester
-              </td>
-              <td>
-                <button
-                  className="button button-link action-link"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Edit
-                </button>
-              </td>
-            </tr>
-            <tr
-              aria-hidden={true}
-              className="tr-expand-content"
-            >
-              <td
-                className="td-expand-nested no-padding"
-                colSpan={5}
-              >
-                <div
-                  className="app-editable expand-wide scrollable-table-nested"
-                >
-                  <div
-                    className="app-editable expand-wide scrollable-table-nested rental-assistance-edit-form"
-                  >
-                    <div
-                      className="form-grid row"
-                    >
-                      <div
-                        className="form-grid_item small-12 medium-6 large-3 column"
-                      >
-                        <div
-                          className="form-group"
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="type_of_assistance"
-                          >
-                            Type of Assistance 
-                          </label>
-                          <select
-                            className="rental-assistance-type"
-                            id="type_of_assistance"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value={2}
-                          >
-                            <option
-                              disabled={true}
-                              value={0}
-                            >
-                              Select One...
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={1}
-                            >
-                              Catholic Charities
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={2}
-                            >
-                              Compass Family
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={3}
-                            >
-                              Glide
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={4}
-                            >
-                              Hamilton Family
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={5}
-                            >
-                              Homeless Prenatal
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={6}
-                            >
-                              HOPWA
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={7}
-                            >
-                              Q Foundation: First Month’s Rent
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={8}
-                            >
-                              Q Foundation: Move-in Deposit
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={9}
-                            >
-                              Q Foundation: Person with Disability Rent Subsidy
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={10}
-                            >
-                              Q Foundation: Senior Rent Subsidy
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={11}
-                            >
-                              San Francisco AIDS Foundation
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={12}
-                            >
-                              Section 8 HCV (tenant) voucher
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={13}
-                            >
-                              Self-Help for the Elderly
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={14}
-                            >
-                              VASH voucher
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={15}
-                            >
-                              Other
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                      <div
-                        className="form-grid_item small-12 medium-6 large-3 column"
-                      >
-                        <div
-                          className="form-group"
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="recurring_assistance"
-                          >
-                            Recurring Assistance 
-                          </label>
-                          <div
-                            className="no-margin radio-group-inline"
-                          >
-                            <p
-                              className="radio-inline"
-                            >
-                              <input
-                                checked={true}
-                                className="rental-assistance-recurring"
-                                id="recurring_assistance-new-yes"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                type="radio"
-                              />
-                              <label
-                                className="radio-inline_label"
-                                htmlFor="recurring_assistance-new-yes"
-                              >
-                                Yes
-                              </label>
-                            </p>
-                            <p
-                              className="radio-inline"
-                            >
-                              <input
-                                checked={false}
-                                className="rental-assistance-recurring"
-                                id="recurring_assistance-new-no"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                type="radio"
-                              />
-                              <label
-                                className="radio-inline_label"
-                                htmlFor="recurring_assistance-new-no"
-                              >
-                                No
-                              </label>
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="form-grid_item small-12 medium-6 large-3 column"
-                      >
-                        <div
-                          className="form-group"
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="assistance_amount"
-                          >
-                            Assistance Amount 
-                          </label>
-                          <input
-                            className=""
-                            id="assistance_amount"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            type="number"
-                            value="100"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        className="form-grid_item small-12 medium-6 large-3 column"
-                      >
-                        <div
-                          className="form-group"
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="recipient"
-                          >
-                            Recipient 
-                          </label>
-                          <select
-                            className="rental-assistance-recipient"
-                            id="recipient"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value={1}
-                          >
-                            <option
-                              disabled={true}
-                              value={0}
-                            >
-                              Select One...
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={1}
-                            >
-                              Test Tester
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="form-grid row"
-                    >
-                      <div
-                        className="form-grid_item column"
-                      >
-                        <button
-                          className="button primary tiny margin-right margin-bottom-none"
-                          disabled={undefined}
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Save
-                        </button>
-                        <button
-                          className="button secondary tiny margin-right margin-bottom-none"
-                          disabled={undefined}
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          className="button alert-fill tiny margin-bottom-none right"
-                          disabled={undefined}
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <Button
+        classes="primary margin-right"
+        disabled={false}
+        id="rental-assistance-save"
+        noBottomMargin={true}
+        onClick={[Function]}
+        text="Save"
+        tiny={true}
+      />
+      <Button
+        classes="secondary"
+        disabled={false}
+        id="rental-assistance-cancel"
+        noBottomMargin={true}
+        onClick={[MockFunction]}
+        text="Cancel"
+        tiny={true}
+      />
+      <Button
+        classes="alert-fill right"
+        disabled={false}
+        id="rental-assistance-delete"
+        noBottomMargin={true}
+        onClick={[MockFunction]}
+        text="Delete"
+        tiny={true}
+      />
     </div>
-  </div>,
-  <button
-    className="button small"
-    id="add-rental-assistance"
-    onClick={[Function]}
-  >
-    Add Rental Assistance
-  </button>,
-]
+  </Component>
+</InlineModal>
 `;
 
-exports[`RentalAssistance should show the Other Assistance Name in the table when Type of Assistance is Other 1`] = `
-Array [
-  <div
-    className="form-grid row expand"
+exports[`RentalAssistanceForm when it is new matches snapshot 1`] = `
+<InlineModal
+  id="rental-assistance-new-form"
+  marginBottom={true}
+  whiteBackground={true}
+>
+  <Component
+    expand={true}
+  >
+    <Component>
+      <SelectField
+        className="rental-assistance-recipient"
+        fieldName="rental_assistances.0.recipient"
+        label="Recipient"
+        options={
+          [
+            {
+              "label": "Test Tester",
+              "value": "123",
+            },
+          ]
+        }
+      />
+    </Component>
+  </Component>
+  <Component
+    expand={true}
+  >
+    <Component>
+      <SelectField
+        className="rental-assistance-type"
+        fieldName="rental_assistances.0.type_of_assistance"
+        label="Type of Assistance"
+        options={
+          [
+            {
+              "label": "Catholic Charities",
+              "value": "Catholic Charities",
+            },
+            {
+              "label": "Compass Family",
+              "value": "Compass Family",
+            },
+            {
+              "label": "Glide",
+              "value": "Glide",
+            },
+            {
+              "label": "Hamilton Family",
+              "value": "Hamilton Family",
+            },
+            {
+              "label": "Homeless Prenatal",
+              "value": "Homeless Prenatal",
+            },
+            {
+              "label": "HOPWA",
+              "value": "HOPWA",
+            },
+            {
+              "label": "Q Foundation: First Month’s Rent",
+              "value": "Q Foundation: First Month’s Rent",
+            },
+            {
+              "label": "Q Foundation: Move-in Deposit",
+              "value": "Q Foundation: Move-in Deposit",
+            },
+            {
+              "label": "Q Foundation: Person with Disability Rent Subsidy",
+              "value": "Q Foundation: Person with Disability Rent Subsidy",
+            },
+            {
+              "label": "Q Foundation: Senior Rent Subsidy",
+              "value": "Q Foundation: Senior Rent Subsidy",
+            },
+            {
+              "label": "San Francisco AIDS Foundation",
+              "value": "San Francisco AIDS Foundation",
+            },
+            {
+              "label": "Section 8 HCV (tenant) voucher",
+              "value": "Section 8 HCV (tenant) voucher",
+            },
+            {
+              "label": "Self-Help for the Elderly",
+              "value": "Self-Help for the Elderly",
+            },
+            {
+              "label": "VASH voucher",
+              "value": "VASH voucher",
+            },
+            {
+              "label": "Other",
+              "value": "Other",
+            },
+          ]
+        }
+        validation={[Function]}
+      />
+    </Component>
+  </Component>
+  <Component
+    expand={true}
+  >
+    <Component>
+      <CurrencyField
+        fieldName="rental_assistances.0.assistance_amount"
+        id="assistance_amount"
+        label="Assistance Amount"
+        validation={[Function]}
+      />
+    </Component>
+  </Component>
+  <Component
+    expand={true}
+  >
+    <Component>
+      <YesNoRadioGroup
+        className="rental-assistance-recurring"
+        falseValue="No"
+        fieldName="rental_assistances.0.recurring_assistance"
+        label="Recurring Assistance"
+        trueValue="Yes"
+        uniqId="new"
+      />
+    </Component>
+  </Component>
+  <Component
+    expand={true}
   >
     <div
-      className="small-12 column"
+      className="form-grid_item column"
     >
-      <div
-        className="scrollable-table-container-under-xlarge"
-      >
-        <table
-          className="td-light td-plain th-plain rental-assistances"
-          role="grid"
-        >
-          <thead>
-            <tr>
-              <th
-                className=""
-                scope="col"
-              >
-                Type of Assistance
-              </th>
-              <th
-                className=""
-                scope="col"
-              >
-                Recurring Assistance
-              </th>
-              <th
-                className=""
-                scope="col"
-              >
-                Assistance Amount
-              </th>
-              <th
-                className=""
-                scope="col"
-              >
-                Recipient
-              </th>
-              <th
-                className=""
-                scope="col"
-              >
-                Edit
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              aria-expanded={false}
-              className="tr-expand"
-            >
-              <td
-                className=""
-              >
-                Test Other Assistance Name
-              </td>
-              <td
-                className=""
-              >
-                Yes
-              </td>
-              <td
-                className=""
-              >
-                $100
-              </td>
-              <td
-                className=""
-              >
-                Test Tester
-              </td>
-              <td>
-                <button
-                  className="button button-link action-link"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Edit
-                </button>
-              </td>
-            </tr>
-            <tr
-              aria-hidden={true}
-              className="tr-expand-content"
-            >
-              <td
-                className="td-expand-nested no-padding"
-                colSpan={5}
-              >
-                <div
-                  className="app-editable expand-wide scrollable-table-nested"
-                >
-                  <div
-                    className="app-editable expand-wide scrollable-table-nested rental-assistance-edit-form"
-                  >
-                    <div
-                      className="form-grid row"
-                    >
-                      <div
-                        className="form-grid_item small-12 medium-6 large-3 column"
-                      >
-                        <div
-                          className="form-group"
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="type_of_assistance"
-                          >
-                            Type of Assistance 
-                          </label>
-                          <select
-                            className="rental-assistance-type"
-                            id="type_of_assistance"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value={15}
-                          >
-                            <option
-                              disabled={true}
-                              value={0}
-                            >
-                              Select One...
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={1}
-                            >
-                              Catholic Charities
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={2}
-                            >
-                              Compass Family
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={3}
-                            >
-                              Glide
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={4}
-                            >
-                              Hamilton Family
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={5}
-                            >
-                              Homeless Prenatal
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={6}
-                            >
-                              HOPWA
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={7}
-                            >
-                              Q Foundation: First Month’s Rent
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={8}
-                            >
-                              Q Foundation: Move-in Deposit
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={9}
-                            >
-                              Q Foundation: Person with Disability Rent Subsidy
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={10}
-                            >
-                              Q Foundation: Senior Rent Subsidy
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={11}
-                            >
-                              San Francisco AIDS Foundation
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={12}
-                            >
-                              Section 8 HCV (tenant) voucher
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={13}
-                            >
-                              Self-Help for the Elderly
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={14}
-                            >
-                              VASH voucher
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={15}
-                            >
-                              Other
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                      <div
-                        className="form-grid_item small-12 medium-6 large-3 column"
-                      >
-                        <div
-                          className="form-group"
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="recurring_assistance"
-                          >
-                            Recurring Assistance 
-                          </label>
-                          <div
-                            className="no-margin radio-group-inline"
-                          >
-                            <p
-                              className="radio-inline"
-                            >
-                              <input
-                                checked={true}
-                                className="rental-assistance-recurring"
-                                id="recurring_assistance-new-yes"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                type="radio"
-                              />
-                              <label
-                                className="radio-inline_label"
-                                htmlFor="recurring_assistance-new-yes"
-                              >
-                                Yes
-                              </label>
-                            </p>
-                            <p
-                              className="radio-inline"
-                            >
-                              <input
-                                checked={false}
-                                className="rental-assistance-recurring"
-                                id="recurring_assistance-new-no"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                type="radio"
-                              />
-                              <label
-                                className="radio-inline_label"
-                                htmlFor="recurring_assistance-new-no"
-                              >
-                                No
-                              </label>
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="form-grid_item small-12 medium-6 large-3 column"
-                      >
-                        <div
-                          className="form-group"
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="assistance_amount"
-                          >
-                            Assistance Amount 
-                          </label>
-                          <input
-                            className=""
-                            id="assistance_amount"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            type="number"
-                            value="100"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        className="form-grid_item small-12 medium-6 large-3 column"
-                      >
-                        <div
-                          className="form-group"
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="recipient"
-                          >
-                            Recipient 
-                          </label>
-                          <select
-                            className="rental-assistance-recipient"
-                            id="recipient"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value={1}
-                          >
-                            <option
-                              disabled={true}
-                              value={0}
-                            >
-                              Select One...
-                            </option>
-                            <option
-                              disabled={undefined}
-                              value={1}
-                            >
-                              Test Tester
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="form-grid row"
-                    >
-                      <div
-                        className="form-grid_item small-12 medium-6 large-3 column"
-                      >
-                        <div
-                          className="form-group"
-                        >
-                          <label
-                            className="form-label"
-                            htmlFor="other_assistance_name"
-                          >
-                            Other Assistance Name 
-                          </label>
-                          <input
-                            className=""
-                            id="other_assistance_name"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            value="Test Other Assistance Name"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="form-grid row"
-                    >
-                      <div
-                        className="form-grid_item column"
-                      >
-                        <button
-                          className="button primary tiny margin-right margin-bottom-none"
-                          disabled={undefined}
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Save
-                        </button>
-                        <button
-                          className="button secondary tiny margin-right margin-bottom-none"
-                          disabled={undefined}
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          className="button alert-fill tiny margin-bottom-none right"
-                          disabled={undefined}
-                          onClick={[Function]}
-                          type="button"
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <Button
+        classes="primary margin-right"
+        disabled={false}
+        id="rental-assistance-save"
+        noBottomMargin={true}
+        onClick={[Function]}
+        text="Save"
+        tiny={true}
+      />
+      <Button
+        classes="secondary"
+        disabled={false}
+        id="rental-assistance-cancel"
+        noBottomMargin={true}
+        onClick={[MockFunction]}
+        text="Cancel"
+        tiny={true}
+      />
     </div>
-  </div>,
-  <button
-    className="button small"
-    id="add-rental-assistance"
-    onClick={[Function]}
-  >
-    Add Rental Assistance
-  </button>,
-]
+  </Component>
+</InlineModal>
 `;

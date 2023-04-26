@@ -1,0 +1,188 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+executors:
+  ruby_node:
+    docker:
+      - image: 'cimg/ruby:3.1.3-browsers'
+        environment:
+          - RAILS_ENV: development
+          - PGHOST: 127.0.0.1
+          - PGUSER: root
+          - NODE_OPTIONS: --openssl-legacy-provider
+    working_directory: ~/tmp
+non_production_jobs: &non_production_jobs
+  filters:
+    branches:
+      ignore: production
+prod_and_release_jobs: &prod_and_release_jobs
+  context: partners-prod
+  filters:
+    branches:
+      only:
+        - /^release.*$/
+        - /^hotfix.*$/
+        - production
+aliases:
+  - &attach_workspace
+    attach_workspace:
+      at: ~/tmp
+  - &restore_yarn_cache
+    restore_cache:
+      name: Restore Yarn Cache
+      keys:
+        - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+        - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}
+        - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-main
+        - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-
+  - &restore_bundler_cache
+    restore_cache:
+      name: Restore Bundler Cache
+      keys:
+        - partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1-{{ checksum "Gemfile.lock" }}
+        - partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1
+commands:
+  prepare_workspace:
+    description: 'Attach workspace and restore cache'
+    steps:
+      - *attach_workspace
+      - *restore_yarn_cache
+      - *restore_bundler_cache
+  run-e2e:
+    description: 'Run e2e tests'
+    steps:
+      - checkout
+      - prepare_workspace
+      - run: bundle --path vendor/bundle
+      - run:
+          name: Run rails server in background
+          command: bundle exec rails server -p 3000
+          background: true
+      - run:
+          name: Wait for server
+          command: |
+            until $(curl --retry 10 --output /dev/null --silent --head --fail http://127.0.0.1:3000); do
+                printf '.'
+                sleep 5
+            done
+      - run:
+          name: Run Jest tests using test splitting
+          command: |
+            TESTFILES=$(circleci tests glob "spec/javascript/e2e/**/*.e2e.js" | circleci tests split --split-by=timings)
+            echo "$TESTFILES"
+            yarn test:all --testPathPattern=$TESTFILES --runInBand --reporters=default --reporters=jest-junit --forceExit
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
+      - store_test_results:
+          path: ./reports/junit/
+      - store_artifacts:
+          path: ./reports/junit
+
+jobs:
+  build:
+    executor: ruby_node
+    steps:
+      - checkout
+      - prepare_workspace
+      - run:
+          name: install dependencies
+          command: |
+            bundle check --path vendor/bundle || bundle install --deployment --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          key: partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1-{{ checksum "Gemfile.lock" }}
+          paths:
+            - ./vendor/bundle/
+      - run:
+          name: install yarn dependencies
+          command: yarn install --check-files
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules/
+      - run: bundle exec rake db:setup
+      - run: bundle exec rake db:test:prepare
+      - run:
+          name: Download cc-test-reporter
+          command: |
+            mkdir -p tmp/
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
+            chmod +x ./tmp/cc-test-reporter
+            ./tmp/cc-test-reporter before-build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+  backend:
+    executor: ruby_node
+    steps:
+      - checkout
+      - prepare_workspace
+      - run: bundle --path vendor/bundle
+      - run: bundle exec rubocop
+      - run: bundle exec rake spec
+      - run: ls .
+      - store_artifacts:
+          path: coverage
+      - persist_to_workspace:
+          root: .
+          paths:
+            - coverage
+  frontend:
+    executor: ruby_node
+    steps:
+      - checkout
+      - prepare_workspace
+      - run: yarn lint
+      - run: yarn unit
+      - run: ls .
+      - store_artifacts:
+          path: coverage
+      - persist_to_workspace:
+          root: .
+          paths:
+            - coverage
+  e2e:
+    executor: ruby_node
+    parallelism: 4
+    steps:
+      - run-e2e
+  coverage:
+    executor: ruby_node
+    steps:
+      - checkout
+      - *attach_workspace
+      - run: ./tmp/cc-test-reporter format-coverage -t lcov -o tmp/codeclimate.frontend.json coverage/frontend/.resultset.json
+      - run: ./tmp/cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.backend.json coverage/backend/.resultset.json
+      - run: ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
+      - run: ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
+      - persist_to_workspace:
+          root: .
+          paths:
+            - tmp/codeclimate.*.json
+workflows:
+  version: 2.1
+  build-and-deploy:
+    jobs:
+      - build
+      - backend:
+          <<: *non_production_jobs
+          requires:
+            - build
+      - frontend:
+          <<: *non_production_jobs
+          requires:
+            - build
+      - e2e:
+          <<: *non_production_jobs
+          requires:
+            - build
+      - coverage:
+          <<: *non_production_jobs
+          requires:
+            - backend
+            - frontend
+      - e2e:
+          <<: *prod_and_release_jobs
+          name: e2e-production
+          requires:
+            - build

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import classNames from 'classnames'
 
 import Modal from './Modal'
@@ -18,23 +19,25 @@ const SimpleModalBody = ({
 }) => {
   const primaryButtonClassName = classNames({
     button: true,
-    primary: (!type || type === 'status'),
-    'alert-fill': (type === 'alert')
+    primary: !type || type === 'status',
+    'alert-fill': type === 'alert'
   })
 
   return (
     <Modal.Body hidden={isOpen} handleClose={handleClose}>
       <Modal.Header title={header} />
-      { alert && <Modal.Alert {...alert} /> }
-      <Modal.Content>
-        {children}
-      </Modal.Content>
+      {alert && <Modal.Alert {...alert} />}
+      <Modal.Content>{children}</Modal.Content>
       <Modal.Footer>
         <div className='modal-button_item modal-button_primary'>
-          <button className={primaryButtonClassName} onClick={onPrimaryClick}>{primary}</button>
+          <button className={primaryButtonClassName} onClick={onPrimaryClick}>
+            {primary}
+          </button>
         </div>
         <div className='modal-button_item modal-button_secondary'>
-          <button className='button no-border' onClick={onSecondaryClick}>{secondary}</button>
+          <button className='button no-border' onClick={onSecondaryClick}>
+            {secondary}
+          </button>
         </div>
       </Modal.Footer>
     </Modal.Body>
@@ -45,7 +48,7 @@ const SimpleModal = ({ children, isOpen, handleClose, ...SimpleModalBodyProps })
   return (
     <Modal isOpen={isOpen} handleClose={handleClose}>
       <SimpleModalBody handleClose={handleClose} {...SimpleModalBodyProps}>
-        { children }
+        {children}
       </SimpleModalBody>
     </Modal>
   )

@@ -1,177 +1,266 @@
-import React from 'react'
-import { Form } from 'react-form'
-import { isEmpty } from 'lodash'
-import ScrollableAnchor from 'react-scrollable-anchor'
+import React, { useState } from 'react'
 
-import ContentSection from '../molecules/ContentSection'
-import Loading from '../molecules/Loading'
-import DemographicsInputs from './sections/DemographicsInputs'
-import StatusList from './sections/StatusList'
-import StatusUpdate from '~/components/organisms/StatusUpdate'
+import Button from 'components/atoms/Button'
+import AlertBox from 'components/molecules/AlertBox'
+import FormGrid from 'components/molecules/FormGrid'
+import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
+import { leaseCreated } from 'components/supplemental_application/actions/leaseActionCreators'
+import {
+  updateSavedPreference,
+  preferenceAlertCloseClicked
+} from 'components/supplemental_application/actions/preferenceActionCreators'
+import {
+  closeSuppAppStatusModal,
+  closeSuppAppStatusModalAlert,
+  openSuppAppAddCommentModal,
+  openSuppAppUpdateStatusModal,
+  submitSuppAppStatusModal
+} from 'components/supplemental_application/actions/statusModalActionCreators'
+import { hasLease } from 'components/supplemental_application/utils/leaseSectionStates'
+import {
+  getApplicationMembers,
+  getPrefProofCutoff
+} from 'components/supplemental_application/utils/supplementalApplicationUtils'
+import { useAppContext } from 'utils/customHooks'
+import { MultiDateField } from 'utils/form/final_form/MultiDateField'
+import { touchAllFields, convertPercentAndCurrency } from 'utils/form/validations'
+
 import ConfirmedHouseholdIncome from './sections/ConfirmedHouseholdIncome'
 import ConfirmedUnits from './sections/ConfirmedUnits'
+import DemographicsInputs from './sections/DemographicsInputs'
+import Lease from './sections/Lease'
 import PreferencesTable from './sections/PreferencesTable'
-import AlertBox from '~/components/molecules/AlertBox'
-import StatusDropdown from '~/components/molecules/StatusDropdown'
-import LeaseInformationInputs from './sections/LeaseInformationInputs'
-import RentalAssistance from './sections/RentalAssistance'
-import { withContext } from './context'
-import StatusModalWrapper from '~/components/organisms/StatusModalWrapper'
+import ContentSection from '../molecules/ContentSection'
+import LeaseUpSidebar from '../molecules/lease_up_sidebar/LeaseUpSidebar'
+import AsymColumnLayout from '../organisms/AsymColumnLayout'
 
-const StatusUpdateSection = withContext(({ store }) => {
-  const { statusHistory, openUpdateStatusModal, openAddStatusCommentModal } = store
-  let recentStatusUpdate = statusHistory && statusHistory[0] ? statusHistory[0] : {status: null, comment: null, date: null}
-  return (
-    <ContentSection.Content paddingBottomNone marginTop>
-      <StatusUpdate
-        status={recentStatusUpdate.status}
-        comment={recentStatusUpdate.comment}
-        date={recentStatusUpdate.date}
-        onStatusDropdownChange={openUpdateStatusModal}
-        onAddCommentClick={openAddStatusCommentModal}
-        statusHistoryAnchor='#status-history-section' />
-    </ContentSection.Content>
-  )
-})
-
-const ConfirmedPreferencesSection = ({ application, fileBaseUrl, onSave, confirmedPreferencesFailed, onDismissError, formApi }) => {
-  return (
-    <ContentSection
-      title='Confirmed Preferences'
-      description='Please allow the applicant 24 hours to provide appropriate preference proof if not previously supplied.'>
-      <ContentSection.Content>
-        { confirmedPreferencesFailed && (
-          <AlertBox
-            invert
-            onCloseClick={onDismissError}
-            message="We weren't able to save your updates. Please try again." />
-        )}
-        <PreferencesTable
-          application={application}
-          onSave={onSave}
-          fileBaseUrl={fileBaseUrl}
-          onPanelClose={onDismissError}
-          formApi={formApi}
+const ConfirmedPreferencesSection = ({
+  application,
+  applicationMembers,
+  fileBaseUrl,
+  onSave,
+  confirmedPreferencesFailed,
+  onDismissError,
+  form,
+  visited
+}) => (
+  <ContentSection
+    title='Preferences and Priorities'
+    description={
+      <>
+        <p>
+          Complete this section first.{' '}
+          <b>You must confirm claimed preferences before sending out a post-lottery letter.</b>{' '}
+          Please allow the applicant 24 hours to provide appropriate preference proof if not
+          previously supplied.
+        </p>
+        <p>
+          Their document must include:
+          <ul className='bullet-list'>
+            <li>Their name</li>
+            <li>The address where they live or work in San Francisco</li>
+            <li>
+              A date on or after {getPrefProofCutoff(application.application_submitted_date)} (45
+              days before they submitted their application)
+            </li>
+          </ul>
+        </p>
+      </>
+    }
+  >
+    <ContentSection.Sub title='Confirmed Preferences'>
+      {confirmedPreferencesFailed && (
+        <AlertBox
+          invert
+          onCloseClick={onDismissError}
+          message="We weren't able to save your updates. Please try again."
         />
-      </ContentSection.Content>
-    </ContentSection>
-  )
-}
-
-const ConfirmedHousehold = ({ amis, amiCharts, formApi }) => {
-  return (
-    <ContentSection title='Confirmed Household'>
-      <ContentSection.Sub title='Confirmed Reserved and Priority Units'>
-        <ConfirmedUnits />
-      </ContentSection.Sub>
-      <ContentSection.Sub title='Confirmed Household Income'>
-        <ConfirmedHouseholdIncome amis={amis} amiCharts={amiCharts} formApi={formApi} />
-      </ContentSection.Sub>
-    </ContentSection>
-  )
-}
-
-const LeaseInformationSection = () => {
-  return (
-    <ContentSection title='Lease Information'>
-      <ContentSection.Content borderBottom>
-        <LeaseInformationInputs />
-      </ContentSection.Content>
-      <ContentSection.Sub
-        title='Rental Assistance Information'
-        description='Includes Vouchers, Subsidies, as well as other forms of Rental Assistance.'>
-        <RentalAssistance />
-      </ContentSection.Sub>
-      <ContentSection.Sub title='Demographics'>
-        <DemographicsInputs />
-      </ContentSection.Sub>
-    </ContentSection>
-  )
-}
-
-const StatusHistorySection = withContext(({ store }) => {
-  const { statusHistory, openAddStatusCommentModal } = store
-  return !isEmpty(statusHistory) && (
-    <ContentSection.Sub title='Status History' borderBottom={false}>
-      <StatusList items={statusHistory} onAddComment={openAddStatusCommentModal} />
+      )}
+      <PreferencesTable
+        application={application}
+        applicationMembers={applicationMembers}
+        onSave={onSave}
+        fileBaseUrl={fileBaseUrl}
+        form={form}
+        visited={visited}
+      />
     </ContentSection.Sub>
-  )
-})
+    <ContentSection.Sub
+      title='Application Signature'
+      description={
+        <>
+          Complete this section by filling in the date of the applicant’s supplemental application
+          once it has been received. Be sure to enter the date from the application itself, not the
+          date on which you received it.
+        </>
+      }
+    >
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <MultiDateField
+            form={form}
+            formName='supp_app_signed_date'
+            fieldName='supp_app_signed_date'
+            id='supp_app_signed_date'
+            label='Application Signature Date'
+          />
+        </FormGrid.Item>
+      </FormGrid.Row>
+    </ContentSection.Sub>
+    <ContentSection.Sub title='Household Reserved and Priority Units'>
+      <ConfirmedUnits form={form} />
+    </ContentSection.Sub>
+  </ContentSection>
+)
 
-const ActionButtons = withContext(({ loading, store }) => {
-  const { application, openUpdateStatusModal } = store
+const Income = ({ listingAmiCharts, visited, form }) => (
+  <ContentSection
+    title='Income'
+    description='Complete this section after MOHCD has confirmed the household’s income eligibility. You must complete this section even if the household is over or under income eligibility.'
+  >
+    <ConfirmedHouseholdIncome listingAmiCharts={listingAmiCharts} visited={visited} />
+  </ContentSection>
+)
 
+const LeaseSection = ({ form, values, onCreateLeaseClick, showLeaseSection }) => (
+  <ContentSection
+    title='Lease'
+    description={
+      !showLeaseSection &&
+      'Complete this section when a unit is chosen and the lease is signed. If the household receives recurring rental assistance, remember to subtract this from the unit’s rent when calculating Tenant Contribution.'
+    }
+  >
+    {showLeaseSection ? (
+      <Lease form={form} values={values} />
+    ) : (
+      <Button id='create-lease' text='Create Lease' small onClick={onCreateLeaseClick} />
+    )}
+  </ContentSection>
+)
+
+const DemographicsSection = () => (
+  <ContentSection
+    title='Demographics'
+    description='Complete this section when a household has gone through income qualification. You must complete this section even if the household is over or under income eligibility.'
+  >
+    <DemographicsInputs />
+  </ContentSection>
+)
+
+const Sidebar = ({
+  statusHistory,
+  loading,
+  onChangeStatus,
+  onAddCommentClicked,
+  onSaveClicked
+}) => {
   return (
-    <div className='button-pager'>
-      <div className='button-pager_row align-buttons-left primary inset-wide'>
-        <StatusDropdown
-          status={application.processing_status}
-          onChange={openUpdateStatusModal}
-          buttonClasses={['small', 'has-status-width']}
-          wrapperClasses={['dropdown-inline']}
-          menuClasses={['dropdown-menu-bottom']} />
-        <button
-          className='button primary small save-btn'
-          type='submit'
-          disabled={loading}>
-          Save
-        </button>
-      </div>
-    </div>)
-})
-
-class SupplementalApplicationContainer extends React.Component {
-  render () {
-    const { store } = this.props
-    const {
-      application,
-      fileBaseUrl,
-      onSavePreference,
-      confirmedPreferencesFailed,
-      onDismissError,
-      amis,
-      amiCharts,
-      loading,
-      onSubmit,
-      statusModal,
-      handleStatusModalClose,
-      handleStatusModalStatusChange,
-      handleStatusModalSubmit
-    } = store
-
-    return (
-      <Loading isLoading={loading}>
-        <Form onSubmit={onSubmit} defaultValues={application}>
-          {formApi => (
-            <React.Fragment>
-              <form onSubmit={formApi.submitForm} style={{ margin: '0px' }}>
-                <StatusUpdateSection />
-                <ConfirmedPreferencesSection
-                  application={application}
-                  fileBaseUrl={fileBaseUrl}
-                  onSave={onSavePreference}
-                  onDismissError={onDismissError}
-                  confirmedPreferencesFailed={confirmedPreferencesFailed}
-                  formApi={formApi}
-                />
-                <ConfirmedHousehold amis={amis} formApi={formApi} amiCharts={amiCharts} />
-                <LeaseInformationSection />
-                <ScrollableAnchor id={'status-history-section'}><div><StatusHistorySection /></div></ScrollableAnchor>
-                <div className='padding-bottom--2x margin-bottom--2x' />
-                <ActionButtons loading={loading} />
-              </form>
-              <StatusModalWrapper
-                {...statusModal}
-                onClose={handleStatusModalClose}
-                onStatusChange={handleStatusModalStatusChange}
-                onSubmit={(submittedValues) => handleStatusModalSubmit(submittedValues, formApi.values)}
-              />
-            </React.Fragment>
-          )}
-        </Form>
-      </Loading>
-    )
-  }
+    <div className='sticky-sidebar-large-up'>
+      <LeaseUpSidebar
+        statusItems={statusHistory}
+        isLoading={loading}
+        onChangeStatus={onChangeStatus}
+        onAddCommentClicked={onAddCommentClicked}
+        onSaveClicked={onSaveClicked}
+      />
+    </div>
+  )
 }
 
-export default withContext(SupplementalApplicationContainer)
+const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values, visited }) => {
+  const [failed, setFailed] = useState(false)
+  const [
+    {
+      supplementalApplicationData: { supplemental: state }
+    },
+    dispatch
+  ] = useAppContext()
+
+  const checkForValidationErrors = (form, touched) => {
+    touchAllFields(form, touched)
+    const failed = form.getState().invalid
+    setFailed(failed)
+    if (failed) {
+      window.scrollTo(0, 0)
+    }
+    return failed
+  }
+
+  const handleAddCommentClicked = (form, touched) =>
+    !checkForValidationErrors(form, touched)
+      ? openSuppAppAddCommentModal(dispatch, state.statusHistory)
+      : null
+
+  const onChangeStatus = (form, touched, value) =>
+    !checkForValidationErrors(form, touched) ? openSuppAppUpdateStatusModal(dispatch, value) : null
+
+  return (
+    <>
+      {failed && (
+        <AlertBox
+          invert
+          onCloseClick={() => setFailed(false)}
+          message='Please resolve any errors before saving the application.'
+        />
+      )}
+      <form onSubmit={handleSubmit} style={{ margin: '0px' }} id='shortForm' noValidate>
+        <AsymColumnLayout.Container>
+          <AsymColumnLayout.MainContent>
+            <ConfirmedPreferencesSection
+              application={state.application}
+              applicationMembers={getApplicationMembers(state.application)}
+              fileBaseUrl={state.fileBaseUrl}
+              onSave={(preferenceIndex, formApplicationValues) =>
+                updateSavedPreference(dispatch, preferenceIndex, formApplicationValues)
+              }
+              onDismissError={() => preferenceAlertCloseClicked(dispatch)}
+              confirmedPreferencesFailed={state.confirmedPreferencesFailed}
+              form={form}
+            />
+            <Income listingAmiCharts={state.listingAmiCharts} visited={visited} form={form} />
+            <DemographicsSection />
+            <LeaseSection
+              form={form}
+              values={values}
+              showLeaseSection={hasLease(state.leaseSectionState)}
+              onCreateLeaseClick={() => leaseCreated(dispatch)}
+            />
+          </AsymColumnLayout.MainContent>
+          <AsymColumnLayout.Sidebar>
+            <Sidebar
+              statusHistory={state.statusHistory}
+              loading={state.loading}
+              onAddCommentClicked={() => handleAddCommentClicked(form, touched)}
+              onChangeStatus={(value) => onChangeStatus(form, touched, value)}
+              onSaveClicked={() => checkForValidationErrors(form, touched)}
+            />
+          </AsymColumnLayout.Sidebar>
+        </AsymColumnLayout.Container>
+      </form>
+      <StatusModalWrapper
+        alertMsg={state.statusModal.alertMsg}
+        isOpen={state.statusModal.isOpen}
+        loading={state.statusModal.loading}
+        onAlertCloseClick={() => closeSuppAppStatusModalAlert(dispatch)}
+        onClose={() => closeSuppAppStatusModal(dispatch)}
+        onSubmit={(submittedValues) => {
+          const { application: prevApplication, leaseSectionState } = state
+          return submitSuppAppStatusModal(
+            dispatch,
+            submittedValues,
+            convertPercentAndCurrency(form.getState().values),
+            prevApplication,
+            leaseSectionState
+          )
+        }}
+        showAlert={state.statusModal.showAlert}
+        status={state.statusModal.status}
+        submitButton={state.statusModal.isInAddCommentMode ? 'Save' : 'Update'}
+        subStatus={state.statusModal.substatus}
+        title={state.statusModal.isInAddCommentMode ? 'Add New Comment' : 'Update Status'}
+      />
+    </>
+  )
+}
+
+export default SupplementalApplicationContainer

@@ -1,72 +1,109 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import { isEmpty } from 'lodash'
+import PropTypes from 'prop-types'
+import { useParams } from 'react-router-dom'
+
+import { applicationPageLoadComplete } from 'components/applications/actions/applicationActionCreators'
+import { getShortFormApplication } from 'components/lease_ups/utils/shortFormRequestUtils'
+import Loading from 'components/molecules/Loading'
+import appPaths from 'utils/appPaths'
+import { useAppContext, useAsyncOnMount, useQueryParamBoolean } from 'utils/customHooks'
 
 import ApplicationDetails from './application_details/ApplicationDetails'
-import CardLayout from '../layouts/CardLayout'
-import appPaths from '~/utils/appPaths'
-import mapProps from '~/utils/mapProps'
 import labelMapperFields from './application_details/applicationDetailsFieldsDesc'
+import CardLayout from '../layouts/CardLayout'
 
 const buildActionLinkIfNecessary = (app, showAddBtn) => {
   const actions = []
 
-  if (!app.is_lottery_complete && app.application_submission_type === 'Paper') { actions.push(<a key='edit-application' href={appPaths.toApplicationEdit(app.id)} className='primary button tiny'>Edit Application</a>) }
+  if (!app.listing.is_lottery_complete && app.application_submission_type === 'Paper') {
+    actions.push(
+      <a
+        key='edit-application'
+        href={appPaths.toApplicationEdit(app.id)}
+        className='primary button tiny'
+      >
+        Edit Application
+      </a>
+    )
+  }
 
-  if (showAddBtn === 'true') { actions.push(<a key='add-new-application' href={appPaths.toApplicationNew(app.listing.id)} className='button tiny margin-left--half'>Add new application</a>) }
+  if (showAddBtn) {
+    actions.push(
+      <a
+        key='add-new-application'
+        href={appPaths.toApplicationNew(app.listing.id)}
+        className='button tiny margin-left--half'
+      >
+        Add new application
+      </a>
+    )
+  }
 
   return actions
 }
 
-const ApplicationPage = (props) => {
-  const { application, showAddBtn } = props
+/**
+ * Non-lease up application page.
+ */
+const ApplicationPage = () => {
+  const [application, setApplication] = useState(null)
+  const [fileBaseUrl, setFileBaseUrl] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  const { applicationId } = useParams()
+  const [, dispatch] = useAppContext()
+  const showAddBtn = useQueryParamBoolean('showAddBtn')
+
+  useAsyncOnMount(() => getShortFormApplication(applicationId), {
+    onSuccess: (response) => {
+      applicationPageLoadComplete(dispatch, response.application, response.fileBaseUrl, true)
+      setApplication(response.application)
+      setFileBaseUrl(response.fileBaseUrl)
+    },
+    onFail: (e) => {
+      // Alert window pauses state updates so we set loading to false instead of
+      // waiting for the finally block
+      setLoading(false)
+      window.alert('The application you requested could not be found.')
+    },
+    onComplete: () => setLoading(false)
+  })
 
   let pageHeader = {}
-  let tabSection = false
+  let tabSection
 
-  if (!application) {
-    pageHeader = {
-      title: 'Application',
-      content: (<span>Name of Listing:</span>)
-    }
-  } else if (application.is_snapshot) {
-    pageHeader = {
-      title: `${application.name}: ${application.applicant.name}`,
-      breadcrumbs: [
-        { title: 'Lease Ups', link: appPaths.toLeaseUps() },
-        { title: application.listing.name, link: appPaths.toListingLeaseUps(application.listing.id) },
-        { title: application.name, link: '#' }
-      ]
-    }
-
-    tabSection = {
-      items: [
-        { title: 'Short Form Application', url: appPaths.toApplication(application.id) },
-        { title: 'Supplemental Information', url: appPaths.toApplicationSupplementals(application.id) }
-      ]
-    }
-  } else {
-    pageHeader = {
-      title: `Application ${application.name}`,
-      content: (<span>Name of Listing: <a href={appPaths.toListing(application.listing.id)}>{application.listing.name}</a></span>),
-      action: buildActionLinkIfNecessary(application, showAddBtn)
-    }
+  pageHeader = {
+    title: `Application ${application?.name ?? ''}`,
+    content: (
+      <span>
+        Name of Listing:{' '}
+        {application && (
+          <a href={appPaths.toListing(application.listing.id)}>{application.listing.name}</a>
+        )}
+      </span>
+    ),
+    action: application && buildActionLinkIfNecessary(application, showAddBtn)
   }
-
-  if (!application) window.alert('The application you requested could not be found.')
 
   return (
     <CardLayout pageHeader={pageHeader} tabSection={tabSection}>
-      {application && <ApplicationDetails {...props} />}
+      <Loading isLoading={loading} renderChildrenWhileLoading={false} loaderViewHeight='100vh'>
+        {!isEmpty(application) && (
+          <ApplicationDetails
+            application={application}
+            fileBaseUrl={fileBaseUrl}
+            fields={labelMapperFields}
+          />
+        )}
+      </Loading>
     </CardLayout>
   )
 }
 
-const mapProperties = ({ application, showAddBtn, fileBaseUrl }) => {
-  return {
-    application: application,
-    fields: labelMapperFields,
-    showAddBtn: showAddBtn,
-    fileBaseUrl: fileBaseUrl
-  }
+ApplicationPage.propTypes = {
+  isLeaseUp: PropTypes.bool
 }
 
-export default mapProps(mapProperties)(ApplicationPage)
+export default ApplicationPage

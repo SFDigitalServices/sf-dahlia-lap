@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items 1`] = `
+<div
+  className="sidebar-content"
+>
+  <div
+    className="show-large-up"
+  >
+    <button
+      className="primary save-button"
+      disabled={false}
+      id="save-supplemental-application"
+      onClick={null}
+      type="submit"
+    >
+      Save
+    </button>
+    <LeaseUpStatusButtons
+      isLoading={false}
+      onAddCommentClicked={null}
+      onChangeStatus={null}
+      status="Approved"
+    />
+  </div>
+  <StatusHistoryContainer
+    statusItems={
+      [
+        {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "substatus": "Approval letter sent",
+          "timestamp": 1598385600,
+        },
+        {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "substatus": "Approval letter sent",
+          "timestamp": 1598385600,
+        },
+        {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "substatus": "Approval letter sent",
+          "timestamp": 1598385600,
+        },
+        {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "substatus": "Approval letter sent",
+          "timestamp": 1598385600,
+        },
+        {
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
+          "status": "Approved",
+          "substatus": "Approval letter sent",
+          "timestamp": 1598385600,
+        },
+      ]
+    }
+  />
+  <div
+    className="hide-large-up"
+  >
+    <LeaseUpStatusButtons
+      isLoading={false}
+      onAddCommentClicked={null}
+      onChangeStatus={null}
+      status="Approved"
+    />
+    <button
+      className="primary save-button"
+      disabled={false}
+      id="save-supplemental-application"
+      onClick={null}
+      type="submit"
+    >
+      Save
+    </button>
+  </div>
+</div>
+`;

@@ -6,7 +6,8 @@
 #
 default: &default
   adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # Total concurrent connections = workers * threads
+  pool: <%= (ENV.fetch("PUMA_WORKERS", 2).to_i) * (ENV.fetch("PUMA_THREADS", 3).to_i) %>
   timeout: 5000
 
 development:

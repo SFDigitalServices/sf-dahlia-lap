@@ -1,33 +1,55 @@
-const toApplicationSupplementals = (applicationId) => `/applications/${applicationId}/supplementals`
+const toApplication = (applicationId, showAddBtn = false) => {
+  const queryParams = showAddBtn ? '?showAddBtn=true' : ''
 
-const toApplication = (applicationId) => `/applications/${applicationId}`
+  return `/applications/${applicationId}${queryParams}`
+}
+
+const toListings = () => '/listings'
+
+const toLeaseUpApplication = (applicationId) => `/lease-ups/applications/${applicationId}`
 
 const toApplicationEdit = (applicationId) => `/applications/${applicationId}/edit`
+
+const toApplications = (listingId) => `/listings/${listingId}/applications`
 
 const toApplicationNew = (listingId) => `/listings/${listingId}/applications/new`
 
 const toApplicationsFlagged = (id) => `/applications/flagged/${id}`
 
-const toApplicationsFlaggedIndex = (type) => `/applications/flagged?type=${type}`
+const toApplicationsFlaggedIndexBase = () => '/applications/flagged'
 
-const toListingLeaseUps = (listingId) => `/listings/lease-ups/${listingId}/applications`
+const toApplicationsFlaggedIndex = (type) => `${toApplicationsFlaggedIndexBase()}?type=${type}`
+
+const toListingLeaseUps = (listingId) => `/lease-ups/listings/${listingId}`
 
 const toListing = (listingId) => `/listings/${listingId}`
 
-const toLeaseUps = () => `/listings/lease-ups`
+const toLeaseUps = () => '/lease-ups/listings'
 
-const toLeaseUpApplications = (listingId) => `/listings/lease-ups/${listingId}/applications`
+const toLeaseUpApplications = (listingId) => `/lease-ups/listings/${listingId}`
 
-const toAttachmentDownload = (fileBaseUrl, fileId) => `${fileBaseUrl}/servlet/servlet.FileDownload?file=${fileId}`
+const toAttachmentDownload = (fileBaseUrl, file) => {
+  switch (file.file_type) {
+    case 'Attachment':
+      return `${fileBaseUrl}/servlet/servlet.FileDownload?file=${file.id}`
+    case 'File':
+      return `${fileBaseUrl}/sfc/servlet.shepherd/version/download/${file.id}`
+    default:
+      return null
+  }
+}
 
 export default {
-  toApplicationSupplementals,
   toApplication,
+  toApplications,
+  toLeaseUpApplication,
   toApplicationsFlagged,
   toApplicationsFlaggedIndex,
+  toApplicationsFlaggedIndexBase,
   toListingLeaseUps,
   toApplicationEdit,
   toListing,
+  toListings,
   toApplicationNew,
   toLeaseUps,
   toLeaseUpApplications,

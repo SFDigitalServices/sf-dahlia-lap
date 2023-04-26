@@ -1,33 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import ExpandableTable from '~/components/molecules/ExpandableTable'
+import ExpandableTable from 'components/molecules/ExpandableTable'
 
-class ExpandableTableWrapper extends React.Component {
-  expanderRenderer = (row, expanded, expandedRowToggler) => {
-    if (expanded) return
+const ExpandableTableWrapper = ({ columns, rows }) => {
+  const [expandedRows, setExpandedRows] = useState(new Set())
 
-    return <button className='button button-link action-link' onClick={(e) => expandedRowToggler()}>Expand</button>
+  const closeRow = (index) => {
+    const newExpandedRows = new Set(expandedRows)
+    newExpandedRows.delete(index)
+    setExpandedRows(newExpandedRows)
   }
 
-  expandedRowRenderer = (row, expandedRowToggler) => (
-    <div className='app-editable expand-wide scrollable-table-nested'>
-      <div>Hello</div>
-      <br />
-      <button className='button' onClick={(e) => (expandedRowToggler())}>Close</button>
-    </div>
+  const openRow = (index) => setExpandedRows(new Set([...expandedRows, index]))
+
+  return (
+    <ExpandableTable
+      columns={columns}
+      rows={rows}
+      expandedRowIndices={expandedRows}
+      renderExpanderButton={(index, row, original, expanded) => (
+        <button
+          className='button button-link action-link'
+          onClick={(e) => (expanded ? closeRow(index) : openRow(index))}
+        >
+          {expanded ? 'Close' : 'Expand'}
+        </button>
+      )}
+      renderRow={(index, row) => (
+        <div className='inline-modal'>
+          <div>Hello</div>
+          <br />
+          <button className='button' onClick={(e) => closeRow(index)}>
+            Close
+          </button>
+        </div>
+      )}
+    />
   )
-
-  render () {
-    const { columns, rows } = this.props
-
-    return (
-      <ExpandableTable
-        columns={columns}
-        rows={rows}
-        expanderRenderer={this.expanderRenderer}
-        expandedRowRenderer={this.expandedRowRenderer} />
-    )
-  }
 }
 
 export default ExpandableTableWrapper

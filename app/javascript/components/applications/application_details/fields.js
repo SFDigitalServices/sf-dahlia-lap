@@ -1,4 +1,5 @@
 import { keys, map, join } from 'lodash'
+
 import formOptions from '../application_form/formOptions'
 
 export const applicationDataFields = [
@@ -7,7 +8,7 @@ export const applicationDataFields = [
   'application_submitted_date',
   'application_language',
   'total_household_size',
-  'total_monthly_rent',
+  { field: 'total_monthly_rent', formatType: 'currency' },
   'status',
   'referral_source',
   { field: 'createdby.name', label: 'Created By' }
@@ -15,19 +16,24 @@ export const applicationDataFields = [
 
 export const primaryApplicantFields = [
   'first_name',
+  'middle_name',
   'last_name',
   'date_of_birth',
-  'phone',
-  'second_phone',
   'email',
+  'phone',
+  'phone_type',
+  'second_phone',
+  'second_phone_type',
   'residence_address',
   'mailing_address'
 ]
 
 export const alternateContactFields = [
   'first_name',
+  'middle_name',
   'last_name',
   'phone',
+  'phone_type',
   'agency_name',
   'email',
   'alternate_contact_type',
@@ -45,9 +51,11 @@ export const householdMembersFields = [
   'zip_code'
 ]
 
-const adaPrioritiesToString = (list) => {
-  return join(map(keys(list), v => formOptions.adaPriorityValueToLabelMap[v]), ';')
-}
+const adaPrioritiesToString = (list) =>
+  join(
+    map(keys(list), (v) => formOptions.adaPriorityValueToLabelMap[v]),
+    ';'
+  )
 
 export const reservedAndPriorityFields = [
   'has_military_service',
@@ -66,14 +74,31 @@ export const applicationPreferencesFields = [
   'opt_out'
 ]
 
-export const declareHousholdIncome = [
-  'annual_income',
-  'monthly_income',
+export const declareHouseholdIncome = [
+  { field: 'annual_income', formatType: 'currency' },
+  { field: 'monthly_income', formatType: 'currency' },
   'housing_voucher_or_subsidy'
 ]
 
 export const flaggedApplicationsFields = [
   { field: 'flagged_record.rule_name', label: 'Rule Name' },
-  { field: 'flagged_record.total_number_of_pending_review', label: 'Total Number of Pending Review' },
+  {
+    field: 'flagged_record.total_number_of_pending_review',
+    label: 'Total Number of Pending Review'
+  },
   'view record set'
+]
+
+export const applicationEligibilityFields = [
+  { field: 'is_first_time_homebuyer', label: 'Have they owned property in the last three years?' },
+  {
+    field: 'has_completed_homebuyer_education',
+    label: "Have they completed homebuyers' education?"
+  },
+  {
+    field: 'has_loan_preapproval',
+    label: 'Do they have a loan pre-approval from a MOHCD-approved lender?'
+  },
+  { field: 'lending_institution', label: 'Lending Institution' },
+  { field: 'name_of_lender', label: 'Name of Lender' }
 ]

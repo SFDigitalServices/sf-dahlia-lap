@@ -1,5 +1,6 @@
-import { EagerPagination } from 'utils/EagerPagination'
 import { each, range } from 'lodash'
+
+import { EagerPagination } from 'utils/EagerPagination'
 
 describe('EagerPagination', () => {
   describe('getServerPageForEagerPage', () => {
@@ -28,7 +29,7 @@ describe('EagerPagination', () => {
 
       const eagerPagination = new EagerPagination(5, 20)
 
-      let pages = []
+      const pages = []
       pages.push(await eagerPagination.getPage(0, fetchData))
       pages.push(await eagerPagination.getPage(1, fetchData))
       pages.push(await eagerPagination.getPage(2, fetchData))
@@ -41,12 +42,12 @@ describe('EagerPagination', () => {
       pages.push(await eagerPagination.getPage(9, fetchData))
       pages.push(await eagerPagination.getPage(10, fetchData))
 
-      expect(mockFetchPage.mock.calls.length).toBe(3)
+      expect(mockFetchPage.mock.calls).toHaveLength(3)
       expect(mockFetchPage.mock.calls[0][0]).toBe(0)
       expect(mockFetchPage.mock.calls[1][0]).toBe(1)
 
       each(pages, (p) => {
-        expect(p.records.length).toEqual(5)
+        expect(p.records).toHaveLength(5)
       })
 
       expect(pages[0].records).toEqual(range(0, 5))

@@ -1,72 +1,56 @@
 import React from 'react'
 
-import FormGrid from '~/components/molecules/FormGrid'
-import { RadioGroup, Radio, Checkbox } from 'react-form'
+import FormGrid from 'components/molecules/FormGrid'
+import { CheckboxField, TextCheckboxField } from 'utils/form/final_form/Field'
 
-const YesNoRadioGroup = ({field}) => {
+const ConfirmedUnits = ({ form }) => {
   return (
-    <div className='radio-group-inline'>
-      <RadioGroup field={field}>
-        {(group) => (
-          <React.Fragment>
-            <p className='radio-inline'>
-              <Radio group={group} value={`Yes`} id={`${field}-yes`} />
-              <label className='radio-inline_label' htmlFor={`${field}-yes`}>Yes</label>
-            </p>
-            <p className='radio-inline'>
-              <Radio group={group} value={`No`} id={`${field}-no`} />
-              <label className='radio-inline_label' htmlFor={`${field}-no`}>No</label>
-            </p>
-          </React.Fragment>
-        )}
-      </RadioGroup>
-    </div>
-  )
-}
-
-const CheckboxBlock = ({ id, field, label }) => (
-  <div className='checkbox-block'>
-    <Checkbox id={id || field} field={field} />
-    <label className='checkbox-block_label' htmlFor={id || field}>
-      {label}
-    </label>
-  </div>
-)
-
-const ConfirmedUnits = () => {
-  return (
-    <FormGrid.Row paddingBottom>
-      <FormGrid.Item>
-        <FormGrid.Group label='Senior in Household'>
-          <YesNoRadioGroup field='reserved_senior' />
-        </FormGrid.Group>
-      </FormGrid.Item>
-      <FormGrid.Item>
-        <FormGrid.Group label='Veteran in Household'>
-          <YesNoRadioGroup field='has_military_service' />
-        </FormGrid.Group>
-      </FormGrid.Item>
-      <FormGrid.Item>
-        <FormGrid.Group label='Person with Developmental Disability in Household'>
-          <YesNoRadioGroup field='has_developmental_disability' />
-        </FormGrid.Group>
-      </FormGrid.Item>
-      <FormGrid.Item>
-        <FormGrid.Group label='Household ADA Priorities'>
-          <div className='checkbox-group form-checkbox-item' role='group'>
-            <CheckboxBlock
-              field='has_ada_priorities_selected.mobility_impairments'
-              label='Mobility Impairments' />
-            <CheckboxBlock
-              field='has_ada_priorities_selected.vision_impairments'
-              label='Vision Impairments' />
-            <CheckboxBlock
-              field='has_ada_priorities_selected.hearing_impairments'
-              label='Hearing Impairments' />
-          </div>
-        </FormGrid.Group>
-      </FormGrid.Item>
-    </FormGrid.Row>
+    <>
+      <FormGrid.Row>
+        <FormGrid.Item>
+          <FormGrid.Group label='Household ADA Priorities'>
+            <div className='checkbox-group form-checkbox-item' role='group'>
+              <CheckboxField
+                fieldName='has_ada_priorities_selected.mobility_impairments'
+                label='Mobility Impairments'
+              />
+              <CheckboxField
+                fieldName='has_ada_priorities_selected.vision_impairments'
+                label='Vision Impairments'
+              />
+              <CheckboxField
+                fieldName='has_ada_priorities_selected.hearing_impairments'
+                label='Hearing Impairments'
+              />
+            </div>
+          </FormGrid.Group>
+        </FormGrid.Item>
+        <FormGrid.Item>
+          <FormGrid.Group label='Household Member Priorities'>
+            <div className='checkbox-group form-checkbox-item' role='group'>
+              <TextCheckboxField
+                fieldName='reserved_senior'
+                label='Senior in Household'
+                initialValue='No'
+                form={form}
+              />
+              <TextCheckboxField
+                fieldName='has_military_service'
+                label='Veteran in Household'
+                initialValue='No'
+                form={form}
+              />
+              <TextCheckboxField
+                fieldName='has_developmental_disability'
+                label='Person with Developmental Disability in Household'
+                initialValue='No'
+                form={form}
+              />
+            </div>
+          </FormGrid.Group>
+        </FormGrid.Item>
+      </FormGrid.Row>
+    </>
   )
 }
 

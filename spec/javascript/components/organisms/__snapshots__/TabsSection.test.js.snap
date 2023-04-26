@@ -5,12 +5,13 @@ exports[`TabsMenu it should render correctly 1`] = `
   background="snow"
   currentUrl="/url1"
   items={
-    Array [
-      Object {
+    [
+      {
         "title": "Short Form Application",
         "url": "/url1",
       },
-      Object {
+      {
+        "active": true,
         "title": "Supplemental Information",
         "url": "/url2",
       },
@@ -18,17 +19,18 @@ exports[`TabsMenu it should render correctly 1`] = `
   }
 >
   <div
-    className="tabs-section tabs-row row full-width inner--3x bg-snow"
+    className="tabs-section tabs-row full-width inner--3x bg-snow"
   >
     <TabsMenu
       currentUrl="/url1"
       items={
-        Array [
-          Object {
+        [
+          {
             "title": "Short Form Application",
             "url": "/url1",
           },
-          Object {
+          {
+            "active": true,
             "title": "Supplemental Information",
             "url": "/url2",
           },
@@ -36,17 +38,49 @@ exports[`TabsMenu it should render correctly 1`] = `
       }
     >
       <ul
-        className="tabs full-width-small-only"
+        className="tabs"
         role="menubar"
       >
         <Tab
-          active={true}
-          key="/url1"
+          key="Short Form Application"
           linkRefs={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
-          title="Short Form Application"
-          url="/url1"
+          tabItem={
+            {
+              "title": "Short Form Application",
+              "url": "/url1",
+            }
+          }
+        >
+          <li
+            className="tab-title"
+            role="none"
+          >
+            <a
+              className="button-unstyled"
+              href="/url1"
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              role="menuitem"
+              tabIndex="0"
+            >
+              Short Form Application
+            </a>
+          </li>
+        </Tab>
+        <Tab
+          key="Supplemental Information"
+          linkRefs={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          tabItem={
+            {
+              "active": true,
+              "title": "Supplemental Information",
+              "url": "/url2",
+            }
+          }
         >
           <li
             className="tab-title active"
@@ -54,36 +88,12 @@ exports[`TabsMenu it should render correctly 1`] = `
           >
             <a
               aria-selected={true}
-              href="/url1"
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              role="menuitem"
-              tabIndex="-1"
-            >
-              Short Form Application
-            </a>
-          </li>
-        </Tab>
-        <Tab
-          active={false}
-          key="/url2"
-          linkRefs={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          title="Supplemental Information"
-          url="/url2"
-        >
-          <li
-            className="tab-title"
-            role="none"
-          >
-            <a
-              aria-selected={false}
+              className="button-unstyled"
               href="/url2"
               onFocus={[Function]}
               onKeyDown={[Function]}
               role="menuitem"
-              tabIndex="0"
+              tabIndex="-1"
             >
               Supplemental Information
             </a>
@@ -96,7 +106,7 @@ exports[`TabsMenu it should render correctly 1`] = `
     padding={false}
   >
     <section
-      className="tabs-card-row row full-width inner--3x margin-bottom--2x"
+      className="tabs-card-row row full-width inner--3x margin-bottom--2x bg-white"
     />
   </TabCard>
 </TabsSection>
