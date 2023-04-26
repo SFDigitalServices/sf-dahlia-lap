@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-conditional-expect */
 import { request } from 'api/request'
 import apiService from 'apiService'
 

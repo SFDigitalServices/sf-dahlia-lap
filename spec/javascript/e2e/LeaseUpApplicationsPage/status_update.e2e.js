@@ -66,7 +66,6 @@ describe('LeaseUpApplicationsPage status update', () => {
       async () => {
         const { page } = await SetupBrowserAndPage(testBrowser, true)
         await waitForLeaseUpAppTableToLoad(page)
-
         // Check the checkboxes in the 2nd and 3rd row
         await page.click(checkboxById(SECOND_ROW_LEASE_UP_APP_ID))
         await page.click(checkboxById(THIRD_ROW_LEASE_UP_APP_ID))
@@ -80,12 +79,13 @@ describe('LeaseUpApplicationsPage status update', () => {
         // Select Processing as bulk status
         await selectStatusDropdownValue(page, bulkStatusDropdown, statusMenuItem(PROCESSING))
         // Fill out the status modal and submit
-        await fillOutAndSubmitStatusModal(page)
-
         // Wait for field update comment requests to complete and fail if they were unsuccessful.
         // The problem is that if one of these requests does not happen we get an ambiguous timeout error.
-        await checkForStatusUpdateSuccess(page, SECOND_ROW_LEASE_UP_APP_ID)
-        await checkForStatusUpdateSuccess(page, THIRD_ROW_LEASE_UP_APP_ID)
+        await Promise.all([
+          checkForStatusUpdateSuccess(page, SECOND_ROW_LEASE_UP_APP_ID),
+          checkForStatusUpdateSuccess(page, THIRD_ROW_LEASE_UP_APP_ID),
+          fillOutAndSubmitStatusModal(page)
+        ])
         // Expect checkboxes to be unchecked and statuses to be updated
         let secondRowUpdatedStatus = await sharedSteps.getText(page, nthRowStatusDropdown(2))
         expect(secondRowUpdatedStatus).toBe(PROCESSING)
@@ -104,10 +104,12 @@ describe('LeaseUpApplicationsPage status update', () => {
 
         // Select Processing as bulk status
         await selectStatusDropdownValue(page, bulkStatusDropdown, statusMenuItem(APPEALED))
-        await fillOutAndSubmitStatusModal(page)
-        await checkForStatusUpdateSuccess(page, SECOND_ROW_LEASE_UP_APP_ID)
-        await checkForStatusUpdateSuccess(page, THIRD_ROW_LEASE_UP_APP_ID)
-        // Expect checkboxes to be unchecked and statuses to be updated
+
+        await Promise.all([
+          fillOutAndSubmitStatusModal(page),
+          checkForStatusUpdateSuccess(page, SECOND_ROW_LEASE_UP_APP_ID),
+          checkForStatusUpdateSuccess(page, THIRD_ROW_LEASE_UP_APP_ID)
+        ])
         secondRowUpdatedStatus = await sharedSteps.getText(page, nthRowStatusDropdown(2))
         expect(secondRowUpdatedStatus).toBe(APPEALED)
         thirdRowUpdatedStatus = await sharedSteps.getText(page, nthRowStatusDropdown(3))
@@ -122,7 +124,14 @@ describe('LeaseUpApplicationsPage status update', () => {
         const bulkEditCheckboxId = '#bulk-edit-controller'
 
         const { page } = await SetupBrowserAndPage(testBrowser, true)
+        await page.screenshot({
+          path: 'status_update_T3pt1.jpg'
+        })
         await waitForLeaseUpAppTableToLoad(page)
+
+        await page.screenshot({
+          path: 'status_update_T3pt2.jpg'
+        })
 
         await page.click(bulkEditCheckboxId)
 

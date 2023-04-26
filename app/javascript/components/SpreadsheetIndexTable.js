@@ -34,9 +34,8 @@ class SpreadsheetIndexTable extends React.Component {
         Cell: (cellInfo) => {
           // we are "editing" this row if we have expanded it
           let editing = this.state.expanded[cellInfo.viewIndex]
-          const lotteryStatus = this.state.persistedData[cellInfo.index][
-            'Flagged_Record_Set.Listing.Lottery_Status'
-          ]
+          const lotteryStatus =
+            this.state.persistedData[cellInfo.index]['Flagged_Record_Set.Listing.Lottery_Status']
           if (includes(['In Progress', 'Lottery Complete'], lotteryStatus)) {
             // don't allow editing based on certain lotteryStatus values
             editing = false

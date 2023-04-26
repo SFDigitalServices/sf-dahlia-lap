@@ -2,9 +2,9 @@ import React from 'react'
 
 import mapProps from 'utils/mapProps'
 
-import CardLayout from '../layouts/CardLayout'
 import PaperApplicationForm from './application_form/PaperApplicationForm'
 import { saveApplication } from './applicationRequestUtils'
+import CardLayout from '../layouts/CardLayout'
 
 const ApplicationEditPageForm = ({ listing, application, editPage, lendingInstitutions }) => {
   const saveEditApplication = async (submitType, submittedValues, listing, editPage) => {

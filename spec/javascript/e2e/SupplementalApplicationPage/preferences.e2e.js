@@ -40,9 +40,8 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
 
       // Update the type of proof
       const typeOfProofSelector = `${liveWorkExpandedPanelSelector} .type-of-proof-select`
-      const unselectedTypeOfProofSelector = sharedSteps.notSelectedOptionSelector(
-        typeOfProofSelector
-      )
+      const unselectedTypeOfProofSelector =
+        sharedSteps.notSelectedOptionSelector(typeOfProofSelector)
       const typeOfProofToSetName = await page.$eval(
         unselectedTypeOfProofSelector,
         (e) => e.textContent
@@ -97,6 +96,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
         sharedSteps.selectedOptionSelector(individualPreferenceSelector),
         (e) => e.textContent
       )
+
       expect(currentIndividualPref).toBe(prefToSetName)
 
       const currentTypeOfProof = await page.$eval(

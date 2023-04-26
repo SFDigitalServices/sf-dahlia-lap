@@ -1,5 +1,5 @@
-import SetupBrowserAndPage from '../../../utils/SetupBrowserAndPage'
 import sharedSteps from './sharedSteps'
+import SetupBrowserAndPage from '../../../utils/SetupBrowserAndPage'
 
 /**
  * function applicationRedirectRouteCheck
@@ -20,7 +20,7 @@ export const applicationRedirectRouteCheck = async (type, id, testBrowser) => {
     await sharedSteps.loginAsAgent(page)
   }
   await sharedSteps.goto(page, fullURL)
-  await page.waitFor(2000)
+  await page.waitForTimeout(2000)
 
   const currentUrl = page.url()
   expect(currentUrl).toContain(`http://localhost:3000/${resultURL}`)

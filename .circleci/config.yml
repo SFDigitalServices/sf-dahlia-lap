@@ -3,11 +3,12 @@ version: 2.1
 executors:
   ruby_node:
     docker:
-      - image: 'circleci/ruby:2.7.0-node-browsers'
+      - image: 'cimg/ruby:3.1.3-browsers'
         environment:
           - RAILS_ENV: development
           - PGHOST: 127.0.0.1
           - PGUSER: root
+          - NODE_OPTIONS: --openssl-legacy-provider
     working_directory: ~/tmp
 non_production_jobs: &non_production_jobs
   filters:
@@ -27,27 +28,27 @@ aliases:
       at: ~/tmp
   - &restore_yarn_cache
     restore_cache:
-        name: Restore Yarn Cache
-        keys:
-          - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
-          - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}
-          - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-main
-          - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-
+      name: Restore Yarn Cache
+      keys:
+        - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+        - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}
+        - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-main
+        - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-
   - &restore_bundler_cache
     restore_cache:
-        name: Restore Bundler Cache
-        keys:
-          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1-{{ checksum "Gemfile.lock" }}
-          - partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1
+      name: Restore Bundler Cache
+      keys:
+        - partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1-{{ checksum "Gemfile.lock" }}
+        - partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1
 commands:
   prepare_workspace:
-    description: "Attach workspace and restore cache"
+    description: 'Attach workspace and restore cache'
     steps:
       - *attach_workspace
       - *restore_yarn_cache
       - *restore_bundler_cache
   run-e2e:
-    description: "Run e2e tests"
+    description: 'Run e2e tests'
     steps:
       - checkout
       - prepare_workspace
@@ -101,7 +102,7 @@ jobs:
       - run: bundle exec rake db:setup
       - run: bundle exec rake db:test:prepare
       - run:
-          name:  Download cc-test-reporter
+          name: Download cc-test-reporter
           command: |
             mkdir -p tmp/
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter

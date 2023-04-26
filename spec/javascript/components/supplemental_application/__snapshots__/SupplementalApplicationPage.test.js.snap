@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SupplementalApplicationPage it should render as expected 1`] = `
-Array [
+[
   <header
     className="lead-header short has-breadcrumbs bg-snow"
   >
@@ -117,14 +117,14 @@ Array [
         noValidate={true}
         onSubmit={[Function]}
         style={
-          Object {
+          {
             "margin": "0px",
           }
         }
       >
         <div
           style={
-            Object {
+            {
               "alignItems": "stretch",
               "display": "flex",
               "flexWrap": "wrap",
@@ -182,7 +182,7 @@ Array [
               <div
                 className=""
                 style={
-                  Object {
+                  {
                     "marginBottom": "1.75rem",
                   }
                 }
@@ -203,7 +203,7 @@ Array [
                           className="td-light td-plain th-plain"
                           role="grid"
                           style={
-                            Object {
+                            {
                               "background": "transparent",
                             }
                           }
@@ -1040,7 +1040,7 @@ Array [
               <div
                 className=""
                 style={
-                  Object {
+                  {
                     "marginBottom": "1.75rem",
                   }
                 }
@@ -1063,7 +1063,7 @@ Array [
                       <div
                         id="date-group"
                         style={
-                          Object {
+                          {
                             "display": "flex",
                           }
                         }
@@ -1119,7 +1119,7 @@ Array [
                       </div>
                       <div
                         style={
-                          Object {
+                          {
                             "alignSelf": "flex-end",
                             "display": "flex",
                             "flexDirection": "column",
@@ -1138,7 +1138,7 @@ Array [
               <div
                 className=""
                 style={
-                  Object {
+                  {
                     "marginBottom": "1.75rem",
                   }
                 }
@@ -1253,10 +1253,10 @@ Array [
                             onChange={[Function]}
                             onFocus={[Function]}
                             type="hidden"
-                            value="Yes"
+                            value="No"
                           />
                           <input
-                            checked={true}
+                            checked={false}
                             id="form-ctrl-reserved_senior"
                             onChange={[Function]}
                             type="checkbox"
@@ -1280,10 +1280,10 @@ Array [
                             onChange={[Function]}
                             onFocus={[Function]}
                             type="hidden"
-                            value="Yes"
+                            value="No"
                           />
                           <input
-                            checked={true}
+                            checked={false}
                             id="form-ctrl-has_military_service"
                             onChange={[Function]}
                             type="checkbox"
@@ -1307,10 +1307,10 @@ Array [
                             onChange={[Function]}
                             onFocus={[Function]}
                             type="hidden"
-                            value="Yes"
+                            value="No"
                           />
                           <input
-                            checked={true}
+                            checked={false}
                             id="form-ctrl-has_developmental_disability"
                             onChange={[Function]}
                             type="checkbox"
@@ -1350,7 +1350,7 @@ Array [
               <div
                 className=""
                 style={
-                  Object {
+                  {
                     "marginBottom": "1.75rem",
                   }
                 }
@@ -1557,7 +1557,7 @@ Array [
               <div
                 className=""
                 style={
-                  Object {
+                  {
                     "marginBottom": "1.75rem",
                   }
                 }
@@ -1700,6 +1700,11 @@ Array [
                           value={2022}
                         >
                           2022
+                        </option>
+                        <option
+                          value={2023}
+                        >
+                          2023
                         </option>
                       </select>
                     </div>
@@ -2052,7 +2057,7 @@ Array [
                 <div
                   className=""
                   style={
-                    Object {
+                    {
                       "marginBottom": "1.75rem",
                     }
                   }
@@ -2337,7 +2342,7 @@ Array [
                 <div
                   className=""
                   style={
-                    Object {
+                    {
                       "marginBottom": "1.75rem",
                     }
                   }
@@ -2401,7 +2406,7 @@ Array [
                           className="td-light td-plain th-plain rental-assistances"
                           role="grid"
                           style={
-                            Object {
+                            {
                               "background": "transparent",
                             }
                           }
@@ -2730,7 +2735,7 @@ Array [
                                         id="rental-assistance-save"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -2739,7 +2744,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -2749,7 +2754,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -2770,7 +2775,7 @@ Array [
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -2779,7 +2784,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -2789,7 +2794,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -2810,7 +2815,7 @@ Array [
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -2819,7 +2824,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -2829,7 +2834,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -3138,7 +3143,7 @@ Array [
                                         id="rental-assistance-save"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -3147,7 +3152,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -3157,7 +3162,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -3178,7 +3183,7 @@ Array [
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -3187,7 +3192,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -3197,7 +3202,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -3218,7 +3223,7 @@ Array [
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -3227,7 +3232,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -3237,7 +3242,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -3546,7 +3551,7 @@ Array [
                                         id="rental-assistance-save"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -3555,7 +3560,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -3565,7 +3570,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -3586,7 +3591,7 @@ Array [
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -3595,7 +3600,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -3605,7 +3610,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -3626,7 +3631,7 @@ Array [
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -3635,7 +3640,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -3645,7 +3650,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -3954,7 +3959,7 @@ Array [
                                         id="rental-assistance-save"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -3963,7 +3968,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -3973,7 +3978,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -3994,7 +3999,7 @@ Array [
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -4003,7 +4008,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -4013,7 +4018,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -4034,7 +4039,7 @@ Array [
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -4043,7 +4048,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -4053,7 +4058,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -4362,7 +4367,7 @@ Array [
                                         id="rental-assistance-save"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -4371,7 +4376,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -4381,7 +4386,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -4402,7 +4407,7 @@ Array [
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -4411,7 +4416,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -4421,7 +4426,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -4442,7 +4447,7 @@ Array [
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -4451,7 +4456,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -4461,7 +4466,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -4770,7 +4775,7 @@ Array [
                                         id="rental-assistance-save"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -4779,7 +4784,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -4789,7 +4794,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -4810,7 +4815,7 @@ Array [
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -4819,7 +4824,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -4829,7 +4834,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -4850,7 +4855,7 @@ Array [
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -4859,7 +4864,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -4869,7 +4874,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -5178,7 +5183,7 @@ Array [
                                         id="rental-assistance-save"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -5187,7 +5192,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -5197,7 +5202,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -5218,7 +5223,7 @@ Array [
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -5227,7 +5232,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -5237,7 +5242,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -5258,7 +5263,7 @@ Array [
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -5267,7 +5272,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -5277,7 +5282,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -5586,7 +5591,7 @@ Array [
                                         id="rental-assistance-save"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -5595,7 +5600,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -5605,7 +5610,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -5626,7 +5631,7 @@ Array [
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -5635,7 +5640,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -5645,7 +5650,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -5666,7 +5671,7 @@ Array [
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -5675,7 +5680,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -5685,7 +5690,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -5994,7 +5999,7 @@ Array [
                                         id="rental-assistance-save"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -6003,7 +6008,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -6013,7 +6018,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -6034,7 +6039,7 @@ Array [
                                         id="rental-assistance-cancel"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -6043,7 +6048,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -6053,7 +6058,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -6074,7 +6079,7 @@ Array [
                                         id="rental-assistance-delete"
                                         onClick={[Function]}
                                         style={
-                                          Object {
+                                          {
                                             "paddingBottom": 0,
                                             "paddingTop": 0,
                                           }
@@ -6083,7 +6088,7 @@ Array [
                                       >
                                         <div
                                           style={
-                                            Object {
+                                            {
                                               "alignItems": "center",
                                               "display": "flex",
                                               "justifyContent": "space-between",
@@ -6093,7 +6098,7 @@ Array [
                                         >
                                           <span
                                             style={
-                                              Object {
+                                              {
                                                 "flexGrow": 1,
                                                 "marginBottom": "1rem",
                                                 "marginLeft": false,
@@ -6180,7 +6185,7 @@ Array [
                 <div
                   className=""
                   style={
-                    Object {
+                    {
                       "marginBottom": "1.75rem",
                     }
                   }
@@ -6203,7 +6208,7 @@ Array [
                         <div
                           id="date-group"
                           style={
-                            Object {
+                            {
                               "display": "flex",
                             }
                           }
@@ -6262,7 +6267,7 @@ Array [
                         </div>
                         <div
                           style={
-                            Object {
+                            {
                               "alignSelf": "flex-end",
                               "display": "flex",
                               "flexDirection": "column",
@@ -6330,7 +6335,7 @@ Array [
                       id="edit-lease-button"
                       onClick={[Function]}
                       style={
-                        Object {
+                        {
                           "paddingBottom": 0,
                           "paddingTop": 0,
                         }
@@ -6339,7 +6344,7 @@ Array [
                     >
                       <div
                         style={
-                          Object {
+                          {
                             "alignItems": "center",
                             "display": "flex",
                             "justifyContent": "space-between",
@@ -6349,7 +6354,7 @@ Array [
                       >
                         <span
                           style={
-                            Object {
+                            {
                               "flexGrow": 1,
                               "marginBottom": "1rem",
                               "marginLeft": false,
@@ -6406,7 +6411,7 @@ Array [
                           className="tight-padding button dropdown-button tertiary margin-bottom-none"
                           disabled={false}
                           style={
-                            Object {
+                            {
                               "paddingBottom": 0,
                               "paddingTop": 0,
                             }
@@ -6415,7 +6420,7 @@ Array [
                         >
                           <div
                             style={
-                              Object {
+                              {
                                 "alignItems": "center",
                                 "display": "flex",
                                 "justifyContent": "space-between",
@@ -6425,7 +6430,7 @@ Array [
                           >
                             <span
                               style={
-                                Object {
+                                {
                                   "flexGrow": 1,
                                   "marginBottom": "1rem",
                                   "marginLeft": false,
@@ -6440,7 +6445,7 @@ Array [
                             </span>
                             <div
                               style={
-                                Object {
+                                {
                                   "height": 0,
                                   "width": 0,
                                 }
@@ -6468,7 +6473,7 @@ Array [
                             </div>
                             <span
                               style={
-                                Object {
+                                {
                                   "flexShrink": 0,
                                   "fontSize": 0,
                                 }
@@ -6476,7 +6481,7 @@ Array [
                             >
                               <svg
                                 style={
-                                  Object {
+                                  {
                                     "height": ".75rem",
                                     "width": ".75rem",
                                   }
@@ -6522,7 +6527,7 @@ Array [
                           className="tight-padding button dropdown-button tertiary margin-bottom-none"
                           disabled={false}
                           style={
-                            Object {
+                            {
                               "paddingBottom": 0,
                               "paddingTop": 0,
                             }
@@ -6531,7 +6536,7 @@ Array [
                         >
                           <div
                             style={
-                              Object {
+                              {
                                 "alignItems": "center",
                                 "display": "flex",
                                 "justifyContent": "space-between",
@@ -6541,7 +6546,7 @@ Array [
                           >
                             <span
                               style={
-                                Object {
+                                {
                                   "flexGrow": 1,
                                   "marginBottom": "1rem",
                                   "marginLeft": false,
@@ -6556,7 +6561,7 @@ Array [
                             </span>
                             <div
                               style={
-                                Object {
+                                {
                                   "height": 0,
                                   "width": 0,
                                 }
@@ -6584,7 +6589,7 @@ Array [
                             </div>
                             <span
                               style={
-                                Object {
+                                {
                                   "flexShrink": 0,
                                   "fontSize": 0,
                                 }
@@ -6592,7 +6597,7 @@ Array [
                             >
                               <svg
                                 style={
-                                  Object {
+                                  {
                                     "height": ".75rem",
                                     "width": ".75rem",
                                   }

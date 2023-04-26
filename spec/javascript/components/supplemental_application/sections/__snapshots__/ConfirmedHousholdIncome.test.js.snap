@@ -88,7 +88,7 @@ exports[`ConfirmedHouseholdIncome it matches snapshot when all values are empty 
           fieldName="ami_chart_type"
           id="ami_chart_type"
           label="AMI Chart Type"
-          options={Array []}
+          options={[]}
         />
       </Component>
     </Component>
@@ -100,7 +100,7 @@ exports[`ConfirmedHouseholdIncome it matches snapshot when all values are empty 
           fieldName="ami_chart_year"
           id="ami_chart_year"
           label="AMI Chart Year"
-          options={Array []}
+          options={[]}
         />
       </Component>
     </Component>
