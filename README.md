@@ -115,7 +115,7 @@ Run your Rails server locally in port 3000:
 
 Run your webpack server locally
 
-`bin/webpack-dev-server --hot`
+`NODE_OPTIONS=\"--openssl-legacy-provider\" bin/webpack-dev-server --hot`
 
 **Run tests**
 
