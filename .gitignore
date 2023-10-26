@@ -34,6 +34,7 @@ yarn-debug.log*
 /public/packs
 /public/packs-test
 npm-debug.log
+status_update_T3pt1.jpg
 
 # Using yarn rather than npm
 package-lock.json
