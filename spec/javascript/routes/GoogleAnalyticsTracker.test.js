@@ -2,7 +2,7 @@ import React from 'react'
 
 import { mount } from 'enzyme'
 import { act } from 'react-dom/test-utils'
-import { MemoryRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import { MemoryRouter as Router, Route, Routes, Link } from 'react-router-dom'
 
 import GoogleAnalyticsTracker from 'routes/GoogleAnalyticsTracker'
 
@@ -15,7 +15,7 @@ const mockWindow = {
 const getWrapper = () =>
   mount(
     <Router initialEntries={['/initial']}>
-      <Switch>
+      <Routes>
         <Route exact path='/initial'>
           <Link to={'/other'}>Go to second page</Link>
         </Route>
@@ -27,7 +27,7 @@ const getWrapper = () =>
           <p>Other route 2</p>
           <Link to={'/initial'}>Go to first page</Link>
         </Route>
-      </Switch>
+      </Routes>
       <GoogleAnalyticsTracker mockWindow={mockWindow} />
     </Router>
   )

@@ -14,7 +14,7 @@ import SubstatusDropdown from 'components/molecules/SubstatusDropdown'
 import FormModal from 'components/organisms/FormModal'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 
-import { findWithText, mountAppWithUrl } from '../../testUtils/wrapperUtil'
+import { findWithText, renderAppWithUrl } from '../../testUtils/wrapperUtil'
 
 const mockGetLeaseUpListing = jest.fn()
 const mockFetchLeaseUpApplications = jest.fn()
@@ -141,7 +141,7 @@ const rowSelector = 'div.rt-tbody .rt-tr-group'
 const getWrapper = async () => {
   let wrapper
   await act(async () => {
-    wrapper = mountAppWithUrl(`/lease-ups/listings/${mockListing.id}`)
+    wrapper = renderAppWithUrl(`/lease-ups/listings/${mockListing.id}`)
   })
 
   wrapper.update()

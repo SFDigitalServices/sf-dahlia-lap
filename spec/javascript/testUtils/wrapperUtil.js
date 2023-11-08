@@ -1,8 +1,9 @@
 import React from 'react'
 
+import { render } from '@testing-library/react'
 import { shallow, mount } from 'enzyme'
 import { Form } from 'react-final-form'
-import { MemoryRouter as Router, Switch, Route } from 'react-router-dom'
+import { MemoryRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Provider from 'context/Provider'
 import LeaseUpRoutes from 'routes/LeaseUpRoutes'
@@ -77,9 +78,9 @@ export const findWithText = (wrapper, nodeNameOrType, text) => {
 export const withRouter = (urlWithParamPlaceholders, url, children) => {
   return (
     <Router initialEntries={[url]}>
-      <Switch>
-        <Route path={urlWithParamPlaceholders}>{children}</Route>
-      </Switch>
+      <Routes>
+        <Route path={urlWithParamPlaceholders} element={children} />
+      </Routes>
     </Router>
   )
 }
@@ -92,4 +93,4 @@ export const leaseUpAppWithUrl = (url) => (
   </Provider>
 )
 
-export const mountAppWithUrl = (url) => mount(leaseUpAppWithUrl(url))
+export const renderAppWithUrl = (url) => render(leaseUpAppWithUrl(url))

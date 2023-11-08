@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import PropTypes from 'prop-types'
-import { Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 /**
  * When the url changes, this will fire a Google Analytics pageview event.
@@ -40,7 +40,11 @@ const GoogleAnalyticsTracker = ({ mockWindow = null }) => {
     return null
   }
 
-  return <Route path='/' render={({ location }) => <LogNewPathsOnRender location={location} />} />
+  return (
+    <Routes>
+      <Route path='/' render={({ location }) => <LogNewPathsOnRender location={location} />} />
+    </Routes>
+  )
 }
 
 GoogleAnalyticsTracker.propTypes = {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { withRouter } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { listingsPageMounted, listingRowClicked } from 'components/lease_ups/actions/actionCreators'
 import Loading from 'components/molecules/Loading'
@@ -11,9 +11,10 @@ import LeaseUpListingsTable from './LeaseUpListingsTable'
 import { getLeaseUpListings } from './utils/leaseUpRequestUtils'
 import TableLayout from '../layouts/TableLayout'
 
-const LeaseUpListingsPage = ({ history }) => {
+const LeaseUpListingsPage = () => {
   const [loading, setLoading] = useState(true)
   const [listings, setListings] = useState(true)
+  const history = useNavigate()
 
   const [, dispatch] = useAppContext()
 
@@ -49,4 +50,4 @@ const LeaseUpListingsPage = ({ history }) => {
   )
 }
 
-export default withRouter(LeaseUpListingsPage)
+export default LeaseUpListingsPage

@@ -8,7 +8,7 @@ import Loading from 'components/molecules/Loading'
 
 import application from '../../fixtures/application'
 import saleApplication from '../../fixtures/sale_application'
-import { mountAppWithUrl } from '../../testUtils/wrapperUtil'
+import { renderAppWithUrl } from '../../testUtils/wrapperUtil'
 
 const flaggedAppCardSelector = '#content-card-flagged_applications'
 
@@ -71,7 +71,7 @@ const getWrapper = async ({ applicationId, waitForLoadingFinish = false, queryPa
 
   // have to wrap in await act so that all useEffectOnMount updates finish.
   await act(async () => {
-    wrapper = mountAppWithUrl(url)
+    wrapper = renderAppWithUrl(url)
   })
 
   if (waitForLoadingFinish) {

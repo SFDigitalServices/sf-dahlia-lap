@@ -189,7 +189,8 @@ export const SelectField = ({
   selectValue,
   format,
   isDirty = true,
-  helpText
+  helpText,
+  dataTestId
 }) => (
   <Field
     name={fieldName}
@@ -216,6 +217,7 @@ export const SelectField = ({
                 input.onChange(event)
                 onChange && onChange(event)
               }}
+              data-testid={dataTestId}
               id={id || `form-${fieldName}`}
               name={input.name}
               className={classNames(className, { error: meta.error && meta.touched })}

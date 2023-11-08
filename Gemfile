@@ -100,11 +100,11 @@ gem "slim-rails", "~> 3.1"
 # Added at 2017-10-25 00:30:33 -0700 by dkaplan:
 gem "hashie"
 
-# Added at 2017-10-29 23:29:10 -0700 by dkaplan:
-gem "webpacker", "~> 5.4.4"
+# Added at 2023-10-24 13:51:10 -0600 by chadbrokaw:
+gem "shakapacker", "7.1.0"
 
-# Added at 2017-10-29 23:57:32 -0700 by dkaplan:
-gem "webpacker-react", "~> 0.3.2"
+# Added at 2023-10-24 13:51:10 -0600 by chadbrokaw:
+gem "react_on_rails", "13.4.0"
 
 # Added at 2017-11-10 09:14:41 -0800 by dkaplan:
 gem "pg", "~> 1.4.6"

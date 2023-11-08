@@ -18,29 +18,35 @@ Cross-browser testing done with <a href="https://www.browserstack.com/"><img src
 * Run `bundle install`
   - see [here](https://stackoverflow.com/a/19850273/260495) if you have issues installing `pg` gem with Postgres.app, you may need to use: `gem install pg -v 0.21.0 -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/latest/bin/pg_config`
   - if you need to run this command make sure you run `bundle install` again following the success of the postgres installation to install the remaining gems
-* Run `overcommit --install`
-* Create a `.env` file in the root directory and ask a team member for access to the local development secrets
-* Setup your local database by running `bin/rails db:migrate RAILS_ENV=development`
+- Run `overcommit --install`
+- Create a `.env` file in the root directory and ask a team member for access to the local development secrets
+- Setup your local database by running `bin/rails db:migrate RAILS_ENV=development`
 
 ### VSCode setup
+
 We recommend you use VSCode to develop partners. You can use something else, but you're on your own for setting up linting/autocomplete.
 
 #### Installing recommended VSCode extensions
+
 Open the partners projects in VSCode, click the extensions tab and filter by recommended extensions, install the extensions under "Workspace recommendations"
 
 #### Configuring VSCode and extensions
+
 Necessary configs are defined in [.vscode/settings.json](.vscode/settings.json). you can override those configs or change additional settings by changing the apps user settings (Code -> Preferences -> Settings or using the shortcut `CMD + ,`)
 
 ## To run server
-* `yarn start`
-* Access the app at [http://localhost:3000/](http://localhost:3000/)
+
+- `yarn start`
+- Access the app at [http://localhost:3000/](http://localhost:3000/)
 
 ## To update CSS from Pattern Library
-* Checkout your desired commit in your local copy of the [sf-dahlia-pattern-library](https://github.com/SFDigitalServices/sf-dahlia-pattern-library)
-* Run `npm start` in your pattern lib directory
-* In a separate tab, change to the partners directory and run `grunt`
+
+- Checkout your desired commit in your local copy of the [sf-dahlia-pattern-library](https://github.com/SFDigitalServices/sf-dahlia-pattern-library)
+- Run `npm start` in your pattern lib directory
+- In a separate tab, change to the partners directory and run `grunt`
 
 ## Linting
+
 To lint Ruby code run: `rubocop`
 
 To lint the React code run: `yarn lint`
@@ -48,18 +54,20 @@ To lint the React code run: `yarn lint`
 To fix any auto-fixable linting errors run: `yarn lint:fix`
 
 ## Visual Studio setup
+
 Install the following extensions:
+
 - [EsLint](https://github.com/Microsoft/vscode-eslint)
 - [Prettier](https://github.com/prettier/prettier-vscode)
 
 To automatically fix linting errors on save, add this to your VSCode workspace settings:
+
 ```
 "editor.codeActionsOnSave": {
     // For ESLint
     "source.fixAll.eslint": true,
 },
 ```
-
 
 ## Rails tests
 
@@ -78,11 +86,13 @@ In order to update the cassettes you have to:
 * Remove the cassette specified from `spec/vcr/`
 
 For example, for:
+
 ```
 VCR.use_cassette('listings/applications_controller/index') do
 ```
 
 You have to remove:
+
 ```
 spec/vcr/listings/applications_controller/index.yml
 ```
@@ -115,7 +125,6 @@ To view the e2e tests as they're running, set `HEADLESS` to `false` in [this fil
 
 `yarn e2e`
 
-
 ### Running all or individual tests
 
 To run all tests (unit and e2e):
@@ -127,15 +136,19 @@ To run an individual test:
 `yarn test:all path/to/test`
 
 ### Writing component unit tests
+
 #### General best practices
+
 1. Use [Enzyme](https://enzymejs.github.io/enzyme/docs/api/shallow.html)’s shallow rendering instead of react-test-renderer.create or Enzyme mount for all unit tests (snapshot and otherwise).
-   * There are some cases where you’ll need to use mount instead of shallow, like when you need to test componentDidMount functionality or something
+   - There are some cases where you’ll need to use mount instead of shallow, like when you need to test componentDidMount functionality or something
 2. Snapshot tests are fine for very simple components, but for anything more complex we should write actual unit tests instead of (or along with) snapshot tests
 
 For more information on why shallow rendering is simpler than full rendering, check out the comments on [this pr](https://github.com/SFDigitalServices/sf-dahlia-lap/pull/386).
 
 #### Shallow vs. Mount explained
+
 Say you have two components `<A />` and `<B />`:
+
 ```
 const B = ({ className }) => (
   <div className={className || 'BClass'} />
@@ -149,6 +162,7 @@ const A = ({}) => (
 ```
 
 `mount(<A />)` would create a snapshot that looks like this:
+
 ```
   <div>
     <div className='AClass' />
@@ -156,6 +170,7 @@ const A = ({}) => (
 ```
 
 `shallow(<A />)` would create a snapshot that looks like this:
+
 ```
   <div>
     <B className='AClass' />
@@ -165,6 +180,7 @@ const A = ({}) => (
 Shallow rendering is preferred because the snapshot is simpler, and it ensures you're actually writing a unit test, not a test that will search the whole tree.
 
 ##### When do you need to use mount rendering?
+
 - When you need to test functionality of `componentDidMount`
 - When you actually want to write an end-to-end snapshot test that looks at all of the children
   - There are usually better tests to write than this if you have the time
@@ -172,12 +188,15 @@ Shallow rendering is preferred because the snapshot is simpler, and it ensures y
   - For example, if you wanted to check that react-final-form adds the correct error label to an input, it's usually easier to mount render and find the class, rather than traverse the shallow render tree with a whole bunch of dive()s.
 
 #### Unit testing components with form or context
+
 Shallow rendering is more complicated when you're using connected components, that are wrapped with useContext or work with [react-final-form](https://final-form.org/docs/react-final-form/getting-started)'s form objects.
 
 The [wrapperUtil.js](spec/javascript/testUtils/wrapperUtil.js) contains utils to help with shallow rendering components that use context or form.
 
 ##### Example: shallow rendering a component that has a form passed in
+
 Say you want to test a component that looks like this:
+
 ```
 const ComponentThatUsesForm = ({ form }) => (
   <div>
@@ -188,6 +207,7 @@ const ComponentThatUsesForm = ({ form }) => (
 ```
 
 You can test it like:
+
 ```
 import { withForm } from 'spec/javascript/testUtils/wrapperUtil.js'
 import ComponentA from '...'
@@ -202,7 +222,9 @@ test('it renders ComponentA', () => {
 ```
 
 ##### Example: shallow rendering a component that uses form and context
+
 Say you want to test a component that looks like this:
+
 ```
 const ComponentThatUsesFormAndContext = ({ form, store }) => {
 
@@ -218,6 +240,7 @@ export withContext(ComponentThatUsesFormAndContext)
 ```
 
 You can test it like:
+
 ```
 import { shallowWithFormAndContext } from 'spec/javascript/testUtils/wrapperUtil.js'
 import ComponentA from '...'
@@ -238,28 +261,34 @@ test('it renders ComponentA', () => {
 ```
 
 #### Example files that follow these best practices
+
 - Non-form component: [StatusHistoryContainer.test.js](spec/javascript/components/molecules/lease_up_sidebar/StatusHistoryContainer.test.js)
 - Form-component: [RentalAssistance.test.js](spec/javascript/components/supplemental_application/sections/RentalAssistance.test.js)
 
 ## Scripts
 
 ### Release scripts
+
 More documentation for how these scripts are used during a release in the [partners release process doc](https://sfgovdt.jira.com/wiki/spaces/HOUS/pages/1900544029/Partners+Release+processes+template).
 
 #### 1. create_release_branch
+
 Command: `yarn create_release_branch`
 
 This script will:
+
 - Create a new branch named `release-<todays-date>`
 - Merge it with the latest main
 - Open a PR in a browser window
 
 #### 2. print_release_info
+
 Command: `yarn print_release_info -u <github-username> -t <github-access-token>`
 
 Instructions for how to get your github access token are printed by running `yarn print_release_info -h`
 
 This script will:
+
 - Print release tracker info you can paste into the [Release Tracker doc](https://docs.google.com/spreadsheets/d/1EUvw2ugaFprt8FxlCUa1yWATSn0KKo4FyRfBJWUwE3M/edit#gid=1500049656)
 - Output a URL that will create a draft release with description, title, tags, and base branch filled in
 
@@ -268,6 +297,7 @@ This script will:
 You can debug all tests and Rails server in VS code.
 Go to debug view (⇧+⌘+D on Mac)
 From the dropdown in left top corner pick what you want to debug:
+
 - Rails server: for running app
 - Jest: for any javascript test
 - Rspec: for ruby tests
@@ -279,12 +309,15 @@ For tests you can debug a single file or the whole suite. To enter debug click a
 To debug javascript, run Rails server in the prefered way. Go to browser and open inspector (⌥+⌘+I). Go to Sources tab and press ⌘+P to search for a file that you want to debug eg. PaperApplicationForm. Click line number to set a breakpoint in the place you want to debug. You can also add watch expressions, step into or over lines like in VS code debugger.
 
 ## React Hooks
+
 Wanted to post a basic intro to react hooks here as they will make our code more performant and allow us to use more functional components. I have examples below but you can read more on the [React Documentation](https://reactjs.org/docs/hooks-overview.html)
 
 ### useState, useEffect, and useRef Hooks
+
 These hooks are all built-in to react by default.
 
 `useState` allows functional components to manage state just like a class component but with a streamlined syntax.
+
 ```js
 // class version
 class Dropdown extends React.Component {
@@ -306,9 +339,11 @@ const Dropdown = () => {
   }
 }
 ```
+
 These components now have the exact same level of control over the expanded flag but the below function has less overhead when mounting and unmounting.
 
 `useEffect` is the hook that allows us to still take advantage of lifecycle events when necessary.
+
 ```js
 const Dropdown = ({ styles }) => {
   // The empty array passed as the second param here

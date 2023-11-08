@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { mount } from 'enzyme'
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import ApplicationDetails from 'components/applications/application_details/ApplicationDetails'
 
@@ -12,24 +11,25 @@ describe('ApplicationDetails', () => {
     test('without error and as expected', () => {
       const fileBaseUrl = 'http://www.someurl.com'
 
-      const wrapper = renderer.create(
+      const { asFragment } = render(
         <ApplicationDetails application={application} file_base_url={fileBaseUrl} />
       )
-      expect(wrapper.toJSON()).toMatchSnapshot()
+      expect(asFragment()).toMatchSnapshot()
     })
 
     test('file links with both url types', () => {
       const fileBaseUrl = 'http://www.someurl.com'
 
-      const wrapper = mount(
+      const { getAllByRole } = render(
         <ApplicationDetails application={application} file_base_url={fileBaseUrl} />
       )
-      expect(wrapper.find('a').first().getDOMNode().getAttribute('href')).toContain(
-        'servlet/servlet.FileDownload'
-      )
-      expect(wrapper.find('a').last().getDOMNode().getAttribute('href')).toContain(
-        'sfc/servlet.shepherd/version/download'
-      )
+
+      const links = getAllByRole('link')
+
+      expect(links[0].getAttribute('href')).toContain('servlet/servlet.FileDownload')
+
+      const lastLink = links.pop()
+      expect(lastLink.getAttribute('href')).toContain('sfc/servlet.shepherd/version/download')
     })
   })
 })

@@ -3,7 +3,7 @@ import { act } from 'react-dom/test-utils'
 import renderer from 'react-test-renderer'
 
 import supplementalApplication from '../../fixtures/supplemental_application'
-import { leaseUpAppWithUrl, mountAppWithUrl } from '../../testUtils/wrapperUtil'
+import { leaseUpAppWithUrl, renderAppWithUrl } from '../../testUtils/wrapperUtil'
 
 const mockInitialLoad = jest.fn()
 const mockSubmitApplication = jest.fn()
@@ -168,7 +168,7 @@ jest.mock('apiService', () => {
 const getWrapper = async (id = getMockApplication().id, unitId = null) => {
   let wrapper
   await act(async () => {
-    wrapper = mountAppWithUrl(getWindowUrl(id))
+    wrapper = renderAppWithUrl(getWindowUrl(id))
   })
 
   wrapper.update()
