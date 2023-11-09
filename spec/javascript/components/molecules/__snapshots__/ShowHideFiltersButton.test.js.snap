@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShowHideFiltersButton it renders properly when numFiltersApplied=4 1`] = `
+<DocumentFragment>
+  <button
+    class="tight-padding"
+    style="padding-top: 0px; padding-bottom: 0px; min-width: 236px;"
+    type="button"
+  >
+    <div
+      style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+    >
+      <span
+        style="flex-shrink: 0; font-size: 0px;"
+      >
+        <svg
+          data-testid="button-iconLeft"
+          style="width: 1.25rem; height: 1.25rem;"
+        >
+          <use
+            xlink:href="#i-list-unordered"
+          />
+        </svg>
+      </span>
+      <span
+        style="margin: 1rem 0.5rem 1rem 0.5rem; overflow: auto; flex-grow: 1; text-align: center;"
+      >
+        Hide Filters
+      </span>
+      <span
+        style="flex-shrink: 0; font-size: 0px;"
+      >
+        <svg
+          data-testid="button-iconRight"
+          style="width: 1.5rem; height: 1.5rem;"
+        >
+          <use
+            xlink:href="#i-filter-qty--4"
+          />
+        </svg>
+      </span>
+    </div>
+  </button>
+</DocumentFragment>
+`;
