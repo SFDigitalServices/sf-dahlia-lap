@@ -19,7 +19,7 @@ module Force
       # Individual_preference has a lowercase 'p' on purpose.
       { custom_api: 'individualPreference', domain: 'individual_preference', salesforce: 'Individual_preference' },
 
-      # TODO Split this into two fields, the String Listing_Preference_ID__c version, and the hash Listing_Preference_ID__r version.
+      # TODO: Split this into two fields, the String Listing_Preference_ID__c version, and the hash Listing_Preference_ID__r version.
       { custom_api: 'listingPreferenceID', domain: 'listing_preference_id', salesforce: 'Listing_Preference_ID' },
       { custom_api: '', domain: 'lottery_status', salesforce: 'Lottery_Status' },
       { custom_api: 'lwPreferenceProof', domain: 'lw_type_of_proof', salesforce: 'LW_Type_of_Proof' },
@@ -37,6 +37,7 @@ module Force
       { custom_api: '', domain: 'receives_preference', salesforce: 'Receives_Preference' },
       { custom_api: 'recordTypeDevName', domain: 'recordtype_developername', salesforce: 'RecordType.DeveloperName' },
       { custom_api: '', domain: 'record_type_for_app_preferences', salesforce: 'Listing_Preference_ID.Record_Type_For_App_Preferences' },
+      { custom_api: '', domain: 'custom_preference_type', salesforce: 'Custom_Preference_Type' },
       { custom_api: 'state', domain: 'state', salesforce: 'State' },
       { custom_api: '', domain: 'total_household_rent', salesforce: 'Total_Household_Rent' },
       { custom_api: 'zip', domain: 'zip_code', salesforce: 'Zip_Code' },
@@ -66,9 +67,12 @@ module Force
 
       # Listing_Preference_ID actually refers to both Listing_Preference_ID__r and Listing_Preference_ID__c
       if fields.Listing_Preference_ID && !fields.Listing_Preference_ID.is_a?(String)
-        preference.fields.salesforce['Listing_Preference_ID.Record_Type_For_App_Preferences'] = fields.Listing_Preference_ID.Record_Type_For_App_Preferences
+        preference.fields.salesforce['Listing_Preference_ID.Record_Type_For_App_Preferences'] =
+          fields.Listing_Preference_ID.Record_Type_For_App_Preferences
         preference.fields.salesforce.delete 'Listing_Preference_ID'
       end
+
+      preference.fields.salesforce['Custom_Preference_Type'] = fields.Custom_Preference_Type
 
       preference.fields.salesforce['Application_Member.Id'] = fields.Application_Member.Id if fields.Application_Member
 
@@ -81,7 +85,7 @@ module Force
       # Special field conversion cases for preferences
       domain_fields.total_household_rent = domain_fields.total_household_rent.to_s if domain_fields.total_household_rent
 
-      if !domain_fields.preference_name
+      unless domain_fields.preference_name
         if @fields.salesforce.Preference_All_Name
           domain_fields.preference_name = @fields.salesforce.Preference_All_Name
         elsif @fields.salesforce.empty?
@@ -97,9 +101,7 @@ module Force
         domain_fields.application_member = Force::ApplicationMember.from_salesforce(domain_fields.application_member).to_domain
       end
 
-      if domain_fields.application
-        domain_fields.application = Force::Application.from_salesforce(domain_fields.application).to_domain
-      end
+      domain_fields.application = Force::Application.from_salesforce(domain_fields.application).to_domain if domain_fields.application
 
       domain_fields
     end

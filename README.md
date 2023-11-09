@@ -105,19 +105,13 @@ _Note: Snapshots should be pushed to the repo_
 
 ### Running e2e tests
 
-To view the e2e tests as they're running, set `HEADLESS` to `false` in [this file](https://github.com/SFDigitalServices/sf-dahlia-lap/blob/main/spec/javascript/support/puppeteer/consts.js)
+To view the e2e tests as they're running, set `HEADLESS` to `false` in [this file](https://github.com/SFDigitalServices/sf-dahlia-lap/blob/main/spec/javascript/support/puppeteer/consts.js#L51)
 
-**Run server**
+**Run server (in a terminal window)**
 
-Run your Rails server locally in port 3000:
+`yarn start`
 
-`bundle exec rails server -p 3000`
-
-Run your webpack server locally
-
-`NODE_OPTIONS=\"--openssl-legacy-provider\" bin/webpack-dev-server --hot`
-
-**Run tests**
+**Run tests (in another terminal window)**
 
 `yarn e2e`
 

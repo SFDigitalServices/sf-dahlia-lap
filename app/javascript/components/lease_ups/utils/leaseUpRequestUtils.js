@@ -25,6 +25,7 @@ export const getApplications = async (listingId, page, filters) => {
   return apiService
     .fetchLeaseUpApplications(listingId, page, { filters })
     .then(({ records, pages }) => {
+      console.log(records)
       return {
         records: map(records, buildLeaseUpAppPrefModel),
         pages
