@@ -53,6 +53,7 @@ const LeaseUpApplicationsTable = ({
   bulkCheckboxesState,
   onBulkCheckboxClick
 }) => {
+  console.log('dataSet')
   console.log(dataSet)
   const [
     {

@@ -10,6 +10,8 @@ import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
 
 // Format applications for the Lease Up applications table
 export const buildRowData = (application) => {
+  console.log('application on js is')
+  console.log(application)
   const rowData = cloneDeep(application)
 
   // get keys and remove empty values
@@ -26,13 +28,16 @@ export const buildRowData = (application) => {
   } else if (application.preference_name?.includes('Right to Return')) {
     prefKey = 'RtR'
   } else {
-    prefKey = application.preference_record_type
+    // prefKey = application.preference_record_type
+    prefKey = application.custom_preference_type
   }
 
   rowData.preference_rank = `${prefKey} ${application.preference_lottery_rank}`
   var prefNum = parseFloat(application.preference_order)
   var rankNum = parseFloat(application.preference_lottery_rank)
   rowData.rankOrder = prefNum + rankNum * 0.0001
+  console.log('rowData')
+  console.log(rowData)
   return rowData
 }
 
