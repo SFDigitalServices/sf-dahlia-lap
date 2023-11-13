@@ -72,8 +72,6 @@ module Force
         preference.fields.salesforce.delete 'Listing_Preference_ID'
       end
 
-      preference.fields.salesforce['Custom_Preference_Type'] = fields.Custom_Preference_Type
-
       preference.fields.salesforce['Application_Member.Id'] = fields.Application_Member.Id if fields.Application_Member
 
       preference
