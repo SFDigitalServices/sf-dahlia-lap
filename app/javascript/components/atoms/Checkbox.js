@@ -16,7 +16,12 @@ const Checkbox = ({ id, checked = false, indeterminate = false, onClick = () => 
       onChange={() => {}}
       className={classNames('no-margin', { indeterminate: indeterminate })}
     />
-    <label style={{ margin: '0px' }} className='form-label' htmlFor={id} />
+    <label
+      style={{ margin: '0px' }}
+      className='form-label'
+      htmlFor={id}
+      data-testid='checkbox-label'
+    />
   </>
 )
 

@@ -1,57 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ApplicationsPage should render successfully 1`] = `
-[
+<DocumentFragment>
   <header
-    className="lead-header short  bg-dust"
+    class="lead-header short  bg-dust"
   >
     <div
-      className="row full-width inner--3x"
+      class="row full-width inner--3x"
     >
       <div
-        className="large-12 columns"
+        class="large-12 columns"
       >
         <hgroup
-          className="lead-header_group"
+          class="lead-header_group"
         >
           <h1
-            className="lead-header_title small-serif c-oil"
+            class="lead-header_title small-serif c-oil"
           >
             Applications
           </h1>
         </hgroup>
       </div>
     </div>
-  </header>,
+  </header>
   <section
-    className="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x bg-white"
+    class="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x bg-white"
   >
     <div
-      className="loading-panel"
+      class="loading-panel"
     >
       <form
-        noValidate={true}
-        onSubmit={[Function]}
+        novalidate=""
       >
         <div
-          className="filter-row"
+          class="filter-row"
         >
           <div
-            className="filter-group"
+            class="filter-group"
           >
             <div
-              className="filter-group_item"
+              class="filter-group_item"
             >
               <div
-                className=""
+                class=""
               >
                 <input
-                  className=""
+                  class=""
                   id="form-application_number"
                   name="application_number"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
                   placeholder="Application Number"
                   type="text"
                   value=""
@@ -59,18 +55,15 @@ exports[`ApplicationsPage should render successfully 1`] = `
               </div>
             </div>
             <div
-              className="filter-group_item"
+              class="filter-group_item"
             >
               <div
-                className="form-group"
+                class="form-group"
               >
                 <select
-                  className=""
+                  class=""
                   id="form-listing_id"
                   name="listing_id"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
                 >
                   <option
                     value=""
@@ -81,18 +74,15 @@ exports[`ApplicationsPage should render successfully 1`] = `
               </div>
             </div>
             <div
-              className="filter-group_item"
+              class="filter-group_item"
             >
               <div
-                className=""
+                class=""
               >
                 <input
-                  className=""
+                  class=""
                   id="form-first_name"
                   name="first_name"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
                   placeholder="First Name"
                   type="text"
                   value=""
@@ -100,18 +90,15 @@ exports[`ApplicationsPage should render successfully 1`] = `
               </div>
             </div>
             <div
-              className="filter-group_item"
+              class="filter-group_item"
             >
               <div
-                className=""
+                class=""
               >
                 <input
-                  className=""
+                  class=""
                   id="form-last_name"
                   name="last_name"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
                   placeholder="Last Name"
                   type="text"
                   value=""
@@ -119,18 +106,15 @@ exports[`ApplicationsPage should render successfully 1`] = `
               </div>
             </div>
             <div
-              className="filter-group_item"
+              class="filter-group_item"
             >
               <div
-                className="form-group"
+                class="form-group"
               >
                 <select
-                  className=""
+                  class=""
                   id="form-submission_type"
                   name="submission_type"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
                 >
                   <option
                     value=""
@@ -151,10 +135,10 @@ exports[`ApplicationsPage should render successfully 1`] = `
               </div>
             </div>
             <div
-              className="filter-group_action"
+              class="filter-group_action"
             >
               <button
-                className="small"
+                class="small"
               >
                 Filter
               </button>
@@ -164,2901 +148,1544 @@ exports[`ApplicationsPage should render successfully 1`] = `
       </form>
     </div>
     <div
-      className="ReactTable"
-      style={{}}
+      class="ReactTable"
     >
       <div
-        className="rt-table"
+        class="rt-table"
         role="grid"
       >
         <div
-          className="rt-thead -header"
-          style={
-            {
-              "minWidth": "835px",
-            }
-          }
+          class="rt-thead -header"
+          style="min-width: 835px;"
         >
           <div
-            className="rt-tr"
+            class="rt-tr"
             role="row"
           >
             <div
-              className="rt-th"
-              onClick={[Function]}
+              class="rt-th"
               role="columnheader"
-              style={
-                {
-                  "flex": "35 0 auto",
-                  "maxWidth": "35px",
-                  "width": "35px",
-                }
-              }
-              tabIndex="-1"
+              style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+              tabindex="-1"
             >
               <div
-                className=""
+                class=""
               />
             </div>
             <div
-              className="rt-th td-min-narrow rt-resizable-header"
-              onClick={[Function]}
+              class="rt-th td-min-narrow rt-resizable-header"
               role="columnheader"
-              style={
-                {
-                  "flex": "100 0 auto",
-                  "maxWidth": null,
-                  "width": "100px",
-                }
-              }
-              tabIndex="-1"
+              style="flex: 100 0 auto; width: 100px;"
+              tabindex="-1"
             >
               <div
-                className="rt-resizable-header-content"
+                class="rt-resizable-header-content"
               >
                 Application Number
               </div>
               <div
-                className="rt-resizer"
-                onMouseDown={[Function]}
-                onTouchStart={[Function]}
+                class="rt-resizer"
               />
             </div>
             <div
-              className="rt-th rt-resizable-header"
-              onClick={[Function]}
+              class="rt-th rt-resizable-header"
               role="columnheader"
-              style={
-                {
-                  "flex": "100 0 auto",
-                  "maxWidth": null,
-                  "width": "100px",
-                }
-              }
-              tabIndex="-1"
+              style="flex: 100 0 auto; width: 100px;"
+              tabindex="-1"
             >
               <div
-                className="rt-resizable-header-content"
+                class="rt-resizable-header-content"
               >
                 Listing Name
               </div>
               <div
-                className="rt-resizer"
-                onMouseDown={[Function]}
-                onTouchStart={[Function]}
+                class="rt-resizer"
               />
             </div>
             <div
-              className="rt-th rt-resizable-header"
-              onClick={[Function]}
+              class="rt-th rt-resizable-header"
               role="columnheader"
-              style={
-                {
-                  "flex": "100 0 auto",
-                  "maxWidth": null,
-                  "width": "100px",
-                }
-              }
-              tabIndex="-1"
+              style="flex: 100 0 auto; width: 100px;"
+              tabindex="-1"
             >
               <div
-                className="rt-resizable-header-content"
+                class="rt-resizable-header-content"
               >
                 Lottery Date
               </div>
               <div
-                className="rt-resizer"
-                onMouseDown={[Function]}
-                onTouchStart={[Function]}
+                class="rt-resizer"
               />
             </div>
             <div
-              className="rt-th rt-resizable-header"
-              onClick={[Function]}
+              class="rt-th rt-resizable-header"
               role="columnheader"
-              style={
-                {
-                  "flex": "100 0 auto",
-                  "maxWidth": null,
-                  "width": "100px",
-                }
-              }
-              tabIndex="-1"
+              style="flex: 100 0 auto; width: 100px;"
+              tabindex="-1"
             >
               <div
-                className="rt-resizable-header-content"
+                class="rt-resizable-header-content"
               >
                 First Name
               </div>
               <div
-                className="rt-resizer"
-                onMouseDown={[Function]}
-                onTouchStart={[Function]}
+                class="rt-resizer"
               />
             </div>
             <div
-              className="rt-th rt-resizable-header"
-              onClick={[Function]}
+              class="rt-th rt-resizable-header"
               role="columnheader"
-              style={
-                {
-                  "flex": "100 0 auto",
-                  "maxWidth": null,
-                  "width": "100px",
-                }
-              }
-              tabIndex="-1"
+              style="flex: 100 0 auto; width: 100px;"
+              tabindex="-1"
             >
               <div
-                className="rt-resizable-header-content"
+                class="rt-resizable-header-content"
               >
                 Last Name
               </div>
               <div
-                className="rt-resizer"
-                onMouseDown={[Function]}
-                onTouchStart={[Function]}
+                class="rt-resizer"
               />
             </div>
             <div
-              className="rt-th rt-resizable-header"
-              onClick={[Function]}
+              class="rt-th rt-resizable-header"
               role="columnheader"
-              style={
-                {
-                  "flex": "100 0 auto",
-                  "maxWidth": null,
-                  "width": "100px",
-                }
-              }
-              tabIndex="-1"
+              style="flex: 100 0 auto; width: 100px;"
+              tabindex="-1"
             >
               <div
-                className="rt-resizable-header-content"
+                class="rt-resizable-header-content"
               >
                 Application Submitted Date
               </div>
               <div
-                className="rt-resizer"
-                onMouseDown={[Function]}
-                onTouchStart={[Function]}
+                class="rt-resizer"
               />
             </div>
             <div
-              className="rt-th rt-resizable-header"
-              onClick={[Function]}
+              class="rt-th rt-resizable-header"
               role="columnheader"
-              style={
-                {
-                  "flex": "100 0 auto",
-                  "maxWidth": null,
-                  "width": "100px",
-                }
-              }
-              tabIndex="-1"
+              style="flex: 100 0 auto; width: 100px;"
+              tabindex="-1"
             >
               <div
-                className="rt-resizable-header-content"
+                class="rt-resizable-header-content"
               >
                 Total Household size
               </div>
               <div
-                className="rt-resizer"
-                onMouseDown={[Function]}
-                onTouchStart={[Function]}
+                class="rt-resizer"
               />
             </div>
             <div
-              className="rt-th rt-resizable-header"
-              onClick={[Function]}
+              class="rt-th rt-resizable-header"
               role="columnheader"
-              style={
-                {
-                  "flex": "100 0 auto",
-                  "maxWidth": null,
-                  "width": "100px",
-                }
-              }
-              tabIndex="-1"
+              style="flex: 100 0 auto; width: 100px;"
+              tabindex="-1"
             >
               <div
-                className="rt-resizable-header-content"
+                class="rt-resizable-header-content"
               >
                 Application Submission Type
               </div>
               <div
-                className="rt-resizer"
-                onMouseDown={[Function]}
-                onTouchStart={[Function]}
+                class="rt-resizer"
               />
             </div>
           </div>
         </div>
         <div
-          className="rt-tbody"
-          style={
-            {
-              "minWidth": "835px",
-            }
-          }
+          class="rt-tbody"
+          style="min-width: 835px;"
         >
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -odd"
+              class="rt-tr -odd"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -even"
+              class="rt-tr -even"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -odd"
+              class="rt-tr -odd"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -even"
+              class="rt-tr -even"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -odd"
+              class="rt-tr -odd"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -even"
+              class="rt-tr -even"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -odd"
+              class="rt-tr -odd"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -even"
+              class="rt-tr -even"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -odd"
+              class="rt-tr -odd"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -even"
+              class="rt-tr -even"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -odd"
+              class="rt-tr -odd"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -even"
+              class="rt-tr -even"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -odd"
+              class="rt-tr -odd"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -even"
+              class="rt-tr -even"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -odd"
+              class="rt-tr -odd"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -even"
+              class="rt-tr -even"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -odd"
+              class="rt-tr -odd"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -even"
+              class="rt-tr -even"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -odd"
+              class="rt-tr -odd"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
           <div
-            className="rt-tr-group"
+            class="rt-tr-group"
             role="rowgroup"
           >
             <div
-              className="rt-tr -even"
+              class="rt-tr -even"
               role="row"
             >
               <div
-                className="rt-td rt-expandable"
-                onClick={[Function]}
+                class="rt-td rt-expandable"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "35 0 auto",
-                    "maxWidth": "35px",
-                    "width": "35px",
-                  }
-                }
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
               >
                 <div
-                  className="rt-expander"
+                  class="rt-expander"
                 >
                   •
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 200 Buchanan (Alchemy by Alta)
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               >
                 <div>
                   08/31/2016
                 </div>
               </div>
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
               <div
-                className="rt-td"
-                onClick={[Function]}
+                class="rt-td"
                 role="gridcell"
-                style={
-                  {
-                    "flex": "100 0 auto",
-                    "maxWidth": null,
-                    "width": "100px",
-                  }
-                }
+                style="flex: 100 0 auto; width: 100px;"
               />
             </div>
           </div>
         </div>
       </div>
       <div
-        className="pagination-bottom"
+        class="pagination-bottom"
       >
         <div
-          className="-pagination"
+          class="-pagination"
         >
           <div
-            className="-previous"
+            class="-previous"
           >
             <button
-              className="-btn"
-              disabled={true}
-              onClick={[Function]}
+              class="-btn"
+              disabled=""
               type="button"
             >
               Previous
             </button>
           </div>
           <div
-            className="-center"
+            class="-center"
           >
             <span
-              className="-pageInfo"
+              class="-pageInfo"
             >
-              Page
-               
+              Page 
               <div
-                className="-pageJump"
+                class="-pageJump"
               >
                 <input
                   aria-label="jump to page"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onKeyPress={[Function]}
                   type="number"
-                  value={1}
+                  value="1"
                 />
               </div>
-               
-              of
-               
+               of 
               <span
-                className="-totalPages"
+                class="-totalPages"
               >
                 5
               </span>
             </span>
           </div>
           <div
-            className="-next"
+            class="-next"
           >
             <button
-              className="-btn"
-              disabled={false}
-              onClick={[Function]}
+              class="-btn"
               type="button"
             >
               Next
@@ -3067,15 +1694,15 @@ exports[`ApplicationsPage should render successfully 1`] = `
         </div>
       </div>
       <div
-        className="-loading"
+        class="-loading"
       >
         <div
-          className="-loading-inner"
+          class="-loading-inner"
         >
           Loading...
         </div>
       </div>
     </div>
-  </section>,
-]
+  </section>
+</DocumentFragment>
 `;
