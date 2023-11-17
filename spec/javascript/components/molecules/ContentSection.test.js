@@ -1,12 +1,12 @@
 import React from 'react'
 
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import ContentSection from 'components/molecules/ContentSection'
 
 describe('ContentSection', () => {
   test('should render correctly', () => {
-    const wrapper = renderer.create(
+    const { asFragment } = render(
       <ContentSection title='main title' description='main desc'>
         <ContentSection.Sub title='sub title' description='sub desc'>
           content
@@ -14,6 +14,6 @@ describe('ContentSection', () => {
       </ContentSection>
     )
 
-    expect(wrapper).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 })

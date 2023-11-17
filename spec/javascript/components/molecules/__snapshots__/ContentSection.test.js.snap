@@ -1,38 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ContentSection should render correctly 1`] = `
-<div
-  className="app-inner padding-bottom--half padding-top--half"
->
-  <h2
-    className="app-card_h2"
-  >
-    main title
-  </h2>
-  <p
-    className="form-note max-width margin-bottom--3halves"
-  >
-    main desc
-  </p>
-  <h3
-    className="app-card_h3 t-sans"
-  >
-    sub title
-  </h3>
-  <p
-    className="form-note max-width margin-bottom--3halves"
-  >
-    sub desc
-  </p>
+<DocumentFragment>
   <div
-    className=""
-    style={
-      {
-        "marginBottom": "1.75rem",
-      }
-    }
+    class="app-inner padding-bottom--half padding-top--half"
   >
-    content
+    <h2
+      class="app-card_h2"
+    >
+      main title
+    </h2>
+    <p
+      class="form-note max-width margin-bottom--3halves"
+    >
+      main desc
+    </p>
+    <h3
+      class="app-card_h3 t-sans"
+    >
+      sub title
+    </h3>
+    <p
+      class="form-note max-width margin-bottom--3halves"
+    >
+      sub desc
+    </p>
+    <div
+      class=""
+      style="margin-bottom: 1.75rem;"
+    >
+      content
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
