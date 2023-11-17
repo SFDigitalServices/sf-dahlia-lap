@@ -28,7 +28,10 @@ const MultiSelectField = ({
       const value = input.value === '' ? null : input.value
       return (
         <>
-          <div className={classNames('form-group', { error: meta.error && meta.touched })}>
+          <div
+            data-testid='multiSelectField'
+            className={classNames('form-group', { error: meta.error && meta.touched })}
+          >
             <Label
               label={label}
               id={id || `form-${fieldName}`}

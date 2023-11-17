@@ -8,7 +8,6 @@ describe('ShowHideFiltersButton', () => {
   test('it renders properly with default props', () => {
     render(<ShowHideFiltersButton />)
     expect(screen.getByText('Show Filters')).toBeInTheDocument()
-    screen.logTestingPlaygroundURL()
     expect(screen.queryByTestId('button-iconRight')).not.toBeInTheDocument()
     expect(screen.getByTestId('button-iconLeft')).toBeInTheDocument()
   })

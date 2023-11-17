@@ -65,6 +65,7 @@ exports[`ListingApplicationsPage should render successfully 1`] = `
   >
     <div
       class="loading-panel loading"
+      data-testid="loading"
     >
       <div>
         <div

@@ -60,13 +60,13 @@ const LeaseUpApplicationsTable = ({
     dispatch
   ] = useAppContext()
 
-  const history = useNavigate()
+  const navigate = useNavigate()
 
   const updateSelectedApplicationState = (application, navigateToApplication = false) => {
     applicationRowClicked(dispatch, application)
 
     if (navigateToApplication) {
-      history.push(appPaths.toLeaseUpApplication(application.application_id))
+      navigate(appPaths.toLeaseUpApplication(application.application_id))
     }
   }
 

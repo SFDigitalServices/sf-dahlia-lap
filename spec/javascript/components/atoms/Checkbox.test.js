@@ -13,7 +13,6 @@ describe('Checkbox', () => {
     })
 
     test('renders an input and a label', () => {
-      screen.logTestingPlaygroundURL()
       expect(screen.getByRole('checkbox')).toBeInTheDocument()
       expect(screen.getByTestId('checkbox-label')).toBeInTheDocument()
     })
@@ -40,7 +39,6 @@ describe('Checkbox', () => {
     })
 
     test('renders an input and a label', () => {
-      screen.logTestingPlaygroundURL()
       expect(screen.getByRole('checkbox')).toBeInTheDocument()
       expect(screen.getByTestId('checkbox-label')).toBeInTheDocument()
     })

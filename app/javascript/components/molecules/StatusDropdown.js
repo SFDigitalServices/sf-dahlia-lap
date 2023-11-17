@@ -31,7 +31,8 @@ const StatusDropdown = ({
   tertiary = true,
   // when true, never display the current status in the dropdown toggle,
   // always show the placeholder.
-  forceDisplayPlaceholderText = false
+  forceDisplayPlaceholderText = false,
+  dataTestId = null
 }) => {
   const classes = classNames(buttonClasses, 'button', 'dropdown-button', { expand: expand })
 
@@ -54,9 +55,10 @@ const StatusDropdown = ({
         paddingVertical={padding}
         textAlign='left'
         noBottomMargin
+        data-testid={dataTestId}
       >
         <div style={{ width: 0, height: 0 }}>
-          <components.ValueContainer getValue={getValue} {...props}>
+          <components.ValueContainer data-testid={dataTestId} getValue={getValue} {...props}>
             {children}
           </components.ValueContainer>
         </div>

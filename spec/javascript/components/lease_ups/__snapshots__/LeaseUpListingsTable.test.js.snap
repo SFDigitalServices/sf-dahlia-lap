@@ -1,2777 +1,1650 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LeaseUpListingsTable should render succesfully 1`] = `
-<div
-  className="ReactTable"
-  style={{}}
->
+<DocumentFragment>
   <div
-    className="rt-table"
-    role="grid"
+    class="ReactTable"
   >
     <div
-      className="rt-thead -header"
-      style={
-        {
-          "minWidth": "720px",
-        }
-      }
+      class="rt-table"
+      role="grid"
     >
       <div
-        className="rt-tr"
-        role="row"
+        class="rt-thead -header"
+        style="min-width: 720px;"
       >
         <div
-          className="rt-th td-min-wide rt-resizable-header -cursor-pointer"
-          onClick={[Function]}
-          role="columnheader"
-          style={
-            {
-              "flex": "100 0 auto",
-              "maxWidth": null,
-              "width": "100px",
-            }
-          }
-          tabIndex="-1"
+          class="rt-tr"
+          role="row"
         >
           <div
-            className="rt-resizable-header-content"
+            class="rt-th td-min-wide rt-resizable-header -cursor-pointer"
+            role="columnheader"
+            style="flex: 100 0 auto; width: 100px;"
+            tabindex="-1"
           >
-            Listing Name
+            <div
+              class="rt-resizable-header-content"
+            >
+              Listing Name
+            </div>
+            <div
+              class="rt-resizer"
+            />
           </div>
           <div
-            className="rt-resizer"
-            onMouseDown={[Function]}
-            onTouchStart={[Function]}
+            class="rt-th text-right rt-resizable-header -cursor-pointer"
+            role="columnheader"
+            style="flex: 100 0 auto; width: 100px;"
+            tabindex="-1"
+          >
+            <div
+              class="rt-resizable-header-content"
+            >
+              Lottery Date
+            </div>
+            <div
+              class="rt-resizer"
+            />
+          </div>
+          <div
+            class="rt-th text-right rt-resizable-header -cursor-pointer"
+            role="columnheader"
+            style="flex: 120 0 auto; width: 120px;"
+            tabindex="-1"
+          >
+            <div
+              class="rt-resizable-header-content"
+            >
+              Lottery Results Date
+            </div>
+            <div
+              class="rt-resizer"
+            />
+          </div>
+          <div
+            class="rt-th text-right rt-resizable-header -cursor-pointer"
+            role="columnheader"
+            style="flex: 100 0 auto; width: 100px;"
+            tabindex="-1"
+          >
+            <div
+              class="rt-resizable-header-content"
+            >
+              Applications in Lottery
+            </div>
+            <div
+              class="rt-resizer"
+            />
+          </div>
+          <div
+            class="rt-th text-right rt-resizable-header -cursor-pointer"
+            role="columnheader"
+            style="flex: 100 0 auto; width: 100px;"
+            tabindex="-1"
+          >
+            <div
+              class="rt-resizable-header-content"
+            >
+              Total Units Available
+            </div>
+            <div
+              class="rt-resizer"
+            />
+          </div>
+          <div
+            class="rt-th text-right rt-resizable-header -cursor-pointer"
+            role="columnheader"
+            style="flex: 100 0 auto; width: 100px;"
+            tabindex="-1"
+          >
+            <div
+              class="rt-resizable-header-content"
+            >
+              Leases Signed
+            </div>
+            <div
+              class="rt-resizer"
+            />
+          </div>
+          <div
+            class="rt-th text-right rt-resizable-header -cursor-pointer"
+            role="columnheader"
+            style="flex: 100 0 auto; width: 100px;"
+            tabindex="-1"
+          >
+            <div
+              class="rt-resizable-header-content"
+            >
+              Last updated
+            </div>
+            <div
+              class="rt-resizer"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="rt-thead -filters"
+        style="min-width: 720px;"
+      >
+        <div
+          class="rt-tr"
+          role="row"
+        >
+          <div
+            class="rt-th td-min-wide"
+            role="columnheader"
+            style="flex: 100 0 auto; width: 100px;"
+            tabindex="-1"
+          >
+            <input
+              style="width: 100%;"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="rt-th text-right"
+            role="columnheader"
+            style="flex: 100 0 auto; width: 100px;"
+            tabindex="-1"
+          />
+          <div
+            class="rt-th text-right"
+            role="columnheader"
+            style="flex: 120 0 auto; width: 120px;"
+            tabindex="-1"
+          />
+          <div
+            class="rt-th text-right"
+            role="columnheader"
+            style="flex: 100 0 auto; width: 100px;"
+            tabindex="-1"
+          />
+          <div
+            class="rt-th text-right"
+            role="columnheader"
+            style="flex: 100 0 auto; width: 100px;"
+            tabindex="-1"
+          />
+          <div
+            class="rt-th text-right"
+            role="columnheader"
+            style="flex: 100 0 auto; width: 100px;"
+            tabindex="-1"
+          />
+          <div
+            class="rt-th text-right"
+            role="columnheader"
+            style="flex: 100 0 auto; width: 100px;"
+            tabindex="-1"
           />
         </div>
+      </div>
+      <div
+        class="rt-tbody"
+        style="min-width: 720px;"
+      >
         <div
-          className="rt-th text-right rt-resizable-header -cursor-pointer"
-          onClick={[Function]}
-          role="columnheader"
-          style={
-            {
-              "flex": "100 0 auto",
-              "maxWidth": null,
-              "width": "100px",
-            }
-          }
-          tabIndex="-1"
+          class="rt-tr-group"
+          role="rowgroup"
         >
           <div
-            className="rt-resizable-header-content"
+            class="rt-tr -odd"
+            role="row"
           >
-            Lottery Date
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              Test 5/30
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div>
+                03/22/2017
+              </div>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <div>
+                03/23/2017
+              </div>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              2
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            />
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            />
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <i>
+                none
+              </i>
+            </div>
           </div>
-          <div
-            className="rt-resizer"
-            onMouseDown={[Function]}
-            onTouchStart={[Function]}
-          />
         </div>
         <div
-          className="rt-th text-right rt-resizable-header -cursor-pointer"
-          onClick={[Function]}
-          role="columnheader"
-          style={
-            {
-              "flex": "120 0 auto",
-              "maxWidth": null,
-              "width": "120px",
-            }
-          }
-          tabIndex="-1"
+          class="rt-tr-group"
+          role="rowgroup"
         >
           <div
-            className="rt-resizable-header-content"
+            class="rt-tr -padRow -even"
+            role="row"
           >
-            Lottery Results Date
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
           </div>
-          <div
-            className="rt-resizer"
-            onMouseDown={[Function]}
-            onTouchStart={[Function]}
-          />
         </div>
         <div
-          className="rt-th text-right rt-resizable-header -cursor-pointer"
-          onClick={[Function]}
-          role="columnheader"
-          style={
-            {
-              "flex": "100 0 auto",
-              "maxWidth": null,
-              "width": "100px",
-            }
-          }
-          tabIndex="-1"
+          class="rt-tr-group"
+          role="rowgroup"
         >
           <div
-            className="rt-resizable-header-content"
+            class="rt-tr -padRow -odd"
+            role="row"
           >
-            Applications in Lottery
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
           </div>
-          <div
-            className="rt-resizer"
-            onMouseDown={[Function]}
-            onTouchStart={[Function]}
-          />
         </div>
         <div
-          className="rt-th text-right rt-resizable-header -cursor-pointer"
-          onClick={[Function]}
-          role="columnheader"
-          style={
-            {
-              "flex": "100 0 auto",
-              "maxWidth": null,
-              "width": "100px",
-            }
-          }
-          tabIndex="-1"
+          class="rt-tr-group"
+          role="rowgroup"
         >
           <div
-            className="rt-resizable-header-content"
+            class="rt-tr -padRow -even"
+            role="row"
           >
-            Total Units Available
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
           </div>
-          <div
-            className="rt-resizer"
-            onMouseDown={[Function]}
-            onTouchStart={[Function]}
-          />
         </div>
         <div
-          className="rt-th text-right rt-resizable-header -cursor-pointer"
-          onClick={[Function]}
-          role="columnheader"
-          style={
-            {
-              "flex": "100 0 auto",
-              "maxWidth": null,
-              "width": "100px",
-            }
-          }
-          tabIndex="-1"
+          class="rt-tr-group"
+          role="rowgroup"
         >
           <div
-            className="rt-resizable-header-content"
+            class="rt-tr -padRow -odd"
+            role="row"
           >
-            Leases Signed
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
           </div>
-          <div
-            className="rt-resizer"
-            onMouseDown={[Function]}
-            onTouchStart={[Function]}
-          />
         </div>
         <div
-          className="rt-th text-right rt-resizable-header -cursor-pointer"
-          onClick={[Function]}
-          role="columnheader"
-          style={
-            {
-              "flex": "100 0 auto",
-              "maxWidth": null,
-              "width": "100px",
-            }
-          }
-          tabIndex="-1"
+          class="rt-tr-group"
+          role="rowgroup"
         >
           <div
-            className="rt-resizable-header-content"
+            class="rt-tr -padRow -even"
+            role="row"
           >
-            Last updated
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
           </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
           <div
-            className="rt-resizer"
-            onMouseDown={[Function]}
-            onTouchStart={[Function]}
-          />
+            class="rt-tr -padRow -odd"
+            role="row"
+          >
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr -padRow -even"
+            role="row"
+          >
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr -padRow -odd"
+            role="row"
+          >
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr -padRow -even"
+            role="row"
+          >
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr -padRow -odd"
+            role="row"
+          >
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr -padRow -even"
+            role="row"
+          >
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr -padRow -odd"
+            role="row"
+          >
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr -padRow -even"
+            role="row"
+          >
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr -padRow -odd"
+            role="row"
+          >
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr -padRow -even"
+            role="row"
+          >
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr -padRow -odd"
+            role="row"
+          >
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr -padRow -even"
+            role="row"
+          >
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr -padRow -odd"
+            role="row"
+          >
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr -padRow -even"
+            role="row"
+          >
+            <div
+              class="rt-td td-bold td-min-wide"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 120 0 auto; width: 120px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+            <div
+              class="rt-td text-right"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <span>
+                 
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div
-      className="rt-thead -filters"
-      style={
-        {
-          "minWidth": "720px",
-        }
-      }
+      class="-loading"
     >
       <div
-        className="rt-tr"
-        role="row"
+        class="-loading-inner"
       >
-        <div
-          className="rt-th td-min-wide"
-          onClick={[Function]}
-          role="columnheader"
-          style={
-            {
-              "flex": "100 0 auto",
-              "maxWidth": null,
-              "width": "100px",
-            }
-          }
-          tabIndex="-1"
-        >
-          <input
-            onChange={[Function]}
-            style={
-              {
-                "width": "100%",
-              }
-            }
-            type="text"
-            value=""
-          />
-        </div>
-        <div
-          className="rt-th text-right"
-          onClick={[Function]}
-          role="columnheader"
-          style={
-            {
-              "flex": "100 0 auto",
-              "maxWidth": null,
-              "width": "100px",
-            }
-          }
-          tabIndex="-1"
-        />
-        <div
-          className="rt-th text-right"
-          onClick={[Function]}
-          role="columnheader"
-          style={
-            {
-              "flex": "120 0 auto",
-              "maxWidth": null,
-              "width": "120px",
-            }
-          }
-          tabIndex="-1"
-        />
-        <div
-          className="rt-th text-right"
-          onClick={[Function]}
-          role="columnheader"
-          style={
-            {
-              "flex": "100 0 auto",
-              "maxWidth": null,
-              "width": "100px",
-            }
-          }
-          tabIndex="-1"
-        />
-        <div
-          className="rt-th text-right"
-          onClick={[Function]}
-          role="columnheader"
-          style={
-            {
-              "flex": "100 0 auto",
-              "maxWidth": null,
-              "width": "100px",
-            }
-          }
-          tabIndex="-1"
-        />
-        <div
-          className="rt-th text-right"
-          onClick={[Function]}
-          role="columnheader"
-          style={
-            {
-              "flex": "100 0 auto",
-              "maxWidth": null,
-              "width": "100px",
-            }
-          }
-          tabIndex="-1"
-        />
-        <div
-          className="rt-th text-right"
-          onClick={[Function]}
-          role="columnheader"
-          style={
-            {
-              "flex": "100 0 auto",
-              "maxWidth": null,
-              "width": "100px",
-            }
-          }
-          tabIndex="-1"
-        />
-      </div>
-    </div>
-    <div
-      className="rt-tbody"
-      style={
-        {
-          "minWidth": "720px",
-        }
-      }
-    >
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -odd"
-          role="row"
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            Test 5/30
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <div>
-              03/22/2017
-            </div>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <div>
-              03/23/2017
-            </div>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            2
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          />
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          />
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <i>
-              none
-            </i>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -even"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -odd"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -even"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -odd"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -even"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -odd"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -even"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -odd"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -even"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -odd"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -even"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -odd"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -even"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -odd"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -even"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -odd"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -even"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -odd"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="rt-tr-group"
-        role="rowgroup"
-      >
-        <div
-          className="rt-tr -padRow -even"
-          role="row"
-          style={{}}
-        >
-          <div
-            className="rt-td td-bold td-min-wide"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "120 0 auto",
-                "maxWidth": null,
-                "width": "120px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-          <div
-            className="rt-td text-right"
-            onClick={[Function]}
-            role="gridcell"
-            style={
-              {
-                "flex": "100 0 auto",
-                "maxWidth": null,
-                "width": "100px",
-              }
-            }
-          >
-            <span>
-               
-            </span>
-          </div>
-        </div>
+        Loading...
       </div>
     </div>
   </div>
-  <div
-    className="-loading"
-  >
-    <div
-      className="-loading-inner"
-    >
-      Loading...
-    </div>
-  </div>
-</div>
+</DocumentFragment>
 `;

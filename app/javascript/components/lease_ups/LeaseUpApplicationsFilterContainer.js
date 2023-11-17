@@ -94,7 +94,7 @@ const LeaseUpApplicationsFilterContainer = ({
         initialValues={appliedFilters}
         render={({ form, handleSubmit }) => (
           <form style={styles.marginBottomZero} onSubmit={handleSubmit} noValidate>
-            <div className='filter-row'>
+            <div className='filter-row' data-testid='lease-up-applications-filter-container'>
               <div className='filter-group filter-group--left'>
                 <div style={styles.bulkEditCheckbox}>
                   <Checkbox
@@ -112,6 +112,7 @@ const LeaseUpApplicationsFilterContainer = ({
                       onChange={onBulkLeaseUpStatusChange}
                       minWidthPx={'185px'}
                       placeholder={'Set Status'}
+                      dataTestId={'bulk-status-dropdown'}
                       forceDisplayPlaceholderText
                       tertiary={numChecked === 0}
                     />

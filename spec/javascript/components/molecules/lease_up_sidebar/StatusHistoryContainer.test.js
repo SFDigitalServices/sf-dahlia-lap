@@ -1,73 +1,70 @@
 import React from 'react'
 
-import { shallow } from 'enzyme'
+import { render, screen, fireEvent } from '@testing-library/react'
 
 import StatusHistoryContainer from 'components/molecules/lease_up_sidebar/StatusHistoryContainer'
-import StatusItems from 'components/molecules/lease_up_sidebar/StatusItems'
 
 import { mockManyStatusItems, mockStatusItem } from '../../../mocks/statusItemMock'
 
-const getWrapper = (items) => shallow(<StatusHistoryContainer statusItems={items} />)
+const getScreen = (items) => render(<StatusHistoryContainer statusItems={items} />)
 
 describe('StatusHistoryContainer', () => {
   test('should render with empty status items correctly', () => {
-    const wrapper = getWrapper([])
-    expect(wrapper.find(StatusItems)).toHaveLength(1)
-    expect(wrapper.find(StatusItems).prop('statusItems')).toHaveLength(0)
+    getScreen([])
+    expect(screen.queryByTestId('status-item')).not.toBeInTheDocument()
   })
 
   test('should render with a single status item correctly', () => {
-    const wrapper = getWrapper([mockStatusItem()])
-    expect(wrapper.find(StatusItems)).toHaveLength(1)
-    expect(wrapper.find(StatusItems).prop('statusItems')).toHaveLength(1)
+    getScreen([mockStatusItem()])
+    expect(screen.getAllByTestId('status-item')).toHaveLength(1)
   })
 
   test('should render with more than 4 status items correctly', () => {
-    const wrapper = getWrapper(mockManyStatusItems(5))
-    expect(wrapper.find(StatusItems).prop('statusItems')).toHaveLength(5)
+    getScreen(mockManyStatusItems(5))
+    expect(screen.getAllByTestId('status-item')).toHaveLength(4)
+    // Click the show all statuses button
+    fireEvent.click(screen.getByRole('button'))
+    expect(screen.getAllByTestId('status-item')).toHaveLength(5)
   })
 
   describe('show/hide full status list', () => {
     describe('when over four items are present', () => {
       const numStatusItems = 10
-      let wrapper
-      let linkWrapper
+      let showAllStatusesButton
 
       beforeEach(() => {
-        wrapper = getWrapper(mockManyStatusItems(numStatusItems))
-        linkWrapper = wrapper.find('button').first()
+        getScreen(mockManyStatusItems(numStatusItems))
+        showAllStatusesButton = screen.getByRole('button')
       })
 
       test('should limit the statuses to 4 by default', () => {
-        expect(wrapper.find(StatusItems).prop('statusItems')).toHaveLength(numStatusItems)
-        expect(wrapper.find(StatusItems).prop('limit')).toEqual(4)
+        expect(screen.getAllByTestId('status-item')).toHaveLength(4)
       })
 
       test('should have no limit after show all statuses clicked', () => {
-        linkWrapper.simulate('click')
-        expect(wrapper.find(StatusItems).prop('statusItems')).toHaveLength(numStatusItems)
-        expect(wrapper.find(StatusItems).prop('limit')).toEqual(numStatusItems)
+        fireEvent.click(showAllStatusesButton)
+        expect(screen.getAllByTestId('status-item')).toHaveLength(numStatusItems)
       })
 
       test('should have correct link text before click', () => {
-        expect(linkWrapper.text()).toEqual('Show all status updates')
+        expect(screen.getByText('Show all status updates')).toBeInTheDocument()
       })
 
       test('should have correct link text after click', () => {
-        linkWrapper.simulate('click')
-        expect(linkWrapper.text()).toEqual('Show all status updates')
+        fireEvent.click(showAllStatusesButton)
+        expect(screen.getByText('Show only recent status updates')).toBeInTheDocument()
       })
     })
 
     describe('when four or under items are present', () => {
       test('should not show the show/hide statuses link with exactly 4 items', () => {
-        const wrapper = getWrapper(mockManyStatusItems(4))
-        expect(wrapper.find('button')).toHaveLength(0)
+        getScreen(mockManyStatusItems(4))
+        expect(screen.queryByRole('button')).not.toBeInTheDocument()
       })
 
       test('should not show the show/hide statuses link with 1 item', () => {
-        const wrapper = getWrapper(mockManyStatusItems(1))
-        expect(wrapper.find('button')).toHaveLength(0)
+        getScreen(mockManyStatusItems(1))
+        expect(screen.queryByRole('button')).not.toBeInTheDocument()
       })
     })
   })

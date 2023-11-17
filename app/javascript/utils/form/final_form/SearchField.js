@@ -68,6 +68,7 @@ const SearchField = ({
                     onClearClick()
                     inputElement.current.focus()
                   }}
+                  data-testid='search-icon'
                   type='button'
                 >
                   <svg>

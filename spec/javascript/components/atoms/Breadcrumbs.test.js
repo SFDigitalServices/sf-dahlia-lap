@@ -175,9 +175,6 @@ describe('Item', () => {
           name: /e/i
         })
       ).not.toHaveAttribute('aria-current', 'page')
-      // expect(wrapper.find(NavLink)).toHaveLength(1)
-      // expect(wrapper.find(NavLink).props().to).toEqual(CRUMB_ROUTED.link)
-      // expect(wrapper.find(NavLink).prop('aria-current')).toBeUndefined()
     })
   })
 
@@ -191,7 +188,6 @@ describe('Item', () => {
     })
 
     test('renders a NavLink with the correct props', () => {
-      screen.logTestingPlaygroundURL()
       expect(
         screen.getByRole('link', {
           name: /e/i

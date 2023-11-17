@@ -48,18 +48,6 @@ describe('IndexTable', () => {
       <IndexTable results={results} fields={fields} links={['View Listing']} />
     )
 
-    screen.logTestingPlaygroundURL()
-
-    // Using Enzyme to check a property of a component. No need here, since we use snapshot.
-    // expect(wrapper.find('ReactTable').props().expanded['0']).toBeUndefined()
-
-    // Simulate interaction
-    // fireEvent.click(container.querySelector('.rt-expander').firstChild)
-
-    // Using Enzyme to check a property of a component
-    // expect(container.querySelector('ReactTable').props().expanded['0']).toEqual(true)
-
-    // Take snapshot again of new view
     expect(asFragment()).toMatchSnapshot()
   })
 })

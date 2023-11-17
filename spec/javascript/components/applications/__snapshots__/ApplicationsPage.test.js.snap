@@ -28,6 +28,7 @@ exports[`ApplicationsPage should render successfully 1`] = `
   >
     <div
       class="loading-panel"
+      data-testid="loading"
     >
       <form
         novalidate=""

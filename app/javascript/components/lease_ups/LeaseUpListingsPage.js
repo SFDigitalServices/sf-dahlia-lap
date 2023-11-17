@@ -14,7 +14,7 @@ import TableLayout from '../layouts/TableLayout'
 const LeaseUpListingsPage = () => {
   const [loading, setLoading] = useState(true)
   const [listings, setListings] = useState(true)
-  const history = useNavigate()
+  const navigate = useNavigate()
 
   const [, dispatch] = useAppContext()
 
@@ -36,7 +36,7 @@ const LeaseUpListingsPage = () => {
   const onCellClick = ({ original: listing }) => {
     listingRowClicked(dispatch, listing)
 
-    history.push(appPaths.toLeaseUpApplications(listing.id))
+    navigate(appPaths.toLeaseUpApplications(listing.id))
   }
 
   return (

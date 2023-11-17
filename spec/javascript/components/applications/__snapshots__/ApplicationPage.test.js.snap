@@ -52,6 +52,7 @@ exports[`ApplicationPage with regular application After the application finishes
     >
       <div
         class="loading-panel"
+        data-testid="loading"
       >
         <div
           class="application-details"

@@ -1,250 +1,331 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StatusItem should render an approved status with substatus and comments correctly 1`] = `
-<div
-  className="status-item"
->
+<DocumentFragment>
   <div
-    className="status-item-header"
+    class="status-item"
+    data-testid="status-item"
   >
-    <StatusPill
-      status="Approved"
-    />
+    <div
+      class="status-item-header"
+    >
+      <div
+        class="status-pill is-approved"
+      >
+        Approved
+      </div>
+    </div>
+    <div
+      class="item-substatus-text"
+    >
+      Approval letter sent
+    </div>
+    <div
+      class="status-item-text"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+    </div>
+    <div
+      class="status-item-footer"
+    >
+      <div
+        class="status-item-created-by"
+      />
+      <div
+        class="status-item-date"
+      >
+        Aug 25, 2020
+      </div>
+    </div>
   </div>
-  <div
-    className="item-substatus-text"
-  >
-    Approval letter sent
-  </div>
-  <div
-    className="status-item-text"
-  >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-  </div>
-  <div
-    className="status-item-footer"
-  >
-    <StatusCreatedBy />
-    <StatusDate
-      timestamp={1598385600}
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`StatusItem should render properly when no comment or substatus provided 1`] = `
-<div
-  className="status-item"
->
+<DocumentFragment>
   <div
-    className="status-item-header"
+    class="status-item"
+    data-testid="status-item"
   >
-    <StatusPill
-      status="Approved"
+    <div
+      class="status-item-header"
+    >
+      <div
+        class="status-pill is-approved"
+      >
+        Approved
+      </div>
+    </div>
+    <div
+      class="status-item-text"
     />
+    <div
+      class="status-item-footer"
+    >
+      <div
+        class="status-item-created-by"
+      />
+      <div
+        class="status-item-date"
+      >
+        Aug 25, 2020
+      </div>
+    </div>
   </div>
-  <div
-    className="status-item-text"
-  />
-  <div
-    className="status-item-footer"
-  >
-    <StatusCreatedBy />
-    <StatusDate
-      timestamp={1598385600}
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`StatusItem should render properly when no comment provided 1`] = `
-<div
-  className="status-item"
->
+<DocumentFragment>
   <div
-    className="status-item-header"
+    class="status-item"
+    data-testid="status-item"
   >
-    <StatusPill
-      status="Approved"
+    <div
+      class="status-item-header"
+    >
+      <div
+        class="status-pill is-approved"
+      >
+        Approved
+      </div>
+    </div>
+    <div
+      class="item-substatus-text"
+    >
+      Approval letter sent
+    </div>
+    <div
+      class="status-item-text"
     />
+    <div
+      class="status-item-footer"
+    >
+      <div
+        class="status-item-created-by"
+      />
+      <div
+        class="status-item-date"
+      >
+        Aug 25, 2020
+      </div>
+    </div>
   </div>
-  <div
-    className="item-substatus-text"
-  >
-    Approval letter sent
-  </div>
-  <div
-    className="status-item-text"
-  />
-  <div
-    className="status-item-footer"
-  >
-    <StatusCreatedBy />
-    <StatusDate
-      timestamp={1598385600}
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`StatusItem should render properly when no substatus provided 1`] = `
-<div
-  className="status-item"
->
+<DocumentFragment>
   <div
-    className="status-item-header"
+    class="status-item"
+    data-testid="status-item"
   >
-    <StatusPill
-      status="Approved"
-    />
+    <div
+      class="status-item-header"
+    >
+      <div
+        class="status-pill is-approved"
+      >
+        Approved
+      </div>
+    </div>
+    <div
+      class="status-item-text"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+    </div>
+    <div
+      class="status-item-footer"
+    >
+      <div
+        class="status-item-created-by"
+      />
+      <div
+        class="status-item-date"
+      >
+        Aug 25, 2020
+      </div>
+    </div>
   </div>
-  <div
-    className="status-item-text"
-  >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-  </div>
-  <div
-    className="status-item-footer"
-  >
-    <StatusCreatedBy />
-    <StatusDate
-      timestamp={1598385600}
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`StatusItem should render properly with Appealed status 1`] = `
-<div
-  className="status-item"
->
+<DocumentFragment>
   <div
-    className="status-item-header"
+    class="status-item"
+    data-testid="status-item"
   >
-    <StatusPill
-      status="Appealed"
-    />
+    <div
+      class="status-item-header"
+    >
+      <div
+        class="status-pill is-appealed"
+      >
+        Appealed
+      </div>
+    </div>
+    <div
+      class="status-item-text"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+    </div>
+    <div
+      class="status-item-footer"
+    >
+      <div
+        class="status-item-created-by"
+      />
+      <div
+        class="status-item-date"
+      >
+        Aug 25, 2020
+      </div>
+    </div>
   </div>
-  <div
-    className="status-item-text"
-  >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-  </div>
-  <div
-    className="status-item-footer"
-  >
-    <StatusCreatedBy />
-    <StatusDate
-      timestamp={1598385600}
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`StatusItem should render properly with Disqualified status 1`] = `
-<div
-  className="status-item"
->
+<DocumentFragment>
   <div
-    className="status-item-header"
+    class="status-item"
+    data-testid="status-item"
   >
-    <StatusPill
-      status="Disqualified"
-    />
+    <div
+      class="status-item-header"
+    >
+      <div
+        class="status-pill is-disqualified"
+      >
+        Disqualified
+      </div>
+    </div>
+    <div
+      class="status-item-text"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+    </div>
+    <div
+      class="status-item-footer"
+    >
+      <div
+        class="status-item-created-by"
+      />
+      <div
+        class="status-item-date"
+      >
+        Aug 25, 2020
+      </div>
+    </div>
   </div>
-  <div
-    className="status-item-text"
-  >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-  </div>
-  <div
-    className="status-item-footer"
-  >
-    <StatusCreatedBy />
-    <StatusDate
-      timestamp={1598385600}
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`StatusItem should render properly with Lease Signed status 1`] = `
-<div
-  className="status-item"
->
+<DocumentFragment>
   <div
-    className="status-item-header"
+    class="status-item"
+    data-testid="status-item"
   >
-    <StatusPill
-      status="Lease Signed"
-    />
+    <div
+      class="status-item-header"
+    >
+      <div
+        class="status-pill is-leased"
+      >
+        Lease Signed
+      </div>
+    </div>
+    <div
+      class="status-item-text"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+    </div>
+    <div
+      class="status-item-footer"
+    >
+      <div
+        class="status-item-created-by"
+      />
+      <div
+        class="status-item-date"
+      >
+        Aug 25, 2020
+      </div>
+    </div>
   </div>
-  <div
-    className="status-item-text"
-  >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-  </div>
-  <div
-    className="status-item-footer"
-  >
-    <StatusCreatedBy />
-    <StatusDate
-      timestamp={1598385600}
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`StatusItem should render properly with Processing status 1`] = `
-<div
-  className="status-item"
->
+<DocumentFragment>
   <div
-    className="status-item-header"
+    class="status-item"
+    data-testid="status-item"
   >
-    <StatusPill
-      status="Processing"
-    />
+    <div
+      class="status-item-header"
+    >
+      <div
+        class="status-pill is-processing"
+      >
+        Processing
+      </div>
+    </div>
+    <div
+      class="status-item-text"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+    </div>
+    <div
+      class="status-item-footer"
+    >
+      <div
+        class="status-item-created-by"
+      />
+      <div
+        class="status-item-date"
+      >
+        Aug 25, 2020
+      </div>
+    </div>
   </div>
-  <div
-    className="status-item-text"
-  >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-  </div>
-  <div
-    className="status-item-footer"
-  >
-    <StatusCreatedBy />
-    <StatusDate
-      timestamp={1598385600}
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`StatusItem should render properly with withdrawn status 1`] = `
-<div
-  className="status-item"
->
+<DocumentFragment>
   <div
-    className="status-item-header"
+    class="status-item"
+    data-testid="status-item"
   >
-    <StatusPill
-      status="Withdrawn"
-    />
+    <div
+      class="status-item-header"
+    >
+      <div
+        class="status-pill is-withdrawn"
+      >
+        Withdrawn
+      </div>
+    </div>
+    <div
+      class="status-item-text"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+    </div>
+    <div
+      class="status-item-footer"
+    >
+      <div
+        class="status-item-created-by"
+      />
+      <div
+        class="status-item-date"
+      >
+        Aug 25, 2020
+      </div>
+    </div>
   </div>
-  <div
-    className="status-item-text"
-  >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-  </div>
-  <div
-    className="status-item-footer"
-  >
-    <StatusCreatedBy />
-    <StatusDate
-      timestamp={1598385600}
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;

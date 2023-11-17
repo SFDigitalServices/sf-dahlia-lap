@@ -400,7 +400,6 @@ describe('PaperApplicationForm', () => {
   describe('preferences section', () => {
     // Helper function for updating preference select successfully
     const updatePreference = async (prefId) => {
-      // screen.logTestingPlaygroundURL()
       fireEvent.change(screen.getByTestId('preferences[0].listing_preference_id'), {
         target: { value: prefId }
       })
