@@ -1,43 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Popover should renders the provided button as expected 1`] = `
-<Fragment>
-  <button
-    onClick={[Function]}
-  >
+<DocumentFragment>
+  <button>
     Sample popover button
   </button>
-</Fragment>
+</DocumentFragment>
 `;
 
 exports[`Popover should renders the tooltip content as expected 1`] = `
-<Fragment>
-  <button
-    onClick={[Function]}
-  >
+<DocumentFragment>
+  <button>
     Sample popover button
   </button>
   <div
-    className="popper-container"
-    style={
-      {
-        "left": "0",
-        "position": "absolute",
-        "top": "0",
-      }
-    }
+    class="popper-container"
+    style="position: absolute; left: 0px; top: 0px;"
   >
     <div
       id="arrow"
-      style={
-        {
-          "position": "absolute",
-        }
-      }
+      style="position: absolute;"
     />
     <p>
       popover content
     </p>
   </div>
-</Fragment>
+</DocumentFragment>
 `;

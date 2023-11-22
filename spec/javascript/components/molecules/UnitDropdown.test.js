@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { mount, shallow } from 'enzyme'
-import Select from 'react-select'
+// import { mount, shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 
 import UnitDropdown, { renderUnitOption } from 'components/molecules/UnitDropdown'
 
@@ -33,19 +33,18 @@ const units = [
   }
 ]
 
-const getWrapper = (propOverrides = {}) =>
-  mount(<UnitDropdown onChange={ON_CHANGE} availableUnits={[]} {...propOverrides} />)
+const getScreen = (propOverrides = {}) =>
+  render(<UnitDropdown onChange={ON_CHANGE} availableUnits={[]} {...propOverrides} />)
 
 describe('UnitDropdown', () => {
-  let wrapper
   test('it renders a select', () => {
-    wrapper = getWrapper()
-    expect(wrapper.find(Select).exists()).toBeTruthy()
+    getScreen()
+    expect(screen.getByRole('combobox')).toBeInTheDocument()
   })
 
   describe('toggle', () => {
     test('renders as expected when value is null', () => {
-      wrapper = getWrapper({ availableUnits: units })
+      getScreen({ availableUnits: units })
       const expectedButtonClasses = [
         'dropdown-button',
         'dropdown-select',
@@ -53,60 +52,60 @@ describe('UnitDropdown', () => {
         'text-align-left',
         'expand'
       ]
-      const toggleButton = wrapper.find(Select).find('.unit-dropdown__control').find('button')
-      expect(toggleButton.text()).toEqual('Select One...')
-      expect(toggleButton.hasClass(expectedButtonClasses.join(' '))).toEqual(true)
-      expect(toggleButton.prop('disabled')).toEqual(false)
+      const button = screen.getByRole('button')
+      expect(button).toHaveTextContent('Select One...')
+      expect(button).toHaveClass(expectedButtonClasses.join(' '))
+      expect(button).toBeEnabled()
     })
 
     test('renders when the dropdown is disabled', () => {
-      wrapper = getWrapper({ disabled: true })
-      const toggleButton = wrapper.find(Select).find('.unit-dropdown__control').find('button')
-      expect(toggleButton.prop('disabled')).toEqual(true)
+      getScreen({ disabled: true })
+      expect(screen.getByRole('button')).toBeDisabled()
     })
 
     test('renders a unit when provided', () => {
-      wrapper = getWrapper({ unit: units[1].id, availableUnits: units })
-      const toggleButton = wrapper.find(Select).find('.unit-dropdown__control').find('button')
-      expect(toggleButton.text()).toEqual(units[1].unit_number)
+      getScreen({ unit: units[1].id, availableUnits: units })
+      expect(screen.getByRole('button')).toHaveTextContent(units[1].unit_number)
     })
 
     test('renders Units Available', () => {
-      wrapper = getWrapper({ unit: null, availableUnits: [] })
-      const toggleButton = wrapper.find(Select).find('.unit-dropdown__control').find('button')
-      expect(toggleButton.text()).toEqual('No Units Available')
+      getScreen({ unit: null, availableUnits: [] })
+      expect(screen.getByRole('button')).toHaveTextContent('No Units Available')
     })
   })
 
   describe('renderUnitOption', () => {
     const getUnitOptionWrapper = (option, selectedValue) =>
-      shallow(renderUnitOption(option, { selectValue: [{ value: selectedValue }] }))
+      render(renderUnitOption(option, { selectValue: [{ value: selectedValue }] }))
 
     test('renders selected unit option', () => {
-      wrapper = getUnitOptionWrapper(units[0], units[0].id)
-      expect(wrapper.find('li').hasClass('dropdown-menu_unit')).toEqual(true)
-      expect(wrapper.find('li').prop('aria-selected')).toEqual(true)
-      expect(wrapper.text()).toEqual('123studio50% (HUD)')
+      getUnitOptionWrapper(units[0], units[0].id)
+      const li = screen.getByRole('listitem')
+      expect(li).toHaveClass('dropdown-menu_unit')
+      expect(li).toHaveAttribute('aria-selected', 'true')
+      expect(li).toHaveTextContent('123studio50% (HUD)')
     })
 
     test('renders not selected unit option', () => {
-      wrapper = getUnitOptionWrapper(units[0], units[1].id)
-      expect(wrapper.find('li').hasClass('dropdown-menu_unit')).toEqual(true)
-      expect(wrapper.find('li').prop('aria-selected')).toEqual(false)
-      expect(wrapper.text()).toEqual('123studio50% (HUD)')
+      getUnitOptionWrapper(units[0], units[1].id)
+      const li = screen.getByRole('listitem')
+      expect(li).toHaveClass('dropdown-menu_unit')
+      expect(li).toHaveAttribute('aria-selected', 'false')
+      expect(li).toHaveTextContent('123studio50% (HUD)')
     })
 
     test('renders as expected with a null value', () => {
-      wrapper = getUnitOptionWrapper({}, units[1].id)
-      expect(wrapper.find('li').hasClass('dropdown-menu_unit')).toEqual(true)
-      expect(wrapper.text()).toEqual('Select One...')
+      getUnitOptionWrapper({}, units[1].id)
+      expect(screen.getByRole('listitem')).toHaveClass('dropdown-menu_unit')
+      expect(screen.getByText('Select One...')).toBeInTheDocument()
     })
 
     test('renders unit with number `0`', () => {
-      wrapper = getUnitOptionWrapper(units[2], units[2].id)
-      expect(wrapper.find('li').hasClass('dropdown-menu_unit')).toEqual(true)
-      expect(wrapper.find('li').prop('aria-selected')).toEqual(true)
-      expect(wrapper.text()).toEqual('0studio50% (HUD)')
+      getUnitOptionWrapper(units[2], units[2].id)
+      const li = screen.getByRole('listitem')
+      expect(li).toHaveClass('dropdown-menu_unit')
+      expect(li).toHaveAttribute('aria-selected', 'true')
+      expect(li).toHaveTextContent('0studio50% (HUD)')
     })
   })
 })

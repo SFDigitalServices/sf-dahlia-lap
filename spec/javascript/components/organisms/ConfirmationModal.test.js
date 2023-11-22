@@ -1,11 +1,8 @@
 import React from 'react'
 
-import { shallow } from 'enzyme'
+import { fireEvent, render, screen } from '@testing-library/react'
 
 import ConfirmationModal from 'components/organisms/ConfirmationModal'
-import Modal from 'components/organisms/Modal'
-
-import { findWithText } from '../../testUtils/wrapperUtil'
 
 const PRIMARY_TEXT = 'Primary Text'
 const SECONDARY_TEXT = 'Secondary Text'
@@ -16,8 +13,8 @@ const ON_CLOSE = jest.fn()
 const ON_PRIMARY_CLICK = jest.fn()
 const ON_SECONDARY_CLICK = jest.fn()
 
-const getWrapper = (propOverrides = {}) =>
-  shallow(
+const getScreen = (propOverrides = {}) =>
+  render(
     <ConfirmationModal
       onPrimaryClick={ON_PRIMARY_CLICK}
       onSecondaryClick={ON_SECONDARY_CLICK}
@@ -31,42 +28,55 @@ const getWrapper = (propOverrides = {}) =>
   )
 
 describe('ConfirmationModal', () => {
-  describe('with default props', () => {
-    let wrapper
-    beforeEach(() => {
-      wrapper = getWrapper()
-    })
+  test('should render the modal as closed', () => {
+    const { asFragment } = getScreen()
+    expect(asFragment()).toMatchSnapshot()
+  })
 
-    test('should render the modal as closed', () => {
-      expect(wrapper.find(Modal).prop('isOpen')).toBeFalsy()
-      expect(wrapper.find(Modal.Body).prop('hidden')).toBeFalsy()
+  describe('with default props', () => {
+    beforeEach(() => {
+      getScreen({ isOpen: true })
     })
 
     test('should render the title and subtitle', () => {
-      expect(wrapper.find(Modal.Header).prop('title')).toEqual(TITLE)
-      expect(wrapper.find(Modal.Content).dive().text()).toEqual(SUBTITLE)
+      expect(screen.getByText(TITLE)).toBeInTheDocument()
+      expect(screen.getByText(SUBTITLE)).toBeInTheDocument()
     })
 
     test('should render with the default header id', () => {
-      expect(wrapper.find(Modal.Header).prop('id')).toEqual('confirmation-modal-header')
+      expect(screen.getByText(TITLE).parentNode).toHaveAttribute('id', 'confirmation-modal-header')
     })
 
     test('should render the primary button as a <button />', () => {
-      expect(findWithText(wrapper, 'button', PRIMARY_TEXT)).toHaveLength(1)
-      expect(findWithText(wrapper, 'a', PRIMARY_TEXT)).toHaveLength(0)
+      expect(
+        screen.getByRole('button', {
+          name: PRIMARY_TEXT,
+          hidden: true
+        })
+      ).toBeInTheDocument()
+      expect(screen.queryByRole('link', { name: /primary text/i })).not.toBeInTheDocument()
     })
 
     test('should render the primary button with primary style', () => {
-      const primaryWrapper = findWithText(wrapper, 'button', PRIMARY_TEXT)
-      expect(primaryWrapper.prop('className').includes('primary')).toBeTruthy()
+      expect(
+        screen.getByRole('button', {
+          name: PRIMARY_TEXT,
+          hidden: true
+        })
+      ).toHaveClass('primary')
     })
 
     test('should render the secondary button', () => {
-      expect(findWithText(wrapper, 'button', SECONDARY_TEXT)).toHaveLength(1)
+      expect(
+        screen.getByRole('button', {
+          name: SECONDARY_TEXT,
+          hidden: true
+        })
+      ).toBeInTheDocument()
     })
 
     test('should trigger the onClose listener when close is clicked', () => {
-      wrapper.find(Modal).prop('handleClose')()
+      fireEvent.click(screen.getByLabelText('Close modal'))
 
       expect(ON_CLOSE.mock.calls).toHaveLength(1)
       expect(ON_PRIMARY_CLICK.mock.calls).toHaveLength(0)
@@ -74,7 +84,12 @@ describe('ConfirmationModal', () => {
     })
 
     test('should trigger the onPrimaryClick listener when primary button is clicked', () => {
-      findWithText(wrapper, 'button', PRIMARY_TEXT).simulate('click')
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: PRIMARY_TEXT,
+          hidden: true
+        })
+      )
 
       expect(ON_CLOSE.mock.calls).toHaveLength(0)
       expect(ON_PRIMARY_CLICK.mock.calls).toHaveLength(1)
@@ -82,7 +97,12 @@ describe('ConfirmationModal', () => {
     })
 
     test('should trigger the onSecondaryClick listener when secondary button is clicked', () => {
-      findWithText(wrapper, 'button', SECONDARY_TEXT).simulate('click')
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: SECONDARY_TEXT,
+          hidden: true
+        })
+      )
 
       expect(ON_CLOSE.mock.calls).toHaveLength(0)
       expect(ON_PRIMARY_CLICK.mock.calls).toHaveLength(0)
@@ -92,59 +112,64 @@ describe('ConfirmationModal', () => {
 
   describe('with custom titleId', () => {
     const CUSTOM_TITLE_ID = 'custom-title-id'
-    let wrapper
     beforeEach(() => {
-      wrapper = getWrapper({ titleId: CUSTOM_TITLE_ID })
+      getScreen({ titleId: CUSTOM_TITLE_ID, isOpen: true })
     })
 
     test('should render with the custom header id', () => {
-      expect(wrapper.find(Modal.Header).prop('id')).toEqual(CUSTOM_TITLE_ID)
+      expect(screen.getByText(TITLE).parentNode).toHaveAttribute('id', CUSTOM_TITLE_ID)
     })
   })
 
   describe('when isOpen is true', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = getWrapper({ isOpen: true })
+      getScreen({ isOpen: true })
     })
 
     test('should render the modal as open', () => {
-      expect(wrapper.find(Modal).prop('isOpen')).toBeTruthy()
-      expect(wrapper.find(Modal.Body).prop('hidden')).toBeTruthy()
+      screen.debug(screen.getAllByRole('dialog'))
+      expect(screen.getByRole('dialog').firstChild).toHaveAttribute('aria-hidden', 'true')
     })
   })
 
   describe('when primaryButtonIsAlert is true', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = getWrapper({ primaryButtonIsAlert: true })
+      getScreen({ primaryButtonIsAlert: true, isOpen: true })
     })
 
     test('should render the primary button with alert styling', () => {
-      const primaryWrapper = findWithText(wrapper, 'button', PRIMARY_TEXT)
-      expect(primaryWrapper.prop('className').includes('alert')).toBeTruthy()
+      expect(screen.getByRole('button', { name: PRIMARY_TEXT, hidden: true })).toHaveClass('alert')
     })
   })
 
   describe('when primaryButtonDestination is provided', () => {
     const DESTINATION = '#'
-    let wrapper
     beforeEach(() => {
-      wrapper = getWrapper({ primaryButtonDestination: DESTINATION })
+      getScreen({ primaryButtonDestination: DESTINATION, isOpen: true })
     })
 
     test('should render the primary button as an <a /> component', () => {
-      expect(findWithText(wrapper, 'a', PRIMARY_TEXT)).toHaveLength(1)
-      expect(findWithText(wrapper, 'button', PRIMARY_TEXT)).toHaveLength(0)
+      expect(
+        screen.queryByRole('button', {
+          name: PRIMARY_TEXT,
+          hidden: true
+        })
+      ).not.toBeInTheDocument()
+      expect(
+        screen.queryByRole('link', { name: /primary text/i, hidden: true })
+      ).toBeInTheDocument()
     })
 
     test('should render the primary button with the correct href', () => {
-      const primaryWrapper = findWithText(wrapper, 'a', PRIMARY_TEXT)
-      expect(primaryWrapper.prop('href')).toEqual(DESTINATION)
+      expect(screen.queryByRole('link', { name: /primary text/i, hidden: true })).toHaveAttribute(
+        'href',
+        DESTINATION
+      )
     })
 
     test('should trigger the onPrimaryClick listener when primary button is clicked', () => {
-      findWithText(wrapper, 'a', PRIMARY_TEXT).simulate('click')
+      fireEvent.click(screen.queryByRole('link', { name: /primary text/i, hidden: true }))
+      // findWithText(wrapper, 'a', PRIMARY_TEXT).simulate('click')
 
       expect(ON_CLOSE.mock.calls).toHaveLength(0)
       expect(ON_PRIMARY_CLICK.mock.calls).toHaveLength(1)

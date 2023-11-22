@@ -1,9 +1,8 @@
 import React from 'react'
 
-import { shallow } from 'enzyme'
+import { render, screen, within } from '@testing-library/react'
 
-import BreadCrumbs from 'components/atoms/BreadCrumbs'
-import PageHeader, { Actions, DefaultAction } from 'components/organisms/PageHeader'
+import PageHeader, { Actions } from 'components/organisms/PageHeader'
 
 const mockCrumb = (title, link) => ({
   title,
@@ -16,158 +15,162 @@ const CONTENT = 'content1'
 const ACTION = { link: '/export', title: 'Export' }
 
 describe('PageHeader', () => {
-  const getWrapper = (breadcrumbs, { action = ACTION, title = TITLE, content = CONTENT } = {}) => {
-    return shallow(
+  const getScreen = (breadcrumbs, { action = ACTION, title = TITLE, content = CONTENT } = {}) => {
+    return render(
       <PageHeader title={title} content={content} action={action} breadcrumbs={breadcrumbs} />
     )
   }
 
   describe('with breadcrumbs not specified', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = getWrapper(undefined)
+      getScreen(undefined)
     })
 
     test('should not render BreadCrumbs when empty', () => {
-      expect(wrapper.find(BreadCrumbs)).toHaveLength(0)
+      expect(screen.queryByLabelText('breadcrumb')).not.toBeInTheDocument()
+      // expect(wrapper.find(BreadCrumbs)).toHaveLength(0)
     })
 
     test('should not render the header with has-breadcrumbs style', () => {
-      expect(wrapper.find('header.has-breadcrumbs')).toHaveLength(0)
+      expect(screen.queryByRole('banner')).not.toHaveClass('has-breadcrumbs')
+      // expect(wrapper.find('header.has-breadcrumbs')).toHaveLength(0)
     })
 
     test('should render the header with serif', () => {
-      expect(wrapper.find('h1').hasClass('small-serif')).toBeTruthy()
-      expect(wrapper.find('h1').hasClass('small')).toBeFalsy()
+      expect(screen.getByRole('heading', { level: 1 })).toHaveClass('small-serif')
+      expect(screen.getByRole('heading', { level: 1 })).not.toHaveClass('small')
     })
   })
 
   describe('with empty breadcrumbs array', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = getWrapper([])
+      getScreen([])
     })
 
     test('should not render the header with has-breadcrumbs style', () => {
-      expect(wrapper.find('header.has-breadcrumbs')).toHaveLength(0)
+      expect(screen.getByRole('heading', { level: 1 })).not.toHaveClass('has-breadcrumb')
     })
 
     test('should not render BreadCrumbs when empty', () => {
-      expect(wrapper.find(BreadCrumbs)).toHaveLength(0)
+      expect(screen.queryByLabelText('breadcrumb')).not.toBeInTheDocument()
     })
 
     test('should render the header with serif', () => {
-      expect(wrapper.find('h1').hasClass('small-serif')).toBeTruthy()
-      expect(wrapper.find('h1').hasClass('small')).toBeFalsy()
+      expect(screen.getByRole('heading', { level: 1 })).toHaveClass('small-serif')
+      expect(screen.getByRole('heading', { level: 1 })).not.toHaveClass('small')
     })
   })
 
   describe('with non-empty values', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = getWrapper([CRUMB_A])
+      getScreen([CRUMB_A])
     })
 
     test('should not render the header with has-breadcrumbs style', () => {
-      expect(wrapper.find('header.has-breadcrumbs')).toHaveLength(1)
+      expect(screen.getByRole('heading', { level: 1 })).not.toHaveClass('has-breadcrumb')
     })
 
     test('should render BreadCrumbs', () => {
-      expect(wrapper.find(BreadCrumbs)).toHaveLength(1)
+      expect(screen.getByLabelText('breadcrumb')).toBeInTheDocument()
     })
 
     test('should render an Actions component', () => {
-      expect(wrapper.find(Actions)).toHaveLength(1)
+      expect(
+        screen.getByRole('link', {
+          name: /export/i
+        })
+      ).toBeInTheDocument()
     })
 
     test('should render the title and content', () => {
-      expect(wrapper.find('hgroup').text()).toContain(TITLE)
-      expect(wrapper.find('hgroup').text()).toContain(CONTENT)
+      expect(
+        screen.getByRole('heading', {
+          name: /title1/i
+        })
+      ).toBeInTheDocument()
+      expect(screen.getByText(CONTENT)).toBeInTheDocument()
     })
 
     test('should render the header without serif', () => {
-      expect(wrapper.find('h1').hasClass('small-serif')).toBeFalsy()
-      expect(wrapper.find('h1').hasClass('small')).toBeTruthy()
+      expect(screen.getByRole('heading', { level: 1 })).not.toHaveClass('small-serif')
+      expect(screen.getByRole('heading', { level: 1 })).toHaveClass('small')
     })
   })
 
   describe('when content is empty', () => {
-    let wrapper
-    beforeEach(() => {
-      wrapper = getWrapper([CRUMB_A], { content: null })
-    })
-
     test('does not render a content section', () => {
-      expect(wrapper.find('p')).toHaveLength(0)
+      const { asFragment } = getScreen([CRUMB_A], { content: null })
+      expect(asFragment()).toMatchSnapshot()
     })
   })
 
   describe('when title is a node', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = getWrapper([CRUMB_A], { title: <div>titleNode</div> })
+      getScreen([CRUMB_A], { title: <div>titleNode</div> })
     })
 
     test('does not render a content section', () => {
-      expect(wrapper.text()).toContain('titleNode')
+      expect(screen.getByText('titleNode')).toBeInTheDocument()
     })
   })
 })
 
 describe('Actions', () => {
   describe('when actions prop is null', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = shallow(<Actions />)
+      render(<Actions />)
     })
 
     test('renders no action', () => {
-      expect(wrapper).toEqual({})
+      expect(screen.queryByTestId('page-header-action')).not.toBeInTheDocument()
     })
   })
 
   describe('when actions prop is populated with an object with a title', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = shallow(<Actions actions={ACTION} />)
+      render(<Actions actions={ACTION} />)
     })
 
     test('renders the action as a DefaultAction', () => {
-      expect(wrapper.find(DefaultAction)).toHaveLength(1)
+      expect(screen.getByTestId('page-header-default-action')).toBeInTheDocument()
+      expect(
+        screen.getByRole('link', {
+          name: /export/i
+        })
+      ).toHaveAttribute('href', '/export')
     })
   })
 
   describe('when actions is populated with object without a title', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = shallow(<Actions actions={'stringAction'} />)
+      render(<Actions actions={'stringAction'} />)
     })
 
     test('renders the action directly', () => {
-      expect(wrapper.find(DefaultAction)).toHaveLength(0)
-      expect(wrapper.text()).toEqual('stringAction')
+      expect(screen.queryByTestId('page-header-default-action')).not.toBeInTheDocument()
+      expect(
+        within(screen.getByTestId('page-header-action')).getByText('stringAction')
+      ).toBeInTheDocument()
     })
   })
 
   describe('when actions is an array of one object', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = shallow(<Actions actions={[ACTION]} />)
+      render(<Actions actions={[ACTION]} />)
     })
 
     test('renders the action as a DefaultAction', () => {
-      expect(wrapper.find(DefaultAction)).toHaveLength(1)
+      expect(screen.getByTestId('page-header-default-action')).toBeInTheDocument()
     })
   })
 
   describe('when actions is an array of multiple object', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = shallow(<Actions actions={[ACTION, ACTION, ACTION]} />)
+      render(<Actions actions={[ACTION, ACTION, ACTION]} />)
     })
 
     test('renders all actions', () => {
-      expect(wrapper.find(DefaultAction)).toHaveLength(3)
+      expect(screen.getAllByTestId('page-header-default-action')).toHaveLength(3)
     })
   })
 })

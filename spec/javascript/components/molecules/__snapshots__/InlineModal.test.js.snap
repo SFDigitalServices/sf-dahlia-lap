@@ -1,13 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InlineModal should pass the white background prop if specified 1`] = `
-<div
-  className="inline-modal padding-left--2x padding-right--2x white-background"
-/>
+<DocumentFragment>
+  <div
+    class="inline-modal padding-left--2x padding-right--2x white-background"
+  />
+</DocumentFragment>
 `;
 
 exports[`InlineModal should use the inline-modal class for background if background is not specified 1`] = `
-<div
-  className="inline-modal padding-left--2x padding-right--2x"
-/>
+<DocumentFragment>
+  <div
+    class="inline-modal padding-left--2x padding-right--2x"
+  />
+</DocumentFragment>
 `;

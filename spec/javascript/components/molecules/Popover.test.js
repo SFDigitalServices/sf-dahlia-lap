@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { shallow, mount } from 'enzyme'
-import { act } from 'react-dom/test-utils'
+import { render, screen, fireEvent, act, waitFor } from '@testing-library/react'
 
 import Popover from 'components/molecules/Popover'
 
@@ -11,8 +10,8 @@ const sampleButtonElement = ({ onClick, ref }) => (
   </button>
 )
 
-const getWrapper = () =>
-  shallow(
+const getScreen = () =>
+  render(
     <Popover buttonElement={sampleButtonElement}>
       <p>popover content</p>
     </Popover>
@@ -20,25 +19,29 @@ const getWrapper = () =>
 
 describe('Popover', () => {
   it('should be closed by default', () => {
-    const wrapper = getWrapper()
-    expect(wrapper.find('p').exists()).toBeFalsy()
-  })
-  it('should renders the provided button as expected', () => {
-    const wrapper = getWrapper()
-    expect(wrapper).toMatchSnapshot()
+    getScreen()
+    expect(screen.queryByText('popover content')).not.toBeInTheDocument()
   })
 
-  it('should renders the tooltip content as expected', () => {
-    const wrapper = getWrapper()
-    wrapper.find('button').simulate('click')
-    expect(wrapper).toMatchSnapshot()
+  it('should renders the provided button as expected', () => {
+    const { asFragment } = getScreen()
+    expect(asFragment()).toMatchSnapshot()
   })
+
+  it('should renders the tooltip content as expected', async () => {
+    const { asFragment } = getScreen()
+    fireEvent.click(screen.getByRole('button'))
+    await waitFor(() => {
+      expect(asFragment()).toMatchSnapshot()
+    })
+  })
+
   it('should open and close the tooltip when button is clicked', () => {
-    const wrapper = getWrapper()
-    wrapper.find('button').simulate('click')
-    expect(wrapper.find('p').exists()).toBeTruthy()
-    wrapper.find('button').simulate('click')
-    expect(wrapper.find('p').exists()).toBeFalsy()
+    getScreen()
+    fireEvent.click(screen.getByRole('button'))
+    expect(screen.getByText('popover content')).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button'))
+    expect(screen.queryByText('popover content')).not.toBeInTheDocument()
   })
 
   describe('useClickOutside effect', () => {
@@ -47,39 +50,42 @@ describe('Popover', () => {
       map[event] = cb
     })
 
-    const getWrapperWithOutsideElement = () =>
-      mount(
+    const getScreenWithOutsideElement = () =>
+      render(
         <div>
           <Popover buttonElement={sampleButtonElement}>
             <p>popover content</p>
           </Popover>
-          <a id='something_else' />
+          <a id='something_else'>Click me</a>
         </div>
       )
-    it('should close the tooltip with outside elements are clicked', () => {
-      const wrapper = getWrapperWithOutsideElement()
+    it('should close the tooltip with outside elements are clicked', async () => {
+      getScreenWithOutsideElement()
       // Open the popover
-      wrapper.find('button').simulate('click')
-      expect(wrapper.find('p').exists()).toBeTruthy()
+      fireEvent.click(screen.getByRole('button'))
+      expect(screen.getByText('popover content')).toBeInTheDocument()
       // Click on something outside of the popover
       act(() => {
-        map.click({ target: wrapper.find('#something_else').getDOMNode() })
+        map.click({ target: screen.getByText('Click me') })
       })
-      wrapper.update()
-      expect(wrapper.find('p').exists()).toBeFalsy()
+      await waitFor(() => {
+        expect(screen.queryByText('popover content')).not.toBeInTheDocument()
+      })
     })
 
-    it('should not close the tooltip when you click inside the tooltip', () => {
-      const wrapper = getWrapperWithOutsideElement()
+    it('should not close the tooltip when you click inside the tooltip', async () => {
+      getScreenWithOutsideElement()
       // Open the popover
-      wrapper.find('button').simulate('click')
-      expect(wrapper.find('p').exists()).toBeTruthy()
+      fireEvent.click(screen.getByRole('button'))
+      expect(screen.getByText('popover content')).toBeInTheDocument()
       // Click on something inside of the popover
       act(() => {
-        map.click({ target: wrapper.find('p').getDOMNode() })
+        map.click({ target: screen.getByText('popover content') })
       })
-      wrapper.update()
-      expect(wrapper.find('p').exists()).toBeTruthy()
+
+      await waitFor(() => {
+        expect(screen.queryByText('popover content')).toBeInTheDocument()
+      })
     })
   })
 })

@@ -1,6 +1,6 @@
-/* global mount */
 import React from 'react'
-// import sinon from 'sinon'
+
+import { render, screen, fireEvent } from '@testing-library/react'
 
 import SimpleModal from 'components/organisms/SimpleModal'
 
@@ -10,8 +10,8 @@ describe('SimpleModal', () => {
   const onPrimaryClick = jest.fn()
   const onSecondaryClick = jest.fn()
 
-  test('it should render status type successfully', () => {
-    const wrapper = mount(
+  test('it should render default status type successfully', () => {
+    const { asFragment } = render(
       <SimpleModal
         header='Update Status'
         primary='update'
@@ -33,15 +33,37 @@ describe('SimpleModal', () => {
       </SimpleModal>
     )
 
-    expect(wrapper).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
+  })
 
-    wrapper.setProps({ type: 'alert' })
+  test('it should render alert type successfully', () => {
+    const { asFragment } = render(
+      <SimpleModal
+        header='Update Status'
+        primary='update'
+        secondary='cancel'
+        isOpen={isOpen}
+        handleClose={onCloseClick}
+        onPrimaryClick={onPrimaryClick}
+        onSecondaryClick={onSecondaryClick}
+        type='alert'
+        alert={{
+          title: "This change will affect this application's preferences",
+          subtitle: 'This application would no longer be eligible for Live Work Preference',
+          message:
+            'Note, you will have the opportunity to grant another household member this preference',
+          invert: false
+        }}
+      >
+        <div>content</div>
+      </SimpleModal>
+    )
 
-    expect(wrapper).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   test('it should call event handlers', () => {
-    const wrapper = mount(
+    render(
       <SimpleModal
         header='Update Status'
         primary='update'
@@ -56,9 +78,25 @@ describe('SimpleModal', () => {
       </SimpleModal>
     )
 
-    wrapper.find('.modal-button_primary button').simulate('click')
-    wrapper.find('.modal-button_secondary button').simulate('click')
-    wrapper.find('.close-reveal-modal').simulate('click')
+    screen.logTestingPlaygroundURL()
+
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: /update/i
+      })
+    )
+
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: /cancel/i
+      })
+    )
+
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: /close modal/i
+      })
+    )
 
     expect(onPrimaryClick.mock.calls).toHaveLength(1)
     expect(onSecondaryClick.mock.calls).toHaveLength(1)

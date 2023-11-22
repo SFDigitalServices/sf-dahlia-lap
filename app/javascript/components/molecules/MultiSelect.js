@@ -21,7 +21,8 @@ const MultiSelect = ({
   options = [],
   value = [],
   disabled = false,
-  onChange = () => {}
+  onChange = () => {},
+  name = undefined
 }) => {
   let selectedValues
   if (value && value[0] && !value[0].value) {
@@ -41,6 +42,7 @@ const MultiSelect = ({
         onChange={(values) => onChange(values)}
         options={options}
         value={selectedValues}
+        name={name}
       />
     </div>
   )

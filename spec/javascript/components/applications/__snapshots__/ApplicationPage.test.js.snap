@@ -35,6 +35,7 @@ exports[`ApplicationPage with regular application After the application finishes
           </div>
           <div
             class="medium-4 columns no-padding"
+            data-testid="page-header-action"
           >
             <span
               class="lead-header_secondary-action"

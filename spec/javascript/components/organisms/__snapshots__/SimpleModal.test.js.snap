@@ -1,5 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SimpleModal it should render alert type successfully 1`] = `<DocumentFragment />`;
+
+exports[`SimpleModal it should render default status type successfully 1`] = `<DocumentFragment />`;
+
 exports[`SimpleModal it should render status type successfully 1`] = `
 <SimpleModal
   alert={

@@ -4,8 +4,7 @@
         "spec/javascript/e2e"
     ],
     "editor.codeActionsOnSave": {
-        // For ESLint
-        "source.fixAll.eslint": true,
+        "source.fixAll.eslint": "explicit"
     },
     "eslint.format.enable": true,
     "eslint.lintTask.enable": true,
