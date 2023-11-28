@@ -37,6 +37,7 @@ module Force
       { custom_api: '', domain: 'receives_preference', salesforce: 'Receives_Preference' },
       { custom_api: 'recordTypeDevName', domain: 'recordtype_developername', salesforce: 'RecordType.DeveloperName' },
       { custom_api: '', domain: 'record_type_for_app_preferences', salesforce: 'Listing_Preference_ID.Record_Type_For_App_Preferences' },
+      { custom_api: '', domain: 'custom_preference_type', salesforce: 'Custom_Preference_Type' },
       { custom_api: 'state', domain: 'state', salesforce: 'State' },
       { custom_api: '', domain: 'total_household_rent', salesforce: 'Total_Household_Rent' },
       { custom_api: 'zip', domain: 'zip_code', salesforce: 'Zip_Code' },

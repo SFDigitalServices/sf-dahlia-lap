@@ -54,3 +54,4 @@ preferences:
     Application__r.Processing_Date_Updated__c:
       label: "Status Updated"
     Listing_Preference_ID__r.Record_Type_For_App_Preferences__c:
+    Custom_Preference_Type__c:
