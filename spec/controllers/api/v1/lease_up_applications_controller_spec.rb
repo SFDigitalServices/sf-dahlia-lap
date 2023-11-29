@@ -17,11 +17,14 @@ RSpec.describe Api::V1::LeaseUpApplicationsController, type: :controller do
         }
         get :index, params: params
       end
+      puts response.body
       expect(response).to have_http_status(:success)
       json = JSON.parse(response.body)
-      all_records_have_preferences = json['records'].all? { |r| (
-        r['preference_name'] && r['preference_name'].length > 0 && r['preference_all_lottery_rank'] && r['preference_all_lottery_rank'] > 0
-      ) }
+      all_records_have_preferences = json['records'].all? do |r|
+        (
+              r['preference_name'] && r['preference_name'].length > 0 && r['preference_all_lottery_rank'] && r['preference_all_lottery_rank'] > 0
+            )
+      end
       expect(all_records_have_preferences).to eq(true)
     end
   end
