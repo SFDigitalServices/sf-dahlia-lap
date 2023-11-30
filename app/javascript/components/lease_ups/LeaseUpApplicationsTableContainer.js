@@ -26,7 +26,10 @@ export const buildRowData = (application) => {
   } else if (application.preference_name?.includes('Right to Return')) {
     prefKey = 'RtR'
   } else {
-    prefKey = application.preference_record_type
+    // TODO: create ticket to clean up?
+    application.custom_preference_type
+      ? (prefKey = application.custom_preference_type)
+      : (prefKey = application.preference_record_type)
   }
 
   rowData.preference_rank = `${prefKey} ${application.preference_lottery_rank}`
