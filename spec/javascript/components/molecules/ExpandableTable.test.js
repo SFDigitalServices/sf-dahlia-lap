@@ -39,7 +39,6 @@ describe('ExpandableTable', () => {
   describe('when one row is expanded', () => {
     test('it renders properly', () => {
       getScreen(new Set([0]))
-      screen.logTestingPlaygroundURL()
       const expandableTableRows = screen.getAllByTestId('expandable-table-row')
       expect(expandableTableRows).toHaveLength(3)
       expect(expandableTableRows[0]).toHaveAttribute('aria-expanded', 'true')

@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { render } from '@testing-library/react'
-import { shallow, mount } from 'enzyme'
 import { Form } from 'react-final-form'
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom'
 
@@ -16,14 +15,6 @@ const formNode = (application, formToChildrenFunc) => (
   />
 )
 
-const diveThroughFormWrappers = (wrapper) => wrapper.find('form').children().dive()
-
-const shallowWithForm = (application, formToChildrenFunc) =>
-  diveThroughFormWrappers(shallow(formNode(application, formToChildrenFunc)))
-
-const mountWithForm = (application, formToChildrenFunc) =>
-  mount(formNode(application, formToChildrenFunc))
-
 /**
  * Return a component wrapper for any component that uses react-final-form
  *
@@ -34,10 +25,8 @@ const mountWithForm = (application, formToChildrenFunc) =>
  *  like if you're trying to test final form error functionality or want to end-to-end
  *  test the whole component tree.
  */
-export const withForm = (application, formToChildrenFunc, shouldMount = false) =>
-  shouldMount
-    ? mountWithForm(application, formToChildrenFunc)
-    : shallowWithForm(application, formToChildrenFunc)
+export const withForm = (application, formToChildrenFunc) =>
+  render(formNode(application, formToChildrenFunc))
 
 export const nameOrTypeMatches = (node, nodeNameOrType) =>
   typeof nodeNameOrType === 'string'

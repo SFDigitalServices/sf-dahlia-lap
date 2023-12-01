@@ -12,7 +12,7 @@ const ContentSection = ({ title, description, children }) => (
 ContentSection.Header = ({ title, description }) => (
   <>
     {title && <h2 className='app-card_h2'>{title}</h2>}
-    {description && <p className='form-note max-width margin-bottom--3halves'>{description}</p>}
+    {description && <div className='form-note max-width margin-bottom--3halves'>{description}</div>}
   </>
 )
 

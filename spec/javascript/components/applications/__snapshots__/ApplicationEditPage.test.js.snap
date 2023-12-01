@@ -302,6 +302,7 @@ exports[`ApplicationEditPage should render successfully 1`] = `
                   >
                     <div
                       class="form-group"
+                      data-testid="multi-date-field"
                     >
                       <label
                         class="form-label"
@@ -1125,6 +1126,7 @@ exports[`ApplicationEditPage should render successfully 1`] = `
                         >
                           <div
                             class="form-group"
+                            data-testid="multi-date-field"
                           >
                             <label
                               class="form-label"
@@ -2512,6 +2514,7 @@ exports[`ApplicationEditPage should render successfully with preferences 1`] = `
                   >
                     <div
                       class="form-group"
+                      data-testid="multi-date-field"
                     >
                       <label
                         class="form-label"
@@ -3335,6 +3338,7 @@ exports[`ApplicationEditPage should render successfully with preferences 1`] = `
                         >
                           <div
                             class="form-group"
+                            data-testid="multi-date-field"
                           >
                             <label
                               class="form-label"

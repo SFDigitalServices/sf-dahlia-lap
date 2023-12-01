@@ -78,8 +78,6 @@ describe('SimpleModal', () => {
       </SimpleModal>
     )
 
-    screen.logTestingPlaygroundURL()
-
     fireEvent.click(
       screen.getByRole('button', {
         name: /update/i

@@ -95,7 +95,6 @@ describe('Tab', () => {
     })
 
     test('renders a react router <Link />', () => {
-      screen.logTestingPlaygroundURL()
       const link = screen.getByRole('menuitem')
       expect(link).toBeInTheDocument()
       expect(link).toHaveAttribute('href', ITEM_ROUTED.url)

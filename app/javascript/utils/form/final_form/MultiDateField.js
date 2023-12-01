@@ -52,7 +52,10 @@ export const MultiDateField = ({
   const baseFieldName = last(fieldName.split('.'))
   const error = form && touched && errorField && (errorField[baseFieldName]?.all || errorField.all)
   return (
-    <div className={classNames('form-group', (error && 'error') || '')}>
+    <div
+      className={classNames('form-group', (error && 'error') || '')}
+      data-testid='multi-date-field'
+    >
       <label className='form-label' htmlFor={id || `form-${fieldName}`}>
         {label}
         {blockNote && <BlockNote value={blockNote} />}

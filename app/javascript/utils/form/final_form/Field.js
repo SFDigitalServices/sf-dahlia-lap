@@ -67,7 +67,11 @@ export const HelpText = ({ describeId, note }) => (
 )
 
 export const FieldError = ({ meta }) =>
-  meta.error && meta.touched ? <span className='form-note error'>{meta.error}</span> : null
+  meta.error && meta.touched ? (
+    <span className='form-note error' data-testid='field-error'>
+      {meta.error}
+    </span>
+  ) : null
 
 export const InputField = ({
   fieldName,

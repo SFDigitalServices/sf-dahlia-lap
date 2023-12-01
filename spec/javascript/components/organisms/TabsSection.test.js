@@ -1,5 +1,6 @@
-/* global mount */
 import React from 'react'
+
+import { render } from '@testing-library/react'
 
 import TabsSection from 'components/organisms/TabsSection'
 
@@ -10,8 +11,8 @@ describe('TabsMenu', () => {
       { title: 'Supplemental Information', url: '/url2', active: true }
     ]
 
-    const wrapper = mount(<TabsSection items={items} currentUrl={'/url1'} />)
+    const { asFragment } = render(<TabsSection items={items} currentUrl={'/url1'} />)
 
-    expect(wrapper).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 })

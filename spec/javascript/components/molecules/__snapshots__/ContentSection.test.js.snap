@@ -10,11 +10,11 @@ exports[`ContentSection should render correctly 1`] = `
     >
       main title
     </h2>
-    <p
+    <div
       class="form-note max-width margin-bottom--3halves"
     >
       main desc
-    </p>
+    </div>
     <h3
       class="app-card_h3 t-sans"
     >

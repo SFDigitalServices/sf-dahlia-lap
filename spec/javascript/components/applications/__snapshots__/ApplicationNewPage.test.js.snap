@@ -295,6 +295,7 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                   >
                     <div
                       class="form-group"
+                      data-testid="multi-date-field"
                     >
                       <label
                         class="form-label"
