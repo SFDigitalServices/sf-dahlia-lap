@@ -2,6 +2,7 @@ import React from 'react'
 
 import { render, screen, fireEvent } from '@testing-library/react'
 import { act } from 'react-dom/test-utils'
+import selectEvent from 'react-select-event'
 
 import LeaseUpApplicationsFilterContainer from 'components/lease_ups/LeaseUpApplicationsFilterContainer'
 import Provider from 'context/Provider'
@@ -68,12 +69,10 @@ describe('LeaseUpApplicationsFilterContainer', () => {
         getScreen({ appId1: false, appId2: true })
       })
 
-      test('should render the checkbox as checked=false', () => {
-        expect(screen.getByRole('checkbox')).toBeChecked()
-      })
-
       test('should render the checkbox with indeterminate=true', () => {
+        // Even though the checkbox is in the indeterminate state, it is still considered checked
         expect(screen.getByRole('checkbox')).toBeChecked()
+        expect(screen.getByRole('checkbox')).toHaveAttribute('aria-checked', 'mixed')
       })
 
       test('should call clear all on click', () => {
@@ -172,8 +171,6 @@ describe('LeaseUpApplicationsFilterContainer', () => {
         })
 
         test('should show the filters panel', () => {
-          // expect(wrapper.find(ShowHideFiltersButton).props().isShowingFilters).toBeTruthy()
-
           expect(
             screen.getByRole('button', {
               name: /apply filters/i
@@ -206,14 +203,13 @@ describe('LeaseUpApplicationsFilterContainer', () => {
 
         describe('when a filter is changed', () => {
           beforeEach(async () => {
-            await act(async () =>
-              fireEvent.change(screen.getAllByRole('combobox').pop(), {
-                target: { value: 'Processing' }
-              })
-            )
+            selectEvent.openMenu(screen.getAllByRole('combobox').pop())
+            await act(async () => {
+              fireEvent.click(screen.getByText(/processing/i))
+            })
           })
 
-          test.skip('should should set hasChangedFilters = true', () => {
+          test('should should set hasChangedFilters = true', () => {
             expect(
               screen.getByRole('button', {
                 name: /apply filters/i
@@ -227,11 +223,12 @@ describe('LeaseUpApplicationsFilterContainer', () => {
             })
 
             test('should keep hasChangedFilters = true', () => {
+              // when hasChangedFilters = true, the button should have a primary class
               expect(
                 screen.getByRole('button', {
                   name: /apply filters/i
                 })
-              ).toHaveClass('tertiary-inverse')
+              ).toHaveClass('primary')
             })
           })
         })

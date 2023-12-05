@@ -10,6 +10,7 @@ const Checkbox = ({ id, checked = false, indeterminate = false, onClick = () => 
       type='checkbox'
       checked={indeterminate || checked}
       onClick={onClick}
+      aria-checked={indeterminate ? 'mixed' : checked ? 'true' : 'false'}
       // onChange handler required because we're setting 'checked' prop,
       // but we actually want our handler to be onClick instead,
       // so this is a no-op function.

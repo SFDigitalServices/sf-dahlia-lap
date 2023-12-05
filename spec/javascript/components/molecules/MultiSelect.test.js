@@ -41,7 +41,7 @@ describe('MultiSelect', () => {
     beforeEach(() => {
       render(
         <form role='form' data-testid='form'>
-          <MultiSelect options={mockItems} name='formTest' onChange={(val) => console.log(val)} />
+          <MultiSelect options={mockItems} name='formTest' onChange={() => {}} />
         </form>
       )
     })

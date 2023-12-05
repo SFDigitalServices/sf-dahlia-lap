@@ -98,6 +98,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
               style="display: flex; align-items: center; margin-bottom: 1.25rem; padding-right: 1rem;"
             >
               <input
+                aria-checked="false"
                 class="no-margin"
                 id="bulk-edit-controller"
                 type="checkbox"
@@ -611,6 +612,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                   class="form-group"
                 >
                   <input
+                    aria-checked="false"
                     class="no-margin"
                     id="bulk-action-checkbox-1001"
                     type="checkbox"
@@ -28321,6 +28323,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                   class="form-group"
                 >
                   <input
+                    aria-checked="false"
                     class="no-margin"
                     id="bulk-action-checkbox-1002"
                     type="checkbox"
@@ -28501,6 +28504,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                   class="form-group"
                 >
                   <input
+                    aria-checked="false"
                     class="no-margin"
                     id="bulk-action-checkbox-1003"
                     type="checkbox"
@@ -28681,6 +28685,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                   class="form-group"
                 >
                   <input
+                    aria-checked="false"
                     class="no-margin"
                     id="bulk-action-checkbox-1004"
                     type="checkbox"
@@ -28861,6 +28866,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                   class="form-group"
                 >
                   <input
+                    aria-checked="false"
                     class="no-margin"
                     id="bulk-action-checkbox-1005"
                     type="checkbox"
@@ -29041,6 +29047,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                   class="form-group"
                 >
                   <input
+                    aria-checked="false"
                     class="no-margin"
                     id="bulk-action-checkbox-1005"
                     type="checkbox"

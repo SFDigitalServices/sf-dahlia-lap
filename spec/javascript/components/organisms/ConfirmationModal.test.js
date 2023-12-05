@@ -127,7 +127,6 @@ describe('ConfirmationModal', () => {
     })
 
     test('should render the modal as open', () => {
-      screen.debug(screen.getAllByRole('dialog'))
       expect(screen.getByRole('dialog').firstChild).toHaveAttribute('aria-hidden', 'true')
     })
   })

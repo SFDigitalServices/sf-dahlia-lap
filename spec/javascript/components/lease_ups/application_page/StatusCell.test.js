@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { fireEvent, render, screen, act } from '@testing-library/react'
+import selectEvent from 'react-select-event'
 
 import StatusCell from 'components/lease_ups/application_page/StatusCell'
 
@@ -26,9 +27,10 @@ describe('StatusCell', () => {
     expect(rtlWrapper.asFragment()).toMatchSnapshot()
   })
 
-  test.skip('onClick is trigged when the input changes', () => {
+  test('onClick is trigged when the input changes', () => {
+    selectEvent.openMenu(screen.getByRole('combobox'))
     expect(mockOnChange.mock.calls).toHaveLength(0)
-    act(() => fireEvent.click(screen.getByRole('combobox')))
+    act(() => fireEvent.click(screen.getByText(/disqualified/i)))
     expect(mockOnChange.mock.calls).toHaveLength(1)
   })
 })

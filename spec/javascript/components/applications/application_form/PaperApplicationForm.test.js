@@ -406,7 +406,6 @@ describe('PaperApplicationForm', () => {
     }
 
     test('add preference button is disabled without primary applicant', async () => {
-      // console.log({ ...testApplication, preferences: undefined })
       render(
         <PaperApplicationForm
           listing={{
