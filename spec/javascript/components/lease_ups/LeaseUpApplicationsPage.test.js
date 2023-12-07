@@ -62,7 +62,8 @@ const buildMockApplicationWithPreference = ({
   prefId,
   applicationId,
   prefOrder = 1,
-  prefRank = 1
+  prefRank = 1,
+  customPreferenceType
 }) => ({
   id: prefId,
   processing_status: 'processing',
@@ -70,6 +71,9 @@ const buildMockApplicationWithPreference = ({
   preference_lottery_rank: prefRank,
   record_type_for_app_preferences: 'COP',
   preference_name: 'Certificate of Preference',
+  custom_preference_type: (() => {
+    if (customPreferenceType) return `${customPreferenceType}`
+  })(),
   application: {
     id: applicationId,
     name: `Application Name ${applicationId}`,
@@ -98,7 +102,8 @@ const mockApplications = [
     prefId: '1',
     applicationId: '1001',
     prefOrder: '1',
-    prefRank: '2'
+    prefRank: '2',
+    customPreferenceType: 'V-COP'
   }),
   buildMockApplicationWithPreference({
     prefId: '2',
@@ -110,7 +115,8 @@ const mockApplications = [
     prefId: '3',
     applicationId: '1003',
     prefOrder: '2',
-    prefRank: '3'
+    prefRank: '3',
+    customPreferenceType: 'V-COP'
   }),
   buildMockApplicationWithPreference({
     prefId: '4',

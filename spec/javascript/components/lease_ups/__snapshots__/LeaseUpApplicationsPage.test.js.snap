@@ -256,7 +256,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     "application_id": "1001",
                     "application_number": "Application Name 1001",
                     "application_preference_id": "1",
-                    "custom_preference_type": undefined,
+                    "custom_preference_type": "V-COP",
                     "email": "some email 1",
                     "first_name": "some first name 1",
                     "has_ada_priorities_selected": {
@@ -304,7 +304,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     "application_id": "1003",
                     "application_number": "Application Name 1003",
                     "application_preference_id": "3",
-                    "custom_preference_type": undefined,
+                    "custom_preference_type": "V-COP",
                     "email": "some email 3",
                     "first_name": "some first name 3",
                     "has_ada_priorities_selected": {
@@ -2397,7 +2397,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     "application_id": "1001",
                     "application_number": "Application Name 1001",
                     "application_preference_id": "1",
-                    "custom_preference_type": undefined,
+                    "custom_preference_type": "V-COP",
                     "email": "some email 1",
                     "first_name": "some first name 1",
                     "has_ada_priorities_selected": {
@@ -2411,7 +2411,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     "preference_lottery_rank": "2",
                     "preference_name": "Certificate of Preference",
                     "preference_order": "1",
-                    "preference_rank": "COP 2",
+                    "preference_rank": "V-COP 2",
                     "preference_record_type": "COP",
                     "rankOrder": 1.0002,
                     "residence_address": "1316 BURNETT 1",
@@ -2451,7 +2451,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     "application_id": "1003",
                     "application_number": "Application Name 1003",
                     "application_preference_id": "3",
-                    "custom_preference_type": undefined,
+                    "custom_preference_type": "V-COP",
                     "email": "some email 3",
                     "first_name": "some first name 3",
                     "has_ada_priorities_selected": {
@@ -2465,7 +2465,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     "preference_lottery_rank": "3",
                     "preference_name": "Certificate of Preference",
                     "preference_order": "2",
-                    "preference_rank": "COP 3",
+                    "preference_rank": "V-COP 3",
                     "preference_record_type": "COP",
                     "rankOrder": 2.0003,
                     "residence_address": "1316 BURNETT 3",
@@ -2700,7 +2700,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                       "application_id": "1001",
                       "application_number": "Application Name 1001",
                       "application_preference_id": "1",
-                      "custom_preference_type": undefined,
+                      "custom_preference_type": "V-COP",
                       "email": "some email 1",
                       "first_name": "some first name 1",
                       "has_ada_priorities_selected": {
@@ -2714,7 +2714,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                       "preference_lottery_rank": "2",
                       "preference_name": "Certificate of Preference",
                       "preference_order": "1",
-                      "preference_rank": "COP 2",
+                      "preference_rank": "V-COP 2",
                       "preference_record_type": "COP",
                       "rankOrder": 1.0002,
                       "residence_address": "1316 BURNETT 1",
@@ -2754,7 +2754,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                       "application_id": "1003",
                       "application_number": "Application Name 1003",
                       "application_preference_id": "3",
-                      "custom_preference_type": undefined,
+                      "custom_preference_type": "V-COP",
                       "email": "some email 3",
                       "first_name": "some first name 3",
                       "has_ada_priorities_selected": {
@@ -2768,7 +2768,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                       "preference_lottery_rank": "3",
                       "preference_name": "Certificate of Preference",
                       "preference_order": "2",
-                      "preference_rank": "COP 3",
+                      "preference_rank": "V-COP 3",
                       "preference_record_type": "COP",
                       "rankOrder": 2.0003,
                       "residence_address": "1316 BURNETT 3",
@@ -3518,7 +3518,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1001",
                                             "application_number": "Application Name 1001",
                                             "application_preference_id": "1",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 1",
                                             "first_name": "some first name 1",
                                             "has_ada_priorities_selected": {
@@ -3532,7 +3532,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "2",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "1",
-                                            "preference_rank": "COP 2",
+                                            "preference_rank": "V-COP 2",
                                             "preference_record_type": "COP",
                                             "rankOrder": 1.0002,
                                             "residence_address": "1316 BURNETT 1",
@@ -3553,7 +3553,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1001",
                                               "application_number": "Application Name 1001",
                                               "application_preference_id": "1",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 1",
                                               "first_name": "some first name 1",
                                               "has_ada_priorities_selected": {
@@ -3567,7 +3567,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "2",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "1",
-                                              "preference_rank": "COP 2",
+                                              "preference_rank": "V-COP 2",
                                               "preference_record_type": "COP",
                                               "rankOrder": 1.0002,
                                               "residence_address": "1316 BURNETT 1",
@@ -3725,7 +3725,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1001",
                                             "application_number": "Application Name 1001",
                                             "application_preference_id": "1",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 1",
                                             "first_name": "some first name 1",
                                             "has_ada_priorities_selected": {
@@ -3739,7 +3739,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "2",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "1",
-                                            "preference_rank": "COP 2",
+                                            "preference_rank": "V-COP 2",
                                             "preference_record_type": "COP",
                                             "rankOrder": 1.0002,
                                             "residence_address": "1316 BURNETT 1",
@@ -3760,7 +3760,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1001",
                                               "application_number": "Application Name 1001",
                                               "application_preference_id": "1",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 1",
                                               "first_name": "some first name 1",
                                               "has_ada_priorities_selected": {
@@ -3774,7 +3774,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "2",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "1",
-                                              "preference_rank": "COP 2",
+                                              "preference_rank": "V-COP 2",
                                               "preference_record_type": "COP",
                                               "rankOrder": 1.0002,
                                               "residence_address": "1316 BURNETT 1",
@@ -3812,7 +3812,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         width={104}
                                       >
                                         <PreferenceRankCell
-                                          preferenceRank="COP 2"
+                                          preferenceRank="V-COP 2"
                                         >
                                           <div
                                             style={
@@ -3832,7 +3832,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                 }
                                               }
                                             >
-                                              COP 2
+                                              V-COP 2
                                             </div>
                                           </div>
                                         </PreferenceRankCell>
@@ -3927,7 +3927,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1001",
                                             "application_number": "Application Name 1001",
                                             "application_preference_id": "1",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 1",
                                             "first_name": "some first name 1",
                                             "has_ada_priorities_selected": {
@@ -3941,7 +3941,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "2",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "1",
-                                            "preference_rank": "COP 2",
+                                            "preference_rank": "V-COP 2",
                                             "preference_record_type": "COP",
                                             "rankOrder": 1.0002,
                                             "residence_address": "1316 BURNETT 1",
@@ -3962,7 +3962,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1001",
                                               "application_number": "Application Name 1001",
                                               "application_preference_id": "1",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 1",
                                               "first_name": "some first name 1",
                                               "has_ada_priorities_selected": {
@@ -3976,7 +3976,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "2",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "1",
-                                              "preference_rank": "COP 2",
+                                              "preference_rank": "V-COP 2",
                                               "preference_record_type": "COP",
                                               "rankOrder": 1.0002,
                                               "residence_address": "1316 BURNETT 1",
@@ -4117,7 +4117,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1001",
                                             "application_number": "Application Name 1001",
                                             "application_preference_id": "1",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 1",
                                             "first_name": "some first name 1",
                                             "has_ada_priorities_selected": {
@@ -4131,7 +4131,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "2",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "1",
-                                            "preference_rank": "COP 2",
+                                            "preference_rank": "V-COP 2",
                                             "preference_record_type": "COP",
                                             "rankOrder": 1.0002,
                                             "residence_address": "1316 BURNETT 1",
@@ -4152,7 +4152,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1001",
                                               "application_number": "Application Name 1001",
                                               "application_preference_id": "1",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 1",
                                               "first_name": "some first name 1",
                                               "has_ada_priorities_selected": {
@@ -4166,7 +4166,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "2",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "1",
-                                              "preference_rank": "COP 2",
+                                              "preference_rank": "V-COP 2",
                                               "preference_record_type": "COP",
                                               "rankOrder": 1.0002,
                                               "residence_address": "1316 BURNETT 1",
@@ -4304,7 +4304,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1001",
                                             "application_number": "Application Name 1001",
                                             "application_preference_id": "1",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 1",
                                             "first_name": "some first name 1",
                                             "has_ada_priorities_selected": {
@@ -4318,7 +4318,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "2",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "1",
-                                            "preference_rank": "COP 2",
+                                            "preference_rank": "V-COP 2",
                                             "preference_record_type": "COP",
                                             "rankOrder": 1.0002,
                                             "residence_address": "1316 BURNETT 1",
@@ -4339,7 +4339,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1001",
                                               "application_number": "Application Name 1001",
                                               "application_preference_id": "1",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 1",
                                               "first_name": "some first name 1",
                                               "has_ada_priorities_selected": {
@@ -4353,7 +4353,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "2",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "1",
-                                              "preference_rank": "COP 2",
+                                              "preference_rank": "V-COP 2",
                                               "preference_record_type": "COP",
                                               "rankOrder": 1.0002,
                                               "residence_address": "1316 BURNETT 1",
@@ -4516,7 +4516,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1001",
                                             "application_number": "Application Name 1001",
                                             "application_preference_id": "1",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 1",
                                             "first_name": "some first name 1",
                                             "has_ada_priorities_selected": {
@@ -4530,7 +4530,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "2",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "1",
-                                            "preference_rank": "COP 2",
+                                            "preference_rank": "V-COP 2",
                                             "preference_record_type": "COP",
                                             "rankOrder": 1.0002,
                                             "residence_address": "1316 BURNETT 1",
@@ -4551,7 +4551,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1001",
                                               "application_number": "Application Name 1001",
                                               "application_preference_id": "1",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 1",
                                               "first_name": "some first name 1",
                                               "has_ada_priorities_selected": {
@@ -4565,7 +4565,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "2",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "1",
-                                              "preference_rank": "COP 2",
+                                              "preference_rank": "V-COP 2",
                                               "preference_record_type": "COP",
                                               "rankOrder": 1.0002,
                                               "residence_address": "1316 BURNETT 1",
@@ -4703,7 +4703,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1001",
                                             "application_number": "Application Name 1001",
                                             "application_preference_id": "1",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 1",
                                             "first_name": "some first name 1",
                                             "has_ada_priorities_selected": {
@@ -4717,7 +4717,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "2",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "1",
-                                            "preference_rank": "COP 2",
+                                            "preference_rank": "V-COP 2",
                                             "preference_record_type": "COP",
                                             "rankOrder": 1.0002,
                                             "residence_address": "1316 BURNETT 1",
@@ -4738,7 +4738,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1001",
                                               "application_number": "Application Name 1001",
                                               "application_preference_id": "1",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 1",
                                               "first_name": "some first name 1",
                                               "has_ada_priorities_selected": {
@@ -4752,7 +4752,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "2",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "1",
-                                              "preference_rank": "COP 2",
+                                              "preference_rank": "V-COP 2",
                                               "preference_record_type": "COP",
                                               "rankOrder": 1.0002,
                                               "residence_address": "1316 BURNETT 1",
@@ -4886,7 +4886,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1001",
                                             "application_number": "Application Name 1001",
                                             "application_preference_id": "1",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 1",
                                             "first_name": "some first name 1",
                                             "has_ada_priorities_selected": {
@@ -4900,7 +4900,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "2",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "1",
-                                            "preference_rank": "COP 2",
+                                            "preference_rank": "V-COP 2",
                                             "preference_record_type": "COP",
                                             "rankOrder": 1.0002,
                                             "residence_address": "1316 BURNETT 1",
@@ -4921,7 +4921,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1001",
                                               "application_number": "Application Name 1001",
                                               "application_preference_id": "1",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 1",
                                               "first_name": "some first name 1",
                                               "has_ada_priorities_selected": {
@@ -4935,7 +4935,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "2",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "1",
-                                              "preference_rank": "COP 2",
+                                              "preference_rank": "V-COP 2",
                                               "preference_record_type": "COP",
                                               "rankOrder": 1.0002,
                                               "residence_address": "1316 BURNETT 1",
@@ -5069,7 +5069,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1001",
                                             "application_number": "Application Name 1001",
                                             "application_preference_id": "1",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 1",
                                             "first_name": "some first name 1",
                                             "has_ada_priorities_selected": {
@@ -5083,7 +5083,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "2",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "1",
-                                            "preference_rank": "COP 2",
+                                            "preference_rank": "V-COP 2",
                                             "preference_record_type": "COP",
                                             "rankOrder": 1.0002,
                                             "residence_address": "1316 BURNETT 1",
@@ -5104,7 +5104,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1001",
                                               "application_number": "Application Name 1001",
                                               "application_preference_id": "1",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 1",
                                               "first_name": "some first name 1",
                                               "has_ada_priorities_selected": {
@@ -5118,7 +5118,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "2",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "1",
-                                              "preference_rank": "COP 2",
+                                              "preference_rank": "V-COP 2",
                                               "preference_record_type": "COP",
                                               "rankOrder": 1.0002,
                                               "residence_address": "1316 BURNETT 1",
@@ -10294,7 +10294,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1003",
                                             "application_number": "Application Name 1003",
                                             "application_preference_id": "3",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 3",
                                             "first_name": "some first name 3",
                                             "has_ada_priorities_selected": {
@@ -10308,7 +10308,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "3",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "2",
-                                            "preference_rank": "COP 3",
+                                            "preference_rank": "V-COP 3",
                                             "preference_record_type": "COP",
                                             "rankOrder": 2.0003,
                                             "residence_address": "1316 BURNETT 3",
@@ -10329,7 +10329,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1003",
                                               "application_number": "Application Name 1003",
                                               "application_preference_id": "3",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 3",
                                               "first_name": "some first name 3",
                                               "has_ada_priorities_selected": {
@@ -10343,7 +10343,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "3",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "2",
-                                              "preference_rank": "COP 3",
+                                              "preference_rank": "V-COP 3",
                                               "preference_record_type": "COP",
                                               "rankOrder": 2.0003,
                                               "residence_address": "1316 BURNETT 3",
@@ -10501,7 +10501,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1003",
                                             "application_number": "Application Name 1003",
                                             "application_preference_id": "3",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 3",
                                             "first_name": "some first name 3",
                                             "has_ada_priorities_selected": {
@@ -10515,7 +10515,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "3",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "2",
-                                            "preference_rank": "COP 3",
+                                            "preference_rank": "V-COP 3",
                                             "preference_record_type": "COP",
                                             "rankOrder": 2.0003,
                                             "residence_address": "1316 BURNETT 3",
@@ -10536,7 +10536,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1003",
                                               "application_number": "Application Name 1003",
                                               "application_preference_id": "3",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 3",
                                               "first_name": "some first name 3",
                                               "has_ada_priorities_selected": {
@@ -10550,7 +10550,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "3",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "2",
-                                              "preference_rank": "COP 3",
+                                              "preference_rank": "V-COP 3",
                                               "preference_record_type": "COP",
                                               "rankOrder": 2.0003,
                                               "residence_address": "1316 BURNETT 3",
@@ -10588,7 +10588,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                         width={104}
                                       >
                                         <PreferenceRankCell
-                                          preferenceRank="COP 3"
+                                          preferenceRank="V-COP 3"
                                         >
                                           <div
                                             style={
@@ -10608,7 +10608,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                                 }
                                               }
                                             >
-                                              COP 3
+                                              V-COP 3
                                             </div>
                                           </div>
                                         </PreferenceRankCell>
@@ -10703,7 +10703,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1003",
                                             "application_number": "Application Name 1003",
                                             "application_preference_id": "3",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 3",
                                             "first_name": "some first name 3",
                                             "has_ada_priorities_selected": {
@@ -10717,7 +10717,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "3",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "2",
-                                            "preference_rank": "COP 3",
+                                            "preference_rank": "V-COP 3",
                                             "preference_record_type": "COP",
                                             "rankOrder": 2.0003,
                                             "residence_address": "1316 BURNETT 3",
@@ -10738,7 +10738,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1003",
                                               "application_number": "Application Name 1003",
                                               "application_preference_id": "3",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 3",
                                               "first_name": "some first name 3",
                                               "has_ada_priorities_selected": {
@@ -10752,7 +10752,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "3",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "2",
-                                              "preference_rank": "COP 3",
+                                              "preference_rank": "V-COP 3",
                                               "preference_record_type": "COP",
                                               "rankOrder": 2.0003,
                                               "residence_address": "1316 BURNETT 3",
@@ -10893,7 +10893,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1003",
                                             "application_number": "Application Name 1003",
                                             "application_preference_id": "3",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 3",
                                             "first_name": "some first name 3",
                                             "has_ada_priorities_selected": {
@@ -10907,7 +10907,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "3",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "2",
-                                            "preference_rank": "COP 3",
+                                            "preference_rank": "V-COP 3",
                                             "preference_record_type": "COP",
                                             "rankOrder": 2.0003,
                                             "residence_address": "1316 BURNETT 3",
@@ -10928,7 +10928,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1003",
                                               "application_number": "Application Name 1003",
                                               "application_preference_id": "3",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 3",
                                               "first_name": "some first name 3",
                                               "has_ada_priorities_selected": {
@@ -10942,7 +10942,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "3",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "2",
-                                              "preference_rank": "COP 3",
+                                              "preference_rank": "V-COP 3",
                                               "preference_record_type": "COP",
                                               "rankOrder": 2.0003,
                                               "residence_address": "1316 BURNETT 3",
@@ -11080,7 +11080,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1003",
                                             "application_number": "Application Name 1003",
                                             "application_preference_id": "3",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 3",
                                             "first_name": "some first name 3",
                                             "has_ada_priorities_selected": {
@@ -11094,7 +11094,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "3",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "2",
-                                            "preference_rank": "COP 3",
+                                            "preference_rank": "V-COP 3",
                                             "preference_record_type": "COP",
                                             "rankOrder": 2.0003,
                                             "residence_address": "1316 BURNETT 3",
@@ -11115,7 +11115,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1003",
                                               "application_number": "Application Name 1003",
                                               "application_preference_id": "3",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 3",
                                               "first_name": "some first name 3",
                                               "has_ada_priorities_selected": {
@@ -11129,7 +11129,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "3",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "2",
-                                              "preference_rank": "COP 3",
+                                              "preference_rank": "V-COP 3",
                                               "preference_record_type": "COP",
                                               "rankOrder": 2.0003,
                                               "residence_address": "1316 BURNETT 3",
@@ -11292,7 +11292,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1003",
                                             "application_number": "Application Name 1003",
                                             "application_preference_id": "3",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 3",
                                             "first_name": "some first name 3",
                                             "has_ada_priorities_selected": {
@@ -11306,7 +11306,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "3",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "2",
-                                            "preference_rank": "COP 3",
+                                            "preference_rank": "V-COP 3",
                                             "preference_record_type": "COP",
                                             "rankOrder": 2.0003,
                                             "residence_address": "1316 BURNETT 3",
@@ -11327,7 +11327,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1003",
                                               "application_number": "Application Name 1003",
                                               "application_preference_id": "3",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 3",
                                               "first_name": "some first name 3",
                                               "has_ada_priorities_selected": {
@@ -11341,7 +11341,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "3",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "2",
-                                              "preference_rank": "COP 3",
+                                              "preference_rank": "V-COP 3",
                                               "preference_record_type": "COP",
                                               "rankOrder": 2.0003,
                                               "residence_address": "1316 BURNETT 3",
@@ -11479,7 +11479,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1003",
                                             "application_number": "Application Name 1003",
                                             "application_preference_id": "3",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 3",
                                             "first_name": "some first name 3",
                                             "has_ada_priorities_selected": {
@@ -11493,7 +11493,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "3",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "2",
-                                            "preference_rank": "COP 3",
+                                            "preference_rank": "V-COP 3",
                                             "preference_record_type": "COP",
                                             "rankOrder": 2.0003,
                                             "residence_address": "1316 BURNETT 3",
@@ -11514,7 +11514,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1003",
                                               "application_number": "Application Name 1003",
                                               "application_preference_id": "3",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 3",
                                               "first_name": "some first name 3",
                                               "has_ada_priorities_selected": {
@@ -11528,7 +11528,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "3",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "2",
-                                              "preference_rank": "COP 3",
+                                              "preference_rank": "V-COP 3",
                                               "preference_record_type": "COP",
                                               "rankOrder": 2.0003,
                                               "residence_address": "1316 BURNETT 3",
@@ -11662,7 +11662,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1003",
                                             "application_number": "Application Name 1003",
                                             "application_preference_id": "3",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 3",
                                             "first_name": "some first name 3",
                                             "has_ada_priorities_selected": {
@@ -11676,7 +11676,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "3",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "2",
-                                            "preference_rank": "COP 3",
+                                            "preference_rank": "V-COP 3",
                                             "preference_record_type": "COP",
                                             "rankOrder": 2.0003,
                                             "residence_address": "1316 BURNETT 3",
@@ -11697,7 +11697,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1003",
                                               "application_number": "Application Name 1003",
                                               "application_preference_id": "3",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 3",
                                               "first_name": "some first name 3",
                                               "has_ada_priorities_selected": {
@@ -11711,7 +11711,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "3",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "2",
-                                              "preference_rank": "COP 3",
+                                              "preference_rank": "V-COP 3",
                                               "preference_record_type": "COP",
                                               "rankOrder": 2.0003,
                                               "residence_address": "1316 BURNETT 3",
@@ -11845,7 +11845,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "application_id": "1003",
                                             "application_number": "Application Name 1003",
                                             "application_preference_id": "3",
-                                            "custom_preference_type": undefined,
+                                            "custom_preference_type": "V-COP",
                                             "email": "some email 3",
                                             "first_name": "some first name 3",
                                             "has_ada_priorities_selected": {
@@ -11859,7 +11859,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                             "preference_lottery_rank": "3",
                                             "preference_name": "Certificate of Preference",
                                             "preference_order": "2",
-                                            "preference_rank": "COP 3",
+                                            "preference_rank": "V-COP 3",
                                             "preference_record_type": "COP",
                                             "rankOrder": 2.0003,
                                             "residence_address": "1316 BURNETT 3",
@@ -11880,7 +11880,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "application_id": "1003",
                                               "application_number": "Application Name 1003",
                                               "application_preference_id": "3",
-                                              "custom_preference_type": undefined,
+                                              "custom_preference_type": "V-COP",
                                               "email": "some email 3",
                                               "first_name": "some first name 3",
                                               "has_ada_priorities_selected": {
@@ -11894,7 +11894,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                                               "preference_lottery_rank": "3",
                                               "preference_name": "Certificate of Preference",
                                               "preference_order": "2",
-                                              "preference_rank": "COP 3",
+                                              "preference_rank": "V-COP 3",
                                               "preference_record_type": "COP",
                                               "rankOrder": 2.0003,
                                               "residence_address": "1316 BURNETT 3",
@@ -29082,7 +29082,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                             "application_id": "1001",
                             "application_number": "Application Name 1001",
                             "application_preference_id": "1",
-                            "custom_preference_type": undefined,
+                            "custom_preference_type": "V-COP",
                             "email": "some email 1",
                             "first_name": "some first name 1",
                             "has_ada_priorities_selected": {
@@ -29096,7 +29096,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                             "preference_lottery_rank": "2",
                             "preference_name": "Certificate of Preference",
                             "preference_order": "1",
-                            "preference_rank": "COP 2",
+                            "preference_rank": "V-COP 2",
                             "preference_record_type": "COP",
                             "rankOrder": 1.0002,
                             "residence_address": "1316 BURNETT 1",
@@ -29136,7 +29136,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                             "application_id": "1003",
                             "application_number": "Application Name 1003",
                             "application_preference_id": "3",
-                            "custom_preference_type": undefined,
+                            "custom_preference_type": "V-COP",
                             "email": "some email 3",
                             "first_name": "some first name 3",
                             "has_ada_priorities_selected": {
@@ -29150,7 +29150,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                             "preference_lottery_rank": "3",
                             "preference_name": "Certificate of Preference",
                             "preference_order": "2",
-                            "preference_rank": "COP 3",
+                            "preference_rank": "V-COP 3",
                             "preference_record_type": "COP",
                             "rankOrder": 2.0003,
                             "residence_address": "1316 BURNETT 3",
@@ -29338,7 +29338,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                               "application_id": "1001",
                               "application_number": "Application Name 1001",
                               "application_preference_id": "1",
-                              "custom_preference_type": undefined,
+                              "custom_preference_type": "V-COP",
                               "email": "some email 1",
                               "first_name": "some first name 1",
                               "has_ada_priorities_selected": {
@@ -29352,7 +29352,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                               "preference_lottery_rank": "2",
                               "preference_name": "Certificate of Preference",
                               "preference_order": "1",
-                              "preference_rank": "COP 2",
+                              "preference_rank": "V-COP 2",
                               "preference_record_type": "COP",
                               "rankOrder": 1.0002,
                               "residence_address": "1316 BURNETT 1",
@@ -29422,7 +29422,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                               "application_id": "1003",
                               "application_number": "Application Name 1003",
                               "application_preference_id": "3",
-                              "custom_preference_type": undefined,
+                              "custom_preference_type": "V-COP",
                               "email": "some email 3",
                               "first_name": "some first name 3",
                               "has_ada_priorities_selected": {
@@ -29436,7 +29436,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                               "preference_lottery_rank": "3",
                               "preference_name": "Certificate of Preference",
                               "preference_order": "2",
-                              "preference_rank": "COP 3",
+                              "preference_rank": "V-COP 3",
                               "preference_record_type": "COP",
                               "rankOrder": 2.0003,
                               "residence_address": "1316 BURNETT 3",
@@ -29604,7 +29604,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                               "application_id": "1001",
                               "application_number": "Application Name 1001",
                               "application_preference_id": "1",
-                              "custom_preference_type": undefined,
+                              "custom_preference_type": "V-COP",
                               "email": "some email 1",
                               "first_name": "some first name 1",
                               "has_ada_priorities_selected": {
@@ -29618,7 +29618,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                               "preference_lottery_rank": "2",
                               "preference_name": "Certificate of Preference",
                               "preference_order": "1",
-                              "preference_rank": "COP 2",
+                              "preference_rank": "V-COP 2",
                               "preference_record_type": "COP",
                               "rankOrder": 1.0002,
                               "residence_address": "1316 BURNETT 1",
@@ -29688,7 +29688,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                               "application_id": "1003",
                               "application_number": "Application Name 1003",
                               "application_preference_id": "3",
-                              "custom_preference_type": undefined,
+                              "custom_preference_type": "V-COP",
                               "email": "some email 3",
                               "first_name": "some first name 3",
                               "has_ada_priorities_selected": {
@@ -29702,7 +29702,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                               "preference_lottery_rank": "3",
                               "preference_name": "Certificate of Preference",
                               "preference_order": "2",
-                              "preference_rank": "COP 3",
+                              "preference_rank": "V-COP 3",
                               "preference_record_type": "COP",
                               "rankOrder": 2.0003,
                               "residence_address": "1316 BURNETT 3",
