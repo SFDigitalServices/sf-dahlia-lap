@@ -22,8 +22,13 @@ import {
   getPreferenceName
 } from './preferences/utils'
 
-const hasExpanderButton = (prefName) =>
-  !overSome(isCOP, isDTHP, isAliceGriffith, isRightToReturn)(prefName)
+const hasExpanderButton = (prefName) => {
+  const resp = prefName.includes('Veterans')
+    ? true
+    : !overSome(isCOP, isDTHP, isAliceGriffith, isRightToReturn)(prefName)
+  console.log(`called with ${prefName} returns a value of ${resp}`)
+  return resp
+}
 
 const onlyValid = (preferences) => {
   return reject(preferences, (pref) => {
