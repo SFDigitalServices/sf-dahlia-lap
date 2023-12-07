@@ -27,7 +27,7 @@ const hasExpanderButton = (prefName) =>
 
 const onlyValid = (preferences) => {
   return reject(preferences, (pref) => {
-    return !pref.receives_preference
+    return !pref.receives_preference || pref.preference_name.includes('Veterans')
   })
 }
 
@@ -52,7 +52,15 @@ const buildRows = (application, applicationMembers, fileBaseUrl) => {
   const { preferences } = application
   const proofFiles = application.proof_files
   const sortedPreferences = orderBy(preferences, 'preference_order', 'asc')
-  return onlyValid(sortedPreferences).map(buildRow(proofFiles, applicationMembers, fileBaseUrl))
+  const validPrefs = onlyValid(sortedPreferences).map(
+    buildRow(proofFiles, applicationMembers, fileBaseUrl)
+  )
+  const veteranPrefs = sortedPreferences.filter((pref) => pref.preference_name.includes('Veterans'))
+  if (veteranPrefs.length > 0) {
+    const veteranRow = buildRow(proofFiles, applicationMembers, fileBaseUrl)(veteranPrefs[0])
+    validPrefs.unshift(veteranRow)
+  }
+  return validPrefs
 }
 
 const columns = [
