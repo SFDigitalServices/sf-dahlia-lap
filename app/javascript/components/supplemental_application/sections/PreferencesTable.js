@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 
 import { reject, overSome, findIndex, orderBy, kebabCase } from 'lodash'
 
@@ -109,6 +109,17 @@ const PreferencesTable = ({
     dispatch
   ] = useAppContext()
 
+  const [vetPrefIds, setVetPrefIds] = useState([])
+
+  useMemo(() => {
+    const ids = application.preferences
+      .filter((pref) => pref.preference_name.includes('Veterans') && pref.receives_preference)
+      .map((pref) => {
+        return pref.preference_order - 1
+      })
+    setVetPrefIds(ids)
+  }, [application.preferences])
+
   const rows = buildRows(application, applicationMembers, fileBaseUrl)
 
   const expandedRowIndices = convertPreferenceToTableIndices(
@@ -142,11 +153,13 @@ const PreferencesTable = ({
           }}
           renderRow={(_, row) => {
             const preferenceIndex = getPreferenceIndex(row, application)
+            const preference = application.preferences[preferenceIndex]
             return (
               <Panel
                 application={application}
                 applicationMembers={applicationMembers}
                 preferenceIndex={preferenceIndex}
+                relatedIds={preference.preference_name.includes('Veterans') ? vetPrefIds : []}
                 onSave={onSave}
                 onClose={() => preferenceRowClosed(dispatch, preferenceIndex)}
                 form={form}
