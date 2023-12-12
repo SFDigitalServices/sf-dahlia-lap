@@ -29,7 +29,6 @@ describe('Checkbox', () => {
 
     test('the input does not have indeterminate class', () => {
       expect(screen.getByRole('checkbox')).not.toHaveClass('indeterminate')
-      // expect(wrapper.find('input').props().className.includes('indeterminate')).toBeFalsy()
     })
   })
 

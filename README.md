@@ -10,17 +10,19 @@ Only showing rspec tests for now:
 Cross-browser testing done with <a href="https://www.browserstack.com/"><img src="./Browserstack-logo@2x.png?raw=true" height="36" ></a>
 
 ## Setup
-* Use Ruby 3.1.3 (Set the version using [RVM](https://rvm.io/rvm/install) or [rbenv](https://github.com/rbenv/rbenv))
-* Install [Bundler](https://github.com/bundler/bundler) `gem install bundler`
-* Use Node v18.12.x (npm v8.19.2)
-* Install Yarn (if you have Homebrew you can run `brew install yarn`)
-* Run `yarn install`
-* Run `bundle install`
+
+- Use Ruby 3.1.3 (Set the version using [RVM](https://rvm.io/rvm/install) or [rbenv](https://github.com/rbenv/rbenv))
+- Install [Bundler](https://github.com/bundler/bundler) `gem install bundler`
+- Use Node v18.12.x (npm v8.19.2)
+- Install Yarn (if you have Homebrew you can run `brew install yarn`)
+- Run `yarn install`
+- Run `bundle install`
   - see [here](https://stackoverflow.com/a/19850273/260495) if you have issues installing `pg` gem with Postgres.app, you may need to use: `gem install pg -v 0.21.0 -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/latest/bin/pg_config`
   - if you need to run this command make sure you run `bundle install` again following the success of the postgres installation to install the remaining gems
-- Run `overcommit --install`
-- Create a `.env` file in the root directory and ask a team member for access to the local development secrets
-- Setup your local database by running `bin/rails db:migrate RAILS_ENV=development`
+
+* Run `overcommit --install`
+* Create a `.env` file in the root directory and ask a team member for access to the local development secrets
+* Setup your local database by running `bin/rails db:migrate RAILS_ENV=development`
 
 ### VSCode setup
 
@@ -34,7 +36,7 @@ Open the partners projects in VSCode, click the extensions tab and filter by rec
 
 Necessary configs are defined in [.vscode/settings.json](.vscode/settings.json). you can override those configs or change additional settings by changing the apps user settings (Code -> Preferences -> Settings or using the shortcut `CMD + ,`)
 
-## To run server
+## To run server and client concurrently
 
 - `yarn start`
 - Access the app at [http://localhost:3000/](http://localhost:3000/)
@@ -81,9 +83,9 @@ If the Salesforce API changes for a request, or if the data sent to the API for 
 
 In order to update the cassettes you have to:
 
-* Go to your failing test.
-* Locate the instruction that is creating the cassette with `VCR.use_cassette`.
-* Remove the cassette specified from `spec/vcr/`
+- Go to your failing test.
+- Locate the instruction that is creating the cassette with `VCR.use_cassette`.
+- Remove the cassette specified from `spec/vcr/`
 
 For example, for:
 
@@ -117,7 +119,7 @@ _Note: Snapshots should be pushed to the repo_
 
 To view the e2e tests as they're running, set `HEADLESS` to `false` in [this file](https://github.com/SFDigitalServices/sf-dahlia-lap/blob/main/spec/javascript/support/puppeteer/consts.js#L51)
 
-#### Run server (in a terminal window)
+#### Run server and client concurrently (in a terminal window)
 
 `yarn start`
 
@@ -135,135 +137,41 @@ To run an individual test:
 
 `yarn test:all path/to/test`
 
-### Writing component unit tests
+### Writing unit tests with React Testing Library
 
 #### General best practices
 
-1. Use [Enzyme](https://enzymejs.github.io/enzyme/docs/api/shallow.html)’s shallow rendering instead of react-test-renderer.create or Enzyme mount for all unit tests (snapshot and otherwise).
-   - There are some cases where you’ll need to use mount instead of shallow, like when you need to test componentDidMount functionality or something
-2. Snapshot tests are fine for very simple components, but for anything more complex we should write actual unit tests instead of (or along with) snapshot tests
+[React Testing Library (RTL)](https://testing-library.com/docs/queries/about) is a library for testing React components in a way that resembles how your app's users would interact with your app. Instead of dealing with instances of rendered React components, your tests will work with actual DOM nodes rendered in a headless version of Chromium
 
-For more information on why shallow rendering is simpler than full rendering, check out the comments on [this pr](https://github.com/SFDigitalServices/sf-dahlia-lap/pull/386).
+RTL encourages you to interact with your components in the same way a user would, rather than testing implementation details like props being passed, internal state, or styling. This means RTL tests tend to be more resilient to changes in your app's code and can catch a wider range of bugs.
 
-#### Shallow vs. Mount explained
+1. Interact with your components like a user: Use RTL's fireEvent (or userEvent) functions to simulate user interactions like clicking buttons, typing into inputs, and submitting forms. Avoid interacting with your components in ways a user couldn't, like by setting props or state directly.
 
-Say you have two components `<A />` and `<B />`:
+2. Query by specific accessible roles and labels: Use RTL's getByRole, getByLabelText, and other similar functions to select elements in your tests. These functions select elements based on their accessible roles and labels, which is how users find and interact with elements. Avoid selecting elements by their tag name, class name, or other implementation details.
 
-```
-const B = ({ className }) => (
-  <div className={className || 'BClass'} />
-)
+   - When trying to query for something, try to be as specific as possible. A button, for example can be queried with `screen.getByRole('button)`, but you could also be more specific and say `screen.getByRole('button, {name: 'click me'})`
+   - `getBy*` and `queryBy*` operate slightly differently, the former will throw an error is nothing is found, while the latter will simply return undefined if no elements are found. If you are querying for something that you know isn't there, then use `expect(screen.queryBy*(element)).not.toBeInTheDocument()`
+   - `[get|query]AllBy*` and `[get|query]By*` are also different, with the former returning an array and the other returning only one (and throwing an error if it finds otherwise).
 
-const A = ({}) => (
-  <div>
-    <B className='AClass' />
-  </div>
-)
-```
+3. Snapshots are a great way to mass verify that a component is being rendered correctly. However, they should be used sparingly because they are both brittle and not a great way to detect something breaking.
+4. Tests should not be overly complex.
+   - If you feel like a test is testing too many different things, or that your test is trying to run a user flow, consider making it an E2E test.
+   - Don't double test something. For example, if a component uses a button that is itself being tested independently, then there is no need to test it in another component, unless the button is being used in a novel way
 
-`mount(<A />)` would create a snapshot that looks like this:
+#### Debugging
 
-```
-  <div>
-    <div className='AClass' />
-  </div>
-```
+Some things to consider when debugging:
 
-`shallow(<A />)` would create a snapshot that looks like this:
+- Are you missing a context provider that you can mock using jest?
+- Should an action or assertion be wrapped in `act`?
+- Are you using getBy when you should be using queryBy?
+- Is the test inheriting something from a beforeEach or from a parent test?
 
-```
-  <div>
-    <B className='AClass' />
-  </div>
-```
+The `screen` constant provides a lot of good debugging tools:
 
-Shallow rendering is preferred because the snapshot is simpler, and it ensures you're actually writing a unit test, not a test that will search the whole tree.
-
-##### When do you need to use mount rendering?
-
-- When you need to test functionality of `componentDidMount`
-- When you actually want to write an end-to-end snapshot test that looks at all of the children
-  - There are usually better tests to write than this if you have the time
-- When it's less confusing than adding a bunch of `.dive().dive()`'s to your tests
-  - For example, if you wanted to check that react-final-form adds the correct error label to an input, it's usually easier to mount render and find the class, rather than traverse the shallow render tree with a whole bunch of dive()s.
-
-#### Unit testing components with form or context
-
-Shallow rendering is more complicated when you're using connected components, that are wrapped with useContext or work with [react-final-form](https://final-form.org/docs/react-final-form/getting-started)'s form objects.
-
-The [wrapperUtil.js](spec/javascript/testUtils/wrapperUtil.js) contains utils to help with shallow rendering components that use context or form.
-
-##### Example: shallow rendering a component that has a form passed in
-
-Say you want to test a component that looks like this:
-
-```
-const ComponentThatUsesForm = ({ form }) => (
-  <div>
-    <ComponentA someProp={form.something} />
-    <ComponentB />
-  <div/>
-)
-```
-
-You can test it like:
-
-```
-import { withForm } from 'spec/javascript/testUtils/wrapperUtil.js'
-import ComponentA from '...'
-
-test('it renders ComponentA', () => {
-  const application = { id: 'appid', <some other application fields>}
-
-  const wrapper = withForm(application, (form) => <ChildThatNeedsForm form={form} />)
-
-  expect(wrapper.find(ComponentA)).toHaveLength(1)
-})
-```
-
-##### Example: shallow rendering a component that uses form and context
-
-Say you want to test a component that looks like this:
-
-```
-const ComponentThatUsesFormAndContext = ({ form, store }) => {
-
-  return (
-    <div>
-      <ComponentA somePropA={form.something} />
-      <ComponentB somePropB={store.contextField} />
-    <div/>
-  )
-}
-
-export withContext(ComponentThatUsesFormAndContext)
-```
-
-You can test it like:
-
-```
-import { shallowWithFormAndContext } from 'spec/javascript/testUtils/wrapperUtil.js'
-import ComponentA from '...'
-
-test('it renders ComponentA', () => {
-  // Note that the context object must have an application on it, because form expects an application.
-  const context = {
-    application: { id: 'appid', <some other application fields>}
-  }
-
-  const wrapper = shallowWithFormAndContext(
-    context,
-    (form) => <ComponentThatUsesFormAndContext form={form} />
-  )
-
-  expect(wrapper.find(ComponentA)).toHaveLength(1)
-})
-```
-
-#### Example files that follow these best practices
-
-- Non-form component: [StatusHistoryContainer.test.js](spec/javascript/components/molecules/lease_up_sidebar/StatusHistoryContainer.test.js)
-- Form-component: [RentalAssistance.test.js](spec/javascript/components/supplemental_application/sections/RentalAssistance.test.js)
+- `screen.logTestingPlaygroundURL` will output a url that has encoded everything the test was looking at. Copy the url and past it into the browser to see what the test was looking at rendered (without styling). The tool will also help you to find the most effective selector.
+- `screen.debug([component])` will render the component in the terminal in a much more pretty way than console.log will.
+- If you are having issues with only one test in a large testing suite, use `test.only(...)` to only run that single test. The inverse is also true, where using `test.skip(...)` will skip that specific test
 
 ## Scripts
 

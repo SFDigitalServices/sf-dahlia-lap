@@ -28,12 +28,10 @@ describe('PageHeader', () => {
 
     test('should not render BreadCrumbs when empty', () => {
       expect(screen.queryByLabelText('breadcrumb')).not.toBeInTheDocument()
-      // expect(wrapper.find(BreadCrumbs)).toHaveLength(0)
     })
 
     test('should not render the header with has-breadcrumbs style', () => {
       expect(screen.queryByRole('banner')).not.toHaveClass('has-breadcrumbs')
-      // expect(wrapper.find('header.has-breadcrumbs')).toHaveLength(0)
     })
 
     test('should render the header with serif', () => {

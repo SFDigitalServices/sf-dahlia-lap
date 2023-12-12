@@ -44,7 +44,6 @@ describe('GoogleAnalyticsTracker', () => {
   const clickLink = async (text) => {
     await act(async () => {
       fireEvent.click(screen.getByRole('link', text))
-      // findWithText(wrapper, Link, text).find('a').simulate('click', { button: 0 })
     })
   }
 

@@ -119,7 +119,6 @@ describe('Tab', () => {
     })
 
     test('triggers onClick properly', () => {
-      // wrapper.find('button').simulate('click')
       fireEvent.click(screen.getByRole('menuitem'))
       expect(mockOnClick.mock.calls).toHaveLength(1)
     })

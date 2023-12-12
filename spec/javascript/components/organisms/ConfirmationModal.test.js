@@ -168,7 +168,6 @@ describe('ConfirmationModal', () => {
 
     test('should trigger the onPrimaryClick listener when primary button is clicked', () => {
       fireEvent.click(screen.queryByRole('link', { name: /primary text/i, hidden: true }))
-      // findWithText(wrapper, 'a', PRIMARY_TEXT).simulate('click')
 
       expect(ON_CLOSE.mock.calls).toHaveLength(0)
       expect(ON_PRIMARY_CLICK.mock.calls).toHaveLength(1)

@@ -13,7 +13,15 @@ const GoogleAnalyticsTracker = ({ mockWindow = null }) => {
     const newPath = location.pathname + location.search
     const isFirstRender = lastPath === null
     const isNewPage = lastPath !== newPath
-    if (typeof ga === 'function' && isNewPage && !isFirstRender) {
+    if (
+      typeof ga === 'function' &&
+      isNewPage &&
+      // we don't want to trigger analytics on first render, because we're already going that in application.html.slim.
+      // routed analytics tracking should only be for navigation within routed apps.
+      // TODO: when/if all of partners is migrated to single page app we can get rid of application.html.slim
+      // tracking and do it all via routing.
+      !isFirstRender
+    ) {
       ga('set', 'page', newPath)
       ga('send', 'pageview')
     }

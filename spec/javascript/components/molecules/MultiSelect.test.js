@@ -1,6 +1,5 @@
 import React from 'react'
 
-// import { shallow } from 'enzyme'
 import { render, screen, fireEvent } from '@testing-library/react'
 import selectEvent from 'react-select-event'
 

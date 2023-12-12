@@ -230,7 +230,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     style="flex-shrink: 0; font-size: 0px;"
                   >
                     <svg
-                      data-testid="button-iconLeft"
+                      data-testid="button-icon-left"
                       style="width: 1.25rem; height: 1.25rem;"
                     >
                       <use

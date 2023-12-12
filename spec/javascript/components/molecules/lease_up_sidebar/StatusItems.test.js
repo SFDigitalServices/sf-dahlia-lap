@@ -62,13 +62,11 @@ describe('StatusItems', () => {
     test('should render no status items when no limit is specified', () => {
       getScreen(statusItems)
       expect(screen.queryByTestId('status-item')).not.toBeInTheDocument()
-      // expect(getScreen(statusItems).find(StatusItem)).toHaveLength(0)
     })
 
     test('should render no status items when limit is 0', () => {
       getScreen(statusItems)
       expect(screen.queryByTestId('status-item')).not.toBeInTheDocument()
-      // expect(getScreen(statusItems, 0).find(StatusItem)).toHaveLength(0)
     })
 
     test('should render no status items when limit is 1', () => {

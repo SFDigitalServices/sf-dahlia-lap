@@ -56,8 +56,6 @@ describe('StatusItem', () => {
 
   test('should format timestamps as expected', () => {
     render(<StatusItem statusItem={mockStatusItem({ status: 'Lease Signed', substatus: null })} />)
-    // const timestamp = wrapper.find('StatusDate').text()
-    // expect(timestamp).toEqual('Aug 25, 2020')
     expect(screen.getByText('Aug 25, 2020')).toBeInTheDocument()
   })
 })

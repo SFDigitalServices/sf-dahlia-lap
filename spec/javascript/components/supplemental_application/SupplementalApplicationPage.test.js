@@ -167,17 +167,6 @@ const getWrapper = async (id = getMockApplication().id) => {
   return await act(async () => renderAppWithUrl(getWindowUrl(id)))
 }
 
-// const getWrapper = async (id = getMockApplication().id, unitId = null) => {
-//   let wrapper
-//   await act(async () => {
-//     wrapper = renderAppWithUrl(getWindowUrl(id))
-//   })
-
-//   wrapper.update()
-
-//   return wrapper
-// }
-
 describe('SupplementalApplicationPage', () => {
   const originalLocation = window.location
   beforeEach(() => {
@@ -394,10 +383,6 @@ describe('SupplementalApplicationPage', () => {
         )
       })
 
-      // act(() => {
-      //   wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
-      // })
-
       await act(async () => {
         fireEvent.submit(screen.getByRole('form'))
       })
@@ -601,7 +586,6 @@ describe('SupplementalApplicationPage', () => {
         await getWrapper()
 
         fireEvent.click(screen.getByRole('button', { name: /edit lease/i }))
-        // wrapper.find('#edit-lease-button').first().simulate('click')
 
         selectEvent.openMenu(
           within(
@@ -647,7 +631,6 @@ describe('SupplementalApplicationPage', () => {
         await getWrapper()
 
         fireEvent.click(screen.getByRole('button', { name: /edit lease/i }))
-        // wrapper.find('#edit-lease-button').first().simulate('click')
 
         selectEvent.openMenu(
           within(

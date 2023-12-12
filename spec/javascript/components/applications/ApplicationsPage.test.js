@@ -23,13 +23,11 @@ describe('ApplicationsPage', () => {
         resolve(render(<ApplicationsPage />))
       })
     })
-    // await wait(2000)
 
     expect(asFragment()).toMatchSnapshot()
   })
   test('should display data correctly', async () => {
     await act(() => render(<ApplicationsPage listings={listings} />))
-    // await wait(2000)
 
     expect(screen.queryAllByText(/200 buchanan \(alchemy by alta\)/i)).toBeTruthy()
     expect(

@@ -82,7 +82,7 @@ const PreferenceForm = ({ i, name, form, listingPreferences, fullHousehold }) =>
             options={listingPreferencesOptions}
             id={`select-paper-preference-${i}`}
             onChange={(event) => clearPreference(form, i, event.target.value)}
-            dataTestId={`${name}.listing_preference_id`}
+            dataTestId={`${name}-listing-preference-id`}
           />
         </Column>
         <PreferenceAdditionalOptions

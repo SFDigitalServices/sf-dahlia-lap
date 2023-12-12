@@ -123,7 +123,6 @@ describe('LeaseUpApplicationsFilters', () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(1)
     })
 
-    // "Mobility impairments"
     test('should call onFilterChanged when Accessibility Requests changes', () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(0)
       const preferenceField = screen.getAllByTestId('multiSelectField')[2]

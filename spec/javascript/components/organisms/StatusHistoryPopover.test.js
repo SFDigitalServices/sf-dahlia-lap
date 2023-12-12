@@ -60,7 +60,6 @@ describe('StatusHistoryPopover', () => {
 
     test('does not set a fixed height for status items', () => {
       expect(rtlWrapper.asFragment()).toMatchSnapshot()
-      // expect(wrapper.find('StatusItems').prop('height')).toBeNull()
     })
   })
   describe('when there are more than 4 status items', () => {

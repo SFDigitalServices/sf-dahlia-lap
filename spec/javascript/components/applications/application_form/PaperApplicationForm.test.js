@@ -400,7 +400,7 @@ describe('PaperApplicationForm', () => {
   describe('preferences section', () => {
     // Helper function for updating preference select successfully
     const updatePreference = async (prefId) => {
-      fireEvent.change(screen.getByTestId('preferences[0].listing_preference_id'), {
+      fireEvent.change(screen.getByTestId('preferences[0]-listing-preference-id'), {
         target: { value: prefId }
       })
     }
@@ -506,7 +506,7 @@ describe('PaperApplicationForm', () => {
           name: /name of cop holder \(required\)/i
         })
       ).toHaveValue(hhNaturalKey)
-      expect(screen.getByTestId('preferences[0].listing_preference_id')).toHaveValue(
+      expect(screen.getByTestId('preferences[0]-listing-preference-id')).toHaveValue(
         copPreferenceId
       )
 
@@ -555,7 +555,7 @@ describe('PaperApplicationForm', () => {
           name: /name of cop holder \(required\)/i
         })
       ).toHaveValue(hhNaturalKey)
-      expect(screen.getByTestId('preferences[0].listing_preference_id')).toHaveValue(
+      expect(screen.getByTestId('preferences[0]-listing-preference-id')).toHaveValue(
         copPreferenceId
       )
 
@@ -563,7 +563,7 @@ describe('PaperApplicationForm', () => {
       await updatePreference(liveWorkPreferenceId)
 
       // Verify the state is cleared except for listing preference id
-      expect(screen.getByTestId('preferences[0].listing_preference_id')).toHaveValue(
+      expect(screen.getByTestId('preferences[0]-listing-preference-id')).toHaveValue(
         liveWorkPreferenceId
       )
     })

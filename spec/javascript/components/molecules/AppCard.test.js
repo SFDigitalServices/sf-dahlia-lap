@@ -1,6 +1,5 @@
 import React from 'react'
 
-// import { shallow } from 'enzyme'
 import { render, screen } from '@testing-library/react'
 
 import AppCard from 'components/molecules/AppCard'

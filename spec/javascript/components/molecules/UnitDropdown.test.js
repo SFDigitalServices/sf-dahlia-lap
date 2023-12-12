@@ -1,6 +1,5 @@
 import React from 'react'
 
-// import { mount, shallow } from 'enzyme'
 import { render, screen } from '@testing-library/react'
 
 import UnitDropdown, { renderUnitOption } from 'components/molecules/UnitDropdown'

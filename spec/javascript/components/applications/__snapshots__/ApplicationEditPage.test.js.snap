@@ -1580,7 +1580,7 @@ exports[`ApplicationEditPage should render successfully 1`] = `
                         >
                           <select
                             class=""
-                            data-testid="preferences[0].listing_preference_id"
+                            data-testid="preferences[0]-listing-preference-id"
                             id="select-paper-preference-0"
                             name="preferences[0].listing_preference_id"
                           >
@@ -1661,7 +1661,7 @@ exports[`ApplicationEditPage should render successfully 1`] = `
                         >
                           <select
                             class=""
-                            data-testid="preferences[1].listing_preference_id"
+                            data-testid="preferences[1]-listing-preference-id"
                             id="select-paper-preference-1"
                             name="preferences[1].listing_preference_id"
                           >
@@ -3792,7 +3792,7 @@ exports[`ApplicationEditPage should render successfully with preferences 1`] = `
                         >
                           <select
                             class=""
-                            data-testid="preferences[0].listing_preference_id"
+                            data-testid="preferences[0]-listing-preference-id"
                             id="select-paper-preference-0"
                             name="preferences[0].listing_preference_id"
                           >
@@ -3873,7 +3873,7 @@ exports[`ApplicationEditPage should render successfully with preferences 1`] = `
                         >
                           <select
                             class=""
-                            data-testid="preferences[1].listing_preference_id"
+                            data-testid="preferences[1]-listing-preference-id"
                             id="select-paper-preference-1"
                             name="preferences[1].listing_preference_id"
                           >

@@ -37,7 +37,6 @@ describe('Dropdown', () => {
   test('it renders a select', () => {
     getScreen()
     expect(screen.getByRole('combobox')).toBeInTheDocument()
-    // expect(wrapper.dive().find(selectSelector).exists()).toBeTruthy()
   })
 
   test('it renders with default props correctly', () => {

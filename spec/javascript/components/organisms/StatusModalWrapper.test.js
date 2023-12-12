@@ -1,6 +1,5 @@
 import React from 'react'
 
-// import { mount } from 'enzyme'
 import { render, screen, fireEvent, within } from '@testing-library/react'
 import selectEvent from 'react-select-event'
 
@@ -30,7 +29,6 @@ describe('StatusModalWrapper', () => {
     getScreen({ isOpen: false })
 
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-    // expect(wrapper.find(FormModal).prop('isOpen')).toBeFalsy()
   })
 
   describe('when isBulkUpdate is true', () => {
