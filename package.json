@@ -22,6 +22,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "classnames": "^2.2.5",
     "coffeescript": "1.12.7",
+    "compression-webpack-plugin": "^10.0.0",
     "css-loader": "^6.8.1",
     "cssnano": "^6.0.1",
     "dotenv": "^7.0.0",
