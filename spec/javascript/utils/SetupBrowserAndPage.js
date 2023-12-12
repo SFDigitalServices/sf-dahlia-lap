@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer'
 
-import { HEADLESS, REMOVECSS } from '../support/puppeteer/consts'
+import { HEADLESS, REMOVECSS, DEVTOOLS } from '../support/puppeteer/consts'
 
 const IgnoreImageAndCSSLoad = async (page) => {
   await page.setRequestInterception(true)
@@ -23,7 +23,9 @@ const SetupBrowser = async () => {
   const browser = await puppeteer.launch({
     headless: HEADLESS,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    slowMo: 100
+    timeout: 0,
+    // slowMo: 100,
+    devtools: DEVTOOLS
   })
   return browser
 }

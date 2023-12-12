@@ -49,5 +49,7 @@ export const DECLINE_TO_STATE = 'Decline to state'
 
 // Change to false to see tests running on browser locally
 export const HEADLESS = true
+// Change to true to see devtools, only works if HEADLESS is false since you need to open up a Chromium browser
+export const DEVTOOLS = false
 // Change to false to fall back to including css
 export const REMOVECSS = process.env.E2E_REMOVE_CSS || true

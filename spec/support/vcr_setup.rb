@@ -6,6 +6,16 @@ VCR.configure do |config|
   config.cassette_library_dir = 'spec/vcr'
   config.hook_into :webmock
 
+  # The below code can be used to re-record a specific casette. Replace the cassette name with the one you want to re-record.
+  # config.default_cassette_options = {
+  #   record: :once
+  # }
+  # config.before_record do |interaction|
+  #   if interaction.cassette.name == 'api/v1/short-form/show/non_lease_up_application'
+  #     interaction.cassette.record_mode = :all
+  #   end
+  # end
+
   # Look for instances of these protected values showing up in our VCR requests
   # and filter them out with e.g. "<<SALESFORCE_USERNAME>>".
   %w[
@@ -48,6 +58,10 @@ VCR.configure do |config|
     h = interaction.request.headers
     h['Authorization'].first.split('OAuth ').last if h['Authorization']&.first
   end
+
+  # config.default_cassette_options = {
+  #   record: :all
+  # }
 
   # This can be used to manipulate the response before saving
   # config.before_record do |interaction|
