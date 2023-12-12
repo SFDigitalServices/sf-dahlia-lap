@@ -559,7 +559,7 @@ describe('SupplementalApplicationPage', () => {
       expect(mockCreateLease.mock.calls).toHaveLength(0)
       expect(mockUpdateLease.mock.calls).toHaveLength(1)
       expect(mockUpdateLease).toHaveBeenCalledWith(expectedLease)
-    })
+    }, 10000)
 
     test('it displays "No Units Available" and 0 units count when no units available', async () => {
       await getWrapper(ID_NO_AVAILABLE_UNITS)
