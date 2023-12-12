@@ -52,7 +52,7 @@ const Panel = ({
   }
   const applicationMembersOptions = map(applicationMembers, memberOption)
   const onSaveWithPreferenceIndex = () => {
-    if (relatedIds) {
+    if (relatedIds && relatedIds.length > 0) {
       relatedIds.forEach((id) => onSave(id, form.getState().values))
     } else {
       onSave(preferenceIndex, form.getState().values)
