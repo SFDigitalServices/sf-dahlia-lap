@@ -55,7 +55,9 @@ const buildRows = (application, applicationMembers, fileBaseUrl) => {
   const validPrefs = onlyValid(sortedPreferences).map(
     buildRow(proofFiles, applicationMembers, fileBaseUrl)
   )
-  const veteranPrefs = sortedPreferences.filter((pref) => pref.preference_name.includes('Veterans'))
+  const veteranPrefs = sortedPreferences.filter(
+    (pref) => pref.preference_name.includes('Veterans') && pref.receives_preference
+  )
   if (veteranPrefs.length > 0) {
     const veteranRow = buildRow(proofFiles, applicationMembers, fileBaseUrl)(veteranPrefs[0])
     validPrefs.unshift(veteranRow)
