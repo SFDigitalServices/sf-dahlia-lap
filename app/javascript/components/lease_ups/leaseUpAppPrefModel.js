@@ -20,6 +20,7 @@ export const buildLeaseUpAppPrefModel = (applicationPreference) => {
     preference_name: applicationPreference.preference_name,
     // Application preference names have abbreviations but General does not, here we check if it is general, otherwise use the abbreviation
     preference_record_type: applicationPreference.record_type_for_app_preferences,
+    custom_preference_type: applicationPreference.custom_preference_type,
     preference_lottery_rank:
       applicationPreference.preference_all_lottery_rank ||
       applicationPreference.preference_lottery_rank,

@@ -69,13 +69,13 @@ To automatically fix linting errors on save, add this to your VSCode workspace s
 
 **Updating VCR Cassettes**
 
-If the Salesforce API changes for a request, or if the data sent to the API for a request has changed, you have to update the VCR cassettes affected. Cassettes are YAML files located in the `app/spec/vcr/` directory.
+If the Salesforce API changes for a request, or if the data sent to the API for a request has changed, you have to update the VCR cassettes affected. Cassettes are YAML files located in the `spec/vcr/` directory.
 
 In order to update the cassettes you have to:
 
 * Go to your failing test.
 * Locate the instruction that is creating the cassette with `VCR.use_cassette`.
-* Remove the cassette specified from `app/spec/vcr/`
+* Remove the cassette specified from `spec/vcr/`
 
 For example, for:
 ```
@@ -84,7 +84,7 @@ VCR.use_cassette('listings/applications_controller/index') do
 
 You have to remove:
 ```
-app/spec/vcr/listings/applications_controller/index.yml
+spec/vcr/listings/applications_controller/index.yml
 ```
 
 Then re-run your test. **Be aware that now that request in your test will actually be run.** A new cassette will be automatically generated recording that new run of the request, and then subsequent runs of the test will use that recorded cassette for the request.
@@ -105,19 +105,13 @@ _Note: Snapshots should be pushed to the repo_
 
 ### Running e2e tests
 
-To view the e2e tests as they're running, set `HEADLESS` to `false` in [this file](https://github.com/SFDigitalServices/sf-dahlia-lap/blob/main/spec/javascript/support/puppeteer/consts.js)
+To view the e2e tests as they're running, set `HEADLESS` to `false` in [this file](https://github.com/SFDigitalServices/sf-dahlia-lap/blob/main/spec/javascript/support/puppeteer/consts.js#L51)
 
-**Run server**
+#### Run server (in a terminal window)
 
-Run your Rails server locally in port 3000:
+`yarn start`
 
-`bundle exec rails server -p 3000`
-
-Run your webpack server locally
-
-`bin/webpack-dev-server --hot`
-
-**Run tests**
+#### Run tests (in another terminal window)
 
 `yarn e2e`
 
