@@ -229,12 +229,6 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                                 Claimant
                               </th>
                               <th
-                                className="text-right"
-                                scope="col"
-                              >
-                                Rank
-                              </th>
-                              <th
                                 className=""
                                 scope="col"
                               >
@@ -274,9 +268,6 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                                 
                               </td>
                               <td
-                                className="text-right"
-                              />
-                              <td
                                 className=""
                               >
                                 <ul />
@@ -304,7 +295,7 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                             >
                               <td
                                 className="td-expand-nested no-padding"
-                                colSpan={7}
+                                colSpan={6}
                               >
                                 <div
                                   className="inline-modal padding-left--2x padding-right--2x"
@@ -457,11 +448,6 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                                 Automated Test Lease Up Application (do not modify)
                               </td>
                               <td
-                                className="text-right"
-                              >
-                                1
-                              </td>
-                              <td
                                 className=""
                               >
                                 <ul>
@@ -500,7 +486,7 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                             >
                               <td
                                 className="td-expand-nested no-padding"
-                                colSpan={7}
+                                colSpan={6}
                               >
                                 <div
                                   className="inline-modal padding-left--2x padding-right--2x"
@@ -690,11 +676,6 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                                 Automated Test Lease Up Application (do not modify)
                               </td>
                               <td
-                                className="text-right"
-                              >
-                                1
-                              </td>
-                              <td
                                 className=""
                               >
                                 <ul>
@@ -726,7 +707,7 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                             >
                               <td
                                 className="td-expand-nested no-padding"
-                                colSpan={7}
+                                colSpan={6}
                               >
                                 <div
                                   className="inline-modal padding-left--2x padding-right--2x"
