@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 
 import { reject, overSome, findIndex, orderBy, kebabCase } from 'lodash'
 
@@ -26,7 +26,6 @@ const hasExpanderButton = (prefName) => {
   const resp = prefName.includes('Veterans')
     ? true
     : !overSome(isCOP, isDTHP, isAliceGriffith, isRightToReturn)(prefName)
-  console.log(`called with ${prefName} returns a value of ${resp}`)
   return resp
 }
 
@@ -114,6 +113,17 @@ const PreferencesTable = ({
     application
   )
 
+  const [vetIndexes, setVetIndexes] = useState([])
+
+  useMemo(() => {
+    const ids = application.preferences
+      .filter((pref) => pref.preference_name.includes('Veterans') && pref.receives_preference)
+      .map((pref) => {
+        return pref.preference_order - 1
+      })
+    setVetIndexes(ids)
+  }, [application.preferences])
+
   return (
     <div className='preferences-table'>
       <TableWrapper>
@@ -139,11 +149,13 @@ const PreferencesTable = ({
           }}
           renderRow={(_, row) => {
             const preferenceIndex = getPreferenceIndex(row, application)
+            const preference = application.preferences[preferenceIndex]
             return (
               <Panel
                 application={application}
                 applicationMembers={applicationMembers}
                 preferenceIndex={preferenceIndex}
+                vetIndexes={preference.preference_name.includes('Veterans') ? vetIndexes : []}
                 onSave={onSave}
                 onClose={() => preferenceRowClosed(dispatch, preferenceIndex)}
                 form={form}

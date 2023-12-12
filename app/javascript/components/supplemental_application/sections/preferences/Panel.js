@@ -38,6 +38,7 @@ const Panel = ({
   application,
   applicationMembers,
   preferenceIndex,
+  vetIndexes,
   onClose,
   onSave,
   loading,
@@ -51,7 +52,11 @@ const Panel = ({
   }
   const applicationMembersOptions = map(applicationMembers, memberOption)
   const onSaveWithPreferenceIndex = () => {
-    onSave(preferenceIndex, form.getState().values)
+    if (vetIndexes && vetIndexes.length > 0) {
+      vetIndexes.forEach((i) => onSave(i, form.getState().values))
+    } else {
+      onSave(preferenceIndex, form.getState().values)
+    }
   }
 
   const handleOnClose = () => {
