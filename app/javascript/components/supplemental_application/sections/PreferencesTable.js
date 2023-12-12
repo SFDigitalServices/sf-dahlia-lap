@@ -42,7 +42,7 @@ const buildRow = (proofFiles, applicationMembers, fileBaseUrl) => (preference) =
     { content: <PreferenceIcon status={preference.post_lottery_validation} /> },
     { content: getPreferenceName(preference) },
     { content: memberNameFromPref(preference.application_member_id, applicationMembers) },
-    { content: preference.preference_lottery_rank, classes: ['text-right'] },
+    // { content: preference.preference_lottery_rank, classes: ['text-right'] },
     { content: getTypeOfProof(preference, proofFiles, fileBaseUrl) },
     { content: preference.post_lottery_validation }
   ]
@@ -67,7 +67,7 @@ const columns = [
   { content: '' },
   { content: 'Preference' },
   { content: 'Claimant' },
-  { content: 'Rank', classes: ['text-right'] },
+  // { content: 'Rank', classes: ['text-right'] },
   { content: 'Proof' },
   { content: 'Status' },
   { content: '' }

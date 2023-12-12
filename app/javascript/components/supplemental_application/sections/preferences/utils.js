@@ -35,7 +35,7 @@ export const isRentBurdened = (value) => value === 'Rent Burdened'
 export const getPreferenceName = (preference) => {
   const preferenceName = preference.preference_name
   if (preferenceName.includes('Veterans')) {
-    return 'Veterans'
+    return 'Proof of veteran status for all preferences'
   }
   const individualPreference = preference.individual_preference
   if (isLWinSF(preferenceName)) {
