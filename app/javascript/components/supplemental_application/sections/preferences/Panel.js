@@ -53,7 +53,11 @@ const Panel = ({
   const applicationMembersOptions = map(applicationMembers, memberOption)
   const onSaveWithPreferenceIndex = () => {
     if (vetIndexes && vetIndexes.length > 0) {
-      vetIndexes.forEach((i) => onSave(i, form.getState().values))
+      vetIndexes.forEach((i) => {
+        form.getState().values.preferences[i].post_lottery_validation =
+          form.getState().values.preferences[preferenceIndex].post_lottery_validation
+        onSave(i, form.getState().values)
+      })
     } else {
       onSave(preferenceIndex, form.getState().values)
     }
