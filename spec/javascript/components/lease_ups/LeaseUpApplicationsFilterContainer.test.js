@@ -70,9 +70,7 @@ describe('LeaseUpApplicationsFilterContainer', () => {
       })
 
       test('should render the checkbox with indeterminate=true', () => {
-        // Even though the checkbox is in the indeterminate state, it is still considered checked
-        expect(screen.getByRole('checkbox')).toBeChecked()
-        expect(screen.getByRole('checkbox')).toHaveAttribute('aria-checked', 'mixed')
+        expect(screen.getByRole('checkbox')).toBePartiallyChecked()
       })
 
       test('should call clear all on click', () => {
