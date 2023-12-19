@@ -15,8 +15,10 @@ const ExpandableTableRow = ({
   original,
   expanded
 }) => {
+  const css = row[1].content.includes('Veterans') ? 'combine' : 'break'
+
   const cells = row.map((datum, j) => (
-    <td className={datum.classes ? datum.classes.join(' ') : ''} key={j}>
+    <td className={datum.classes ? datum.classes.join(' ').concat(` ${css}`) : `${css}`} key={j}>
       {datum.formatType === 'currency' ? formUtils.formatPrice(datum.content) : datum.content}
     </td>
   ))
@@ -25,16 +27,18 @@ const ExpandableTableRow = ({
 
   return (
     <>
-      <tr className='tr-expand' aria-expanded={expanded} id={rowId ? `${rowId}-row` : null}>
+      <tr className={`tr-expand`} aria-expanded={expanded} id={rowId ? `${rowId}-row` : null}>
         {cells}
-        <td key='expander'>{renderExpanderButton(idx, row, original, expanded)}</td>
+        <td className={css} key='expander'>
+          {renderExpanderButton(idx, row, original, expanded)}
+        </td>
       </tr>
       <tr
         className='tr-expand-content'
         aria-hidden={!expanded}
         id={rowId ? `${rowId}-panel` : null}
       >
-        <td colSpan={numColumns} className='td-expand-nested no-padding'>
+        <td colSpan={numColumns} className='td-expand-nested no-padding break'>
           {renderRow(idx, row, original)}
         </td>
       </tr>
