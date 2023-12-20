@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IndexTableCell should return null if val is undefined 1`] = `<DocumentFragment />`;
+
+exports[`IndexTableCell should return string value if cell is not being edited 1`] = `
+<DocumentFragment>
+  test
+</DocumentFragment>
+`;

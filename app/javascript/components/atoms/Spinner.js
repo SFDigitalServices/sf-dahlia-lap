@@ -2,7 +2,7 @@ import React from 'react'
 
 const Spinner = () => {
   return (
-    <div className='spinner sk-fading-circle'>
+    <div className='spinner sk-fading-circle' data-testid='loading-spinner'>
       <div className='sk-circle1 sk-circle' />
       <div className='sk-circle2 sk-circle' />
       <div className='sk-circle3 sk-circle' />

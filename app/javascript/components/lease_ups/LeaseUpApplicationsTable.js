@@ -2,7 +2,7 @@ import React from 'react'
 
 import classNames from 'classnames'
 import { trim } from 'lodash'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import ReactTable from 'react-table'
 
 import {
@@ -60,13 +60,13 @@ const LeaseUpApplicationsTable = ({
     dispatch
   ] = useAppContext()
 
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const updateSelectedApplicationState = (application, navigateToApplication = false) => {
     applicationRowClicked(dispatch, application)
 
     if (navigateToApplication) {
-      history.push(appPaths.toLeaseUpApplication(application.application_id))
+      navigate(appPaths.toLeaseUpApplication(application.application_id))
     }
   }
 

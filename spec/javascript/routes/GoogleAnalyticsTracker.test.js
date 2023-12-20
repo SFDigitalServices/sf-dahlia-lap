@@ -1,49 +1,55 @@
 import React from 'react'
 
-import { mount } from 'enzyme'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { act } from 'react-dom/test-utils'
-import { MemoryRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import { MemoryRouter as Router, Route, Routes, Link } from 'react-router-dom'
 
 import GoogleAnalyticsTracker from 'routes/GoogleAnalyticsTracker'
-
-import { findWithText } from '../../../spec/javascript/testUtils/wrapperUtil'
 
 const mockWindow = {
   ga: jest.fn()
 }
 
 const getWrapper = () =>
-  mount(
+  render(
     <Router initialEntries={['/initial']}>
-      <Switch>
-        <Route exact path='/initial'>
-          <Link to={'/other'}>Go to second page</Link>
-        </Route>
-        <Route exact path='/other'>
-          <p>Other route</p>
-          <Link to={'/other2'}>Go to third page</Link>
-        </Route>
-        <Route exact path='/other2'>
-          <p>Other route 2</p>
-          <Link to={'/initial'}>Go to first page</Link>
-        </Route>
-      </Switch>
+      <Routes>
+        <Route exact path='/initial' element={<Link to={'/other'}>Go to second page</Link>} />
+        <Route
+          exact
+          path='/other'
+          element={
+            <>
+              <p>Other route</p>
+              <Link to={'/other2'}>Go to third page</Link>
+            </>
+          }
+        />
+        <Route
+          exact
+          path='/other2'
+          element={
+            <>
+              <p>Other route 2</p>
+              <Link to={'/initial'}>Go to first page</Link>
+            </>
+          }
+        />
+      </Routes>
       <GoogleAnalyticsTracker mockWindow={mockWindow} />
     </Router>
   )
 
 describe('GoogleAnalyticsTracker', () => {
-  const clickLink = async (wrapper, text) => {
+  const clickLink = async (text) => {
     await act(async () => {
-      findWithText(wrapper, Link, text).find('a').simulate('click', { button: 0 })
+      fireEvent.click(screen.getByRole('link', text))
     })
-    wrapper.update()
   }
 
   describe('on first load', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = getWrapper()
+      getWrapper()
     })
 
     test('does not send request to google', async () => {
@@ -53,7 +59,7 @@ describe('GoogleAnalyticsTracker', () => {
     describe('after navigating to a second page', () => {
       beforeEach(async () => {
         mockWindow.ga.mockReset()
-        await clickLink(wrapper, 'Go to second page')
+        await clickLink('Go to second page')
       })
 
       test('it logs the second pageview', () => {
@@ -66,7 +72,7 @@ describe('GoogleAnalyticsTracker', () => {
       describe('after navigating to a third page', () => {
         beforeEach(async () => {
           mockWindow.ga.mockReset()
-          await clickLink(wrapper, 'Go to third page')
+          await clickLink('Go to third page')
         })
 
         test('it logs the /other2 pageview', () => {
@@ -79,7 +85,7 @@ describe('GoogleAnalyticsTracker', () => {
         describe('after navigating back to the first page', () => {
           beforeEach(async () => {
             mockWindow.ga.mockReset()
-            await clickLink(wrapper, 'Go to first page')
+            await clickLink('Go to first page')
           })
 
           test('it logs the pageview for /initial', () => {

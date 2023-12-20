@@ -124,14 +124,14 @@ describe('LeaseUpApplicationsPage status update', () => {
         const bulkEditCheckboxId = '#bulk-edit-controller'
 
         const { page } = await SetupBrowserAndPage(testBrowser, true)
-        await page.screenshot({
-          path: 'status_update_T3pt1.jpg'
-        })
+        // await page.screenshot({
+        //   path: 'status_update_T3pt1.jpg'
+        // })
         await waitForLeaseUpAppTableToLoad(page)
 
-        await page.screenshot({
-          path: 'status_update_T3pt2.jpg'
-        })
+        // await page.screenshot({
+        //   path: 'status_update_T3pt2.jpg'
+        // })
 
         await page.click(bulkEditCheckboxId)
 

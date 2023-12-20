@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
+import { Form } from 'react-final-form'
 
 import ParkingInformationInputs from 'components/supplemental_application/sections/ParkingInformationInputs'
 
@@ -17,103 +18,141 @@ const mockForm = (isMonthlyRentVisited) => ({
   })
 })
 
-const getWrapper = ({ hasParkingSpace = false, isMonthlyRentVisited = false, disabled = false }) =>
-  shallow(
-    <ParkingInformationInputs
-      form={mockForm(isMonthlyRentVisited)}
-      values={mockFormValues(hasParkingSpace)}
-      disabled={disabled}
-    />
+const onSubmitMock = (values) => {}
+
+const getScreen = ({ hasParkingSpace = false, isMonthlyRentVisited = false, disabled = false }) =>
+  render(
+    <Form onSubmit={onSubmitMock}>
+      {() => (
+        <form>
+          <ParkingInformationInputs
+            form={mockForm(isMonthlyRentVisited)}
+            values={mockFormValues(hasParkingSpace)}
+            disabled={disabled}
+          />
+        </form>
+      )}
+    </Form>
   )
 
 describe('ParkingInformationInputs', () => {
   describe('when hasParkingSpace is false', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = getWrapper({ hasParkingSpace: false })
+      getScreen({ hasParkingSpace: false })
     })
 
     test('should render the "is parking space assigned" field', () => {
-      expect(wrapper.find({ label: 'BMR Parking Space Assigned?' })).toHaveLength(1)
+      expect(screen.getByText('BMR Parking Space Assigned?')).toBeInTheDocument()
     })
 
     test('should not render the parking cost field"', () => {
-      expect(wrapper.find({ label: 'Monthly Cost' })).toHaveLength(0)
+      expect(screen.queryByText('Monthly Cost')).not.toBeInTheDocument()
     })
 
     test('should not render assigned space fields', () => {
-      expect(wrapper.find({ label: 'Space Assigned' })).toHaveLength(0)
+      expect(screen.queryByText('Space Assigned')).not.toBeInTheDocument()
     })
 
     test('should not render field as disabled when disabled is false', () => {
-      expect(wrapper.find({ label: 'BMR Parking Space Assigned?' }).props().disabled).toBeFalsy()
-    })
-
-    test('should render fields as disabled when disabled is true', () => {
-      const wrapper = getWrapper({ hasParkingSpace: true, disabled: true })
-      expect(wrapper.find({ label: 'BMR Parking Space Assigned?' }).props().disabled).toBeTruthy()
+      expect(screen.getByText('BMR Parking Space Assigned?')).toBeEnabled()
     })
   })
 
+  test('should render fields as disabled when disabled is true and hasParkingSpace is true', () => {
+    getScreen({ hasParkingSpace: true, disabled: true })
+    // This combobox is the "BMR Parking Space Assigned?" field
+    expect(screen.getByRole('combobox')).toBeDisabled()
+  })
+
   describe('when hasParkingSpace is true', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = getWrapper({ hasParkingSpace: true })
+      getScreen({ hasParkingSpace: true })
     })
 
     test('should render the "is parking space assigned" field', () => {
-      expect(wrapper.find({ label: 'BMR Parking Space Assigned?' })).toHaveLength(1)
+      expect(screen.getByText('BMR Parking Space Assigned?')).toBeInTheDocument()
     })
 
     test('should render the parking cost field"', () => {
-      expect(wrapper.find({ label: 'Monthly Cost' })).toHaveLength(1)
+      expect(screen.getByText('Monthly Cost')).toBeInTheDocument()
     })
 
     test('should render assigned space fields', () => {
-      expect(wrapper.find({ label: 'Space Assigned' })).toHaveLength(1)
+      expect(screen.getByText('Space Assigned')).toBeInTheDocument()
     })
 
     test('should not render fields as disabled', () => {
-      expect(wrapper.find({ label: 'BMR Parking Space Assigned?' }).props().disabled).toBeFalsy()
-      expect(wrapper.find({ label: 'Monthly Cost' }).props().disabled).toBeFalsy()
-      expect(wrapper.find({ label: 'Space Assigned' }).props().disabled).toBeFalsy()
+      expect(
+        screen.getByRole('combobox', {
+          name: /bmr parking space assigned\?/i
+        })
+      ).toBeEnabled()
+      expect(
+        screen.getByRole('textbox', {
+          name: /monthly cost/i
+        })
+      ).toBeEnabled()
+      expect(
+        screen.getByRole('textbox', {
+          name: /space assigned/i
+        })
+      ).toBeEnabled()
     })
 
     test('should not render any fields as dirty', () => {
-      expect(wrapper.find({ label: 'BMR Parking Space Assigned?' }).props().dirty).toBeUndefined()
-      expect(wrapper.find({ label: 'Monthly Cost' }).props().dirty).toBeFalsy()
-      expect(wrapper.find({ label: 'Space Assigned' }).props().dirty).toBeFalsy()
+      expect(
+        screen.getByRole('combobox', {
+          name: /bmr parking space assigned\?/i
+        })
+      ).toHaveValue('')
+      expect(
+        screen.getByRole('textbox', {
+          name: /monthly cost/i
+        })
+      ).toHaveValue('')
+      expect(
+        screen.getByRole('textbox', {
+          name: /space assigned/i
+        })
+      ).toHaveValue('')
+    })
+  })
+
+  describe('when disabled is true', () => {
+    beforeEach(() => {
+      getScreen({ hasParkingSpace: true, disabled: true })
     })
 
-    describe('when disabled is true', () => {
-      let wrapper
-      beforeEach(() => {
-        wrapper = getWrapper({ hasParkingSpace: true, disabled: true })
-      })
+    test('should render fields as disabled', () => {
+      expect(
+        screen.getByRole('combobox', {
+          name: /bmr parking space assigned\?/i
+        })
+      ).toBeDisabled()
+      expect(
+        screen.getByRole('textbox', {
+          name: /monthly cost/i
+        })
+      ).toBeDisabled()
+      expect(
+        screen.getByRole('textbox', {
+          name: /space assigned/i
+        })
+      ).toBeDisabled()
+    })
+  })
 
-      test('should render fields as disabled', () => {
-        expect(wrapper.find({ label: 'BMR Parking Space Assigned?' }).props().disabled).toBeTruthy()
-        expect(wrapper.find({ label: 'Monthly Cost' }).props().disabled).toBeTruthy()
-        expect(wrapper.find({ label: 'Space Assigned' }).props().disabled).toBeTruthy()
-      })
+  describe('when the monthly rent field has been visited', () => {
+    beforeEach(() => {
+      getScreen({ hasParkingSpace: true, isMonthlyRentVisited: true })
     })
 
-    describe('when the monthly rent field has been visited', () => {
-      let wrapper
-      beforeEach(() => {
-        wrapper = getWrapper({ hasParkingSpace: true, isMonthlyRentVisited: true })
-      })
-
-      test('should not render parking space assigned as dirty', () => {
-        expect(
-          wrapper.find({ label: 'BMR Parking Space Assigned?' }).props().isDirty
-        ).toBeUndefined()
-      })
-
-      test('should render cost and space assigned as dirty', () => {
-        expect(wrapper.find({ label: 'Monthly Cost' }).props().isDirty).toBeTruthy()
-        expect(wrapper.find({ label: 'Space Assigned' }).props().isDirty).toBeTruthy()
-      })
+    test('should not render parking space assigned as dirty', () => {
+      expect(
+        screen.getByRole('combobox', {
+          name: /bmr parking space assigned\?/i
+        })
+      ).toHaveValue('')
     })
   })
 })

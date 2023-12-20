@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { screen, within } from '@testing-library/react'
+
 import ConfirmedHouseholdIncome, {
   getAmiPercent
 } from 'components/supplemental_application/sections/ConfirmedHouseholdIncome'
@@ -18,7 +20,7 @@ jest.mock('apiService', () => ({
   }
 }))
 
-const getWrapper = (application, mockAmiCharts, shouldMount = false) => {
+const getScreen = (application, mockAmiCharts, shouldMount = false) => {
   return withForm(
     application,
     (form) => (
@@ -50,8 +52,8 @@ describe('ConfirmedHouseholdIncome', () => {
   })
 
   test('it matches snapshot when all values are empty', () => {
-    const wrapper = getWrapper({}, [])
-    expect(wrapper).toMatchSnapshot()
+    const { asFragment } = getScreen({}, [])
+    expect(asFragment()).toMatchSnapshot()
   })
 
   describe('getAmiCharts', () => {
@@ -67,14 +69,19 @@ describe('ConfirmedHouseholdIncome', () => {
     ]
 
     test('it sets chart options correctly when charts are empty', () => {
-      const wrapper = getWrapper({}, [], true)
-      expect(wrapper.find('SelectField#ami_chart_type').props().options).toEqual([])
-      expect(wrapper.find('SelectField#ami_chart_year').props().options).toEqual([])
+      getScreen({}, [], true)
+      // Both chart type and year should be empty
+      // As a result, there should be no option elements in the screen
+      expect(screen.queryByRole('option')).not.toBeInTheDocument()
     })
 
     test('it presents all available chart types when provided', () => {
-      const wrapper = getWrapper({}, mockAmiCharts, true)
+      getScreen({}, mockAmiCharts, true)
       const expectedChartOptions = [
+        {
+          label: 'Select One...',
+          value: ''
+        },
         {
           label: 'chart1',
           value: 'chart1'
@@ -86,29 +93,62 @@ describe('ConfirmedHouseholdIncome', () => {
       ]
 
       const expectedYearOptions = [
-        { label: 2020, value: 2020 },
-        { label: 2021, value: 2021 }
+        {
+          label: 'Select One...',
+          value: ''
+        },
+        { label: '2020', value: '2020' },
+        { label: '2021', value: '2021' }
       ]
-      expect(wrapper.find('SelectField#ami_chart_type').props().options).toEqual(
-        expectedChartOptions
-      )
-      expect(wrapper.find('SelectField#ami_chart_year').props().options).toEqual(
-        expectedYearOptions
-      )
+      expect(
+        within(
+          screen.getByRole('combobox', {
+            name: /ami chart type/i
+          })
+        )
+          .getAllByRole('option')
+          .map((option) => {
+            return { label: option.textContent, value: option.value }
+          })
+      ).toEqual(expectedChartOptions)
+
+      expect(
+        within(
+          screen.getByRole('combobox', {
+            name: /ami chart year/i
+          })
+        )
+          .getAllByRole('option')
+          .map((option) => {
+            return { label: option.textContent, value: option.value }
+          })
+      ).toEqual(expectedYearOptions)
     })
 
     test('it fills dates to present year when AMI chart year is in the past', () => {
       const mockOldAmiCharts = [{ ami_chart_type: 'chart', ami_chart_year: 2018 }]
-      const wrapper = getWrapper({}, mockOldAmiCharts, true)
+      getScreen({}, mockOldAmiCharts, true)
       const expectedYearOptions = [
-        { label: 2018, value: 2018 },
-        { label: 2019, value: 2019 },
-        { label: 2020, value: 2020 }
+        {
+          label: 'Select One...',
+          value: ''
+        },
+        { label: '2018', value: '2018' },
+        { label: '2019', value: '2019' },
+        { label: '2020', value: '2020' }
       ]
 
-      expect(wrapper.find('SelectField#ami_chart_year').props().options).toEqual(
-        expectedYearOptions
-      )
+      expect(
+        within(
+          screen.getByRole('combobox', {
+            name: /ami chart year/i
+          })
+        )
+          .getAllByRole('option')
+          .map((option) => {
+            return { label: option.textContent, value: option.value }
+          })
+      ).toEqual(expectedYearOptions)
     })
   })
 })

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormGrid.Item renders the FormGrid.Item properly with default props 1`] = `
+<DocumentFragment>
+  <div
+    class="form-grid_item column small-6"
+  >
+    ABC
+  </div>
+</DocumentFragment>
+`;
+
+exports[`FormGrid.Item renders the FormGrid.Item properly with width=25% 1`] = `
+<DocumentFragment>
+  <div
+    class="form-grid_item column small-3"
+  >
+    ABC
+  </div>
+</DocumentFragment>
+`;
+
+exports[`FormGrid.Item renders the FormGrid.Item properly with width=33% 1`] = `
+<DocumentFragment>
+  <div
+    class="form-grid_item column small-4"
+  >
+    ABC
+  </div>
+</DocumentFragment>
+`;

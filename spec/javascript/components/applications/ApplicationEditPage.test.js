@@ -1,9 +1,7 @@
 import React from 'react'
 
-import { mount } from 'enzyme'
+import { render, fireEvent, act, screen } from '@testing-library/react'
 import { clone } from 'lodash'
-import { act } from 'react-dom/test-utils'
-import renderer from 'react-test-renderer'
 
 import ApplicationEditPage from 'components/applications/ApplicationEditPage'
 
@@ -35,20 +33,15 @@ describe('ApplicationEditPage', () => {
   })
 
   test('it should save correctly', async () => {
-    let wrapper
-    await act(async () => {
-      wrapper = mount(
-        <ApplicationEditPage
-          listing={listing}
-          application={mockApplication}
-          lendingInstitutions={lendingInstitutions}
-          editPage
-        />
-      )
-    })
-    await act(async () => {
-      wrapper.find('form').first().simulate('submit')
-    })
+    render(
+      <ApplicationEditPage
+        listing={listing}
+        application={mockApplication}
+        lendingInstitutions={lendingInstitutions}
+        editPage
+      />
+    )
+    await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
 
     const expectedApplication = {
       ...mockApplication,
@@ -65,20 +58,15 @@ describe('ApplicationEditPage', () => {
     const applicationWithInvalidPrefs = { ...mockApplication }
     applicationWithInvalidPrefs.preferences[1].application_member.first_name = 'james'
 
-    let wrapper
-    await act(async () => {
-      wrapper = mount(
-        <ApplicationEditPage
-          listing={listing}
-          application={applicationWithInvalidPrefs}
-          lendingInstitutions={lendingInstitutions}
-          editPage
-        />
-      )
-    })
-    await act(async () => {
-      wrapper.find('form').first().simulate('submit')
-    })
+    render(
+      <ApplicationEditPage
+        listing={listing}
+        application={applicationWithInvalidPrefs}
+        lendingInstitutions={lendingInstitutions}
+        editPage
+      />
+    )
+    await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
 
     expect(mockSubmitApplication.mock.calls).toHaveLength(0)
   })
@@ -92,27 +80,23 @@ describe('ApplicationEditPage', () => {
       }
     }
 
-    let wrapper
-    await act(async () => {
-      wrapper = mount(
-        <ApplicationEditPage
-          listing={listing}
-          application={applicationWithInvalidDemo}
-          lendingInstitutions={lendingInstitutions}
-          editPage
-        />
-      )
-    })
-    await act(async () => {
-      wrapper.find('form').first().simulate('submit')
-    })
+    render(
+      <ApplicationEditPage
+        listing={listing}
+        application={applicationWithInvalidDemo}
+        lendingInstitutions={lendingInstitutions}
+        editPage
+      />
+    )
+
+    await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
 
     expect(mockSubmitApplication.mock.calls).toHaveLength(0)
   })
 
   describe('should render', () => {
     test('successfully', () => {
-      const wrapper = renderer.create(
+      const { asFragment } = render(
         <ApplicationEditPage
           listing={listing}
           application={mockApplication}
@@ -121,7 +105,7 @@ describe('ApplicationEditPage', () => {
         />
       )
 
-      expect(wrapper.toJSON()).toMatchSnapshot()
+      expect(asFragment()).toMatchSnapshot()
     })
 
     test('successfully with preferences', () => {
@@ -141,7 +125,7 @@ describe('ApplicationEditPage', () => {
       expect(applicationWithPreferences.preferences).toHaveLength(2)
       expect(applicationWithPreferences.preferences[0].application_member).toBeTruthy()
 
-      const wrapper = renderer.create(
+      const { asFragment } = render(
         <ApplicationEditPage
           listing={listing}
           application={mockApplication}
@@ -150,7 +134,7 @@ describe('ApplicationEditPage', () => {
         />
       )
 
-      expect(wrapper.toJSON()).toMatchSnapshot()
+      expect(asFragment()).toMatchSnapshot()
     })
   })
 })

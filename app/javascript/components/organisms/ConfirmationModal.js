@@ -57,7 +57,7 @@ const ConfirmationModal = ({
   }
 
   return (
-    <Modal isOpen={isOpen} handleClose={onCloseClick}>
+    <Modal isOpen={isOpen} handleClose={onCloseClick} data-testid='modal'>
       <Modal.Body hidden={isOpen} handleClose={onCloseClick}>
         <Modal.Header id={titleId} title={title} />
         <Modal.Content>

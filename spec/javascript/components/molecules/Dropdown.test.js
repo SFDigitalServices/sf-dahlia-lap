@@ -1,12 +1,9 @@
 import React from 'react'
 
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import { components } from 'react-select'
 
 import Dropdown from 'components/molecules/Dropdown'
-
-// Use a string selector in these tests to avoid confusion with the StateManager wrapper that exists in react-select
-const selectSelector = 'Select'
 
 const defaultOptionRenderer = ({ label }) => (
   <li>
@@ -26,8 +23,8 @@ const defaultToggleRenderer = ({ children, getValue, ...props }) => {
   )
 }
 
-const getWrapper = (propOverrides = {}) =>
-  shallow(
+const getScreen = (propOverrides = {}) =>
+  render(
     <Dropdown
       renderOption={defaultOptionRenderer}
       renderToggle={defaultToggleRenderer}
@@ -37,21 +34,15 @@ const getWrapper = (propOverrides = {}) =>
   )
 
 describe('Dropdown', () => {
-  let wrapper
   test('it renders a select', () => {
-    wrapper = getWrapper()
-    expect(wrapper.dive().find(selectSelector).exists()).toBeTruthy()
+    getScreen()
+    expect(screen.getByRole('combobox')).toBeInTheDocument()
   })
 
   test('it renders with default props correctly', () => {
-    wrapper = getWrapper()
-    const selectProps = wrapper.dive().find(selectSelector).props()
-    expect(selectProps.classNamePrefix).toBeNull()
-    expect(selectProps.isDisabled).toBe(false)
-    expect(selectProps.options).toEqual([])
-    expect(selectProps.value).toBeNull()
-    expect(selectProps.formatOptionLabel).toBe(defaultOptionRenderer)
-    expect(selectProps.components.ValueContainer).toBe(defaultToggleRenderer)
+    const { asFragment } = getScreen()
+    expect(screen.getByRole('combobox')).toBeEnabled()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   test('it passes the passes provided props to the Select component', () => {
@@ -61,16 +52,12 @@ describe('Dropdown', () => {
       { value: 'value3', label: 'label3' }
     ]
     const testClassNamePrefix = 'classNamePrefix'
-    wrapper = getWrapper({
+    const { asFragment } = getScreen({
       items: sampleItems,
       value: 'value2',
       classNamePrefix: testClassNamePrefix,
       disabled: true
     })
-    const selectProps = wrapper.dive().find(selectSelector).props()
-    expect(selectProps.classNamePrefix).toEqual(testClassNamePrefix)
-    expect(selectProps.isDisabled).toBe(true)
-    expect(selectProps.value).toEqual(sampleItems[1])
-    expect(selectProps.options).toEqual(sampleItems)
+    expect(asFragment()).toMatchSnapshot()
   })
 })

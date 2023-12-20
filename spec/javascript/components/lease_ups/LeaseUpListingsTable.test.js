@@ -1,6 +1,6 @@
 import React from 'react'
 
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import LeaseUpListingsTable from 'components/lease_ups/LeaseUpListingsTable'
 
@@ -10,10 +10,10 @@ describe('LeaseUpListingsTable', () => {
   const listing = modelsFactory.listingDetail()
 
   test('should render succesfully', () => {
-    const wrapper = renderer.create(
+    const { asFragment } = render(
       <LeaseUpListingsTable listings={[listing]} onCellClick={jest.fn()} />
     )
 
-    expect(wrapper.toJSON()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 })

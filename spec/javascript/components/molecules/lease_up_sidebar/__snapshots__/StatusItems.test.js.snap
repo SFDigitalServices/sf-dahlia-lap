@@ -1,201 +1,832 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`StatusItems should limit the height of the list if provided 1`] = `
+<DocumentFragment>
+  <div
+    class="status-items"
+    style="height: 20rem; overflow: scroll;"
+  >
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-approved"
+        >
+          Approved
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Approval letter sent
+      </div>
+      <div
+        class="status-item-text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+      </div>
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 25, 2020
+        </div>
+      </div>
+    </div>
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-approved"
+        >
+          Approved
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Unit selected
+      </div>
+      <div
+        class="status-item-text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+      </div>
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 24, 2020
+        </div>
+      </div>
+    </div>
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-approved"
+        >
+          Approved
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Waiting for subsidy inspection
+      </div>
+      <div
+        class="status-item-text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+      </div>
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 23, 2020
+        </div>
+      </div>
+    </div>
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-waitlisted"
+        >
+          Waitlisted
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Written confirmation sent
+      </div>
+      <div
+        class="status-item-text"
+      />
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 22, 2020
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`StatusItems should not set a height if height is not provided 1`] = `
+<DocumentFragment>
+  <div
+    class="status-items"
+  >
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-approved"
+        >
+          Approved
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Approval letter sent
+      </div>
+      <div
+        class="status-item-text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+      </div>
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 25, 2020
+        </div>
+      </div>
+    </div>
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-approved"
+        >
+          Approved
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Unit selected
+      </div>
+      <div
+        class="status-item-text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+      </div>
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 24, 2020
+        </div>
+      </div>
+    </div>
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-approved"
+        >
+          Approved
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Waiting for subsidy inspection
+      </div>
+      <div
+        class="status-item-text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+      </div>
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 23, 2020
+        </div>
+      </div>
+    </div>
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-waitlisted"
+        >
+          Waitlisted
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Written confirmation sent
+      </div>
+      <div
+        class="status-item-text"
+      />
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 22, 2020
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`StatusItems snapshot tests should render a single status item correctly 1`] = `
-<div
-  className="status-items"
-  style={{}}
->
-  <StatusItem
-    key="0"
-    statusItem={
-      {
-        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-        "status": "Approved",
-        "substatus": "Approval letter sent",
-        "timestamp": 1598385600,
-      }
-    }
-  />
-</div>
+<DocumentFragment>
+  <div
+    class="status-items"
+  >
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-approved"
+        >
+          Approved
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Approval letter sent
+      </div>
+      <div
+        class="status-item-text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+      </div>
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 25, 2020
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`StatusItems snapshot tests should render empty status items correctly 1`] = `
-<div
-  className="status-items"
-  style={{}}
-/>
+<DocumentFragment>
+  <div
+    class="status-items"
+  />
+</DocumentFragment>
 `;
 
 exports[`StatusItems snapshot tests should render multiple status items correctly 1`] = `
-<div
-  className="status-items"
-  style={{}}
->
-  <StatusItem
-    key="0"
-    statusItem={
-      {
-        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-        "status": "Approved",
-        "substatus": "Approval letter sent",
-        "timestamp": 1598385600,
-      }
-    }
-  />
-  <StatusItem
-    key="1"
-    statusItem={
-      {
-        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-        "status": "Approved",
-        "substatus": "Unit selected",
-        "timestamp": 1598299200,
-      }
-    }
-  />
-  <StatusItem
-    key="2"
-    statusItem={
-      {
-        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-        "status": "Approved",
-        "substatus": "Waiting for subsidy inspection",
-        "timestamp": 1598212800,
-      }
-    }
-  />
-  <StatusItem
-    key="3"
-    statusItem={
-      {
-        "comment": null,
-        "status": "Waitlisted",
-        "substatus": "Written confirmation sent",
-        "timestamp": 1598126400,
-      }
-    }
-  />
-  <StatusItem
-    key="4"
-    statusItem={
-      {
-        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-        "status": "Lease Signed",
-        "substatus": null,
-        "timestamp": 1598040000,
-      }
-    }
-  />
-  <StatusItem
-    key="5"
-    statusItem={
-      {
-        "comment": null,
-        "status": "Lease Signed",
-        "substatus": null,
-        "timestamp": 1597953600,
-      }
-    }
-  />
-</div>
+<DocumentFragment>
+  <div
+    class="status-items"
+  >
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-approved"
+        >
+          Approved
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Approval letter sent
+      </div>
+      <div
+        class="status-item-text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+      </div>
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 25, 2020
+        </div>
+      </div>
+    </div>
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-approved"
+        >
+          Approved
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Unit selected
+      </div>
+      <div
+        class="status-item-text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+      </div>
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 24, 2020
+        </div>
+      </div>
+    </div>
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-approved"
+        >
+          Approved
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Waiting for subsidy inspection
+      </div>
+      <div
+        class="status-item-text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+      </div>
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 23, 2020
+        </div>
+      </div>
+    </div>
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-waitlisted"
+        >
+          Waitlisted
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Written confirmation sent
+      </div>
+      <div
+        class="status-item-text"
+      />
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 22, 2020
+        </div>
+      </div>
+    </div>
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-leased"
+        >
+          Lease Signed
+        </div>
+      </div>
+      <div
+        class="status-item-text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+      </div>
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 21, 2020
+        </div>
+      </div>
+    </div>
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-leased"
+        >
+          Lease Signed
+        </div>
+      </div>
+      <div
+        class="status-item-text"
+      />
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 20, 2020
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`StatusItems snapshot tests should render multiple status items with limit 0 correctly 1`] = `
-<div
-  className="status-items"
-  style={{}}
-/>
+<DocumentFragment>
+  <div
+    class="status-items"
+  />
+</DocumentFragment>
 `;
 
 exports[`StatusItems snapshot tests should render multiple status items with limit 1 correctly 1`] = `
-<div
-  className="status-items"
-  style={{}}
->
-  <StatusItem
-    key="0"
-    statusItem={
-      {
-        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-        "status": "Approved",
-        "substatus": "Approval letter sent",
-        "timestamp": 1598385600,
-      }
-    }
-  />
-</div>
+<DocumentFragment>
+  <div
+    class="status-items"
+  >
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-approved"
+        >
+          Approved
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Approval letter sent
+      </div>
+      <div
+        class="status-item-text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+      </div>
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 25, 2020
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`StatusItems snapshot tests should render multiple status items with limit 100 correctly 1`] = `
-<div
-  className="status-items"
-  style={{}}
->
-  <StatusItem
-    key="0"
-    statusItem={
-      {
-        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-        "status": "Approved",
-        "substatus": "Approval letter sent",
-        "timestamp": 1598385600,
-      }
-    }
-  />
-  <StatusItem
-    key="1"
-    statusItem={
-      {
-        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-        "status": "Approved",
-        "substatus": "Unit selected",
-        "timestamp": 1598299200,
-      }
-    }
-  />
-  <StatusItem
-    key="2"
-    statusItem={
-      {
-        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-        "status": "Approved",
-        "substatus": "Waiting for subsidy inspection",
-        "timestamp": 1598212800,
-      }
-    }
-  />
-  <StatusItem
-    key="3"
-    statusItem={
-      {
-        "comment": null,
-        "status": "Waitlisted",
-        "substatus": "Written confirmation sent",
-        "timestamp": 1598126400,
-      }
-    }
-  />
-  <StatusItem
-    key="4"
-    statusItem={
-      {
-        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.",
-        "status": "Lease Signed",
-        "substatus": null,
-        "timestamp": 1598040000,
-      }
-    }
-  />
-  <StatusItem
-    key="5"
-    statusItem={
-      {
-        "comment": null,
-        "status": "Lease Signed",
-        "substatus": null,
-        "timestamp": 1597953600,
-      }
-    }
-  />
-</div>
+<DocumentFragment>
+  <div
+    class="status-items"
+  >
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-approved"
+        >
+          Approved
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Approval letter sent
+      </div>
+      <div
+        class="status-item-text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+      </div>
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 25, 2020
+        </div>
+      </div>
+    </div>
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-approved"
+        >
+          Approved
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Unit selected
+      </div>
+      <div
+        class="status-item-text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+      </div>
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 24, 2020
+        </div>
+      </div>
+    </div>
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-approved"
+        >
+          Approved
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Waiting for subsidy inspection
+      </div>
+      <div
+        class="status-item-text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+      </div>
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 23, 2020
+        </div>
+      </div>
+    </div>
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-waitlisted"
+        >
+          Waitlisted
+        </div>
+      </div>
+      <div
+        class="item-substatus-text"
+      >
+        Written confirmation sent
+      </div>
+      <div
+        class="status-item-text"
+      />
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 22, 2020
+        </div>
+      </div>
+    </div>
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-leased"
+        >
+          Lease Signed
+        </div>
+      </div>
+      <div
+        class="status-item-text"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+      </div>
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 21, 2020
+        </div>
+      </div>
+    </div>
+    <div
+      class="status-item"
+      data-testid="status-item"
+    >
+      <div
+        class="status-item-header"
+      >
+        <div
+          class="status-pill is-leased"
+        >
+          Lease Signed
+        </div>
+      </div>
+      <div
+        class="status-item-text"
+      />
+      <div
+        class="status-item-footer"
+      >
+        <div
+          class="status-item-created-by"
+        />
+        <div
+          class="status-item-date"
+        >
+          Aug 20, 2020
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
 `;

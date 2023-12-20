@@ -1,6 +1,6 @@
 import React from 'react'
 
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import FlaggedApplicationsIndexPage from 'components/applications/flagged/FlaggedApplicationsIndexPage'
 
@@ -10,10 +10,10 @@ describe('FlaggedApplicationsIndexPage', () => {
   test('should render successfully', () => {
     const title = 'Flagged Applications - Pending Review'
 
-    const wrapper = renderer.create(
+    const { asFragment } = render(
       <FlaggedApplicationsIndexPage title={title} type='pending' flaggedRecords={flaggedRecords} />
     )
 
-    expect(wrapper.toJSON()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 })
