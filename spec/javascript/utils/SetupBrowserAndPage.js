@@ -24,7 +24,7 @@ const SetupBrowser = async () => {
     headless: HEADLESS,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
     timeout: 0,
-    // slowMo: 100,
+    slowMo: 100,
     devtools: DEVTOOLS
   })
   return browser
