@@ -1,4 +1,4 @@
-import flatten, { unflatten } from 'flat'
+import { unflatten, flatten } from 'flat'
 import { compact, first, isEmpty, isNil, isString, mapValues, map, toInteger } from 'lodash'
 import moment from 'moment'
 
