@@ -41,22 +41,44 @@ const matchingPreference = (row) => (preference) => {
 
 /** Presenter **/
 
-const buildRow = (proofFiles, applicationMembers, fileBaseUrl) => (preference) => {
-  return [
-    { content: <PreferenceIcon status={preference.post_lottery_validation} /> },
-    { content: getPreferenceName(preference) },
-    { content: memberNameFromPref(preference.application_member_id, applicationMembers) },
-    { content: preference.preference_lottery_rank, classes: ['text-right'] },
-    { content: getTypeOfProof(preference, proofFiles, fileBaseUrl) },
-    { content: preference.post_lottery_validation }
-  ]
-}
+const buildRow =
+  (proofFiles, applicationMembers, fileBaseUrl) =>
+  (preference, nonVetConfirmation = 'Confirmed') => {
+    let finalConfirmation = 'Unconfirmed'
+    if (preference.post_lottery_validation === 'Invalid' || nonVetConfirmation === 'Invalid') {
+      finalConfirmation = 'Invalid'
+    } else if (
+      preference.post_lottery_validation === 'Confirmed' &&
+      nonVetConfirmation === 'Confirmed'
+    ) {
+      finalConfirmation = 'Confirmed'
+    }
+
+    return [
+      { content: <PreferenceIcon status={finalConfirmation} /> },
+      { content: getPreferenceName(preference) },
+      { content: memberNameFromPref(preference.application_member_id, applicationMembers) },
+      { content: preference.preference_lottery_rank, classes: ['text-right'] },
+      { content: getTypeOfProof(preference, proofFiles, fileBaseUrl) },
+      { content: finalConfirmation }
+    ]
+  }
 
 const buildRows = (application, applicationMembers, fileBaseUrl) => {
   const { preferences } = application
   const proofFiles = application.proof_files
   const sortedPreferences = orderBy(preferences, 'preference_order', 'asc')
-  return onlyValid(sortedPreferences).map(buildRow(proofFiles, applicationMembers, fileBaseUrl))
+  return onlyValid(sortedPreferences).map((pref, index) => {
+    if (pref.preference_name.includes('Veterans')) {
+      return buildRow(
+        proofFiles,
+        applicationMembers,
+        fileBaseUrl
+      )(pref, sortedPreferences[index + 1].post_lottery_validation)
+    } else {
+      return buildRow(proofFiles, applicationMembers, fileBaseUrl)(pref)
+    }
+  })
 }
 
 const columns = [
