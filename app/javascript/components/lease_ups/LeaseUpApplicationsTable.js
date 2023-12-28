@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import classNames from 'classnames'
 import { trim } from 'lodash'
@@ -53,6 +53,34 @@ const LeaseUpApplicationsTable = ({
   bulkCheckboxesState,
   onBulkCheckboxClick
 }) => {
+  useMemo(() => {
+    dataSet.forEach((pref) => {
+      if (!pref.preference_name.includes('Veterans')) {
+        pref.final_post_lottery_validation = pref.post_lottery_validation
+        return
+      }
+
+      const nonVetConfirmation = dataSet.filter(
+        (data) =>
+          data.first_name === pref.first_name &&
+          data.last_name === pref.last_name &&
+          data.preference_record_type === pref.preference_record_type &&
+          data.preference_name !== pref.preference_name
+      )[0].post_lottery_validation
+
+      let finalConfirmation = 'Unconfirmed'
+      if (pref.post_lottery_validation === 'Invalid' || nonVetConfirmation === 'Invalid') {
+        finalConfirmation = 'Invalid'
+      } else if (
+        pref.post_lottery_validation === 'Confirmed' &&
+        nonVetConfirmation === 'Confirmed'
+      ) {
+        finalConfirmation = 'Confirmed'
+      }
+      pref.final_post_lottery_validation = finalConfirmation
+    })
+  }, [dataSet])
+
   const [
     {
       applicationsListData: { page }
@@ -99,7 +127,7 @@ const LeaseUpApplicationsTable = ({
       Cell: (cell) => (
         <PreferenceRankCell
           preferenceRank={cell.original.preference_rank}
-          preferenceValidation={cell.original.post_lottery_validation}
+          preferenceValidation={cell.original.final_post_lottery_validation}
         />
       )
     },

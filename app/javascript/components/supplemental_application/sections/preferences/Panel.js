@@ -54,7 +54,6 @@ const Panel = ({
   const onSaveWithPreferenceIndex = () => {
     if (vetIndexes && vetIndexes.length > 0) {
       vetIndexes.forEach((i) => {
-        console.log(form.getState().values)
         form.getState().values.preferences[i].post_lottery_validation =
           form.getState().values.preferences[preferenceIndex].post_lottery_validation
         form.getState().values.preferences[i].type_of_proof =
