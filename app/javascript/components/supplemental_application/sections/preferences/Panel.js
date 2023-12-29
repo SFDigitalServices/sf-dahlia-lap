@@ -82,8 +82,6 @@ const Panel = ({
     onClose(preferenceIndex)
   }
 
-  // TODO: when clicking save make calls for all rows needed (2 for non vet, 5 for vet)
-
   return (
     <InlineModal>
       <PreferencePanel
