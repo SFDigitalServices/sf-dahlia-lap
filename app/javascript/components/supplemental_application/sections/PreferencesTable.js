@@ -22,7 +22,7 @@ import {
   getPreferenceName
 } from './preferences/utils'
 
-const hasExpanderButton = (prefName) => {
+export const hasExpanderButton = (prefName) => {
   const resp = prefName.includes('Veterans')
     ? true
     : !overSome(isCOP, isDTHP, isAliceGriffith, isRightToReturn)(prefName)

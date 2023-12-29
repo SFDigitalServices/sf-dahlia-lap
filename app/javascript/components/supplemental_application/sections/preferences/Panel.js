@@ -12,6 +12,7 @@ import DefaultPanel from './DefaultPanel'
 import LiveOrWorkInSanFranciscoPanel from './LiveOrWorkInSanFranciscoPanel'
 import NeighborhoodResidentHousingPanel from './NeighborhoodResidentHousingPanel'
 import RentBurdenedPanel from './RentBurdenedPanel'
+import { hasExpanderButton } from '../PreferencesTable'
 
 const isPreference = (recordType, preferenceName) => (pref) => {
   const recordtypeDevelopername = pref.recordtype_developername
@@ -47,12 +48,14 @@ const Panel = ({
 }) => {
   const preference = application.preferences[preferenceIndex]
   const PreferencePanel = getPreferencePanel(preference)
+
   const memberOption = (member) => {
     return { value: member.id, label: `${member.first_name} ${member.last_name}` }
   }
   const applicationMembersOptions = map(applicationMembers, memberOption)
   const onSaveWithPreferenceIndex = () => {
     if (vetIndexes && vetIndexes.length > 0) {
+      // update all veteran prefs
       vetIndexes.forEach((i) => {
         form.getState().values.preferences[i].post_lottery_validation =
           form.getState().values.preferences[preferenceIndex].post_lottery_validation
@@ -62,7 +65,13 @@ const Panel = ({
           form.getState().values.preferences[preferenceIndex].person_who_claimed_name
         onSave(i, form.getState().values)
       })
+
+      // update non veteran if expandable, which is next element
+      if (hasExpanderButton(application.preferences[preferenceIndex + 1].preference_name)) {
+        onSave(preferenceIndex + 1, form.getState().values)
+      }
     } else {
+      // update only non veteran
       onSave(preferenceIndex, form.getState().values)
     }
   }
@@ -73,6 +82,8 @@ const Panel = ({
     onClose(preferenceIndex)
   }
 
+  // TODO: when clicking save make calls for all rows needed (2 for non vet, 5 for vet)
+
   return (
     <InlineModal>
       <PreferencePanel
@@ -82,6 +93,16 @@ const Panel = ({
         applicationMembersOptions={applicationMembersOptions}
         visited={visited}
       />
+      {preference.preference_name.includes('Veterans') &&
+        hasExpanderButton(application.preferences[preferenceIndex + 1].preference_name) && (
+          <PreferencePanel
+            preferenceIndex={preferenceIndex + 1}
+            preference={application.preferences[preferenceIndex + 1]}
+            form={form}
+            applicationMembersOptions={applicationMembersOptions}
+            visited={visited}
+          />
+        )}
       <FormGrid.Row expand={false}>
         <div className='form-grid_item column'>
           <button
