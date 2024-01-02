@@ -48,7 +48,7 @@ const Panel = ({
   visited
 }) => {
   const preference = application.preferences[preferenceIndex]
-  // TODO: need preference panel for non veteran
+  // TODO: need preference panel for non veteran because it may not be custom
   const PreferencePanel = getPreferencePanel(preference)
 
   const memberOption = (member) => {

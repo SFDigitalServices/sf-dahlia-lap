@@ -54,6 +54,7 @@ const LeaseUpApplicationsTable = ({
   bulkCheckboxesState,
   onBulkCheckboxClick
 }) => {
+  // TODO: do this data transformation in react or rails?
   useMemo(() => {
     dataSet.forEach((pref) => {
       if (!isVeteran(pref.preference_name)) {

@@ -5,7 +5,7 @@ import { buildFieldId } from 'components/applications/application_form/preferenc
 import FormGrid from 'components/molecules/FormGrid'
 import { SelectField } from 'utils/form/final_form/Field'
 
-import { FormItem, Comment, statusOptions } from './utils'
+import { FormItem, Comment, statusOptions, isVeteran } from './utils'
 
 const { labelize } = formOptions
 const { preferenceProofOptionsDefault } = formOptions
@@ -15,7 +15,9 @@ export const Custom = ({ preferenceIndex, preference, applicationMembersOptions 
     <>
       <FormGrid.Row expand={false}>
         <FormItem label='Preference Name'>
-          <div className='text-value'>{preference.preference_name}</div>
+          <div className='text-value'>
+            {isVeteran(preference.preference_name) ? 'Veteran status' : preference.preference_name}
+          </div>
         </FormItem>
         <FormItem>
           <SelectField
