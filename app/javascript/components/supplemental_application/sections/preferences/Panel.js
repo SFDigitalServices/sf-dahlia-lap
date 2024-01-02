@@ -4,6 +4,7 @@ import { cond, stubTrue, constant, map } from 'lodash'
 
 import FormGrid from 'components/molecules/FormGrid'
 import InlineModal from 'components/molecules/InlineModal'
+import { isVeteran } from 'components/supplemental_application/sections/preferences/utils'
 
 import AntiDisplacementHousingPanel from './AntiDisplacementHousingPanel'
 import AssistedHousingPanel from './AssistedHousingPanel'
@@ -47,6 +48,7 @@ const Panel = ({
   visited
 }) => {
   const preference = application.preferences[preferenceIndex]
+  // TODO: need preference panel for non veteran
   const PreferencePanel = getPreferencePanel(preference)
 
   const memberOption = (member) => {
@@ -91,7 +93,7 @@ const Panel = ({
         applicationMembersOptions={applicationMembersOptions}
         visited={visited}
       />
-      {preference.preference_name.includes('Veterans') &&
+      {isVeteran(preference.preference_name) &&
         hasExpanderButton(application.preferences[preferenceIndex + 1].preference_name) && (
           <PreferencePanel
             preferenceIndex={preferenceIndex + 1}

@@ -19,11 +19,12 @@ import {
   isDTHP,
   isAliceGriffith,
   isRightToReturn,
-  getPreferenceName
+  getPreferenceName,
+  isVeteran
 } from './preferences/utils'
 
 export const hasExpanderButton = (prefName) => {
-  const resp = prefName.includes('Veterans')
+  const resp = isVeteran(prefName)
     ? true
     : !overSome(isCOP, isDTHP, isAliceGriffith, isRightToReturn)(prefName)
   return resp
@@ -69,7 +70,7 @@ const buildRows = (application, applicationMembers, fileBaseUrl) => {
   const proofFiles = application.proof_files
   const sortedPreferences = orderBy(preferences, 'preference_order', 'asc')
   return onlyValid(sortedPreferences).map((pref, index) => {
-    if (pref.preference_name.includes('Veterans')) {
+    if (isVeteran(pref.preference_name)) {
       return buildRow(
         proofFiles,
         applicationMembers,
@@ -139,7 +140,7 @@ const PreferencesTable = ({
 
   useMemo(() => {
     const ids = application.preferences
-      .filter((pref) => pref.preference_name.includes('Veterans') && pref.receives_preference)
+      .filter((pref) => isVeteran(pref.preference_name) && pref.receives_preference)
       .map((pref) => {
         return pref.preference_order - 1
       })
@@ -177,7 +178,7 @@ const PreferencesTable = ({
                 application={application}
                 applicationMembers={applicationMembers}
                 preferenceIndex={preferenceIndex}
-                vetIndexes={preference.preference_name.includes('Veterans') ? vetIndexes : []}
+                vetIndexes={isVeteran(preference.preference_name) ? vetIndexes : []}
                 onSave={onSave}
                 onClose={() => preferenceRowClosed(dispatch, preferenceIndex)}
                 form={form}

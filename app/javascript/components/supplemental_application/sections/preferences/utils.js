@@ -32,6 +32,8 @@ export const isAssistedHousing = (value) => value === 'Assisted Housing'
 
 export const isRentBurdened = (value) => value === 'Rent Burdened'
 
+export const isVeteran = (value) => value && value.includes('Veteran')
+
 export const getPreferenceName = (preference) => {
   const preferenceName = preference.preference_name
   const individualPreference = preference.individual_preference

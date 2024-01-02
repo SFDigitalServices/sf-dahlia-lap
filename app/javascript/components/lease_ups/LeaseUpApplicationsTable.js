@@ -12,6 +12,7 @@ import {
 import CheckboxCell from 'components/lease_ups/application_page/CheckboxCell'
 import PreferenceRankCell from 'components/lease_ups/application_page/PreferenceRankCell'
 import StatusCell from 'components/lease_ups/application_page/StatusCell'
+import { isVeteran } from 'components/supplemental_application/sections/preferences/utils'
 import appPaths from 'utils/appPaths'
 import { useAppContext } from 'utils/customHooks'
 import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
@@ -55,7 +56,7 @@ const LeaseUpApplicationsTable = ({
 }) => {
   useMemo(() => {
     dataSet.forEach((pref) => {
-      if (!pref.preference_name.includes('Veterans')) {
+      if (!isVeteran(pref.preference_name)) {
         pref.final_post_lottery_validation = pref.post_lottery_validation
         return
       }
