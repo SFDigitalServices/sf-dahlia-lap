@@ -8882,9 +8882,7 @@ table, .ReactTable {
     text-transform: uppercase;
     letter-spacing: .1rem;
     font-style: normal; }
-  table.td-plain tr td.combine, .td-plain.ReactTable tr td, table.plain tr td, .plain.ReactTable tr td {
-    background: transparent; }
-  table.td-plain tr td.break, .td-plain.ReactTable tr td, table.plain tr td, .plain.ReactTable tr td {
+  table.td-plain tr td, .td-plain.ReactTable tr td, table.plain tr td, .plain.ReactTable tr td {
     background: transparent;
     border-bottom: 1px solid #dedee0; }
   table.td-plain tr, .td-plain.ReactTable tr, table.plain tr, .plain.ReactTable tr {
