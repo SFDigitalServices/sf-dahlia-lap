@@ -8,7 +8,12 @@ import { SelectField } from 'utils/form/final_form/Field'
 import { FormItem, Comment, statusOptions, isVeteran } from './utils'
 
 const { labelize } = formOptions
-const { preferenceProofOptionsDefault } = formOptions
+const { preferenceProofOptionsDefault, preferenceProofOptionsVeteran } = formOptions
+
+const typeOfProofFieldName = (preference_name, preferenceIndex) => {
+  const field = isVeteran(preference_name) ? 'veteran_type_of_proof' : 'type_of_proof'
+  return buildFieldId(preferenceIndex, field)
+}
 
 export const Custom = ({ preferenceIndex, preference, applicationMembersOptions }) => {
   return (
@@ -28,8 +33,12 @@ export const Custom = ({ preferenceIndex, preference, applicationMembersOptions 
         </FormItem>
         <FormItem>
           <SelectField
-            fieldName={buildFieldId(preferenceIndex, 'type_of_proof')}
-            options={preferenceProofOptionsDefault}
+            fieldName={typeOfProofFieldName(preference.preference_name, preferenceIndex)}
+            options={
+              isVeteran(preference.preference_name)
+                ? preferenceProofOptionsVeteran
+                : preferenceProofOptionsDefault
+            }
             label='Type of Proof'
           />
         </FormItem>

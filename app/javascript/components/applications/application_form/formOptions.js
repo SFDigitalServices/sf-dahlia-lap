@@ -34,6 +34,7 @@ const labelize = (options, attrs = {}) => {
 // TODO: Remove the use of labelize on all the below options arrays once the
 // migration to react-final-form is complete. labelize is already being called
 // by the new react-final-form-based SelectField component.
+// TODO: create a follow up tech debt ticket
 const applicationLanguageOptions = labelize(['English', 'Chinese', 'Spanish', 'Filipino'])
 
 const phoneTypeOptions = labelize(['Home', 'Cell', 'Work'])
@@ -109,6 +110,15 @@ const preferenceProofOptionsDefault = labelize([
   'Public benefits record',
   'School record',
   'Letter documenting homelessness'
+])
+
+// TODO: remove hardcoding proofs, get from salesforce
+const preferenceProofOptionsVeteran = labelize([
+  'DD Form 214',
+  'DD Form 256',
+  'Veterans Affairs release and discharge document',
+  'Veterans Affairs issued ID',
+  'Military ID'
 ])
 
 const preferenceProofOptionsLiveSf = labelize([
@@ -193,6 +203,7 @@ export default {
   raceOptions,
   sexualOrientationOptions,
   preferenceProofOptionsDefault,
+  preferenceProofOptionsVeteran,
   preferenceProofOptionsLiveSf,
   preferenceProofOptionsWorkSf,
   preferenceProofOptionsRentBurden,
