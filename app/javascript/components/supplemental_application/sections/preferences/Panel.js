@@ -63,6 +63,8 @@ const Panel = ({
           form.getState().values.preferences[preferenceIndex].post_lottery_validation
         form.getState().values.preferences[i].type_of_proof =
           form.getState().values.preferences[preferenceIndex].type_of_proof
+        form.getState().values.preferences[i].veteran_type_of_proof =
+          form.getState().values.preferences[preferenceIndex].veteran_type_of_proof
         form.getState().values.preferences[i].person_who_claimed_name =
           form.getState().values.preferences[preferenceIndex].person_who_claimed_name
         onSave(i, form.getState().values)
