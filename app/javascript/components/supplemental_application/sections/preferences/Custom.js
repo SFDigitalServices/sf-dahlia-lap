@@ -15,13 +15,21 @@ const typeOfProofFieldName = (preference_name, preferenceIndex) => {
   return buildFieldId(preferenceIndex, field)
 }
 
+const comments = {
+  NON_VETERAN:
+    'Please check to make sure that a document proving the preference address is provided. If no proof document is provided, do not confirm this preference.',
+  VETERAN:
+    'Please check to make sure that a document proving Veteran status is provided. If no proof document is provided, do not confirm this preference.'
+}
+
 export const Custom = ({ preferenceIndex, preference, applicationMembersOptions }) => {
+  const isPrefVeteran = isVeteran(preference.preference_name)
   return (
     <>
       <FormGrid.Row expand={false}>
         <FormItem label='Preference Name'>
           <div className='text-value'>
-            {isVeteran(preference.preference_name) ? 'Veteran status' : preference.preference_name}
+            {isPrefVeteran ? 'Veteran status' : preference.preference_name}
           </div>
         </FormItem>
         <FormItem>
@@ -34,11 +42,7 @@ export const Custom = ({ preferenceIndex, preference, applicationMembersOptions 
         <FormItem>
           <SelectField
             fieldName={typeOfProofFieldName(preference.preference_name, preferenceIndex)}
-            options={
-              isVeteran(preference.preference_name)
-                ? preferenceProofOptionsVeteran
-                : preferenceProofOptionsDefault
-            }
+            options={isPrefVeteran ? preferenceProofOptionsVeteran : preferenceProofOptionsDefault}
             label='Type of Proof'
           />
         </FormItem>
@@ -53,10 +57,7 @@ export const Custom = ({ preferenceIndex, preference, applicationMembersOptions 
       <FormGrid.Row expand={false}>
         <div className='form-group'>
           <div className='form-grid_item large-12 column padding-bottom'>
-            <Comment>
-              Please check to make sure that a document proving the preference address is provided.
-              If no proof document is provided, do not confirm this preference.
-            </Comment>
+            <Comment>{isPrefVeteran ? comments.VETERAN : comments.NON_VETERAN}</Comment>
           </div>
         </div>
       </FormGrid.Row>
