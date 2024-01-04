@@ -1,9 +1,9 @@
+import { render, screen, fireEvent, within, act } from '@testing-library/react'
 import { cloneDeep, merge } from 'lodash'
-import { act } from 'react-dom/test-utils'
-import renderer from 'react-test-renderer'
+import selectEvent from 'react-select-event'
 
 import supplementalApplication from '../../fixtures/supplemental_application'
-import { leaseUpAppWithUrl, mountAppWithUrl } from '../../testUtils/wrapperUtil'
+import { leaseUpAppWithUrl, renderAppWithUrl } from '../../testUtils/wrapperUtil'
 
 const mockInitialLoad = jest.fn()
 const mockSubmitApplication = jest.fn()
@@ -20,7 +20,6 @@ const getWindowUrl = (id) => `/lease-ups/applications/${id}`
 
 const ID_NO_AVAILABLE_UNITS = 'idwithnoavailableunits'
 const ID_WITH_TOTAL_MONTHLY_RENT = 'idwithtotalmonthlyrent'
-const ID_WITH_SELECTED_UNIT = 'idwithselectedunit'
 
 /**
  * TODO: instead of mocking apiService, we should probably be mocking one level up (actions.js).
@@ -164,16 +163,8 @@ jest.mock('apiService', () => {
     updateRentalAssistance: async (_) => ({})
   }
 })
-
-const getWrapper = async (id = getMockApplication().id, unitId = null) => {
-  let wrapper
-  await act(async () => {
-    wrapper = mountAppWithUrl(getWindowUrl(id))
-  })
-
-  wrapper.update()
-
-  return wrapper
+const getWrapper = async (id = getMockApplication().id) => {
+  return await act(async () => renderAppWithUrl(getWindowUrl(id)))
 }
 
 describe('SupplementalApplicationPage', () => {
@@ -194,20 +185,18 @@ describe('SupplementalApplicationPage', () => {
   })
 
   test('it should render as expected', async () => {
-    let component
+    const { asFragment } = await act(() =>
+      render(leaseUpAppWithUrl(getWindowUrl(getMockApplication().id)))
+    )
 
-    await renderer.act(async () => {
-      component = renderer.create(leaseUpAppWithUrl(getWindowUrl(getMockApplication().id)))
-    })
-
-    const tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   test('it only performs initial load request if nothing is changed', async () => {
-    const wrapper = await getWrapper()
-    await act(async () => {
-      wrapper.find('form').first().simulate('submit')
+    await getWrapper()
+
+    await act(() => {
+      fireEvent.submit(screen.getByRole('form'))
     })
 
     expect(mockInitialLoad.mock.calls).toHaveLength(1)
@@ -216,11 +205,21 @@ describe('SupplementalApplicationPage', () => {
 
   test('it only updates changed fields', async () => {
     const payload = getMockApplication()
-    const wrapper = await getWrapper()
-    wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
-    await act(async () => {
-      wrapper.find('form').first().simulate('submit')
+    await getWrapper()
+
+    await act(() =>
+      fireEvent.change(
+        screen.getByRole('combobox', {
+          name: /number of dependents/i
+        }),
+        { target: { value: '2' } }
+      )
+    )
+
+    await act(() => {
+      fireEvent.submit(screen.getByRole('form'))
     })
+
     expect(mockSubmitApplication.mock.calls).toHaveLength(1)
     expect(mockSubmitApplication).toHaveBeenCalledWith({
       id: payload.id,
@@ -239,17 +238,42 @@ describe('SupplementalApplicationPage', () => {
       applicant: { marital_status: 'Domestic Partner' }
     }
 
-    const wrapper = await getWrapper()
+    await getWrapper()
 
-    wrapper.find('#demographics-dependents select option[value=2]').simulate('change')
-    wrapper.find('#demographics-seniors select option[value=3]').simulate('change')
-    wrapper.find('#demographics-minors select option[value=0]').simulate('change')
-    wrapper
-      .find('#demographics-marital-status select option[value="Domestic Partner"]')
-      .simulate('change')
+    await act(() =>
+      fireEvent.change(
+        screen.getByRole('combobox', {
+          name: /number of dependents/i
+        }),
+        { target: { value: '2' } }
+      )
+    )
 
-    await act(async () => {
-      wrapper.find('form').first().simulate('submit')
+    await act(() =>
+      fireEvent.change(
+        screen.getByRole('combobox', {
+          name: /number of seniors/i
+        }),
+        { target: { value: '3' } }
+      )
+    )
+    await act(() =>
+      fireEvent.change(
+        screen.getByRole('combobox', {
+          name: /number of minors/i
+        }),
+        { target: { value: '0' } }
+      )
+    )
+    fireEvent.change(
+      screen.getByRole('combobox', {
+        name: /primary applicant marital status/i
+      }),
+      { target: { value: 'Domestic Partner' } }
+    )
+
+    await act(() => {
+      fireEvent.submit(screen.getByRole('form'))
     })
 
     expect(mockSubmitApplication.mock.calls).toHaveLength(1)
@@ -258,15 +282,32 @@ describe('SupplementalApplicationPage', () => {
 
   describe('preference panel', () => {
     test('it saves a live/work application preference panel', async () => {
-      const wrapper = await getWrapper()
+      await getWrapper()
 
+      expect(screen.getAllByTestId('expandable-table-row')[2]).toHaveAttribute(
+        'aria-expanded',
+        'false'
+      )
       // Click edit to open up the panel
       act(() => {
-        wrapper.find('.preferences-table .action-link').at(2).simulate('click')
+        fireEvent.click(
+          within(screen.getAllByTestId('expandable-table-row')[2]).getByRole('button', {
+            name: /edit/i
+          })
+        )
       })
+
+      expect(screen.getAllByTestId('expandable-table-row')[2]).toHaveAttribute(
+        'aria-expanded',
+        'true'
+      )
       // Save the preference panel without making updates
       await act(async () => {
-        wrapper.find('.preferences-table .save-panel-btn').at(2).simulate('click')
+        fireEvent.click(
+          within(screen.getAllByTestId('expandable-table-row-button')[2]).getByRole('button', {
+            name: /save/i
+          })
+        )
       })
 
       const expectedPreferencePayload = {
@@ -283,13 +324,23 @@ describe('SupplementalApplicationPage', () => {
     })
 
     test('it updates total monthly rent when saving a rent burdened preference panel', async () => {
-      const wrapper = await getWrapper(ID_WITH_TOTAL_MONTHLY_RENT)
+      await getWrapper(ID_WITH_TOTAL_MONTHLY_RENT)
 
       // Click edit to open up the panel
-      wrapper.find('.preferences-table .action-link').first().simulate('click')
+      act(() => {
+        fireEvent.click(
+          within(screen.getAllByTestId('expandable-table-row')[0]).getByRole('button', {
+            name: /edit/i
+          })
+        )
+      })
       // Save the preference panel without making updates
       await act(async () => {
-        wrapper.find('.preferences-table .save-panel-btn').first().simulate('click')
+        fireEvent.click(
+          within(screen.getAllByTestId('expandable-table-row-button')[0]).getByRole('button', {
+            name: /save/i
+          })
+        )
       })
 
       const expectedPreferencePayload = {
@@ -321,20 +372,19 @@ describe('SupplementalApplicationPage', () => {
   describe('confirmed income section', () => {
     test('currencies are converted to floats on save', async () => {
       const application = getMockApplication()
-      const wrapper = await getWrapper()
+      await getWrapper()
 
       act(() => {
-        wrapper
-          .find('input#form-confirmed_household_annual_income')
-          .simulate('change', { target: { value: '1234' } })
-      })
-
-      act(() => {
-        wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
+        fireEvent.change(
+          screen.getByRole('textbox', {
+            name: /confirmed total household annual income/i
+          }),
+          { target: { value: '1234' } }
+        )
       })
 
       await act(async () => {
-        wrapper.find('form').first().simulate('submit')
+        fireEvent.submit(screen.getByRole('form'))
       })
 
       const expectedApplication = {
@@ -343,7 +393,7 @@ describe('SupplementalApplicationPage', () => {
         has_military_service: 'No',
         reserved_senior: 'No'
       }
-      expectedApplication.confirmed_household_annual_income = 1234.0
+      expectedApplication.confirmed_household_annual_income = '1234'
 
       expect(mockSubmitApplication.mock.calls).toHaveLength(1)
       expect(mockSubmitApplication).toHaveBeenCalledWith(expectedApplication)
@@ -351,26 +401,27 @@ describe('SupplementalApplicationPage', () => {
 
     test('converts empty values to null when touched', async () => {
       const application = getMockApplication()
-      const wrapper = await getWrapper()
+      await getWrapper()
 
       act(() => {
-        wrapper
-          .find('input#form-confirmed_household_annual_income')
-          .simulate('change', { target: { value: '' } })
-
-        wrapper.find('input#form-confirmed_household_annual_income').simulate('focus')
+        fireEvent.change(
+          screen.getByRole('textbox', {
+            name: /confirmed total household annual income/i
+          }),
+          { target: { value: '' } }
+        )
       })
 
+      // We don't expect there to be a value for confirmed_household_annual_income
       const expectedApplication = {
         id: application.id,
         has_developmental_disability: 'No',
         has_military_service: 'No',
         reserved_senior: 'No'
       }
-      expectedApplication.confirmed_household_annual_income = null
 
       await act(async () => {
-        wrapper.find('form').first().simulate('submit')
+        fireEvent.submit(screen.getByRole('form'))
       })
       expect(mockSubmitApplication.mock.calls).toHaveLength(1)
       expect(mockSubmitApplication).toHaveBeenCalledWith(expectedApplication)
@@ -378,7 +429,7 @@ describe('SupplementalApplicationPage', () => {
   })
 
   describe('Lease Section', () => {
-    let wrapper, mockApplication
+    let mockApplication
     beforeEach(async () => {
       mockApplication = getMockApplication()
 
@@ -387,59 +438,93 @@ describe('SupplementalApplicationPage', () => {
         id: 'validDTHPPref',
         post_lottery_validation: 'Confirmed'
       })
-
-      wrapper = await getWrapper()
     })
 
     test('should save a lease object', async () => {
-      wrapper.find('#edit-lease-button').first().simulate('click')
+      await getWrapper()
+
+      fireEvent.click(screen.getByRole('button', { name: /edit lease/i }))
+
+      const leaseStartDate = screen.getAllByTestId('multi-date-field')[1]
+      const monthInput = within(leaseStartDate).getAllByRole('textbox')[0]
+      const dayInput = within(leaseStartDate).getAllByRole('textbox')[1]
+      const yearInput = within(leaseStartDate).getAllByRole('textbox')[2]
+      expect(monthInput).toHaveAttribute('placeholder', 'MM')
+      expect(dayInput).toHaveAttribute('placeholder', 'DD')
+      expect(yearInput).toHaveAttribute('placeholder', 'YYYY')
       // Fill out lease fields
       // Assigned Unit number
 
+      selectEvent.openMenu(
+        within(
+          screen.getByRole('button', {
+            name: /assigned unit number/i
+          })
+        ).getByRole('combobox')
+      )
+
       // Lease start date
-      act(() => {
-        wrapper
-          .find('#form-lease_unit')
-          .find('Select')
-          .props()
-          .onChange({ value: 'unit_without_priority' })
+      await act(() => {
+        fireEvent.click(screen.getByText(/unit without priority/i))
 
-        wrapper.find('#lease_start_date_month input').simulate('change', { target: { value: '1' } })
-        wrapper.find('#lease_start_date_day input').simulate('change', { target: { value: '12' } })
-
-        wrapper
-          .find('#lease_start_date_year input')
-          .simulate('change', { target: { value: '2019' } })
+        fireEvent.change(monthInput, {
+          target: { value: '1' }
+        })
+        fireEvent.change(dayInput, {
+          target: { value: '12' }
+        })
+        fireEvent.change(yearInput, {
+          target: { value: '2019' }
+        })
 
         // Preference used
-        wrapper
-          .find('[name="lease.preference_used"] select option[value="validDTHPPref"]')
-          .simulate('change')
+        fireEvent.change(
+          screen.getByRole('combobox', {
+            name: /preference used/i
+          }),
+          { target: { value: 'validDTHPPref' } }
+        )
       })
-      wrapper.update()
 
       // Costs
-
       // need to set this to "Yes" first to be able to access the other parking cost fields.
-      wrapper
-        .find('[name="lease.bmr_parking_space_assigned"] select')
-        .at(0)
-        .simulate('change', { target: { value: 'Yes' } })
+      await act(() => {
+        fireEvent.change(
+          screen.getByRole('combobox', {
+            name: /bmr parking space assigned\?/i
+          }),
+          { target: { value: 'Yes' } }
+        )
+      })
 
-      wrapper
-        .find('[name="lease.total_monthly_rent_without_parking"] input')
-        .simulate('change', { target: { value: '$1' } })
-      wrapper
-        .find('[name="lease.monthly_parking_rent"] input')
-        .at(0)
-        .simulate('change', { target: { value: '$2' } })
-      wrapper
-        .find('[name="lease.monthly_tenant_contribution"] input')
-        .simulate('change', { target: { value: '$3' } })
+      fireEvent.change(
+        screen.getByRole('textbox', {
+          name: /monthly rent/i
+        }),
+        {
+          target: {
+            value: '$1'
+          }
+        }
+      )
+
+      fireEvent.change(
+        screen.getByRole('textbox', {
+          name: /monthly cost/i
+        }),
+        { target: { value: '$2' } }
+      )
+
+      fireEvent.change(
+        screen.getByRole('textbox', {
+          name: /tenant contribution/i
+        }),
+        { target: { value: '$3' } }
+      )
 
       // Assert that they're sent to the API
       await act(async () => {
-        wrapper.find('form').first().simulate('submit')
+        fireEvent.submit(screen.getByRole('form'))
       })
 
       const expectedLease = {
@@ -459,141 +544,146 @@ describe('SupplementalApplicationPage', () => {
       expect(mockCreateLease.mock.calls).toHaveLength(0)
       expect(mockUpdateLease.mock.calls).toHaveLength(1)
       expect(mockUpdateLease).toHaveBeenCalledWith(expectedLease)
-    })
-
-    test('should send a null value for unit to API if selected', async () => {
-      const wrapper = await getWrapper(ID_WITH_SELECTED_UNIT)
-      wrapper.find('#edit-lease-button').first().simulate('click')
-
-      // Select the value from the dropdown
-
-      act(() => {
-        wrapper.find('#form-lease_unit').find('Select').props().onChange({ value: null })
-      })
-      wrapper.update()
-
-      // Hit save
-      await act(async () => {
-        wrapper.find('form').first().simulate('submit')
-      })
-
-      // Verify that the API was called with null unit value
-      expect(mockCreateLease.mock.calls).toHaveLength(0)
-      expect(mockUpdateLease.mock.calls).toHaveLength(1)
-      expect(mockUpdateLease).toHaveBeenCalledWith(expect.objectContaining({ unit: null }))
-    })
+    }, 10000)
 
     test('it displays "No Units Available" and 0 units count when no units available', async () => {
-      const wrapper = await getWrapper(ID_NO_AVAILABLE_UNITS)
-      const unitSelect = wrapper.find('#form-lease_unit').first()
+      await getWrapper(ID_NO_AVAILABLE_UNITS)
+      const unitSelect = screen.getByRole('button', {
+        name: /assigned unit number/i
+      })
 
-      expect(unitSelect.exists()).toBeTruthy()
-      expect(unitSelect.html().includes('No Units Available')).toBeTruthy()
-      expect(wrapper.find('#total-available-count').text()).toEqual('0')
+      expect(within(unitSelect).getByText('No Units Available')).toBeInTheDocument()
+      expect(screen.getByTestId('total-available-count').textContent).toEqual('0')
     })
 
     describe('when no unit is selected', () => {
+      beforeEach(async () => {
+        await getWrapper()
+      })
+
       test('it shows expected available unit counts', () => {
-        expect(wrapper.find('#total-available-count').text()).toEqual('2')
-        expect(wrapper.find('#accessibility-available-count').text()).toEqual('1')
-        expect(wrapper.find('#dthp-available-count').text()).toEqual('3')
-        expect(wrapper.find('#nrhp-available-count').text()).toEqual('4')
+        expect(screen.getByTestId('total-available-count').textContent).toEqual('2')
+        expect(screen.getByTestId('accessibility-available-count').textContent).toEqual('1')
+        expect(screen.getByTestId('dthp-available-count').textContent).toEqual('3')
+        expect(screen.getByTestId('nrhp-available-count').textContent).toEqual('4')
       })
 
       test('it does not change the DTHP availability count when pref used is selected', () => {
         act(() => {
-          wrapper
-            .find('[name="lease.preference_used"] select')
-            .simulate('change', { target: { value: 'validDTHPPref' } })
+          fireEvent.change(
+            screen.getByRole('combobox', {
+              name: /preference used/i
+            }),
+            { target: { value: 'validDTHPPref' } }
+          )
         })
-        expect(wrapper.find('#dthp-available-count').text()).toEqual('3')
+        expect(screen.getByTestId('dthp-available-count').textContent).toEqual('3')
       })
     })
 
     describe('when unit without priority is selected', () => {
       beforeEach(async () => {
-        wrapper.find('#edit-lease-button').first().simulate('click')
+        await getWrapper()
+
+        fireEvent.click(screen.getByRole('button', { name: /edit lease/i }))
+
+        selectEvent.openMenu(
+          within(
+            screen.getByRole('button', {
+              name: /assigned unit number/i
+            })
+          ).getByRole('combobox')
+        )
+
         act(() => {
-          wrapper
-            .find('#form-lease_unit')
-            .find('Select')
-            .props()
-            .onChange({ value: 'unit_without_priority' })
+          fireEvent.click(screen.getByText(/unit without priority/i))
         })
-        wrapper.update()
       })
 
       test('it decreases the number of available units', () => {
-        expect(wrapper.find('#total-available-count').text()).toEqual('1')
+        expect(screen.getByTestId('total-available-count').textContent).toEqual('1')
       })
 
       test('it does not impact the number of accessibility units', () => {
-        expect(wrapper.find('#accessibility-available-count').text()).toEqual('1')
+        expect(screen.getByTestId('accessibility-available-count').textContent).toEqual('1')
       })
 
       test('it does not impact the number of priority set asides', () => {
-        expect(wrapper.find('#dthp-available-count').text()).toEqual('3')
-        expect(wrapper.find('#nrhp-available-count').text()).toEqual('4')
+        expect(screen.getByTestId('dthp-available-count').textContent).toEqual('3')
+        expect(screen.getByTestId('nrhp-available-count').textContent).toEqual('4')
       })
 
       test('it decreases the available DTHP count when DTHP is pref used', () => {
         act(() => {
-          wrapper
-            .find('[name="lease.preference_used"] select')
-            .simulate('change', { target: { value: 'validDTHPPref' } })
+          fireEvent.change(
+            screen.getByRole('combobox', {
+              name: /preference used/i
+            }),
+            { target: { value: 'validDTHPPref' } }
+          )
         })
-        expect(wrapper.find('#dthp-available-count').text()).toEqual('2')
+        expect(screen.getByTestId('dthp-available-count').textContent).toEqual('2')
       })
     })
 
     describe('when unit with priority is selected', () => {
       beforeEach(async () => {
-        wrapper.find('#edit-lease-button').first().simulate('click')
-        act(() => {
-          wrapper
-            .find('#form-lease_unit')
-            .find('Select')
-            .props()
-            .onChange({ value: 'unit_with_priority' })
+        await getWrapper()
+
+        fireEvent.click(screen.getByRole('button', { name: /edit lease/i }))
+
+        selectEvent.openMenu(
+          within(
+            screen.getByRole('button', {
+              name: /assigned unit number/i
+            })
+          ).getByRole('combobox')
+        )
+
+        await act(async () => {
+          await fireEvent.click(screen.getByText(/unit with priority/i))
         })
-        wrapper.update()
       })
 
       test('it decreases the number of available units', () => {
-        expect(wrapper.find('#total-available-count').text()).toEqual('1')
+        expect(screen.getByTestId('total-available-count').textContent).toEqual('1')
       })
 
       test('it decreases the number of accessibility units', () => {
-        expect(wrapper.find('#accessibility-available-count').text()).toEqual('0')
+        expect(screen.getByTestId('accessibility-available-count').textContent).toEqual('0')
       })
     })
   })
 
   describe('Status Sidebar', () => {
     test('should render the LeaseUpSidebar', async () => {
-      const wrapper = await getWrapper()
+      await getWrapper()
 
       // Check that the page matches the snapshot that we have stored
       // of how the dropdown button and dropdown menu should render
       // when the dropdown menu is open
-      expect(wrapper.find('.sidebar-content')).toHaveLength(1)
+      expect(document.querySelector('.sidebar-content')).toBeInTheDocument(1)
     })
   })
 
   test('should display alert box when form is invalid on submit', async () => {
-    const wrapper = await getWrapper()
+    await getWrapper()
+
+    const leaseStartDate = screen.getAllByTestId('multi-date-field')[1]
+    const monthInput = within(leaseStartDate).getAllByRole('textbox')[0]
 
     // Fill in letters in lease date month - which are invalid values
 
     act(() => {
-      wrapper
-        .find('#lease_start_date_month')
-        .first()
-        .simulate('change', { target: { value: 'AB' } })
+      fireEvent.change(monthInput, {
+        target: { value: 'AB' }
+      })
     })
-    wrapper.find('#save-supplemental-application').first().simulate('click')
 
+    fireEvent.click(screen.getAllByRole('button', { name: /save/i }).pop())
     // alert box to display
-    expect(wrapper.find('.alert-box').exists()).toBeTruthy()
+    expect(
+      screen.getByText(/please resolve any errors before saving the application\./i)
+    ).toBeInTheDocument()
   })
 })

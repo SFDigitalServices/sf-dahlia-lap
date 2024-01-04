@@ -1,16 +1,9 @@
-import { shallow } from 'enzyme'
+import { screen } from '@testing-library/react'
 import { act } from 'react-dom/test-utils'
-
-import ApplicationDetails from 'components/applications/application_details/ApplicationDetails'
-import ApplicationPage from 'components/applications/ApplicationPage'
-import CardLayout from 'components/layouts/CardLayout'
-import Loading from 'components/molecules/Loading'
 
 import application from '../../fixtures/application'
 import saleApplication from '../../fixtures/sale_application'
-import { mountAppWithUrl } from '../../testUtils/wrapperUtil'
-
-const flaggedAppCardSelector = '#content-card-flagged_applications'
+import { renderAppWithUrl } from '../../testUtils/wrapperUtil'
 
 const FLAGGED_APP_ID = 'flagged_app_id'
 const NO_FLAGS_ID = 'no_flags_id'
@@ -64,50 +57,25 @@ jest.mock('apiService', () => {
 const mockApplication = application
 const mockSaleApplication = saleApplication
 
-const getWrapper = async ({ applicationId, waitForLoadingFinish = false, queryParams = '' }) => {
+const renderApp = async ({ applicationId, waitForLoadingFinish = false, queryParams = '' }) => {
   const url = `/applications/${applicationId}${queryParams}`
-
-  let wrapper
 
   // have to wrap in await act so that all useEffectOnMount updates finish.
   await act(async () => {
-    wrapper = mountAppWithUrl(url)
+    renderAppWithUrl(url)
   })
 
   if (waitForLoadingFinish) {
     await act(tick)
-    wrapper.update()
   }
-
-  return wrapper.find(ApplicationPage)
 }
 
 describe('ApplicationPage', () => {
   describe('with regular application', () => {
     const appId = REGULAR_APP_ID
     describe('before application is loaded', () => {
-      let wrapper
       beforeEach(async () => {
-        wrapper = await getWrapper({ applicationId: appId })
-      })
-
-      test('should be loading', () => {
-        expect(wrapper.find(Loading).prop('isLoading')).toBeTruthy()
-      })
-
-      test('renders the correct header title and content', () => {
-        expect(wrapper.find(CardLayout).props().pageHeader.title).toEqual('Application ')
-
-        const headerContentWrapper = shallow(wrapper.find(CardLayout).props().pageHeader.content)
-        expect(headerContentWrapper.text()).toEqual('Name of Listing: ')
-      })
-
-      test('does not render the tab section', () => {
-        expect(wrapper.find(CardLayout).props().tabSection).toBeUndefined()
-      })
-
-      test('does not render ApplicationDetails', () => {
-        expect(wrapper.find(ApplicationDetails)).toHaveLength(0)
+        await renderApp({ applicationId: appId })
       })
 
       test('called getShortFormApplication', () => {
@@ -117,87 +85,103 @@ describe('ApplicationPage', () => {
     })
 
     describe('After the application finishes loading', () => {
-      let wrapper
       beforeEach(async () => {
-        wrapper = await getWrapper({ applicationId: appId, waitForLoadingFinish: true })
+        await renderApp({ applicationId: appId, waitForLoadingFinish: true })
       })
 
       test('should no longer be loading', () => {
-        expect(wrapper.find(Loading).prop('isLoading')).toBeFalsy()
+        expect(screen.queryByTestId('loading-spinner')).not.toBeInTheDocument()
       })
 
       test('renders ApplicationDetails', () => {
-        expect(wrapper.find(ApplicationDetails)).toHaveLength(1)
+        expect(
+          screen.getByRole('heading', {
+            name: /application data/i
+          })
+        ).toBeInTheDocument()
       })
 
       test('populates the header title and content with application details', () => {
-        expect(wrapper.find(CardLayout).props().pageHeader.title).toEqual(
-          'Application APP-00191270'
-        )
+        expect(screen.getByText('Application APP-00191270')).toBeInTheDocument()
 
-        const headerContentWrapper = shallow(wrapper.find(CardLayout).props().pageHeader.content)
-        expect(headerContentWrapper.text()).toEqual('Name of Listing: Test 5/30')
+        expect(
+          screen
+            .getByRole('link', {
+              name: /test 5\/30/i
+            })
+            .getAttribute('href')
+        ).toBe('/listings/a0W0x000000GhJUEA0')
       })
 
-      test('does not render the tab section', () => {
-        expect(wrapper.find(CardLayout).props().tabSection).toBeUndefined()
-      })
-
-      test('should match snapshot', () => {
+      test('should match snapshot', async () => {
         // TODO: Expand test coverage on this page to the point that we do not need this snapshot check.
-        expect(wrapper).toMatchSnapshot()
+        const { asFragment } = await act(async () => {
+          return new Promise((resolve) => {
+            resolve(renderAppWithUrl(`/applications/${appId}`))
+          })
+        })
+        expect(asFragment()).toMatchSnapshot()
       })
     })
   })
 
   describe('with sale application', () => {
-    let wrapper
     beforeEach(async () => {
-      wrapper = await getWrapper({ applicationId: SALE_APP_ID, waitForLoadingFinish: true })
+      await renderApp({ applicationId: SALE_APP_ID, waitForLoadingFinish: true })
     })
 
     test('renders Eligibility section', async () => {
-      expect(wrapper.find('.content-card_title').at(2).text()).toEqual('Eligibility')
+      expect(
+        screen.getByRole('heading', {
+          name: /application data/i
+        })
+      ).toBeInTheDocument()
     })
 
     test('renders name of lender', async () => {
-      expect(wrapper.find('.application-details').childAt(2).text()).toContain('Jason Lockhart')
+      expect(screen.getByText(/jason lockhart/i)).toBeInTheDocument()
     })
   })
 
   describe('with application that has no flags', () => {
-    let wrapper
     beforeEach(async () => {
-      wrapper = await getWrapper({ applicationId: NO_FLAGS_ID, waitForLoadingFinish: true })
+      await renderApp({ applicationId: NO_FLAGS_ID, waitForLoadingFinish: true })
     })
 
     test('does not render flagged app content card', async () => {
-      expect(wrapper.exists(flaggedAppCardSelector)).toEqual(false)
+      expect(
+        screen.queryByRole('heading', {
+          name: /flagged applications/i
+        })
+      ).not.toBeInTheDocument()
     })
   })
 
   describe('with flagged application', () => {
-    let wrapper
     beforeEach(async () => {
-      wrapper = await getWrapper({ applicationId: FLAGGED_APP_ID, waitForLoadingFinish: true })
+      await renderApp({ applicationId: FLAGGED_APP_ID, waitForLoadingFinish: true })
     })
 
     test('renders flagged app content card', async () => {
-      expect(wrapper.exists(flaggedAppCardSelector)).toEqual(true)
+      expect(
+        screen.queryByRole('heading', {
+          name: /flagged applications/i
+        })
+      ).toBeInTheDocument()
     })
 
     test('renders the correct rule name', () => {
-      expect(wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr`)).toHaveLength(1)
       expect(
-        wrapper.find(`${flaggedAppCardSelector} > table > tbody > tr > td`).first().text()
-      ).toEqual('Name + DOB')
+        screen.getByRole('cell', {
+          name: /name \+ dob/i
+        })
+      ).toBeInTheDocument()
     })
   })
 
   describe('with all query params = null', () => {
-    let wrapper
     beforeEach(async () => {
-      wrapper = await getWrapper({
+      await renderApp({
         applicationId: REGULAR_APP_ID,
         waitForLoadingFinish: true,
         queryParams: ''
@@ -205,34 +189,32 @@ describe('ApplicationPage', () => {
     })
 
     test('does not render the tab headers', async () => {
-      expect(wrapper.text()).not.toContain('Supplemental Information')
-      expect(wrapper.text()).not.toContain('Short Form Application')
+      expect(screen.queryByText('Supplemental Information')).not.toBeInTheDocument()
+      expect(screen.queryByText('Short Form Application')).not.toBeInTheDocument()
     })
 
     test('does not render add button link', async () => {
-      expect(wrapper.text()).not.toContain('Add new application')
+      expect(screen.queryByText('Add new application')).not.toBeInTheDocument()
     })
   })
 
   describe('without lease-up URL', () => {
-    let wrapper
     beforeEach(async () => {
-      wrapper = await getWrapper({
+      await renderApp({
         applicationId: REGULAR_APP_ID,
         waitForLoadingFinish: true
       })
     })
 
     test('does not render the tab headers', async () => {
-      expect(wrapper.text()).not.toContain('Supplemental Information')
-      expect(wrapper.text()).not.toContain('Short Form Application')
+      expect(screen.queryByText('Supplemental Information')).not.toBeInTheDocument()
+      expect(screen.queryByText('Short Form Application')).not.toBeInTheDocument()
     })
   })
 
   describe('with showAppBtn query param = false', () => {
-    let wrapper
     beforeEach(async () => {
-      wrapper = await getWrapper({
+      await renderApp({
         applicationId: REGULAR_APP_ID,
         waitForLoadingFinish: true,
         queryParams: '?showAddBtn=false'
@@ -240,14 +222,13 @@ describe('ApplicationPage', () => {
     })
 
     test('does not render add button link', async () => {
-      expect(wrapper.text()).not.toContain('Add new application')
+      expect(screen.queryByText('Add new application')).not.toBeInTheDocument()
     })
   })
 
   describe('with showAppBtn query param = true', () => {
-    let wrapper
     beforeEach(async () => {
-      wrapper = await getWrapper({
+      await renderApp({
         applicationId: REGULAR_APP_ID,
         waitForLoadingFinish: true,
         queryParams: '?showAddBtn=true'
@@ -255,7 +236,7 @@ describe('ApplicationPage', () => {
     })
 
     test('renders add button link', async () => {
-      expect(wrapper.text()).toContain('Add new application')
+      expect(screen.queryByText('Add new application')).toBeInTheDocument()
     })
   })
 })

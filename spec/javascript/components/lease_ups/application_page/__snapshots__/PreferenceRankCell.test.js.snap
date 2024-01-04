@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PreferenceRankCell with Confirmed preference renders with the correct styling 1`] = `
+<DocumentFragment>
+  <div
+    style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+  >
+    <div
+      style="min-width: 60px; padding-right: 0.5rem;"
+    >
+      NRHP 2
+    </div>
+    <svg
+      data-testid="preference-rank-check-icon"
+      style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+    >
+      <use
+        style="fill: #2e8540;"
+        xlink:href="#i-check"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`PreferenceRankCell with Invalid preference renders with the correct styling 1`] = `
+<DocumentFragment>
+  <div
+    style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+  >
+    <div
+      style="min-width: 60px; padding-right: 0.5rem;"
+    >
+      NRHP 2
+    </div>
+    <svg
+      data-testid="preference-rank-x-icon"
+      style="width: 1rem; height: 1rem; fill: #e31c3d;"
+    >
+      <use
+        style="fill: #e31c3d;"
+        xlink:href="#i-close"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`PreferenceRankCell with Unconfirmed preference renders cell with flex-start justification 1`] = `
+<DocumentFragment>
+  <div
+    style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+  >
+    <div
+      style="min-width: 60px; padding-right: 0.5rem;"
+    >
+      NRHP 2
+    </div>
+  </div>
+</DocumentFragment>
+`;

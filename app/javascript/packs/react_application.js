@@ -1,5 +1,5 @@
 import ReactModal from 'react-modal'
-import WebpackerReact from 'webpacker-react'
+import ReactOnRails from 'react-on-rails'
 
 import ApplicationEditPage from 'components/applications/ApplicationEditPage'
 import ApplicationNewPage from 'components/applications/ApplicationNewPage'
@@ -14,16 +14,16 @@ import LeaseUpApp from 'routes/LeaseUpApp'
 
 import './pattern_library'
 
-WebpackerReact.setup({ ApplicationEditPage }) // ES6 shorthand for {ApplicationEditPage: ApplicationEditPage}
-WebpackerReact.setup({ ApplicationNewPage })
-WebpackerReact.setup({ ApplicationsPage })
-WebpackerReact.setup({ FlaggedApplicationsIndexPage })
-WebpackerReact.setup({ FlaggedApplicationsShowPage })
-WebpackerReact.setup({ ListingApplicationsPage })
-WebpackerReact.setup({ ListingPage })
-WebpackerReact.setup({ ListingsPage })
-WebpackerReact.setup({ HomePage })
-WebpackerReact.setup({ LeaseUpApp })
+ReactOnRails.register({ ApplicationEditPage }) // ES6 shorthand for {ApplicationEditPage: ApplicationEditPage}
+ReactOnRails.register({ ApplicationNewPage })
+ReactOnRails.register({ ApplicationsPage })
+ReactOnRails.register({ FlaggedApplicationsIndexPage })
+ReactOnRails.register({ FlaggedApplicationsShowPage })
+ReactOnRails.register({ ListingApplicationsPage })
+ReactOnRails.register({ ListingPage })
+ReactOnRails.register({ ListingsPage })
+ReactOnRails.register({ HomePage })
+ReactOnRails.register({ LeaseUpApp })
 
 window.onload = () => {
   ReactModal.setAppElement('#root')

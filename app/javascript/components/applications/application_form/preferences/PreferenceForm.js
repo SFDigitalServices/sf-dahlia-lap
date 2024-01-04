@@ -64,10 +64,12 @@ const PreferenceForm = ({ i, name, form, listingPreferences, fullHousehold }) =>
   )
 
   // Set the hidden recordType DeveloperName value
-  if (!!selectedPreference && selectedPreference.lottery_preference) {
-    const prefName = selectedPreference.lottery_preference.name
-    form.change(`preferences[${i}].recordtype_developername`, recordTypeMap[prefName] || 'Custom')
-  }
+  React.useEffect(() => {
+    if (!!selectedPreference && selectedPreference.lottery_preference) {
+      const prefName = selectedPreference.lottery_preference.name
+      form.change(`preferences[${i}].recordtype_developername`, recordTypeMap[prefName] || 'Custom')
+    }
+  }, [selectedPreference, form, i])
   const householdMembersOptions = buildHouseholdMembersOptions(fullHousehold)
 
   return (
@@ -80,6 +82,7 @@ const PreferenceForm = ({ i, name, form, listingPreferences, fullHousehold }) =>
             options={listingPreferencesOptions}
             id={`select-paper-preference-${i}`}
             onChange={(event) => clearPreference(form, i, event.target.value)}
+            dataTestId={`${name}-listing-preference-id`}
           />
         </Column>
         <PreferenceAdditionalOptions

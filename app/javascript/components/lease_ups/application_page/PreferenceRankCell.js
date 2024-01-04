@@ -28,9 +28,21 @@ const PreferenceRankCell = ({ preferenceRank, preferenceValidation }) => {
   return (
     <div style={cellContainerStyle}>
       <div style={textStyle}>{preferenceRank}</div>
-      {showXIcon && <StyledIcon icon='close' size='medium' customFill={COLORS.alert} />}
+      {showXIcon && (
+        <StyledIcon
+          icon='close'
+          size='medium'
+          customFill={COLORS.alert}
+          dataTestId={'preference-rank-x-icon'}
+        />
+      )}
       {showCheckIcon && (
-        <StyledIcon icon='check' customSizeRem='1.25rem' customFill={COLORS.success} />
+        <StyledIcon
+          icon='check'
+          customSizeRem='1.25rem'
+          customFill={COLORS.success}
+          dataTestId={'preference-rank-check-icon'}
+        />
       )}
     </div>
   )

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageHeader when content is empty does not render a content section 1`] = `
+<DocumentFragment>
+  <header
+    class="lead-header short has-breadcrumbs bg-vapor"
+  >
+    <div
+      class="row full-width inner--3x"
+    >
+      <div
+        class="large-12 columns"
+      >
+        <nav
+          aria-label="breadcrumb"
+        >
+          <ol
+            class="breadcrumbs"
+          >
+            <li
+              class="current"
+            >
+              <a
+                aria-current="page"
+                href="/a"
+              >
+                A
+              </a>
+            </li>
+          </ol>
+        </nav>
+        <hgroup
+          class="lead-header_group"
+        >
+          <h1
+            class="lead-header_title small c-oil"
+          >
+            title1
+          </h1>
+          <div
+            class="medium-4 columns no-padding"
+            data-testid="page-header-action"
+          >
+            <span
+              class="lead-header_secondary-action"
+            >
+              <a
+                class="alt-caps"
+                data-testid="page-header-default-action"
+                href="/export"
+              >
+                Export
+              </a>
+            </span>
+          </div>
+        </hgroup>
+      </div>
+    </div>
+  </header>
+</DocumentFragment>
+`;

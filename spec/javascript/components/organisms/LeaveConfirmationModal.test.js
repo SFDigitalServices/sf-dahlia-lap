@@ -1,5 +1,6 @@
-/* global mount */
 import React from 'react'
+
+import { render, screen, fireEvent } from '@testing-library/react'
 
 import LeaveConfirmationModal from 'components/organisms/LeaveConfirmationModal'
 import appPaths from 'utils/appPaths'
@@ -10,20 +11,31 @@ describe('LeaveConfirmationModal', () => {
   const destination = appPaths.toApplication('asdf1234')
 
   test('it should render successfully', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <LeaveConfirmationModal isOpen={isOpen} handleClose={handleClose} destination={destination} />
     )
 
-    expect(wrapper).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   test('it should close when the appropriate buttons are clicked', () => {
-    const wrapper = mount(
+    render(
       <LeaveConfirmationModal isOpen={isOpen} handleClose={handleClose} destination={destination} />
     )
 
-    wrapper.find('.modal-button_secondary button').simulate('click')
-    wrapper.find('.close-reveal-modal').simulate('click')
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: /keep editing/i,
+        hidden: true
+      })
+    )
+
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: /close modal/i,
+        hidden: true
+      })
+    )
 
     expect(handleClose.mock.calls).toHaveLength(2)
   })

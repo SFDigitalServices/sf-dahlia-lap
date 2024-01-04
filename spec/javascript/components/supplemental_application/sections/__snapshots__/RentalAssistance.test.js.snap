@@ -1,398 +1,984 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RentalAssistance with rental assistances matches snapshot 1`] = `
-<Fragment>
-  <RentalAssistanceTable
-    applicationMembers={
-      [
-        {
-          "first_name": "Test",
-          "id": "123",
-          "last_name": "Tester",
-        },
-      ]
-    }
-    assistanceRowsOpened={Set {}}
-    disabled={false}
-    form={
-      {
-        "batch": [Function],
-        "blur": [Function],
-        "change": [Function],
-        "destroyOnUnregister": false,
-        "focus": [Function],
-        "getFieldState": [Function],
-        "getRegisteredFields": [Function],
-        "getState": [Function],
-        "initialize": [Function],
-        "isValidationPaused": [Function],
-        "mutators": {},
-        "pauseValidation": [Function],
-        "registerField": [Function],
-        "reset": [Function],
-        "resetFieldState": [Function],
-        "restart": [Function],
-        "resumeValidation": [Function],
-        "setConfig": [Function],
-        "submit": [Function],
-        "subscribe": [Function],
-      }
-    }
-    loading={false}
-    onCancelEdit={[Function]}
-    onDelete={[Function]}
-    onEdit={[Function]}
-    onSave={[Function]}
-    rentalAssistances={
-      [
-        {
-          "assistance_amount": "100",
-          "recipient": "123",
-          "recurring_assistance": "Yes",
-          "type_of_assistance": "Compass Family",
-        },
-      ]
-    }
-  />
-  <Component
-    expand={true}
+<DocumentFragment>
+  <form
+    novalidate=""
   >
-    <Component>
-      <Button
-        disabled={false}
-        id="add-rental-assistance"
-        onClick={[Function]}
-        small={true}
-        text="Add Rental Assistance"
-      />
+    <div
+      class="form-grid row expand margin-top--half"
+    >
       <div
-        className="margin-top--half"
-      />
-      <HelpText
-        note="Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance."
-      />
-    </Component>
-  </Component>
-</Fragment>
+        class="small-12 column"
+      >
+        <div
+          class="table-container-overflow-scroll"
+        >
+          <table
+            class="td-light td-plain th-plain rental-assistances"
+            role="grid"
+            style="background: transparent;"
+          >
+            <thead>
+              <tr>
+                <th
+                  class=""
+                  scope="col"
+                >
+                  Recipient
+                </th>
+                <th
+                  class=""
+                  scope="col"
+                >
+                  Type
+                </th>
+                <th
+                  class=""
+                  scope="col"
+                >
+                  Amount
+                </th>
+                <th
+                  class=""
+                  scope="col"
+                >
+                  Recurring
+                </th>
+                <th
+                  class=""
+                  scope="col"
+                />
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                aria-expanded="false"
+                class="tr-expand"
+                data-testid="expandable-table-row"
+              >
+                <td
+                  class=""
+                >
+                  Test Tester
+                </td>
+                <td
+                  class=""
+                >
+                  Compass Family
+                </td>
+                <td
+                  class=""
+                >
+                  $100.00
+                </td>
+                <td
+                  class=""
+                >
+                  Yes
+                </td>
+                <td>
+                  <button
+                    class="button button-link action-link"
+                    type="button"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr
+                aria-hidden="true"
+                class="tr-expand-content"
+                data-testid="expandable-table-row-button"
+              >
+                <td
+                  class="td-expand-nested no-padding"
+                  colspan="5"
+                >
+                  <div
+                    class="inline-modal padding-left--2x padding-right--2x white-background"
+                    data-testid="rental-assistance-form"
+                    id="rental-assistance-edit-form-0"
+                  >
+                    <div
+                      class="form-grid row expand"
+                    >
+                      <div
+                        class="form-grid_item column small-6"
+                      >
+                        <div
+                          class="form-group"
+                        >
+                          <label
+                            class="form-label"
+                            for="form-rental_assistances.0.recipient"
+                            id="label-rental_assistances-0.recipient"
+                          >
+                            Recipient
+                          </label>
+                          <select
+                            class="rental-assistance-recipient"
+                            id="form-rental_assistances.0.recipient"
+                            name="rental_assistances.0.recipient"
+                          >
+                            <option
+                              value=""
+                            >
+                              Select One...
+                            </option>
+                            <option
+                              value="123"
+                            >
+                              Test Tester
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="form-grid row expand"
+                    >
+                      <div
+                        class="form-grid_item column small-6"
+                      >
+                        <div
+                          class="form-group"
+                        >
+                          <label
+                            class="form-label"
+                            for="form-rental_assistances.0.type_of_assistance"
+                            id="label-rental_assistances-0.type_of_assistance"
+                          >
+                            Type of Assistance
+                          </label>
+                          <select
+                            class="rental-assistance-type"
+                            id="form-rental_assistances.0.type_of_assistance"
+                            name="rental_assistances.0.type_of_assistance"
+                          >
+                            <option
+                              value=""
+                            >
+                              Select One...
+                            </option>
+                            <option
+                              value="Catholic Charities"
+                            >
+                              Catholic Charities
+                            </option>
+                            <option
+                              value="Compass Family"
+                            >
+                              Compass Family
+                            </option>
+                            <option
+                              value="Glide"
+                            >
+                              Glide
+                            </option>
+                            <option
+                              value="Hamilton Family"
+                            >
+                              Hamilton Family
+                            </option>
+                            <option
+                              value="Homeless Prenatal"
+                            >
+                              Homeless Prenatal
+                            </option>
+                            <option
+                              value="HOPWA"
+                            >
+                              HOPWA
+                            </option>
+                            <option
+                              value="Q Foundation: First Month’s Rent"
+                            >
+                              Q Foundation: First Month’s Rent
+                            </option>
+                            <option
+                              value="Q Foundation: Move-in Deposit"
+                            >
+                              Q Foundation: Move-in Deposit
+                            </option>
+                            <option
+                              value="Q Foundation: Person with Disability Rent Subsidy"
+                            >
+                              Q Foundation: Person with Disability Rent Subsidy
+                            </option>
+                            <option
+                              value="Q Foundation: Senior Rent Subsidy"
+                            >
+                              Q Foundation: Senior Rent Subsidy
+                            </option>
+                            <option
+                              value="San Francisco AIDS Foundation"
+                            >
+                              San Francisco AIDS Foundation
+                            </option>
+                            <option
+                              value="Section 8 HCV (tenant) voucher"
+                            >
+                              Section 8 HCV (tenant) voucher
+                            </option>
+                            <option
+                              value="Self-Help for the Elderly"
+                            >
+                              Self-Help for the Elderly
+                            </option>
+                            <option
+                              value="VASH voucher"
+                            >
+                              VASH voucher
+                            </option>
+                            <option
+                              value="Other"
+                            >
+                              Other
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="form-grid row expand"
+                    >
+                      <div
+                        class="form-grid_item column small-6"
+                      >
+                        <div
+                          class="form-group"
+                        >
+                          <label
+                            class="form-label"
+                            for="assistance_amount"
+                            id="label-rental_assistances-0.assistance_amount"
+                          >
+                            Assistance Amount
+                          </label>
+                          <input
+                            class=""
+                            id="assistance_amount"
+                            name="rental_assistances.0.assistance_amount"
+                            placeholder="Enter Amount"
+                            type="text"
+                            value="100"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="form-grid row expand"
+                    >
+                      <div
+                        class="form-grid_item column small-6"
+                      >
+                        <div
+                          class="rental-assistance-recurring radio-group-inline"
+                        >
+                          <label
+                            class="form-label"
+                            for="form-rental_assistances.0.recurring_assistance"
+                            id="label-rental_assistances-0.recurring_assistance"
+                          >
+                            Recurring Assistance
+                          </label>
+                          <p
+                            class="radio-inline"
+                          >
+                            <input
+                              checked=""
+                              id="rental_assistances.0.recurring_assistance-new-yes"
+                              name="rental_assistances.0.recurring_assistance"
+                              type="radio"
+                              value="Yes"
+                            />
+                            <label
+                              class="radio-inline_label"
+                              for="rental_assistances.0.recurring_assistance-new-yes"
+                            >
+                              Yes
+                            </label>
+                          </p>
+                          <p
+                            class="radio-inline"
+                          >
+                            <input
+                              id="rental_assistances.0.recurring_assistance-new-no"
+                              name="rental_assistances.0.recurring_assistance"
+                              type="radio"
+                              value="No"
+                            />
+                            <label
+                              class="radio-inline_label"
+                              for="rental_assistances.0.recurring_assistance-new-no"
+                            >
+                              No
+                            </label>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="form-grid row expand"
+                    >
+                      <div
+                        class="form-grid_item column"
+                      >
+                        <button
+                          class="primary margin-right tiny margin-bottom-none"
+                          id="rental-assistance-save"
+                          style="padding-top: 0px; padding-bottom: 0px;"
+                          type="button"
+                        >
+                          <div
+                            style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                          >
+                            <span
+                              style="margin-top: 1rem; margin-bottom: 1rem; overflow: auto; flex-grow: 1; text-align: center;"
+                            >
+                              Save
+                            </span>
+                          </div>
+                        </button>
+                        <button
+                          class="secondary tiny margin-bottom-none"
+                          id="rental-assistance-cancel"
+                          style="padding-top: 0px; padding-bottom: 0px;"
+                          type="button"
+                        >
+                          <div
+                            style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                          >
+                            <span
+                              style="margin-top: 1rem; margin-bottom: 1rem; overflow: auto; flex-grow: 1; text-align: center;"
+                            >
+                              Cancel
+                            </span>
+                          </div>
+                        </button>
+                        <button
+                          class="alert-fill right tiny margin-bottom-none"
+                          id="rental-assistance-delete"
+                          style="padding-top: 0px; padding-bottom: 0px;"
+                          type="button"
+                        >
+                          <div
+                            style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                          >
+                            <span
+                              style="margin-top: 1rem; margin-bottom: 1rem; overflow: auto; flex-grow: 1; text-align: center;"
+                            >
+                              Delete
+                            </span>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div
+      class="form-grid row expand"
+    >
+      <div
+        class="form-grid_item column small-6"
+      >
+        <button
+          class="small"
+          id="add-rental-assistance"
+          style="padding-top: 0px; padding-bottom: 0px;"
+          type="button"
+        >
+          <div
+            style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+          >
+            <span
+              style="margin-top: 1rem; margin-bottom: 1rem; overflow: auto; flex-grow: 1; text-align: center;"
+            >
+              Add Rental Assistance
+            </span>
+          </div>
+        </button>
+        <div
+          class="margin-top--half"
+        />
+        <span
+          class="form-note shift-up"
+        >
+          Rental Assistance includes recurring vouchers and subsidies, as well as one-time grants and other assistance.
+        </span>
+      </div>
+    </div>
+  </form>
+</DocumentFragment>
 `;
 
 exports[`RentalAssistanceForm when it already exists on salesforce matches snapshot 1`] = `
-<InlineModal
-  id="rental-assistance-edit-form-0"
-  marginBottom={false}
-  whiteBackground={true}
->
-  <Component
-    expand={true}
-  >
-    <Component>
-      <SelectField
-        className="rental-assistance-recipient"
-        fieldName="rental_assistances.0.recipient"
-        label="Recipient"
-        options={
-          [
-            {
-              "label": "Test Tester",
-              "value": "123",
-            },
-          ]
-        }
-      />
-    </Component>
-  </Component>
-  <Component
-    expand={true}
-  >
-    <Component>
-      <SelectField
-        className="rental-assistance-type"
-        fieldName="rental_assistances.0.type_of_assistance"
-        label="Type of Assistance"
-        options={
-          [
-            {
-              "label": "Catholic Charities",
-              "value": "Catholic Charities",
-            },
-            {
-              "label": "Compass Family",
-              "value": "Compass Family",
-            },
-            {
-              "label": "Glide",
-              "value": "Glide",
-            },
-            {
-              "label": "Hamilton Family",
-              "value": "Hamilton Family",
-            },
-            {
-              "label": "Homeless Prenatal",
-              "value": "Homeless Prenatal",
-            },
-            {
-              "label": "HOPWA",
-              "value": "HOPWA",
-            },
-            {
-              "label": "Q Foundation: First Month’s Rent",
-              "value": "Q Foundation: First Month’s Rent",
-            },
-            {
-              "label": "Q Foundation: Move-in Deposit",
-              "value": "Q Foundation: Move-in Deposit",
-            },
-            {
-              "label": "Q Foundation: Person with Disability Rent Subsidy",
-              "value": "Q Foundation: Person with Disability Rent Subsidy",
-            },
-            {
-              "label": "Q Foundation: Senior Rent Subsidy",
-              "value": "Q Foundation: Senior Rent Subsidy",
-            },
-            {
-              "label": "San Francisco AIDS Foundation",
-              "value": "San Francisco AIDS Foundation",
-            },
-            {
-              "label": "Section 8 HCV (tenant) voucher",
-              "value": "Section 8 HCV (tenant) voucher",
-            },
-            {
-              "label": "Self-Help for the Elderly",
-              "value": "Self-Help for the Elderly",
-            },
-            {
-              "label": "VASH voucher",
-              "value": "VASH voucher",
-            },
-            {
-              "label": "Other",
-              "value": "Other",
-            },
-          ]
-        }
-        validation={[Function]}
-      />
-    </Component>
-  </Component>
-  <Component
-    expand={true}
-  >
-    <Component>
-      <CurrencyField
-        fieldName="rental_assistances.0.assistance_amount"
-        id="assistance_amount"
-        label="Assistance Amount"
-        validation={[Function]}
-      />
-    </Component>
-  </Component>
-  <Component
-    expand={true}
-  >
-    <Component>
-      <YesNoRadioGroup
-        className="rental-assistance-recurring"
-        falseValue="No"
-        fieldName="rental_assistances.0.recurring_assistance"
-        label="Recurring Assistance"
-        trueValue="Yes"
-        uniqId="new"
-      />
-    </Component>
-  </Component>
-  <Component
-    expand={true}
+<DocumentFragment>
+  <form
+    novalidate=""
   >
     <div
-      className="form-grid_item column"
+      class="inline-modal padding-left--2x padding-right--2x white-background"
+      data-testid="rental-assistance-form"
+      id="rental-assistance-edit-form-0"
     >
-      <Button
-        classes="primary margin-right"
-        disabled={false}
-        id="rental-assistance-save"
-        noBottomMargin={true}
-        onClick={[Function]}
-        text="Save"
-        tiny={true}
-      />
-      <Button
-        classes="secondary"
-        disabled={false}
-        id="rental-assistance-cancel"
-        noBottomMargin={true}
-        onClick={[MockFunction]}
-        text="Cancel"
-        tiny={true}
-      />
-      <Button
-        classes="alert-fill right"
-        disabled={false}
-        id="rental-assistance-delete"
-        noBottomMargin={true}
-        onClick={[MockFunction]}
-        text="Delete"
-        tiny={true}
-      />
+      <div
+        class="form-grid row expand"
+      >
+        <div
+          class="form-grid_item column small-6"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              class="form-label"
+              for="form-rental_assistances.0.recipient"
+              id="label-rental_assistances-0.recipient"
+            >
+              Recipient
+            </label>
+            <select
+              class="rental-assistance-recipient"
+              id="form-rental_assistances.0.recipient"
+              name="rental_assistances.0.recipient"
+            >
+              <option
+                value=""
+              >
+                Select One...
+              </option>
+              <option
+                value="123"
+              >
+                Test Tester
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div
+        class="form-grid row expand"
+      >
+        <div
+          class="form-grid_item column small-6"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              class="form-label"
+              for="form-rental_assistances.0.type_of_assistance"
+              id="label-rental_assistances-0.type_of_assistance"
+            >
+              Type of Assistance
+            </label>
+            <select
+              class="rental-assistance-type"
+              id="form-rental_assistances.0.type_of_assistance"
+              name="rental_assistances.0.type_of_assistance"
+            >
+              <option
+                value=""
+              >
+                Select One...
+              </option>
+              <option
+                value="Catholic Charities"
+              >
+                Catholic Charities
+              </option>
+              <option
+                value="Compass Family"
+              >
+                Compass Family
+              </option>
+              <option
+                value="Glide"
+              >
+                Glide
+              </option>
+              <option
+                value="Hamilton Family"
+              >
+                Hamilton Family
+              </option>
+              <option
+                value="Homeless Prenatal"
+              >
+                Homeless Prenatal
+              </option>
+              <option
+                value="HOPWA"
+              >
+                HOPWA
+              </option>
+              <option
+                value="Q Foundation: First Month’s Rent"
+              >
+                Q Foundation: First Month’s Rent
+              </option>
+              <option
+                value="Q Foundation: Move-in Deposit"
+              >
+                Q Foundation: Move-in Deposit
+              </option>
+              <option
+                value="Q Foundation: Person with Disability Rent Subsidy"
+              >
+                Q Foundation: Person with Disability Rent Subsidy
+              </option>
+              <option
+                value="Q Foundation: Senior Rent Subsidy"
+              >
+                Q Foundation: Senior Rent Subsidy
+              </option>
+              <option
+                value="San Francisco AIDS Foundation"
+              >
+                San Francisco AIDS Foundation
+              </option>
+              <option
+                value="Section 8 HCV (tenant) voucher"
+              >
+                Section 8 HCV (tenant) voucher
+              </option>
+              <option
+                value="Self-Help for the Elderly"
+              >
+                Self-Help for the Elderly
+              </option>
+              <option
+                value="VASH voucher"
+              >
+                VASH voucher
+              </option>
+              <option
+                value="Other"
+              >
+                Other
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div
+        class="form-grid row expand"
+      >
+        <div
+          class="form-grid_item column small-6"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              class="form-label"
+              for="assistance_amount"
+              id="label-rental_assistances-0.assistance_amount"
+            >
+              Assistance Amount
+            </label>
+            <input
+              class=""
+              id="assistance_amount"
+              name="rental_assistances.0.assistance_amount"
+              placeholder="Enter Amount"
+              type="text"
+              value="100"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="form-grid row expand"
+      >
+        <div
+          class="form-grid_item column small-6"
+        >
+          <div
+            class="rental-assistance-recurring radio-group-inline"
+          >
+            <label
+              class="form-label"
+              for="form-rental_assistances.0.recurring_assistance"
+              id="label-rental_assistances-0.recurring_assistance"
+            >
+              Recurring Assistance
+            </label>
+            <p
+              class="radio-inline"
+            >
+              <input
+                checked=""
+                id="rental_assistances.0.recurring_assistance-new-yes"
+                name="rental_assistances.0.recurring_assistance"
+                type="radio"
+                value="Yes"
+              />
+              <label
+                class="radio-inline_label"
+                for="rental_assistances.0.recurring_assistance-new-yes"
+              >
+                Yes
+              </label>
+            </p>
+            <p
+              class="radio-inline"
+            >
+              <input
+                id="rental_assistances.0.recurring_assistance-new-no"
+                name="rental_assistances.0.recurring_assistance"
+                type="radio"
+                value="No"
+              />
+              <label
+                class="radio-inline_label"
+                for="rental_assistances.0.recurring_assistance-new-no"
+              >
+                No
+              </label>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="form-grid row expand"
+      >
+        <div
+          class="form-grid_item column"
+        >
+          <button
+            class="primary margin-right tiny margin-bottom-none"
+            id="rental-assistance-save"
+            style="padding-top: 0px; padding-bottom: 0px;"
+            type="button"
+          >
+            <div
+              style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+            >
+              <span
+                style="margin-top: 1rem; margin-bottom: 1rem; overflow: auto; flex-grow: 1; text-align: center;"
+              >
+                Save
+              </span>
+            </div>
+          </button>
+          <button
+            class="secondary tiny margin-bottom-none"
+            id="rental-assistance-cancel"
+            style="padding-top: 0px; padding-bottom: 0px;"
+            type="button"
+          >
+            <div
+              style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+            >
+              <span
+                style="margin-top: 1rem; margin-bottom: 1rem; overflow: auto; flex-grow: 1; text-align: center;"
+              >
+                Cancel
+              </span>
+            </div>
+          </button>
+          <button
+            class="alert-fill right tiny margin-bottom-none"
+            id="rental-assistance-delete"
+            style="padding-top: 0px; padding-bottom: 0px;"
+            type="button"
+          >
+            <div
+              style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+            >
+              <span
+                style="margin-top: 1rem; margin-bottom: 1rem; overflow: auto; flex-grow: 1; text-align: center;"
+              >
+                Delete
+              </span>
+            </div>
+          </button>
+        </div>
+      </div>
     </div>
-  </Component>
-</InlineModal>
+  </form>
+</DocumentFragment>
 `;
 
 exports[`RentalAssistanceForm when it is new matches snapshot 1`] = `
-<InlineModal
-  id="rental-assistance-new-form"
-  marginBottom={true}
-  whiteBackground={true}
->
-  <Component
-    expand={true}
-  >
-    <Component>
-      <SelectField
-        className="rental-assistance-recipient"
-        fieldName="rental_assistances.0.recipient"
-        label="Recipient"
-        options={
-          [
-            {
-              "label": "Test Tester",
-              "value": "123",
-            },
-          ]
-        }
-      />
-    </Component>
-  </Component>
-  <Component
-    expand={true}
-  >
-    <Component>
-      <SelectField
-        className="rental-assistance-type"
-        fieldName="rental_assistances.0.type_of_assistance"
-        label="Type of Assistance"
-        options={
-          [
-            {
-              "label": "Catholic Charities",
-              "value": "Catholic Charities",
-            },
-            {
-              "label": "Compass Family",
-              "value": "Compass Family",
-            },
-            {
-              "label": "Glide",
-              "value": "Glide",
-            },
-            {
-              "label": "Hamilton Family",
-              "value": "Hamilton Family",
-            },
-            {
-              "label": "Homeless Prenatal",
-              "value": "Homeless Prenatal",
-            },
-            {
-              "label": "HOPWA",
-              "value": "HOPWA",
-            },
-            {
-              "label": "Q Foundation: First Month’s Rent",
-              "value": "Q Foundation: First Month’s Rent",
-            },
-            {
-              "label": "Q Foundation: Move-in Deposit",
-              "value": "Q Foundation: Move-in Deposit",
-            },
-            {
-              "label": "Q Foundation: Person with Disability Rent Subsidy",
-              "value": "Q Foundation: Person with Disability Rent Subsidy",
-            },
-            {
-              "label": "Q Foundation: Senior Rent Subsidy",
-              "value": "Q Foundation: Senior Rent Subsidy",
-            },
-            {
-              "label": "San Francisco AIDS Foundation",
-              "value": "San Francisco AIDS Foundation",
-            },
-            {
-              "label": "Section 8 HCV (tenant) voucher",
-              "value": "Section 8 HCV (tenant) voucher",
-            },
-            {
-              "label": "Self-Help for the Elderly",
-              "value": "Self-Help for the Elderly",
-            },
-            {
-              "label": "VASH voucher",
-              "value": "VASH voucher",
-            },
-            {
-              "label": "Other",
-              "value": "Other",
-            },
-          ]
-        }
-        validation={[Function]}
-      />
-    </Component>
-  </Component>
-  <Component
-    expand={true}
-  >
-    <Component>
-      <CurrencyField
-        fieldName="rental_assistances.0.assistance_amount"
-        id="assistance_amount"
-        label="Assistance Amount"
-        validation={[Function]}
-      />
-    </Component>
-  </Component>
-  <Component
-    expand={true}
-  >
-    <Component>
-      <YesNoRadioGroup
-        className="rental-assistance-recurring"
-        falseValue="No"
-        fieldName="rental_assistances.0.recurring_assistance"
-        label="Recurring Assistance"
-        trueValue="Yes"
-        uniqId="new"
-      />
-    </Component>
-  </Component>
-  <Component
-    expand={true}
+<DocumentFragment>
+  <form
+    novalidate=""
   >
     <div
-      className="form-grid_item column"
+      class="inline-modal padding-left--2x padding-right--2x white-background margin-bottom--3halves"
+      data-testid="rental-assistance-form"
+      id="rental-assistance-new-form"
     >
-      <Button
-        classes="primary margin-right"
-        disabled={false}
-        id="rental-assistance-save"
-        noBottomMargin={true}
-        onClick={[Function]}
-        text="Save"
-        tiny={true}
-      />
-      <Button
-        classes="secondary"
-        disabled={false}
-        id="rental-assistance-cancel"
-        noBottomMargin={true}
-        onClick={[MockFunction]}
-        text="Cancel"
-        tiny={true}
-      />
+      <div
+        class="form-grid row expand"
+      >
+        <div
+          class="form-grid_item column small-6"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              class="form-label"
+              for="form-rental_assistances.0.recipient"
+              id="label-rental_assistances-0.recipient"
+            >
+              Recipient
+            </label>
+            <select
+              class="rental-assistance-recipient"
+              id="form-rental_assistances.0.recipient"
+              name="rental_assistances.0.recipient"
+            >
+              <option
+                value=""
+              >
+                Select One...
+              </option>
+              <option
+                value="123"
+              >
+                Test Tester
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div
+        class="form-grid row expand"
+      >
+        <div
+          class="form-grid_item column small-6"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              class="form-label"
+              for="form-rental_assistances.0.type_of_assistance"
+              id="label-rental_assistances-0.type_of_assistance"
+            >
+              Type of Assistance
+            </label>
+            <select
+              class="rental-assistance-type"
+              id="form-rental_assistances.0.type_of_assistance"
+              name="rental_assistances.0.type_of_assistance"
+            >
+              <option
+                value=""
+              >
+                Select One...
+              </option>
+              <option
+                value="Catholic Charities"
+              >
+                Catholic Charities
+              </option>
+              <option
+                value="Compass Family"
+              >
+                Compass Family
+              </option>
+              <option
+                value="Glide"
+              >
+                Glide
+              </option>
+              <option
+                value="Hamilton Family"
+              >
+                Hamilton Family
+              </option>
+              <option
+                value="Homeless Prenatal"
+              >
+                Homeless Prenatal
+              </option>
+              <option
+                value="HOPWA"
+              >
+                HOPWA
+              </option>
+              <option
+                value="Q Foundation: First Month’s Rent"
+              >
+                Q Foundation: First Month’s Rent
+              </option>
+              <option
+                value="Q Foundation: Move-in Deposit"
+              >
+                Q Foundation: Move-in Deposit
+              </option>
+              <option
+                value="Q Foundation: Person with Disability Rent Subsidy"
+              >
+                Q Foundation: Person with Disability Rent Subsidy
+              </option>
+              <option
+                value="Q Foundation: Senior Rent Subsidy"
+              >
+                Q Foundation: Senior Rent Subsidy
+              </option>
+              <option
+                value="San Francisco AIDS Foundation"
+              >
+                San Francisco AIDS Foundation
+              </option>
+              <option
+                value="Section 8 HCV (tenant) voucher"
+              >
+                Section 8 HCV (tenant) voucher
+              </option>
+              <option
+                value="Self-Help for the Elderly"
+              >
+                Self-Help for the Elderly
+              </option>
+              <option
+                value="VASH voucher"
+              >
+                VASH voucher
+              </option>
+              <option
+                value="Other"
+              >
+                Other
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div
+        class="form-grid row expand"
+      >
+        <div
+          class="form-grid_item column small-6"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              class="form-label"
+              for="assistance_amount"
+              id="label-rental_assistances-0.assistance_amount"
+            >
+              Assistance Amount
+            </label>
+            <input
+              class=""
+              id="assistance_amount"
+              name="rental_assistances.0.assistance_amount"
+              placeholder="Enter Amount"
+              type="text"
+              value="100"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="form-grid row expand"
+      >
+        <div
+          class="form-grid_item column small-6"
+        >
+          <div
+            class="rental-assistance-recurring radio-group-inline"
+          >
+            <label
+              class="form-label"
+              for="form-rental_assistances.0.recurring_assistance"
+              id="label-rental_assistances-0.recurring_assistance"
+            >
+              Recurring Assistance
+            </label>
+            <p
+              class="radio-inline"
+            >
+              <input
+                checked=""
+                id="rental_assistances.0.recurring_assistance-new-yes"
+                name="rental_assistances.0.recurring_assistance"
+                type="radio"
+                value="Yes"
+              />
+              <label
+                class="radio-inline_label"
+                for="rental_assistances.0.recurring_assistance-new-yes"
+              >
+                Yes
+              </label>
+            </p>
+            <p
+              class="radio-inline"
+            >
+              <input
+                id="rental_assistances.0.recurring_assistance-new-no"
+                name="rental_assistances.0.recurring_assistance"
+                type="radio"
+                value="No"
+              />
+              <label
+                class="radio-inline_label"
+                for="rental_assistances.0.recurring_assistance-new-no"
+              >
+                No
+              </label>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="form-grid row expand"
+      >
+        <div
+          class="form-grid_item column"
+        >
+          <button
+            class="primary margin-right tiny margin-bottom-none"
+            id="rental-assistance-save"
+            style="padding-top: 0px; padding-bottom: 0px;"
+            type="button"
+          >
+            <div
+              style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+            >
+              <span
+                style="margin-top: 1rem; margin-bottom: 1rem; overflow: auto; flex-grow: 1; text-align: center;"
+              >
+                Save
+              </span>
+            </div>
+          </button>
+          <button
+            class="secondary tiny margin-bottom-none"
+            id="rental-assistance-cancel"
+            style="padding-top: 0px; padding-bottom: 0px;"
+            type="button"
+          >
+            <div
+              style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+            >
+              <span
+                style="margin-top: 1rem; margin-bottom: 1rem; overflow: auto; flex-grow: 1; text-align: center;"
+              >
+                Cancel
+              </span>
+            </div>
+          </button>
+        </div>
+      </div>
     </div>
-  </Component>
-</InlineModal>
+  </form>
+</DocumentFragment>
 `;

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Switch, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 import ApplicationPage from 'components/applications/ApplicationPage'
 import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
@@ -17,24 +17,24 @@ const conflictingPathsWithoutRouting = [
 ]
 
 const LeaseUpRoutes = () => (
-  <Switch>
+  <Routes>
     {/* Rendering null redirects to rails routing */}
     {conflictingPathsWithoutRouting.map((path) => (
       <Route key={path} exact path={path} render={() => null} />
     ))}
-    <Route exact path={appPaths.toListingLeaseUps(':listingId')}>
-      <LeaseUpApplicationsPage />
-    </Route>
-    <Route exact path={appPaths.toLeaseUps()}>
-      <LeaseUpListingsPage />
-    </Route>
-    <Route exact path={appPaths.toLeaseUpApplication(':applicationId')}>
-      <SupplementalApplicationPage />
-    </Route>
-    <Route exact path={appPaths.toApplication(':applicationId')}>
-      <ApplicationPage />
-    </Route>
-  </Switch>
+    <Route
+      exact
+      path={appPaths.toListingLeaseUps(':listingId')}
+      element={<LeaseUpApplicationsPage />}
+    />
+    <Route exact path={appPaths.toLeaseUps()} element={<LeaseUpListingsPage />} />
+    <Route
+      exact
+      path={appPaths.toLeaseUpApplication(':applicationId')}
+      element={<SupplementalApplicationPage />}
+    />
+    <Route exact path={appPaths.toApplication(':applicationId')} element={<ApplicationPage />} />
+  </Routes>
 )
 
 export default LeaseUpRoutes

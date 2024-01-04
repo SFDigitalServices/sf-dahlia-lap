@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 
 import FormGroupCheckboxGroup from 'components/atoms/FormGroupCheckboxGroup'
 
 describe('FormGroupCheckboxGroup', () => {
   test('it should render a form group checkbox group with the correct label and checkbox properties', () => {
-    const wrapper = shallow(
+    render(
       <FormGroupCheckboxGroup
         label='form label'
         id='checkbox-id'
@@ -14,15 +14,15 @@ describe('FormGroupCheckboxGroup', () => {
         value='checkbox-value'
       />
     )
-    const labels = wrapper.find('label')
-    const checkbox = wrapper.find('input[type="checkbox"]')
-    expect(labels).toHaveLength(2)
-    expect(labels.first().props().htmlFor).toEqual('checkbox-name')
-    expect(labels.first().text()).toEqual('form label')
-    expect(checkbox.props().name).toEqual('checkbox-name')
-    expect(checkbox.props().value).toEqual('checkbox-value')
-    expect(checkbox.props().id).toEqual('checkbox-id')
-    expect(labels.last().props().htmlFor).toEqual('checkbox-id')
-    expect(labels.last().text()).toEqual('checkbox-value')
+
+    expect(screen.getByText(/form label/i)).toBeInTheDocument()
+    expect(screen.getByText(/checkbox-value/i)).toBeInTheDocument()
+    expect(screen.getByText(/form label/i)).toHaveAttribute('for', 'checkbox-name')
+    expect(
+      screen.getByRole('checkbox', {
+        name: /checkbox-value/i
+      })
+    ).toBeInTheDocument()
+    expect(screen.getByText(/checkbox-value/i)).toHaveAttribute('for', 'checkbox-id')
   })
 })

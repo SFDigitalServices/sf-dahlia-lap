@@ -40,14 +40,20 @@ const getBasicSizeStyle = (size) => {
   }
 }
 
-const StyledIcon = ({ size = 'default', customSizeRem = null, customFill = null, icon }) => {
+const StyledIcon = ({
+  size = 'default',
+  customSizeRem = null,
+  customFill = null,
+  icon,
+  dataTestId
+}) => {
   const fillStyle = customFill && { fill: customFill }
   const style = {
     ...(customSizeRem ? getCustomSizeStyle(customSizeRem) : getBasicSizeStyle(size)),
     ...fillStyle
   }
   return (
-    <svg style={style}>
+    <svg style={style} data-testid={dataTestId}>
       <use style={fillStyle} xlinkHref={`#i-${icon}`} />
     </svg>
   )

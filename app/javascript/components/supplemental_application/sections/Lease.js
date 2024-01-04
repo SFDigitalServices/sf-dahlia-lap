@@ -51,6 +51,7 @@ const UnitCountNote = ({ title, value, bold = false }) => (
       <span
         className={classNames('form-note', { 't-bold': bold })}
         id={`${title.toLowerCase()}-available-count`}
+        data-testid={`${title.toLowerCase()}-available-count`}
       >
         {value}
       </span>

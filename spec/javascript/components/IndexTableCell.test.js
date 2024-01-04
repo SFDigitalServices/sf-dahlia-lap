@@ -1,6 +1,6 @@
 import React from 'react'
 
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import IndexTableCell from 'components/IndexTableCell'
 
@@ -8,16 +8,16 @@ import IndexTableCell from 'components/IndexTableCell'
 describe('IndexTableCell', () => {
   test('should return null if val is undefined', () => {
     const val = null
-    const component = renderer.create(<IndexTableCell {...{ val }} />)
+    const { asFragment } = render(<IndexTableCell {...{ val }} />)
 
-    expect(component.toJSON()).toBeNull()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   test('should return string value if cell is not being edited', () => {
     const val = 'test'
     const editing = false
-    const component = renderer.create(<IndexTableCell {...{ val, editing }} />)
+    const { asFragment } = render(<IndexTableCell {...{ val, editing }} />)
 
-    expect(component.toJSON()).toEqual(val)
+    expect(asFragment()).toMatchSnapshot()
   })
 })

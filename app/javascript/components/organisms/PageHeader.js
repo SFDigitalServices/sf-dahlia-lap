@@ -7,7 +7,7 @@ import BreadCrumbs from '../atoms/BreadCrumbs'
 
 // Visible for testing
 export const DefaultAction = ({ action }) => (
-  <a href={action.link} className='alt-caps'>
+  <a href={action.link} className='alt-caps' data-testid='page-header-default-action'>
     {action.title}
   </a>
 )
@@ -21,7 +21,7 @@ export const Actions = ({ actions }) => {
     )
 
     return (
-      <div className='medium-4 columns no-padding'>
+      <div className='medium-4 columns no-padding' data-testid='page-header-action'>
         <span className='lead-header_secondary-action'>{actionsList}</span>
       </div>
     )

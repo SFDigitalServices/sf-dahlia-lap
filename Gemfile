@@ -82,31 +82,23 @@ gem "sentry-raven"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# Added at 2017-10-22 23:46:25 -0700 by dkaplan:
 gem "devise", "~> 4.9.0"
 
-# Added at 2017-10-22 23:48:56 -0700 by dkaplan:
 gem "omniauth-salesforce", "~> 1.0.5"
 gem "omniauth-rails_csrf_protection"
 
-# Added at 2017-10-24 00:03:53 -0700 by dkaplan:
 gem "restforce", "~> 6.2.2"
 # handy ruby extensions
 gem 'facets', require: false
 
-# Added at 2017-10-24 08:23:22 -0700 by dkaplan:
 gem "slim-rails", "~> 3.1"
 
-# Added at 2017-10-25 00:30:33 -0700 by dkaplan:
 gem "hashie"
 
-# Added at 2017-10-29 23:29:10 -0700 by dkaplan:
-gem "webpacker", "~> 5.4.4"
+gem "shakapacker", "7.1.0"
 
-# Added at 2017-10-29 23:57:32 -0700 by dkaplan:
-gem "webpacker-react", "~> 0.3.2"
+gem "react_on_rails", "13.4.0"
 
-# Added at 2017-11-10 09:14:41 -0800 by dkaplan:
 gem "pg", "~> 1.4.6"
 
 gem 'scout_apm'

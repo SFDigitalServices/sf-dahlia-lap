@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledIcon with custom fill should apply the custom fill style 1`] = `
+<DocumentFragment>
+  <svg
+    style="width: 1.5rem; height: 1.5rem; fill: #2e8540;"
+  >
+    <use
+      style="fill: #2e8540;"
+      xlink:href="#i-list-unordered"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`StyledIcon with custom size should apply the custom size style 1`] = `
+<DocumentFragment>
+  <svg
+    style="width: 3rem; height: 3rem;"
+  >
+    <use
+      xlink:href="#i-list-unordered"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`StyledIcon with default props should render the correct icon and apply the default style 1`] = `
+<DocumentFragment>
+  <svg
+    style="width: 1.5rem; height: 1.5rem;"
+  >
+    <use
+      xlink:href="#i-list-unordered"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`StyledIcon with size prop = small should apply the small style 1`] = `
+<DocumentFragment>
+  <svg
+    style="width: .75rem; height: .75rem;"
+  >
+    <use
+      xlink:href="#i-list-unordered"
+    />
+  </svg>
+</DocumentFragment>
+`;

@@ -25,9 +25,7 @@ class PaperApplicationForm extends React.Component {
   state = {
     loading: false,
     submittedValues: {},
-    submitType: '',
-    genderSpecifyRequired: false,
-    orientationOtherRequired: false
+    submitType: ''
   }
 
   submitShortForm = async (submittedValues) => {
@@ -107,10 +105,6 @@ class PaperApplicationForm extends React.Component {
       errors.demographics.sexual_orientation_other = isOrientationOtherRequired
         ? 'Sexual Orientation is required'
         : undefined
-      this.setState({
-        genderSpecifyRequired: isGenderSpecifyRequired,
-        orientationOtherRequired: isOrientationOtherRequired
-      })
     }
     return errors
   }
@@ -127,7 +121,7 @@ class PaperApplicationForm extends React.Component {
           mutators={{
             ...arrayMutators
           }}
-          render={({ handleSubmit, form, values, visited }) => (
+          render={({ handleSubmit, form, values, visited, errors }) => (
             <form onSubmit={handleSubmit} id='shortForm' noValidate>
               <div className='app-card form-card medium-centered'>
                 <div className='app-inner inset'>
@@ -156,8 +150,8 @@ class PaperApplicationForm extends React.Component {
                   <HouseholdIncomeSection visited={visited} />
                   <DemographicInfoSection
                     values={values}
-                    genderSpecifyRequired={this.state.genderSpecifyRequired}
-                    orientationOtherRequired={this.state.orientationOtherRequired}
+                    genderSpecifyRequired={!!errors?.demographics?.gender}
+                    orientationOtherRequired={!!errors?.sexual_orientation?.gender}
                   />
                   <AgreeToTerms />
                 </div>

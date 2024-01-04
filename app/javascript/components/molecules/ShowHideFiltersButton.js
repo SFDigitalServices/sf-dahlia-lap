@@ -11,7 +11,7 @@ const getNumFiltersAppliedIcon = (numFiltersApplied) => {
     numFiltersApplied = 9
   }
 
-  return <StyledIcon icon={`filter-qty--${numFiltersApplied}`} />
+  return <StyledIcon dataTestId={'button-icon-right'} icon={`filter-qty--${numFiltersApplied}`} />
 }
 
 const ShowHideFiltersButton = ({
@@ -22,7 +22,9 @@ const ShowHideFiltersButton = ({
   const showFiltersCount = numFiltersApplied > 0
   return (
     <Button
-      iconLeft={<StyledIcon icon='list-unordered' customSizeRem='1.25rem' />}
+      iconLeft={
+        <StyledIcon dataTestId={'button-icon-left'} icon='list-unordered' customSizeRem='1.25rem' />
+      }
       iconRight={showFiltersCount ? getNumFiltersAppliedIcon(numFiltersApplied) : null}
       text={isShowingFilters ? 'Hide Filters' : 'Show Filters'}
       paddingHorizontal='tight'

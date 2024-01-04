@@ -1,6 +1,6 @@
 import React from 'react'
 
-import renderer from 'react-test-renderer'
+import { render } from '@testing-library/react'
 
 import ListingApplicationsPage from 'components/listings/ListingApplicationsPage'
 
@@ -22,7 +22,7 @@ describe('ListingApplicationsPage', () => {
   }
 
   test('should render successfully', () => {
-    const wrapper = renderer.create(<ListingApplicationsPage listing={listing} />)
-    expect(wrapper.toJSON()).toMatchSnapshot()
+    const { asFragment } = render(<ListingApplicationsPage listing={listing} />)
+    expect(asFragment()).toMatchSnapshot()
   })
 })

@@ -1,0 +1,245 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button textAlign renders center aligned text by default 1`] = `
+<DocumentFragment>
+  <button
+    class=""
+    style="padding-top: 0px; padding-bottom: 0px;"
+    type="button"
+  >
+    <div
+      style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+    >
+      <span
+        style="margin-top: 1rem; margin-bottom: 1rem; overflow: auto; flex-grow: 1; text-align: center;"
+      >
+        test_button_text
+      </span>
+    </div>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button textAlign renders center aligned text properly 1`] = `
+<DocumentFragment>
+  <button
+    class=""
+    style="padding-top: 0px; padding-bottom: 0px;"
+    type="button"
+  >
+    <div
+      style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+    >
+      <span
+        style="margin-top: 1rem; margin-bottom: 1rem; overflow: auto; flex-grow: 1; text-align: center;"
+      >
+        test_button_text
+      </span>
+    </div>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button textAlign renders left aligned text properly 1`] = `
+<DocumentFragment>
+  <button
+    class=""
+    style="padding-top: 0px; padding-bottom: 0px;"
+    type="button"
+  >
+    <div
+      style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+    >
+      <span
+        style="margin-top: 1rem; margin-bottom: 1rem; overflow: auto; flex-grow: 1; text-align: left;"
+      >
+        test_button_text
+      </span>
+    </div>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button textAlign renders right aligned text properly 1`] = `
+<DocumentFragment>
+  <button
+    class=""
+    style="padding-top: 0px; padding-bottom: 0px;"
+    type="button"
+  >
+    <div
+      style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+    >
+      <span
+        style="margin-top: 1rem; margin-bottom: 1rem; overflow: auto; flex-grow: 1; text-align: right;"
+      >
+        test_button_text
+      </span>
+    </div>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button when text is added should clear vertical padding at the text and button 1`] = `
+<DocumentFragment>
+  <button
+    class=""
+    style="padding-top: 0px; padding-bottom: 0px;"
+    type="button"
+  >
+    <div
+      style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+    >
+      <span
+        style="margin-top: 1rem; margin-bottom: 1rem; overflow: auto; flex-grow: 1; text-align: center;"
+      >
+        This is a button
+      </span>
+    </div>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button when text is empty should not clear vertical padding at the button level 1`] = `
+<DocumentFragment>
+  <button
+    class=""
+    type="button"
+  >
+    <div
+      style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+    >
+      <span
+        style="flex-shrink: 0; font-size: 0px;"
+      >
+        <svg
+          style="width: 1.5rem; height: 1.5rem;"
+        >
+          <use
+            xlink:href="#i-list-unordered"
+          />
+        </svg>
+      </span>
+      <span
+        style="flex-shrink: 0; font-size: 0px;"
+      >
+        <svg
+          style="width: 1.5rem; height: 1.5rem;"
+        >
+          <use
+            xlink:href="#i-list-unordered"
+          />
+        </svg>
+      </span>
+    </div>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button with an icon to the left should render the StyledIcon before the text 1`] = `
+<DocumentFragment>
+  <button
+    class=""
+    style="padding-top: 0px; padding-bottom: 0px;"
+    type="button"
+  >
+    <div
+      style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+    >
+      <span
+        style="flex-shrink: 0; font-size: 0px;"
+      >
+        <svg
+          data-testid="list-unordered"
+          style="width: 1.5rem; height: 1.5rem;"
+        >
+          <use
+            xlink:href="#i-list-unordered"
+          />
+        </svg>
+      </span>
+      <span
+        style="margin-top: 1rem; margin-bottom: 1rem; margin-left: 1rem; overflow: auto; flex-grow: 1; text-align: center;"
+      >
+        This is a button
+      </span>
+    </div>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button with an icon to the right should render the StyledIcon after the text 1`] = `
+<DocumentFragment>
+  <button
+    class=""
+    style="padding-top: 0px; padding-bottom: 0px;"
+    type="button"
+  >
+    <div
+      style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+    >
+      <span
+        style="margin-top: 1rem; margin-bottom: 1rem; margin-right: 1rem; overflow: auto; flex-grow: 1; text-align: center;"
+      >
+        This is a button
+      </span>
+      <span
+        style="flex-shrink: 0; font-size: 0px;"
+      >
+        <svg
+          data-testid="list-unordered"
+          style="width: 1.5rem; height: 1.5rem;"
+        >
+          <use
+            xlink:href="#i-list-unordered"
+          />
+        </svg>
+      </span>
+    </div>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button with two icons should render the StyledIcon on either side of the text 1`] = `
+<DocumentFragment>
+  <button
+    class=""
+    style="padding-top: 0px; padding-bottom: 0px;"
+    type="button"
+  >
+    <div
+      style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+    >
+      <span
+        style="flex-shrink: 0; font-size: 0px;"
+      >
+        <svg
+          data-testid="list-unordered"
+          style="width: 1.5rem; height: 1.5rem;"
+        >
+          <use
+            xlink:href="#i-list-unordered"
+          />
+        </svg>
+      </span>
+      <span
+        style="margin: 1rem 1rem 1rem 1rem; overflow: auto; flex-grow: 1; text-align: center;"
+      >
+        This is a button
+      </span>
+      <span
+        style="flex-shrink: 0; font-size: 0px;"
+      >
+        <svg
+          data-testid="list-unordered"
+          style="width: 1.5rem; height: 1.5rem;"
+        >
+          <use
+            xlink:href="#i-list-unordered"
+          />
+        </svg>
+      </span>
+    </div>
+  </button>
+</DocumentFragment>
+`;

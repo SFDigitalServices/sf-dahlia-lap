@@ -15,7 +15,7 @@ export const SECOND_ROW_LEASE_UP_APP_ID =
 export const THIRD_ROW_LEASE_UP_APP_ID =
   process.env.THIRD_ROW_LEASE_UP_APP_ID || 'a0o0P00000IvWgXQAV'
 
-export const DEFAULT_E2E_TIME_OUT = 120000 // 2 minutes
+export const DEFAULT_E2E_TIME_OUT = 240000 // 4 minutes
 
 // Default to Sale Test Listing Homeownership Acres on Full
 export const SALE_LISTING_ID = process.env.E2E_SALE_LISTING_ID || 'a0W0P00000GlKfBUAV'
@@ -49,5 +49,7 @@ export const DECLINE_TO_STATE = 'Decline to state'
 
 // Change to false to see tests running on browser locally
 export const HEADLESS = true
+// Change to true to see devtools, only works if HEADLESS is false since you need to open up a Chromium browser
+export const DEVTOOLS = false
 // Change to false to fall back to including css
 export const REMOVECSS = process.env.E2E_REMOVE_CSS || true

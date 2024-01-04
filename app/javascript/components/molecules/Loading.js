@@ -11,7 +11,7 @@ const Loading = ({
   const loaderHeightWrapperStyle = loaderViewHeight ? { height: loaderViewHeight } : null
   const renderChildren = !isLoading || renderChildrenWhileLoading
   return (
-    <div className={'loading-panel' + (isLoading ? ' loading' : '')}>
+    <div className={'loading-panel' + (isLoading ? ' loading' : '')} data-testid='loading'>
       {isLoading && (
         <div style={loaderHeightWrapperStyle}>
           <Spinner />

@@ -25,12 +25,18 @@ const ExpandableTableRow = ({
 
   return (
     <>
-      <tr className='tr-expand' aria-expanded={expanded} id={rowId ? `${rowId}-row` : null}>
+      <tr
+        className='tr-expand'
+        data-testid='expandable-table-row'
+        aria-expanded={expanded}
+        id={rowId ? `${rowId}-row` : null}
+      >
         {cells}
         <td key='expander'>{renderExpanderButton(idx, row, original, expanded)}</td>
       </tr>
       <tr
         className='tr-expand-content'
+        data-testid='expandable-table-row-button'
         aria-hidden={!expanded}
         id={rowId ? `${rowId}-panel` : null}
       >
