@@ -65,17 +65,47 @@ const buildRow =
     ]
   }
 
+// TODO: clean up duplication
+const buildVeteranRow =
+  (proofFiles, applicationMembers, fileBaseUrl) => (preference, nonVetPref) => {
+    let finalConfirmation = 'Unconfirmed'
+    if (
+      preference.post_lottery_validation === 'Invalid' ||
+      nonVetPref.post_lottery_validation === 'Invalid'
+    ) {
+      finalConfirmation = 'Invalid'
+    } else if (
+      preference.post_lottery_validation === 'Confirmed' &&
+      nonVetPref.post_lottery_validation === 'Confirmed'
+    ) {
+      finalConfirmation = 'Confirmed'
+    }
+
+    const vetTypeOfProof = getTypeOfProof(preference, proofFiles, fileBaseUrl)
+    const nonVetTypeOfProof = getTypeOfProof(nonVetPref, proofFiles, fileBaseUrl)
+
+    return [
+      { content: <PreferenceIcon status={finalConfirmation} /> },
+      { content: getPreferenceName(preference) },
+      { content: memberNameFromPref(preference.application_member_id, applicationMembers) },
+      { content: preference.preference_lottery_rank, classes: ['text-right'] },
+      { content: [vetTypeOfProof, nonVetTypeOfProof] },
+      { content: finalConfirmation }
+    ]
+  }
+
 const buildRows = (application, applicationMembers, fileBaseUrl) => {
   const { preferences } = application
   const proofFiles = application.proof_files
   const sortedPreferences = orderBy(preferences, 'preference_order', 'asc')
-  return onlyValid(sortedPreferences).map((pref, index) => {
+  const validPrefs = onlyValid(sortedPreferences)
+  return validPrefs.map((pref, index) => {
     if (isVeteran(pref.preference_name)) {
-      return buildRow(
+      return buildVeteranRow(
         proofFiles,
         applicationMembers,
         fileBaseUrl
-      )(pref, sortedPreferences[index + 1].post_lottery_validation)
+      )(pref, validPrefs[index + 1])
     } else {
       return buildRow(proofFiles, applicationMembers, fileBaseUrl)(pref)
     }

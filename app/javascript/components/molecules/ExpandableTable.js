@@ -15,11 +15,27 @@ const ExpandableTableRow = ({
   original,
   expanded
 }) => {
-  const cells = row.map((datum, j) => (
-    <td className={datum.classes ? datum.classes.join(' ') : ''} key={j}>
-      {datum.formatType === 'currency' ? formUtils.formatPrice(datum.content) : datum.content}
-    </td>
-  ))
+  const cells = row.map((datum, j) => {
+    if (Array.isArray(datum.content)) {
+      return (
+        <td className={datum.classes ? datum.classes.join(' ') : ''} key={j}>
+          {datum.content.map((item, i) => {
+            return (
+              <div key={i}>
+                {datum.formatType === 'currency' ? formUtils.formatPrice(item) : item}
+                <br />
+              </div>
+            )
+          })}
+        </td>
+      )
+    }
+    return (
+      <td className={datum.classes ? datum.classes.join(' ') : ''} key={j}>
+        {datum.formatType === 'currency' ? formUtils.formatPrice(datum.content) : datum.content}
+      </td>
+    )
+  })
 
   const rowId = rowKeyIndex ? kebabCase(row[rowKeyIndex].content) : null
 

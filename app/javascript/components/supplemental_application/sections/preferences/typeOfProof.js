@@ -4,7 +4,7 @@ import { filter, some, overSome } from 'lodash'
 
 import appPaths from 'utils/appPaths'
 
-import { isCOP, isDTHP } from './utils'
+import { isCOP, isDTHP, isVeteran } from './utils'
 
 const ProofFilesList = ({ proofFiles, fileBaseUrl }) => {
   return (
@@ -53,6 +53,10 @@ const getAttachments = (preference, proofFiles, fileBaseUrl) => {
 }
 
 export const getTypeOfProof = (preference, proofFiles, fileBaseUrl) => {
+  // TODO: will veterans have certificate number or downloadable proof
+  if (isVeteran(preference.preference_name)) {
+    return preference.veteran_type_of_proof
+  }
   if (overSome(isCOP, isDTHP)(preference.preference_name)) {
     return preference.certificate_number
   } else {
