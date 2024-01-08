@@ -14,6 +14,7 @@ exports[`StatusDropdown toggle renders as expected when value is null 1`] = `
       aria-live="polite"
       aria-relevant="additions text"
       class="css-1f43avz-a11yText-A11yText"
+      role="log"
     />
     <div
       class="status-dropdown__control css-uuqjpg-Control"
@@ -42,6 +43,7 @@ exports[`StatusDropdown toggle renders as expected when value is null 1`] = `
                 id="react-select-4-placeholder"
               />
               <input
+                aria-activedescendant=""
                 aria-autocomplete="list"
                 aria-describedby="react-select-4-placeholder"
                 aria-expanded="false"
@@ -88,6 +90,7 @@ exports[`StatusDropdown toggle renders with additional styles when provided 1`] 
       aria-live="polite"
       aria-relevant="additions text"
       class="css-1f43avz-a11yText-A11yText"
+      role="log"
     />
     <div
       class="status-dropdown__control css-uuqjpg-Control"
@@ -116,6 +119,7 @@ exports[`StatusDropdown toggle renders with additional styles when provided 1`] 
                 id="react-select-7-placeholder"
               />
               <input
+                aria-activedescendant=""
                 aria-autocomplete="list"
                 aria-describedby="react-select-7-placeholder"
                 aria-expanded="false"
@@ -162,6 +166,7 @@ exports[`StatusDropdown toggle renders with additional styles when provided 2`] 
       aria-live="polite"
       aria-relevant="additions text"
       class="css-1f43avz-a11yText-A11yText"
+      role="log"
     />
     <div
       class="status-dropdown__control css-uuqjpg-Control"
@@ -190,6 +195,7 @@ exports[`StatusDropdown toggle renders with additional styles when provided 2`] 
                 id="react-select-7-placeholder"
               />
               <input
+                aria-activedescendant=""
                 aria-autocomplete="list"
                 aria-describedby="react-select-7-placeholder"
                 aria-expanded="false"
@@ -236,6 +242,7 @@ exports[`StatusDropdown toggle renders with left-aligned text 1`] = `
       aria-live="polite"
       aria-relevant="additions text"
       class="css-1f43avz-a11yText-A11yText"
+      role="log"
     />
     <div
       class="status-dropdown__control css-uuqjpg-Control"
@@ -264,6 +271,7 @@ exports[`StatusDropdown toggle renders with left-aligned text 1`] = `
                 id="react-select-6-placeholder"
               />
               <input
+                aria-activedescendant=""
                 aria-autocomplete="list"
                 aria-describedby="react-select-6-placeholder"
                 aria-expanded="false"
@@ -310,6 +318,7 @@ exports[`StatusDropdown toggle renders without any additional button styles when
       aria-live="polite"
       aria-relevant="additions text"
       class="css-1f43avz-a11yText-A11yText"
+      role="log"
     />
     <div
       class="status-dropdown__control css-uuqjpg-Control"
@@ -338,6 +347,7 @@ exports[`StatusDropdown toggle renders without any additional button styles when
                 id="react-select-5-placeholder"
               />
               <input
+                aria-activedescendant=""
                 aria-autocomplete="list"
                 aria-describedby="react-select-5-placeholder"
                 aria-expanded="false"

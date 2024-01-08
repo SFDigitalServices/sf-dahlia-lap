@@ -121,7 +121,6 @@
     "create_release_branch": "bash $PWD/create_release_branch.sh"
   },
   "jest": {
-    "preset": "jest-puppeteer",
     "coverageReporters": [
       "lcov"
     ],

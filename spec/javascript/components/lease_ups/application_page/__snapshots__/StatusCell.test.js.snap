@@ -17,6 +17,7 @@ exports[`StatusCell renders with the correct styling 1`] = `
         aria-live="polite"
         aria-relevant="additions text"
         class="css-1f43avz-a11yText-A11yText"
+        role="log"
       />
       <div
         class="status-dropdown__control css-uuqjpg-Control"
@@ -41,6 +42,7 @@ exports[`StatusCell renders with the correct styling 1`] = `
                 class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
               >
                 <input
+                  aria-activedescendant=""
                   aria-autocomplete="list"
                   aria-expanded="false"
                   aria-haspopup="true"
