@@ -8,12 +8,12 @@ describe('EagerPagination', () => {
       const eagerPagination = new EagerPagination(20, 100)
 
       each(range(0, 5), (v) => {
-        expect(eagerPagination.getServerPageForEagerPage(v)).toEqual(0)
+        expect(eagerPagination.getServerPageForEagerPage(v)).toBe(0)
       })
       each(range(5, 10), (v) => {
-        expect(eagerPagination.getServerPageForEagerPage(v)).toEqual(1)
+        expect(eagerPagination.getServerPageForEagerPage(v)).toBe(1)
       })
-      expect(eagerPagination.getServerPageForEagerPage(11)).toEqual(2)
+      expect(eagerPagination.getServerPageForEagerPage(11)).toBe(2)
     })
 
     test('it should fetch when needed', async () => {

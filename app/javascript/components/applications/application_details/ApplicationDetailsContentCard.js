@@ -5,7 +5,7 @@ import { map, isBoolean } from 'lodash'
 import arrayUtils from 'utils/arrayUtils'
 import { buildFields } from 'utils/fieldSpecs'
 
-var generateContent = (dataCollection, entry, i) => {
+const generateContent = (dataCollection, entry, i) => {
   if (dataCollection == null) {
     return
   }

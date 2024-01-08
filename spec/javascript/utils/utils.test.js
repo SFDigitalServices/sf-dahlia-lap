@@ -52,9 +52,9 @@ describe('isChanged', () => {
 describe('convertCurrency', () => {
   test('should convert currency values to float from form object', async () => {
     const updatedFormValues = convertCurrency(defaultFormObject)
-    expect(updatedFormValues.applicant.annual_income).toEqual(25000.0)
-    expect(updatedFormValues.lease.monthly_rent).toEqual(598.65)
-    expect(updatedFormValues.lease.another_nested_level.additional_rent).toEqual(425.99)
+    expect(updatedFormValues.applicant.annual_income).toBe(25000.0)
+    expect(updatedFormValues.lease.monthly_rent).toBe(598.65)
+    expect(updatedFormValues.lease.another_nested_level.additional_rent).toBe(425.99)
   })
 })
 

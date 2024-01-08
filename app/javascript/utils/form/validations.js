@@ -160,7 +160,7 @@ export const validateLeaseCurrency = (value) => {
 
 const convertValues = (values, convertValueFunc) => {
   const flattenedValues = flatten(values)
-  Object.keys(flattenedValues).map((key) => {
+  Object.keys(flattenedValues).forEach((key) => {
     flattenedValues[key] = convertValueFunc(flattenedValues[key])
   })
 

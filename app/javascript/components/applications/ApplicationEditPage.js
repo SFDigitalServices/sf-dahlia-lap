@@ -43,8 +43,8 @@ const ApplicationEditPage = ({ listing, application, editPage, lendingInstitutio
 const mapProperties = ({ listing, application, editPage, lendingInstitutions }) => {
   return {
     listing,
-    application: application,
-    lendingInstitutions: lendingInstitutions,
+    application,
+    lendingInstitutions,
     editPage
   }
 }

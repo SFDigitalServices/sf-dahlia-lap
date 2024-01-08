@@ -182,7 +182,7 @@ describe('leaseUpActionCreators', () => {
       const dispatchedAction = getDispatchedAction()
 
       expect(dispatchedAction.type).toEqual(ACTIONS.APPLICATION_TABLE_PAGE_CHANGED)
-      expect(dispatchedAction.data).toEqual(3)
+      expect(dispatchedAction.data).toBe(3)
     })
 
     test('dispatches correct action with null input', () => {
@@ -191,7 +191,7 @@ describe('leaseUpActionCreators', () => {
       const dispatchedAction = getDispatchedAction()
 
       expect(dispatchedAction.type).toEqual(ACTIONS.APPLICATION_TABLE_PAGE_CHANGED)
-      expect(dispatchedAction.data).toEqual(0)
+      expect(dispatchedAction.data).toBe(0)
     })
   })
 })

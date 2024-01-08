@@ -232,14 +232,14 @@ describe('apiService', () => {
     })
 
     test('should submit post request to create lease properly', async () => {
-      var lease = {
+      const lease = {
         monthly_parking_rent: 100
       }
-      var expectedData = getExpectedLeaseResponse(lease, fakeContact)
+      const expectedData = getExpectedLeaseResponse(lease, fakeContact)
 
-      var result = await apiService.createLease(lease, fakeContact, fakeAppId)
+      const result = await apiService.createLease(lease, fakeContact, fakeAppId)
 
-      expect(result).toEqual(true)
+      expect(result).toBe(true)
       expect(mockLeasePostRequest.mock.calls).toHaveLength(1)
       expect(mockLeasePostRequest.mock.calls[0]).toEqual([
         `/applications/${fakeAppId}/leases`,
@@ -249,14 +249,14 @@ describe('apiService', () => {
     })
 
     test('should fail if the lease already contains a salesforce ID', async () => {
-      var lease = {
+      const lease = {
         id: 'lease_id',
         monthly_parking_rent: 100
       }
       let throwsError = false
       await apiService.createLease(lease, fakeContact, fakeAppId).catch((err) => {
         throwsError = true
-        expect(err.message).toEqual('Trying to create a lease that already exists.')
+        expect(err.message).toBe('Trying to create a lease that already exists.')
       })
 
       expect(mockLeasePostRequest.mock.calls).toHaveLength(0)
@@ -272,15 +272,15 @@ describe('apiService', () => {
     const fakeLeaseId = 'fake_lease_id'
 
     test('should submit put request to update lease correctly', async () => {
-      var lease = {
+      const lease = {
         id: fakeLeaseId,
         monthly_parking_rent: 100
       }
-      var expectedData = getExpectedLeaseResponse(lease, fakeContact)
+      const expectedData = getExpectedLeaseResponse(lease, fakeContact)
 
-      var result = await apiService.updateLease(lease, fakeContact, fakeAppId)
+      const result = await apiService.updateLease(lease, fakeContact, fakeAppId)
 
-      expect(result).toEqual(true)
+      expect(result).toBe(true)
       expect(mockLeasePutRequest.mock.calls).toHaveLength(1)
       expect(mockLeasePutRequest.mock.calls[0]).toEqual([
         `/applications/${fakeAppId}/leases/${fakeLeaseId}`,
@@ -290,13 +290,13 @@ describe('apiService', () => {
     })
 
     test('should fail if the lease doesn’t have an id', async () => {
-      var lease = {
+      const lease = {
         monthly_parking_rent: 100
       }
       let throwsError = false
       await apiService.updateLease(lease, fakeContact, fakeAppId).catch((err) => {
         throwsError = true
-        expect(err.message).toEqual('Trying to update a lease that doesn’t yet exist.')
+        expect(err.message).toBe('Trying to update a lease that doesn’t yet exist.')
       })
 
       expect(mockLeasePutRequest.mock.calls).toHaveLength(0)
@@ -309,14 +309,14 @@ describe('apiService', () => {
       request.post = mockPostRequest
     })
     test('should send a post request with expected format', async () => {
-      var rentalAssistance = {
+      const rentalAssistance = {
         property: 'something'
       }
-      var expectedData = { rental_assistance: rentalAssistance, application_id: fakeAppId }
+      const expectedData = { rental_assistance: rentalAssistance, application_id: fakeAppId }
 
-      var result = await apiService.createRentalAssistance(rentalAssistance, fakeAppId)
+      const result = await apiService.createRentalAssistance(rentalAssistance, fakeAppId)
 
-      expect(result).toEqual(true)
+      expect(result).toBe(true)
       expect(mockPostRequest.mock.calls).toHaveLength(1)
       expect(mockPostRequest.mock.calls[0]).toEqual(['/rental-assistances', expectedData, true])
     })
@@ -327,13 +327,13 @@ describe('apiService', () => {
     })
     test('should send a put request with expected format', async () => {
       const fakeRentalAssistanceId = 'fake_rental_id'
-      var rentalAssistance = {
+      const rentalAssistance = {
         id: fakeRentalAssistanceId
       }
-      var expectedData = { rental_assistance: rentalAssistance, application_id: fakeAppId }
+      const expectedData = { rental_assistance: rentalAssistance, application_id: fakeAppId }
 
-      var result = await apiService.updateRentalAssistance(rentalAssistance, fakeAppId)
-      expect(result).toEqual(true)
+      const result = await apiService.updateRentalAssistance(rentalAssistance, fakeAppId)
+      expect(result).toBe(true)
       expect(mockPutRequest.mock.calls).toHaveLength(1)
       expect(mockPutRequest.mock.calls[0]).toEqual([
         `/rental-assistances/${fakeRentalAssistanceId}`,
@@ -346,10 +346,10 @@ describe('apiService', () => {
     test('should send a delete request with expected format', async () => {
       const fakeRentalAssistanceId = 'fake_rental_id'
 
-      var result = await apiService.deleteRentalAssistance(fakeRentalAssistanceId)
-      expect(result).toEqual(true)
+      const result = await apiService.deleteRentalAssistance(fakeRentalAssistanceId)
+      expect(result).toBe(true)
       expect(mockDestroyRequest.mock.calls).toHaveLength(1)
-      expect(mockDestroyRequest.mock.calls[0][0]).toEqual(
+      expect(mockDestroyRequest.mock.calls[0][0]).toBe(
         `/rental-assistances/${fakeRentalAssistanceId}`
       )
     })

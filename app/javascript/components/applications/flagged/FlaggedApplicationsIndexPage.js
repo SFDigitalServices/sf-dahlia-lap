@@ -55,7 +55,7 @@ const getTableFieldsForType = (type) => {
 const FlaggedApplicationsIndexPage = ({ title, flaggedRecords, type }) => {
   const tableFields = getTableFieldsForType(type)
   return (
-    <TableLayout pageHeader={{ title: title }}>
+    <TableLayout pageHeader={{ title }}>
       <FlaggedApplicationsIndexTable flaggedRecords={flaggedRecords} fields={tableFields} />
     </TableLayout>
   )

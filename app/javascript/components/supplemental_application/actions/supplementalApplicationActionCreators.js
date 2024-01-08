@@ -32,7 +32,7 @@ export const loadSupplementalPageData = async (dispatch, applicationId, listingI
           fileBaseUrl,
           // Only show lease section on load if there's a lease on the application.
           leaseSectionState: getInitialLeaseState(application),
-          listing: listing,
+          listing,
           listingAmiCharts: getListingAmiCharts(units),
           rentalAssistances: application.rental_assistances,
           statusHistory

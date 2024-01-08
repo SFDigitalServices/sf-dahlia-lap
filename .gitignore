@@ -35,8 +35,8 @@ yarn-debug.log*
 /public/packs-test
 npm-debug.log
 
-# Ignore test snapshots
-status_update_T3pt*
+# Ignore cypress error screenshots
+/cypress/screenshots/*
 
 # Using yarn rather than npm
 package-lock.json

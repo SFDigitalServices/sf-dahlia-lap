@@ -1,6 +1,6 @@
 import React from 'react'
 
-var generateHtml = (value) => {
+const generateHtml = (value) => {
   return { __html: value }
 }
 

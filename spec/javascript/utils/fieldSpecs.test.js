@@ -13,7 +13,7 @@ describe('formatValue', () => {
       expect(formatValue(dateObject, 'date')).toEqual(expectedDate)
     })
     test('does not format non-date values', () => {
-      expect(formatValue('notADate', 'string')).toEqual('notADate')
+      expect(formatValue('notADate', 'string')).toBe('notADate')
     })
   })
 })

@@ -169,11 +169,11 @@ describe('getSupplementalPageData', () => {
     })
 
     test('calls getUnits with the supplied listing id', () => {
-      expect(mockGetUnitsFn.mock.calls[0][0]).toEqual('otherListingId')
+      expect(mockGetUnitsFn.mock.calls[0][0]).toBe('otherListingId')
     })
 
     test('calls getListing with the supplied listing id', () => {
-      expect(mockGetListingFn.mock.calls[0][0]).toEqual('otherListingId')
+      expect(mockGetListingFn.mock.calls[0][0]).toBe('otherListingId')
     })
   })
 })
@@ -271,7 +271,7 @@ describe('updateApplication', () => {
 
     const response = await updateApplication(application, prevApplication, true)
     expect(response.id).toEqual(application.id)
-    expect(response.lease.id).toEqual('leaseID')
+    expect(response.lease.id).toBe('leaseID')
     expect(mockSubmitAppFn.mock.calls).toHaveLength(1)
     expect(mockCreateLeaseFn.mock.calls).toHaveLength(0)
     expect(mockUpdateLeaseFn.mock.calls).toHaveLength(0)

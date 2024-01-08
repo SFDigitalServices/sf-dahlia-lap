@@ -78,9 +78,9 @@ const Button = ({
   const btnClassNames = classNames(classes, {
     'tight-padding': paddingHorizontal === 'tight',
     'extra-padding': paddingHorizontal === 'extra',
-    small: small,
-    tertiary: tertiary,
-    tiny: tiny,
+    small,
+    tertiary,
+    tiny,
     'margin-bottom-none': noBottomMargin
   })
   const hasText = !!text

@@ -12,7 +12,7 @@ export const Tab = ({ tabItem, onKeyDown, onFocus, linkRefs }) => {
   const { active, url, title, onClick, renderAsRouterLink } = tabItem
   const liClassName = classNames({
     'tab-title': true,
-    active: active
+    active
   })
 
   let tabContent

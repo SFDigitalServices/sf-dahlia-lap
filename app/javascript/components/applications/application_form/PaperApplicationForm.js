@@ -42,7 +42,7 @@ class PaperApplicationForm extends React.Component {
 
   saveSubmitType = (type, form) => {
     const failed = form.getState().invalid
-    this.setState({ submitType: type, failed: failed })
+    this.setState({ submitType: type, failed })
     if (failed) {
       window.scrollTo(0, 0)
     }
@@ -86,7 +86,7 @@ class PaperApplicationForm extends React.Component {
     if (values.preferences) {
       const naturalKeys = map(getFullHousehold(values), (member) => naturalKeyFromMember(member))
       errors.preferences = []
-      values.preferences.map((pref, i) => {
+      values.preferences.forEach((pref, i) => {
         errors.preferences = errors.preferences.concat({})
         if (pref.naturalKey && !includes(naturalKeys, pref.naturalKey)) {
           errors.preferences[i].naturalKey = 'This field is required'

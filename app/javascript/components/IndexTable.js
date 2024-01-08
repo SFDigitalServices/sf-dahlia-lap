@@ -15,7 +15,7 @@ const IndexTable = ({ fields, results, links, page }) => {
   const [expanded, setExpanded] = useState({})
 
   const columnData = () => {
-    var columns = []
+    const columns = []
     each(fields, (attrs, field) => {
       attrs = attrs || {}
       if (field === 'Id' || field === 'id') return

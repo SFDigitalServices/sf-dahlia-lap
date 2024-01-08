@@ -22,7 +22,7 @@ class SpreadsheetIndexTable extends React.Component {
 
   columnData = () => {
     const { fields } = this.props
-    var columns = []
+    const columns = []
     each(fields, (attrs, field) => {
       attrs = attrs || {}
       // don't show Id column
@@ -69,7 +69,7 @@ class SpreadsheetIndexTable extends React.Component {
 
   onCellChange = (cellInfo) => {
     return (e) => {
-      var editData = [...this.state.editData]
+      const editData = [...this.state.editData]
       editData[cellInfo.index][cellInfo.column.id] = e.target.value
       this.setState({ editData })
     }
@@ -105,7 +105,7 @@ class SpreadsheetIndexTable extends React.Component {
   }
 
   render() {
-    var getTrProps = (state, rowInfo, column, instance) => {
+    const getTrProps = (state, rowInfo, column, instance) => {
       return {
         onClick: (e, handleOriginal) => {
           const expanded = this.state.expanded

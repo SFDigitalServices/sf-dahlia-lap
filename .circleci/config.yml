@@ -65,17 +65,11 @@ commands:
                 sleep 5
             done
       - run:
-          name: Run Jest tests using test splitting
+          name: Run Cypress tests using test splitting
           command: |
-            TESTFILES=$(circleci tests glob "spec/javascript/e2e/**/*.e2e.js" | circleci tests split --split-by=timings)
+            TESTFILES=$(circleci tests glob "cypress/e2e/**/*.e2e.js" | circleci tests split --split-by=timings)
             echo "$TESTFILES"
-            yarn test:all --testPathPattern=$TESTFILES --runInBand --reporters=default --reporters=jest-junit --forceExit
-          environment:
-            JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
-      - store_test_results:
-          path: ./reports/junit/
-      - store_artifacts:
-          path: ./reports/junit
+            yarn e2e
 
 jobs:
   build:
