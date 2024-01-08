@@ -84,12 +84,18 @@ const buildVeteranRow =
     const vetTypeOfProof = getTypeOfProof(preference, proofFiles, fileBaseUrl)
     const nonVetTypeOfProof = getTypeOfProof(nonVetPref, proofFiles, fileBaseUrl)
 
+    const vetMemberName = memberNameFromPref(preference.application_member_id, applicationMembers)
+    const nonVetMemberName = memberNameFromPref(
+      nonVetPref.application_member_id,
+      applicationMembers
+    )
+
     return [
       { content: <PreferenceIcon status={finalConfirmation} /> },
       { content: getPreferenceName(preference) },
-      { content: memberNameFromPref(preference.application_member_id, applicationMembers) },
+      { content: [vetMemberName, nonVetMemberName], classes: ['table-no-wrap'] },
       { content: preference.preference_lottery_rank, classes: ['text-right'] },
-      { content: [vetTypeOfProof, nonVetTypeOfProof] },
+      { content: [vetTypeOfProof, nonVetTypeOfProof], classes: ['table-no-wrap'] },
       { content: finalConfirmation }
     ]
   }

@@ -20,12 +20,12 @@ const ExpandableTableRow = ({
       return (
         <td className={datum.classes ? datum.classes.join(' ') : ''} key={j}>
           {datum.content.map((item, i) => {
-            return (
-              <div key={i}>
-                {datum.formatType === 'currency' ? formUtils.formatPrice(item) : item}
-                <br />
-              </div>
-            )
+            const text = !item
+              ? 'None'
+              : datum.formatType === 'currency'
+              ? formUtils.formatPrice(item)
+              : item
+            return <div key={i}>{text}</div>
           })}
         </td>
       )
