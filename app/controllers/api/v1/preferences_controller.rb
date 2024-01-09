@@ -23,6 +23,7 @@ module Api
           :post_lottery_validation,
           :type_of_proof,
           :lw_type_of_proof,
+          :veteran_type_of_proof,
         )
       end
 
