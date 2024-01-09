@@ -90,7 +90,7 @@ commands:
 
 jobs:
   build:
-    executor: ruby_node
+    <<: *defaults
     steps:
       - checkout
       - prepare_workspace
@@ -124,7 +124,7 @@ jobs:
           paths:
             - .
   backend:
-    executor: ruby_node
+    <<: *defaults
     steps:
       - checkout
       - prepare_workspace
@@ -139,7 +139,7 @@ jobs:
           paths:
             - coverage
   frontend:
-    executor: ruby_node
+    <<: *defaults
     steps:
       - checkout
       - prepare_workspace
@@ -153,12 +153,12 @@ jobs:
           paths:
             - coverage
   e2e:
-    executor: ruby_node
+    <<: *defaults
     parallelism: 4
     steps:
       - run-e2e
   coverage:
-    executor: ruby_node
+    <<: *defaults
     steps:
       - checkout
       - *attach_workspace
