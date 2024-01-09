@@ -65,11 +65,8 @@ commands:
                 sleep 5
             done
       - run:
-          name: Run Cypress tests using test splitting
-          command: |
-            TESTFILES=$(circleci tests glob "cypress/e2e/**/*.e2e.js" | circleci tests split --split-by=timings)
-            echo "$TESTFILES"
-            yarn e2e
+          name: Run Cypress tests
+          command: yarn e2e
 
 jobs:
   build:
