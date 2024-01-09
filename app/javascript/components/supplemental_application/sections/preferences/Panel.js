@@ -63,14 +63,18 @@ const Panel = ({
     if (vetIndexes && vetIndexes.length > 0) {
       // update all veteran prefs
       vetIndexes.forEach((i) => {
+        // TODO: what else fields to update for veterans
         form.getState().values.preferences[i].post_lottery_validation =
           form.getState().values.preferences[preferenceIndex].post_lottery_validation
         form.getState().values.preferences[i].type_of_proof =
           form.getState().values.preferences[preferenceIndex].type_of_proof
         form.getState().values.preferences[i].veteran_type_of_proof =
           form.getState().values.preferences[preferenceIndex].veteran_type_of_proof
+        // TODO: person_who_claimed_name vs application_member_id
         form.getState().values.preferences[i].person_who_claimed_name =
           form.getState().values.preferences[preferenceIndex].person_who_claimed_name
+        form.getState().values.preferences[i].application_member_id =
+          form.getState().values.preferences[preferenceIndex].application_member_id
         onSave(i, form.getState().values)
       })
 
