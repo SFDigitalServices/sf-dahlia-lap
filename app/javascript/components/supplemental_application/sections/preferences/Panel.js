@@ -48,8 +48,12 @@ const Panel = ({
   visited
 }) => {
   const preference = application.preferences[preferenceIndex]
-  // TODO: need preference panel for non veteran because it may not be custom
   const PreferencePanel = getPreferencePanel(preference)
+  // TODO: need preference panel for non veteran because it may not be custom
+  let NonVetPreferencePanel
+  if (isVeteran(preference.preference_name)) {
+    NonVetPreferencePanel = getPreferencePanel(application.preferences[preferenceIndex + 1])
+  }
 
   const memberOption = (member) => {
     return { value: member.id, label: `${member.first_name} ${member.last_name}` }
@@ -97,7 +101,7 @@ const Panel = ({
       />
       {isVeteran(preference.preference_name) &&
         hasExpanderButton(application.preferences[preferenceIndex + 1].preference_name) && (
-          <PreferencePanel
+          <NonVetPreferencePanel
             preferenceIndex={preferenceIndex + 1}
             preference={application.preferences[preferenceIndex + 1]}
             form={form}
