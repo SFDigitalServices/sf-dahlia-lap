@@ -60,7 +60,7 @@
     "@babel/eslint-plugin": "^7.23.5",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
     "@testing-library/cypress": "^10.0.1",
-    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^14.1.2",
     "babel-eslint": "10.1.0",
     "babel-jest": "^29.7.0",
@@ -134,7 +134,7 @@
     },
     "setupFilesAfterEnv": [
       "jest-prop-type-error",
-      "./spec/javascript/jestsetup.js"
+      "./spec/javascript/jest.setup.js"
     ],
     "roots": [
       "spec/javascript"
