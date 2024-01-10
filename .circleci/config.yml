@@ -72,7 +72,7 @@ commands:
             done
       - run:
           name: Run Cypress tests
-          command: yarn run cypress run --browser chrome
+          command: yarn e2e
 
 jobs:
   build:

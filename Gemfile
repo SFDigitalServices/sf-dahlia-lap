@@ -92,7 +92,7 @@ gem "slim-rails", "~> 3.1"
 
 gem "hashie"
 
-gem "shakapacker", "7.1.0"
+gem "shakapacker", "7.2.1"
 
 gem "react_on_rails", "13.4.0"
 
