@@ -10,7 +10,6 @@ module.exports = defineConfig({
     mochaFile: 'cypress/results/tests-[hash].xml',
     toConsole: true
   },
-  //   supportFolder: 'cypress/support',
   video: false,
   e2e: {
     // We've imported your old cypress plugins here.

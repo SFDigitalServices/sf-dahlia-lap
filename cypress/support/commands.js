@@ -77,7 +77,6 @@ Cypress.Commands.add('checkForStatusUpdateSuccess', (applicationId = null) => {
     },
     (req) => {
       req.continue((res) => {
-        // cy.wrap(res.statusCode).should('equal', 200)
         if (res.statusCode !== 200) {
           console.error('Status update failure response: ', res.body)
         }
