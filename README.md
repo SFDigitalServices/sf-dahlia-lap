@@ -117,7 +117,11 @@ _Note: Snapshots should be pushed to the repo_
 
 ### Running e2e tests
 
-To view the e2e tests as they're running, set `HEADLESS` to `false` in [this file](https://github.com/SFDigitalServices/sf-dahlia-lap/blob/main/spec/javascript/support/puppeteer/consts.js#L51)
+To run the E2E tests in a headless state, run `yarn e2e`
+
+If you want to use the Cypress UI to view the tests, you can run `yarn e2e:open`
+
+_Note: The app should also be running (using `yarn start`) in another terminal when you run the e2e tests_
 
 #### Run server and client concurrently (in a terminal window)
 

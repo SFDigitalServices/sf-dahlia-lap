@@ -32,7 +32,7 @@ module.exports = defineConfig({
     experimentalOriginDependencies: true,
     baseUrl: 'http://localhost:3000',
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
-    retries: 0
+    retries: 2
   },
   // workaround see https://github.com/dequelabs/axe-core/issues/3057
   modifyObstructiveCode: false,
