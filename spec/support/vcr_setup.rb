@@ -59,6 +59,8 @@ VCR.configure do |config|
     h['Authorization'].first.split('OAuth ').last if h['Authorization']&.first
   end
 
+  # config.default_cassette_options = { record: :new_episodes }
+
   # This can be used to manipulate the response before saving
   # config.before_record do |interaction|
   # end
