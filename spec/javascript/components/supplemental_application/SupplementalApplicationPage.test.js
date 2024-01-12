@@ -553,7 +553,7 @@ describe('SupplementalApplicationPage', () => {
       })
 
       expect(within(unitSelect).getByText('No Units Available')).toBeInTheDocument()
-      expect(screen.getByTestId('total-available-count').textContent).toEqual('0')
+      expect(screen.getByTestId('total-available-count').textContent).toBe('0')
     })
 
     describe('when no unit is selected', () => {
@@ -562,10 +562,10 @@ describe('SupplementalApplicationPage', () => {
       })
 
       test('it shows expected available unit counts', () => {
-        expect(screen.getByTestId('total-available-count').textContent).toEqual('2')
-        expect(screen.getByTestId('accessibility-available-count').textContent).toEqual('1')
-        expect(screen.getByTestId('dthp-available-count').textContent).toEqual('3')
-        expect(screen.getByTestId('nrhp-available-count').textContent).toEqual('4')
+        expect(screen.getByTestId('total-available-count').textContent).toBe('2')
+        expect(screen.getByTestId('accessibility-available-count').textContent).toBe('1')
+        expect(screen.getByTestId('dthp-available-count').textContent).toBe('3')
+        expect(screen.getByTestId('nrhp-available-count').textContent).toBe('4')
       })
 
       test('it does not change the DTHP availability count when pref used is selected', () => {
@@ -577,7 +577,7 @@ describe('SupplementalApplicationPage', () => {
             { target: { value: 'validDTHPPref' } }
           )
         })
-        expect(screen.getByTestId('dthp-available-count').textContent).toEqual('3')
+        expect(screen.getByTestId('dthp-available-count').textContent).toBe('3')
       })
     })
 
@@ -601,16 +601,16 @@ describe('SupplementalApplicationPage', () => {
       })
 
       test('it decreases the number of available units', () => {
-        expect(screen.getByTestId('total-available-count').textContent).toEqual('1')
+        expect(screen.getByTestId('total-available-count').textContent).toBe('1')
       })
 
       test('it does not impact the number of accessibility units', () => {
-        expect(screen.getByTestId('accessibility-available-count').textContent).toEqual('1')
+        expect(screen.getByTestId('accessibility-available-count').textContent).toBe('1')
       })
 
       test('it does not impact the number of priority set asides', () => {
-        expect(screen.getByTestId('dthp-available-count').textContent).toEqual('3')
-        expect(screen.getByTestId('nrhp-available-count').textContent).toEqual('4')
+        expect(screen.getByTestId('dthp-available-count').textContent).toBe('3')
+        expect(screen.getByTestId('nrhp-available-count').textContent).toBe('4')
       })
 
       test('it decreases the available DTHP count when DTHP is pref used', () => {
@@ -622,7 +622,7 @@ describe('SupplementalApplicationPage', () => {
             { target: { value: 'validDTHPPref' } }
           )
         })
-        expect(screen.getByTestId('dthp-available-count').textContent).toEqual('2')
+        expect(screen.getByTestId('dthp-available-count').textContent).toBe('2')
       })
     })
 
@@ -646,11 +646,11 @@ describe('SupplementalApplicationPage', () => {
       })
 
       test('it decreases the number of available units', () => {
-        expect(screen.getByTestId('total-available-count').textContent).toEqual('1')
+        expect(screen.getByTestId('total-available-count').textContent).toBe('1')
       })
 
       test('it decreases the number of accessibility units', () => {
-        expect(screen.getByTestId('accessibility-available-count').textContent).toEqual('0')
+        expect(screen.getByTestId('accessibility-available-count').textContent).toBe('0')
       })
     })
   })

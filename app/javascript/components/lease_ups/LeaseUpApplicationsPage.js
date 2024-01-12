@@ -223,7 +223,7 @@ const LeaseUpApplicationsPage = () => {
 
       if (errorIds.length !== 0) {
         setStatusModalState({
-          applicationsData: applicationsData,
+          applicationsData,
           loading: false,
           showAlert: true,
           alertMsg: `We were unable to make the update for ${errorIds.length} out of ${values.length} applications, please try again.`,
@@ -281,10 +281,10 @@ const LeaseUpApplicationsPage = () => {
 
     setStatusModalState({
       isBulkUpdate,
-      isCommentModal: isCommentModal,
+      isCommentModal,
       isOpen: true,
       status: value,
-      applicationsData: applicationsData
+      applicationsData
     })
   }
 
@@ -320,8 +320,8 @@ const LeaseUpApplicationsPage = () => {
   const context = {
     applications: state.applications,
     atMaxPages: state.atMaxPages,
-    bulkCheckboxesState: bulkCheckboxesState,
-    listingId: listingId,
+    bulkCheckboxesState,
+    listingId,
     loading: state.loading,
     onBulkCheckboxClick: handleBulkCheckboxClick,
     onCloseStatusModal: handleCloseStatusModal,

@@ -2,7 +2,7 @@ import formUtils from 'utils/formUtils'
 
 describe('formatPrice', () => {
   test('should format small numbers correctly', async () => {
-    expect(formUtils.formatPrice('10')).toEqual('$10.00')
+    expect(formUtils.formatPrice('10')).toBe('$10.00')
   })
   test('should be empty if there is no value', async () => {
     expect(formUtils.formatPrice(undefined)).toBeNull()
@@ -10,65 +10,65 @@ describe('formatPrice', () => {
     expect(formUtils.formatPrice('')).toBeNull()
   })
   test('should add comma for values over 1000', async () => {
-    expect(formUtils.formatPrice('11000')).toEqual('$11,000.00')
+    expect(formUtils.formatPrice('11000')).toBe('$11,000.00')
   })
   test('should format 0 correctly', async () => {
-    expect(formUtils.formatPrice('0')).toEqual('$0.00')
+    expect(formUtils.formatPrice('0')).toBe('$0.00')
   })
   test('should not modify currency values that are already formatted', async () => {
-    expect(formUtils.formatPrice('$11,000.00')).toEqual('$11,000.00')
+    expect(formUtils.formatPrice('$11,000.00')).toBe('$11,000.00')
   })
   test('should not format invalid currencies', async () => {
-    expect(formUtils.formatPrice('0.0.0')).toEqual('0.0.0')
-    expect(formUtils.formatPrice('abc')).toEqual('abc')
-    expect(formUtils.formatPrice('$$200')).toEqual('$$200')
+    expect(formUtils.formatPrice('0.0.0')).toBe('0.0.0')
+    expect(formUtils.formatPrice('abc')).toBe('abc')
+    expect(formUtils.formatPrice('$$200')).toBe('$$200')
   })
 })
 
 describe('formatPercent', () => {
   test('should format numbers correctly', async () => {
-    expect(formUtils.formatPercent('10')).toEqual('10%')
+    expect(formUtils.formatPercent('10')).toBe('10%')
   })
 
   test('should remove leading zeros', async () => {
-    expect(formUtils.formatPercent('010')).toEqual('10%')
-    expect(formUtils.formatPercent('001')).toEqual('1%')
-    expect(formUtils.formatPercent('00')).toEqual('0%')
+    expect(formUtils.formatPercent('010')).toBe('10%')
+    expect(formUtils.formatPercent('001')).toBe('1%')
+    expect(formUtils.formatPercent('00')).toBe('0%')
   })
 
   test('should trim trailing zeros', async () => {
-    expect(formUtils.formatPercent('1.0')).toEqual('1%')
-    expect(formUtils.formatPercent('1.10')).toEqual('1.1%')
-    expect(formUtils.formatPercent('1.101')).toEqual('1.101%')
-    expect(formUtils.formatPercent('1.010')).toEqual('1.01%')
+    expect(formUtils.formatPercent('1.0')).toBe('1%')
+    expect(formUtils.formatPercent('1.10')).toBe('1.1%')
+    expect(formUtils.formatPercent('1.101')).toBe('1.101%')
+    expect(formUtils.formatPercent('1.010')).toBe('1.01%')
 
     // to check for bug that happens if you use .toPrecision() instead of .toFixed()
-    expect(formUtils.formatPercent('123456.010')).toEqual('123456.01%')
+    expect(formUtils.formatPercent('123456.010')).toBe('123456.01%')
   })
 
   test('should trim any digits after the hundredths place', async () => {
-    expect(formUtils.formatPercent('1.1')).toEqual('1.1%')
-    expect(formUtils.formatPercent('1.11')).toEqual('1.11%')
-    expect(formUtils.formatPercent('1.111')).toEqual('1.111%')
-    expect(formUtils.formatPercent('1.1111')).toEqual('1.111%')
-    expect(formUtils.formatPercent('1.5555')).toEqual('1.556%')
-    expect(formUtils.formatPercent('1.9999')).toEqual('2%')
-    expect(formUtils.formatPercent('123456.99999')).toEqual('123457%')
+    expect(formUtils.formatPercent('1.1')).toBe('1.1%')
+    expect(formUtils.formatPercent('1.11')).toBe('1.11%')
+    expect(formUtils.formatPercent('1.111')).toBe('1.111%')
+    expect(formUtils.formatPercent('1.1111')).toBe('1.111%')
+    expect(formUtils.formatPercent('1.5555')).toBe('1.556%')
+    expect(formUtils.formatPercent('1.9999')).toBe('2%')
+    expect(formUtils.formatPercent('123456.99999')).toBe('123457%')
   })
 
   test('should format 0 correctly', async () => {
-    expect(formUtils.formatPercent('0')).toEqual('0%')
+    expect(formUtils.formatPercent('0')).toBe('0%')
   })
 
   test('should not add multiple percent signs', async () => {
-    expect(formUtils.formatPercent('2%')).toEqual('2%')
+    expect(formUtils.formatPercent('2%')).toBe('2%')
   })
 
   test('should leave improper values as-is', async () => {
-    expect(formUtils.formatPercent('%')).toEqual('%')
-    expect(formUtils.formatPercent('abc')).toEqual('abc')
-    expect(formUtils.formatPercent('5.5.5%')).toEqual('5.5.5%')
-    expect(formUtils.formatPercent('5..5')).toEqual('5..5')
+    expect(formUtils.formatPercent('%')).toBe('%')
+    expect(formUtils.formatPercent('abc')).toBe('abc')
+    expect(formUtils.formatPercent('5.5.5%')).toBe('5.5.5%')
+    expect(formUtils.formatPercent('5..5')).toBe('5..5')
   })
 })
 
@@ -151,13 +151,13 @@ describe('scrubEmptyValues', () => {
 
 describe('formatNumber', () => {
   test('should parse string into int', async () => {
-    expect(formUtils.formatNumber('10')).toEqual(10)
-    expect(formUtils.formatNumber('0')).toEqual(0)
+    expect(formUtils.formatNumber('10')).toBe(10)
+    expect(formUtils.formatNumber('0')).toBe(0)
   })
 
   test('should return number', async () => {
-    expect(formUtils.formatNumber(10)).toEqual(10)
-    expect(formUtils.formatNumber(0)).toEqual(0)
+    expect(formUtils.formatNumber(10)).toBe(10)
+    expect(formUtils.formatNumber(0)).toBe(0)
   })
 
   test('should be empty if there is no value', async () => {
@@ -167,7 +167,7 @@ describe('formatNumber', () => {
   })
 
   test('should not format invalid values', async () => {
-    expect(formUtils.formatNumber('0.0.0')).toEqual('0.0.0')
-    expect(formUtils.formatNumber('abc')).toEqual('abc')
+    expect(formUtils.formatNumber('0.0.0')).toBe('0.0.0')
+    expect(formUtils.formatNumber('abc')).toBe('abc')
   })
 })

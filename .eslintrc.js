@@ -20,14 +20,13 @@ module.exports = {
      * Note: All prettier extends configs need to come at the end of the
      * list, so they can override previous rules.
      */
-    'prettier',
-    'prettier/babel',
-    'prettier/react',
-    'prettier/standard'
+    'prettier'
   ],
   globals: {
     Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly'
+    SharedArrayBuffer: 'readonly',
+    cy: 'readonly',
+    Cypress: 'readonly'
   },
   parser: '@babel/eslint-parser',
   parserOptions: {
@@ -57,7 +56,7 @@ module.exports = {
 
     // only allow the first letter to be uppercase in 'describe' block descriptions,
     // 'test' and 'it' block descriptions must start with lowercase
-    'jest/lowercase-name': [
+    'jest/prefer-lowercase-title': [
       'error',
       {
         ignore: ['describe']

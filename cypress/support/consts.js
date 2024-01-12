@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 // Default to Automated Test Listing on Full
 export const NON_LEASE_UP_LISTING_ID =
   process.env.E2E_NON_LEASE_UP_LISTING_ID || 'a0W0P00000F8YG4UAN'
@@ -41,15 +43,4 @@ export const HOUSEHOLD_MEMBER_DOB_MONTH = '1'
 export const HOUSEHOLD_MEMBER_DOB_DAY = '12'
 export const HOUSEHOLD_MEMBER_DOB_YEAR = '1980'
 
-// Loan officer info for paper sale application
-export const LENDING_INSTITUTION = process.env.E2E_LENDING_INSTITUTION || 'Chase'
-export const LENDING_AGENT_ID = process.env.E2E_LENDING_AGENT_ID || '0030P00002NI63uQAD'
-
 export const DECLINE_TO_STATE = 'Decline to state'
-
-// Change to false to see tests running on browser locally
-export const HEADLESS = true
-// Change to true to see devtools, only works if HEADLESS is false since you need to open up a Chromium browser
-export const DEVTOOLS = false
-// Change to false to fall back to including css
-export const REMOVECSS = process.env.E2E_REMOVE_CSS || true

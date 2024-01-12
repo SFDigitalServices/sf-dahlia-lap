@@ -11,10 +11,10 @@ describe('labelize', () => {
       expect(labelize(['test'])).toEqual([emptyOption, { label: 'test', value: 'test' }])
     })
     test('adds empty value on the first position', () => {
-      expect(labelize(['test'])[0].value).toEqual('')
+      expect(labelize(['test'])[0].value).toBe('')
     })
     test('disables first option', () => {
-      expect(labelize(['test'], { disableEmpty: true })[0].disabled).toEqual('disabled')
+      expect(labelize(['test'], { disableEmpty: true })[0].disabled).toBe('disabled')
     })
   })
   describe('when an array of objects is provided', () => {

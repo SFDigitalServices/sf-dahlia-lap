@@ -215,7 +215,7 @@ export const updatePreference = async (preferenceIndex, formApplicationValues) =
 
 const updateTotalHouseholdRent = async (id, totalMonthlyRent) => {
   const attributes = convertCurrency({
-    id: id,
+    id,
     total_monthly_rent: totalMonthlyRent
   })
   return apiService.updateApplication(attributes)

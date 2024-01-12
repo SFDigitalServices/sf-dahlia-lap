@@ -9,7 +9,7 @@ export const Item = ({ item, current }) => {
   const ariaCurrentValue = current ? 'page' : undefined
 
   return (
-    <li className={classNames({ current: current })}>
+    <li className={classNames({ current })}>
       {item.renderAsRouterLink ? (
         <NavLink to={item.link} aria-current={ariaCurrentValue}>
           {item.title}

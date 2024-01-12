@@ -75,7 +75,7 @@ const fetchLeaseUpApplications = async (listingId, page, { filters }) => {
     {
       params: {
         listing_id: listingId,
-        page: page,
+        page,
         ...filters
       }
     },
@@ -86,7 +86,7 @@ const fetchLeaseUpApplications = async (listingId, page, { filters }) => {
 const getAMI = async ({ chartType, chartYear }) =>
   request.get('/ami', {
     params: {
-      chartType: chartType,
+      chartType,
       year: chartYear,
       percent: 100
     }

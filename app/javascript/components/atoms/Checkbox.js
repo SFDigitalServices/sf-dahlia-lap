@@ -15,7 +15,7 @@ const Checkbox = ({ id, checked = false, indeterminate = false, onClick = () => 
       // but we actually want our handler to be onClick instead,
       // so this is a no-op function.
       onChange={() => {}}
-      className={classNames('no-margin', { indeterminate: indeterminate })}
+      className={classNames('no-margin', { indeterminate })}
     />
     <label
       style={{ margin: '0px' }}

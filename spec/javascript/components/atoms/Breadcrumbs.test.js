@@ -71,9 +71,7 @@ describe('BreadCrumbs', () => {
     test('renders all empty items', () => {
       expect(screen.queryAllByRole('listitem')).toHaveLength(3)
 
-      screen.queryAllByRole('link').map((item) => {
-        expect(item).toHaveAttribute('href', '#')
-      })
+      screen.queryAllByRole('link').forEach((item) => expect(item).toHaveAttribute('href', '#'))
     })
   })
 

@@ -37,7 +37,7 @@ describe('IndexTable', () => {
       .filter((cell) => !cell.classList.contains('rt-expandable'))
       .forEach((node) => {
         // Expect all other cells to be empty
-        expect(node.text()).toEqual('')
+        expect(node.text()).toBe('')
       })
   })
 

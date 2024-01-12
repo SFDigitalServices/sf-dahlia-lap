@@ -7,7 +7,7 @@ export class Request {
    */
   async apiCall(method, path, data, throwOnError = false) {
     if (process.env.NODE_ENV === 'test') {
-      var err = Error('API should not be called in TEST')
+      const err = Error('API should not be called in TEST')
       console.error(err)
       throw err
     }

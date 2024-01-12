@@ -17,6 +17,7 @@ exports[`MultiSelect when disabled renders as disabled 1`] = `
         aria-live="polite"
         aria-relevant="additions text"
         class="css-1f43avz-a11yText-A11yText"
+        role="log"
       />
       <div
         aria-disabled="true"
@@ -36,6 +37,7 @@ exports[`MultiSelect when disabled renders as disabled 1`] = `
             data-value=""
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-describedby="react-select-6-placeholder"
               aria-expanded="false"
@@ -102,6 +104,7 @@ exports[`MultiSelect with default height sets height to 45px 1`] = `
         aria-live="polite"
         aria-relevant="additions text"
         class="css-1f43avz-a11yText-A11yText"
+        role="log"
       />
       <div
         class=" css-1vyczjh-control"
@@ -120,6 +123,7 @@ exports[`MultiSelect with default height sets height to 45px 1`] = `
             data-value=""
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-describedby="react-select-8-placeholder"
               aria-expanded="false"

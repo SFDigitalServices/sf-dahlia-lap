@@ -48,16 +48,16 @@ const fakeListingId = 'listing_id'
 describe('leaseUpActions', () => {
   describe('convertToCommaSeparatedList', () => {
     test('it returns a single word if provided', () => {
-      expect(convertToCommaSeparatedList('test')).toEqual('test')
+      expect(convertToCommaSeparatedList('test')).toBe('test')
     })
     test('it turns phrases separated with spaces into a comma separated string list', () => {
-      expect(convertToCommaSeparatedList('test1 test2 test3')).toEqual('test1,test2,test3')
+      expect(convertToCommaSeparatedList('test1 test2 test3')).toBe('test1,test2,test3')
     })
     test('it strips out excess spaces as expected', () => {
-      expect(convertToCommaSeparatedList('test ')).toEqual('test')
-      expect(convertToCommaSeparatedList(' test ')).toEqual('test')
-      expect(convertToCommaSeparatedList('test  ')).toEqual('test')
-      expect(convertToCommaSeparatedList('test  test2')).toEqual('test,test2')
+      expect(convertToCommaSeparatedList('test ')).toBe('test')
+      expect(convertToCommaSeparatedList(' test ')).toBe('test')
+      expect(convertToCommaSeparatedList('test  ')).toBe('test')
+      expect(convertToCommaSeparatedList('test  test2')).toBe('test,test2')
     })
     test("it returns as expected when there's a nullish input", () => {
       expect(convertToCommaSeparatedList('')).toBeFalsy()
@@ -66,12 +66,12 @@ describe('leaseUpActions', () => {
   })
   describe('sanitizeAndFormatSearch', () => {
     test('it removes double quotes from search strings', () => {
-      expect(sanitizeAndFormatSearch('"John"')).toEqual('John')
-      expect(sanitizeAndFormatSearch('"John Doe"')).toEqual('John,Doe')
+      expect(sanitizeAndFormatSearch('"John"')).toBe('John')
+      expect(sanitizeAndFormatSearch('"John Doe"')).toBe('John,Doe')
     })
     test('it removes single quotes from search strings', () => {
-      expect(sanitizeAndFormatSearch("'John'")).toEqual('John')
-      expect(sanitizeAndFormatSearch("'John Doe'")).toEqual('John,Doe')
+      expect(sanitizeAndFormatSearch("'John'")).toBe('John')
+      expect(sanitizeAndFormatSearch("'John Doe'")).toBe('John,Doe')
     })
   })
   describe('getApplications', () => {

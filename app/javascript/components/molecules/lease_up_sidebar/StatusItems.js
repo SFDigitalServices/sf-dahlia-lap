@@ -16,7 +16,7 @@ import StatusItemShape from '../../../utils/shapes/StatusItemShape'
 const StatusItems = ({ statusItems, limit, height }) => {
   const limitedItems = statusItems.slice(0, limit)
 
-  const itemBoxStyles = height ? { height: height, overflow: 'scroll' } : {}
+  const itemBoxStyles = height ? { height, overflow: 'scroll' } : {}
 
   return (
     <div className='status-items' style={itemBoxStyles}>

@@ -25,7 +25,7 @@ export const getPageHeaderData = (application, listing) => {
     )
 
   return {
-    title: title,
+    title,
     breadcrumbs: [
       rootBreadcrumb,
       listing?.name

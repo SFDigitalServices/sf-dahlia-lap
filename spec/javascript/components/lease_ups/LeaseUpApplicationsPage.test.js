@@ -195,7 +195,7 @@ describe('LeaseUpApplicationsPage', () => {
   test('calls get applications with the listing id and page number = 0', () => {
     expect(mockFetchLeaseUpApplications.mock.calls).toHaveLength(1)
     expect(mockFetchLeaseUpApplications.mock.calls[0][0]).toEqual(mockListing.id)
-    expect(mockFetchLeaseUpApplications.mock.calls[0][1]).toEqual(0)
+    expect(mockFetchLeaseUpApplications.mock.calls[0][1]).toBe(0)
   })
 
   test('it is not loading', () => {

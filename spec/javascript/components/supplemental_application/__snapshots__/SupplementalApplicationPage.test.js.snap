@@ -1543,6 +1543,11 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                         >
                           2023
                         </option>
+                        <option
+                          value="2024"
+                        >
+                          2024
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -2065,6 +2070,7 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                             aria-live="polite"
                             aria-relevant="additions text"
                             class="css-1f43avz-a11yText-A11yText"
+                            role="log"
                           />
                           <div
                             aria-disabled="true"
@@ -2093,6 +2099,7 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                                   class="unit-dropdown__value-container unit-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
                                 >
                                   <input
+                                    aria-activedescendant=""
                                     aria-autocomplete="list"
                                     aria-expanded="false"
                                     aria-haspopup="true"
@@ -5368,6 +5375,7 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                         aria-live="polite"
                         aria-relevant="additions text"
                         class="css-1f43avz-a11yText-A11yText"
+                        role="log"
                       />
                       <div
                         class="status-dropdown__control css-uuqjpg-Control"
@@ -5396,6 +5404,7 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                                   id="react-select-3-placeholder"
                                 />
                                 <input
+                                  aria-activedescendant=""
                                   aria-autocomplete="list"
                                   aria-describedby="react-select-3-placeholder"
                                   aria-expanded="false"
@@ -5453,6 +5462,7 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                         aria-live="polite"
                         aria-relevant="additions text"
                         class="css-1f43avz-a11yText-A11yText"
+                        role="log"
                       />
                       <div
                         class="status-dropdown__control css-uuqjpg-Control"
@@ -5481,6 +5491,7 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                                   id="react-select-4-placeholder"
                                 />
                                 <input
+                                  aria-activedescendant=""
                                   aria-autocomplete="list"
                                   aria-describedby="react-select-4-placeholder"
                                   aria-expanded="false"

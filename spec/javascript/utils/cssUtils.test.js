@@ -17,61 +17,61 @@ describe('toRem', () => {
 
   describe('with numbers', () => {
     test('converts 0 correctly', () => {
-      expect(toRem(0)).toEqual('0rem')
+      expect(toRem(0)).toBe('0rem')
     })
 
     test('converts 1 correctly', () => {
-      expect(toRem(1)).toEqual('1rem')
+      expect(toRem(1)).toBe('1rem')
     })
 
     test('converts -1 correctly', () => {
-      expect(toRem(-1)).toEqual('-1rem')
+      expect(toRem(-1)).toBe('-1rem')
     })
 
     test('converts 1.5 correctly', () => {
-      expect(toRem(1.5)).toEqual('1.5rem')
+      expect(toRem(1.5)).toBe('1.5rem')
     })
   })
 
   describe('with strings', () => {
     describe('when strings don’t have rem suffix', () => {
       test('converts "0" correctly', () => {
-        expect(toRem('0')).toEqual('0rem')
+        expect(toRem('0')).toBe('0rem')
       })
 
       test('converts "1" correctly', () => {
-        expect(toRem('1')).toEqual('1rem')
+        expect(toRem('1')).toBe('1rem')
       })
 
       test('converts "-1" correctly', () => {
-        expect(toRem('-1')).toEqual('-1rem')
+        expect(toRem('-1')).toBe('-1rem')
       })
 
       test('converts "1.5" correctly', () => {
-        expect(toRem('1.5')).toEqual('1.5rem')
+        expect(toRem('1.5')).toBe('1.5rem')
       })
     })
 
     describe('when strings have rem suffix', () => {
       test('converts "0rem" correctly', () => {
-        expect(toRem('0rem')).toEqual('0rem')
+        expect(toRem('0rem')).toBe('0rem')
       })
 
       test('converts "1rem" correctly', () => {
-        expect(toRem('1rem')).toEqual('1rem')
+        expect(toRem('1rem')).toBe('1rem')
       })
 
       test('converts "-1rem" correctly', () => {
-        expect(toRem('-1rem')).toEqual('-1rem')
+        expect(toRem('-1rem')).toBe('-1rem')
       })
 
       test('converts "1.5rem" correctly', () => {
-        expect(toRem('1.5rem')).toEqual('1.5rem')
+        expect(toRem('1.5rem')).toBe('1.5rem')
       })
 
       describe('with uppercase REM suffix', () => {
         test('converts 1REM correctly', () => {
-          expect(toRem('1REM')).toEqual('1rem')
+          expect(toRem('1REM')).toBe('1rem')
         })
       })
 
@@ -131,61 +131,61 @@ describe('toPx', () => {
 
   describe('with numbers', () => {
     test('converts 0 correctly', () => {
-      expect(toPx(0)).toEqual('0px')
+      expect(toPx(0)).toBe('0px')
     })
 
     test('converts 1 correctly', () => {
-      expect(toPx(1)).toEqual('1px')
+      expect(toPx(1)).toBe('1px')
     })
 
     test('converts -1 correctly', () => {
-      expect(toPx(-1)).toEqual('-1px')
+      expect(toPx(-1)).toBe('-1px')
     })
 
     test('converts 1.5 correctly', () => {
-      expect(toPx(1.5)).toEqual('1.5px')
+      expect(toPx(1.5)).toBe('1.5px')
     })
   })
 
   describe('with strings', () => {
     describe('when strings don’t have px suffix', () => {
       test('converts "0" correctly', () => {
-        expect(toPx('0')).toEqual('0px')
+        expect(toPx('0')).toBe('0px')
       })
 
       test('converts "1" correctly', () => {
-        expect(toPx('1')).toEqual('1px')
+        expect(toPx('1')).toBe('1px')
       })
 
       test('converts "-1" correctly', () => {
-        expect(toPx('-1')).toEqual('-1px')
+        expect(toPx('-1')).toBe('-1px')
       })
 
       test('converts "1.5" correctly', () => {
-        expect(toPx('1.5')).toEqual('1.5px')
+        expect(toPx('1.5')).toBe('1.5px')
       })
     })
 
     describe('when strings have px suffix', () => {
       test('converts "0px" correctly', () => {
-        expect(toPx('0px')).toEqual('0px')
+        expect(toPx('0px')).toBe('0px')
       })
 
       test('converts "1px" correctly', () => {
-        expect(toPx('1px')).toEqual('1px')
+        expect(toPx('1px')).toBe('1px')
       })
 
       test('converts "-1px" correctly', () => {
-        expect(toPx('-1px')).toEqual('-1px')
+        expect(toPx('-1px')).toBe('-1px')
       })
 
       test('converts "1.5px" correctly', () => {
-        expect(toPx('1.5px')).toEqual('1.5px')
+        expect(toPx('1.5px')).toBe('1.5px')
       })
 
       describe('with uppercase PX suffix', () => {
         test('converts 1PX correctly', () => {
-          expect(toPx('1PX')).toEqual('1px')
+          expect(toPx('1PX')).toBe('1px')
         })
       })
 

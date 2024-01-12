@@ -34,7 +34,7 @@ const StatusDropdown = ({
   forceDisplayPlaceholderText = false,
   dataTestId = null
 }) => {
-  const classes = classNames(buttonClasses, 'button', 'dropdown-button', { expand: expand })
+  const classes = classNames(buttonClasses, 'button', 'dropdown-button', { expand })
 
   const renderStatusToggle = ({ children, getValue, ...props }) => {
     const val = forceDisplayPlaceholderText ? null : getValue()[0]
