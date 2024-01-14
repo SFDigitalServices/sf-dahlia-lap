@@ -14,7 +14,28 @@ module Force
           WHERE Application__c = '#{application_id}'
         ), :show_preference)
 
-        Force::Preference.convert_list(result, :from_salesforce, :to_domain)
+        log_var = Force::Preference.convert_list(result, :from_salesforce, :to_domain)
+
+        # TODO
+        # 1. loop through log_var
+        # 2. if element is veteran
+        # 3. create relationship with non veteran
+        index = 0
+        for preference in log_var
+          types_of_proof = []
+          if preference.preference_name.include?('Veteran')
+            types_of_proof.push(preference.veteran_type_of_proof) if preference.veteran_type_of_proof
+            types_of_proof.push(log_var[index + 1].type_of_proof) if log_var[index + 1].type_of_proof
+          elsif preference.type_of_proof
+            types_of_proof.push(preference.type_of_proof)
+          end
+          preference['types_of_proof'] = types_of_proof
+          index += 1
+        end
+        # 4. add final_confirmation, types of proofs (array), claimants (array), and vet indexes for update (new field)
+        # - what about lw_type_of_proof and others
+
+        log_var
       end
 
       def app_preferences_for_listing(opts)

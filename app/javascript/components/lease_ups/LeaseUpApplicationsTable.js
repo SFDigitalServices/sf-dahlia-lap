@@ -62,6 +62,7 @@ const LeaseUpApplicationsTable = ({
         return
       }
 
+      // TODO: first_name + last_name vs application id
       const nonVetConfirmation = dataSet.filter(
         (data) =>
           data.first_name === pref.first_name &&
