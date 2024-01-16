@@ -140,6 +140,7 @@ jobs:
             - coverage
   e2e:
     <<: *defaults
+    parallelism: 3
     steps:
       - run-e2e
   coverage:
