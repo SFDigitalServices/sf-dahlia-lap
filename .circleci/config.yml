@@ -70,7 +70,9 @@ commands:
             done
       - run:
           name: Run Cypress tests
-          command: yarn e2e
+          command: |
+            TESTFILES=$(circleci tests glob "cypress/e2e/**/*.e2e.js" | circleci tests split)
+            yarn cypress run --spec $TESTFILES
 
 jobs:
   build:
