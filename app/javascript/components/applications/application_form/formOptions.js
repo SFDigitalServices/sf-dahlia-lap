@@ -113,13 +113,7 @@ const preferenceProofOptionsDefault = labelize([
 ])
 
 // TODO: remove hardcoding proofs, get from salesforce
-const preferenceProofOptionsVeteran = labelize([
-  'DD Form 214',
-  'DD Form 256',
-  'Veterans Affairs release and discharge document',
-  'Veterans Affairs issued ID',
-  'Military ID'
-])
+const preferenceProofOptionsVeteran = labelize(['DD Form 214', 'DD Form 256'])
 
 const preferenceProofOptionsLiveSf = labelize([
   'Telephone bill',
