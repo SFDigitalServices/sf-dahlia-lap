@@ -9,8 +9,8 @@ module Api::V1
       applications[:records] = Force::Preference.convert_list(applications[:records], :from_salesforce, :to_domain)
       # TODO: add final_confirmation, types of proofs, and vet indexes for update
 
-      puts 'log_var'
-      puts applications[:records]
+      # puts 'log_var'
+      # puts applications[:records]
 
       render json: applications
     end
