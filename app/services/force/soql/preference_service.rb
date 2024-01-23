@@ -15,8 +15,6 @@ module Force
           Order by Preference_Order__c asc
         ), :show_preference)
 
-        puts result
-
         Force::Preference.convert_list(result, :from_salesforce, :to_domain)
 
         # log_var = Force::Preference.convert_list(result, :from_salesforce, :to_domain)
