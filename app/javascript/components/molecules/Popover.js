@@ -49,7 +49,8 @@ const Popover = ({ buttonElement, children = null, onButtonClick = null }) => {
     <>
       {buttonElement({
         ref: setButtonElementRef,
-        onClick: () => {
+        onClick: (e) => {
+          e.stopPropagation()
           setShowPopper(!showPopper)
           onButtonClick && onButtonClick()
         }
