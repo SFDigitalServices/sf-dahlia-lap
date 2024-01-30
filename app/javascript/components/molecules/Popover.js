@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import { usePopper } from 'react-popper'
 
 // Source: https://www.30secondsofcode.org/react/s/use-click-outside
-const useClickOutside = (ref, callback) => {
+const useClickOutside = (buttonRef, popperRef, callback) => {
   const handleClick = (e) => {
-    if (ref && !ref.contains(e.target)) {
+    if (buttonRef && !buttonRef.contains(e.target) && popperRef && !popperRef.contains(e.target)) {
       callback()
     }
   }
@@ -25,7 +25,7 @@ const Popover = ({ buttonElement, children = null, onButtonClick = null }) => {
   const [popperElement, setPopperElement] = useState(null)
   const [arrowElement, setArrowElement] = useState(null)
 
-  useClickOutside(popperElement, () => setShowPopper(false))
+  useClickOutside(buttonElementRef, popperElement, () => setShowPopper(false))
 
   const { styles, attributes } = usePopper(buttonElementRef, popperElement, {
     placement: 'bottom',
