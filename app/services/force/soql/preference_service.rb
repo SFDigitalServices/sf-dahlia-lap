@@ -39,11 +39,11 @@ module Force
             preference.layered_confirmation = build_layered_confirmation(preference, preferences[index + 1])
             # TODO: move types of proofs from frontend to backend
             # preference.layered_proofs = [preference.veteran_type_of_proof, preferences[index + 1].type_of_proof]
-            # preference.layered_claimants = [preference.person_who_claimed_name, preferences[index + 1].person_who_claimed_name]
+            preference.layered_claimants = [preference.person_who_claimed_name, preferences[index + 1].person_who_claimed_name]
           else
             preference.layered_confirmation = preference.post_lottery_validation
             # preference.layered_proofs = [preference.type_of_proof]
-            # preference.layered_claimants = [preference.person_who_claimed_name]
+            preference.layered_claimants = [preference.person_who_claimed_name]
           end
         end
       end
@@ -63,11 +63,11 @@ module Force
 
             preference.layered_confirmation = build_layered_confirmation(preference, related_preference)
             # preference.layered_proofs = [preference.veteran_type_of_proof, preferences[index + 1].type_of_proof]
-            # preference.layered_claimants = [preference.person_who_claimed_name, related_preference.person_who_claimed_name]
+            preference.layered_claimants = [preference.person_who_claimed_name, related_preference.person_who_claimed_name]
           else
             preference.layered_confirmation = preference.post_lottery_validation
             # preference.layered_proofs = [preference.type_of_proof]
-            # preference.layered_claimants = [preference.person_who_claimed_name]
+            preference.layered_claimants = [preference.person_who_claimed_name]
           end
         end
       end

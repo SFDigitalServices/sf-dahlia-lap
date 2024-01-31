@@ -131,6 +131,7 @@
         "mailing_address": ""
       },
       "individual_preference": "Live in SF",
+      "layered_claimants": ["Christopher Mcdonald"],
       "layered_confirmation": "Confirmed",
       "certificate_number": null,
       "preference_order": 5.0,
@@ -237,6 +238,7 @@
         "mailing_address": ""
       },
       "individual_preference": "Assisted Housing",
+      "layered_claimants": ["Christopher Mcdonald"],
       "layered_confirmation": "Unconfirmed",
       "certificate_number": null,
       "preference_order": 3.0,
