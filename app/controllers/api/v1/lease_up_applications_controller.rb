@@ -5,8 +5,6 @@ module Api::V1
   class LeaseUpApplicationsController < ApiController
     def index
       applications = soql_preference_service.app_preferences_for_listing(lease_up_apps_params)
-      applications[:records] = Force::Preference.convert_list(applications[:records], :from_salesforce, :to_domain)
-
       render json: applications
     end
 

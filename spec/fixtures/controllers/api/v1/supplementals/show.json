@@ -131,6 +131,7 @@
         "mailing_address": ""
       },
       "individual_preference": "Live in SF",
+      "layered_confirmation": "Confirmed",
       "certificate_number": null,
       "preference_order": 5.0,
       "lw_type_of_proof": "Telephone bill",
@@ -236,6 +237,7 @@
         "mailing_address": ""
       },
       "individual_preference": "Assisted Housing",
+      "layered_confirmation": "Unconfirmed",
       "certificate_number": null,
       "preference_order": 3.0,
       "lw_type_of_proof": null,

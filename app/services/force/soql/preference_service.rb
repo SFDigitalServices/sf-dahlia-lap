@@ -7,6 +7,71 @@ module Force
       FIELD_NAME = :preferences
       FIELDS = load_fields(FIELD_NAME).freeze
 
+      # TODO: move to new service
+
+      def layered_preference?(preference)
+        preference.preference_name.include?('Veteran')
+      end
+
+      def build_layered_confirmation(preference, related_preference)
+        if preference.post_lottery_validation == 'Invalid' || related_preference.post_lottery_validation == 'Invalid'
+          'Invalid'
+        elsif preference.post_lottery_validation == 'Confirmed' && related_preference.post_lottery_validation == 'Confirmed'
+          'Confirmed'
+        else
+          'Unconfirmed'
+        end
+      end
+
+      # def related_preference; end
+
+      # 1. two flows, one for lease up applications and the other for supplementals
+      #   - each of these will need their own veteran to non veteran matching logic
+      # 2. once matched we will now have a single method to set
+      #   - final confirmation
+      #   - types of proof (array)
+      #   - claimants (array)
+      def convert_layered_preferences_for_application(preferences)
+        preferences.each_with_index do |preference, index|
+          next unless preference.receives_preference
+
+          if layered_preference?(preference)
+            preference.layered_confirmation = build_layered_confirmation(preference, preferences[index + 1])
+            # TODO: move types of proofs from frontend to backend
+            # preference.layered_proofs = [preference.veteran_type_of_proof, preferences[index + 1].type_of_proof]
+            # preference.layered_claimants = [preference.person_who_claimed_name, preferences[index + 1].person_who_claimed_name]
+          else
+            preference.layered_confirmation = preference.post_lottery_validation
+            # preference.layered_proofs = [preference.type_of_proof]
+            # preference.layered_claimants = [preference.person_who_claimed_name]
+          end
+        end
+      end
+
+      # TODO: remove duplication
+      def convert_layered_preferences_for_listing(preferences)
+        preferences.each_with_index do |preference, _index|
+          next unless preference.receives_preference
+
+          if layered_preference?(preference)
+            related_preference = preferences.find do |item|
+              item.application.applicant.first_name == preference.application.applicant.first_name &&
+                item.application.applicant.last_name == preference.application.applicant.last_name &&
+                item.record_type_for_app_preferences == preference.record_type_for_app_preferences &&
+                item.custom_preference_type != preference.custom_preference_type
+            end
+
+            preference.layered_confirmation = build_layered_confirmation(preference, related_preference)
+            # preference.layered_proofs = [preference.veteran_type_of_proof, preferences[index + 1].type_of_proof]
+            # preference.layered_claimants = [preference.person_who_claimed_name, related_preference.person_who_claimed_name]
+          else
+            preference.layered_confirmation = preference.post_lottery_validation
+            # preference.layered_proofs = [preference.type_of_proof]
+            # preference.layered_claimants = [preference.person_who_claimed_name]
+          end
+        end
+      end
+
       def app_preferences_for_application(application_id)
         result = parsed_index_query(%(
           SELECT #{query_fields(:app_preferences_for_application)}
@@ -14,13 +79,18 @@ module Force
           WHERE Application__c = '#{application_id}'
         ), :show_preference)
 
-        Force::Preference.convert_list(result, :from_salesforce, :to_domain)
+        converted_preferences = Force::Preference.convert_list(result, :from_salesforce, :to_domain)
+        convert_layered_preferences_for_application(converted_preferences)
+        converted_preferences
       end
 
       def app_preferences_for_listing(opts)
         query_scope = app_preferences_for_listing_query(opts)
 
-        query_scope.query
+        applications = query_scope.query
+        applications[:records] = Force::Preference.convert_list(applications[:records], :from_salesforce, :to_domain)
+        convert_layered_preferences_for_listing(applications[:records])
+        applications
       end
 
       def buildAppPreferencesFilters(opts)
