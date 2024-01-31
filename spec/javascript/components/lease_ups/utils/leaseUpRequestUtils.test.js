@@ -25,6 +25,8 @@ jest.mock('apiService', () => {
             mailing_address: '',
             name: 'Vincent Rogers'
           },
+          total_household_size: 1,
+          sub_status: 'Approval letter sent',
           has_ada_priorities_selected: null,
           processing_status: 'Disqualified',
           demographics: {},
@@ -34,7 +36,9 @@ jest.mock('apiService', () => {
         receives_preference: true,
         preference_all_lottery_rank: 1,
         post_lottery_validation: 'Confirmed',
+        layered_confirmation: 'Confirmed',
         preference_lottery_rank: 1,
+        custom_preference_type: 'L_W',
         preference_name: 'Live or Work in San Francisco Preference',
         record_type_for_app_preferences: 'L_W'
       }
@@ -94,12 +98,16 @@ describe('leaseUpActions', () => {
         mailing_address: '',
         phone: '(845)136-8280',
         post_lottery_validation: 'Confirmed',
+        layered_confirmation: 'Confirmed',
         preference_lottery_rank: 1,
         preference_name: 'Live or Work in San Francisco Preference',
         preference_order: 3,
         preference_record_type: 'L_W',
         residence_address: '',
-        status_last_updated: '2020-05-28T21:23:06.000+0000'
+        status_last_updated: '2020-05-28T21:23:06.000+0000',
+        sub_status: 'Approval letter sent',
+        total_household_size: 1,
+        custom_preference_type: 'L_W'
       }
 
       const expectedResults = { records: [expectedRowData], pages: 10 }

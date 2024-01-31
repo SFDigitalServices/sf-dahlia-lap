@@ -99,7 +99,7 @@ const LeaseUpApplicationsTable = ({
       Cell: (cell) => (
         <PreferenceRankCell
           preferenceRank={cell.original.preference_rank}
-          preferenceValidation={cell.original.post_lottery_validation}
+          preferenceValidation={cell.original.layered_confirmation}
         />
       )
     },
