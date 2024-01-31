@@ -57,6 +57,7 @@ jest.mock('apiService', () => {
         application_member_id: 'xxx',
         id: 'preference_id',
         post_lottery_validation: 'Unconfirmed',
+        layered_confirmation: 'Unconfirmed',
         name: 'AP-1234',
         recordtype_developername: 'RB_AHP'
       })

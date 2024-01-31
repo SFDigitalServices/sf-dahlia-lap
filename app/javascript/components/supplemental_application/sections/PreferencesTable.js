@@ -39,12 +39,12 @@ const matchingPreference = (row) => (preference) => {
 
 const buildRow = (proofFiles, applicationMembers, fileBaseUrl) => (preference) => {
   return [
-    { content: <PreferenceIcon status={preference.post_lottery_validation} /> },
+    { content: <PreferenceIcon status={preference.layered_confirmation} /> },
     { content: getPreferenceName(preference) },
     { content: memberNameFromPref(preference.application_member_id, applicationMembers) },
     { content: preference.preference_lottery_rank, classes: ['text-right'] },
     { content: getTypeOfProof(preference, proofFiles, fileBaseUrl) },
-    { content: preference.post_lottery_validation }
+    { content: preference.layered_confirmation }
   ]
 }
 
