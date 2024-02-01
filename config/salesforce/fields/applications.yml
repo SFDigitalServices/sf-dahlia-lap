@@ -32,6 +32,7 @@ applications:
     Preference_Name__c:
     Person_who_claimed_Name__c:
     Type_of_proof__c:
+    Veteran_Type_of_Proof__c:
     Opt_Out__c:
     Lottery_Status__c:
       label: 'Pre-lottery Validation'

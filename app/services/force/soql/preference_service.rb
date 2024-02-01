@@ -12,6 +12,7 @@ module Force
           SELECT #{query_fields(:app_preferences_for_application)}
           FROM Application_Preference__c
           WHERE Application__c = '#{application_id}'
+          Order by Preference_Order__c asc
         ), :show_preference)
 
         Force::Preference.convert_list(result, :from_salesforce, :to_domain)
