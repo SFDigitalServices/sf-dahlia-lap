@@ -1,8 +1,7 @@
-import { createFactory } from 'react'
+import React from 'react'
 
 const mapProps = (propsMapper) => (BaseComponent) => {
-  const factory = createFactory(BaseComponent)
-  const MapProps = (props) => factory(propsMapper(props))
+  const MapProps = (props) => <BaseComponent {...propsMapper(props)} />
   return MapProps
 }
 
