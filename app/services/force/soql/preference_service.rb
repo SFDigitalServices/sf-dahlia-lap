@@ -8,7 +8,6 @@ module Force
       FIELDS = load_fields(FIELD_NAME).freeze
 
       def app_preferences_for_application(application_id, should_order: false)
-        puts 'getting prefs'
         result = parsed_index_query(%(
           SELECT #{query_fields(:app_preferences_for_application)}
           FROM Application_Preference__c

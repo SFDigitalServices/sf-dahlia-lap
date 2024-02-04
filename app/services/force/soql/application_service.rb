@@ -35,8 +35,6 @@ module Force
           AND Status__c != '#{DRAFT}'
           LIMIT 1
         ))).to_domain
-
-        # order preferences by Preference_Order__c
         application['preferences'] = soql_preference_service.app_preferences_for_application(id, should_order: true)
         application['proof_files'] = soql_attachment_service.app_proof_files(id)
 
