@@ -1,9 +1,10 @@
 // TODO: add tests and comments
+// TODO: immutability??
 
 import { memberNameFromPref } from 'components/applications/application_form/preferences/utils'
 import { getTypeOfProof } from 'components/supplemental_application/sections/preferences/typeOfProof'
 
-const isVeteran = (preferenceName) => preferenceName && preferenceName.includes('Veteran')
+export const isVeteran = (preferenceName) => preferenceName && preferenceName.includes('Veteran')
 
 export const addLayeredValidation = (preferences) => {
   preferences.forEach((preference) => {
@@ -45,6 +46,10 @@ export const addLayeredPreferenceFields = (
   preferences.forEach((preference, index) => {
     if (!isVeteran(preference.preference_name)) {
       preference.layered_validation = preference.post_lottery_validation
+      preference.layered_type_of_proofs = [getTypeOfProof(preference, proofFiles, fileBaseUrl)]
+      preference.layered_member_names = [
+        memberNameFromPref(preference.application_member_id, applicationMembers)
+      ]
       return
     }
 
@@ -73,7 +78,7 @@ export const addLayeredPreferenceFields = (
     )
 
     preference.layered_validation = finalConfirmation
-    preference.layered_types_of_proof = [vetTypeOfProof, nonVetTypeOfProof]
-    preference.layered_member_name = [vetMemberName, nonVetMemberName]
+    preference.layered_type_of_proofs = [vetTypeOfProof, nonVetTypeOfProof]
+    preference.layered_member_names = [vetMemberName, nonVetMemberName]
   })
 }

@@ -4,31 +4,33 @@ export const preferencesWithoutVeterans = [
         post_lottery_validation: 'Confirmed',
         first_name: 'John',
         last_name: 'Doe',
-        preference_record_type: 'COP'
+        preference_record_type: 'COP',
+        certificate_number: '12345'
     },
     {
-        preference_name: 'Neighborhood Resident Housing Preference (NRHP)',
+        preference_name: 'Displaced Tenant Housing Preference (DTHP)',
         post_lottery_validation: 'Unconfirmed',
         first_name: 'Jane',
         last_name: 'Doe',
-        preference_record_type: 'NRHP'
+        preference_record_type: 'DTHP',
+        certificate_number: 'abcde'
     }
 ]
 
 export const preferencesWithVeteransInvalid = [
     {
-        preference_name: 'Veteran with Displaced Tenant Housing Preference (V-DTHP)',
+        preference_name: 'Veteran Neighborhood Resident Housing Preference (V-NRHP)',
         post_lottery_validation: 'Confirmed',
         first_name: 'John',
         last_name: 'Doe',
-        preference_record_type: 'DTHP'
+        preference_record_type: 'NRHP'
     },
     {
-        preference_name: 'Displaced Tenant Housing Preference (DTHP)',
+        preference_name: 'Neighborhood Resident Housing Preference (NRHP)',
         post_lottery_validation: 'Invalid',
         first_name: 'John',
         last_name: 'Doe',
-        preference_record_type: 'DTHP'
+        preference_record_type: 'NRHP'
     }
 ]
 

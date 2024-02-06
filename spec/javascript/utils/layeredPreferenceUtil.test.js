@@ -1,4 +1,8 @@
-import { addLayeredValidation } from 'utils/layeredPreferenceUtil'
+import {
+  addLayeredPreferenceFields,
+  addLayeredValidation,
+  isVeteran
+} from 'utils/layeredPreferenceUtil'
 
 import {
   preferencesWithoutVeterans,
@@ -8,6 +12,22 @@ import {
 } from '../fixtures/layered_preferences'
 
 describe('layeredPreferenceUtil', () => {
+  describe('isVeteran', () => {
+    test('should return true for preferenceName that is veteran', () => {
+      // when
+      const result = isVeteran('Veteran with Displaced Tenant Housing Preference (V-DTHP)')
+
+      // then
+      expect(result).toBeTruthy()
+    })
+    test('should return false for preferenceName that is not veteran', () => {
+      // when
+      const result = isVeteran('Displaced Tenant Housing Preference (DTHP)')
+
+      // then
+      expect(result).toBeFalsy()
+    })
+  })
   describe('addLayeredValidation', () => {
     test('should add layered_validation to non-veteran preferences which match post_lottery_validation', () => {
       // when
@@ -41,5 +61,25 @@ describe('layeredPreferenceUtil', () => {
       expect(preferencesWithVeteransConfirmed[0].layered_validation).toBe('Confirmed')
       expect(preferencesWithVeteransConfirmed[1].layered_validation).toBe('Confirmed')
     })
+  })
+  describe('addLayeredPreferenceFields', () => {
+    test('should add preference fields to non-veteran preferences', () => {
+      // when
+      addLayeredPreferenceFields(preferencesWithoutVeterans)
+
+      // then
+      expect(preferencesWithoutVeterans[0].layered_validation).toBe('Confirmed')
+      expect(preferencesWithoutVeterans[0].layered_type_of_proofs).toHaveLength(1)
+      expect(preferencesWithoutVeterans[0].layered_type_of_proofs[0]).toBe('12345')
+    })
+    // test('should add preference fields to veteran preferences', () => {
+    //   // when
+    //   addLayeredPreferenceFields(preferencesWithoutVeterans)
+
+    //   // then
+    //   expect(preferencesWithoutVeterans[0].layered_validation).toBe('Confirmed')
+    //   expect(preferencesWithoutVeterans[0].layered_type_of_proofs).toHaveLength(1)
+    //   expect(preferencesWithoutVeterans[0].layered_type_of_proofs[0]).toBe('12345')
+    // })
   })
 })
