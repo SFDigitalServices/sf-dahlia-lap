@@ -43,14 +43,16 @@ export const addLayeredPreferenceFields = (
   fileBaseUrl,
   applicationMembers
 ) => {
-  preferences.forEach((preference, index) => {
+  return preferences.map((preference, index) => {
     if (!isVeteran(preference.preference_name)) {
-      preference.layered_validation = preference.post_lottery_validation
-      preference.layered_type_of_proofs = [getTypeOfProof(preference, proofFiles, fileBaseUrl)]
-      preference.layered_member_names = [
-        memberNameFromPref(preference.application_member_id, applicationMembers)
-      ]
-      return
+      return {
+        ...preference,
+        layered_validation: preference.post_lottery_validation,
+        layered_type_of_proofs: [getTypeOfProof(preference, proofFiles, fileBaseUrl)],
+        layered_member_names: [
+          memberNameFromPref(preference.application_member_id, applicationMembers)
+        ]
+      }
     }
 
     const nonVetPref = preferences[index + 1]
@@ -77,8 +79,11 @@ export const addLayeredPreferenceFields = (
       applicationMembers
     )
 
-    preference.layered_validation = finalConfirmation
-    preference.layered_type_of_proofs = [vetTypeOfProof, nonVetTypeOfProof]
-    preference.layered_member_names = [vetMemberName, nonVetMemberName]
+    return {
+      ...preference,
+      layered_validation: finalConfirmation,
+      layered_type_of_proofs: [vetTypeOfProof, nonVetTypeOfProof],
+      layered_member_names: [vetMemberName, nonVetMemberName]
+    }
   })
 }

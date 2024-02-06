@@ -10,6 +10,7 @@ import {
   editPreferenceClicked
 } from 'components/supplemental_application/actions/preferenceActionCreators'
 import { useAppContext } from 'utils/customHooks'
+import { addLayeredPreferenceFields } from 'utils/layeredPreferenceUtil'
 
 import Panel from './preferences/Panel'
 import PreferenceIcon from './preferences/PreferenceIcon'
@@ -67,9 +68,15 @@ const buildLayeredRow = (preference) => {
   ]
 }
 
-const buildLayeredRows = (application) => {
+const buildLayeredRows = (application, applicationMembers, fileBaseUrl) => {
   const sortedPreferences = orderBy(application.preferences, 'preference_order', 'asc')
-  return onlyValid(sortedPreferences).map(buildLayeredRow)
+  const layeredPreferences = addLayeredPreferenceFields(
+    sortedPreferences,
+    application.proof_files,
+    fileBaseUrl,
+    applicationMembers
+  )
+  return onlyValid(layeredPreferences).map(buildLayeredRow)
 }
 
 const columns = [
@@ -104,6 +111,7 @@ const convertPreferenceToTableIndices = (preferenceIndices, tableRows, applicati
 }
 
 const customCellRenderer = (row) => {
+  // TODO: console warnings about unique "key" prop
   return row.map((datum, j) => {
     const finalContent = Array.isArray(datum.content)
       ? datum.content.map((item, i) => {

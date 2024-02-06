@@ -16,10 +16,6 @@ const ExpandableTableRow = ({
   expanded,
   customCellRenderer
 }) => {
-  console.log(customCellRenderer)
-  if (customCellRenderer) {
-    console.log('hello')
-  }
   const cells = customCellRenderer
     ? customCellRenderer(row)
     : row.map((datum, j) => (

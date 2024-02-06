@@ -2,12 +2,8 @@ import { isEmpty, find, isEqual, reject } from 'lodash'
 
 import apiService from 'apiService'
 import Alerts from 'components/Alerts'
-import {
-  getApplicationMembers,
-  isLeaseAlreadyCreated
-} from 'components/supplemental_application/utils/supplementalApplicationUtils'
+import { isLeaseAlreadyCreated } from 'components/supplemental_application/utils/supplementalApplicationUtils'
 import { convertCurrency } from 'utils/form/validations'
-import { addLayeredPreferenceFields } from 'utils/layeredPreferenceUtil'
 import { performOrDefault, performInSequence } from 'utils/promiseUtils'
 import { isChanged, filterChanged } from 'utils/utils'
 
@@ -42,20 +38,12 @@ export const getSupplementalPageData = async (applicationId, listingId = null) =
 
     const promiseFunc = listingId ? inParallelPromiseFunc : inSequencePromiseFunc
 
-    return promiseFunc().then(([{ application, fileBaseUrl }, [units, listing]]) => {
-      addLayeredPreferenceFields(
-        application.preferences,
-        application.proof_files,
-        fileBaseUrl,
-        getApplicationMembers(application)
-      )
-      return {
-        application,
-        fileBaseUrl,
-        units,
-        listing
-      }
-    })
+    return promiseFunc().then(([{ application, fileBaseUrl }, [units, listing]]) => ({
+      application,
+      fileBaseUrl,
+      units,
+      listing
+    }))
   }
 
   const rentalAssistancesPromise = () => apiService.getRentalAssistances(applicationId)

@@ -65,12 +65,12 @@ describe('layeredPreferenceUtil', () => {
   describe('addLayeredPreferenceFields', () => {
     test('should add preference fields to non-veteran preferences', () => {
       // when
-      addLayeredPreferenceFields(preferencesWithoutVeterans)
+      const layeredPreferences = addLayeredPreferenceFields(preferencesWithoutVeterans)
 
       // then
-      expect(preferencesWithoutVeterans[0].layered_validation).toBe('Confirmed')
-      expect(preferencesWithoutVeterans[0].layered_type_of_proofs).toHaveLength(1)
-      expect(preferencesWithoutVeterans[0].layered_type_of_proofs[0]).toBe('12345')
+      expect(layeredPreferences[0].layered_validation).toBe('Confirmed')
+      expect(layeredPreferences[0].layered_type_of_proofs).toHaveLength(1)
+      expect(layeredPreferences[0].layered_type_of_proofs[0]).toBe('12345')
     })
     // test('should add preference fields to veteran preferences', () => {
     //   // when
