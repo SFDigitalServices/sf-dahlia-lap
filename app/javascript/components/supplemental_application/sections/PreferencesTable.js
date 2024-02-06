@@ -10,7 +10,7 @@ import {
   editPreferenceClicked
 } from 'components/supplemental_application/actions/preferenceActionCreators'
 import { useAppContext } from 'utils/customHooks'
-import { addLayeredPreferenceFields } from 'utils/layeredPreferenceUtil'
+import { addLayeredPreferenceFields, isVeteran } from 'utils/layeredPreferenceUtil'
 
 import Panel from './preferences/Panel'
 import PreferenceIcon from './preferences/PreferenceIcon'
@@ -24,7 +24,7 @@ import {
 } from './preferences/utils'
 
 const hasExpanderButton = (prefName) =>
-  !overSome(isCOP, isDTHP, isAliceGriffith, isRightToReturn)(prefName)
+  !overSome(isCOP, isDTHP, isAliceGriffith, isRightToReturn)(prefName) || isVeteran(prefName)
 
 const onlyValid = (preferences) => {
   return reject(preferences, (pref) => {
