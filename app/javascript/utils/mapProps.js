@@ -1,8 +1,7 @@
 import React from 'react'
 
 const mapProps = (propsMapper) => (BaseComponent) => {
-  const MapProps = (props) => <BaseComponent {...propsMapper(props)} />
-  return MapProps
+  return (props) => <BaseComponent {...propsMapper(props)} />
 }
 
 export default mapProps
