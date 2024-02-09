@@ -1,10 +1,16 @@
-import { addLayeredValidation, isVeteran } from 'utils/layeredPreferenceUtil'
+import {
+  addLayeredValidation,
+  isVeteran,
+  addLayeredPreferenceFields
+} from 'utils/layeredPreferenceUtil'
 
 import {
+  preferencesWithoutProofAndMemberId,
   preferencesWithoutVeterans,
   preferencesWithVeteransInvalid,
   preferencesWithVeteransUnconfirmed,
-  preferencesWithVeteransConfirmed
+  preferencesWithVeteransConfirmed,
+  applicationMembers
 } from '../fixtures/layered_preferences'
 
 describe('layeredPreferenceUtil', () => {
@@ -56,6 +62,48 @@ describe('layeredPreferenceUtil', () => {
       // then
       expect(layeredPreferences[0].layered_validation).toBe('Confirmed')
       expect(layeredPreferences[1].layered_validation).toBe('Confirmed')
+    })
+  })
+  describe('addLayeredPreferenceFields', () => {
+    test('should add preference fields to non-veteran preferences', () => {
+      // given
+      const proofFiles = []
+      const fileBaseUrl = ''
+
+      // when
+      const layeredPreferences = addLayeredPreferenceFields(
+        preferencesWithoutVeterans,
+        proofFiles,
+        fileBaseUrl,
+        applicationMembers
+      )
+
+      // then
+      expect(layeredPreferences[0].layered_validation).toBe('Confirmed')
+
+      expect(layeredPreferences[0].layered_type_of_proofs).toHaveLength(1)
+      expect(layeredPreferences[0].layered_type_of_proofs[0]).toBe('12345')
+
+      expect(layeredPreferences[0].layered_member_names).toHaveLength(1)
+      expect(layeredPreferences[0].layered_member_names[0]).toBe('John Doe')
+    })
+    test('should handle preferences without type of proof and member ID', () => {
+      // when
+      const layeredPreferences = addLayeredPreferenceFields(preferencesWithoutProofAndMemberId)
+
+      // then
+      expect(layeredPreferences[0].layered_validation).toBe('Invalid')
+      expect(layeredPreferences[0].layered_type_of_proofs).toHaveLength(0)
+      expect(layeredPreferences[0].layered_member_names).toHaveLength(0)
+    })
+    test('should add preference fields to veteran preferences', () => {
+      // when
+      addLayeredPreferenceFields(preferencesWithoutVeterans)
+
+      // then
+      expect(preferencesWithoutVeterans[0].layered_validation).toBe('Confirmed')
+      expect(preferencesWithoutVeterans[0].layered_type_of_proofs).toHaveLength(1)
+      expect(preferencesWithoutVeterans[0].layered_type_of_proofs[0]).toBe('12345')
     })
   })
 })

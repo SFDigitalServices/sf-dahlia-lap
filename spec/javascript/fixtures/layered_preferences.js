@@ -1,3 +1,5 @@
+// preferences
+
 export const preferencesWithoutVeterans = [
     {
         preference_name: 'Certificate of Preference (COP)',
@@ -6,7 +8,8 @@ export const preferencesWithoutVeterans = [
         last_name: 'Doe',
         preference_record_type: 'COP',
         certificate_number: '12345',
-        application_id: 'application_id_1'
+        application_id: 'application_id_1',
+        application_member_id: '1'
     },
     {
         preference_name: 'Displaced Tenant Housing Preference (DTHP)',
@@ -73,5 +76,30 @@ export const preferencesWithVeteransConfirmed = [
         last_name: 'Doe',
         preference_record_type: 'DTHP',
         application_id: 'application_id_1'
+    }
+]
+
+export const preferencesWithoutProofAndMemberId = [
+    {
+        preference_name: 'Certificate of Preference (COP)',
+        post_lottery_validation: 'Invalid',
+        first_name: 'John',
+        last_name: 'Doe',
+        preference_record_type: 'COP',
+        application_id: 'application_id_1'
+    }
+]
+
+// proofFiles
+
+// fileBaseUrl
+
+// applicationMembers
+
+export const applicationMembers = [
+    {
+        'id': '1',
+        'first_name': 'John',
+        'last_name': 'Doe'
     }
 ]

@@ -4,11 +4,13 @@ import { cond, stubTrue, constant, map } from 'lodash'
 
 import FormGrid from 'components/molecules/FormGrid'
 import InlineModal from 'components/molecules/InlineModal'
+import { isVeteran } from 'utils/layeredPreferenceUtil'
 
 import AntiDisplacementHousingPanel from './AntiDisplacementHousingPanel'
 import AssistedHousingPanel from './AssistedHousingPanel'
 import Custom from './Custom'
 import DefaultPanel from './DefaultPanel'
+import LayeredPreferencePanel from './LayeredPreferencePanel'
 import LiveOrWorkInSanFranciscoPanel from './LiveOrWorkInSanFranciscoPanel'
 import NeighborhoodResidentHousingPanel from './NeighborhoodResidentHousingPanel'
 import RentBurdenedPanel from './RentBurdenedPanel'
@@ -24,12 +26,15 @@ const isPreference = (recordType, preferenceName) => (pref) => {
   )
 }
 
+const isPreferenceVeteran = () => (pref) => isVeteran(pref.preference_name)
+
 const getPreferencePanel = cond([
   [isPreference('RB_AHP', 'Rent Burdened'), constant(RentBurdenedPanel)],
   [isPreference('RB_AHP', 'Assisted Housing'), constant(AssistedHousingPanel)],
   [isPreference('L_W'), constant(LiveOrWorkInSanFranciscoPanel)],
   [isPreference('NRHP'), constant(NeighborhoodResidentHousingPanel)],
   [isPreference('ADHP'), constant(AntiDisplacementHousingPanel)],
+  [isPreferenceVeteran(), constant(LayeredPreferencePanel)],
   [isPreference('Custom'), constant(Custom)],
   [stubTrue, constant(DefaultPanel)]
 ])

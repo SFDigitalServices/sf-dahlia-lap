@@ -73,3 +73,8 @@
 .tr-expand-content[aria-hidden='true'] {
   display: none;
 }
+
+// TODO: better way to not wrap?
+.table-no-wrap {
+  white-space: nowrap;
+}
