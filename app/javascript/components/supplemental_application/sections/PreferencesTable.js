@@ -23,7 +23,8 @@ import {
   getPreferenceName
 } from './preferences/utils'
 
-const hasExpanderButton = (prefName) =>
+// TODO: move function to util?
+export const hasExpanderButton = (prefName) =>
   !overSome(isCOP, isDTHP, isAliceGriffith, isRightToReturn)(prefName) || isVeteran(prefName)
 
 const onlyValid = (preferences) => {

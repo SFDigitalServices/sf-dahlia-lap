@@ -4,6 +4,7 @@ import { cond, stubTrue, constant, map } from 'lodash'
 
 import FormGrid from 'components/molecules/FormGrid'
 import InlineModal from 'components/molecules/InlineModal'
+import { hasExpanderButton } from 'components/supplemental_application/sections/PreferencesTable'
 import { isVeteran } from 'utils/layeredPreferenceUtil'
 
 import AntiDisplacementHousingPanel from './AntiDisplacementHousingPanel'
@@ -51,12 +52,61 @@ const Panel = ({
 }) => {
   const preference = application.preferences[preferenceIndex]
   const PreferencePanel = getPreferencePanel(preference)
+  const buildMatchingPreferencePanel = () => {
+    const MatchingPreferencePanel = getPreferencePanel(application.preferences[preferenceIndex + 1])
+    return (
+      <MatchingPreferencePanel
+        preferenceIndex={preferenceIndex + 1}
+        preference={application.preferences[preferenceIndex + 1]}
+        form={form}
+        applicationMembersOptions={applicationMembersOptions}
+        visited={visited}
+      />
+    )
+  }
+
   const memberOption = (member) => {
     return { value: member.id, label: `${member.first_name} ${member.last_name}` }
   }
   const applicationMembersOptions = map(applicationMembers, memberOption)
   const onSaveWithPreferenceIndex = () => {
-    onSave(preferenceIndex, form.getState().values)
+    // TODO: update all veteran preferences (move this to util)
+    const indexesToUpdate = []
+    if (isVeteran(form.getState().values.preferences[preferenceIndex].preference_name)) {
+      const preferencesCopy = [...form.getState().values.preferences]
+      preferencesCopy
+        .filter((preference, index) => {
+          const include =
+            index !== preferenceIndex &&
+            isVeteran(preference.preference_name) &&
+            preference.receives_preference
+          if (include) {
+            indexesToUpdate.push(index)
+          }
+          return include
+        })
+        .forEach((preference) => {
+          // TODO: rest of fields
+          // TODO: Individual Preference Name for LW preferences
+          preference.post_lottery_validation =
+            form.getState().values.preferences[preferenceIndex].post_lottery_validation
+          preference.veteran_type_of_proof =
+            form.getState().values.preferences[preferenceIndex].veteran_type_of_proof
+          preference.application_member_id =
+            form.getState().values.preferences[preferenceIndex].application_member_id
+        })
+      form.change('preferences', preferencesCopy)
+    }
+
+    // TODO: save current preference + all veteran preferences + non veteran if expandable
+    if (
+      isVeteran(application.preferences[preferenceIndex].preference_name) &&
+      hasExpanderButton(application.preferences[preferenceIndex + 1].preference_name)
+    ) {
+      indexesToUpdate.push(preferenceIndex + 1)
+    }
+
+    ;[preferenceIndex, ...indexesToUpdate].forEach((index) => onSave(index, form.getState().values))
   }
 
   const handleOnClose = () => {
@@ -74,6 +124,9 @@ const Panel = ({
         applicationMembersOptions={applicationMembersOptions}
         visited={visited}
       />
+      {isVeteran(preference.preference_name) &&
+        hasExpanderButton(application.preferences[preferenceIndex + 1].preference_name) &&
+        buildMatchingPreferencePanel()}
       <FormGrid.Row expand={false}>
         <div className='form-grid_item column'>
           <button
