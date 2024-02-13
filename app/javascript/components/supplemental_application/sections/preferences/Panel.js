@@ -5,7 +5,7 @@ import { cond, stubTrue, constant, map } from 'lodash'
 import FormGrid from 'components/molecules/FormGrid'
 import InlineModal from 'components/molecules/InlineModal'
 import { hasExpanderButton } from 'components/supplemental_application/sections/PreferencesTable'
-import { isVeteran } from 'utils/layeredPreferenceUtil'
+import { isVeteran, updateVeteranPreferences } from 'utils/layeredPreferenceUtil'
 
 import AntiDisplacementHousingPanel from './AntiDisplacementHousingPanel'
 import AssistedHousingPanel from './AssistedHousingPanel'
@@ -70,43 +70,22 @@ const Panel = ({
   }
   const applicationMembersOptions = map(applicationMembers, memberOption)
   const onSaveWithPreferenceIndex = () => {
-    // TODO: update all veteran preferences (move this to util)
-    const indexesToUpdate = []
-    if (isVeteran(form.getState().values.preferences[preferenceIndex].preference_name)) {
-      const preferencesCopy = [...form.getState().values.preferences]
-      preferencesCopy
-        .filter((preference, index) => {
-          const include =
-            index !== preferenceIndex &&
-            isVeteran(preference.preference_name) &&
-            preference.receives_preference
-          if (include) {
-            indexesToUpdate.push(index)
-          }
-          return include
-        })
-        .forEach((preference) => {
-          // TODO: rest of fields
-          // TODO: Individual Preference Name for LW preferences
-          preference.post_lottery_validation =
-            form.getState().values.preferences[preferenceIndex].post_lottery_validation
-          preference.veteran_type_of_proof =
-            form.getState().values.preferences[preferenceIndex].veteran_type_of_proof
-          preference.application_member_id =
-            form.getState().values.preferences[preferenceIndex].application_member_id
-        })
-      form.change('preferences', preferencesCopy)
-    }
+    const { updatedPreferences, updatedIndexes } = updateVeteranPreferences(
+      form.getState().values.preferences,
+      preferenceIndex
+    )
+    form.change('preferences', updatedPreferences)
 
-    // TODO: save current preference + all veteran preferences + non veteran if expandable
+    // if the current preference is a veteran and its matching non veteran is editable
+    // then add it to the list of indexes to be updated
     if (
       isVeteran(application.preferences[preferenceIndex].preference_name) &&
       hasExpanderButton(application.preferences[preferenceIndex + 1].preference_name)
     ) {
-      indexesToUpdate.push(preferenceIndex + 1)
+      updatedIndexes.push(preferenceIndex + 1)
     }
 
-    ;[preferenceIndex, ...indexesToUpdate].forEach((index) => onSave(index, form.getState().values))
+    ;[preferenceIndex, ...updatedIndexes].forEach((index) => onSave(index, form.getState().values))
   }
 
   const handleOnClose = () => {

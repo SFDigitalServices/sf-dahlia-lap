@@ -93,3 +93,28 @@ const calculateFinalConfirmation = (first_confirmation, second_confirmation) => 
     return 'Unconfirmed'
   }
 }
+
+export const updateVeteranPreferences = (preferences, currentPreferenceIndex) => {
+  const updatedIndexes = []
+
+  const updatedPreferences = preferences.map((preference, index) => {
+    if (
+      index !== currentPreferenceIndex &&
+      isVeteran(preference.preference_name) &&
+      preference.receives_preference
+    ) {
+      preference.post_lottery_validation =
+        preferences[currentPreferenceIndex].post_lottery_validation
+      preference.veteran_type_of_proof = preferences[currentPreferenceIndex].veteran_type_of_proof
+      preference.application_member_id = preferences[currentPreferenceIndex].application_member_id
+
+      updatedIndexes.push(index)
+    }
+    return preference
+  })
+
+  return {
+    updatedPreferences,
+    updatedIndexes
+  }
+}
