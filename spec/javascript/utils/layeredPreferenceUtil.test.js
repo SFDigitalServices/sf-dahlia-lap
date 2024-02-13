@@ -5,7 +5,6 @@ import {
 } from 'utils/layeredPreferenceUtil'
 
 import {
-  preferencesWithoutProofAndMemberId,
   preferencesWithoutVeterans,
   preferencesWithVeteransInvalid,
   preferencesWithVeteransUnconfirmed,
@@ -87,23 +86,28 @@ describe('layeredPreferenceUtil', () => {
       expect(layeredPreferences[0].layered_member_names).toHaveLength(1)
       expect(layeredPreferences[0].layered_member_names[0]).toBe('John Doe')
     })
-    test('should handle preferences without type of proof and member ID', () => {
-      // when
-      const layeredPreferences = addLayeredPreferenceFields(preferencesWithoutProofAndMemberId)
-
-      // then
-      expect(layeredPreferences[0].layered_validation).toBe('Invalid')
-      expect(layeredPreferences[0].layered_type_of_proofs).toHaveLength(0)
-      expect(layeredPreferences[0].layered_member_names).toHaveLength(0)
-    })
     test('should add preference fields to veteran preferences', () => {
+      // given
+      const proofFiles = []
+      const fileBaseUrl = ''
+
       // when
-      addLayeredPreferenceFields(preferencesWithoutVeterans)
+      const layeredPreferences = addLayeredPreferenceFields(
+        preferencesWithVeteransUnconfirmed,
+        proofFiles,
+        fileBaseUrl,
+        applicationMembers
+      )
 
       // then
-      expect(preferencesWithoutVeterans[0].layered_validation).toBe('Confirmed')
-      expect(preferencesWithoutVeterans[0].layered_type_of_proofs).toHaveLength(1)
-      expect(preferencesWithoutVeterans[0].layered_type_of_proofs[0]).toBe('12345')
+      expect(layeredPreferences[0].layered_validation).toBe('Unconfirmed')
+      expect(layeredPreferences[0].layered_type_of_proofs).toHaveLength(2)
+      expect(layeredPreferences[0].layered_type_of_proofs[0]).toBe('DD Form 214')
+      expect(layeredPreferences[0].layered_type_of_proofs[1]).toBe('12345')
+
+      expect(layeredPreferences[1].layered_validation).toBe('Unconfirmed')
+      expect(layeredPreferences[1].layered_type_of_proofs).toHaveLength(1)
+      expect(layeredPreferences[1].layered_type_of_proofs[0]).toBe('12345')
     })
   })
 })

@@ -48,7 +48,9 @@ export const preferencesWithVeteransUnconfirmed = [
         first_name: 'John',
         last_name: 'Doe',
         preference_record_type: 'DTHP',
-        application_id: 'application_id_1'
+        application_id: 'application_id_1',
+        application_member_id: '1',
+        veteran_type_of_proof: 'DD Form 214'
     },
     {
         preference_name: 'Displaced Tenant Housing Preference (DTHP)',
@@ -56,7 +58,9 @@ export const preferencesWithVeteransUnconfirmed = [
         first_name: 'John',
         last_name: 'Doe',
         preference_record_type: 'DTHP',
-        application_id: 'application_id_1'
+        application_id: 'application_id_1',
+        application_member_id: '1',
+        certificate_number: '12345'
     }
 ]
 
@@ -78,21 +82,6 @@ export const preferencesWithVeteransConfirmed = [
         application_id: 'application_id_1'
     }
 ]
-
-export const preferencesWithoutProofAndMemberId = [
-    {
-        preference_name: 'Certificate of Preference (COP)',
-        post_lottery_validation: 'Invalid',
-        first_name: 'John',
-        last_name: 'Doe',
-        preference_record_type: 'COP',
-        application_id: 'application_id_1'
-    }
-]
-
-// proofFiles
-
-// fileBaseUrl
 
 // applicationMembers
 

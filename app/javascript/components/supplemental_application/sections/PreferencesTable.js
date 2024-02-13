@@ -2,7 +2,6 @@ import React from 'react'
 
 import { reject, overSome, findIndex, orderBy, kebabCase } from 'lodash'
 
-// import { memberNameFromPref } from 'components/applications/application_form/preferences/utils'
 import TableWrapper from 'components/atoms/TableWrapper'
 import ExpandableTable, { ExpanderButton } from 'components/molecules/ExpandableTable'
 import {
@@ -14,7 +13,6 @@ import { addLayeredPreferenceFields, isVeteran } from 'utils/layeredPreferenceUt
 
 import Panel from './preferences/Panel'
 import PreferenceIcon from './preferences/PreferenceIcon'
-// import { getTypeOfProof } from './preferences/typeOfProof'
 import {
   isCOP,
   isDTHP,
@@ -23,7 +21,6 @@ import {
   getPreferenceName
 } from './preferences/utils'
 
-// TODO: move function to util?
 export const hasExpanderButton = (prefName) =>
   !overSome(isCOP, isDTHP, isAliceGriffith, isRightToReturn)(prefName) || isVeteran(prefName)
 
@@ -39,26 +36,7 @@ const matchingPreference = (row) => (preference) => {
 
 /** Presenter **/
 
-// TODO: feature flag + ticket to clean up
-// const buildRow = (proofFiles, applicationMembers, fileBaseUrl) => (preference) => {
-//   return [
-//     { content: <PreferenceIcon status={preference.post_lottery_validation} /> },
-//     { content: getPreferenceName(preference) },
-//     { content: memberNameFromPref(preference.application_member_id, applicationMembers) },
-//     { content: preference.preference_lottery_rank, classes: ['text-right'] },
-//     { content: getTypeOfProof(preference, proofFiles, fileBaseUrl) },
-//     { content: preference.post_lottery_validation }
-//   ]
-// }
-
-// const buildRows = (application, applicationMembers, fileBaseUrl) => {
-//   const { preferences } = application
-//   const proofFiles = application.proof_files
-//   const sortedPreferences = orderBy(preferences, 'preference_order', 'asc')
-//   return onlyValid(sortedPreferences).map(buildRow(proofFiles, applicationMembers, fileBaseUrl))
-// }
-
-const buildLayeredRow = (preference) => {
+const buildRow = (preference) => {
   return [
     { content: <PreferenceIcon status={preference.layered_validation} /> },
     { content: getPreferenceName(preference) },
@@ -69,7 +47,7 @@ const buildLayeredRow = (preference) => {
   ]
 }
 
-const buildLayeredRows = (application, applicationMembers, fileBaseUrl) => {
+const buildRows = (application, applicationMembers, fileBaseUrl) => {
   const sortedPreferences = orderBy(application.preferences, 'preference_order', 'asc')
   const layeredPreferences = addLayeredPreferenceFields(
     sortedPreferences,
@@ -77,7 +55,7 @@ const buildLayeredRows = (application, applicationMembers, fileBaseUrl) => {
     fileBaseUrl,
     applicationMembers
   )
-  return onlyValid(layeredPreferences).map(buildLayeredRow)
+  return onlyValid(layeredPreferences).map(buildRow)
 }
 
 const customCellRenderer = (row) => {
@@ -144,7 +122,7 @@ const PreferencesTable = ({
     dispatch
   ] = useAppContext()
 
-  const rows = buildLayeredRows(application, applicationMembers, fileBaseUrl)
+  const rows = buildRows(application, applicationMembers, fileBaseUrl)
 
   const expandedRowIndices = convertPreferenceToTableIndices(
     state.preferenceRowsOpened,

@@ -154,7 +154,6 @@ const preferenceProofOptionsWorkInSf = labelize([
   'Letter from employer'
 ])
 
-// TODO: remove hardcoding proofs, get from salesforce
 const preferenceProofOptionsVeteran = labelize(['DD Form 214', 'DD Form 256'])
 
 const priorityOptions = ['Mobility impairments', 'Vision impairments', 'Hearing impairments']

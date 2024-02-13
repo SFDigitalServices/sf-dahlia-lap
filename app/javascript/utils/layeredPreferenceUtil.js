@@ -24,15 +24,10 @@ export const addLayeredValidation = (preferences) => {
         data.preference_name !== preference.preference_name
     )[0].post_lottery_validation
 
-    let finalConfirmation = 'Unconfirmed'
-    if (preference.post_lottery_validation === 'Invalid' || nonVetConfirmation === 'Invalid') {
-      finalConfirmation = 'Invalid'
-    } else if (
-      preference.post_lottery_validation === 'Confirmed' &&
-      nonVetConfirmation === 'Confirmed'
-    ) {
-      finalConfirmation = 'Confirmed'
-    }
+    const finalConfirmation = calculateFinalConfirmation(
+      preference.post_lottery_validation,
+      nonVetConfirmation
+    )
 
     return {
       ...preference,
@@ -41,8 +36,11 @@ export const addLayeredValidation = (preferences) => {
   })
 }
 
-// TODO: reduce duplication
-// TODO: add comments
+/**
+ * addLayeredPreferenceFields goes through a list of preferences to set several layered preference fields
+ * 1. non-veteran preferences only consider themselves for these layered preference fields
+ * 2. veteran preferences look for their counterpart non-veteran preference when setting these fields
+ */
 export const addLayeredPreferenceFields = (
   preferences,
   proofFiles,
@@ -61,27 +59,19 @@ export const addLayeredPreferenceFields = (
       }
     }
 
-    const nonVetPref = preferences[index + 1]
+    const nonVetPreference = preferences[index + 1]
 
-    let finalConfirmation = 'Unconfirmed'
-    if (
-      preference.post_lottery_validation === 'Invalid' ||
-      nonVetPref.post_lottery_validation === 'Invalid'
-    ) {
-      finalConfirmation = 'Invalid'
-    } else if (
-      preference.post_lottery_validation === 'Confirmed' &&
-      nonVetPref.post_lottery_validation === 'Confirmed'
-    ) {
-      finalConfirmation = 'Confirmed'
-    }
+    const finalConfirmation = calculateFinalConfirmation(
+      preference.post_lottery_validation,
+      nonVetPreference.post_lottery_validation
+    )
 
     const vetTypeOfProof = getTypeOfProof(preference, proofFiles, fileBaseUrl)
-    const nonVetTypeOfProof = getTypeOfProof(nonVetPref, proofFiles, fileBaseUrl)
+    const nonVetTypeOfProof = getTypeOfProof(nonVetPreference, proofFiles, fileBaseUrl)
 
     const vetMemberName = memberNameFromPref(preference.application_member_id, applicationMembers)
     const nonVetMemberName = memberNameFromPref(
-      nonVetPref.application_member_id,
+      nonVetPreference.application_member_id,
       applicationMembers
     )
 
@@ -92,4 +82,14 @@ export const addLayeredPreferenceFields = (
       layered_member_names: [vetMemberName, nonVetMemberName]
     }
   })
+}
+
+const calculateFinalConfirmation = (first_confirmation, second_confirmation) => {
+  if (first_confirmation === 'Invalid' || second_confirmation === 'Invalid') {
+    return 'Invalid'
+  } else if (first_confirmation === 'Confirmed' && second_confirmation === 'Confirmed') {
+    return 'Confirmed'
+  } else {
+    return 'Unconfirmed'
+  }
 }
