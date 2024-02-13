@@ -59,14 +59,13 @@ const buildRows = (application, applicationMembers, fileBaseUrl) => {
 }
 
 const customCellRenderer = (row) => {
-  // TODO: console warnings about unique "key" prop
   return row.map((datum, j) => {
     const finalContent = Array.isArray(datum.content)
       ? datum.content.map((item, i) => {
           const text = item || 'None'
           return <div key={i}>{text}</div>
         })
-      : [datum.content]
+      : datum.content
 
     return (
       <td className={datum.classes ? datum.classes.join(' ') : ''} key={j}>
