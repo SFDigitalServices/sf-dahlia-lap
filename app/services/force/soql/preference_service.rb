@@ -56,7 +56,13 @@ module Force
         filters
     end
 
+    def untested_method
+      true
+    end
+
     def buildAppPreferencesSearch(search_terms_string)
+      untested_method
+
       # Given a comma-separated list of search terms:
       # For each term, we search across name and application number for a match
       # For multiple terms, we expect the record to match each of the terms individually.
