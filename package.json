@@ -121,6 +121,14 @@
     "deduplicate": "yarn yarn-deduplicate -s fewer yarn.lock && yarn install"
   },
   "jest": {
+    "coverageThreshold": {
+      "global": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    },
     "coverageReporters": [
       "lcov"
     ],
