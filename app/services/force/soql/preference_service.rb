@@ -7,11 +7,12 @@ module Force
       FIELD_NAME = :preferences
       FIELDS = load_fields(FIELD_NAME).freeze
 
-      def app_preferences_for_application(application_id)
+      def app_preferences_for_application(application_id, should_order: false)
         result = parsed_index_query(%(
           SELECT #{query_fields(:app_preferences_for_application)}
           FROM Application_Preference__c
           WHERE Application__c = '#{application_id}'
+          #{should_order ? 'ORDER BY Preference_Order__c ASC' : ''}
         ), :show_preference)
 
         Force::Preference.convert_list(result, :from_salesforce, :to_domain)
