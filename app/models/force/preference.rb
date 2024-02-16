@@ -34,6 +34,7 @@ module Force
       { custom_api: '', domain: '', salesforce: 'Preference_All_Name' },
       { custom_api: '', domain: 'preference_order', salesforce: 'Preference_Order' },
       { custom_api: 'preferenceProof', domain: 'type_of_proof', salesforce: 'Type_of_proof' },
+      { custom_api: '', domain: 'veteran_type_of_proof', salesforce: 'Veteran_Type_of_Proof' },
       { custom_api: '', domain: 'receives_preference', salesforce: 'Receives_Preference' },
       { custom_api: 'recordTypeDevName', domain: 'recordtype_developername', salesforce: 'RecordType.DeveloperName' },
       { custom_api: '', domain: 'record_type_for_app_preferences', salesforce: 'Listing_Preference_ID.Record_Type_For_App_Preferences' },

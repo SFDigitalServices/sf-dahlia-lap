@@ -3,6 +3,7 @@ import React from 'react'
 import { filter, some, overSome } from 'lodash'
 
 import appPaths from 'utils/appPaths'
+import { isVeteran } from 'utils/layeredPreferenceUtil'
 
 import { isCOP, isDTHP } from './utils'
 
@@ -53,7 +54,9 @@ const getAttachments = (preference, proofFiles, fileBaseUrl) => {
 }
 
 export const getTypeOfProof = (preference, proofFiles, fileBaseUrl) => {
-  if (overSome(isCOP, isDTHP)(preference.preference_name)) {
+  if (isVeteran(preference.preference_name)) {
+    return preference.veteran_type_of_proof
+  } else if (overSome(isCOP, isDTHP)(preference.preference_name)) {
     return preference.certificate_number
   } else {
     return getAttachments(preference, proofFiles, fileBaseUrl)

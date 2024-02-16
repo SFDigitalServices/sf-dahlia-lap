@@ -28,7 +28,9 @@ jest.mock('apiService', () => {
           has_ada_priorities_selected: null,
           processing_status: 'Disqualified',
           demographics: {},
-          status_last_updated: '2020-05-28T21:23:06.000+0000'
+          status_last_updated: '2020-05-28T21:23:06.000+0000',
+          total_household_size: 1,
+          sub_status: 'Approval letter sent'
         },
         preference_order: 3,
         receives_preference: true,
@@ -36,7 +38,8 @@ jest.mock('apiService', () => {
         post_lottery_validation: 'Confirmed',
         preference_lottery_rank: 1,
         preference_name: 'Live or Work in San Francisco Preference',
-        record_type_for_app_preferences: 'L_W'
+        record_type_for_app_preferences: 'L_W',
+        custom_preference_type: 'L_W'
       }
       return { pages: 10, records: [sampleRowResponse] }
     }
@@ -99,7 +102,11 @@ describe('leaseUpActions', () => {
         preference_order: 3,
         preference_record_type: 'L_W',
         residence_address: '',
-        status_last_updated: '2020-05-28T21:23:06.000+0000'
+        status_last_updated: '2020-05-28T21:23:06.000+0000',
+        total_household_size: 1,
+        sub_status: 'Approval letter sent',
+        custom_preference_type: 'L_W',
+        layered_validation: 'Confirmed'
       }
 
       const expectedResults = { records: [expectedRowData], pages: 10 }

@@ -4,11 +4,14 @@ import { cond, stubTrue, constant, map } from 'lodash'
 
 import FormGrid from 'components/molecules/FormGrid'
 import InlineModal from 'components/molecules/InlineModal'
+import { hasExpanderButton } from 'components/supplemental_application/sections/PreferencesTable'
+import { isVeteran, updateVeteranPreferences } from 'utils/layeredPreferenceUtil'
 
 import AntiDisplacementHousingPanel from './AntiDisplacementHousingPanel'
 import AssistedHousingPanel from './AssistedHousingPanel'
 import Custom from './Custom'
 import DefaultPanel from './DefaultPanel'
+import LayeredPreferencePanel from './LayeredPreferencePanel'
 import LiveOrWorkInSanFranciscoPanel from './LiveOrWorkInSanFranciscoPanel'
 import NeighborhoodResidentHousingPanel from './NeighborhoodResidentHousingPanel'
 import RentBurdenedPanel from './RentBurdenedPanel'
@@ -24,12 +27,15 @@ const isPreference = (recordType, preferenceName) => (pref) => {
   )
 }
 
+const isPreferenceVeteran = () => (pref) => isVeteran(pref.preference_name)
+
 const getPreferencePanel = cond([
   [isPreference('RB_AHP', 'Rent Burdened'), constant(RentBurdenedPanel)],
   [isPreference('RB_AHP', 'Assisted Housing'), constant(AssistedHousingPanel)],
   [isPreference('L_W'), constant(LiveOrWorkInSanFranciscoPanel)],
   [isPreference('NRHP'), constant(NeighborhoodResidentHousingPanel)],
   [isPreference('ADHP'), constant(AntiDisplacementHousingPanel)],
+  [isPreferenceVeteran(), constant(LayeredPreferencePanel)],
   [isPreference('Custom'), constant(Custom)],
   [stubTrue, constant(DefaultPanel)]
 ])
@@ -46,12 +52,40 @@ const Panel = ({
 }) => {
   const preference = application.preferences[preferenceIndex]
   const PreferencePanel = getPreferencePanel(preference)
+  const buildMatchingPreferencePanel = () => {
+    const MatchingPreferencePanel = getPreferencePanel(application.preferences[preferenceIndex + 1])
+    return (
+      <MatchingPreferencePanel
+        preferenceIndex={preferenceIndex + 1}
+        preference={application.preferences[preferenceIndex + 1]}
+        form={form}
+        applicationMembersOptions={applicationMembersOptions}
+        visited={visited}
+      />
+    )
+  }
+
   const memberOption = (member) => {
     return { value: member.id, label: `${member.first_name} ${member.last_name}` }
   }
   const applicationMembersOptions = map(applicationMembers, memberOption)
   const onSaveWithPreferenceIndex = () => {
-    onSave(preferenceIndex, form.getState().values)
+    const { updatedPreferences, updatedIndexes } = updateVeteranPreferences(
+      form.getState().values.preferences,
+      preferenceIndex
+    )
+    form.change('preferences', updatedPreferences)
+
+    // if the current preference is a veteran and its matching non veteran is editable
+    // then add it to the list of indexes to be updated
+    if (
+      isVeteran(application.preferences[preferenceIndex].preference_name) &&
+      hasExpanderButton(application.preferences[preferenceIndex + 1].preference_name)
+    ) {
+      updatedIndexes.push(preferenceIndex + 1)
+    }
+
+    ;[preferenceIndex, ...updatedIndexes].forEach((index) => onSave(index, form.getState().values))
   }
 
   const handleOnClose = () => {
@@ -69,6 +103,9 @@ const Panel = ({
         applicationMembersOptions={applicationMembersOptions}
         visited={visited}
       />
+      {isVeteran(preference.preference_name) &&
+        hasExpanderButton(application.preferences[preferenceIndex + 1].preference_name) &&
+        buildMatchingPreferencePanel()}
       <FormGrid.Row expand={false}>
         <div className='form-grid_item column'>
           <button
