@@ -1,5 +1,6 @@
 import React from 'react'
 
+import ErrorBoundary from 'components/atoms/ErrorBoundary'
 import mapProps from 'utils/mapProps'
 
 import { fetchApplications } from './applicationRequestUtils'
@@ -12,9 +13,11 @@ const ApplicationsPage = (props) => {
   }
 
   return (
-    <TableLayout pageHeader={pageHeader}>
-      <ApplicationsTableContainer {...props} />
-    </TableLayout>
+    <ErrorBoundary>
+      <TableLayout pageHeader={pageHeader}>
+        <ApplicationsTableContainer {...props} />
+      </TableLayout>
+    </ErrorBoundary>
   )
 }
 

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import ErrorBoundary from 'components/atoms/ErrorBoundary'
+
 import IndexTable from '../IndexTable'
 import TableLayout from '../layouts/TableLayout'
 
@@ -51,9 +53,11 @@ const layout = {
 
 const ListingsPage = ({ page, listings }) => {
   return (
-    <TableLayout {...layout}>
-      <ListingsPageTable page={page} listings={listings} fields={tableFields} />
-    </TableLayout>
+    <ErrorBoundary>
+      <TableLayout {...layout}>
+        <ListingsPageTable page={page} listings={listings} fields={tableFields} />
+      </TableLayout>
+    </ErrorBoundary>
   )
 }
 
