@@ -1,6 +1,7 @@
 import { map } from 'lodash'
 
 import apiService from 'apiService'
+import { addLayeredValidation } from 'utils/layeredPreferenceUtil'
 import { performInSequence } from 'utils/promiseUtils'
 
 import { buildLeaseUpAppPrefModel } from '../leaseUpAppPrefModel'
@@ -25,8 +26,10 @@ export const getApplications = async (listingId, page, filters) => {
   return apiService
     .fetchLeaseUpApplications(listingId, page, { filters })
     .then(({ records, pages }) => {
+      const preferences = map(records, buildLeaseUpAppPrefModel)
+      const layeredPreferences = addLayeredValidation(preferences)
       return {
-        records: map(records, buildLeaseUpAppPrefModel),
+        records: layeredPreferences,
         pages
       }
     })

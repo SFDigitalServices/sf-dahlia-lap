@@ -237,15 +237,21 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                                 Rent Burdened Assisted Housing
                               </td>
                               <td
-                                class=""
-                              />
+                                class="table-no-wrap"
+                              >
+                                <div>
+                                  None
+                                </div>
+                              </td>
                               <td
                                 class="text-right"
                               />
                               <td
-                                class=""
+                                class="table-no-wrap"
                               >
-                                <ul />
+                                <div>
+                                  <ul />
+                                </div>
                               </td>
                               <td
                                 class=""
@@ -408,9 +414,11 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                                 Assisted Housing Preference
                               </td>
                               <td
-                                class=""
+                                class="table-no-wrap"
                               >
-                                Automated Test Lease Up Application (do not modify)
+                                <div>
+                                  Automated Test Lease Up Application (do not modify)
+                                </div>
                               </td>
                               <td
                                 class="text-right"
@@ -418,20 +426,22 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                                 1
                               </td>
                               <td
-                                class=""
+                                class="table-no-wrap"
                               >
-                                <ul>
-                                  <li>
-                                    <a
-                                      class="block-link"
-                                      href="fileBaseUrl/servlet/servlet.FileDownload?file=00P0P00000t0P3vUAE"
-                                      rel="noreferrer"
-                                      target="_blank"
-                                    >
-                                      Copy of Lease
-                                    </a>
-                                  </li>
-                                </ul>
+                                <div>
+                                  <ul>
+                                    <li>
+                                      <a
+                                        class="block-link"
+                                        href="fileBaseUrl/servlet/servlet.FileDownload?file=00P0P00000t0P3vUAE"
+                                        rel="noreferrer"
+                                        target="_blank"
+                                      >
+                                        Copy of Lease
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </div>
                               </td>
                               <td
                                 class=""
@@ -630,9 +640,11 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                                 Live in San Francisco Preference
                               </td>
                               <td
-                                class=""
+                                class="table-no-wrap"
                               >
-                                Automated Test Lease Up Application (do not modify)
+                                <div>
+                                  Automated Test Lease Up Application (do not modify)
+                                </div>
                               </td>
                               <td
                                 class="text-right"
@@ -640,13 +652,15 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                                 1
                               </td>
                               <td
-                                class=""
+                                class="table-no-wrap"
                               >
-                                <ul>
-                                  <li>
-                                    Telephone bill
-                                  </li>
-                                </ul>
+                                <div>
+                                  <ul>
+                                    <li>
+                                      Telephone bill
+                                    </li>
+                                  </ul>
+                                </div>
                               </td>
                               <td
                                 class=""
