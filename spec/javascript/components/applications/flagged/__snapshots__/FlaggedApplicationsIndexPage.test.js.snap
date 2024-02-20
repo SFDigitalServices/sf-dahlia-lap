@@ -2,1364 +2,1366 @@
 
 exports[`FlaggedApplicationsIndexPage should render successfully 1`] = `
 <DocumentFragment>
-  <header
-    class="lead-header short  bg-dust"
-  >
-    <div
-      class="row full-width inner--3x"
+  <div>
+    <header
+      class="lead-header short  bg-dust"
     >
       <div
-        class="large-12 columns"
+        class="row full-width inner--3x"
       >
-        <hgroup
-          class="lead-header_group"
+        <div
+          class="large-12 columns"
         >
-          <h1
-            class="lead-header_title small-serif c-oil"
+          <hgroup
+            class="lead-header_group"
           >
-            Flagged Applications - Pending Review
-          </h1>
-        </hgroup>
+            <h1
+              class="lead-header_title small-serif c-oil"
+            >
+              Flagged Applications - Pending Review
+            </h1>
+          </hgroup>
+        </div>
       </div>
-    </div>
-  </header>
-  <section
-    class="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x bg-white"
-  >
-    <div
-      class="ReactTable"
+    </header>
+    <section
+      class="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x bg-white"
     >
       <div
-        class="rt-table"
-        role="grid"
+        class="ReactTable"
       >
         <div
-          class="rt-thead -header"
-          style="min-width: 435px;"
+          class="rt-table"
+          role="grid"
         >
           <div
-            class="rt-tr"
-            role="row"
+            class="rt-thead -header"
+            style="min-width: 435px;"
           >
             <div
-              class="rt-th"
-              role="columnheader"
-              style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              tabindex="-1"
-            >
-              <div
-                class=""
-              />
-            </div>
-            <div
-              class="rt-th rt-resizable-header -cursor-pointer"
-              role="columnheader"
-              style="flex: 100 0 auto; width: 100px;"
-              tabindex="-1"
-            >
-              <div
-                class="rt-resizable-header-content"
-              >
-                Listing Name
-              </div>
-              <div
-                class="rt-resizer"
-              />
-            </div>
-            <div
-              class="rt-th rt-resizable-header -cursor-pointer"
-              role="columnheader"
-              style="flex: 100 0 auto; width: 100px;"
-              tabindex="-1"
-            >
-              <div
-                class="rt-resizable-header-content"
-              >
-                Rule Name
-              </div>
-              <div
-                class="rt-resizer"
-              />
-            </div>
-            <div
-              class="rt-th rt-resizable-header -cursor-pointer"
-              role="columnheader"
-              style="flex: 100 0 auto; width: 100px;"
-              tabindex="-1"
-            >
-              <div
-                class="rt-resizable-header-content"
-              >
-                Total Number of Pending Review
-              </div>
-              <div
-                class="rt-resizer"
-              />
-            </div>
-            <div
-              class="rt-th rt-resizable-header -cursor-pointer"
-              role="columnheader"
-              style="flex: 100 0 auto; width: 100px;"
-              tabindex="-1"
-            >
-              <div
-                class="rt-resizable-header-content"
-              >
-                Total Number of Appealed
-              </div>
-              <div
-                class="rt-resizer"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class="rt-thead -filters"
-          style="min-width: 435px;"
-        >
-          <div
-            class="rt-tr"
-            role="row"
-          >
-            <div
-              class="rt-th"
-              role="columnheader"
-              style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              tabindex="-1"
-            />
-            <div
-              class="rt-th"
-              role="columnheader"
-              style="flex: 100 0 auto; width: 100px;"
-              tabindex="-1"
-            >
-              <select
-                style="width: 100%;"
-              >
-                <option
-                  value="all"
-                >
-                  Show All
-                </option>
-                <option
-                  value="100 Van Ness Units 607 and 1005"
-                >
-                  100 Van Ness Units 607 and 1005
-                </option>
-                <option
-                  value="1036 Mission"
-                >
-                  1036 Mission
-                </option>
-                <option
-                  value="1222 Harrison (L Seven)"
-                >
-                  1222 Harrison (L Seven)
-                </option>
-                <option
-                  value="1335 Folsom Street"
-                >
-                  1335 Folsom Street
-                </option>
-                <option
-                  value="181 Sanchez (Duboce)"
-                >
-                  181 Sanchez (Duboce)
-                </option>
-                <option
-                  value="280 Brighton"
-                >
-                  280 Brighton
-                </option>
-                <option
-                  value="450 Mason Unit 705 TRAINING"
-                >
-                  450 Mason Unit 705 TRAINING
-                </option>
-                <option
-                  value="451 Mason TRAINING"
-                >
-                  451 Mason TRAINING
-                </option>
-                <option
-                  value="5880 Third (Waterbend)"
-                >
-                  5880 Third (Waterbend)
-                </option>
-                <option
-                  value="750 Harrison Street"
-                >
-                  750 Harrison Street
-                </option>
-                <option
-                  value="8 Tenth (NEMA) Unit 742"
-                >
-                  8 Tenth (NEMA) Unit 742
-                </option>
-                <option
-                  value="973 Market (The Wilson) Unit 303"
-                >
-                  973 Market (The Wilson) Unit 303
-                </option>
-                <option
-                  value="Alice Griffith Apartments Phase 3"
-                >
-                  Alice Griffith Apartments Phase 3
-                </option>
-                <option
-                  value="Automated Test Listing (please do not modify)"
-                >
-                  Automated Test Listing (please do not modify)
-                </option>
-                <option
-                  value="Merry Go Round Shared Housing"
-                >
-                  Merry Go Round Shared Housing
-                </option>
-                <option
-                  value="Sister Bernie Galvin Apartments Units 206 211"
-                >
-                  Sister Bernie Galvin Apartments Units 206 211
-                </option>
-                <option
-                  value="TEST Listing"
-                >
-                  TEST Listing
-                </option>
-                <option
-                  value="TEST Listing by Donna N"
-                >
-                  TEST Listing by Donna N
-                </option>
-                <option
-                  value="TEST QA LISTING TWO"
-                >
-                  TEST QA LISTING TWO
-                </option>
-                <option
-                  value="Test 450 Mason TRAINING"
-                >
-                  Test 450 Mason TRAINING
-                </option>
-                <option
-                  value="Test 931 Folsom (Green Acres Phase I)"
-                >
-                  Test 931 Folsom (Green Acres Phase I)
-                </option>
-                <option
-                  value="msol test Dec2017 lottery2"
-                >
-                  msol test Dec2017 lottery2
-                </option>
-              </select>
-            </div>
-            <div
-              class="rt-th"
-              role="columnheader"
-              style="flex: 100 0 auto; width: 100px;"
-              tabindex="-1"
-            />
-            <div
-              class="rt-th"
-              role="columnheader"
-              style="flex: 100 0 auto; width: 100px;"
-              tabindex="-1"
-            />
-            <div
-              class="rt-th"
-              role="columnheader"
-              style="flex: 100 0 auto; width: 100px;"
-              tabindex="-1"
-            />
-          </div>
-        </div>
-        <div
-          class="rt-tbody"
-          style="min-width: 435px;"
-        >
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -odd"
+              class="rt-tr"
               role="row"
             >
               <div
-                class="rt-td rt-expandable"
-                role="gridcell"
+                class="rt-th"
+                role="columnheader"
                 style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                tabindex="-1"
               >
                 <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                8 Tenth (NEMA) Unit 742
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                name + DOB
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                4
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -even"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                8 Tenth (NEMA) Unit 742
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                name + DOB
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                4
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -odd"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                1036 Mission
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                name + DOB
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                2
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -even"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                Alice Griffith Apartments Phase 3
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                name + DOB
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                2
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -odd"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                Alice Griffith Apartments Phase 3
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                name + DOB
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                2
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -even"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                TEST Listing by Donna N
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                name + DOB
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                2
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -odd"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                1036 Mission
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                Email Address
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                2
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -even"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                TEST Listing by Donna N
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                name + DOB
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                2
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -odd"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                Automated Test Listing (please do not modify)
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                name + DOB
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                136
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -even"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                450 Mason Unit 705 TRAINING
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                name + DOB
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                2
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -odd"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                TEST Listing by Donna N
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                name + DOB
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                2
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -even"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                1036 Mission
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                name + DOB
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                2
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -odd"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                TEST Listing
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                name + DOB
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                13
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -even"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                Automated Test Listing (please do not modify)
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                name + DOB
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                38
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -odd"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                451 Mason TRAINING
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                name + DOB
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                2
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -even"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                TEST Listing
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                Email Address
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                1
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -odd"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                TEST Listing
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                name + DOB
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                1
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -even"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                TEST Listing
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                Email Address
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                2
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -odd"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                TEST Listing
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                name + DOB
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                2
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-          <div
-            class="rt-tr-group"
-            role="rowgroup"
-          >
-            <div
-              class="rt-tr -even"
-              role="row"
-            >
-              <div
-                class="rt-td rt-expandable"
-                role="gridcell"
-                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
-              >
-                <div
-                  class="rt-expander"
-                >
-                  •
-                </div>
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                450 Mason Unit 705 TRAINING
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                Email Address
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                3
-              </div>
-              <div
-                class="rt-td"
-                role="gridcell"
-                style="flex: 100 0 auto; width: 100px;"
-              >
-                0
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="pagination-bottom"
-      >
-        <div
-          class="-pagination"
-        >
-          <div
-            class="-previous"
-          >
-            <button
-              class="-btn"
-              disabled=""
-              type="button"
-            >
-              Previous
-            </button>
-          </div>
-          <div
-            class="-center"
-          >
-            <span
-              class="-pageInfo"
-            >
-              Page 
-              <div
-                class="-pageJump"
-              >
-                <input
-                  aria-label="jump to page"
-                  type="number"
-                  value="1"
+                  class=""
                 />
               </div>
-               of 
-              <span
-                class="-totalPages"
+              <div
+                class="rt-th rt-resizable-header -cursor-pointer"
+                role="columnheader"
+                style="flex: 100 0 auto; width: 100px;"
+                tabindex="-1"
               >
-                13
-              </span>
-            </span>
-            <span
-              class="select-wrap -pageSizeOptions"
-            >
-              <select
-                aria-label="rows per page"
+                <div
+                  class="rt-resizable-header-content"
+                >
+                  Listing Name
+                </div>
+                <div
+                  class="rt-resizer"
+                />
+              </div>
+              <div
+                class="rt-th rt-resizable-header -cursor-pointer"
+                role="columnheader"
+                style="flex: 100 0 auto; width: 100px;"
+                tabindex="-1"
               >
-                <option
-                  value="5"
+                <div
+                  class="rt-resizable-header-content"
                 >
-                  5 rows
-                </option>
-                <option
-                  value="10"
+                  Rule Name
+                </div>
+                <div
+                  class="rt-resizer"
+                />
+              </div>
+              <div
+                class="rt-th rt-resizable-header -cursor-pointer"
+                role="columnheader"
+                style="flex: 100 0 auto; width: 100px;"
+                tabindex="-1"
+              >
+                <div
+                  class="rt-resizable-header-content"
                 >
-                  10 rows
-                </option>
-                <option
-                  value="20"
+                  Total Number of Pending Review
+                </div>
+                <div
+                  class="rt-resizer"
+                />
+              </div>
+              <div
+                class="rt-th rt-resizable-header -cursor-pointer"
+                role="columnheader"
+                style="flex: 100 0 auto; width: 100px;"
+                tabindex="-1"
+              >
+                <div
+                  class="rt-resizable-header-content"
                 >
-                  20 rows
-                </option>
-                <option
-                  value="25"
-                >
-                  25 rows
-                </option>
-                <option
-                  value="50"
-                >
-                  50 rows
-                </option>
-                <option
-                  value="100"
-                >
-                  100 rows
-                </option>
-              </select>
-            </span>
+                  Total Number of Appealed
+                </div>
+                <div
+                  class="rt-resizer"
+                />
+              </div>
+            </div>
           </div>
           <div
-            class="-next"
+            class="rt-thead -filters"
+            style="min-width: 435px;"
           >
-            <button
-              class="-btn"
-              type="button"
+            <div
+              class="rt-tr"
+              role="row"
             >
-              Next
-            </button>
+              <div
+                class="rt-th"
+                role="columnheader"
+                style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                tabindex="-1"
+              />
+              <div
+                class="rt-th"
+                role="columnheader"
+                style="flex: 100 0 auto; width: 100px;"
+                tabindex="-1"
+              >
+                <select
+                  style="width: 100%;"
+                >
+                  <option
+                    value="all"
+                  >
+                    Show All
+                  </option>
+                  <option
+                    value="100 Van Ness Units 607 and 1005"
+                  >
+                    100 Van Ness Units 607 and 1005
+                  </option>
+                  <option
+                    value="1036 Mission"
+                  >
+                    1036 Mission
+                  </option>
+                  <option
+                    value="1222 Harrison (L Seven)"
+                  >
+                    1222 Harrison (L Seven)
+                  </option>
+                  <option
+                    value="1335 Folsom Street"
+                  >
+                    1335 Folsom Street
+                  </option>
+                  <option
+                    value="181 Sanchez (Duboce)"
+                  >
+                    181 Sanchez (Duboce)
+                  </option>
+                  <option
+                    value="280 Brighton"
+                  >
+                    280 Brighton
+                  </option>
+                  <option
+                    value="450 Mason Unit 705 TRAINING"
+                  >
+                    450 Mason Unit 705 TRAINING
+                  </option>
+                  <option
+                    value="451 Mason TRAINING"
+                  >
+                    451 Mason TRAINING
+                  </option>
+                  <option
+                    value="5880 Third (Waterbend)"
+                  >
+                    5880 Third (Waterbend)
+                  </option>
+                  <option
+                    value="750 Harrison Street"
+                  >
+                    750 Harrison Street
+                  </option>
+                  <option
+                    value="8 Tenth (NEMA) Unit 742"
+                  >
+                    8 Tenth (NEMA) Unit 742
+                  </option>
+                  <option
+                    value="973 Market (The Wilson) Unit 303"
+                  >
+                    973 Market (The Wilson) Unit 303
+                  </option>
+                  <option
+                    value="Alice Griffith Apartments Phase 3"
+                  >
+                    Alice Griffith Apartments Phase 3
+                  </option>
+                  <option
+                    value="Automated Test Listing (please do not modify)"
+                  >
+                    Automated Test Listing (please do not modify)
+                  </option>
+                  <option
+                    value="Merry Go Round Shared Housing"
+                  >
+                    Merry Go Round Shared Housing
+                  </option>
+                  <option
+                    value="Sister Bernie Galvin Apartments Units 206 211"
+                  >
+                    Sister Bernie Galvin Apartments Units 206 211
+                  </option>
+                  <option
+                    value="TEST Listing"
+                  >
+                    TEST Listing
+                  </option>
+                  <option
+                    value="TEST Listing by Donna N"
+                  >
+                    TEST Listing by Donna N
+                  </option>
+                  <option
+                    value="TEST QA LISTING TWO"
+                  >
+                    TEST QA LISTING TWO
+                  </option>
+                  <option
+                    value="Test 450 Mason TRAINING"
+                  >
+                    Test 450 Mason TRAINING
+                  </option>
+                  <option
+                    value="Test 931 Folsom (Green Acres Phase I)"
+                  >
+                    Test 931 Folsom (Green Acres Phase I)
+                  </option>
+                  <option
+                    value="msol test Dec2017 lottery2"
+                  >
+                    msol test Dec2017 lottery2
+                  </option>
+                </select>
+              </div>
+              <div
+                class="rt-th"
+                role="columnheader"
+                style="flex: 100 0 auto; width: 100px;"
+                tabindex="-1"
+              />
+              <div
+                class="rt-th"
+                role="columnheader"
+                style="flex: 100 0 auto; width: 100px;"
+                tabindex="-1"
+              />
+              <div
+                class="rt-th"
+                role="columnheader"
+                style="flex: 100 0 auto; width: 100px;"
+                tabindex="-1"
+              />
+            </div>
+          </div>
+          <div
+            class="rt-tbody"
+            style="min-width: 435px;"
+          >
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -odd"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  8 Tenth (NEMA) Unit 742
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  name + DOB
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  4
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -even"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  8 Tenth (NEMA) Unit 742
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  name + DOB
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  4
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -odd"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  1036 Mission
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  name + DOB
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  2
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -even"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  Alice Griffith Apartments Phase 3
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  name + DOB
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  2
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -odd"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  Alice Griffith Apartments Phase 3
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  name + DOB
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  2
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -even"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  TEST Listing by Donna N
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  name + DOB
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  2
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -odd"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  1036 Mission
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  Email Address
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  2
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -even"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  TEST Listing by Donna N
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  name + DOB
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  2
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -odd"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  Automated Test Listing (please do not modify)
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  name + DOB
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  136
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -even"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  450 Mason Unit 705 TRAINING
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  name + DOB
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  2
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -odd"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  TEST Listing by Donna N
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  name + DOB
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  2
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -even"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  1036 Mission
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  name + DOB
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  2
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -odd"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  TEST Listing
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  name + DOB
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  13
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -even"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  Automated Test Listing (please do not modify)
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  name + DOB
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  38
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -odd"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  451 Mason TRAINING
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  name + DOB
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  2
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -even"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  TEST Listing
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  Email Address
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  1
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -odd"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  TEST Listing
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  name + DOB
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  1
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -even"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  TEST Listing
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  Email Address
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  2
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -odd"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  TEST Listing
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  name + DOB
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  2
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+            <div
+              class="rt-tr-group"
+              role="rowgroup"
+            >
+              <div
+                class="rt-tr -even"
+                role="row"
+              >
+                <div
+                  class="rt-td rt-expandable"
+                  role="gridcell"
+                  style="flex: 35 0 auto; width: 35px; max-width: 35px;"
+                >
+                  <div
+                    class="rt-expander"
+                  >
+                    •
+                  </div>
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  450 Mason Unit 705 TRAINING
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  Email Address
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  3
+                </div>
+                <div
+                  class="rt-td"
+                  role="gridcell"
+                  style="flex: 100 0 auto; width: 100px;"
+                >
+                  0
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="pagination-bottom"
+        >
+          <div
+            class="-pagination"
+          >
+            <div
+              class="-previous"
+            >
+              <button
+                class="-btn"
+                disabled=""
+                type="button"
+              >
+                Previous
+              </button>
+            </div>
+            <div
+              class="-center"
+            >
+              <span
+                class="-pageInfo"
+              >
+                Page 
+                <div
+                  class="-pageJump"
+                >
+                  <input
+                    aria-label="jump to page"
+                    type="number"
+                    value="1"
+                  />
+                </div>
+                 of 
+                <span
+                  class="-totalPages"
+                >
+                  13
+                </span>
+              </span>
+              <span
+                class="select-wrap -pageSizeOptions"
+              >
+                <select
+                  aria-label="rows per page"
+                >
+                  <option
+                    value="5"
+                  >
+                    5 rows
+                  </option>
+                  <option
+                    value="10"
+                  >
+                    10 rows
+                  </option>
+                  <option
+                    value="20"
+                  >
+                    20 rows
+                  </option>
+                  <option
+                    value="25"
+                  >
+                    25 rows
+                  </option>
+                  <option
+                    value="50"
+                  >
+                    50 rows
+                  </option>
+                  <option
+                    value="100"
+                  >
+                    100 rows
+                  </option>
+                </select>
+              </span>
+            </div>
+            <div
+              class="-next"
+            >
+              <button
+                class="-btn"
+                type="button"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="-loading"
+        >
+          <div
+            class="-loading-inner"
+          >
+            Loading...
           </div>
         </div>
       </div>
-      <div
-        class="-loading"
-      >
-        <div
-          class="-loading-inner"
-        >
-          Loading...
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </DocumentFragment>
 `;

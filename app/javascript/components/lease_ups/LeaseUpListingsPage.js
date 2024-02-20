@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
+import ErrorBoundary from 'components/atoms/ErrorBoundary'
 import { listingsPageMounted, listingRowClicked } from 'components/lease_ups/actions/actionCreators'
 import Loading from 'components/molecules/Loading'
 import appPaths from 'utils/appPaths'
@@ -40,13 +41,15 @@ const LeaseUpListingsPage = () => {
   }
 
   return (
-    <TableLayout pageHeader={pageHeader}>
-      {loading ? (
-        <Loading isLoading />
-      ) : (
-        <LeaseUpListingsTable listings={listings} onCellClick={onCellClick} />
-      )}
-    </TableLayout>
+    <ErrorBoundary>
+      <TableLayout pageHeader={pageHeader}>
+        {loading ? (
+          <Loading isLoading />
+        ) : (
+          <LeaseUpListingsTable listings={listings} onCellClick={onCellClick} />
+        )}
+      </TableLayout>
+    </ErrorBoundary>
   )
 }
 
