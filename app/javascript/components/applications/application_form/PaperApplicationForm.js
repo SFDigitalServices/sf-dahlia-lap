@@ -116,7 +116,7 @@ class PaperApplicationForm extends React.Component {
       <div>
         <Form
           onSubmit={(values) => this.submitShortForm(convertCurrency(values))}
-          initialValues={application}
+          initialValues={{ annual_income: '', ...application }}
           validate={this.validateForm}
           mutators={{
             ...arrayMutators
