@@ -176,7 +176,7 @@ http_interactions:
   recorded_at: Sat, 10 Oct 2020 00:33:11 GMT
 - request:
     method: get
-    uri: https://<<SALESFORCE_HOST>>/services/apexrest/LeasingAgentPortal/shortForm/Archive/a0o0P00000GZazOQAT
+    uri: https://<<SALESFORCE_HOST>>/services/apexrest/LeasingAgentPortal/shortForm/a0o0P00000GZazOQAT
     body:
       encoding: US-ASCII
       string: ''

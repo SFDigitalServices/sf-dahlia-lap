@@ -32,15 +32,6 @@ module Force
         application
       end
 
-      def application_snapshot(id)
-        # Fetch application snapshot fields from the custom API
-        custom_api_application_fields = api_get("/LeasingAgentPortal/shortForm/Archive/#{id}")
-        application = Force::Application.from_custom_api(custom_api_application_fields)
-
-        application = add_application_members(application, custom_api_application_fields)
-        application
-      end
-
       def submit(custom_api_attrs, method)
         result = if method == :put
                    update_application(custom_api_attrs)
