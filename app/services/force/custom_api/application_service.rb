@@ -5,12 +5,9 @@ module Force
     # Provide Salesforce custom API interactions for applications
     class ApplicationService < Force::Base
       def application(id, opts = {})
-        path = "/LeasingAgentPortal/shortForm/#{id}"
-
         # Fetch data from the custom API
         begin
-          custom_api_application_fields = api_get(path)
-          puts custom_api_application_fields
+          custom_api_application_fields = api_get("/LeasingAgentPortal/shortForm/#{id}")
         rescue Faraday::ResourceNotFound
           return nil
         end
