@@ -1706,6 +1706,11 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                         >
                           2023
                         </option>
+                        <option
+                          value={2024}
+                        >
+                          2024
+                        </option>
                       </select>
                     </div>
                   </div>
