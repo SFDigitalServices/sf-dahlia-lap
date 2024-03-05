@@ -147,6 +147,10 @@ const LeaseUpApplicationsPage = () => {
       },
       onComplete: () => {
         setState({ loading: false })
+      },
+      onFail: (e) => {
+        console.error(`An error was thrown while fetching applications`)
+        console.trace(e)
       }
     },
     [applicationsListData.appliedFilters, applicationsListData.page]
