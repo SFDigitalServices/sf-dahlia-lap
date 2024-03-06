@@ -1,9 +1,10 @@
-import React from 'react'
-
-import { get, defaultTo } from 'lodash'
+import React, { useState } from 'react'
 
 import ErrorBoundary from 'components/atoms/ErrorBoundary'
-import mapProps from 'utils/mapProps'
+import Loading from 'components/molecules/Loading'
+
+import { useAsyncOnMount } from 'utils/customHooks'
+import { fetchFlaggedApplications } from '../applicationRequestUtils'
 
 import IndexTable from '../../IndexTable'
 import TableLayout from '../../layouts/TableLayout'
@@ -37,46 +38,49 @@ const duplicatedTableFields = {
   }
 }
 
-const FlaggedApplicationsIndexTable = ({ flaggedRecords, fields }) => {
-  return (
-    <IndexTable results={flaggedRecords} fields={fields} links={['View Flagged Applications']} />
-  )
-}
-
 const getTableFieldsForType = (type) => {
   if (type === 'duplicated') {
     return duplicatedTableFields
   } else if (type === 'pending') {
     return flaggedTableFields
   } else {
-    throw new Error('Type is required')
+    throw new Error('Type is missing or unsupported')
   }
 }
 
-const FlaggedApplicationsIndexPage = ({ title, flaggedRecords, type }) => {
+const FlaggedApplicationsIndexTable = ({ flaggedRecords, fields }) => {
+  return (
+    <IndexTable results={flaggedRecords} fields={fields} links={['View Flagged Applications']} />
+  )
+}
+
+const FlaggedApplicationsIndexPage = ({ type }) => {
+  const [loading, setLoading]  = useState(true)
+  const [title, setTitle]  = useState(undefined)
+  const [flaggedRecords, setFlaggedRecords]  = useState(undefined)
+  useAsyncOnMount(() => fetchFlaggedApplications(type), {
+    onSuccess: ({ title, flaggedRecords }) => {
+      setTitle(title)
+      setFlaggedRecords(flaggedRecords)
+    },
+    onFail: (error) => {
+      throw new Error(`Failed to get Flagged Applications: ${error}`)
+    },
+    onComplete: () => {
+      setLoading(false)
+    }
+  })
+
   const tableFields = getTableFieldsForType(type)
   return (
     <ErrorBoundary>
-      <TableLayout pageHeader={{ title }}>
-        <FlaggedApplicationsIndexTable flaggedRecords={flaggedRecords} fields={tableFields} />
-      </TableLayout>
+      <Loading isLoading={loading} renderChildrenWhileLoading={false} loaderViewHeight='100vh'>
+        <TableLayout pageHeader={{ title }}>
+          <FlaggedApplicationsIndexTable flaggedRecords={flaggedRecords} fields={tableFields} />
+        </TableLayout>
+      </Loading>
     </ErrorBoundary>
   )
 }
 
-const buildFlaggedRecordModel = (flaggedRecord) => {
-  return {
-    ...flaggedRecord,
-    listing_name: defaultTo(get(flaggedRecord, 'listing.name'), null)
-  }
-}
-
-const mapProperties = ({ title, flaggedRecords, type }) => {
-  return {
-    type,
-    title,
-    flaggedRecords: flaggedRecords.map((i) => buildFlaggedRecordModel(i))
-  }
-}
-
-export default mapProps(mapProperties)(FlaggedApplicationsIndexPage)
+export default FlaggedApplicationsIndexPage

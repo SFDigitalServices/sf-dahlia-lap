@@ -32,6 +32,14 @@ const getStatusHistory = async (applicationId) =>
     .get(`/applications/${applicationId}/field_update_comments`, null, true)
     .then(({ data }) => ({ statusHistory: data }))
 
+const fetchFlaggedApplications = async (type) => {
+  return request.get('/flagged-applications', { params: { type } }, true)
+}
+
+const fetchFlaggedApplicationsByRecordSet = (recordSetId) => {
+  return request.get(`/flagged-applications/record-set/${recordSetId}`, true)
+}
+
 const updateFlaggedApplication = async (data) => {
   const putData = {
     flagged_application: {
@@ -197,6 +205,8 @@ export const deleteLease = async (applicationId, leaseId) =>
 
 export default {
   updateApplication,
+  fetchFlaggedApplications,
+  fetchFlaggedApplicationsByRecordSet,
   updateFlaggedApplication,
   submitApplication,
   fetchApplications,
