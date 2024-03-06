@@ -5,15 +5,9 @@ module Force
     # Provide Salesforce custom API interactions for applications
     class ApplicationService < Force::Base
       def application(id, opts = {})
-        if opts[:snapshot]
-          path = "/LeasingAgentPortal/shortForm/Archive/#{id}"
-        else
-          path = "/LeasingAgentPortal/shortForm/#{id}"
-        end
-
         # Fetch data from the custom API
         begin
-          custom_api_application_fields = api_get(path)
+          custom_api_application_fields = api_get("/LeasingAgentPortal/shortForm/#{id}")
         rescue Faraday::ResourceNotFound
           return nil
         end
@@ -35,15 +29,6 @@ module Force
           application.preferences = preferences
         end
 
-        application
-      end
-
-      def application_snapshot(id)
-        # Fetch application snapshot fields from the custom API
-        custom_api_application_fields = api_get("/LeasingAgentPortal/shortForm/Archive/#{id}")
-        application = Force::Application.from_custom_api(custom_api_application_fields)
-
-        application = add_application_members(application, custom_api_application_fields)
         application
       end
 

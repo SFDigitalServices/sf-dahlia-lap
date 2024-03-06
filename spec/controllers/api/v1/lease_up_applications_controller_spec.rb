@@ -19,10 +19,27 @@ RSpec.describe Api::V1::LeaseUpApplicationsController, type: :controller do
       end
       expect(response).to have_http_status(:success)
       json = JSON.parse(response.body)
-      all_records_have_preferences = json['records'].all? { |r| (
-        r['preference_name'] && r['preference_name'].length > 0 && r['preference_all_lottery_rank'] && r['preference_all_lottery_rank'] > 0
-      ) }
+      all_records_have_preferences = json['records'].all? do |r|
+        (
+              r['preference_name'] && r['preference_name'].length > 0 && r['preference_all_lottery_rank'] && r['preference_all_lottery_rank'] > 0
+            )
+      end
       expect(all_records_have_preferences).to eq(true)
+    end
+    it 'returns custom preference type' do
+      VCR.use_cassette('/api/v1/lease-ups/applications') do
+        params = {
+          listing_id: lease_up_listing,
+          page: 0,
+        }
+        get :index, params: params
+      end
+      expect(response).to have_http_status(:success)
+      json = JSON.parse(response.body)
+      all_records_have_custom_preferences = json['records'].all? do |r|
+        r['custom_preference_type'].present?
+      end
+      expect(all_records_have_custom_preferences).to eq(true)
     end
   end
 end

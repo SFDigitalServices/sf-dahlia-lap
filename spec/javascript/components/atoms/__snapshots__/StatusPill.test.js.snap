@@ -1,49 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StatusPill should render properly with Appealed status 1`] = `
-<div
-  className="status-pill is-appealed"
->
-  Appealed
-</div>
+<DocumentFragment>
+  <div
+    class="status-pill is-appealed"
+  >
+    Appealed
+  </div>
+</DocumentFragment>
+`;
+
+exports[`StatusPill should render properly with Approved status 1`] = `
+<DocumentFragment>
+  <div
+    class="status-pill is-approved"
+  >
+    Approved
+  </div>
+</DocumentFragment>
 `;
 
 exports[`StatusPill should render properly with Disqualified status 1`] = `
-<div
-  className="status-pill is-disqualified"
->
-  Disqualified
-</div>
+<DocumentFragment>
+  <div
+    class="status-pill is-disqualified"
+  >
+    Disqualified
+  </div>
+</DocumentFragment>
 `;
 
 exports[`StatusPill should render properly with Lease Signed status 1`] = `
-<div
-  className="status-pill is-leased"
->
-  Lease Signed
-</div>
+<DocumentFragment>
+  <div
+    class="status-pill is-leased"
+  >
+    Lease Signed
+  </div>
+</DocumentFragment>
 `;
 
 exports[`StatusPill should render properly with Processing status 1`] = `
-<div
-  className="status-pill is-processing"
->
-  Processing
-</div>
+<DocumentFragment>
+  <div
+    class="status-pill is-processing"
+  >
+    Processing
+  </div>
+</DocumentFragment>
 `;
 
-exports[`StatusPill should render properly with approved status 1`] = `
-<div
-  className="status-pill is-approved"
->
-  Approved
-</div>
-`;
-
-exports[`StatusPill should render properly with withdrawn status 1`] = `
-<div
-  className="status-pill is-withdrawn"
->
-  Withdrawn
-</div>
+exports[`StatusPill should render properly with Withdrawn status 1`] = `
+<DocumentFragment>
+  <div
+    class="status-pill is-withdrawn"
+  >
+    Withdrawn
+  </div>
+</DocumentFragment>
 `;

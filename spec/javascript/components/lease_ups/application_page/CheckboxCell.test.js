@@ -1,47 +1,40 @@
 import React from 'react'
 
-import { shallow } from 'enzyme'
+import { fireEvent, render, screen } from '@testing-library/react'
 
-import Checkbox from 'components/atoms/Checkbox'
 import CheckboxCell from 'components/lease_ups/application_page/CheckboxCell'
 
 const mockOnClick = jest.fn()
 
 describe('CheckboxCell', () => {
   describe('when not checked', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = shallow(
-        <CheckboxCell applicationId='applicationId1' checked={false} onClick={mockOnClick} />
-      )
+      render(<CheckboxCell applicationId='applicationId1' checked={false} onClick={mockOnClick} />)
     })
 
     test('the input is set to unchecked', () => {
-      expect(wrapper.find(Checkbox).props().checked).toBeFalsy()
+      expect(screen.getByRole('checkbox')).not.toBeChecked()
     })
 
     test('onClick is trigged when the input changes', () => {
       expect(mockOnClick.mock.calls).toHaveLength(0)
-      wrapper.find(Checkbox).simulate('click')
+      fireEvent.click(screen.getByRole('checkbox'))
       expect(mockOnClick.mock.calls).toHaveLength(1)
     })
   })
 
   describe('when checked', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = shallow(
-        <CheckboxCell applicationId='applicationId1' checked={true} onClick={mockOnClick} />
-      )
+      render(<CheckboxCell applicationId='applicationId1' checked={true} onClick={mockOnClick} />)
     })
 
     test('the input is set to unchecked', () => {
-      expect(wrapper.find(Checkbox).props().checked).toBeTruthy()
+      expect(screen.getByRole('checkbox')).toBeChecked()
     })
 
     test('onClick is trigged when the input changes', () => {
       expect(mockOnClick.mock.calls).toHaveLength(0)
-      wrapper.find(Checkbox).simulate('click')
+      fireEvent.click(screen.getByRole('checkbox'))
       expect(mockOnClick.mock.calls).toHaveLength(1)
     })
   })

@@ -1,126 +1,155 @@
 import React from 'react'
 
-import { shallow } from 'enzyme'
+import { render, screen, within, fireEvent } from '@testing-library/react'
+import { Form } from 'react-final-form'
 
-import Button from 'components/atoms/Button'
 import LeaseUpApplicationsFilters from 'components/lease_ups/LeaseUpApplicationsFilters'
-import MultiSelectField from 'utils/form/final_form/MultiSelectField'
-
-import { findWithProps } from '../../testUtils/wrapperUtil'
 
 const mockOnFilterChange = jest.fn()
 const mockOnClearFilters = jest.fn()
+const mockOnSubmit = jest.fn()
 
-const getWrapper = ({ preferences = [], hasChangedFilters = false } = {}) =>
-  shallow(
-    <LeaseUpApplicationsFilters
-      preferences={preferences}
-      hasChangedFilters={hasChangedFilters}
-      onFilterChange={mockOnFilterChange}
-      onClearFilters={mockOnClearFilters}
-    />
+jest.mock('react-select', () => (props) => {
+  const handleChange = (event) => {
+    const option = props.options.find((option) => option.value === event.currentTarget.value)
+    props.onChange(option)
+  }
+  return (
+    <select
+      data-testid='select'
+      value={props.value}
+      onChange={handleChange}
+      multiple={props.isMulti}
+    >
+      {props.options.map(({ label, value }) => (
+        <option key={value} value={value}>
+          {label}
+        </option>
+      ))}
+    </select>
+  )
+})
+
+const getScreen = ({ preferences = [], hasChangedFilters = false } = {}) =>
+  render(
+    <Form onSubmit={mockOnSubmit}>
+      {() => (
+        <form>
+          <LeaseUpApplicationsFilters
+            preferences={preferences}
+            hasChangedFilters={hasChangedFilters}
+            onFilterChange={mockOnFilterChange}
+            onClearFilters={mockOnClearFilters}
+          />
+        </form>
+      )}
+    </Form>
   )
 
 describe('LeaseUpApplicationsFilters', () => {
   describe('with default props', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = getWrapper()
+      getScreen()
     })
 
     test('renders all filters in order', () => {
-      const fields = wrapper.find(MultiSelectField)
+      const fields = screen.getAllByTestId('multiSelectField')
       expect(fields).toHaveLength(4)
-      expect(fields.at(0).props().label).toEqual('Preferences')
-      expect(fields.at(1).props().label).toEqual('Household Members')
-      expect(fields.at(2).props().label).toEqual('Accessibility Requests')
-      expect(fields.at(3).props().label).toEqual('Application Status')
+      expect(within(fields[0]).getByText('Preferences')).toBeInTheDocument()
+      expect(within(fields[1]).getByText('Household Members')).toBeInTheDocument()
+      expect(within(fields[2]).getByText('Accessibility Requests')).toBeInTheDocument()
+      expect(within(fields[3]).getByText('Application Status')).toBeInTheDocument()
     })
 
     test('renders preferences with the correct options', () => {
-      const preferenceField = wrapper.find(MultiSelectField).at(0)
-      expect(preferenceField.props().options).toHaveLength(1)
+      const preferenceField = screen.getAllByTestId('multiSelectField')[0]
+      expect(within(preferenceField).getAllByRole('option')).toHaveLength(1)
     })
 
     test('renders the button with tertiary-inverse style', () => {
-      const buttonWrapper = findWithProps(wrapper, Button, { text: 'Apply filters' })
-      expect(buttonWrapper.props().classes).toContain('tertiary-inverse')
-      expect(buttonWrapper.props().classes).not.toContain('primary')
+      const applyButton = screen.getByRole('button', {
+        name: /apply filters/i
+      })
+      expect(applyButton).toHaveClass('tertiary-inverse')
+      expect(applyButton).not.toHaveClass('primary')
     })
   })
 
   describe('with additional preferences', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = getWrapper({ preferences: ['test', 'test2'] })
+      getScreen({ preferences: ['test', 'test2'] })
     })
 
     test('renders preferences with the correct options', () => {
-      const preferenceField = wrapper.find(MultiSelectField).at(0)
-      expect(preferenceField.props().options).toHaveLength(3)
+      const preferenceField = screen.getAllByTestId('multiSelectField')[0]
+      expect(within(preferenceField).getAllByRole('option')).toHaveLength(3)
     })
   })
 
   describe('when hasChangedFilters = true', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = getWrapper({ hasChangedFilters: true })
+      getScreen({ hasChangedFilters: true })
     })
 
     test('renders the button with primary style', () => {
-      const buttonWrapper = findWithProps(wrapper, Button, { text: 'Apply filters' })
-      expect(buttonWrapper.props().classes).not.toContain('tertiary-inverse')
-      expect(buttonWrapper.props().classes).toContain('primary')
+      const applyButton = screen.getByRole('button', {
+        name: /apply filters/i
+      })
+      expect(applyButton).not.toHaveClass('tertiary-inverse')
+      expect(applyButton).toHaveClass('primary')
     })
   })
 
   describe('onChangeFilters', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = getWrapper()
+      getScreen()
     })
 
     test('should call onFilterChanged when preference filter changes', () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(0)
-      const fieldWrapper = findWithProps(wrapper, MultiSelectField, { label: 'Preferences' })
-      fieldWrapper.props().onChange()
+      const preferenceField = screen.getAllByTestId('multiSelectField')[0]
+      fireEvent.change(within(preferenceField).getByTestId('select'), {
+        target: { value: 'general' }
+      })
       expect(mockOnFilterChange.mock.calls).toHaveLength(1)
     })
 
     test('should call onFilterChanged when Household Members filter changes', () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(0)
-      const fieldWrapper = findWithProps(wrapper, MultiSelectField, { label: 'Household Members' })
-      fieldWrapper.props().onChange()
+      const preferenceField = screen.getAllByTestId('multiSelectField')[1]
+      fireEvent.change(within(preferenceField).getByTestId('select'), {
+        target: { value: 1 }
+      })
       expect(mockOnFilterChange.mock.calls).toHaveLength(1)
     })
 
     test('should call onFilterChanged when Accessibility Requests changes', () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(0)
-      const fieldWrapper = findWithProps(wrapper, MultiSelectField, {
-        label: 'Accessibility Requests'
+      const preferenceField = screen.getAllByTestId('multiSelectField')[2]
+      fireEvent.change(within(preferenceField).getByTestId('select'), {
+        target: { value: 'Mobility impairments' }
       })
-      fieldWrapper.props().onChange()
       expect(mockOnFilterChange.mock.calls).toHaveLength(1)
     })
 
     test('should call onFilterChanged when Application Status filter changes', () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(0)
-      const fieldWrapper = findWithProps(wrapper, MultiSelectField, { label: 'Application Status' })
-      fieldWrapper.props().onChange()
+      const preferenceField = screen.getAllByTestId('multiSelectField')[3]
+      fireEvent.change(within(preferenceField).getByTestId('select'), {
+        target: { value: 'Waitlisted' }
+      })
       expect(mockOnFilterChange.mock.calls).toHaveLength(1)
     })
   })
 
   describe('onClearFilters', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = getWrapper()
+      getScreen()
     })
 
     test('should call onFilterChanged when preference filter changes', () => {
       expect(mockOnClearFilters.mock.calls).toHaveLength(0)
-      const clearAllButtonWrapper = findWithProps(wrapper, Button, { text: 'Clear all' })
-      clearAllButtonWrapper.props().onClick()
+      fireEvent.click(screen.getByRole('button', { name: 'Clear all' }))
       expect(mockOnClearFilters.mock.calls).toHaveLength(1)
     })
   })

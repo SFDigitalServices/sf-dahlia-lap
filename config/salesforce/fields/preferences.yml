@@ -5,6 +5,7 @@ preferences:
     Preference_Name__c:
     Person_who_claimed_Name__c:
     Type_of_proof__c:
+    Veteran_Type_of_Proof__c:
     Opt_Out__c:
     Lottery_Status__c:
       label: "Pre-lottery Validation"
@@ -54,3 +55,4 @@ preferences:
     Application__r.Processing_Date_Updated__c:
       label: "Status Updated"
     Listing_Preference_ID__r.Record_Type_For_App_Preferences__c:
+    Custom_Preference_Type__c:

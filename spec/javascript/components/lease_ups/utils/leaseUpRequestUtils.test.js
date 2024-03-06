@@ -28,7 +28,9 @@ jest.mock('apiService', () => {
           has_ada_priorities_selected: null,
           processing_status: 'Disqualified',
           demographics: {},
-          status_last_updated: '2020-05-28T21:23:06.000+0000'
+          status_last_updated: '2020-05-28T21:23:06.000+0000',
+          total_household_size: 1,
+          sub_status: 'Approval letter sent'
         },
         preference_order: 3,
         receives_preference: true,
@@ -36,7 +38,8 @@ jest.mock('apiService', () => {
         post_lottery_validation: 'Confirmed',
         preference_lottery_rank: 1,
         preference_name: 'Live or Work in San Francisco Preference',
-        record_type_for_app_preferences: 'L_W'
+        record_type_for_app_preferences: 'L_W',
+        custom_preference_type: 'L_W'
       }
       return { pages: 10, records: [sampleRowResponse] }
     }
@@ -48,16 +51,16 @@ const fakeListingId = 'listing_id'
 describe('leaseUpActions', () => {
   describe('convertToCommaSeparatedList', () => {
     test('it returns a single word if provided', () => {
-      expect(convertToCommaSeparatedList('test')).toEqual('test')
+      expect(convertToCommaSeparatedList('test')).toBe('test')
     })
     test('it turns phrases separated with spaces into a comma separated string list', () => {
-      expect(convertToCommaSeparatedList('test1 test2 test3')).toEqual('test1,test2,test3')
+      expect(convertToCommaSeparatedList('test1 test2 test3')).toBe('test1,test2,test3')
     })
     test('it strips out excess spaces as expected', () => {
-      expect(convertToCommaSeparatedList('test ')).toEqual('test')
-      expect(convertToCommaSeparatedList(' test ')).toEqual('test')
-      expect(convertToCommaSeparatedList('test  ')).toEqual('test')
-      expect(convertToCommaSeparatedList('test  test2')).toEqual('test,test2')
+      expect(convertToCommaSeparatedList('test ')).toBe('test')
+      expect(convertToCommaSeparatedList(' test ')).toBe('test')
+      expect(convertToCommaSeparatedList('test  ')).toBe('test')
+      expect(convertToCommaSeparatedList('test  test2')).toBe('test,test2')
     })
     test("it returns as expected when there's a nullish input", () => {
       expect(convertToCommaSeparatedList('')).toBeFalsy()
@@ -66,12 +69,12 @@ describe('leaseUpActions', () => {
   })
   describe('sanitizeAndFormatSearch', () => {
     test('it removes double quotes from search strings', () => {
-      expect(sanitizeAndFormatSearch('"John"')).toEqual('John')
-      expect(sanitizeAndFormatSearch('"John Doe"')).toEqual('John,Doe')
+      expect(sanitizeAndFormatSearch('"John"')).toBe('John')
+      expect(sanitizeAndFormatSearch('"John Doe"')).toBe('John,Doe')
     })
     test('it removes single quotes from search strings', () => {
-      expect(sanitizeAndFormatSearch("'John'")).toEqual('John')
-      expect(sanitizeAndFormatSearch("'John Doe'")).toEqual('John,Doe')
+      expect(sanitizeAndFormatSearch("'John'")).toBe('John')
+      expect(sanitizeAndFormatSearch("'John Doe'")).toBe('John,Doe')
     })
   })
   describe('getApplications', () => {
@@ -99,7 +102,11 @@ describe('leaseUpActions', () => {
         preference_order: 3,
         preference_record_type: 'L_W',
         residence_address: '',
-        status_last_updated: '2020-05-28T21:23:06.000+0000'
+        status_last_updated: '2020-05-28T21:23:06.000+0000',
+        total_household_size: 1,
+        sub_status: 'Approval letter sent',
+        custom_preference_type: 'L_W',
+        layered_validation: 'Confirmed'
       }
 
       const expectedResults = { records: [expectedRowData], pages: 10 }

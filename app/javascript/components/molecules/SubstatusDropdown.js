@@ -37,7 +37,7 @@ const SubstatusDropdown = ({
     'substatus',
     'has-icon--right',
     'text-align-left',
-    { expand: expand },
+    { expand },
     { error: hasError }
   ]
   const renderStatusToggle = ({ children, getValue, ...props }) => {

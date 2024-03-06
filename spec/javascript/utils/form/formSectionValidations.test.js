@@ -102,8 +102,8 @@ describe('areAllRentalAssistancesValid', () => {
 describe('areLeaseAndRentalAssistancesValid', () => {
   const getResult = (assistanceErrors, leaseErrors) => {
     const form = mockFormErrors({
-      assistanceErrors: assistanceErrors,
-      leaseErrors: leaseErrors
+      assistanceErrors,
+      leaseErrors
     })
 
     return areLeaseAndRentalAssistancesValid(form)

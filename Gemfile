@@ -7,11 +7,11 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.7.3'
+gem 'rails', '~> 7.0.0'
 # Set a minimum version for Rack to avoid security vulnerability in Rack <2.2.3
 gem 'rack', '>= 2.2.3'
 # Use Puma as the app server
-gem 'puma', '~> 6.2.1'
+gem 'puma', '~> 6.4.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -19,8 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+# As of Rails 7.0, sprocket-rails is no longer a dependency of rails itself
+gem "sprockets-rails"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
@@ -55,7 +55,7 @@ group :development, :test do
   # Workaround for cc-test-reporter with SimpleCov 0.18.
   # Stop upgrading SimpleCov until the following issue will be resolved.
   # https://github.com/codeclimate/test-reporter/issues/418
-  gem 'simplecov', '~> 0.10', '< 0.18', require: false
+  gem 'simplecov', '~> 0.22.0', require: false
   gem 'ruby-debug-ide'
   gem "debase", "0.2.5.beta2"
   # gem "debug", ">= 1.0.0"
@@ -66,8 +66,8 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring', '~> 4.0.0'
+  gem 'spring-watcher-listen', '~> 2.1.0'
   gem 'overcommit'
   gem 'rails_best_practices'
   gem 'rails_layout'
@@ -82,31 +82,23 @@ gem "sentry-raven"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# Added at 2017-10-22 23:46:25 -0700 by dkaplan:
 gem "devise", "~> 4.9.0"
 
-# Added at 2017-10-22 23:48:56 -0700 by dkaplan:
 gem "omniauth-salesforce", "~> 1.0.5"
 gem "omniauth-rails_csrf_protection"
 
-# Added at 2017-10-24 00:03:53 -0700 by dkaplan:
 gem "restforce", "~> 6.2.2"
 # handy ruby extensions
 gem 'facets', require: false
 
-# Added at 2017-10-24 08:23:22 -0700 by dkaplan:
 gem "slim-rails", "~> 3.1"
 
-# Added at 2017-10-25 00:30:33 -0700 by dkaplan:
 gem "hashie"
 
-# Added at 2017-10-29 23:29:10 -0700 by dkaplan:
-gem "webpacker", "~> 5.4.4"
+gem "shakapacker", "7.2.1"
 
-# Added at 2017-10-29 23:57:32 -0700 by dkaplan:
-gem "webpacker-react", "~> 0.3.2"
+gem "react_on_rails", "13.4.0"
 
-# Added at 2017-11-10 09:14:41 -0800 by dkaplan:
 gem "pg", "~> 1.4.6"
 
 gem 'scout_apm'

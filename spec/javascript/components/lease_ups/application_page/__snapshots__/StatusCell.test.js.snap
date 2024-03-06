@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusCell renders with the correct styling 1`] = `
+<DocumentFragment>
+  <div
+    style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+  >
+    <div
+      class="dropdown css-b62m3t-container"
+    >
+      <span
+        class="css-1f43avz-a11yText-A11yText"
+        id="react-select-3-live-region"
+      />
+      <span
+        aria-atomic="false"
+        aria-live="polite"
+        aria-relevant="additions text"
+        class="css-1f43avz-a11yText-A11yText"
+        role="log"
+      />
+      <div
+        class="status-dropdown__control css-uuqjpg-Control"
+      >
+        <button
+          class="button dropdown-button is-waitlisted tight-padding tiny margin-bottom-none"
+          style="padding-top: 0px; padding-bottom: 0px;"
+          type="button"
+        >
+          <div
+            style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+          >
+            <span
+              style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+            >
+              Waitlisted
+            </span>
+            <div
+              style="width: 0px; height: 0px;"
+            >
+              <div
+                class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+              >
+                <input
+                  aria-activedescendant=""
+                  aria-autocomplete="list"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-readonly="true"
+                  class="css-mohuvp-dummyInput-DummyInput"
+                  id="react-select-3-input"
+                  inputmode="none"
+                  role="combobox"
+                  tabindex="0"
+                  value=""
+                />
+              </div>
+            </div>
+            <span
+              style="flex-shrink: 0; font-size: 0px;"
+            >
+              <svg
+                style="width: .75rem; height: .75rem;"
+              >
+                <use
+                  xlink:href="#i-arrow-down"
+                />
+              </svg>
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
+    <button
+      class="margin-left button-icon-only"
+    >
+      <svg
+        style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+      >
+        <use
+          style="fill: #767676;"
+          xlink:href="#i-list-unordered"
+        />
+      </svg>
+    </button>
+  </div>
+</DocumentFragment>
+`;

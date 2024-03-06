@@ -20,18 +20,21 @@ export const buildRowData = (application) => {
   }
 
   // Override the key we display for certain cases
-  var prefKey
+  let prefKey
   if (application.preference_name?.includes('General')) {
     prefKey = 'General'
   } else if (application.preference_name?.includes('Right to Return')) {
     prefKey = 'RtR'
   } else {
-    prefKey = application.preference_record_type
+    // TODO: DAH-1904 - clean up references to unused prefrenece type field
+    prefKey = application.custom_preference_type
+      ? application.custom_preference_type
+      : application.preference_record_type
   }
 
   rowData.preference_rank = `${prefKey} ${application.preference_lottery_rank}`
-  var prefNum = parseFloat(application.preference_order)
-  var rankNum = parseFloat(application.preference_lottery_rank)
+  const prefNum = parseFloat(application.preference_order)
+  const rankNum = parseFloat(application.preference_lottery_rank)
   rowData.rankOrder = prefNum + rankNum * 0.0001
   return rowData
 }

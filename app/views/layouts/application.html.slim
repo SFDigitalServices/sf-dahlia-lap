@@ -25,8 +25,8 @@ html
     == javascript_include_tag 'application'
     / include all webpacked React components to be loaded via react_component helper
     / seems necessary to load in <head> if we want to use turbolinks at all
-    == javascript_pack_tag 'sentry'
-    == javascript_pack_tag 'react_application'
+    == javascript_pack_tag 'react_application', 'sentry'
+
     / include toolkit.css and other CSS overrides
     == stylesheet_link_tag "application", :media => 'all'
     == csrf_meta_tags

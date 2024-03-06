@@ -6,7 +6,7 @@ import { LEASE_UP_STATUS_VALUES } from '../../../utils/statusUtils'
 import StatusDropdown from '../StatusDropdown'
 
 const LeaseUpStatusButtons = ({ status, isLoading, onChangeStatus, onAddCommentClicked }) => (
-  <div className='status-history-buttons'>
+  <div className='status-history-buttons' data-testid='lease-up-status-buttons'>
     <StatusDropdown
       status={status}
       onChange={onChangeStatus}

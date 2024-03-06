@@ -1,53 +1,103 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RentBurdenedPanel should render successfully 1`] = `
-<Component
-  expand={false}
->
-  <FormItem
-    label="Preference Name"
-  >
+<DocumentFragment>
+  <form>
     <div
-      className="text-value"
+      class="form-grid row margin-left-none margin-right-none"
     >
-      Rent Burdened Housing Preference
+      <div
+        class="form-grid_item column small-6"
+      >
+        <div
+          class="form-group"
+        >
+          <label
+            for=""
+          >
+            Preference Name
+          </label>
+          <div
+            class="text-value"
+          >
+            Rent Burdened Housing Preference
+          </div>
+        </div>
+      </div>
+      <div
+        class="form-grid_item column small-6"
+      >
+        <div
+          class="form-group"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              class="form-label"
+              for="form-total_monthly_rent"
+              id="label-total_monthly_rent"
+            >
+              Total Household Monthly Rent
+            </label>
+            <input
+              class=""
+              id="form-total_monthly_rent"
+              name="total_monthly_rent"
+              placeholder="Enter Amount"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="form-grid_item column small-6"
+      >
+        <div
+          class="form-group"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              class="form-label"
+              for="form-preferences.1.post_lottery_validation"
+              id="label-preferences-1.post_lottery_validation"
+            >
+              Status
+            </label>
+            <select
+              class="preference-status-select"
+              id="form-preferences.1.post_lottery_validation"
+              name="preferences.1.post_lottery_validation"
+            >
+              <option
+                disabled=""
+                value=""
+              >
+                Select One...
+              </option>
+              <option
+                value="Unconfirmed"
+              >
+                Unconfirmed
+              </option>
+              <option
+                value="Confirmed"
+              >
+                Confirmed
+              </option>
+              <option
+                value="Invalid"
+              >
+                Invalid
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
     </div>
-  </FormItem>
-  <FormItem>
-    <CurrencyField
-      fieldName="total_monthly_rent"
-      label="Total Household Monthly Rent"
-      type="number"
-      validation={[Function]}
-    />
-  </FormItem>
-  <FormItem>
-    <SelectField
-      className="preference-status-select"
-      fieldName="preferences.1.post_lottery_validation"
-      label="Status"
-      options={
-        [
-          {
-            "disabled": "disabled",
-            "label": "Select One...",
-            "value": "",
-          },
-          {
-            "label": "Unconfirmed",
-            "value": "Unconfirmed",
-          },
-          {
-            "label": "Confirmed",
-            "value": "Confirmed",
-          },
-          {
-            "label": "Invalid",
-            "value": "Invalid",
-          },
-        ]
-      }
-    />
-  </FormItem>
-</Component>
+  </form>
+</DocumentFragment>
 `;

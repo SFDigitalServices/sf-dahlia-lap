@@ -22,9 +22,9 @@ class ApplicationsTableContainer extends React.Component {
   loadPage = (page, filters) => {
     const { onFetchData } = this.props
     const fetcher = (p) => onFetchData(p, { filters })
-    this.setState({ loading: true, page: page })
+    this.setState({ loading: true, page })
     this.eagerPagination.getPage(page, fetcher).then(({ records, pages }) => {
-      this.setState({ applications: records, loading: false, pages: pages, atMaxPages: false })
+      this.setState({ applications: records, loading: false, pages, atMaxPages: false })
     })
   }
 

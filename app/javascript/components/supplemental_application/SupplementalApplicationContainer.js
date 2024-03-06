@@ -54,7 +54,7 @@ const ConfirmedPreferencesSection = ({
           Please allow the applicant 24 hours to provide appropriate preference proof if not
           previously supplied.
         </p>
-        <p>
+        <div>
           Their document must include:
           <ul className='bullet-list'>
             <li>Their name</li>
@@ -64,7 +64,7 @@ const ConfirmedPreferencesSection = ({
               days before they submitted their application)
             </li>
           </ul>
-        </p>
+        </div>
       </>
     }
   >
@@ -203,7 +203,7 @@ const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values,
           message='Please resolve any errors before saving the application.'
         />
       )}
-      <form onSubmit={handleSubmit} style={{ margin: '0px' }} id='shortForm' noValidate>
+      <form onSubmit={handleSubmit} style={{ margin: '0px' }} id='shortForm' noValidate role='form'>
         <AsymColumnLayout.Container>
           <AsymColumnLayout.MainContent>
             <ConfirmedPreferencesSection

@@ -13,24 +13,33 @@ const ExpandableTableRow = ({
   renderRow,
   renderExpanderButton,
   original,
-  expanded
+  expanded,
+  customCellRenderer
 }) => {
-  const cells = row.map((datum, j) => (
-    <td className={datum.classes ? datum.classes.join(' ') : ''} key={j}>
-      {datum.formatType === 'currency' ? formUtils.formatPrice(datum.content) : datum.content}
-    </td>
-  ))
+  const cells = customCellRenderer
+    ? customCellRenderer(row)
+    : row.map((datum, j) => (
+        <td className={datum.classes ? datum.classes.join(' ') : ''} key={j}>
+          {datum.formatType === 'currency' ? formUtils.formatPrice(datum.content) : datum.content}
+        </td>
+      ))
 
   const rowId = rowKeyIndex ? kebabCase(row[rowKeyIndex].content) : null
 
   return (
     <>
-      <tr className='tr-expand' aria-expanded={expanded} id={rowId ? `${rowId}-row` : null}>
+      <tr
+        className='tr-expand'
+        data-testid='expandable-table-row'
+        aria-expanded={expanded}
+        id={rowId ? `${rowId}-row` : null}
+      >
         {cells}
         <td key='expander'>{renderExpanderButton(idx, row, original, expanded)}</td>
       </tr>
       <tr
         className='tr-expand-content'
+        data-testid='expandable-table-row-button'
         aria-hidden={!expanded}
         id={rowId ? `${rowId}-panel` : null}
       >
@@ -54,7 +63,8 @@ const ExpandableTable = ({
   renderRow,
   originals,
   classes,
-  expandedRowIndices = new Set()
+  expandedRowIndices = new Set(),
+  customCellRenderer
 }) => (
   <table
     className={classNames('td-light td-plain th-plain', classes)}
@@ -82,6 +92,7 @@ const ExpandableTable = ({
           renderExpanderButton={renderExpanderButton}
           renderRow={renderRow}
           expanded={expandedRowIndices.has(i)}
+          customCellRenderer={customCellRenderer}
         />
       ))}
     </tbody>

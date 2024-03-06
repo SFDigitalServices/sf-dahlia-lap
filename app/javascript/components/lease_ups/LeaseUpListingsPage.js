@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
-import { withRouter } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
+import ErrorBoundary from 'components/atoms/ErrorBoundary'
 import { listingsPageMounted, listingRowClicked } from 'components/lease_ups/actions/actionCreators'
 import Loading from 'components/molecules/Loading'
 import appPaths from 'utils/appPaths'
@@ -11,9 +12,10 @@ import LeaseUpListingsTable from './LeaseUpListingsTable'
 import { getLeaseUpListings } from './utils/leaseUpRequestUtils'
 import TableLayout from '../layouts/TableLayout'
 
-const LeaseUpListingsPage = ({ history }) => {
+const LeaseUpListingsPage = () => {
   const [loading, setLoading] = useState(true)
   const [listings, setListings] = useState(true)
+  const navigate = useNavigate()
 
   const [, dispatch] = useAppContext()
 
@@ -35,18 +37,20 @@ const LeaseUpListingsPage = ({ history }) => {
   const onCellClick = ({ original: listing }) => {
     listingRowClicked(dispatch, listing)
 
-    history.push(appPaths.toLeaseUpApplications(listing.id))
+    navigate(appPaths.toLeaseUpApplications(listing.id))
   }
 
   return (
-    <TableLayout pageHeader={pageHeader}>
-      {loading ? (
-        <Loading isLoading />
-      ) : (
-        <LeaseUpListingsTable listings={listings} onCellClick={onCellClick} />
-      )}
-    </TableLayout>
+    <ErrorBoundary>
+      <TableLayout pageHeader={pageHeader}>
+        {loading ? (
+          <Loading isLoading />
+        ) : (
+          <LeaseUpListingsTable listings={listings} onCellClick={onCellClick} />
+        )}
+      </TableLayout>
+    </ErrorBoundary>
   )
 }
 
-export default withRouter(LeaseUpListingsPage)
+export default LeaseUpListingsPage

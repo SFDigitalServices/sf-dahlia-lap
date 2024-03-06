@@ -35,6 +35,10 @@ yarn-debug.log*
 /public/packs-test
 npm-debug.log
 
+# Ignore cypress error screenshots
+/cypress/screenshots/*
+/cypress/downloads/*
+
 # Using yarn rather than npm
 package-lock.json
 coverage
@@ -45,3 +49,6 @@ TAGS
 !.vscode-default/*
 .idea/*
 *.iml
+
+# asdf
+.tool-versions

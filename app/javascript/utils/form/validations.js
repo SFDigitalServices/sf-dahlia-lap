@@ -1,4 +1,4 @@
-import flatten, { unflatten } from 'flat'
+import { unflatten, flatten } from 'flat'
 import { compact, first, isEmpty, isNil, isString, mapValues, map, toInteger } from 'lodash'
 import moment from 'moment'
 
@@ -160,7 +160,7 @@ export const validateLeaseCurrency = (value) => {
 
 const convertValues = (values, convertValueFunc) => {
   const flattenedValues = flatten(values)
-  Object.keys(flattenedValues).map((key) => {
+  Object.keys(flattenedValues).forEach((key) => {
     flattenedValues[key] = convertValueFunc(flattenedValues[key])
   })
 

@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { shallow } from 'enzyme'
-import Select from 'react-select'
+import { render, screen, fireEvent } from '@testing-library/react'
+import selectEvent from 'react-select-event'
 
 import MultiSelect from 'components/molecules/MultiSelect'
 
@@ -22,66 +22,75 @@ const mockItems = [
 
 describe('MultiSelect', () => {
   describe('when items is null', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = shallow(<MultiSelect />)
+      render(
+        <form>
+          <MultiSelect />
+        </form>
+      )
     })
 
     test('should render no items or selectedItems', () => {
-      expect(wrapper.find(Select).props().value).toEqual([])
-      expect(wrapper.find(Select).props().options).toEqual([])
+      expect(screen.getByRole('combobox')).toHaveValue('')
+      fireEvent.click(screen.getByRole('combobox'))
     })
   })
 
   describe('with multiple items', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = shallow(<MultiSelect options={mockItems} />)
+      render(
+        <form role='form' data-testid='form'>
+          <MultiSelect options={mockItems} name='formTest' onChange={() => {}} />
+        </form>
+      )
     })
 
     test('renders no selected items', () => {
-      expect(wrapper.find(Select).props().value).toEqual([])
+      expect(screen.getByTestId('form')).toHaveFormValues({ formTest: '' })
     })
 
-    test('renders the items', () => {
-      expect(wrapper.find(Select).props().options).toEqual(mockItems)
+    test('renders the items', async () => {
+      await selectEvent.openMenu(screen.getByRole('combobox'))
+      expect(screen.getByText('Item1')).toBeInTheDocument()
+      expect(screen.getByText('Item2')).toBeInTheDocument()
+      expect(screen.getByText('Item3')).toBeInTheDocument()
     })
 
     test('is not disabled', () => {
-      expect(wrapper.find(Select).props().isDisabled).toBeFalsy()
+      expect(screen.getByTestId('form')).toHaveFormValues({ formTest: '' })
+      expect(screen.getByRole('combobox')).toBeEnabled()
     })
   })
 
   describe('when disabled', () => {
-    let wrapper
-    beforeEach(() => {
-      wrapper = shallow(<MultiSelect options={mockItems} disabled />)
-    })
-
     test('renders as disabled', () => {
-      expect(wrapper.find(Select).props().isDisabled).toBeTruthy()
+      const { asFragment } = render(<MultiSelect options={mockItems} disabled />)
+      // React-select applies an aria-disabled attribute to a parent div, making it hard to find
+      // The disabled attribute is captured by the snapshot
+      expect(asFragment()).toMatchSnapshot()
     })
   })
 
   describe('when one item is selected', () => {
-    let wrapper
     beforeEach(() => {
-      wrapper = shallow(<MultiSelect options={mockItems} value={[mockItems[0]]} disabled />)
+      render(
+        <form role='form' data-testid='form'>
+          <MultiSelect options={mockItems} value={[mockItems[0]]} disabled />
+        </form>
+      )
     })
 
     test('should pass that item to react-select', () => {
-      expect(wrapper.find(Select).props().value).toEqual([mockItems[0]])
+      expect(screen.getByText('Item1')).toBeInTheDocument()
+      expect(screen.queryByText('Item2')).not.toBeInTheDocument()
+      // expect(wrapper.find(Select).props().value).toEqual([mockItems[0]])
     })
   })
 
   describe('with default height', () => {
-    let wrapper
-    beforeEach(() => {
-      wrapper = shallow(<MultiSelect items={mockItems} />)
-    })
-
     test('sets height to 45px', () => {
-      expect(wrapper.find(Select).props().styles.control().minHeight).toEqual('45px')
+      const { asFragment } = render(<MultiSelect items={mockItems} />)
+      expect(asFragment()).toMatchSnapshot()
     })
   })
 })

@@ -2,6 +2,7 @@ import React from 'react'
 
 import { get, defaultTo } from 'lodash'
 
+import ErrorBoundary from 'components/atoms/ErrorBoundary'
 import mapProps from 'utils/mapProps'
 
 import IndexTable from '../../IndexTable'
@@ -55,9 +56,11 @@ const getTableFieldsForType = (type) => {
 const FlaggedApplicationsIndexPage = ({ title, flaggedRecords, type }) => {
   const tableFields = getTableFieldsForType(type)
   return (
-    <TableLayout pageHeader={{ title: title }}>
-      <FlaggedApplicationsIndexTable flaggedRecords={flaggedRecords} fields={tableFields} />
-    </TableLayout>
+    <ErrorBoundary>
+      <TableLayout pageHeader={{ title }}>
+        <FlaggedApplicationsIndexTable flaggedRecords={flaggedRecords} fields={tableFields} />
+      </TableLayout>
+    </ErrorBoundary>
   )
 }
 

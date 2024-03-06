@@ -20,7 +20,7 @@ const StatusItem = ({ statusItem }) => {
   const substatusLabel = getSubStatusLabel(status, substatus)
 
   return (
-    <div className='status-item'>
+    <div className='status-item' data-testid='status-item'>
       <div className='status-item-header'>
         <StatusPill status={status} />
       </div>

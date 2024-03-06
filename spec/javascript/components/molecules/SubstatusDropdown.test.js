@@ -1,45 +1,48 @@
 import React from 'react'
 
-import { mount, shallow } from 'enzyme'
-import Select from 'react-select'
+import { render, screen, within } from '@testing-library/react'
+import selectEvent from 'react-select-event'
 
-import Dropdown from 'components/molecules/Dropdown'
 import SubstatusDropdown, { renderSubstatusOption } from 'components/molecules/SubstatusDropdown'
 import { LEASE_UP_SUBSTATUS_OPTIONS } from 'utils/statusUtils'
 
 const ON_CHANGE = jest.fn()
 const APPEALED_SUBSTATUS = LEASE_UP_SUBSTATUS_OPTIONS.Appealed[0].value
 
-const getWrapper = (propOverrides = {}) =>
-  mount(<SubstatusDropdown onChange={ON_CHANGE} {...propOverrides} />)
+const getScreen = (propOverrides = {}) =>
+  render(<SubstatusDropdown onChange={ON_CHANGE} {...propOverrides} />)
 
 describe('SubstatusDropdown', () => {
-  let wrapper
   test('it renders a select', () => {
-    wrapper = getWrapper()
-    expect(wrapper.find(Select).exists()).toBeTruthy()
+    getScreen()
+    expect(screen.getByRole('combobox')).toBeInTheDocument()
   })
 
   test('it renders with default props correctly', () => {
-    wrapper = getWrapper()
+    getScreen()
 
-    const dropdownProps = wrapper.find(Dropdown).props()
-    expect(dropdownProps.items).toEqual([])
-    expect(dropdownProps.value).toBeNull()
-    expect(dropdownProps.placeholder).toEqual('Select one...')
-    expect(dropdownProps.disabled).toBeFalsy()
+    // Ensure that the placeholder is rendered
+    expect(screen.getByText('Select one...')).toBeInTheDocument()
+    // Open the dropdown, since there are no items "No Options" should be rendered
+    selectEvent.openMenu(screen.getByRole('combobox'))
+    expect(screen.getByText('No options')).toBeInTheDocument()
+    expect(screen.getByRole('combobox')).toHaveValue('')
+    expect(screen.getByRole('combobox')).toBeEnabled()
   })
 
   test('it passes the expected options to Dropdown when a status is provided', () => {
-    wrapper = getWrapper({ status: 'Appealed' })
+    getScreen({ status: 'Appealed' })
 
-    const dropdownProps = wrapper.find(Dropdown).props()
-    expect(dropdownProps.items).toEqual(LEASE_UP_SUBSTATUS_OPTIONS.Appealed)
+    selectEvent.openMenu(screen.getByRole('combobox'))
+    expect(screen.getAllByRole('listitem')).toHaveLength(LEASE_UP_SUBSTATUS_OPTIONS.Appealed.length)
+    expect(screen.getAllByRole('listitem').map((item) => item.textContent)).toEqual(
+      LEASE_UP_SUBSTATUS_OPTIONS.Appealed.map((option) => option.label)
+    )
   })
 
   describe('toggle', () => {
     test('renders as expected when value is null', () => {
-      wrapper = getWrapper()
+      getScreen()
       const expectedButtonClasses = [
         'button',
         'dropdown-button',
@@ -47,48 +50,46 @@ describe('SubstatusDropdown', () => {
         'has-icon--right',
         'text-align-left'
       ]
-      const toggleButton = wrapper.find(Select).find('.substatus-dropdown__control').find('button')
-      expect(toggleButton.text()).toEqual('Select one...')
-      expect(toggleButton.hasClass(expectedButtonClasses.join(' '))).toEqual(true)
-      expect(toggleButton.prop('disabled')).toEqual(false)
+      const toggleButton = screen.getByRole('button')
+      expect(within(toggleButton).getByText('Select one...')).toBeInTheDocument()
+      expect(toggleButton).toHaveClass(expectedButtonClasses.join(' '))
+      expect(toggleButton).toBeEnabled()
     })
 
     test('renders without any additional button styles when none are provided', () => {
-      wrapper = getWrapper()
-      const toggleButton = wrapper.find(Select).find('.substatus-dropdown__control').find('button')
-      expect(toggleButton.hasClass('expand')).toBe(false)
-      expect(toggleButton.hasClass('error')).toBe(false)
+      getScreen()
+      const button = screen.getByRole('button')
+      expect(button).not.toHaveClass('expand')
+      expect(button).not.toHaveClass('error')
     })
 
     test('renders additional styles when provided', () => {
-      wrapper = getWrapper({ expand: true, hasError: true })
-      const toggleButton = wrapper.find(Select).find('.substatus-dropdown__control').find('button')
-      expect(toggleButton.hasClass('expand')).toBe(true)
-      expect(toggleButton.hasClass('error')).toBe(true)
+      getScreen({ expand: true, hasError: true })
+      const button = screen.getByRole('button')
+      expect(button).toHaveClass('expand')
+      expect(button).toHaveClass('error')
     })
 
     test('renders value when provided', () => {
-      wrapper = getWrapper({ status: 'Appealed', subStatus: APPEALED_SUBSTATUS })
-      const toggleButton = wrapper.find(Select).find('.substatus-dropdown__control').find('button')
-      expect(toggleButton.text()).toEqual(APPEALED_SUBSTATUS)
+      getScreen({ status: 'Appealed', subStatus: APPEALED_SUBSTATUS })
+      const button = screen.getByRole('button')
+      expect(within(button).getByText(APPEALED_SUBSTATUS)).toBeInTheDocument()
     })
 
     test('renders as disabled when the dropdown is disabled', () => {
-      wrapper = getWrapper({ disabled: true })
-      const toggleButton = wrapper.find(Select).find('.substatus-dropdown__control').find('button')
-      expect(toggleButton.prop('disabled')).toEqual(true)
+      getScreen({ disabled: true })
+      expect(screen.getByRole('button')).toBeDisabled()
     })
 
     test('renders a placeholder when provided', () => {
-      wrapper = getWrapper({ placeholder: 'placeholder' })
-      const toggleButton = wrapper.find(Select).find('.substatus-dropdown__control').find('button')
-      expect(toggleButton.text()).toEqual('placeholder')
+      getScreen({ placeholder: 'placeholder' })
+      expect(within(screen.getByRole('button')).getByText('placeholder')).toBeInTheDocument()
     })
   })
 
   describe('renderSubstatusOption', () => {
     const getStatusOptionWrapper = (option, selectedValue) =>
-      shallow(renderSubstatusOption(option, { selectValue: [{ value: selectedValue }] }))
+      render(renderSubstatusOption(option, { selectValue: [{ value: selectedValue }] }))
     const testValue = 'testValue'
     const testLabel = 'testLabel'
     const sampleOption = {
@@ -97,20 +98,20 @@ describe('SubstatusDropdown', () => {
     }
 
     test("renders a value that's not selected as expected", () => {
-      wrapper = getStatusOptionWrapper(sampleOption, 'otherValue')
-      expect(wrapper.find('li').prop('aria-selected')).toEqual(false)
-      expect(wrapper.text()).toEqual(testLabel)
+      getStatusOptionWrapper(sampleOption, 'otherValue')
+      expect(screen.getByRole('listitem')).toHaveAttribute('aria-selected', 'false')
+      expect(screen.getByRole('listitem')).toHaveTextContent(testLabel)
     })
 
     test('renders a selected value as expected', () => {
-      wrapper = getStatusOptionWrapper(sampleOption, testValue)
-      expect(wrapper.find('li').prop('aria-selected')).toEqual(true)
-      expect(wrapper.text()).toEqual(testLabel)
+      getStatusOptionWrapper(sampleOption, testValue)
+      expect(screen.getByRole('listitem')).toHaveAttribute('aria-selected', 'true')
+      expect(screen.getByRole('listitem')).toHaveTextContent(testLabel)
     })
 
     test('renders as expected when value is null', () => {
-      wrapper = getStatusOptionWrapper({}, testValue)
-      expect(wrapper.text()).toEqual('')
+      getStatusOptionWrapper({}, testValue)
+      expect(screen.getByRole('listitem')).toHaveTextContent('')
     })
   })
 })

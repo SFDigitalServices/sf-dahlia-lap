@@ -67,7 +67,11 @@ export const HelpText = ({ describeId, note }) => (
 )
 
 export const FieldError = ({ meta }) =>
-  meta.error && meta.touched ? <span className='form-note error'>{meta.error}</span> : null
+  meta.error && meta.touched ? (
+    <span className='form-note error' data-testid='field-error'>
+      {meta.error}
+    </span>
+  ) : null
 
 export const InputField = ({
   fieldName,
@@ -189,7 +193,8 @@ export const SelectField = ({
   selectValue,
   format,
   isDirty = true,
-  helpText
+  helpText,
+  dataTestId
 }) => (
   <Field
     name={fieldName}
@@ -216,6 +221,7 @@ export const SelectField = ({
                 input.onChange(event)
                 onChange && onChange(event)
               }}
+              data-testid={dataTestId}
               id={id || `form-${fieldName}`}
               name={input.name}
               className={classNames(className, { error: meta.error && meta.touched })}

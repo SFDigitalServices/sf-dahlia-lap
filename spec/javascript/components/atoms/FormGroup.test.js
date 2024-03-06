@@ -1,16 +1,16 @@
 import React from 'react'
 
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 
 import FormGroup from 'components/atoms/FormGroup'
 
 describe('FormGroup', () => {
   test('it should render a form group with the correct children', () => {
-    const wrapper = shallow(
+    render(
       <FormGroup>
-        <div className='form-group-child' />
+        <div data-testid='form-group-child' />
       </FormGroup>
     )
-    expect(wrapper.find('.form-group-child').exists()).toBeTruthy()
+    expect(screen.getByTestId('form-group-child')).toBeInTheDocument()
   })
 })

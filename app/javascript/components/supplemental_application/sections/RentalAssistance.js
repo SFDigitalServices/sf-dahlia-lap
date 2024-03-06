@@ -155,7 +155,12 @@ export const RentalAssistanceForm = ({
   const modalId = isNew ? 'rental-assistance-new-form' : `rental-assistance-edit-form-${index}`
 
   return (
-    <InlineModal whiteBackground marginBottom={isNew} id={modalId}>
+    <InlineModal
+      whiteBackground
+      marginBottom={isNew}
+      id={modalId}
+      dataTestId={'rental-assistance-form'}
+    >
       <FormGrid.Row>
         <FormGrid.Item>
           <SelectField

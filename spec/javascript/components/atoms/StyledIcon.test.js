@@ -1,56 +1,38 @@
 import React from 'react'
 
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 
 import { COLORS } from 'components/atoms/colors'
 import StyledIcon from 'components/atoms/StyledIcon'
 
 describe('StyledIcon', () => {
   describe('with default props', () => {
-    let wrapper
-    beforeEach(() => {
-      wrapper = shallow(<StyledIcon icon='list-unordered' />)
-    })
-
-    test('should render the correct icon', () => {
-      expect(wrapper.find('use').props().xlinkHref).toEqual('#i-list-unordered')
-    })
-
-    test('should apply the default style', () => {
-      expect(wrapper.find('svg').props().style.width).toEqual('1.5rem')
+    test('should render the correct icon and apply the default style', () => {
+      const { asFragment } = render(<StyledIcon icon='list-unordered' />)
+      expect(asFragment()).toMatchSnapshot()
     })
   })
 
   describe('with size prop = small', () => {
-    let wrapper
-    beforeEach(() => {
-      wrapper = shallow(<StyledIcon size='small' icon='list-unordered' />)
-    })
-
     test('should apply the small style', () => {
-      expect(wrapper.find('svg').props().style.width).toEqual('.75rem')
+      const { asFragment } = render(<StyledIcon size='small' icon='list-unordered' />)
+      expect(asFragment()).toMatchSnapshot()
     })
   })
 
   describe('with custom size', () => {
-    let wrapper
-    beforeEach(() => {
-      wrapper = shallow(<StyledIcon customSizeRem='3rem' icon='list-unordered' />)
-    })
-
     test('should apply the custom size style', () => {
-      expect(wrapper.find('svg').props().style.width).toEqual('3rem')
+      const { asFragment } = render(<StyledIcon customSizeRem='3rem' icon='list-unordered' />)
+      expect(asFragment()).toMatchSnapshot()
     })
   })
 
   describe('with custom fill', () => {
-    let wrapper
-    beforeEach(() => {
-      wrapper = shallow(<StyledIcon customFill={COLORS.success} icon='list-unordered' />)
-    })
-
     test('should apply the custom fill style', () => {
-      expect(wrapper.find('svg').props().style.fill).toEqual(COLORS.success)
+      const { asFragment } = render(
+        <StyledIcon customFill={COLORS.success} icon='list-unordered' />
+      )
+      expect(asFragment()).toMatchSnapshot()
     })
   })
 })

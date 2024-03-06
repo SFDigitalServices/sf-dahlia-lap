@@ -1,18 +1,15 @@
 {
-    "javascript.validate.enable": true,
-    "jest.disabledWorkspaceFolders": [
-        "spec/javascript/e2e"
-    ],
-    "editor.codeActionsOnSave": {
-        // For ESLint
-        "source.fixAll.eslint": true,
-    },
-    "eslint.format.enable": true,
-    "eslint.lintTask.enable": true,
-    "eslint.packageManager": "yarn",
-    "jest.runAllTestsFirst": false,
-    "jest.rootPath": "./",
-    "autoimport.sourceRoot": "./app/javascript",
-    "autoimport.semicolon": false,
-    "autoimport.absolute": true,
+  "javascript.validate.enable": true,
+  "jest.disabledWorkspaceFolders": ["spec/javascript/e2e"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "eslint.packageManager": "yarn",
+  "jest.runAllTestsFirst": false,
+  "jest.rootPath": "./",
+  "autoimport.sourceRoot": "./app/javascript",
+  "autoimport.semicolon": false,
+  "autoimport.absolute": true
 }

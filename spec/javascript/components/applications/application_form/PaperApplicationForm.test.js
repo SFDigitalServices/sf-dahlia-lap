@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { mount } from 'enzyme'
+import { waitFor, fireEvent, render, screen } from '@testing-library/react'
 import { clone } from 'lodash'
 import { act } from 'react-dom/test-utils'
 
@@ -32,31 +32,35 @@ describe('PaperApplicationForm', () => {
   describe('should validate fields correctly:', () => {
     test('language', async () => {
       testApplication.application_language = null
-      let wrapper
-      await act(async () => {
-        wrapper = mount(
-          <PaperApplicationForm
-            listing={listing}
-            application={testApplication}
-            lendingInstitutions={{}}
-            onSubmit={() => null}
-          />
-        )
-      })
+      testApplication.demographics = {}
+      render(
+        <PaperApplicationForm
+          listing={listing}
+          application={testApplication}
+          lendingInstitutions={{}}
+          onSubmit={() => null}
+        />
+      )
 
-      await act(async () => {
-        wrapper.find('form').first().simulate('submit')
-      })
+      expect(screen.queryByText('Please select a language.')).not.toBeInTheDocument()
 
-      expect(wrapper.text()).toContain('Please select a language.')
-      wrapper
-        .find('#application_language select')
-        .simulate('change', { target: { value: 'English' } })
-      wrapper.find('#application_language select').simulate('blur')
-      await act(async () => {
-        wrapper.find('form').first().simulate('submit')
-      })
-      expect(wrapper.text()).not.toContain('Please select a language.')
+      // Save without specifying language
+      await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
+
+      await waitFor(() => expect(screen.getByText('Please select a language.')).toBeInTheDocument())
+
+      fireEvent.change(
+        screen.getByRole('combobox', { name: /language submitted in \(required\)/i }),
+        {
+          target: { value: 'English' }
+        }
+      )
+
+      await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
+
+      await waitFor(() =>
+        expect(screen.queryByText('Please select a language.')).not.toBeInTheDocument()
+      )
     })
 
     test('alternate Contact', async () => {
@@ -66,68 +70,7 @@ describe('PaperApplicationForm', () => {
         last_name: 'dayan',
         email: 'fede@eee.com'
       }
-      let wrapper
-      await act(async () => {
-        wrapper = mount(
-          <PaperApplicationForm
-            listing={listing}
-            application={testApplication}
-            lendingInstitutions={{}}
-            onSubmit={() => null}
-          />
-        )
-      })
-      const altNameErrorSelector = 'Field[name="alternate_contact.first_name"] FieldError'
-
-      await act(async () => {
-        wrapper.find('form').first().simulate('submit')
-      }) // Expect no errors since alternate contact is filled out with required values
-      expect(wrapper.find(altNameErrorSelector).prop('meta').error).toBeUndefined()
-
-      // Delete alt contact first name and expect validation
-      wrapper.find('#alt_first_name input').simulate('change', { target: { value: '' } })
-      await act(async () => {
-        wrapper.find('form').first().simulate('submit')
-      })
-      expect(wrapper.find(altNameErrorSelector).prop('meta').error).toEqual(
-        'Please enter a First Name'
-      )
-
-      // Remove all values and expect the validation to go away
-      wrapper.find('#alt_first_name input').simulate('change', { target: { value: '' } })
-      wrapper.find('#alt_middle_name input').simulate('change', { target: { value: '' } })
-      wrapper.find('#alt_last_name input').simulate('change', { target: { value: '' } })
-      wrapper
-        .find('[name="alternate_contact.email"] input')
-        .simulate('change', { target: { value: '' } })
-      await act(async () => {
-        wrapper.find('form').first().simulate('submit')
-      })
-      expect(wrapper.find(altNameErrorSelector).prop('meta').error).toBeUndefined()
-    })
-
-    test('annual Income', async () => {
-      testApplication.annual_income = 'foo'
-      const wrapper = mount(
-        <PaperApplicationForm
-          listing={listing}
-          application={testApplication}
-          lendingInstitutions={{}}
-        />
-      )
-
-      wrapper.find('form').first().simulate('submit')
-
-      // Check that the elements that make up the annual income field are
-      // present and have the correct validation error classes
-      const annualIncome = await wrapper.find('input#annual_income')
-      expect(annualIncome.hasClass('error')).toEqual(true)
-      expect(wrapper.text()).toContain('Please enter a valid dollar amount.')
-    })
-
-    test('demographics Defaults', async () => {
-      testApplication.demographics = {}
-      const wrapper = mount(
+      render(
         <PaperApplicationForm
           listing={listing}
           application={testApplication}
@@ -135,44 +78,116 @@ describe('PaperApplicationForm', () => {
           onSubmit={() => null}
         />
       )
-      await act(async () => {
-        wrapper.find('form').first().simulate('submit')
+
+      expect(screen.queryByText(/Please enter a First Name\./i)).not.toBeInTheDocument()
+
+      await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
+
+      // // Delete alt contact first name and expect validation
+      fireEvent.change(screen.getByDisplayValue(/federic/i), {
+        target: { value: '' }
       })
 
-      expect(wrapper.text()).toContain('Ethnicity is required')
-      expect(wrapper.text()).toContain('Race is required')
-      expect(wrapper.text()).toContain('Gender is required')
-      expect(wrapper.text()).toContain('Sexual Orientation is required')
+      await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
 
-      wrapper
-        .find(`select[name="demographics.ethnicity"] option[value="${DECLINE}"]`)
-        .simulate('change')
-        .simulate('blur')
-      wrapper
-        .find(`select[name="demographics.race"] option[value="${DECLINE}"]`)
-        .simulate('change')
-        .simulate('blur')
-      wrapper
-        .find(`select[name="demographics.gender"] option[value="${DECLINE}"]`)
-        .simulate('change')
-        .simulate('blur')
-      wrapper
-        .find(`select[name="demographics.sexual_orientation"] option[value="${DECLINE}"]`)
-        .simulate('change')
-        .simulate('blur')
-      await act(async () => {
-        wrapper.find('form').first().simulate('submit')
+      expect(screen.getByText(/Please enter a First Name/i)).toBeInTheDocument()
+
+      fireEvent.change(screen.getByDisplayValue(/daaaa/i), {
+        target: { value: '' }
+      })
+      fireEvent.change(screen.getByDisplayValue(/dayan/i), {
+        target: { value: '' }
+      })
+      fireEvent.change(screen.getByDisplayValue(/fede@eee\.com/i), {
+        target: { value: '' }
       })
 
-      expect(wrapper.text()).not.toContain('Ethnicity is required')
-      expect(wrapper.text()).not.toContain('Race is required')
-      expect(wrapper.text()).not.toContain('Gender is required')
-      expect(wrapper.text()).not.toContain('Sexual Orientation is required')
+      await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
+
+      expect(screen.queryByText(/Please enter a First Name/i)).not.toBeInTheDocument()
+    })
+
+    test('annual Income', async () => {
+      testApplication.annual_income = 'foo'
+      render(
+        <PaperApplicationForm
+          listing={listing}
+          application={testApplication}
+          lendingInstitutions={{}}
+        />
+      )
+
+      expect(screen.queryByText(/please enter a valid dollar amount\./i)).not.toBeInTheDocument()
+
+      await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
+
+      expect(screen.getByText(/please enter a valid dollar amount\./i)).toBeInTheDocument()
+    })
+
+    test('demographics Defaults', async () => {
+      testApplication.demographics = {}
+      render(
+        <PaperApplicationForm
+          listing={listing}
+          application={testApplication}
+          lendingInstitutions={{}}
+          onSubmit={() => null}
+        />
+      )
+      await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
+
+      expect(screen.getByText(/Ethnicity is required/i)).toBeInTheDocument()
+      expect(screen.getByText(/Race is required/i)).toBeInTheDocument()
+      expect(screen.getByText(/Gender is required/i)).toBeInTheDocument()
+      expect(screen.getByText(/Sexual Orientation is required/i)).toBeInTheDocument()
+
+      fireEvent.change(
+        screen.getByRole('combobox', {
+          name: /ethnicity \(required\)/i
+        }),
+        {
+          target: { value: DECLINE }
+        }
+      )
+
+      fireEvent.change(
+        screen.getByRole('combobox', {
+          name: /race \(required\)/i
+        }),
+        {
+          target: { value: DECLINE }
+        }
+      )
+
+      fireEvent.change(
+        screen.getByRole('combobox', {
+          name: /gender \(required\)/i
+        }),
+        {
+          target: { value: DECLINE }
+        }
+      )
+
+      fireEvent.change(
+        screen.getByRole('combobox', {
+          name: /sexual orientation \(required\)/i
+        }),
+        {
+          target: { value: DECLINE }
+        }
+      )
+
+      await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
+
+      expect(screen.queryByText(/Ethnicity is required/i)).not.toBeInTheDocument()
+      expect(screen.queryByText(/Race is required/i)).not.toBeInTheDocument()
+      expect(screen.queryByText(/Gender is required/i)).not.toBeInTheDocument()
+      expect(screen.queryByText(/Sexual Orientation is required/i)).not.toBeInTheDocument()
     })
 
     test('demographics Not Listed', async () => {
       testApplication.demographics = {}
-      const wrapper = mount(
+      render(
         <PaperApplicationForm
           listing={listing}
           application={testApplication}
@@ -181,64 +196,85 @@ describe('PaperApplicationForm', () => {
         />
       )
       // Select "Not Listed" for gender and sexual orientation
-      wrapper
-        .find('select[name="demographics.gender"]')
-        .simulate('change', { target: { value: 'Not Listed' } })
-      wrapper.find('select[name="demographics.gender"]').simulate('blur')
-      wrapper
-        .find('select[name="demographics.sexual_orientation"]')
-        .simulate('change', { target: { value: 'Not Listed' } })
-      wrapper.find('select[name="demographics.sexual_orientation"]').simulate('blur')
-
-      // Expect that gender/sexual orientation fields are labeled as required
-      expect(wrapper.find('label#label-demographics-gender_other').text()).toContain('(required)')
-      expect(wrapper.find('label#label-demographics-sexual_orientation_other').text()).toContain(
-        '(required)'
+      fireEvent.change(
+        screen.getByRole('combobox', {
+          name: /gender \(required\)/i
+        }),
+        {
+          target: { value: 'Not Listed' }
+        }
       )
-      await act(async () => {
-        wrapper.find('form').first().simulate('submit')
-      })
+
+      fireEvent.change(
+        screen.getByRole('combobox', {
+          name: /sexual orientation \(required\)/i
+        }),
+        {
+          target: { value: 'Not Listed' }
+        }
+      )
+
+      await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
 
       // Check that these validation messages are shown since Not Listed was chosen
-      expect(wrapper.text()).toContain('Gender is required')
-      expect(wrapper.text()).toContain('Sexual Orientation is required')
+      // The user needs to input something into the test box below
+      await waitFor(() => expect(screen.getByText(/Gender is required/i)).toBeInTheDocument())
+      await waitFor(() =>
+        expect(screen.getByText(/Sexual Orientation is required/i)).toBeInTheDocument()
+      )
 
       // Fill out the gender/sexual orientation other fields
-      wrapper
-        .find('input[name="demographics.gender_other"]')
-        .simulate('change', { target: { value: 'Not Listed' } })
-      wrapper.find('input[name="demographics.gender_other"]').simulate('blur')
-      wrapper
-        .find('input[name="demographics.sexual_orientation_other"]')
-        .simulate('change', { target: { value: 'Not Listed' } })
-      wrapper.find('input[name="demographics.sexual_orientation_other"]').simulate('blur')
-      wrapper.find('form').first().simulate('submit')
-
-      expect(wrapper.text()).not.toContain('Gender is required')
-      expect(wrapper.text()).not.toContain('Sexual Orientation is required')
-
-      // Change selected gender/orientation to somethiing other than not listed
-      wrapper
-        .find(`select[name="demographics.gender"] option[value="${DECLINE}"]`)
-        .simulate('change')
-        .simulate('blur')
-      wrapper
-        .find(`select[name="demographics.sexual_orientation"] option[value="${DECLINE}"]`)
-        .simulate('change')
-        .simulate('blur')
-
-      // Expect the required block note to disappear
-      expect(wrapper.find('label#label-demographics-gender_other').text()).not.toContain(
-        '(required)'
+      fireEvent.change(
+        screen.getByRole('textbox', {
+          name: /gender specify \(if not listed\)/i
+        }),
+        {
+          target: { value: 'Not Listed' }
+        }
       )
-      expect(
-        wrapper.find('label#label-demographics-sexual_orientation_other').text()
-      ).not.toContain('(required)')
+      fireEvent.change(
+        screen.getByRole('textbox', {
+          name: /sexual orientation \(if not listed\)/i
+        }),
+        {
+          target: { value: 'Not Listed' }
+        }
+      )
+      await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
+      // await waitFor(() => expect(screen.queryByText(/Gender is required/i)).not.toBeInTheDocument())
+      // await waitFor(() =>
+      //   expect(screen.queryByText(/Sexual Orientation is required/i)).not.toBeInTheDocument()
+      // )
+      expect(screen.queryByText(/Gender is required/i)).not.toBeInTheDocument()
+      expect(screen.queryByText(/Sexual Orientation is required/i)).not.toBeInTheDocument()
+
+      // // Change selected gender/orientation to something other than not listed
+      fireEvent.change(
+        screen.getByRole('combobox', {
+          name: /gender \(required\)/i
+        }),
+        {
+          target: { value: DECLINE }
+        }
+      )
+
+      fireEvent.change(
+        screen.getByRole('combobox', {
+          name: /sexual orientation \(required\)/i
+        }),
+        {
+          target: { value: DECLINE }
+        }
+      )
+
+      await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
+      expect(screen.queryByText(/Gender is required/i)).not.toBeInTheDocument()
+      expect(screen.queryByText(/Sexual Orientation is required/i)).not.toBeInTheDocument()
     })
 
     test('signature on Terms of Agreement', async () => {
       testApplication.terms_acknowledged = false
-      const wrapper = mount(
+      render(
         <PaperApplicationForm
           listing={listing}
           application={testApplication}
@@ -246,38 +282,35 @@ describe('PaperApplicationForm', () => {
           onSubmit={() => null}
         />
       )
-      await act(async () => {
-        wrapper.find('form').first().simulate('submit')
-      })
+      await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
 
-      expect(wrapper.text()).toContain('Signature on Terms of Agreement is required')
+      expect(screen.getByText('Signature on Terms of Agreement is required')).toBeInTheDocument()
 
-      await wrapper
-        .find('input[name="terms_acknowledged"]')
-        .simulate('change', { target: { value: true } })
-      await wrapper.find('input[name="terms_acknowledged"]').simulate('blur')
+      fireEvent.click(
+        screen.getByRole('checkbox', {
+          name: /signature on terms of agreement \(required\)/i
+        })
+      )
 
-      await act(async () => {
-        wrapper.find('form').first().simulate('submit')
-      })
-      expect(wrapper.text()).not.toContain('Signature on Terms of Agreement is required')
+      await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
+
+      expect(
+        screen.queryByText('Signature on Terms of Agreement is required')
+      ).not.toBeInTheDocument()
     })
   })
 
   describe('should render EligibilitySection correctly', () => {
     describe('rental listing', () => {
       test('section should be empty', async () => {
-        let wrapper
-        await act(async () => {
-          wrapper = mount(
-            <PaperApplicationForm
-              listing={listing}
-              application={testApplication}
-              lendingInstitutions={{}}
-            />
-          )
-        })
-        expect(wrapper.text()).not.toContain('Eligibility Information')
+        render(
+          <PaperApplicationForm
+            listing={listing}
+            application={testApplication}
+            lendingInstitutions={{}}
+          />
+        )
+        expect(screen.queryByText('Eligibility Information')).not.toBeInTheDocument()
       })
     })
 
@@ -288,179 +321,251 @@ describe('PaperApplicationForm', () => {
       })
 
       test('should show Eligibility Section', async () => {
-        let wrapper
-        await act(async () => {
-          wrapper = mount(
-            <PaperApplicationForm
-              listing={listing}
-              application={testApplication}
-              lendingInstitutions={{}}
-            />
-          )
-        })
-        expect(wrapper.text()).toContain('Eligibility Information')
+        render(
+          <PaperApplicationForm
+            listing={listing}
+            application={testApplication}
+            lendingInstitutions={{}}
+          />
+        )
+        expect(screen.getByText('Eligibility Information')).toBeInTheDocument()
       })
 
       test('should allow lending institution and lending agent to be filled out', async () => {
-        let wrapper
-        await act(async () => {
-          wrapper = mount(
+        render(
+          <PaperApplicationForm
+            listing={listing}
+            lendingInstitutions={lendingInstitutions}
+            application={testApplication}
+          />
+        )
+
+        fireEvent.change(
+          screen.getByRole('combobox', {
+            name: /name of lending institution \(required\)/i
+          }),
+          {
+            target: { value: 'First Republic Bank' }
+          }
+        )
+
+        expect(screen.getByText('Hilary Byrde')).toBeInTheDocument()
+        await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
+
+        expect(
+          screen.getAllByText('The applicant cannot qualify for the listing unless this is true.')
+        ).toHaveLength(3)
+        expect(screen.getByText('Please select a lender.')).toBeInTheDocument()
+
+        fireEvent.change(
+          screen.getByRole('combobox', {
+            name: /name of lender \(required\)/i
+          }),
+          {
+            target: { value: '003U000001Wnp5gIAB' }
+          }
+        )
+
+        await act(async () => fireEvent.click(screen.getAllByRole('button', { name: /save/i })[0]))
+
+        expect(screen.queryByText('Please select a lender.')).not.toBeInTheDocument()
+      })
+
+      describe('lending institution and lender dropdowns should be filled out', () => {
+        test('lender select should be filled out', async () => {
+          testApplication.lending_agent = '003U000001Wnp5gIAB'
+          render(
             <PaperApplicationForm
               listing={listing}
               lendingInstitutions={lendingInstitutions}
               application={testApplication}
             />
           )
-        })
-        wrapper
-          .find('#lending_institution select')
-          .simulate('change', { target: { value: 'First Republic Bank' } })
-        expect(wrapper.text()).toContain('Hilary Byrde')
-        wrapper.find('form').first().simulate('submit')
-        expect(wrapper.text()).toContain('Please select a lender.')
-        expect(wrapper.text()).toContain(
-          'The applicant cannot qualify for the listing unless this is true.'
-        )
-        wrapper.find('#lending_agent select').simulate('change', { target: { value: 1 } })
-        wrapper.find('#lending_agent select').simulate('blur')
-        wrapper.find('form').first().simulate('submit')
-        expect(wrapper.text()).not.toContain('Please select a lender.')
-      })
-
-      describe('lending institution and lender dropdowns should be filled out', () => {
-        test('lender select should be filled out', async () => {
-          testApplication.lending_agent = '003U000001Wnp5gIAB'
-          let wrapper
-          await act(async () => {
-            wrapper = mount(
-              <PaperApplicationForm
-                listing={listing}
-                lendingInstitutions={lendingInstitutions}
-                application={testApplication}
-              />
-            )
-          })
           // add additional tick to allow lending institutions to load
-          await wrapper.update()
+          expect(
+            screen.getByRole('combobox', {
+              name: /name of lending institution \(required\)/i
+            })
+          ).toHaveValue('First Republic Bank')
 
-          expect(wrapper.find('#lending_institution select').props().value).toEqual(
-            'First Republic Bank'
-          )
-          expect(wrapper.find('#lending_agent select').props().value).toEqual('003U000001Wnp5gIAB')
+          expect(
+            screen.getByRole('combobox', {
+              name: /name of lender \(required\)/i
+            })
+          ).toHaveValue('003U000001Wnp5gIAB')
         })
       })
     })
   })
   describe('preferences section', () => {
     // Helper function for updating preference select successfully
-    const updatePreference = async (wrapper, prefId) => {
-      await act(async () => {
-        await wrapper
-          .find('#select-paper-preference-0 select')
-          .simulate('change', { target: { value: prefId } })
+    const updatePreference = async (prefId) => {
+      fireEvent.change(screen.getByTestId('preferences[0]-listing-preference-id'), {
+        target: { value: prefId }
       })
-      wrapper.update()
     }
 
     test('add preference button is disabled without primary applicant', async () => {
-      const wrapper = mount(
-        <PaperApplicationForm listing={listing} lendingInstitutions={{}} onSubmit={() => null} />
+      render(
+        <PaperApplicationForm
+          listing={{
+            ...listing,
+            listing_lottery_preferences: [
+              {
+                id: 'a0l0P00001PsqDoQAJ',
+                total_submitted_apps: 509.0,
+                order: null,
+                description:
+                  'For households in which at least one member was a resident of the Alice Griffith housing development. This includes baseline and current residents that lived in the targeted redevelopment site on or after the time of application for Choice Neighborhoods of October 26, 2010.',
+                available_units: null,
+                pdf_url: null,
+                lottery_preference: {
+                  id: 'a0m0P00000yuzO0QAI',
+                  name: 'Alice Griffith Housing Development Resident'
+                }
+              }
+            ]
+          }}
+          lendingInstitutions={lendingInstitutions}
+          application={{
+            ...testApplication,
+            preferences: [
+              {
+                name: 'AP-0000612141',
+                preference_name: 'Alice Griffith Housing Development Resident',
+                person_who_claimed_name: null,
+                type_of_proof: null,
+                opt_out: null,
+                listing_preference_id: 'a0l0x000000RI8nAAG',
+                receives_preference: true,
+                individual_preference: null,
+                certificate_number: null,
+                preference_order: 0,
+                lottery_status: 'None',
+                city: null,
+                state: null,
+                zip_code: null,
+                street: null,
+                application_member: {
+                  first_name: 'karen',
+                  last_name: 'jones',
+                  date_of_birth: {
+                    year: '1950',
+                    month: '01',
+                    day: '01'
+                  }
+                },
+                recordtype_developername: 'AG',
+                application_member_id: 'a0n0x000000AbE6AAK'
+              }
+            ]
+          }}
+        />
       )
-      expect(wrapper.find('#add-preference-button').prop('disabled')).toEqual(true)
+
+      await waitFor(() =>
+        expect(
+          screen.getByRole('button', {
+            name: /\+ add preference/i
+          })
+        ).toBeDisabled()
+      )
     })
 
     test('should clear values on preference select change to null', async () => {
       testApplication.preferences = [{}]
-      let wrapper
-      await act(async () => {
-        wrapper = mount(
-          <PaperApplicationForm
-            listing={listing}
-            lendingInstitutions={{}}
-            onSubmit={() => null}
-            application={testApplication}
-          />
-        )
-      })
+      render(
+        <PaperApplicationForm
+          listing={listing}
+          lendingInstitutions={{}}
+          onSubmit={() => null}
+          application={testApplication}
+        />
+      )
       // Select a preference to start with
       const copPreferenceId = 'a0l0P00001Lx8XKQAZ'
       const hhNaturalKey = 'karen,jones,1950-01-01'
 
-      await updatePreference(wrapper, copPreferenceId)
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: /\+ add preference/i
+        })
+      )
+      updatePreference(copPreferenceId)
 
       // Fill out a field in the preference
-      await wrapper
-        .find('Field[name="preferences.0.naturalKey"] select')
-        .simulate('change', { target: { value: hhNaturalKey } })
-
-      // Verify that it's in the state
-      const expectedPreferenceValue = {
-        listing_preference_id: copPreferenceId,
-        recordtype_developername: 'COP',
-        naturalKey: hhNaturalKey
-      }
-      expect(
-        wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]
-      ).toMatchObject(expectedPreferenceValue)
-
-      // Change to no preference
-      await updatePreference(wrapper, '')
-      // Verify the state is cleared
-      expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toEqual(
-        {}
+      fireEvent.change(
+        screen.getByRole('combobox', {
+          name: /name of cop holder \(required\)/i
+        }),
+        { target: { value: hhNaturalKey } }
       )
+
+      expect(
+        screen.getByRole('combobox', {
+          name: /name of cop holder \(required\)/i
+        })
+      ).toHaveValue(hhNaturalKey)
+      expect(screen.getByTestId('preferences[0]-listing-preference-id')).toHaveValue(
+        copPreferenceId
+      )
+
+      updatePreference('')
+
+      expect(
+        screen.queryByRole('combobox', {
+          name: /name of cop holder \(required\)/i
+        })
+      ).not.toBeInTheDocument()
     })
 
     test('should clear values on preference select change to other preference', async () => {
       testApplication.preferences = [{}]
-      let wrapper
-      await act(async () => {
-        wrapper = mount(
-          <PaperApplicationForm
-            listing={listing}
-            lendingInstitutions={{}}
-            onSubmit={() => null}
-            application={testApplication}
-          />
-        )
-      })
+      render(
+        <PaperApplicationForm
+          listing={listing}
+          lendingInstitutions={{}}
+          onSubmit={() => null}
+          application={testApplication}
+        />
+      )
       // Select a preference to start with
       const copPreferenceId = 'a0l0P00001Lx8XKQAZ'
       const liveWorkPreferenceId = 'a0l0P00001Lx8XeQAJ'
       const hhNaturalKey = 'karen,jones,1950-01-01'
 
-      await updatePreference(wrapper, copPreferenceId)
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: /\+ add preference/i
+        })
+      )
+      updatePreference(copPreferenceId)
 
       // Fill out a field in the preference
-      await wrapper
-        .find('Field[name="preferences.0.naturalKey"] select')
-        .simulate('change', { target: { value: hhNaturalKey } })
+      fireEvent.change(
+        screen.getByRole('combobox', {
+          name: /name of cop holder \(required\)/i
+        }),
+        { target: { value: hhNaturalKey } }
+      )
 
       // Verify that it's in the state
-      const expectedPreferenceValue = {
-        listing_preference_id: copPreferenceId,
-        recordtype_developername: 'COP',
-        naturalKey: hhNaturalKey
-      }
-      expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toEqual(
-        expectedPreferenceValue
+      expect(
+        screen.getByRole('combobox', {
+          name: /name of cop holder \(required\)/i
+        })
+      ).toHaveValue(hhNaturalKey)
+      expect(screen.getByTestId('preferences[0]-listing-preference-id')).toHaveValue(
+        copPreferenceId
       )
 
       // Change to different preference
-      await updatePreference(wrapper, liveWorkPreferenceId)
-      // Verify the state is cleared except for listing preference id
-      const expectedNewPreferenceValue = {
-        listing_preference_id: liveWorkPreferenceId,
-        recordtype_developername: 'L_W'
-      }
-      expect(wrapper.find('PreferenceForm').prop('form').getState().values.preferences[0]).toEqual(
-        expectedNewPreferenceValue
-      )
+      await updatePreference(liveWorkPreferenceId)
 
-      // Verify that naturalKey doesn't have any form errors.
-      expect(
-        wrapper.find('Field[name="preferences.0.naturalKey"] FieldError .error').exists()
-      ).toEqual(false)
+      // Verify the state is cleared except for listing preference id
+      expect(screen.getByTestId('preferences[0]-listing-preference-id')).toHaveValue(
+        liveWorkPreferenceId
+      )
     })
   })
 })

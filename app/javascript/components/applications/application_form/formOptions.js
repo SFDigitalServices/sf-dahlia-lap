@@ -154,6 +154,8 @@ const preferenceProofOptionsWorkInSf = labelize([
   'Letter from employer'
 ])
 
+const preferenceProofOptionsVeteran = labelize(['DD Form 214', 'DD Form 256'])
+
 const priorityOptions = ['Mobility impairments', 'Vision impairments', 'Hearing impairments']
 
 const listingReferralOptions = labelize([
@@ -198,6 +200,7 @@ export default {
   preferenceProofOptionsRentBurden,
   preferenceProofOptionsNrhp,
   preferenceProofOptionsWorkInSf,
+  preferenceProofOptionsVeteran,
   priorityOptions,
   listingReferralOptions,
   householdVouchersSubsidiesOptions,

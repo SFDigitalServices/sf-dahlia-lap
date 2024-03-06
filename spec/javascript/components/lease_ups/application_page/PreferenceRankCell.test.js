@@ -1,90 +1,88 @@
 import React from 'react'
 
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 
-import { COLORS } from 'components/atoms/colors'
-import StyledIcon from 'components/atoms/StyledIcon'
 import PreferenceRankCell, {
   VALIDATION_CONFIRMED,
   VALIDATION_INVALID,
   VALIDATION_UNCONFIRMED
 } from 'components/lease_ups/application_page/PreferenceRankCell'
 
-import { findWithProps } from '../../../testUtils/wrapperUtil'
-
 const MOCK_PREF_RANK = 'NRHP 2'
 
 describe('PreferenceRankCell', () => {
   describe('with Unconfirmed preference', () => {
-    let wrapper
+    let rtlWrapper
     beforeEach(() => {
-      wrapper = shallow(
-        <PreferenceRankCell preferenceRank='NRHP 2' preferenceValidation={VALIDATION_UNCONFIRMED} />
+      rtlWrapper = render(
+        <PreferenceRankCell
+          preferenceRank={MOCK_PREF_RANK}
+          preferenceValidation={VALIDATION_UNCONFIRMED}
+        />
       )
     })
 
     test('renders the preference rank', () => {
-      expect(wrapper.text().includes(MOCK_PREF_RANK)).toBeTruthy()
+      expect(screen.getByText(MOCK_PREF_RANK)).toBeInTheDocument()
     })
 
     test('does not render an icon', () => {
-      expect(wrapper.find(StyledIcon)).toHaveLength(0)
+      expect(screen.queryByTestId('preference-rank-x-icon')).not.toBeInTheDocument()
+      expect(screen.queryByTestId('preference-rank-check-icon')).not.toBeInTheDocument()
     })
 
     test('renders cell with flex-start justification', () => {
-      expect(wrapper.props().style.justifyContent).toEqual('flex-start')
+      expect(rtlWrapper.asFragment()).toMatchSnapshot()
     })
   })
 
   describe('with Confirmed preference', () => {
-    let wrapper
+    let rtlWrapper
     beforeEach(() => {
-      wrapper = shallow(
-        <PreferenceRankCell preferenceRank='NRHP 2' preferenceValidation={VALIDATION_CONFIRMED} />
+      rtlWrapper = render(
+        <PreferenceRankCell
+          preferenceRank={MOCK_PREF_RANK}
+          preferenceValidation={VALIDATION_CONFIRMED}
+        />
       )
     })
 
     test('renders the preference rank', () => {
-      expect(wrapper.text().includes(MOCK_PREF_RANK)).toBeTruthy()
+      expect(screen.getByText(MOCK_PREF_RANK)).toBeInTheDocument()
     })
 
     test('renders a check icon', () => {
-      expect(wrapper.find(StyledIcon)).toHaveLength(1)
-      expect(findWithProps(wrapper, StyledIcon, { icon: 'check' })).toHaveLength(1)
+      expect(screen.getByTestId('preference-rank-check-icon')).toBeInTheDocument()
+      expect(screen.queryByTestId('preference-rank-x-icon')).not.toBeInTheDocument()
     })
 
-    test('renders the check with a green color', () => {
-      expect(findWithProps(wrapper, StyledIcon, { customFill: COLORS.success })).toHaveLength(1)
-    })
-
-    test('renders cell with flex-start justification', () => {
-      expect(wrapper.props().style.justifyContent).toEqual('flex-start')
+    test('renders with the correct styling', () => {
+      expect(rtlWrapper.asFragment()).toMatchSnapshot()
     })
   })
 
   describe('with Invalid preference', () => {
-    let wrapper
+    let rtlWrapper
     beforeEach(() => {
-      wrapper = shallow(
-        <PreferenceRankCell preferenceRank='NRHP 2' preferenceValidation={VALIDATION_INVALID} />
+      rtlWrapper = render(
+        <PreferenceRankCell
+          preferenceRank={MOCK_PREF_RANK}
+          preferenceValidation={VALIDATION_INVALID}
+        />
       )
     })
 
     test('renders the preference rank', () => {
-      expect(wrapper.text().includes(MOCK_PREF_RANK)).toBeTruthy()
+      expect(screen.getByText(MOCK_PREF_RANK)).toBeInTheDocument()
     })
 
     test('renders a check icon', () => {
-      expect(wrapper.find(StyledIcon)).toHaveLength(1)
-      expect(findWithProps(wrapper, StyledIcon, { icon: 'close' })).toHaveLength(1)
+      expect(screen.queryByTestId('preference-rank-check-icon')).not.toBeInTheDocument()
+      expect(screen.getByTestId('preference-rank-x-icon')).toBeInTheDocument()
     })
 
-    test('renders the check with a green color', () => {
-      expect(findWithProps(wrapper, StyledIcon, { customFill: COLORS.alert })).toHaveLength(1)
-    })
-
-    test('renders cell with flex-start justification', () => {
-      expect(wrapper.props().style.justifyContent).toEqual('flex-start')
+    test('renders with the correct styling', () => {
+      expect(rtlWrapper.asFragment()).toMatchSnapshot()
     })
   })
 })

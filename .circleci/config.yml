@@ -1,15 +1,18 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-executors:
-  ruby_node:
-    docker:
-      - image: 'cimg/ruby:3.1.3-browsers'
-        environment:
-          - RAILS_ENV: development
-          - PGHOST: 127.0.0.1
-          - PGUSER: root
-          - NODE_OPTIONS: --openssl-legacy-provider
-    working_directory: ~/tmp
+orbs:
+  ruby: circleci/ruby@2.1.0
+defaults: &defaults
+  working_directory: ~/tmp
+  docker:
+    - image: cimg/ruby:3.1.3-browsers
+      environment:
+        RAILS_ENV: development
+        PGHOST: 127.0.0.1
+        PGUSER: root
+        NODE_OPTIONS: --openssl-legacy-provider --max_old_space_size=4096
+    - image: 'cypress/base:14.15.0'
+  executor: ruby/default
 non_production_jobs: &non_production_jobs
   filters:
     branches:
@@ -52,6 +55,7 @@ commands:
     steps:
       - checkout
       - prepare_workspace
+      - run: yarn cypress install
       - run: bundle --path vendor/bundle
       - run:
           name: Run rails server in background
@@ -65,21 +69,14 @@ commands:
                 sleep 5
             done
       - run:
-          name: Run Jest tests using test splitting
+          name: Run Cypress tests
           command: |
-            TESTFILES=$(circleci tests glob "spec/javascript/e2e/**/*.e2e.js" | circleci tests split --split-by=timings)
-            echo "$TESTFILES"
-            yarn test:all --testPathPattern=$TESTFILES --runInBand --reporters=default --reporters=jest-junit --forceExit
-          environment:
-            JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
-      - store_test_results:
-          path: ./reports/junit/
-      - store_artifacts:
-          path: ./reports/junit
+            TESTFILES=$(circleci tests glob "cypress/e2e/**/*.e2e.js" | circleci tests split)
+            yarn cypress run --spec $TESTFILES
 
 jobs:
   build:
-    executor: ruby_node
+    <<: *defaults
     steps:
       - checkout
       - prepare_workspace
@@ -113,7 +110,7 @@ jobs:
           paths:
             - .
   backend:
-    executor: ruby_node
+    <<: *defaults
     steps:
       - checkout
       - prepare_workspace
@@ -128,7 +125,7 @@ jobs:
           paths:
             - coverage
   frontend:
-    executor: ruby_node
+    <<: *defaults
     steps:
       - checkout
       - prepare_workspace
@@ -142,12 +139,12 @@ jobs:
           paths:
             - coverage
   e2e:
-    executor: ruby_node
-    parallelism: 4
+    <<: *defaults
+    parallelism: 3
     steps:
       - run-e2e
   coverage:
-    executor: ruby_node
+    <<: *defaults
     steps:
       - checkout
       - *attach_workspace

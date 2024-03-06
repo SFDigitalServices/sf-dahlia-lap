@@ -1,135 +1,138 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ListingPage individual fields Accessibility, Amenities, Fees fields 1`] = `
-<div
-  className="content-card padding-bottom-none margin-bottom--half bg-trans"
->
-  <h4
-    className="content-card_title t-serif"
+exports[`ListingPage individual fields { title: 'Accessibility, Amenities, Fees', fields: [Array] } fields 1`] = `
+<DocumentFragment>
+  <div
+    class="content-card padding-bottom-none margin-bottom--half bg-trans"
   >
-    Accessibility, Amenities, Fees
-  </h4>
-  <ul
-    className="content-grid"
-  >
-    <li
-      className="content-item"
+    <h4
+      class="content-card_title t-serif"
     >
-      <div
-        className="content-card"
+      Accessibility, Amenities, Fees
+    </h4>
+    <ul
+      class="content-grid"
+    >
+      <li
+        class="content-item"
       >
         <div
-          className="margin-bottom--half"
+          class="content-card"
         >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+          <div
+            class="margin-bottom--half"
           >
-            Amenities
-          </h4>
-          <p>
-            Laundry room, underground parking, courtyard, bike room
-          </p>
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Amenities
+            </h4>
+            <p>
+              Laundry room, underground parking, courtyard, bike room
+            </p>
+          </div>
         </div>
-      </div>
-    </li>
-    <li
-      className="content-item"
-    >
-      <div
-        className="content-card"
+      </li>
+      <li
+        class="content-item"
       >
         <div
-          className="margin-bottom--half"
+          class="content-card"
         >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+          <div
+            class="margin-bottom--half"
           >
-            Deposit Min
-          </h4>
-          <p>
-            $2,102.00
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Deposit Min
+            </h4>
+            <p>
+              $2,102.00
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Deposit Max
-          </h4>
-          <p>
-            $2,355.00
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Deposit Max
+            </h4>
+            <p>
+              $2,355.00
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Costs Not Included
-          </h4>
-          <p>
-            Tenants pay for gas, electricity.
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Costs Not Included
+            </h4>
+            <p>
+              Tenants pay for gas, electricity.
 
 For pet fees:  Cat is allowed with a $500 refundable deposit, $250 non-refundable cleaning fee and a pet addendum.  
 
 Dogs are not allowed in the building.  
 
 One parking space per unit available for $175 a month.
-          </p>
+            </p>
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
-</div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
 `;
 
-exports[`ListingPage individual fields Additional Eligibility Rules fields 1`] = `
-<div
-  className="content-card padding-bottom-none margin-bottom--half bg-trans"
->
-  <h4
-    className="content-card_title t-serif"
+exports[`ListingPage individual fields { title: 'Additional Eligibility Rules', fields: [Array] } fields 1`] = `
+<DocumentFragment>
+  <div
+    class="content-card padding-bottom-none margin-bottom--half bg-trans"
   >
-    Additional Eligibility Rules
-  </h4>
-  <ul
-    className="content-grid"
-  >
-    <li
-      className="content-item"
+    <h4
+      class="content-card_title t-serif"
     >
-      <div
-        className="content-card"
+      Additional Eligibility Rules
+    </h4>
+    <ul
+      class="content-grid"
+    >
+      <li
+        class="content-item"
       >
         <div
-          className="margin-bottom--half"
+          class="content-card"
         >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+          <div
+            class="margin-bottom--half"
           >
-            Building Selection Criteria
-          </h4>
-          <a
-            href="https://us.awp.autotask.net/1/filelink/113bd-37ed41a1-53a7f01459-2"
-            rel="noreferrer"
-            target="_blank"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Building Selection Criteria
+            </h4>
+            <a
+              href="https://us.awp.autotask.net/1/filelink/113bd-37ed41a1-53a7f01459-2"
+              rel="noreferrer"
+              target="_blank"
+            >
+              https://us.awp.autotask.net/1/filelink/113bd-37ed41a1-53a7f01459-2
+            </a>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            https://us.awp.autotask.net/1/filelink/113bd-37ed41a1-53a7f01459-2
-          </a>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
-          >
-            Eviction History
-          </h4>
-          <p>
-            Provide minimum of 4 years rental history with at least two prior rentals in which you were responsible for paying the rent.  Applicants without rental history will still be considered. No Guarantors permitted. 
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Eviction History
+            </h4>
+            <p>
+              Provide minimum of 4 years rental history with at least two prior rentals in which you were responsible for paying the rent.  Applicants without rental history will still be considered. No Guarantors permitted. 
 
 Previous rental history will be reviewed and must exhibit no derogatory references. 
 
@@ -138,26 +141,26 @@ Landlord references will only check for evictions, payment history, and document
 All debt owed to an apartment community must be satisfied. 
 
 Mitigating circumstances may be considered.
-          </p>
+            </p>
+          </div>
         </div>
-      </div>
-    </li>
-    <li
-      className="content-item"
-    >
-      <div
-        className="content-card"
+      </li>
+      <li
+        class="content-item"
       >
         <div
-          className="margin-bottom--half"
+          class="content-card"
         >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+          <div
+            class="margin-bottom--half"
           >
-            Credit Rating
-          </h4>
-          <p>
-            Provide a credit report with score from Equifax, Experian, or TransUnion dated within thirty (30) days of the application. 
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Credit Rating
+            </h4>
+            <p>
+              Provide a credit report with score from Equifax, Experian, or TransUnion dated within thirty (30) days of the application. 
 
 Accounts that are not current or that are derogatory will negatively affect the overall scoring, which could result in the denial of the application or an additional deposit may be required. 
 
@@ -168,723 +171,729 @@ Bankruptcy if not cleared will be an automatic denial of the rental application.
 No Guarantors permitted.
 
 Mitigating circumstances may be considered.
-          </p>
+            </p>
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
-</div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
 `;
 
-exports[`ListingPage individual fields Additional Information fields 1`] = `
-<div
-  className="content-card padding-bottom-none margin-bottom--half bg-trans"
->
-  <h4
-    className="content-card_title t-serif"
+exports[`ListingPage individual fields { title: 'Additional Information', fields: [Array] } fields 1`] = `
+<DocumentFragment>
+  <div
+    class="content-card padding-bottom-none margin-bottom--half bg-trans"
   >
-    Additional Information
-  </h4>
-  <ul
-    className="content-grid"
-  >
-    <li
-      className="content-item"
+    <h4
+      class="content-card_title t-serif"
     >
-      <div
-        className="content-card"
+      Additional Information
+    </h4>
+    <ul
+      class="content-grid"
+    >
+      <li
+        class="content-item"
       >
         <div
-          className="margin-bottom--half"
+          class="content-card"
         >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+          <div
+            class="margin-bottom--half"
           >
-            Required Documents
-          </h4>
-          <p>
-            Lottery winners will be required to fill out a building application and provide a copy of your current credit report, 3 most recent paystubs, current tax returns and W-2, and 3 most recent bank statements.
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Required Documents
+            </h4>
+            <p>
+              Lottery winners will be required to fill out a building application and provide a copy of your current credit report, 3 most recent paystubs, current tax returns and W-2, and 3 most recent bank statements.
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Smoking Policy
-          </h4>
-          <p>
-            Non-smoking building
-          </p>
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Smoking Policy
+            </h4>
+            <p>
+              Non-smoking building
+            </p>
+          </div>
         </div>
-      </div>
-    </li>
-    <li
-      className="content-item"
-    >
-      <div
-        className="content-card"
+      </li>
+      <li
+        class="content-item"
       >
         <div
-          className="margin-bottom--half"
+          class="content-card"
         >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+          <div
+            class="margin-bottom--half"
           >
-            Legal Disclaimers
-          </h4>
-          <p
-            dangerouslySetInnerHTML={
-              {
-                "__html": "some disclaimer",
-              }
-            }
-          />
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Legal Disclaimers
+            </h4>
+            <p>
+              some disclaimer
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Pet Policy
-          </h4>
-          <p>
-            Dogs are not allowed in the building.
-          </p>
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Pet Policy
+            </h4>
+            <p>
+              Dogs are not allowed in the building.
+            </p>
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
-</div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
 `;
 
-exports[`ListingPage individual fields Application Information fields 1`] = `
-<div
-  className="content-card padding-bottom-none margin-bottom--half bg-trans"
->
-  <h4
-    className="content-card_title t-serif"
+exports[`ListingPage individual fields { title: 'Application Information', fields: [Array] } fields 1`] = `
+<DocumentFragment>
+  <div
+    class="content-card padding-bottom-none margin-bottom--half bg-trans"
   >
-    Application Information
-  </h4>
-  <ul
-    className="content-grid"
-  >
-    <li
-      className="content-item"
+    <h4
+      class="content-card_title t-serif"
     >
-      <div
-        className="content-card"
+      Application Information
+    </h4>
+    <ul
+      class="content-grid"
+    >
+      <li
+        class="content-item"
       >
         <div
-          className="margin-bottom--half"
+          class="content-card"
         >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+          <div
+            class="margin-bottom--half"
           >
-            Application Phone
-          </h4>
-          <p>
-            (415) 227-2256
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Application Phone
+            </h4>
+            <p>
+              (415) 227-2256
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Application Organization
-          </h4>
-          <p>
-            280 Fell-BMR
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Application Organization
+            </h4>
+            <p>
+              280 Fell-BMR
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Application Street Address
-          </h4>
-          <p>
-            P.O. Box 420847
-          </p>
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Application Street Address
+            </h4>
+            <p>
+              P.O. Box 420847
+            </p>
+          </div>
         </div>
-      </div>
-    </li>
-    <li
-      className="content-item"
-    >
-      <div
-        className="content-card"
+      </li>
+      <li
+        class="content-item"
       >
         <div
-          className="margin-bottom--half"
+          class="content-card"
         >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+          <div
+            class="margin-bottom--half"
           >
-            Application City
-          </h4>
-          <p>
-            San Francisco
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Application City
+            </h4>
+            <p>
+              San Francisco
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Application State
-          </h4>
-          <p>
-            CA
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Application State
+            </h4>
+            <p>
+              CA
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Application Postal Code
-          </h4>
-          <p>
-            94142
-          </p>
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Application Postal Code
+            </h4>
+            <p>
+              94142
+            </p>
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
-</div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
 `;
 
-exports[`ListingPage individual fields Building Information fields 1`] = `
-<div
-  className="content-card padding-bottom-none margin-bottom--half bg-trans"
->
-  <h4
-    className="content-card_title t-serif"
+exports[`ListingPage individual fields { title: 'Building Information', fields: [Array] } fields 1`] = `
+<DocumentFragment>
+  <div
+    class="content-card padding-bottom-none margin-bottom--half bg-trans"
   >
-    Building Information
-  </h4>
-  <ul
-    className="content-grid"
-  >
-    <li
-      className="content-item"
+    <h4
+      class="content-card_title t-serif"
     >
-      <div
-        className="content-card"
+      Building Information
+    </h4>
+    <ul
+      class="content-grid"
+    >
+      <li
+        class="content-item"
       >
         <div
-          className="margin-bottom--half"
+          class="content-card"
         >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+          <div
+            class="margin-bottom--half"
           >
-            Building Name
-          </h4>
-          <p>
-            77 Bluxome
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Building Name
+            </h4>
+            <p>
+              77 Bluxome
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Building Street Address
-          </h4>
-          <p>
-            77 Bluxome Street
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Building Street Address
+            </h4>
+            <p>
+              77 Bluxome Street
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Building City
-          </h4>
-          <p>
-            San Francisco
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Building City
+            </h4>
+            <p>
+              San Francisco
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Building State
-          </h4>
-          <p>
-            CA
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Building State
+            </h4>
+            <p>
+              CA
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Building Zip Code
-          </h4>
-          <p>
-            94107
-          </p>
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Building Zip Code
+            </h4>
+            <p>
+              94107
+            </p>
+          </div>
         </div>
-      </div>
-    </li>
-    <li
-      className="content-item"
-    >
-      <div
-        className="content-card"
+      </li>
+      <li
+        class="content-item"
       >
         <div
-          className="margin-bottom--half"
+          class="content-card"
         >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+          <div
+            class="margin-bottom--half"
           >
-            Neighborhood
-          </h4>
-          <p>
-            South of Market
-          </p>
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Neighborhood
+            </h4>
+            <p>
+              South of Market
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
+          >
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Developer
+            </h4>
+            <p>
+              Equity Residential
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
+          >
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Building URL
+            </h4>
+            <a
+              href="https://i.imgur.com/Jh8OHJY.jpg"
+              rel="noreferrer"
+              target="_blank"
+            >
+              https://i.imgur.com/Jh8OHJY.jpg
+            </a>
+          </div>
+          <div
+            class="margin-bottom--half"
+          >
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Year Built
+            </h4>
+            <p>
+              2008
+            </p>
+          </div>
         </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
-          >
-            Developer
-          </h4>
-          <p>
-            Equity Residential
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
-          >
-            Building URL
-          </h4>
-          <a
-            href="https://i.imgur.com/Jh8OHJY.jpg"
-            rel="noreferrer"
-            target="_blank"
-          >
-            https://i.imgur.com/Jh8OHJY.jpg
-          </a>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
-          >
-            Year Built
-          </h4>
-          <p>
-            2008
-          </p>
-        </div>
-      </div>
-    </li>
-  </ul>
-</div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
 `;
 
-exports[`ListingPage individual fields Details fields 1`] = `
-<div
-  className="content-card padding-bottom-none margin-bottom--half bg-trans"
->
-  <h4
-    className="content-card_title t-serif"
+exports[`ListingPage individual fields { title: 'Details', fields: [Array] } fields 1`] = `
+<DocumentFragment>
+  <div
+    class="content-card padding-bottom-none margin-bottom--half bg-trans"
   >
-    Details
-  </h4>
-  <ul
-    className="content-grid"
-  >
-    <li
-      className="content-item"
+    <h4
+      class="content-card_title t-serif"
     >
-      <div
-        className="content-card"
+      Details
+    </h4>
+    <ul
+      class="content-grid"
+    >
+      <li
+        class="content-item"
       >
         <div
-          className="margin-bottom--half"
+          class="content-card"
         >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+          <div
+            class="margin-bottom--half"
           >
-            Owner
-          </h4>
-          <p>
-            Prod Vertiba
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Owner
+            </h4>
+            <p>
+              Prod Vertiba
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Name
-          </h4>
-          <p>
-            Test 5/30
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Name
+            </h4>
+            <p>
+              Test 5/30
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Account
-          </h4>
-          <p>
-            Exygy
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Account
+            </h4>
+            <p>
+              Exygy
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Application Due Date
-          </h4>
-          <p>
-            05/31/2018
-          </p>
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Application Due Date
+            </h4>
+            <p>
+              05/31/2018
+            </p>
+          </div>
         </div>
-      </div>
-    </li>
-    <li
-      className="content-item"
-    >
-      <div
-        className="content-card"
+      </li>
+      <li
+        class="content-item"
       >
         <div
-          className="margin-bottom--half"
+          class="content-card"
         >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+          <div
+            class="margin-bottom--half"
           >
-            Applications in Lottery
-          </h4>
-          <p>
-            2
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Applications in Lottery
+            </h4>
+            <p>
+              2
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Status
-          </h4>
-          <p>
-            Active
-          </p>
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Status
+            </h4>
+            <p>
+              Active
+            </p>
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
-</div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
 `;
 
-exports[`ListingPage individual fields Leasing Agent and Developer Information fields 1`] = `
-<div
-  className="content-card padding-bottom-none margin-bottom--half bg-trans"
->
-  <h4
-    className="content-card_title t-serif"
+exports[`ListingPage individual fields { title: 'Leasing Agent and Developer Information', fields: [Array] } fields 1`] = `
+<DocumentFragment>
+  <div
+    class="content-card padding-bottom-none margin-bottom--half bg-trans"
   >
-    Leasing Agent and Developer Information
-  </h4>
-  <ul
-    className="content-grid"
-  >
-    <li
-      className="content-item"
+    <h4
+      class="content-card_title t-serif"
     >
-      <div
-        className="content-card"
+      Leasing Agent and Developer Information
+    </h4>
+    <ul
+      class="content-grid"
+    >
+      <li
+        class="content-item"
       >
         <div
-          className="margin-bottom--half"
+          class="content-card"
         >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+          <div
+            class="margin-bottom--half"
           >
-            Leasing Agent Name
-          </h4>
-          <p>
-            Cullen McCaffrey
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Leasing Agent Name
+            </h4>
+            <p>
+              Cullen McCaffrey
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Leasing Agent Title
-          </h4>
-          <p>
-            Sales Agent
-          </p>
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Leasing Agent Title
+            </h4>
+            <p>
+              Sales Agent
+            </p>
+          </div>
         </div>
-      </div>
-    </li>
-    <li
-      className="content-item"
-    >
-      <div
-        className="content-card"
+      </li>
+      <li
+        class="content-item"
       >
         <div
-          className="margin-bottom--half"
+          class="content-card"
         >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+          <div
+            class="margin-bottom--half"
           >
-            Leasing Agent Email
-          </h4>
-          <p>
-            77bluxome@eqr.com
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Leasing Agent Email
+            </h4>
+            <p>
+              77bluxome@eqr.com
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Leasing Agent Phone
-          </h4>
-          <p>
-            (415) 957-5887
-          </p>
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Leasing Agent Phone
+            </h4>
+            <p>
+              (415) 957-5887
+            </p>
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
-</div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
 `;
 
-exports[`ListingPage individual fields Lottery Information fields 1`] = `
-<div
-  className="content-card padding-bottom-none margin-bottom--half bg-trans"
->
-  <h4
-    className="content-card_title t-serif"
+exports[`ListingPage individual fields { title: 'Lottery Information', fields: [Array] } fields 1`] = `
+<DocumentFragment>
+  <div
+    class="content-card padding-bottom-none margin-bottom--half bg-trans"
   >
-    Lottery Information
-  </h4>
-  <ul
-    className="content-grid"
-  >
-    <li
-      className="content-item"
+    <h4
+      class="content-card_title t-serif"
     >
-      <div
-        className="content-card"
+      Lottery Information
+    </h4>
+    <ul
+      class="content-grid"
+    >
+      <li
+        class="content-item"
       >
         <div
-          className="margin-bottom--half"
+          class="content-card"
         >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+          <div
+            class="margin-bottom--half"
           >
-            Lottery Date
-          </h4>
-          <p>
-            03/22/2017
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Lottery Date
+            </h4>
+            <p>
+              03/22/2017
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Lottery Results Date
-          </h4>
-          <p>
-            03/23/2017
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Lottery Results Date
+            </h4>
+            <p>
+              03/23/2017
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Lottery Venue
-          </h4>
-          <p>
-            MOHCD
-          </p>
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Lottery Venue
+            </h4>
+            <p>
+              MOHCD
+            </p>
+          </div>
         </div>
-      </div>
-    </li>
-    <li
-      className="content-item"
-    >
-      <div
-        className="content-card"
+      </li>
+      <li
+        class="content-item"
       >
         <div
-          className="margin-bottom--half"
+          class="content-card"
         >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+          <div
+            class="margin-bottom--half"
           >
-            Lottery Status
-          </h4>
-          <p>
-            Not Yet Run
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Lottery Status
+            </h4>
+            <p>
+              Not Yet Run
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Lottery Street Address
-          </h4>
-          <p>
-            1 S. Van Ness Avenue 5th FL
-          </p>
-        </div>
-        <div
-          className="margin-bottom--half"
-        >
-          <h4
-            className="t-sans t-small t-bold no-margin"
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Lottery Street Address
+            </h4>
+            <p>
+              1 S. Van Ness Avenue 5th FL
+            </p>
+          </div>
+          <div
+            class="margin-bottom--half"
           >
-            Lottery City
-          </h4>
-          <p>
-            San Francisco
-          </p>
+            <h4
+              class="t-sans t-small t-bold no-margin"
+            >
+              Lottery City
+            </h4>
+            <p>
+              San Francisco
+            </p>
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
-</div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`ListingPage should render succesfully 1`] = `
-[
+<DocumentFragment>
   <header
-    className="lead-header short  bg-snow"
+    class="lead-header short  bg-snow"
   >
     <div
-      className="row full-width inner--3x"
+      class="row full-width inner--3x"
     >
       <div
-        className="large-12 columns"
+        class="large-12 columns"
       >
         <hgroup
-          className="lead-header_group"
+          class="lead-header_group"
         >
           <h1
-            className="lead-header_title small-serif c-oil"
+            class="lead-header_title small-serif c-oil"
           >
             Test 5/30
           </h1>
         </hgroup>
       </div>
     </div>
-  </header>,
+  </header>
   <div
-    className="tabs-section tabs-row full-width inner--3x bg-snow"
+    class="tabs-section tabs-row full-width inner--3x bg-snow"
+    data-testid="tabs-section"
   >
     <ul
-      className="tabs"
+      class="tabs"
       role="menubar"
     >
       <li
-        className="tab-title active"
+        class="tab-title active"
         role="none"
       >
         <a
-          aria-selected={true}
-          className="button-unstyled"
+          aria-selected="true"
+          class="button-unstyled"
           href="/listings/a0W0x000000GhJUEA0"
-          onFocus={[Function]}
-          onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="-1"
+          tabindex="-1"
         >
           Listing Details
         </a>
       </li>
       <li
-        className="tab-title"
+        class="tab-title"
         role="none"
       >
         <a
-          className="button-unstyled"
+          class="button-unstyled"
           href="/listings/a0W0x000000GhJUEA0/applications"
-          onFocus={[Function]}
-          onKeyDown={[Function]}
           role="menuitem"
-          tabIndex="0"
+          tabindex="0"
         >
           Applications
         </a>
       </li>
     </ul>
-  </div>,
+  </div>
   <section
-    className="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x bg-white"
+    class="tabs-card-row row full-width inner--3x margin-bottom--2x padding-top--2x bg-white"
   >
     <div>
       <div
-        className="content-card padding-bottom-none margin-bottom--half bg-trans"
+        class="content-card padding-bottom-none margin-bottom--half bg-trans"
       >
         <h4
-          className="content-card_title t-serif"
+          class="content-card_title t-serif"
         >
           Details
         </h4>
         <ul
-          className="content-grid"
+          class="content-grid"
         >
           <li
-            className="content-item"
+            class="content-item"
           >
             <div
-              className="content-card"
+              class="content-card"
             >
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Owner
                 </h4>
@@ -893,10 +902,10 @@ exports[`ListingPage should render succesfully 1`] = `
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Name
                 </h4>
@@ -905,10 +914,10 @@ exports[`ListingPage should render succesfully 1`] = `
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Account
                 </h4>
@@ -917,10 +926,10 @@ exports[`ListingPage should render succesfully 1`] = `
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Application Due Date
                 </h4>
@@ -931,16 +940,16 @@ exports[`ListingPage should render succesfully 1`] = `
             </div>
           </li>
           <li
-            className="content-item"
+            class="content-item"
           >
             <div
-              className="content-card"
+              class="content-card"
             >
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Applications in Lottery
                 </h4>
@@ -949,10 +958,10 @@ exports[`ListingPage should render succesfully 1`] = `
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Status
                 </h4>
@@ -965,27 +974,27 @@ exports[`ListingPage should render succesfully 1`] = `
         </ul>
       </div>
       <div
-        className="content-card padding-bottom-none margin-bottom--half bg-trans"
+        class="content-card padding-bottom-none margin-bottom--half bg-trans"
       >
         <h4
-          className="content-card_title t-serif"
+          class="content-card_title t-serif"
         >
           Building Information
         </h4>
         <ul
-          className="content-grid"
+          class="content-grid"
         >
           <li
-            className="content-item"
+            class="content-item"
           >
             <div
-              className="content-card"
+              class="content-card"
             >
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Building Name
                 </h4>
@@ -994,10 +1003,10 @@ exports[`ListingPage should render succesfully 1`] = `
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Building Street Address
                 </h4>
@@ -1006,10 +1015,10 @@ exports[`ListingPage should render succesfully 1`] = `
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Building City
                 </h4>
@@ -1018,10 +1027,10 @@ exports[`ListingPage should render succesfully 1`] = `
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Building State
                 </h4>
@@ -1030,10 +1039,10 @@ exports[`ListingPage should render succesfully 1`] = `
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Building Zip Code
                 </h4>
@@ -1044,16 +1053,16 @@ exports[`ListingPage should render succesfully 1`] = `
             </div>
           </li>
           <li
-            className="content-item"
+            class="content-item"
           >
             <div
-              className="content-card"
+              class="content-card"
             >
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Neighborhood
                 </h4>
@@ -1062,10 +1071,10 @@ exports[`ListingPage should render succesfully 1`] = `
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Developer
                 </h4>
@@ -1074,10 +1083,10 @@ exports[`ListingPage should render succesfully 1`] = `
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Building URL
                 </h4>
@@ -1090,10 +1099,10 @@ exports[`ListingPage should render succesfully 1`] = `
                 </a>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Year Built
                 </h4>
@@ -1106,10 +1115,10 @@ exports[`ListingPage should render succesfully 1`] = `
         </ul>
       </div>
       <div
-        className="content-card"
+        class="content-card"
       >
         <h4
-          className="content-card_title t-serif"
+          class="content-card_title t-serif"
         >
           Listing Preferences
         </h4>
@@ -1151,27 +1160,27 @@ exports[`ListingPage should render succesfully 1`] = `
         </table>
       </div>
       <div
-        className="content-card padding-bottom-none margin-bottom--half bg-trans"
+        class="content-card padding-bottom-none margin-bottom--half bg-trans"
       >
         <h4
-          className="content-card_title t-serif"
+          class="content-card_title t-serif"
         >
           Accessibility, Amenities, Fees
         </h4>
         <ul
-          className="content-grid"
+          class="content-grid"
         >
           <li
-            className="content-item"
+            class="content-item"
           >
             <div
-              className="content-card"
+              class="content-card"
             >
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Amenities
                 </h4>
@@ -1182,16 +1191,16 @@ exports[`ListingPage should render succesfully 1`] = `
             </div>
           </li>
           <li
-            className="content-item"
+            class="content-item"
           >
             <div
-              className="content-card"
+              class="content-card"
             >
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Deposit Min
                 </h4>
@@ -1200,10 +1209,10 @@ exports[`ListingPage should render succesfully 1`] = `
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Deposit Max
                 </h4>
@@ -1212,10 +1221,10 @@ exports[`ListingPage should render succesfully 1`] = `
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Costs Not Included
                 </h4>
@@ -1234,27 +1243,27 @@ One parking space per unit available for $175 a month.
         </ul>
       </div>
       <div
-        className="content-card padding-bottom-none margin-bottom--half bg-trans"
+        class="content-card padding-bottom-none margin-bottom--half bg-trans"
       >
         <h4
-          className="content-card_title t-serif"
+          class="content-card_title t-serif"
         >
           Lottery Information
         </h4>
         <ul
-          className="content-grid"
+          class="content-grid"
         >
           <li
-            className="content-item"
+            class="content-item"
           >
             <div
-              className="content-card"
+              class="content-card"
             >
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Lottery Date
                 </h4>
@@ -1263,10 +1272,10 @@ One parking space per unit available for $175 a month.
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Lottery Results Date
                 </h4>
@@ -1275,10 +1284,10 @@ One parking space per unit available for $175 a month.
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Lottery Venue
                 </h4>
@@ -1289,16 +1298,16 @@ One parking space per unit available for $175 a month.
             </div>
           </li>
           <li
-            className="content-item"
+            class="content-item"
           >
             <div
-              className="content-card"
+              class="content-card"
             >
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Lottery Status
                 </h4>
@@ -1307,10 +1316,10 @@ One parking space per unit available for $175 a month.
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Lottery Street Address
                 </h4>
@@ -1319,10 +1328,10 @@ One parking space per unit available for $175 a month.
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Lottery City
                 </h4>
@@ -1335,27 +1344,27 @@ One parking space per unit available for $175 a month.
         </ul>
       </div>
       <div
-        className="content-card padding-bottom-none margin-bottom--half bg-trans"
+        class="content-card padding-bottom-none margin-bottom--half bg-trans"
       >
         <h4
-          className="content-card_title t-serif"
+          class="content-card_title t-serif"
         >
           Application Information
         </h4>
         <ul
-          className="content-grid"
+          class="content-grid"
         >
           <li
-            className="content-item"
+            class="content-item"
           >
             <div
-              className="content-card"
+              class="content-card"
             >
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Application Phone
                 </h4>
@@ -1364,10 +1373,10 @@ One parking space per unit available for $175 a month.
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Application Organization
                 </h4>
@@ -1376,10 +1385,10 @@ One parking space per unit available for $175 a month.
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Application Street Address
                 </h4>
@@ -1390,16 +1399,16 @@ One parking space per unit available for $175 a month.
             </div>
           </li>
           <li
-            className="content-item"
+            class="content-item"
           >
             <div
-              className="content-card"
+              class="content-card"
             >
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Application City
                 </h4>
@@ -1408,10 +1417,10 @@ One parking space per unit available for $175 a month.
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Application State
                 </h4>
@@ -1420,10 +1429,10 @@ One parking space per unit available for $175 a month.
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Application Postal Code
                 </h4>
@@ -1436,27 +1445,27 @@ One parking space per unit available for $175 a month.
         </ul>
       </div>
       <div
-        className="content-card padding-bottom-none margin-bottom--half bg-trans"
+        class="content-card padding-bottom-none margin-bottom--half bg-trans"
       >
         <h4
-          className="content-card_title t-serif"
+          class="content-card_title t-serif"
         >
           Leasing Agent and Developer Information
         </h4>
         <ul
-          className="content-grid"
+          class="content-grid"
         >
           <li
-            className="content-item"
+            class="content-item"
           >
             <div
-              className="content-card"
+              class="content-card"
             >
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Leasing Agent Name
                 </h4>
@@ -1465,10 +1474,10 @@ One parking space per unit available for $175 a month.
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Leasing Agent Title
                 </h4>
@@ -1479,16 +1488,16 @@ One parking space per unit available for $175 a month.
             </div>
           </li>
           <li
-            className="content-item"
+            class="content-item"
           >
             <div
-              className="content-card"
+              class="content-card"
             >
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Leasing Agent Email
                 </h4>
@@ -1497,10 +1506,10 @@ One parking space per unit available for $175 a month.
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Leasing Agent Phone
                 </h4>
@@ -1513,27 +1522,27 @@ One parking space per unit available for $175 a month.
         </ul>
       </div>
       <div
-        className="content-card padding-bottom-none margin-bottom--half bg-trans"
+        class="content-card padding-bottom-none margin-bottom--half bg-trans"
       >
         <h4
-          className="content-card_title t-serif"
+          class="content-card_title t-serif"
         >
           Additional Eligibility Rules
         </h4>
         <ul
-          className="content-grid"
+          class="content-grid"
         >
           <li
-            className="content-item"
+            class="content-item"
           >
             <div
-              className="content-card"
+              class="content-card"
             >
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Building Selection Criteria
                 </h4>
@@ -1546,10 +1555,10 @@ One parking space per unit available for $175 a month.
                 </a>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Eviction History
                 </h4>
@@ -1568,16 +1577,16 @@ Mitigating circumstances may be considered.
             </div>
           </li>
           <li
-            className="content-item"
+            class="content-item"
           >
             <div
-              className="content-card"
+              class="content-card"
             >
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Credit Rating
                 </h4>
@@ -1600,27 +1609,27 @@ Mitigating circumstances may be considered.
         </ul>
       </div>
       <div
-        className="content-card padding-bottom-none margin-bottom--half bg-trans"
+        class="content-card padding-bottom-none margin-bottom--half bg-trans"
       >
         <h4
-          className="content-card_title t-serif"
+          class="content-card_title t-serif"
         >
           Additional Information
         </h4>
         <ul
-          className="content-grid"
+          class="content-grid"
         >
           <li
-            className="content-item"
+            class="content-item"
           >
             <div
-              className="content-card"
+              class="content-card"
             >
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Required Documents
                 </h4>
@@ -1629,10 +1638,10 @@ Mitigating circumstances may be considered.
                 </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Smoking Policy
                 </h4>
@@ -1643,32 +1652,28 @@ Mitigating circumstances may be considered.
             </div>
           </li>
           <li
-            className="content-item"
+            class="content-item"
           >
             <div
-              className="content-card"
+              class="content-card"
             >
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Legal Disclaimers
                 </h4>
-                <p
-                  dangerouslySetInnerHTML={
-                    {
-                      "__html": "some disclaimer",
-                    }
-                  }
-                />
+                <p>
+                  some disclaimer
+                </p>
               </div>
               <div
-                className="margin-bottom--half"
+                class="margin-bottom--half"
               >
                 <h4
-                  className="t-sans t-small t-bold no-margin"
+                  class="t-sans t-small t-bold no-margin"
                 >
                   Pet Policy
                 </h4>
@@ -1681,10 +1686,10 @@ Mitigating circumstances may be considered.
         </ul>
       </div>
       <div
-        className="content-card"
+        class="content-card"
       >
         <h4
-          className="content-card_title t-serif"
+          class="content-card_title t-serif"
         >
           Open Houses
         </h4>
@@ -1718,6 +1723,6 @@ Mitigating circumstances may be considered.
         </table>
       </div>
     </div>
-  </section>,
-]
+  </section>
+</DocumentFragment>
 `;
