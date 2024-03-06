@@ -224,7 +224,7 @@ const listings = [
       "name": "2235 Third (Potrero Launch) Unit  W519",
       "application_due_date": "2017-02-17T19:00:00.000+0000",
       "lottery_date": "2017-02-28T19:00:00.000+0000",
-      "lottery_results_date": "2017-03-02T00:00:00-07:00",
+      "lottery_results_date": "2017-03-02T00:00:00+0000",
       "lottery_status": "Not Yet Run",
       "nflagged_applications": 0,
       "in_lottery": 0
@@ -234,7 +234,7 @@ const listings = [
       "name": "2235 Third (Potrero Launch) Unit E408",
       "application_due_date": "2017-02-17T19:00:00.000+0000",
       "lottery_date": "2017-02-28T19:00:00.000+0000",
-      "lottery_results_date": "2017-03-02T00:00:00-07:00",
+      "lottery_results_date": "2017-03-02T00:00:00+0000",
       "lottery_status": "Not Yet Run",
       "nflagged_applications": 0,
       "in_lottery": 0
@@ -254,7 +254,7 @@ const listings = [
       "name": "Merry Go Round Shared Housing",
       "application_due_date": "2018-02-08T19:00:00.000+0000",
       "lottery_date": "2018-02-28T19:00:00.000+0000",
-      "lottery_results_date": "2018-03-01T00:00:00-07:00",
+      "lottery_results_date": "2018-03-01T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 58,
       "in_lottery": 562
@@ -264,7 +264,7 @@ const listings = [
       "name": "Pierce Street Apartments",
       "application_due_date": "2018-01-31T19:00:00.000+0000",
       "lottery_date": "2018-02-20T19:00:00.000+0000",
-      "lottery_results_date": "2018-02-20T00:00:00-07:00",
+      "lottery_results_date": "2018-02-20T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 98,
       "in_lottery": 1306
@@ -274,7 +274,7 @@ const listings = [
       "name": "Howard Street Apartments",
       "application_due_date": "2018-01-31T19:00:00.000+0000",
       "lottery_date": "2018-02-23T19:00:00.000+0000",
-      "lottery_results_date": "2018-02-23T00:00:00-07:00",
+      "lottery_results_date": "2018-02-23T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 294,
       "in_lottery": 2790
@@ -314,7 +314,7 @@ const listings = [
       "name": "Glasdore Lofts Unit 504",
       "application_due_date": "2018-01-26T19:00:00.000+0000",
       "lottery_date": "2018-02-14T19:00:00.000+0000",
-      "lottery_results_date": "2018-02-15T00:00:00-07:00",
+      "lottery_results_date": "2018-02-15T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 33,
       "in_lottery": 885
@@ -324,7 +324,7 @@ const listings = [
       "name": "1400 Mission Unit 1500",
       "application_due_date": "2018-01-30T19:00:00.000+0000",
       "lottery_date": "2018-02-27T19:00:00.000+0000",
-      "lottery_results_date": "2018-02-28T00:00:00-07:00",
+      "lottery_results_date": "2018-02-28T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 5,
       "in_lottery": 103
@@ -334,7 +334,7 @@ const listings = [
       "name": "The Gantry Units 208 and 215",
       "application_due_date": "2018-02-13T19:00:00.000+0000",
       "lottery_date": "2018-03-01T19:00:00.000+0000",
-      "lottery_results_date": "2018-03-02T00:00:00-07:00",
+      "lottery_results_date": "2018-03-02T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 180,
       "in_lottery": 2042
@@ -384,7 +384,7 @@ const listings = [
       "name": "Ava 55 Ninth Unit 314",
       "application_due_date": "2018-02-16T19:00:00.000+0000",
       "lottery_date": "2018-03-05T19:00:00.000+0000",
-      "lottery_results_date": "2018-03-05T00:00:00-07:00",
+      "lottery_results_date": "2018-03-05T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 4,
       "in_lottery": 210
@@ -394,7 +394,7 @@ const listings = [
       "name": "77 Bluxome Unit 110",
       "application_due_date": "2018-02-21T19:00:00.000+0000",
       "lottery_date": "2018-03-07T19:00:00.000+0000",
-      "lottery_results_date": "2018-03-08T00:00:00-07:00",
+      "lottery_results_date": "2018-03-08T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 27,
       "in_lottery": 651
@@ -524,7 +524,7 @@ const listings = [
       "name": "TEST 1222 Harrison (L Seven)",
       "application_due_date": "2017-05-31T19:00:00.000+0000",
       "lottery_date": "2017-02-01T19:00:00.000+0000",
-      "lottery_results_date": "2017-02-01T00:00:00-07:00",
+      "lottery_results_date": "2017-02-01T00:00:00+0000",
       "lottery_status": "Not Yet Run",
       "nflagged_applications": 0,
       "in_lottery": 1
@@ -714,7 +714,7 @@ const listings = [
       "name": "77 Bluxome Unit 416",
       "application_due_date": null,
       "lottery_date": "2015-12-15T19:00:00.000+0000",
-      "lottery_results_date": "2015-12-17T00:00:00-07:00",
+      "lottery_results_date": "2015-12-17T00:00:00+0000",
       "lottery_status": null,
       "nflagged_applications": 0,
       "in_lottery": 0
@@ -724,7 +724,7 @@ const listings = [
       "name": "2121 Third Unit 110",
       "application_due_date": null,
       "lottery_date": "2015-12-03T19:00:00.000+0000",
-      "lottery_results_date": "2015-12-03T00:00:00-07:00",
+      "lottery_results_date": "2015-12-03T00:00:00+0000",
       "lottery_status": null,
       "nflagged_applications": 0,
       "in_lottery": 0
@@ -814,7 +814,7 @@ const listings = [
       "name": "1010 16th (Potrero 1010)",
       "application_due_date": null,
       "lottery_date": "2015-12-14T19:00:00.000+0000",
-      "lottery_results_date": "2015-12-28T00:00:00-07:00",
+      "lottery_results_date": "2015-12-28T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 0,
       "in_lottery": 0
@@ -824,7 +824,7 @@ const listings = [
       "name": "1190 Mission (Trinity Place Apts) Unit 419",
       "application_due_date": null,
       "lottery_date": "2016-02-02T19:00:00.000+0000",
-      "lottery_results_date": "2016-02-16T00:00:00-07:00",
+      "lottery_results_date": "2016-02-16T00:00:00+0000",
       "lottery_status": null,
       "nflagged_applications": 0,
       "in_lottery": 0
@@ -834,7 +834,7 @@ const listings = [
       "name": "55 Ninth (AVA) Unit 1109",
       "application_due_date": null,
       "lottery_date": "2015-12-23T19:00:00.000+0000",
-      "lottery_results_date": "2016-01-05T00:00:00-07:00",
+      "lottery_results_date": "2016-01-05T00:00:00+0000",
       "lottery_status": null,
       "nflagged_applications": 0,
       "in_lottery": 0
@@ -844,7 +844,7 @@ const listings = [
       "name": "529 Stevenson / 550 Jesse",
       "application_due_date": null,
       "lottery_date": "2016-01-27T19:00:00.000+0000",
-      "lottery_results_date": "2016-02-10T00:00:00-07:00",
+      "lottery_results_date": "2016-02-10T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 0,
       "in_lottery": 0
@@ -884,7 +884,7 @@ const listings = [
       "name": "The Martin",
       "application_due_date": "2017-10-17T19:00:00.000+0000",
       "lottery_date": "2017-11-16T19:00:00.000+0000",
-      "lottery_results_date": "2017-11-16T00:00:00-07:00",
+      "lottery_results_date": "2017-11-16T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 800,
       "in_lottery": 5459
@@ -894,7 +894,7 @@ const listings = [
       "name": "Natalie Gubb Commons - 255 Fremont Street",
       "application_due_date": "2017-10-21T19:00:00.000+0000",
       "lottery_date": "2017-11-14T19:00:00.000+0000",
-      "lottery_results_date": "2017-11-14T00:00:00-07:00",
+      "lottery_results_date": "2017-11-14T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 923,
       "in_lottery": 6580
@@ -924,7 +924,7 @@ const listings = [
       "name": "8 Tenth (NEMA) Unit 1506",
       "application_due_date": null,
       "lottery_date": "2016-03-08T19:00:00.000+0000",
-      "lottery_results_date": "2016-03-09T00:00:00-07:00",
+      "lottery_results_date": "2016-03-09T00:00:00+0000",
       "lottery_status": null,
       "nflagged_applications": 0,
       "in_lottery": 0
@@ -1024,7 +1024,7 @@ const listings = [
       "name": "570 Jessie",
       "application_due_date": "2017-10-31T19:00:00.000+0000",
       "lottery_date": "2017-11-30T19:00:00.000+0000",
-      "lottery_results_date": "2017-11-30T00:00:00-07:00",
+      "lottery_results_date": "2017-11-30T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 257,
       "in_lottery": 2793
@@ -1044,7 +1044,7 @@ const listings = [
       "name": "3000 23rd Street",
       "application_due_date": "2017-11-08T19:00:00.000+0000",
       "lottery_date": "2017-12-05T19:00:00.000+0000",
-      "lottery_results_date": "2017-12-05T00:00:00-07:00",
+      "lottery_results_date": "2017-12-05T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 244,
       "in_lottery": 2795
@@ -1114,7 +1114,7 @@ const listings = [
       "name": "1401 Mission (Olume)",
       "application_due_date": "2016-09-30T19:00:00.000+0000",
       "lottery_date": "2016-11-01T19:00:00.000+0000",
-      "lottery_results_date": "2016-11-08T00:00:00-07:00",
+      "lottery_results_date": "2016-11-08T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 0,
       "in_lottery": 2727
@@ -1124,7 +1124,7 @@ const listings = [
       "name": "Venn Unit 412",
       "application_due_date": "2017-10-18T19:00:00.000+0000",
       "lottery_date": "2017-11-03T19:00:00.000+0000",
-      "lottery_results_date": "2017-11-06T00:00:00-07:00",
+      "lottery_results_date": "2017-11-06T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 119,
       "in_lottery": 1611
@@ -1134,7 +1134,7 @@ const listings = [
       "name": "388 Beale Unit 906",
       "application_due_date": "2017-10-20T19:00:00.000+0000",
       "lottery_date": "2017-11-07T19:00:00.000+0000",
-      "lottery_results_date": "2017-11-07T00:00:00-07:00",
+      "lottery_results_date": "2017-11-07T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 4,
       "in_lottery": 157
@@ -1144,7 +1144,7 @@ const listings = [
       "name": "Trinity Place Phase 2 Units 409 522 606 724 922 1408",
       "application_due_date": "2017-10-25T19:00:00.000+0000",
       "lottery_date": "2017-11-13T19:00:00.000+0000",
-      "lottery_results_date": "2017-11-14T00:00:00-07:00",
+      "lottery_results_date": "2017-11-14T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 143,
       "in_lottery": 1937
@@ -1214,7 +1214,7 @@ const listings = [
       "name": "3445 Geary Unit 409",
       "application_due_date": "2016-10-12T19:00:00.000+0000",
       "lottery_date": "2016-11-04T19:00:00.000+0000",
-      "lottery_results_date": "2016-11-07T00:00:00-07:00",
+      "lottery_results_date": "2016-11-07T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 0,
       "in_lottery": 0
@@ -1224,7 +1224,7 @@ const listings = [
       "name": "NEMA Units 412, 515, 740",
       "application_due_date": "2017-10-25T19:00:00.000+0000",
       "lottery_date": "2017-11-08T19:00:00.000+0000",
-      "lottery_results_date": "2017-11-09T00:00:00-07:00",
+      "lottery_results_date": "2017-11-09T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 174,
       "in_lottery": 2431
@@ -1234,7 +1234,7 @@ const listings = [
       "name": "Cameo Apartments",
       "application_due_date": "2017-11-03T19:00:00.000+0000",
       "lottery_date": "2017-11-21T19:00:00.000+0000",
-      "lottery_results_date": "2017-11-21T00:00:00-07:00",
+      "lottery_results_date": "2017-11-21T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 107,
       "in_lottery": 1307
@@ -1244,7 +1244,7 @@ const listings = [
       "name": "Metro @ Showplace Square",
       "application_due_date": "2017-11-08T19:00:00.000+0000",
       "lottery_date": "2017-12-08T19:00:00.000+0000",
-      "lottery_results_date": "2017-12-09T00:00:00-07:00",
+      "lottery_results_date": "2017-12-09T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 28,
       "in_lottery": 628
@@ -1294,7 +1294,7 @@ const listings = [
       "name": "280 Brighton",
       "application_due_date": "2016-12-01T19:00:00.000+0000",
       "lottery_date": "2016-12-21T19:00:00.000+0000",
-      "lottery_results_date": "2016-12-28T00:00:00-07:00",
+      "lottery_results_date": "2016-12-28T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 234,
       "in_lottery": 2486
@@ -1304,7 +1304,7 @@ const listings = [
       "name": "2351 Powell (Northpoint Vistas) Units 301, 320",
       "application_due_date": "2016-11-02T19:00:00.000+0000",
       "lottery_date": "2016-11-09T19:00:00.000+0000",
-      "lottery_results_date": "2016-11-11T00:00:00-07:00",
+      "lottery_results_date": "2016-11-11T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 0,
       "in_lottery": 0
@@ -1314,7 +1314,7 @@ const listings = [
       "name": "Madonna Residences",
       "application_due_date": "2017-11-07T19:00:00.000+0000",
       "lottery_date": "2017-12-01T19:00:00.000+0000",
-      "lottery_results_date": "2017-12-01T00:00:00-07:00",
+      "lottery_results_date": "2017-12-01T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 197,
       "in_lottery": 1754
@@ -1324,7 +1324,7 @@ const listings = [
       "name": "Yosemite Apartments",
       "application_due_date": "2017-11-10T19:00:00.000+0000",
       "lottery_date": "2017-11-28T19:00:00.000+0000",
-      "lottery_results_date": "2017-11-28T00:00:00-07:00",
+      "lottery_results_date": "2017-11-28T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 22,
       "in_lottery": 394
@@ -1334,7 +1334,7 @@ const listings = [
       "name": "Alchemy by Alta Unit 177",
       "application_due_date": "2017-11-07T19:00:00.000+0000",
       "lottery_date": "2017-11-20T19:00:00.000+0000",
-      "lottery_results_date": "2017-11-20T00:00:00-07:00",
+      "lottery_results_date": "2017-11-20T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 67,
       "in_lottery": 1207
@@ -1364,7 +1364,7 @@ const listings = [
       "name": "30 Dore (Glasdore Lofts) Unit 104",
       "application_due_date": "2016-11-30T19:00:00.000+0000",
       "lottery_date": "2016-12-09T19:00:00.000+0000",
-      "lottery_results_date": "2016-12-14T00:00:00-07:00",
+      "lottery_results_date": "2016-12-14T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 0,
       "in_lottery": 0
@@ -1404,7 +1404,7 @@ const listings = [
       "name": "Arc Light Unit 307",
       "application_due_date": "2017-11-22T19:00:00.000+0000",
       "lottery_date": "2017-12-13T19:00:00.000+0000",
-      "lottery_results_date": "2017-12-13T00:00:00-07:00",
+      "lottery_results_date": "2017-12-13T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 166,
       "in_lottery": 1835
@@ -1444,7 +1444,7 @@ const listings = [
       "name": "1222 Harrison (L Seven)",
       "application_due_date": "2017-01-13T19:00:00.000+0000",
       "lottery_date": "2017-02-01T19:00:00.000+0000",
-      "lottery_results_date": "2017-02-01T00:00:00-07:00",
+      "lottery_results_date": "2017-02-01T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 517,
       "in_lottery": 4112
@@ -1454,7 +1454,7 @@ const listings = [
       "name": "680 Indiana (O&M Apartments)",
       "application_due_date": "2017-01-21T19:00:00.000+0000",
       "lottery_date": "2017-02-10T19:00:00.000+0000",
-      "lottery_results_date": "2017-02-17T00:00:00-07:00",
+      "lottery_results_date": "2017-02-17T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 0,
       "in_lottery": 2260
@@ -1484,7 +1484,7 @@ const listings = [
       "name": "Carmel Rincon",
       "application_due_date": "2017-12-22T19:00:00.000+0000",
       "lottery_date": "2018-01-11T19:00:00.000+0000",
-      "lottery_results_date": "2018-01-11T00:00:00-07:00",
+      "lottery_results_date": "2018-01-11T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 97,
       "in_lottery": 1540
@@ -1494,7 +1494,7 @@ const listings = [
       "name": "msol test Dec2017 deploy",
       "application_due_date": "2017-12-28T19:00:00.000+0000",
       "lottery_date": "2018-01-04T19:00:00.000+0000",
-      "lottery_results_date": "2018-01-05T00:00:00-07:00",
+      "lottery_results_date": "2018-01-05T00:00:00+0000",
       "lottery_status": "Not Yet Run",
       "nflagged_applications": 3,
       "in_lottery": 17
@@ -1514,7 +1514,7 @@ const listings = [
       "name": "msol test Dec2017 past listing2",
       "application_due_date": "2017-11-01T19:00:00.000+0000",
       "lottery_date": "2017-12-01T19:00:00.000+0000",
-      "lottery_results_date": "2017-12-05T00:00:00-07:00",
+      "lottery_results_date": "2017-12-05T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 0,
       "in_lottery": 0
@@ -1524,7 +1524,7 @@ const listings = [
       "name": "msol test Dec2017 future listing111",
       "application_due_date": "2018-05-16T19:00:00.000+0000",
       "lottery_date": "2018-05-18T19:00:00.000+0000",
-      "lottery_results_date": "2018-01-18T00:00:00-07:00",
+      "lottery_results_date": "2018-01-18T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 0,
       "in_lottery": 4
@@ -1604,7 +1604,7 @@ const listings = [
       "name": "1190 Mission (Trinity Place) Unit 219",
       "application_due_date": "2017-02-10T19:00:00.000+0000",
       "lottery_date": "2017-02-21T19:00:00.000+0000",
-      "lottery_results_date": "2017-02-23T00:00:00-07:00",
+      "lottery_results_date": "2017-02-23T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 0,
       "in_lottery": 0
@@ -1624,7 +1624,7 @@ const listings = [
       "name": "Sister Bernie Galvin Apartments Units 206 211",
       "application_due_date": "2017-12-22T19:00:00.000+0000",
       "lottery_date": "2018-01-16T19:00:00.000+0000",
-      "lottery_results_date": "2018-01-17T00:00:00-07:00",
+      "lottery_results_date": "2018-01-17T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 121,
       "in_lottery": 1441
@@ -1634,7 +1634,7 @@ const listings = [
       "name": "Plaza Ramona Apartments",
       "application_due_date": "2018-01-24T19:00:00.000+0000",
       "lottery_date": "2018-02-13T19:00:00.000+0000",
-      "lottery_results_date": "2018-02-13T00:00:00-07:00",
+      "lottery_results_date": "2018-02-13T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 112,
       "in_lottery": 1477
@@ -1644,7 +1644,7 @@ const listings = [
       "name": "Haight Street Apartments",
       "application_due_date": "2018-01-24T19:00:00.000+0000",
       "lottery_date": "2018-02-15T19:00:00.000+0000",
-      "lottery_results_date": "2018-02-15T00:00:00-07:00",
+      "lottery_results_date": "2018-02-15T00:00:00+0000",
       "lottery_status": "Lottery Complete",
       "nflagged_applications": 55,
       "in_lottery": 1111
