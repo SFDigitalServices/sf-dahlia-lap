@@ -48,8 +48,7 @@ export const fetchFlaggedApplicationsByRecordSet = async (recordSetId) => {
     application: flaggedRecord.application.id,
     application_name: flaggedRecord.application.name,
     flagged_record_set_rule_name: flaggedRecord.flagged_record.rule_name,
-    flagged_record_set_listing_lottery_status:
-      flaggedRecord.flagged_record.listing.lottery_status
+    flagged_record_set_listing_lottery_status: flaggedRecord.flagged_record.listing.lottery_status
   }))
   return { flaggedRecords }
 }

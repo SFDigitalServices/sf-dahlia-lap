@@ -2,12 +2,11 @@ import React, { useState } from 'react'
 
 import ErrorBoundary from 'components/atoms/ErrorBoundary'
 import Loading from 'components/molecules/Loading'
-
 import { useAsyncOnMount } from 'utils/customHooks'
-import { fetchFlaggedApplications } from '../applicationRequestUtils'
 
 import IndexTable from '../../IndexTable'
 import TableLayout from '../../layouts/TableLayout'
+import { fetchFlaggedApplications } from '../applicationRequestUtils'
 
 const flaggedTableFields = {
   id: null,
@@ -55,9 +54,9 @@ const FlaggedApplicationsIndexTable = ({ flaggedRecords, fields }) => {
 }
 
 const FlaggedApplicationsIndexPage = ({ type }) => {
-  const [loading, setLoading]  = useState(true)
-  const [title, setTitle]  = useState(undefined)
-  const [flaggedRecords, setFlaggedRecords]  = useState(undefined)
+  const [loading, setLoading] = useState(true)
+  const [title, setTitle] = useState(undefined)
+  const [flaggedRecords, setFlaggedRecords] = useState(undefined)
   useAsyncOnMount(() => fetchFlaggedApplications(type), {
     onSuccess: ({ title, flaggedRecords }) => {
       setTitle(title)

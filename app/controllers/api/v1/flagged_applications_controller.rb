@@ -37,8 +37,8 @@ class Api::V1::FlaggedApplicationsController < ApiController
 
   def update
     params = Force::FlaggedApplication.from_domain(flagged_application_set_params).to_salesforce_with_suffix
-    result = flagged_record_set_service.update_flagged_application(params)
-    render json: { result: result }
+    result = flagged_record_set_get_service.update_flagged_application(params)
+    render json: result
   end
 
   private
@@ -75,10 +75,6 @@ class Api::V1::FlaggedApplicationsController < ApiController
   end
 
   def flagged_record_set_get_service
-    Force::FlaggedRecordSetService.new(current_user)
-  end
-
-  def flagged_record_set_service
     Force::FlaggedRecordSetService.new(current_user)
   end
 end
