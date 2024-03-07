@@ -9,6 +9,7 @@
 // ***********************************************
 
 import { FIRST_NAME, LAST_NAME, DOB_MONTH, DOB_DAY, DOB_YEAR, DECLINE_TO_STATE } from './consts'
+import { usingFixtures } from './utils'
 
 import '@testing-library/cypress/add-commands'
 
@@ -17,6 +18,10 @@ const submitStatusModalSelector = '.form-modal_form_wrapper button.primary'
 const unselectedStatusMenuItem = 'li[aria-selected="false"].dropdown-menu_item > a'
 
 Cypress.Commands.add('login', () => {
+  if (usingFixtures) {
+    cy.intercept('api/v1/lease-ups/listings', { fixture: 'listings.json' }).as('listings')
+  }
+
   cy.get('.sign-in-btn').click()
 
   cy.origin(Cypress.env('COMMUNITY_LOGIN_URL'), () => {
@@ -27,6 +32,10 @@ Cypress.Commands.add('login', () => {
       .type(Cypress.env('SALESFORCE_PASSWORD'), { log: Cypress.env('LOG_SECRETS') })
     cy.get('#Login', { log: Cypress.env('LOG_SECRETS') }).click({ log: Cypress.env('LOG_SECRETS') })
   })
+
+  if (usingFixtures) {
+    cy.wait('@listings')
+  }
 
   cy.get('.lead-header_title').contains('Lease Ups')
 })
@@ -56,9 +65,18 @@ Cypress.Commands.add('applicationRedirectRouteCheck', (type, id) => {
   const fullURL = type === 'new' ? `/listings/${id}/applications/new` : `/applications/${id}/edit`
   const resultURL = type === 'new' ? `listings/${id}` : `applications/${id}`
 
-  cy.visit(fullURL)
+  if (type !== 'new') {
+    if (usingFixtures()) {
+      cy.intercept('api/v1/short-form/**', { fixture: 'shortForm.json' }).as('shortForm')
+    } else {
+      cy.intercept('api/v1/short-form/**').as('shortForm')
+    }
+  }
 
-  cy.wait(3000)
+  cy.visit(fullURL)
+  if (type !== 'new') {
+    cy.wait('@shortForm')
+  }
 
   cy.url().should('contain', resultURL)
   cy.url().should('not.contain', type)
@@ -69,20 +87,20 @@ Cypress.Commands.add('selectStatusDropdownValue', (dropdownSelector, valueSelect
   cy.get(valueSelector).first().click()
 })
 
-Cypress.Commands.add('checkForStatusUpdateSuccess', (applicationId = null) => {
-  cy.intercept(
-    {
-      method: 'POST',
-      url: `**/${applicationId || ''}/field_update_comments`
-    },
-    (req) => {
+Cypress.Commands.add('checkForStatusUpdateSuccess', () => {
+  if (usingFixtures) {
+    cy.intercept('POST', 'api/v1/applications/**/field_update_comments', {
+      fixture: 'fieldUpdateCommentsPost.json'
+    }).as('fieldUpdateComments')
+  } else {
+    cy.intercept('POST', 'api/v1/applications/**/field_update_comments', (req) => {
       req.continue((res) => {
         if (res.statusCode !== 200) {
           console.error('Status update failure response: ', res.body)
         }
       })
-    }
-  )
+    }).as('fieldUpdateComments')
+  }
 })
 
 Cypress.Commands.add('getText', (selector) => {
@@ -130,10 +148,13 @@ Cypress.Commands.add('selectSubstatusIfRequired', (selectedStatus) => {
 Cypress.Commands.add('getInputValue', (selector) => cy.get(selector).invoke('val'))
 
 Cypress.Commands.add('saveSupplementalApplication', () => {
-  cy.intercept({
-    method: 'PUT',
-    url: '**/api/v1/short-form/submit?supplemental=true'
-  }).as('saveRequest')
+  if (usingFixtures) {
+    cy.intercept('api/v1/short-form/submit?supplemental=true', {
+      fixture: 'shortFormSubmit.json'
+    }).as('saveRequest')
+  } else {
+    cy.intercept('**/api/v1/short-form/submit?supplemental=true').as('saveRequest')
+  }
 
   // Click save
   cy.get('#save-supplemental-application').click()

@@ -1,0 +1,32 @@
+{
+    "test": true,
+    "result": [
+      {
+        "application": "a0o0P00000IvWgcQAF",
+        "comment": "some comment",
+        "date": "2024-03-06T21:27:43.000+0000",
+        "status": "Processing",
+        "substatus": "Written withdrawal",
+        "created_by": "Exygy Leasing Agent",
+        "timestamp": 1709760463
+      },
+      {
+        "application": "a0o0P00000IvWgcQAF",
+        "comment": "some comment",
+        "date": "2024-03-06T21:13:53.000+0000",
+        "status": "Processing",
+        "substatus": null,
+        "created_by": "Exygy Leasing Agent",
+        "timestamp": 1709759633
+      },
+      {
+        "application": "a0o0P00000IvWgcQAF",
+        "comment": "some comment",
+        "date": "2024-03-06T20:35:42.000+0000",
+        "status": "Withdrawn",
+        "substatus": "Written withdrawal",
+        "created_by": "Exygy Leasing Agent",
+        "timestamp": 1709757342
+      }
+    ]
+  }

@@ -2,10 +2,40 @@ import { LEASE_UP_LISTING_APPLICATION_ID } from '../../support/consts'
 import {
   notSelectedOptionSelector,
   selectedOptionSelector,
-  generateRandomCurrency
+  generateRandomCurrency,
+  usingFixtures
 } from '../../support/utils'
 
 describe('SupplementalApplicationPage Confirmed Preferences section', () => {
+  beforeEach(() => {
+    if (usingFixtures()) {
+      cy.intercept('api/v1/short-form/**', { fixture: 'shortForm.json' }).as('shortForm')
+      cy.intercept('api/v1/applications/**/field_update_comments', {
+        fixture: 'fieldUpdateComments.json'
+      }).as('fieldUpdateComments')
+      cy.intercept('api/v1/applications/**/leases', { fixture: 'leases.json' }).as('leases')
+      cy.intercept('api/v1/rental-assistances?application_id=**', {
+        fixture: 'rentalAssistances.json'
+      }).as('rentalAssistances')
+      cy.intercept('api/v1/supplementals/**', { fixture: 'supplementals.json' }).as('supplementals')
+      cy.intercept('api/v1/supplementals/units?listing_id=**', { fixture: 'units.json' }).as(
+        'units'
+      )
+      cy.intercept('api/v1/lease-ups/listings/**', { fixture: 'leaseUpListing.json' }).as(
+        'leaseUpListing'
+      )
+      cy.intercept('api/v1/applications/**/leases/**', { fixture: 'lease.json' }).as('lease')
+    } else {
+      cy.intercept('api/v1/short-form/**').as('shortForm')
+      cy.intercept('api/v1/applications/**/field_update_comments').as('fieldUpdateComments')
+      cy.intercept('api/v1/applications/**/leases').as('leases')
+      cy.intercept('api/v1/rental-assistances?application_id=**').as('rentalAssistances')
+      cy.intercept('api/v1/supplementals/**').as('supplementals')
+      cy.intercept('api/v1/supplementals/units?listing_id=**').as('units')
+      cy.intercept('api/v1/lease-ups/listings/**').as('leaseUpListing')
+      cy.intercept('api/v1/applications/**/leases/**').as('lease')
+    }
+  })
   it('should allow updates to live/work preference', () => {
     const liveWorkEditSelector = '[id$=in-san-francisco-preference-edit]'
     const liveWorkRowSelector = '[id$=in-san-francisco-preference-row]'
@@ -27,6 +57,13 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     // The application used here must include a claimed live/work
     // preference for this test to be able to pass.
     cy.visit(`/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
+    cy.wait('@shortForm')
+    cy.wait('@fieldUpdateComments')
+    cy.wait('@leases')
+    cy.wait('@rentalAssistances')
+    cy.wait('@supplementals')
+    cy.wait('@units')
+    cy.wait('@leaseUpListing')
 
     // Click on the live/work preference's Edit button in the Confirmed
     // Preferences section to expand that preference's edit panel
@@ -70,10 +107,20 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
         cy.get(prefStatusSelector).select(value)
       })
 
-    cy.intercept({
-      method: 'PUT',
-      url: '**/api/v1/preferences/*'
-    }).as('updateRequest')
+    if (usingFixtures()) {
+      cy.intercept(
+        {
+          method: 'PUT',
+          url: 'api/v1/preferences/**'
+        },
+        { fixture: 'preferencePut.json' }
+      ).as('updateRequest')
+    } else {
+      cy.intercept({
+        method: 'PUT',
+        url: 'api/v1/preferences/**'
+      }).as('updateRequest')
+    }
 
     // Click the save button in the preference panel
     cy.get(`${liveWorkExpandedPanelSelector} .save-panel-btn`).click()
@@ -93,8 +140,31 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
       cy.wrap(liveWorkRowValues[5]).should('equal', prefStatusToSetName)
     })
 
+    if (usingFixtures()) {
+      cy.intercept('api/v1/short-form/**', { fixture: 'shortFormSubmit.json' }).as(
+        'shortFormSubmit'
+      )
+      cy.intercept('api/v1/supplementals/**', { fixture: 'supplementalsSubmit.json' }).as(
+        'supplementalsSubmit'
+      )
+      cy.intercept('api/v1/supplementals/units?listing_id=**', { fixture: 'units.json' }).as(
+        'units'
+      )
+    } else {
+      cy.intercept('api/v1/short-form/**').as('shortFormSubmit')
+      cy.intercept('api/v1/supplementals/**').as('supplementalsSubmit')
+      cy.intercept('api/v1/supplementals/units?listing_id=**').as('units')
+    }
+
     // Reload the page
     cy.reload()
+    cy.wait('@shortFormSubmit')
+    cy.wait('@fieldUpdateComments')
+    cy.wait('@leases')
+    cy.wait('@rentalAssistances')
+    cy.wait('@supplementalsSubmit')
+    cy.wait('@units')
+    cy.wait('@leaseUpListing')
 
     // Open the same preference edit panel as before
     cy.get(liveWorkEditSelector).click()
@@ -134,6 +204,13 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     // The application used here must include a claimed assisted housing
     // preference for this test to be able to pass.
     cy.visit(`/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
+    cy.wait('@shortForm')
+    cy.wait('@fieldUpdateComments')
+    cy.wait('@leases')
+    cy.wait('@rentalAssistances')
+    cy.wait('@supplementals')
+    cy.wait('@units')
+    cy.wait('@leaseUpListing')
 
     // Click on the assisted housing preference's Edit button in the Confirmed
     // Preferences section to expand that preference's edit panel
@@ -153,10 +230,20 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
         cy.get(prefStatusSelector).select(value)
       })
 
-    cy.intercept({
-      method: 'PUT',
-      url: '**/api/v1/preferences/*'
-    }).as('updateRequest')
+    if (usingFixtures()) {
+      cy.intercept(
+        {
+          method: 'PUT',
+          url: 'api/v1/preferences/**'
+        },
+        { fixture: 'preferencePut.json' }
+      ).as('updateRequest')
+    } else {
+      cy.intercept({
+        method: 'PUT',
+        url: 'api/v1/preferences/**'
+      }).as('updateRequest')
+    }
 
     // Click the save button in the preference panel
     cy.get(`${assistedHousingExpandedPanelSelector} .save-panel-btn`).click()
@@ -173,6 +260,22 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
 
       cy.wrap(assistedHousingRowValues[5]).should('equal', prefStatusToSetName)
     })
+
+    if (usingFixtures()) {
+      cy.intercept('api/v1/short-form/**', { fixture: 'shortFormSubmit.json' }).as(
+        'shortFormSubmit'
+      )
+      cy.intercept('api/v1/supplementals/**', { fixture: 'supplementalsSubmit.json' }).as(
+        'supplementalsSubmit'
+      )
+      cy.intercept('api/v1/supplementals/units?listing_id=**', { fixture: 'units.json' }).as(
+        'units'
+      )
+    } else {
+      cy.intercept('api/v1/short-form/**').as('shortFormSubmit')
+      cy.intercept('api/v1/supplementals/**').as('supplementalsSubmit')
+      cy.intercept('api/v1/supplementals/units?listing_id=**').as('units')
+    }
 
     // Reload the page
     cy.reload()
@@ -199,6 +302,13 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
     cy.visit('http://localhost:3000/')
     cy.login()
     cy.visit(`/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
+    cy.wait('@shortForm')
+    cy.wait('@fieldUpdateComments')
+    cy.wait('@leases')
+    cy.wait('@rentalAssistances')
+    cy.wait('@supplementals')
+    cy.wait('@units')
+    cy.wait('@leaseUpListing')
 
     // Change a value on the supp app form outside of the confirmed preference panels
     // (and also outside of the rental assistance panels)
@@ -222,10 +332,20 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
         cy.get(prefStatusSelector).select(value)
       })
 
-    cy.intercept({
-      method: 'PUT',
-      url: '**/api/v1/preferences/*'
-    }).as('updateRequest')
+    if (usingFixtures()) {
+      cy.intercept(
+        {
+          method: 'PUT',
+          url: 'api/v1/preferences/**'
+        },
+        { fixture: 'preferencePut.json' }
+      ).as('updateRequest')
+    } else {
+      cy.intercept({
+        method: 'PUT',
+        url: 'api/v1/preferences/**'
+      }).as('updateRequest')
+    }
 
     // Click the save button in the preference panel
     cy.get(`${assistedHousingExpandedPanelSelector} .save-panel-btn`).click()

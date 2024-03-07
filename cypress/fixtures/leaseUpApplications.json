@@ -1,0 +1,1305 @@
+{
+    "test": true,
+	"records": [
+		{
+			"application": {
+				"name": "APP-00304154",
+				"id": "a0o0P00000IvWgcQAF",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Lori",
+					"last_name": "Ortiz",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Lori Ortiz"
+				},
+				"has_ada_priorities_selected": {
+					"mobility_impairments": true,
+					"hearing_impairments": true
+				},
+				"total_household_size": 3,
+				"sub_status": null,
+				"processing_status": "Processing",
+				"status_last_updated": "2024-03-06T21:13:53.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 1,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 1,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 1,
+			"custom_preference_type": "COP",
+			"record_type_for_app_preferences": "COP",
+			"preference_name": "Certificate of Preference (COP)"
+		},
+		{
+			"application": {
+				"name": "APP-00243703",
+				"id": "a0o0P00000GZazsQAD",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Aaron",
+					"last_name": "Wood",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Aaron Wood"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 2,
+				"sub_status": "Pending documentation from applicant to support request",
+				"processing_status": "Appealed",
+				"status_last_updated": "2024-03-06T21:14:27.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 1,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 2,
+			"post_lottery_validation": "Confirmed",
+			"preference_lottery_rank": 2,
+			"custom_preference_type": "COP",
+			"record_type_for_app_preferences": "COP",
+			"preference_name": "Certificate of Preference (COP)"
+		},
+		{
+			"application": {
+				"name": "APP-00304153",
+				"id": "a0o0P00000IvWgXQAV",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "David",
+					"last_name": "Bradley",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "David Bradley"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": "Pending documentation from applicant to support request",
+				"processing_status": "Appealed",
+				"status_last_updated": "2024-03-06T21:14:09.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 1,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 3,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 3,
+			"custom_preference_type": "COP",
+			"record_type_for_app_preferences": "COP",
+			"preference_name": "Certificate of Preference (COP)"
+		},
+		{
+			"application": {
+				"name": "APP-00304173",
+				"id": "a0o0P00000IvWt8QAF",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Elizabeth",
+					"last_name": "Boyd",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Elizabeth Boyd"
+				},
+				"has_ada_priorities_selected": {
+					"vision_impairments": true
+				},
+				"total_household_size": 3,
+				"sub_status": "Unit selected",
+				"processing_status": "Approved",
+				"status_last_updated": "2020-12-15T19:11:16.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 1,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 4,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 4,
+			"custom_preference_type": "COP",
+			"record_type_for_app_preferences": "COP",
+			"preference_name": "Certificate of Preference (COP)"
+		},
+		{
+			"application": {
+				"name": "APP-00258654",
+				"id": "a0o0P00000Isnf4QAB",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "David",
+					"last_name": "Clark",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "David Clark"
+				},
+				"has_ada_priorities_selected": {
+					"vision_impairments": true,
+					"mobility_impairments": true,
+					"hearing_impairments": true
+				},
+				"total_household_size": 2,
+				"sub_status": null,
+				"processing_status": "Processing",
+				"status_last_updated": "2020-12-15T19:10:21.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 1,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 5,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 5,
+			"custom_preference_type": "COP",
+			"record_type_for_app_preferences": "COP",
+			"preference_name": "Certificate of Preference (COP)"
+		},
+		{
+			"application": {
+				"name": "APP-00302547",
+				"id": "a0o0P00000IvMoaQAF",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Paula",
+					"last_name": "Fletcher",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Paula Fletcher"
+				},
+				"has_ada_priorities_selected": {
+					"mobility_impairments": true
+				},
+				"total_household_size": 3,
+				"sub_status": "Written withdrawal",
+				"processing_status": "Withdrawn",
+				"status_last_updated": "2020-04-10T17:28:06.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 1,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 6,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 6,
+			"custom_preference_type": "COP",
+			"record_type_for_app_preferences": "COP",
+			"preference_name": "Certificate of Preference (COP)"
+		},
+		{
+			"application": {
+				"name": "APP-00271364",
+				"id": "a0o0P00000ItlpiQAB",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Cassidy",
+					"last_name": "Crawford",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Cassidy Crawford"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": null,
+				"processing_status": "Lease Signed",
+				"status_last_updated": "2020-05-07T17:44:47.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 2,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 1,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 1,
+			"custom_preference_type": "DTHP",
+			"record_type_for_app_preferences": "DTHP",
+			"preference_name": "Displaced Tenant Housing Preference (DTHP)"
+		},
+		{
+			"application": {
+				"name": "APP-00304155",
+				"id": "a0o0P00000IvWghQAF",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Michael",
+					"last_name": "Anderson",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Michael Anderson"
+				},
+				"has_ada_priorities_selected": {
+					"hearing_impairments": true
+				},
+				"total_household_size": 2,
+				"sub_status": null,
+				"processing_status": "Lease Signed",
+				"status_last_updated": "2020-12-05T01:25:10.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 2,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 2,
+			"post_lottery_validation": "Confirmed",
+			"preference_lottery_rank": 2,
+			"custom_preference_type": "DTHP",
+			"record_type_for_app_preferences": "DTHP",
+			"preference_name": "Displaced Tenant Housing Preference (DTHP)"
+		},
+		{
+			"application": {
+				"name": "APP-00304173",
+				"id": "a0o0P00000IvWt8QAF",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Elizabeth",
+					"last_name": "Boyd",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Elizabeth Boyd"
+				},
+				"has_ada_priorities_selected": {
+					"vision_impairments": true
+				},
+				"total_household_size": 3,
+				"sub_status": "Unit selected",
+				"processing_status": "Approved",
+				"status_last_updated": "2020-12-15T19:11:16.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 2,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 3,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 3,
+			"custom_preference_type": "DTHP",
+			"record_type_for_app_preferences": "DTHP",
+			"preference_name": "Displaced Tenant Housing Preference (DTHP)"
+		},
+		{
+			"application": {
+				"name": "APP-00243694",
+				"id": "a0o0P00000GZaz9QAD",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Marcus",
+					"last_name": "Price",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Marcus Price"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": "Verbal withdrawal",
+				"processing_status": "Withdrawn",
+				"status_last_updated": "2023-12-06T15:48:50.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 2,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 4,
+			"post_lottery_validation": "Confirmed",
+			"preference_lottery_rank": 4,
+			"custom_preference_type": "DTHP",
+			"record_type_for_app_preferences": "DTHP",
+			"preference_name": "Displaced Tenant Housing Preference (DTHP)"
+		},
+		{
+			"application": {
+				"name": "APP-00258654",
+				"id": "a0o0P00000Isnf4QAB",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "David",
+					"last_name": "Clark",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "David Clark"
+				},
+				"has_ada_priorities_selected": {
+					"vision_impairments": true,
+					"mobility_impairments": true,
+					"hearing_impairments": true
+				},
+				"total_household_size": 2,
+				"sub_status": null,
+				"processing_status": "Processing",
+				"status_last_updated": "2020-12-15T19:10:21.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 2,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 5,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 5,
+			"custom_preference_type": "DTHP",
+			"record_type_for_app_preferences": "DTHP",
+			"preference_name": "Displaced Tenant Housing Preference (DTHP)"
+		},
+		{
+			"application": {
+				"name": "APP-00302547",
+				"id": "a0o0P00000IvMoaQAF",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Paula",
+					"last_name": "Fletcher",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Paula Fletcher"
+				},
+				"has_ada_priorities_selected": {
+					"mobility_impairments": true
+				},
+				"total_household_size": 3,
+				"sub_status": "Written withdrawal",
+				"processing_status": "Withdrawn",
+				"status_last_updated": "2020-04-10T17:28:06.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 2,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 6,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 6,
+			"custom_preference_type": "DTHP",
+			"record_type_for_app_preferences": "DTHP",
+			"preference_name": "Displaced Tenant Housing Preference (DTHP)"
+		},
+		{
+			"application": {
+				"name": "APP-00243697",
+				"id": "a0o0P00000GZazOQAT",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Allen",
+					"last_name": "Thomas",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Allen Thomas"
+				},
+				"has_ada_priorities_selected": {
+					"vision_impairments": true,
+					"mobility_impairments": true
+				},
+				"total_household_size": 1,
+				"sub_status": "Written withdrawal",
+				"processing_status": "Withdrawn",
+				"status_last_updated": "2024-03-05T20:25:19.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 3,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 1,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 1,
+			"custom_preference_type": "RB_AHP",
+			"record_type_for_app_preferences": "RB_AHP",
+			"preference_name": "Rent Burdened / Assisted Housing Preference"
+		},
+		{
+			"application": {
+				"name": "APP-00243703",
+				"id": "a0o0P00000GZazsQAD",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Aaron",
+					"last_name": "Wood",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Aaron Wood"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 2,
+				"sub_status": "Pending documentation from applicant to support request",
+				"processing_status": "Appealed",
+				"status_last_updated": "2024-03-06T21:14:27.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 3,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 2,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 2,
+			"custom_preference_type": "RB_AHP",
+			"record_type_for_app_preferences": "RB_AHP",
+			"preference_name": "Rent Burdened / Assisted Housing Preference"
+		},
+		{
+			"application": {
+				"name": "APP-00304174",
+				"id": "a0o0P00000IvWtNQAV",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Jessica",
+					"last_name": "Pena",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Jessica Pena"
+				},
+				"has_ada_priorities_selected": {
+					"hearing_impairments": true
+				},
+				"total_household_size": 2,
+				"sub_status": null,
+				"processing_status": null,
+				"status_last_updated": null,
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 1,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 1,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "Live or Work in San Francisco Preference"
+		},
+		{
+			"application": {
+				"name": "APP-00271364",
+				"id": "a0o0P00000ItlpiQAB",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Cassidy",
+					"last_name": "Crawford",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Cassidy Crawford"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": null,
+				"processing_status": "Lease Signed",
+				"status_last_updated": "2020-05-07T17:44:47.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 2,
+			"post_lottery_validation": "Confirmed",
+			"preference_lottery_rank": 2,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "Live or Work in San Francisco Preference"
+		},
+		{
+			"application": {
+				"name": "APP-00304154",
+				"id": "a0o0P00000IvWgcQAF",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Lori",
+					"last_name": "Ortiz",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Lori Ortiz"
+				},
+				"has_ada_priorities_selected": {
+					"mobility_impairments": true,
+					"hearing_impairments": true
+				},
+				"total_household_size": 3,
+				"sub_status": null,
+				"processing_status": "Processing",
+				"status_last_updated": "2024-03-06T21:13:53.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 3,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 3,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "Live or Work in San Francisco Preference"
+		},
+		{
+			"application": {
+				"name": "APP-00243697",
+				"id": "a0o0P00000GZazOQAT",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Allen",
+					"last_name": "Thomas",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Allen Thomas"
+				},
+				"has_ada_priorities_selected": {
+					"vision_impairments": true,
+					"mobility_impairments": true
+				},
+				"total_household_size": 1,
+				"sub_status": "Written withdrawal",
+				"processing_status": "Withdrawn",
+				"status_last_updated": "2024-03-05T20:25:19.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 4,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 4,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "Live or Work in San Francisco Preference"
+		},
+		{
+			"application": {
+				"name": "APP-00304155",
+				"id": "a0o0P00000IvWghQAF",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Michael",
+					"last_name": "Anderson",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Michael Anderson"
+				},
+				"has_ada_priorities_selected": {
+					"hearing_impairments": true
+				},
+				"total_household_size": 2,
+				"sub_status": null,
+				"processing_status": "Lease Signed",
+				"status_last_updated": "2020-12-05T01:25:10.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 5,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 5,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "Live or Work in San Francisco Preference"
+		},
+		{
+			"application": {
+				"name": "APP-00243691",
+				"id": "a0o0P00000GZayuQAD",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Stephen",
+					"last_name": "Myers",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Stephen Myers"
+				},
+				"has_ada_priorities_selected": {
+					"hearing_impairments": true
+				},
+				"total_household_size": 1,
+				"sub_status": null,
+				"processing_status": "Withdrawn",
+				"status_last_updated": "2018-08-03T22:21:50.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 6,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 6,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "Live or Work in San Francisco Preference"
+		},
+		{
+			"application": {
+				"name": "APP-00243703",
+				"id": "a0o0P00000GZazsQAD",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Aaron",
+					"last_name": "Wood",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Aaron Wood"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 2,
+				"sub_status": "Pending documentation from applicant to support request",
+				"processing_status": "Appealed",
+				"status_last_updated": "2024-03-06T21:14:27.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 7,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 7,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "Live or Work in San Francisco Preference"
+		},
+		{
+			"application": {
+				"name": "APP-00304153",
+				"id": "a0o0P00000IvWgXQAV",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "David",
+					"last_name": "Bradley",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "David Bradley"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": "Pending documentation from applicant to support request",
+				"processing_status": "Appealed",
+				"status_last_updated": "2024-03-06T21:14:09.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 8,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 8,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "Live or Work in San Francisco Preference"
+		},
+		{
+			"application": {
+				"name": "APP-00304173",
+				"id": "a0o0P00000IvWt8QAF",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Elizabeth",
+					"last_name": "Boyd",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Elizabeth Boyd"
+				},
+				"has_ada_priorities_selected": {
+					"vision_impairments": true
+				},
+				"total_household_size": 3,
+				"sub_status": "Unit selected",
+				"processing_status": "Approved",
+				"status_last_updated": "2020-12-15T19:11:16.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 9,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 9,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "Live or Work in San Francisco Preference"
+		},
+		{
+			"application": {
+				"name": "APP-00243694",
+				"id": "a0o0P00000GZaz9QAD",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Marcus",
+					"last_name": "Price",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Marcus Price"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": "Verbal withdrawal",
+				"processing_status": "Withdrawn",
+				"status_last_updated": "2023-12-06T15:48:50.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 10,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 10,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "Live or Work in San Francisco Preference"
+		},
+		{
+			"application": {
+				"name": "APP-00258654",
+				"id": "a0o0P00000Isnf4QAB",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "David",
+					"last_name": "Clark",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "David Clark"
+				},
+				"has_ada_priorities_selected": {
+					"vision_impairments": true,
+					"mobility_impairments": true,
+					"hearing_impairments": true
+				},
+				"total_household_size": 2,
+				"sub_status": null,
+				"processing_status": "Processing",
+				"status_last_updated": "2020-12-15T19:10:21.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 11,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 11,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "Live or Work in San Francisco Preference"
+		},
+		{
+			"application": {
+				"name": "APP-00302547",
+				"id": "a0o0P00000IvMoaQAF",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Paula",
+					"last_name": "Fletcher",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Paula Fletcher"
+				},
+				"has_ada_priorities_selected": {
+					"mobility_impairments": true
+				},
+				"total_household_size": 3,
+				"sub_status": "Written withdrawal",
+				"processing_status": "Withdrawn",
+				"status_last_updated": "2020-04-10T17:28:06.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 12,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 12,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "Live or Work in San Francisco Preference"
+		},
+		{
+			"application": {
+				"name": "APP-00299776",
+				"id": "a0o0P00000Iv7H4QAJ",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Patricia",
+					"last_name": "Ball",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Patricia Ball"
+				},
+				"has_ada_priorities_selected": {
+					"vision_impairments": true
+				},
+				"total_household_size": 3,
+				"sub_status": null,
+				"processing_status": "Appealed",
+				"status_last_updated": "2018-12-06T21:30:38.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 13,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 13,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "Live or Work in San Francisco Preference"
+		},
+		{
+			"application": {
+				"name": "APP-00243691",
+				"id": "a0o0P00000GZayuQAD",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Stephen",
+					"last_name": "Myers",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Stephen Myers"
+				},
+				"has_ada_priorities_selected": {
+					"hearing_impairments": true
+				},
+				"total_household_size": 1,
+				"sub_status": null,
+				"processing_status": "Withdrawn",
+				"status_last_updated": "2018-08-03T22:21:50.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 6,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 1,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 1,
+			"custom_preference_type": "NRHP",
+			"record_type_for_app_preferences": "NRHP",
+			"preference_name": "Neighborhood Resident Housing Preference (NRHP)"
+		},
+		{
+			"application": {
+				"name": "APP-00299776",
+				"id": "a0o0P00000Iv7H4QAJ",
+				"general_lottery": false,
+				"general_lottery_rank": null,
+				"applicant": {
+					"first_name": "Patricia",
+					"last_name": "Ball",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Patricia Ball"
+				},
+				"has_ada_priorities_selected": {
+					"vision_impairments": true
+				},
+				"total_household_size": 3,
+				"sub_status": null,
+				"processing_status": "Appealed",
+				"status_last_updated": "2018-12-06T21:30:38.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 6,
+			"receives_preference": true,
+			"preference_all_lottery_rank": 2,
+			"post_lottery_validation": "Unconfirmed",
+			"preference_lottery_rank": 2,
+			"custom_preference_type": "NRHP",
+			"record_type_for_app_preferences": "NRHP",
+			"preference_name": "Neighborhood Resident Housing Preference (NRHP)"
+		},
+		{
+			"application": {
+				"name": "APP-00308587",
+				"id": "a0o0P00000Iw6RrQAJ",
+				"general_lottery": true,
+				"general_lottery_rank": 1,
+				"applicant": {
+					"first_name": "Jorge",
+					"last_name": "Cochran",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Jorge Cochran"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": null,
+				"processing_status": null,
+				"status_last_updated": null,
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": false,
+			"preference_all_lottery_rank": 1,
+			"post_lottery_validation": null,
+			"preference_lottery_rank": null,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "General"
+		},
+		{
+			"application": {
+				"name": "APP-00271349",
+				"id": "a0o0P00000ItlltQAB",
+				"general_lottery": true,
+				"general_lottery_rank": 2,
+				"applicant": {
+					"first_name": "Cassidy",
+					"last_name": "Crawford",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Cassidy Crawford"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": null,
+				"processing_status": null,
+				"status_last_updated": null,
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": false,
+			"preference_all_lottery_rank": 2,
+			"post_lottery_validation": null,
+			"preference_lottery_rank": null,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "General"
+		},
+		{
+			"application": {
+				"name": "APP-00243687",
+				"id": "a0o0P00000GZawFQAT",
+				"general_lottery": true,
+				"general_lottery_rank": 3,
+				"applicant": {
+					"first_name": "Daniel",
+					"last_name": "Fry",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Daniel Fry"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 3,
+				"sub_status": null,
+				"processing_status": "Processing",
+				"status_last_updated": "2018-11-30T01:17:05.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": false,
+			"preference_all_lottery_rank": 3,
+			"post_lottery_validation": null,
+			"preference_lottery_rank": null,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "General"
+		},
+		{
+			"application": {
+				"name": "APP-00255019",
+				"id": "a0o0P00000Isg1AQAR",
+				"general_lottery": true,
+				"general_lottery_rank": 4,
+				"applicant": {
+					"first_name": "Donald",
+					"last_name": "Welch",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Donald Welch"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": null,
+				"processing_status": "Appealed",
+				"status_last_updated": "2018-12-06T21:33:26.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": false,
+			"preference_all_lottery_rank": 4,
+			"post_lottery_validation": null,
+			"preference_lottery_rank": null,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "General"
+		},
+		{
+			"application": {
+				"name": "APP-00308590",
+				"id": "a0o0P00000Iw6S6QAJ",
+				"general_lottery": true,
+				"general_lottery_rank": 5,
+				"applicant": {
+					"first_name": "Katie",
+					"last_name": "Cochran",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Katie Cochran"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": null,
+				"processing_status": null,
+				"status_last_updated": null,
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": false,
+			"preference_all_lottery_rank": 5,
+			"post_lottery_validation": null,
+			"preference_lottery_rank": null,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "General"
+		},
+		{
+			"application": {
+				"name": "APP-00308589",
+				"id": "a0o0P00000Iw6S1QAJ",
+				"general_lottery": true,
+				"general_lottery_rank": 6,
+				"applicant": {
+					"first_name": "Charles",
+					"last_name": "Cochran",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Charles Cochran"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": null,
+				"processing_status": null,
+				"status_last_updated": null,
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": false,
+			"preference_all_lottery_rank": 6,
+			"post_lottery_validation": null,
+			"preference_lottery_rank": null,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "General"
+		},
+		{
+			"application": {
+				"name": "APP-00308588",
+				"id": "a0o0P00000Iw6RwQAJ",
+				"general_lottery": true,
+				"general_lottery_rank": 7,
+				"applicant": {
+					"first_name": "Katie",
+					"last_name": "Martinez",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Katie Martinez"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": null,
+				"processing_status": null,
+				"status_last_updated": null,
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": false,
+			"preference_all_lottery_rank": 7,
+			"post_lottery_validation": null,
+			"preference_lottery_rank": null,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "General"
+		},
+		{
+			"application": {
+				"name": "APP-00308583",
+				"id": "a0o0P00000Iw6RXQAZ",
+				"general_lottery": true,
+				"general_lottery_rank": 8,
+				"applicant": {
+					"first_name": "Alicia",
+					"last_name": "Shepherd",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Alicia Shepherd"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": null,
+				"processing_status": null,
+				"status_last_updated": null,
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": false,
+			"preference_all_lottery_rank": 8,
+			"post_lottery_validation": null,
+			"preference_lottery_rank": null,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "General"
+		},
+		{
+			"application": {
+				"name": "APP-00271363",
+				"id": "a0o0P00000ItlpdQAB",
+				"general_lottery": true,
+				"general_lottery_rank": 9,
+				"applicant": {
+					"first_name": "Cassidy",
+					"last_name": "Crawford",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Cassidy Crawford"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": null,
+				"processing_status": "Appealed",
+				"status_last_updated": "2018-12-06T21:36:28.000+0000",
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": false,
+			"preference_all_lottery_rank": 9,
+			"post_lottery_validation": null,
+			"preference_lottery_rank": null,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "General"
+		},
+		{
+			"application": {
+				"name": "APP-00271348",
+				"id": "a0o0P00000ItlloQAB",
+				"general_lottery": true,
+				"general_lottery_rank": 10,
+				"applicant": {
+					"first_name": "Cassidy",
+					"last_name": "Crawford",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Cassidy Crawford"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": null,
+				"processing_status": null,
+				"status_last_updated": null,
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": false,
+			"preference_all_lottery_rank": 10,
+			"post_lottery_validation": null,
+			"preference_lottery_rank": null,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "General"
+		},
+		{
+			"application": {
+				"name": "APP-00306509",
+				"id": "a0o0P00000IvwNUQAZ",
+				"general_lottery": true,
+				"general_lottery_rank": 11,
+				"applicant": {
+					"first_name": "Tamara",
+					"last_name": "Gibbs",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Tamara Gibbs"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": null,
+				"processing_status": null,
+				"status_last_updated": null,
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": false,
+			"preference_all_lottery_rank": 11,
+			"post_lottery_validation": null,
+			"preference_lottery_rank": null,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "General"
+		},
+		{
+			"application": {
+				"name": "APP-00271350",
+				"id": "a0o0P00000ItllyQAB",
+				"general_lottery": true,
+				"general_lottery_rank": 12,
+				"applicant": {
+					"first_name": "Cassidy",
+					"last_name": "Crawford",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Cassidy Crawford"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": null,
+				"processing_status": null,
+				"status_last_updated": null,
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": false,
+			"preference_all_lottery_rank": 12,
+			"post_lottery_validation": null,
+			"preference_lottery_rank": null,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "General"
+		},
+		{
+			"application": {
+				"name": "APP-00271344",
+				"id": "a0o0P00000ItllUQAR",
+				"general_lottery": true,
+				"general_lottery_rank": 13,
+				"applicant": {
+					"first_name": "Cassidy",
+					"last_name": "Crawford",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Cassidy Crawford"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": null,
+				"processing_status": null,
+				"status_last_updated": null,
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": false,
+			"preference_all_lottery_rank": 13,
+			"post_lottery_validation": null,
+			"preference_lottery_rank": null,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "General"
+		},
+		{
+			"application": {
+				"name": "APP-00271346",
+				"id": "a0o0P00000ItlleQAB",
+				"general_lottery": true,
+				"general_lottery_rank": 14,
+				"applicant": {
+					"first_name": "Cassidy",
+					"last_name": "Crawford",
+					"residence_address": "",
+					"mailing_address": "",
+					"name": "Cassidy Crawford"
+				},
+				"has_ada_priorities_selected": null,
+				"total_household_size": 1,
+				"sub_status": null,
+				"processing_status": null,
+				"status_last_updated": null,
+				"demographics": {}
+			},
+			"preference_order": 4,
+			"receives_preference": false,
+			"preference_all_lottery_rank": 14,
+			"post_lottery_validation": null,
+			"preference_lottery_rank": null,
+			"custom_preference_type": "L_W",
+			"record_type_for_app_preferences": "L_W",
+			"preference_name": "General"
+		}
+	],
+	"pages": 0.43,
+	"page": "0",
+	"total_size": 43
+}

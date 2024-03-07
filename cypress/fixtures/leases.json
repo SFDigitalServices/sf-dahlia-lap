@@ -1,0 +1,20 @@
+{
+    "test": true,
+    "lease": {
+        "id": "a130P000007U6tkQAC",
+        "unit": null,
+        "lease_start_date": {
+            "year": "2019",
+            "month": "01",
+            "day": "01"
+        },
+        "lease_status": "Ended",
+        "monthly_parking_rent": 971.16,
+        "bmr_parking_space_assigned": "Yes",
+        "preference_used": null,
+        "no_preference_used": false,
+        "total_monthly_rent_without_parking": 117.23,
+        "monthly_tenant_contribution": 770.93,
+        "parking_spot_number": null
+    }
+}

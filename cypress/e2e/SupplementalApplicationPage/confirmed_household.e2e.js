@@ -1,5 +1,5 @@
 import { LEASE_UP_LISTING_APPLICATION_ID } from '../../support/consts'
-import { generateRandomCurrency } from '../../support/utils'
+import { generateRandomCurrency, usingFixtures } from '../../support/utils'
 
 const hhAssetsSelector = '#form-household_assets'
 const hhImputedAssetsSelector = '#form-imputed_income_from_assets'
@@ -10,10 +10,44 @@ const amiChartTypeSelector = '#ami_chart_type'
 const amiChartYearSelector = '#ami_chart_year'
 
 describe('SupplementalApplicationPage confirmed household income section', () => {
+  beforeEach(() => {
+    if (usingFixtures()) {
+      cy.intercept('api/v1/short-form/**', { fixture: 'shortForm.json' }).as('shortForm')
+      cy.intercept('api/v1/applications/**/field_update_comments', {
+        fixture: 'fieldUpdateComments.json'
+      }).as('fieldUpdateComments')
+      cy.intercept('api/v1/applications/**/leases', { fixture: 'leases.json' }).as('leases')
+      cy.intercept('api/v1/rental-assistances?application_id=**', {
+        fixture: 'rentalAssistances.json'
+      }).as('rentalAssistances')
+      cy.intercept('api/v1/supplementals/**', { fixture: 'supplementals.json' }).as('supplementals')
+      cy.intercept('api/v1/supplementals/units?listing_id=**', { fixture: 'units.json' }).as(
+        'units'
+      )
+      cy.intercept('api/v1/lease-ups/listings/**', { fixture: 'leaseUpListing.json' }).as(
+        'leaseUpListing'
+      )
+    } else {
+      cy.intercept('api/v1/short-form/**').as('shortForm')
+      cy.intercept('api/v1/applications/**/field_update_comments').as('fieldUpdateComments')
+      cy.intercept('api/v1/applications/**/leases').as('leases')
+      cy.intercept('api/v1/rental-assistances?application_id=**').as('rentalAssistances')
+      cy.intercept('api/v1/supplementals/**').as('supplementals')
+      cy.intercept('api/v1/supplementals/units?listing_id=**').as('units')
+      cy.intercept('api/v1/lease-ups/listings/**').as('leaseUpListing')
+    }
+  })
   it('should allow saving of assets and incomes', () => {
     cy.visit('http://localhost:3000/')
     cy.login()
     cy.visit(`/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
+    cy.wait('@shortForm')
+    cy.wait('@fieldUpdateComments')
+    cy.wait('@leases')
+    cy.wait('@rentalAssistances')
+    cy.wait('@supplementals')
+    cy.wait('@units')
+    cy.wait('@leaseUpListing')
 
     // Generate the values (with currency and non-currency strings)
     const hhAssetsValue = generateRandomCurrency()
@@ -35,7 +69,7 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
     cy.get(amiChartYearSelector).select('2018')
 
     // Click save
-    cy.saveSupplementalApplication()
+    cy.saveSupplementalApplication(usingFixtures())
 
     // Verify that the values are there (as numbers, not currency)
     cy.getInputValue(hhAssetsSelector).should('equal', '$' + String(hhAssetsValue.float.toFixed(2)))
