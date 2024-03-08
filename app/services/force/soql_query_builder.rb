@@ -3,7 +3,7 @@
 module Force
   # Build simple SOQL queries to access data in Salesforce
   class SoqlQueryBuilder
-    DEFAULT_PAGE_SIZE = 100
+    DEFAULT_PAGE_SIZE = 10000
 
     attr_reader :client
     def initialize(client)
