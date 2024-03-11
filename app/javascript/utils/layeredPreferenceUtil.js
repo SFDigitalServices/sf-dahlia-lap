@@ -17,12 +17,22 @@ export const addLayeredValidation = (preferences) => {
       }
     }
 
-    const nonVetConfirmation = preferences.filter(
+    const filteredPrefs = preferences.filter(
       (data) =>
         data.application_id === preference.application_id &&
         data.preference_record_type === preference.preference_record_type &&
         data.preference_name !== preference.preference_name
-    )[0].post_lottery_validation
+    )
+
+    let nonVetConfirmation
+    if (filteredPrefs.length < 1) {
+      console.warn(
+        `matching non vet preference not found, falling back to unconfirmed status for veteran preference`
+      )
+      nonVetConfirmation = 'Unconfirmed'
+    } else {
+      nonVetConfirmation = filteredPrefs[0].post_lottery_validation
+    }
 
     const finalConfirmation = calculateFinalConfirmation(
       preference.post_lottery_validation,

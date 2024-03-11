@@ -11,7 +11,8 @@ import {
   preferencesWithVeteransUnconfirmed,
   preferencesWithVeteransConfirmed,
   applicationMembers,
-  preferencesWithVeteransMixed
+  preferencesWithVeteransMixed,
+  preferencesWithVeteransOnly
 } from '../fixtures/layered_preferences'
 
 describe('layeredPreferenceUtil', () => {
@@ -63,6 +64,20 @@ describe('layeredPreferenceUtil', () => {
       // then
       expect(layeredPreferences[0].layered_validation).toBe('Confirmed')
       expect(layeredPreferences[1].layered_validation).toBe('Confirmed')
+    })
+    test('should set veteran preference to unconfirmed if non veteran not found', () => {
+      // given
+      const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {})
+
+      // when
+      const layeredPreferences = addLayeredValidation(preferencesWithVeteransOnly)
+
+      // then
+      expect(layeredPreferences[0].layered_validation).toBe('Unconfirmed')
+      expect(consoleSpy).toHaveBeenCalledTimes(1)
+      expect(consoleSpy.mock.calls[0][0].toString()).toBe(
+        'matching non vet preference not found, falling back to unconfirmed status for veteran preference'
+      )
     })
   })
   describe('addLayeredPreferenceFields', () => {
