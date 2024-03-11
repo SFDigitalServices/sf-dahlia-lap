@@ -32,7 +32,7 @@ RSpec.describe Api::V1::LeaseUpListingsController, type: :controller do
       json = JSON.parse(response.body)
 
       expect(json['listing']).not_to be_empty
-      expect(json['listing']['name']).to eq('Partners Test Listing (do not modify) - Yellow Acres')
+      expect(json['listing']['name']).to eq('TEST Partners Listing (do not modify) - Yellow Acres')
     end
   end
 end
