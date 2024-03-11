@@ -119,7 +119,7 @@ const listingsList = () => {
       name: '2235 Third (Potrero Launch) Unit  W519',
       application_due_date: '2017-02-07T17:00:00.000+0000',
       lottery_date: '2017-02-28T17:00:00.000+0000',
-      lottery_results_date: '03/02/17',
+      lottery_results_date: '2017-03-02T17:00:00.000+0000',
       lottery_status: 'Not Yet Run',
       nflagged_applications: 0,
       in_lottery: 0
@@ -129,7 +129,7 @@ const listingsList = () => {
       name: '2235 Third (Potrero Launch) Unit E408',
       application_due_date: '2017-02-07T17:00:00.000+0000',
       lottery_date: '2017-02-28T17:00:00.000+0000',
-      lottery_results_date: '03/02/17',
+      lottery_results_date: '2017-03-02T17:00:00.000+0000',
       lottery_status: 'Not Yet Run',
       nflagged_applications: 0,
       in_lottery: 0
@@ -139,7 +139,7 @@ const listingsList = () => {
       name: '2660 Third (Abaca)',
       application_due_date: '2017-03-10T17:00:00.000+0000',
       lottery_date: '2017-03-31T17:00:00.000+0000',
-      lottery_results_date: '04/07/17',
+      lottery_results_date: '2017-04-07T17:00:00.000+0000',
       lottery_status: 'Lottery Complete',
       nflagged_applications: 0,
       in_lottery: 2907
@@ -149,7 +149,7 @@ const listingsList = () => {
       name: 'Merry Go Round Shared Housing',
       application_due_date: '2018-02-08T17:00:00.000+0000',
       lottery_date: '2018-02-28T17:00:00.000+0000',
-      lottery_results_date: '03/01/18',
+      lottery_results_date: '2018-03-01T17:00:00.000+0000',
       lottery_status: 'Lottery Complete',
       nflagged_applications: 58,
       in_lottery: 562
@@ -159,7 +159,7 @@ const listingsList = () => {
       name: 'Pierce Street Apartments',
       application_due_date: '2018-01-31T17:00:00.000+0000',
       lottery_date: '2018-02-20T17:00:00.000+0000',
-      lottery_results_date: '02/20/18',
+      lottery_results_date: '2018-02-20T17:00:00.000+0000',
       lottery_status: 'Lottery Complete',
       nflagged_applications: 98,
       in_lottery: 1306
@@ -204,7 +204,7 @@ const listingDetail = () => {
       'Tenants pay for gas, electricity.\r\n\r\nFor pet fees:  Cat is allowed with a $500 refundable deposit, $250 non-refundable cleaning fee and a pet addendum.  \r\n\r\nDogs are not allowed in the building.  \r\n\r\nOne parking space per unit available for $175 a month.',
     deposit_max: 2355.0,
     lottery_date: '2017-03-22T18:00:00.000+0000',
-    lottery_results_date: '2017-03-23',
+    lottery_results_date: '2017-03-23T18:00:00.000+0000',
     lottery_venue: 'MOHCD',
     lottery_summary: null,
     lottery_street_address: '1 S. Van Ness Avenue 5th FL',

@@ -2,33 +2,13 @@ import React from 'react'
 
 import { render, screen, within, fireEvent } from '@testing-library/react'
 import { Form } from 'react-final-form'
+import selectEvent from 'react-select-event'
 
 import LeaseUpApplicationsFilters from 'components/lease_ups/LeaseUpApplicationsFilters'
 
 const mockOnFilterChange = jest.fn()
 const mockOnClearFilters = jest.fn()
 const mockOnSubmit = jest.fn()
-
-jest.mock('react-select', () => (props) => {
-  const handleChange = (event) => {
-    const option = props.options.find((option) => option.value === event.currentTarget.value)
-    props.onChange(option)
-  }
-  return (
-    <select
-      data-testid='select'
-      value={props.value}
-      onChange={handleChange}
-      multiple={props.isMulti}
-    >
-      {props.options.map(({ label, value }) => (
-        <option key={value} value={value}>
-          {label}
-        </option>
-      ))}
-    </select>
-  )
-})
 
 const getScreen = ({ preferences = [], hasChangedFilters = false } = {}) =>
   render(
@@ -62,8 +42,9 @@ describe('LeaseUpApplicationsFilters', () => {
     })
 
     test('renders preferences with the correct options', () => {
-      const preferenceField = screen.getAllByTestId('multiSelectField')[0]
-      expect(within(preferenceField).getAllByRole('option')).toHaveLength(1)
+      selectEvent.openMenu(screen.getAllByRole('combobox')[0])
+      expect(screen.getByRole('option', { name: /general/i })).toBeInTheDocument()
+      expect(screen.getAllByRole('option')).toHaveLength(1)
     })
 
     test('renders the button with tertiary-inverse style', () => {
@@ -81,8 +62,9 @@ describe('LeaseUpApplicationsFilters', () => {
     })
 
     test('renders preferences with the correct options', () => {
-      const preferenceField = screen.getAllByTestId('multiSelectField')[0]
-      expect(within(preferenceField).getAllByRole('option')).toHaveLength(3)
+      selectEvent.openMenu(screen.getAllByRole('combobox')[0])
+      const options = screen.getAllByRole('option').map((option) => option.textContent)
+      expect(options).toEqual(['test', 'test2', 'General'])
     })
   })
 
@@ -107,37 +89,46 @@ describe('LeaseUpApplicationsFilters', () => {
 
     test('should call onFilterChanged when preference filter changes', () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(0)
-      const preferenceField = screen.getAllByTestId('multiSelectField')[0]
-      fireEvent.change(within(preferenceField).getByTestId('select'), {
-        target: { value: 'general' }
-      })
+      selectEvent.openMenu(screen.getAllByRole('combobox')[0])
+      fireEvent.click(
+        screen.getByRole('option', {
+          name: /general/i
+        })
+      )
       expect(mockOnFilterChange.mock.calls).toHaveLength(1)
     })
 
     test('should call onFilterChanged when Household Members filter changes', () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(0)
-      const preferenceField = screen.getAllByTestId('multiSelectField')[1]
-      fireEvent.change(within(preferenceField).getByTestId('select'), {
-        target: { value: 1 }
-      })
+      selectEvent.openMenu(screen.getAllByRole('combobox')[1])
+      fireEvent.click(
+        screen.getByRole('option', {
+          name: /1/i
+        })
+      )
       expect(mockOnFilterChange.mock.calls).toHaveLength(1)
     })
 
     test('should call onFilterChanged when Accessibility Requests changes', () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(0)
-      const preferenceField = screen.getAllByTestId('multiSelectField')[2]
-      fireEvent.change(within(preferenceField).getByTestId('select'), {
-        target: { value: 'Mobility impairments' }
-      })
+      selectEvent.openMenu(screen.getAllByRole('combobox')[2])
+      fireEvent.click(
+        screen.getByRole('option', {
+          name: /mobility/i
+        })
+      )
+
       expect(mockOnFilterChange.mock.calls).toHaveLength(1)
     })
 
     test('should call onFilterChanged when Application Status filter changes', () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(0)
-      const preferenceField = screen.getAllByTestId('multiSelectField')[3]
-      fireEvent.change(within(preferenceField).getByTestId('select'), {
-        target: { value: 'Waitlisted' }
-      })
+      selectEvent.openMenu(screen.getAllByRole('combobox')[3])
+      fireEvent.click(
+        screen.getByRole('option', {
+          name: /waitlisted/i
+        })
+      )
       expect(mockOnFilterChange.mock.calls).toHaveLength(1)
     })
   })
