@@ -83,6 +83,17 @@ export const preferencesWithVeteransConfirmed = [
     }
 ]
 
+export const preferencesWithVeteransOnly = [
+    {
+        preference_name: 'Veteran with Displaced Tenant Housing Preference (V-DTHP)',
+        post_lottery_validation: 'Confirmed',
+        first_name: 'John',
+        last_name: 'Doe',
+        preference_record_type: 'DTHP',
+        application_id: 'application_id_1'
+    }
+]
+
 export const preferencesWithVeteransMixed = [
     {
         preference_name: 'Veteran with Displaced Tenant Housing Preference (V-DTHP)',
