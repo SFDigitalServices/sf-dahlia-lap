@@ -68,8 +68,15 @@ const getScreen = (url) => {
     </Router>
   )
 }
-
+let consoleSpy
 describe('LeaseUpRoutes', () => {
+  beforeEach(() => {
+    // When an incorrect URL is passed in, the console.warn is called
+    // We want to ensure that the console.warn is called and then
+    // suppress the output so the test output is clean
+    consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {})
+  })
+
   describe('routes for flagged application pages', () => {
     test('should not render any page (redirect to rails routing) with type=pending', () => {
       getScreen('/applications/flagged?type=pending')
@@ -77,6 +84,12 @@ describe('LeaseUpRoutes', () => {
       expect(screen.queryByText(MOCK_NAME_LISTINGS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_APP_DETAILS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_SHORT_FORM)).not.toBeInTheDocument()
+      expect(consoleSpy).toHaveBeenCalledTimes(1)
+      expect(consoleSpy).toHaveBeenCalledWith(
+        expect.stringContaining(
+          'Matched leaf route at location "/applications/flagged?type=pending" does not have an element or Component.'
+        )
+      )
     })
 
     test('should not render any page (redirect to rails routing) with type=duplicate', () => {
@@ -85,6 +98,12 @@ describe('LeaseUpRoutes', () => {
       expect(screen.queryByText(MOCK_NAME_LISTINGS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_APP_DETAILS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_SHORT_FORM)).not.toBeInTheDocument()
+      expect(consoleSpy).toHaveBeenCalledTimes(1)
+      expect(consoleSpy).toHaveBeenCalledWith(
+        expect.stringContaining(
+          'Matched leaf route at location "/applications/flagged?type=duplicate" does not have an element or Component.'
+        )
+      )
     })
   })
 
@@ -95,6 +114,12 @@ describe('LeaseUpRoutes', () => {
       expect(screen.queryByText(MOCK_NAME_LISTINGS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_APP_DETAILS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_SHORT_FORM)).not.toBeInTheDocument()
+      expect(consoleSpy).toHaveBeenCalledTimes(1)
+      expect(consoleSpy).toHaveBeenCalledWith(
+        expect.stringContaining(
+          'Matched leaf route at location "/applications/applicationId/edit" does not have an element or Component.'
+        )
+      )
     })
   })
 
@@ -147,6 +172,12 @@ describe('LeaseUpRoutes', () => {
       expect(screen.queryByText(MOCK_NAME_LISTINGS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_APP_DETAILS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_SHORT_FORM)).not.toBeInTheDocument()
+      expect(consoleSpy).toHaveBeenCalledTimes(1)
+      expect(consoleSpy).toHaveBeenCalledWith(
+        expect.stringContaining(
+          'No routes matched location "/applications/testApplicationId/somethingElse"'
+        )
+      )
     })
   })
 
@@ -165,6 +196,12 @@ describe('LeaseUpRoutes', () => {
       expect(screen.queryByText(MOCK_NAME_LISTINGS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_APP_DETAILS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_SHORT_FORM)).not.toBeInTheDocument()
+      expect(consoleSpy).toHaveBeenCalledTimes(1)
+      expect(consoleSpy).toHaveBeenCalledWith(
+        expect.stringContaining(
+          'No routes matched location "/lease-ups/applications/testApplicationId/somethingElse"'
+        )
+      )
     })
   })
 })
