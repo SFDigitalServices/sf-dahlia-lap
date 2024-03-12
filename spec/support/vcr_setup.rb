@@ -7,9 +7,9 @@ VCR.configure do |config|
   config.hook_into :webmock
 
   # The below code can be used to re-record a specific casette. Replace the cassette name with the one you want to re-record.
-  config.default_cassette_options = {
-    record: :new_episodes
-  }
+  # config.default_cassette_options = {
+  #   record: :once
+  # }
   # config.before_record do |interaction|
   #   if interaction.cassette.name == 'api/v1/short-form/show/non_lease_up_application'
   #     interaction.cassette.record_mode = :all
