@@ -70,7 +70,7 @@ const LeaseUpApplicationsFilterContainer = ({
       const isChanged = !!form.getState().values[f.fieldName]
       if (isChanged) {
         form.change(f.fieldName, null)
-        setHasChangedFilters(true)
+        handleFormSubmit(form.getState().values, form)
       }
     })
   }
