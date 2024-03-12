@@ -6,14 +6,31 @@ RSpec.describe Api::V1::FlaggedApplicationsController, type: :controller do
   login_admin
 
   describe '#index' do
-    it 'should render successfully' do
-      VCR.use_cassette('api/v1/flagged_applications_controller/index') do
+    it 'should render successfully for pending record sets' do
+      VCR.use_cassette('api/v1/flagged_applications_controller/index/pending') do
         get :index, params: { type: 'pending' }
       end
       expect(response).to have_http_status(:success)
       json = JSON.parse(response.body)
       expect(json['title'].size).to be_truthy
-      expect(json['flagged_records'].size).to eq(2772)
+      expect(json['flagged_records'].size).to eq(2773)
+    end
+
+    it 'should render successfully for duplicated record sets' do
+      VCR.use_cassette('api/v1/flagged_applications_controller/index/duplicated') do
+        get :index, params: { type: 'duplicated' }
+      end
+      expect(response).to have_http_status(:success)
+      json = JSON.parse(response.body)
+      expect(json['title'].size).to be_truthy
+      expect(json['flagged_records'].size).to eq(2080)
+    end
+
+    it 'should render and error for for invalid types' do
+      VCR.use_cassette('api/v1/flagged_applications_controller/index') do
+        get :index, params: { type: 'invalid_type' }
+      end
+      expect(response).to have_http_status(:unprocessable_entity)
     end
   end
 

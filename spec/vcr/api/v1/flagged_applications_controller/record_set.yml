@@ -21,13 +21,13 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 11 Mar 2024 23:47:59 GMT
+      - Tue, 12 Mar 2024 20:49:22 GMT
       Set-Cookie:
-      - BrowserId=yvRvjuABEe60f3myxJslPg; domain=.salesforce.com; path=/; expires=Tue,
-        11-Mar-2025 23:47:59 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Tue, 11-Mar-2025 23:47:59 GMT; Max-Age=31536000;
+      - BrowserId=AP3WquCyEe63-w0LI1D4rA; domain=.salesforce.com; path=/; expires=Wed,
+        12-Mar-2025 20:49:22 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Wed, 12-Mar-2025 20:49:22 GMT; Max-Age=31536000;
         secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Tue, 11-Mar-2025 23:47:59
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 12-Mar-2025 20:49:22
         GMT; Max-Age=31536000; secure
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
@@ -49,8 +49,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D8H0000004dNlUAI/0058H000003SbHeQAK","token_type":"Bearer","issued_at":"1710200880066","signature":"u+I0IgplJgX3QDpUGzwGZNP6oOD4sx959AfR7Glpwb4="}'
-  recorded_at: Mon, 11 Mar 2024 23:48:00 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D8H0000004dNlUAI/0058H000003SbHeQAK","token_type":"Bearer","issued_at":"1710276562145","signature":"5VM/fp36yuEqM1kwUm1I6biVU08sQ0EgulvULY06cds="}'
+  recorded_at: Tue, 12 Mar 2024 20:49:22 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20SELECT%20Id,%20Application__c,%20Application__r.Id,%20Application__r.Name,%20Flagged_Record_Set__r.Rule_Name__c,%20Primary_Application_Applicant_Name__c,%20Flagged_Record_Set__r.Listing__r.Lottery_Status__c,%20Review_Status__c,%20Comments__c%0A%20%20%20%20%20%20%20%20FROM%20Flagged_Application__c%0A%20%20%20%20%20%20%20%20WHERE%20Flagged_Record_Set__c=%27a0r0P00002Wn2Sc%27%0A%20%20%20%20%20%20
@@ -72,13 +72,13 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 11 Mar 2024 23:48:00 GMT
+      - Tue, 12 Mar 2024 20:49:22 GMT
       Set-Cookie:
-      - BrowserId=yzZa5eABEe60in2bx7SPgA; domain=.salesforce.com; path=/; expires=Tue,
-        11-Mar-2025 23:48:00 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Tue, 11-Mar-2025 23:48:00 GMT; Max-Age=31536000;
+      - BrowserId=AT9MYeCyEe6lgClmf8nBOw; domain=.salesforce.com; path=/; expires=Wed,
+        12-Mar-2025 20:49:22 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Wed, 12-Mar-2025 20:49:22 GMT; Max-Age=31536000;
         secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Tue, 11-Mar-2025 23:48:00
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 12-Mar-2025 20:49:22
         GMT; Max-Age=31536000; secure
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
@@ -89,7 +89,7 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Sforce-Limit-Info:
-      - api-usage=18698/930000
+      - api-usage=11754/930000
       Content-Type:
       - application/json;charset=UTF-8
       Vary:
@@ -105,5 +105,5 @@ http_interactions:
         + DOB","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000F8YG4UAN"},"Lottery_Status__c":"Not
         Yet Run"}},"Primary_Application_Applicant_Name__c":"Penny Fleming","Review_Status__c":"Reviewed
         - Keep in Lottery","Comments__c":"xifj93ya5b"}]}'
-  recorded_at: Mon, 11 Mar 2024 23:48:00 GMT
+  recorded_at: Tue, 12 Mar 2024 20:49:22 GMT
 recorded_with: VCR 6.1.0
