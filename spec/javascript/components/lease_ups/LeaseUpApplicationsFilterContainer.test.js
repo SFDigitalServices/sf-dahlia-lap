@@ -220,13 +220,13 @@ describe('LeaseUpApplicationsFilterContainer', () => {
               await act(async () => fireEvent.click(screen.getByText(/clear all/i)))
             })
 
-            test('should keep hasChangedFilters = true', () => {
+            test('should have hasChangedFilters = false', () => {
               // when hasChangedFilters = true, the button should have a primary class
               expect(
                 screen.getByRole('button', {
                   name: /apply filters/i
                 })
-              ).toHaveClass('primary')
+              ).not.toHaveClass('primary')
             })
           })
         })
