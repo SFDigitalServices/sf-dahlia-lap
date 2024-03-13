@@ -172,9 +172,9 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
       .should('equal', '$' + String(hhAssetsNewValue.float.toFixed(2)))
   })
 
-  // // This test requires a rental assistance to be already present in the rental
-  // // assistances table. If the prior test for creating a rental assistance has
-  // // succeeded, then there will be at least one rental assistance present.
+  // This test requires a rental assistance to be already present in the rental
+  // assistances table. If the prior test for creating a rental assistance has
+  // succeeded, then there will be at least one rental assistance present.
   it('should allow a rental assistance to be deleted', () => {
     // Record how many rental assistances are in the table before we attempt our delete
     let prevTableSize
