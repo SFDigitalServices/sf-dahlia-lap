@@ -3,10 +3,10 @@ import React, { useState } from 'react'
 import ErrorBoundary from 'components/atoms/ErrorBoundary'
 import Loading from 'components/molecules/Loading'
 import { useAsyncOnMount } from 'utils/customHooks'
+import { fetchAndMapFlaggedApplicationsByRecordSet } from 'utils/flaggedAppRequestUtils'
 
 import TableLayout from '../../layouts/TableLayout'
 import SpreadsheetIndexTable from '../../SpreadsheetIndexTable'
-import { fetchFlaggedApplicationsByRecordSet } from '../applicationRequestUtils'
 
 const tableFields = {
   id: {
@@ -46,7 +46,7 @@ const tableFields = {
 const FlaggedApplicationsShowPage = ({ recordSetId }) => {
   const [loading, setLoading] = useState(true)
   const [flaggedRecords, setFlaggedRecords] = useState(undefined)
-  useAsyncOnMount(() => fetchFlaggedApplicationsByRecordSet(recordSetId), {
+  useAsyncOnMount(() => fetchAndMapFlaggedApplicationsByRecordSet(recordSetId), {
     onSuccess: ({ flaggedRecords }) => {
       setFlaggedRecords(flaggedRecords)
     },
