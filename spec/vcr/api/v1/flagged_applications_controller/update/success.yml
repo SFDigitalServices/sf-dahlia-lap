@@ -1,0 +1,202 @@
+---
+http_interactions:
+- request:
+    method: patch
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Flagged_Application__c/a0q0P00000MZz5TQAT
+    body:
+      encoding: UTF-8
+      string: '{"Review_Status__c":"Pending Review","Comments__c":"test comment"}'
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Tue, 12 Mar 2024 20:49:23 GMT
+      Set-Cookie:
+      - BrowserId=Ab0vA-CyEe6Abu3dQ8YNcA; domain=.salesforce.com; path=/; expires=Wed,
+        12-Mar-2025 20:49:23 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Wed, 12-Mar-2025 20:49:23 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 12-Mar-2025 20:49:23
+        GMT; Max-Age=31536000; secure
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Content-Security-Policy:
+      - upgrade-insecure-requests
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Sforce-Limit-Info:
+      - api-usage=11720/930000
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Tue, 12 Mar 2024 20:49:23 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 12 Mar 2024 20:49:23 GMT
+      Set-Cookie:
+      - BrowserId=AgUN6eCyEe6mx2v48HBTjQ; domain=.salesforce.com; path=/; expires=Wed,
+        12-Mar-2025 20:49:23 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Wed, 12-Mar-2025 20:49:23 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 12-Mar-2025 20:49:23
+        GMT; Max-Age=31536000; secure
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D8H0000004dNlUAI/0058H000003SbHeQAK","token_type":"Bearer","issued_at":"1710276563862","signature":"mGdZoWOuq6DeC/9JIziGu3IRpxdFCDQeNjMFusJMRC0="}'
+  recorded_at: Tue, 12 Mar 2024 20:49:23 GMT
+- request:
+    method: patch
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Flagged_Application__c/invalid_id
+    body:
+      encoding: UTF-8
+      string: '{"Review_Status__c":"test review status","Comments__c":"test comment"}'
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Tue, 12 Mar 2024 20:49:24 GMT
+      Set-Cookie:
+      - BrowserId=AkQR7uCyEe6vnPkocjca7A; domain=.salesforce.com; path=/; expires=Wed,
+        12-Mar-2025 20:49:24 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Wed, 12-Mar-2025 20:49:24 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 12-Mar-2025 20:49:24
+        GMT; Max-Age=31536000; secure
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Sforce-Limit-Info:
+      - api-usage=11721/930000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '[{"errorCode":"NOT_FOUND","message":"Provided external ID field does
+        not exist or is not accessible: invalid_id"}]'
+  recorded_at: Tue, 12 Mar 2024 20:49:24 GMT
+- request:
+    method: post
+    uri: https://sentry.io/api/1438051/store/
+    body:
+      encoding: US-ASCII
+      string: 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
+    headers:
+      User-Agent:
+      - sentry-ruby/3.1.2
+      Content-Type:
+      - application/octet-stream
+      X-Sentry-Auth:
+      - Sentry sentry_version=5, sentry_client=raven-ruby/3.1.2, sentry_timestamp=1710276564,
+        sentry_key=220b63fca88041809b887a91c5f3701d
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 12 Mar 2024 20:49:24 GMT
+      Content-Type:
+      - application/json
+      Access-Control-Expose-Headers:
+      - x-sentry-error,x-sentry-rate-limits,retry-after
+      Access-Control-Allow-Origin:
+      - "*"
+      Vary:
+      - origin,access-control-request-method,access-control-request-headers
+      Cross-Origin-Resource-Policy:
+      - cross-origin
+      X-Envoy-Upstream-Service-Time:
+      - '0'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"5ddc8717adc6471facb274fb467467bb"}'
+  recorded_at: Tue, 12 Mar 2024 20:49:24 GMT
+recorded_with: VCR 6.1.0

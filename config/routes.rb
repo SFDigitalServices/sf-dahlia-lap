@@ -49,8 +49,9 @@ Rails.application.routes.draw do
         resources :field_update_comments, only: %w[index create]
       end
 
-      scope '/flagged-applications' do
-        put 'update' => 'flagged_applications#update'
+      resources :flagged_applications, path: 'flagged-applications', only: %w[index update]
+      scope 'flagged-applications' do
+        get 'record-set/:id' => 'flagged_applications#record_set'
       end
 
       resources :lease_up_applications, path: 'lease-ups/applications', only: %w[index]

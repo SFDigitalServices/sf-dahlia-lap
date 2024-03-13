@@ -27,6 +27,7 @@ const mockUnitsGetRequest = jest.fn(() => Promise.resolve({ units: [{ id: 'unitI
 const mockPostRequest = jest.fn(() => Promise.resolve(true))
 const mockPutRequest = jest.fn(() => Promise.resolve(true))
 const mockDestroyRequest = jest.fn(() => Promise.resolve(true))
+const mockFetchFlaggedApplicationsRequest = jest.fn(() => Promise.resolve(true))
 request.destroy = mockDestroyRequest
 
 const getExpectedLeaseResponse = (lease, contact = undefined, leaseStartDate = {}) => ({
@@ -374,6 +375,30 @@ describe('apiService', () => {
         null,
         true
       ])
+    })
+  })
+
+  describe('fetchFlaggedApplications', () => {
+    const flagType = 'pending'
+    test('calls request.get', async () => {
+      request.get = mockFetchFlaggedApplicationsRequest
+      await apiService.fetchFlaggedApplications(flagType)
+      expect(mockFetchFlaggedApplicationsRequest.mock.calls[0]).toEqual([
+        '/flagged-applications',
+        { params: { type: flagType } },
+        true
+      ])
+    })
+  })
+
+  describe('fetchFlaggedApplicationsByRecordSet', () => {
+    const recordSetId = 'recordSetId'
+    test('calls request.get', async () => {
+      request.get = mockFetchFlaggedApplicationsRequest
+      await apiService.fetchFlaggedApplicationsByRecordSet(recordSetId)
+      expect(mockFetchFlaggedApplicationsRequest.mock.calls[0][0]).toBe(
+        `/flagged-applications/record-set/${recordSetId}`
+      )
     })
   })
 })

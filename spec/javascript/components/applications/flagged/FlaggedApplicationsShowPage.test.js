@@ -1,17 +1,20 @@
-import React from 'react'
+import { act } from '@testing-library/react'
 
-import { render } from '@testing-library/react'
+import mockFlaggedApplications from '../../../fixtures/flagged_applications'
+import { renderAppWithUrl } from '../../../testUtils/wrapperUtil'
 
-import FlaggedApplicationsShowPage from 'components/applications/flagged/FlaggedApplicationsShowPage'
-
-import flaggedApplications from '../../../fixtures/flagged_applications'
+jest.mock('apiService', () => {
+  return {
+    fetchFlaggedApplicationsByRecordSet: async (_recordSetId) => {
+      return { flaggedRecords: mockFlaggedApplications }
+    }
+  }
+})
 
 describe('FlaggedApplicationsShowPage', () => {
-  test('should render succesfully', () => {
-    const { asFragment } = render(
-      <FlaggedApplicationsShowPage flaggedApplications={flaggedApplications} />
-    )
-
-    expect(asFragment()).toMatchSnapshot()
+  test('should render succesfully', async () => {
+    expect(
+      await act(async () => renderAppWithUrl('applications/flagged/a0r0P000024EwFnQAK'))
+    ).toMatchSnapshot()
   })
 })

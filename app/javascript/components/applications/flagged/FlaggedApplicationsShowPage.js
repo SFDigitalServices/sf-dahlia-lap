@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import mapProps from 'utils/mapProps'
+import ErrorBoundary from 'components/atoms/ErrorBoundary'
+import Loading from 'components/molecules/Loading'
+import { useAsyncOnMount } from 'utils/customHooks'
+import { fetchAndMapFlaggedApplicationsByRecordSet } from 'utils/flaggedAppRequestUtils'
 
 import TableLayout from '../../layouts/TableLayout'
 import SpreadsheetIndexTable from '../../SpreadsheetIndexTable'
@@ -40,40 +43,33 @@ const tableFields = {
   }
 }
 
-const FlaggedApplicationsShowPageTable = ({ flaggedApplications }) => {
-  return (
-    /* TODO: could render normal IndexTable for this record set if Lottery Complete, so not editable */
-    <SpreadsheetIndexTable results={flaggedApplications} fields={tableFields} />
-  )
-}
-
-const FlaggedApplicationsShowPage = (props) => {
+const FlaggedApplicationsShowPage = ({ recordSetId }) => {
+  const [loading, setLoading] = useState(true)
+  const [flaggedRecords, setFlaggedRecords] = useState(undefined)
+  useAsyncOnMount(() => fetchAndMapFlaggedApplicationsByRecordSet(recordSetId), {
+    onSuccess: ({ flaggedRecords }) => {
+      setFlaggedRecords(flaggedRecords)
+    },
+    onFail: (error) => {
+      throw new Error(`Failed to get Flagged Applications by record set id: ${error}`)
+    },
+    onComplete: () => {
+      setLoading(false)
+    }
+  })
   const pageHeader = {
     title: 'Flagged Application Set'
   }
 
   return (
-    <TableLayout pageHeader={pageHeader}>
-      <FlaggedApplicationsShowPageTable {...props} />
-    </TableLayout>
+    <ErrorBoundary>
+      <Loading isLoading={loading} renderChildrenWhileLoading={false} loaderViewHeight='100vh'>
+        <TableLayout pageHeader={pageHeader}>
+          <SpreadsheetIndexTable results={flaggedRecords} fields={tableFields} />
+        </TableLayout>
+      </Loading>
+    </ErrorBoundary>
   )
 }
 
-const buildFlaggedApplicationModel = (flaggedApplication) => {
-  return {
-    ...flaggedApplication,
-    application: flaggedApplication.application.id,
-    application_name: flaggedApplication.application.name,
-    flagged_record_set_rule_name: flaggedApplication.flagged_record.rule_name,
-    flagged_record_set_listing_lottery_status:
-      flaggedApplication.flagged_record.listing.lottery_status
-  }
-}
-
-const mapProperties = ({ flaggedApplications }) => {
-  return {
-    flaggedApplications: flaggedApplications.map((i) => buildFlaggedApplicationModel(i))
-  }
-}
-
-export default mapProps(mapProperties)(FlaggedApplicationsShowPage)
+export default FlaggedApplicationsShowPage
