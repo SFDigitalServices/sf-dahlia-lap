@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Force::FlaggedRecordSetService do
-  FLAGGED_APPLICATION_ID = 'a0o1D000001JLrkQAG'
-  RECORD_SET_ID = 'a0r1D000000kMHgQAM'
+  FLAGGED_APPLICATION_ID = 'a0o0P00000Hj0FvQAJ'
+  RECORD_SET_ID = 'a0r0P000024EwFdQAK'
 
   let(:user) { User.create(email: 'admin@example.com', admin: false) }
   subject { Force::FlaggedRecordSetService.new(user) }
