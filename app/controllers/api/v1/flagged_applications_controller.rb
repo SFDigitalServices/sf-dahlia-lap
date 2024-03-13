@@ -8,10 +8,10 @@ class Api::V1::FlaggedApplicationsController < ApiController
     case flagged_applications_get_params
     when 'pending'
       title = 'Flagged Applications - Pending Review'
-      flagged_records = pending_data
+      flagged_records = flagged_record_set_get_service.pending_review_record_sets
     when 'duplicated'
       title = 'Marked Duplicate Apps'
-      flagged_records = duplicated_data
+      flagged_records = flagged_record_set_get_service.marked_duplicate_record_sets
     else
       raise StandardError "Unsupported or missing type param: #{params[:type]}"
     end
@@ -53,18 +53,6 @@ class Api::V1::FlaggedApplicationsController < ApiController
 
   def flagged_applications_record_set_params
     params.require(:id)
-  end
-
-  def pending_data
-    flagged_record_set_get_service.pending_review_record_sets
-    # fields = flagged_record_set_get_service.pending_review_index_fields
-    # [pending_review_record_sets, fields]
-  end
-
-  def duplicated_data
-    flagged_record_set_get_service.marked_duplicate_record_sets
-    # fields = flagged_record_set_get_service.marked_duplicate_index_fields
-    # [marked_duplicate_record_sets, fields]
   end
 
   def flagged_record_set_get_service

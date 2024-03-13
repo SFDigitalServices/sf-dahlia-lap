@@ -5,17 +5,7 @@ const commentInputSelector = 'input[type="text"]'
 const openRowSelector = '.rt-expander.-open'
 const statusInputSelector = 'select'
 
-
-// describe('FlaggedApplicationsIndexPage', () => {
-//   // once we have fixtures, we can intercept these API endpoints:
-//   // cy.intercept("api/v1/flagged-applications?type=pending", { fixture: "foobar" }).as("pendingFlaggedRecordsWithTitle")
-//   // cy.intercept("api/v1/flagged-applications?type=duplicated)", { fixture: "foobar" }).as("duplicatedFlaggedRecordsWithTitle")
-// })
-
 describe('FlaggedApplicationsShowPage', () => {
-  // once we have fixtures, we can intercept this API endpoint:
-  // cy.intercept("api/v1/flagged-applications/record-set/*", { fixture: "foobar" }).as("flaggedRecordSet")
-
   it('should allow comments to be updated', () => {
     let newStatus
 
