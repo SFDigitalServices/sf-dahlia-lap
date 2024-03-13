@@ -26,7 +26,7 @@ RSpec.describe Api::V1::FlaggedApplicationsController, type: :controller do
       expect(json['flagged_records'].size).to eq(2080)
     end
 
-    it 'should render and error for for invalid types' do
+    it 'should render an error for invalid types' do
       VCR.use_cassette('api/v1/flagged_applications_controller/index') do
         get :index, params: { type: 'invalid_type' }
       end
