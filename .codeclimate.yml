@@ -3,8 +3,8 @@ exclude_patterns:
   - "lib/assets"
   # code climate complains a bunch about our toolkit.css -- is it useful to validate our CSS?
   - "app/assets/stylesheets"
-  # duplication complaints in API specs are caused by similar endpoint headers and test names, despite controllers being different
-  - "spec/controllers/api"
+  # complaints in specs have mostly been duplication (erroneously), but only global exclusion is supported by code climate
+  - "spec"
   # test data
   - "spec/javascript/fixtures"
 checks:
