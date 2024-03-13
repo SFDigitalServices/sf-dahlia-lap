@@ -6,6 +6,20 @@ import {
   usingFixtures
 } from '../../support/utils'
 
+const setupSupplementalsIntercept = () => {
+  if (usingFixtures()) {
+    cy.intercept('api/v1/short-form/**', { fixture: 'shortFormSubmit.json' }).as('shortFormSubmit')
+    cy.intercept('api/v1/supplementals/**', { fixture: 'supplementalsSubmit.json' }).as(
+      'supplementalsSubmit'
+    )
+    cy.intercept('api/v1/supplementals/units?listing_id=**', { fixture: 'units.json' }).as('units')
+  } else {
+    cy.intercept('api/v1/short-form/**').as('shortFormSubmit')
+    cy.intercept('api/v1/supplementals/**').as('supplementalsSubmit')
+    cy.intercept('api/v1/supplementals/units?listing_id=**').as('units')
+  }
+}
+
 describe('SupplementalApplicationPage Confirmed Preferences section', () => {
   beforeEach(() => {
     cy.setupIntercepts()
@@ -114,21 +128,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
       cy.wrap(liveWorkRowValues[5]).should('equal', prefStatusToSetName)
     })
 
-    if (usingFixtures()) {
-      cy.intercept('api/v1/short-form/**', { fixture: 'shortFormSubmit.json' }).as(
-        'shortFormSubmit'
-      )
-      cy.intercept('api/v1/supplementals/**', { fixture: 'supplementalsSubmit.json' }).as(
-        'supplementalsSubmit'
-      )
-      cy.intercept('api/v1/supplementals/units?listing_id=**', { fixture: 'units.json' }).as(
-        'units'
-      )
-    } else {
-      cy.intercept('api/v1/short-form/**').as('shortFormSubmit')
-      cy.intercept('api/v1/supplementals/**').as('supplementalsSubmit')
-      cy.intercept('api/v1/supplementals/units?listing_id=**').as('units')
-    }
+    setupSupplementalsIntercept()
 
     // Reload the page
     cy.reload()
@@ -235,21 +235,7 @@ describe('SupplementalApplicationPage Confirmed Preferences section', () => {
       cy.wrap(assistedHousingRowValues[5]).should('equal', prefStatusToSetName)
     })
 
-    if (usingFixtures()) {
-      cy.intercept('api/v1/short-form/**', { fixture: 'shortFormSubmit.json' }).as(
-        'shortFormSubmit'
-      )
-      cy.intercept('api/v1/supplementals/**', { fixture: 'supplementalsSubmit.json' }).as(
-        'supplementalsSubmit'
-      )
-      cy.intercept('api/v1/supplementals/units?listing_id=**', { fixture: 'units.json' }).as(
-        'units'
-      )
-    } else {
-      cy.intercept('api/v1/short-form/**').as('shortFormSubmit')
-      cy.intercept('api/v1/supplementals/**').as('supplementalsSubmit')
-      cy.intercept('api/v1/supplementals/units?listing_id=**').as('units')
-    }
+    setupSupplementalsIntercept()
 
     // Reload the page
     cy.reload()
