@@ -28,5 +28,6 @@ export const selectedOptionSelector = (fieldSelector) => {
 }
 
 export const usingFixtures = () => {
+  return true
   return Cypress.env('salesforceInstanceUrl') === 'https://sfhousing.my.salesforce.com'
 }

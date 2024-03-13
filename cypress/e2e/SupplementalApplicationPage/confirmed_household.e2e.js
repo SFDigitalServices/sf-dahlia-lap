@@ -11,31 +11,7 @@ const amiChartYearSelector = '#ami_chart_year'
 
 describe('SupplementalApplicationPage confirmed household income section', () => {
   beforeEach(() => {
-    if (usingFixtures()) {
-      cy.intercept('api/v1/short-form/**', { fixture: 'shortForm.json' }).as('shortForm')
-      cy.intercept('api/v1/applications/**/field_update_comments', {
-        fixture: 'fieldUpdateComments.json'
-      }).as('fieldUpdateComments')
-      cy.intercept('api/v1/applications/**/leases', { fixture: 'leases.json' }).as('leases')
-      cy.intercept('api/v1/rental-assistances?application_id=**', {
-        fixture: 'rentalAssistances.json'
-      }).as('rentalAssistances')
-      cy.intercept('api/v1/supplementals/**', { fixture: 'supplementals.json' }).as('supplementals')
-      cy.intercept('api/v1/supplementals/units?listing_id=**', { fixture: 'units.json' }).as(
-        'units'
-      )
-      cy.intercept('api/v1/lease-ups/listings/**', { fixture: 'leaseUpListing.json' }).as(
-        'leaseUpListing'
-      )
-    } else {
-      cy.intercept('api/v1/short-form/**').as('shortForm')
-      cy.intercept('api/v1/applications/**/field_update_comments').as('fieldUpdateComments')
-      cy.intercept('api/v1/applications/**/leases').as('leases')
-      cy.intercept('api/v1/rental-assistances?application_id=**').as('rentalAssistances')
-      cy.intercept('api/v1/supplementals/**').as('supplementals')
-      cy.intercept('api/v1/supplementals/units?listing_id=**').as('units')
-      cy.intercept('api/v1/lease-ups/listings/**').as('leaseUpListing')
-    }
+    cy.setupIntercepts()
   })
   it('should allow saving of assets and incomes', () => {
     cy.visit('http://localhost:3000/')
