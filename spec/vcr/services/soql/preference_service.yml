@@ -8,7 +8,7 @@ http_interactions:
       string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
     headers:
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v2.7.4
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
@@ -21,18 +21,22 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 05 Mar 2020 20:03:06 GMT
+      - Mon, 11 Mar 2024 20:07:28 GMT
+      Set-Cookie:
+      - BrowserId=_D3e_t_iEe6Lnjngg-fbWQ; domain=.salesforce.com; path=/; expires=Tue,
+        11-Mar-2025 20:07:28 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Tue, 11-Mar-2025 20:07:28 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Tue, 11-Mar-2025 20:07:28
+        GMT; Max-Age=31536000; secure
       Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains
+      - max-age=63072000; includeSubDomains
       X-Content-Type-Options:
       - nosniff
-      X-Xss-Protection:
-      - 1; mode=block
+      X-Robots-Tag:
+      - none
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
-      Set-Cookie:
-      - BrowserId=VHiJzl8cEeq70k397YSm4A; domain=.salesforce.com; path=/; expires=Fri,
-        05-Mar-2021 20:03:06 GMT; Max-Age=31536000
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Readonlymode:
@@ -45,7 +49,6 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"<<SALESFORCE_INSTANCE_URL>>","id":"https://<<SALESFORCE_HOST>>/id/00D1D0000009nrYUAQ/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1583438587363","signature":"qhwFqmgUShGe6Q49p+tekM7Ibcv6Hfl16gIbbBcKXI8="}'
-    http_version: 
-  recorded_at: Thu, 05 Mar 2020 20:03:07 GMT
-recorded_with: VCR 5.0.0
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D8H0000004dNlUAI/0058H000005lZogQAE","token_type":"Bearer","issued_at":"1710187648343","signature":"g0jagNm3smZMzWZaE1hy1TC02rF5f3Bwi9481PEUaPc="}'
+  recorded_at: Mon, 11 Mar 2024 20:07:28 GMT
+recorded_with: VCR 6.1.0

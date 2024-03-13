@@ -6,7 +6,7 @@ RSpec.describe Force::Soql::AttachmentService do
   # Application with old type of proof attachement (Attachment)
   OLD_APPLICATION_ID = 'a0o0P00000GZazOQAT'
   # Application with newer proof attachment (File)
-  NEW_APPLICATION_ID = 'a0o1D0000013w7pQAA'
+  NEW_APPLICATION_ID = 'a0o8H000002E7D2QAK'
   let(:user) { User.create(email: 'admin@example.com', admin: false) }
   subject { Force::Soql::AttachmentService.new(user) }
 
