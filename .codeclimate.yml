@@ -5,6 +5,8 @@ exclude_patterns:
   - "app/assets/stylesheets"
   # duplication complaints in API specs are caused by similar endpoint headers and test names, despite controllers being different
   - "spec/controllers/api"
+  # test data
+  - "spec/javascript/fixtures"
 checks:
   method-complexity:
     config:
