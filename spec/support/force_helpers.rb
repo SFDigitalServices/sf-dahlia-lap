@@ -16,6 +16,10 @@ module ForceHelpers
 
   PAPER_APPLICATION_LOTTERY_COMPLETED_ID = 'a0o0P00000GZawFQAT'
 
+  FLAGGED_RECORD_SET_ID = 'a0r0P00002Wn2Sc'
+
+  FIELD_UPDATE_COMMENTS_FLAGGED_APPLICATION_ID = 'a0q0P00000MZz5TQAT'
+
   def valid_listing_id
     YELLOW_ACRES_LISTING_ID
   end
@@ -57,5 +61,13 @@ module ForceHelpers
 
   def paper_app_lottery_complete_id
     PAPER_APPLICATION_LOTTERY_COMPLETED_ID
+  end
+
+  def flagged_record_set_id
+    FLAGGED_RECORD_SET_ID
+  end
+
+  def field_update_comments_flagged_application_id
+    FIELD_UPDATE_COMMENTS_FLAGGED_APPLICATION_ID
   end
 end
