@@ -132,7 +132,10 @@ const LeaseUpApplicationsFilterContainer = ({
               <div className='filter-group'>
                 <div className='filter-group_item__large'>
                   <SearchField
-                    onClearClick={() => form.change('search', '')}
+                    onClearClick={() => {
+                      form.change('search', '')
+                      form.submit()
+                    }}
                     fieldName='search'
                     id='test-search'
                     placeholder='Application, First Name, Last Name...'
