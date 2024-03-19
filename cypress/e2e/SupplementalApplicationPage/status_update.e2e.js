@@ -48,7 +48,15 @@ describe('SupplementalApplicationPage statuses', () => {
     // Click on the "Add a Comment" button in the Status History sidebar
     cy.get('#add-status-history-comment').click()
 
+    if (usingFixtures) {
+      cy.intercept('POST', 'api/v1/applications/**/field_update_comments', {
+        fixture: 'fieldUpdateCommentsPost.json'
+      }).as('fieldUpdateComments')
+    } else {
+      cy.intercept('POST', 'api/v1/applications/**/field_update_comments').as('fieldUpdateComments')
+    }
     cy.testStatusModalUpdate()
+    cy.wait('@fieldUpdateComments')
   })
 
   it('should allow status updates via the status dropdown in the sidebar', () => {
@@ -71,6 +79,14 @@ describe('SupplementalApplicationPage statuses', () => {
       .first()
       .click()
 
+    if (usingFixtures) {
+      cy.intercept('POST', 'api/v1/applications/**/field_update_comments', {
+        fixture: 'fieldUpdateCommentsPost2.json'
+      }).as('fieldUpdateComments')
+    } else {
+      cy.intercept('POST', 'api/v1/applications/**/field_update_comments').as('fieldUpdateComments')
+    }
     cy.testStatusModalUpdate()
+    cy.wait('@fieldUpdateComments')
   })
 })

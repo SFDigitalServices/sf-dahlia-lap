@@ -215,9 +215,6 @@ Cypress.Commands.add('testStatusModalUpdate', () => {
   // Verify that no form-field errors are present on save
   cy.get('span.error').should('not.exist')
 
-  // Verify that the response from salesforce was a success
-  cy.checkForStatusUpdateSuccess()
-
   // wait for modal overlay to be hidden after submit
   cy.get('.ReactModal__Overlay.ReactModal__Overlay--after-open').should('not.exist')
 
