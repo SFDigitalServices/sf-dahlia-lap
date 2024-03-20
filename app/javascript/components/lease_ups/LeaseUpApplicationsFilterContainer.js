@@ -70,7 +70,7 @@ const LeaseUpApplicationsFilterContainer = ({
       const isChanged = !!form.getState().values[f.fieldName]
       if (isChanged) {
         form.change(f.fieldName, null)
-        setHasChangedFilters(true)
+        handleFormSubmit(form.getState().values, form)
       }
     })
   }
@@ -132,7 +132,10 @@ const LeaseUpApplicationsFilterContainer = ({
               <div className='filter-group'>
                 <div className='filter-group_item__large'>
                   <SearchField
-                    onClearClick={() => form.change('search', '')}
+                    onClearClick={() => {
+                      form.change('search', '')
+                      form.submit()
+                    }}
                     fieldName='search'
                     id='test-search'
                     placeholder='Application, First Name, Last Name...'
