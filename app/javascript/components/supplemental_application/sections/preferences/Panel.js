@@ -55,13 +55,15 @@ const Panel = ({
   const buildMatchingPreferencePanel = () => {
     const MatchingPreferencePanel = getPreferencePanel(application.preferences[preferenceIndex + 1])
     return (
-      <MatchingPreferencePanel
-        preferenceIndex={preferenceIndex + 1}
-        preference={application.preferences[preferenceIndex + 1]}
-        form={form}
-        applicationMembersOptions={applicationMembersOptions}
-        visited={visited}
-      />
+      <div style={{ borderTop: '1px solid #DEDEE0', paddingTop: '2em' }}>
+        <MatchingPreferencePanel
+          preferenceIndex={preferenceIndex + 1}
+          preference={application.preferences[preferenceIndex + 1]}
+          form={form}
+          applicationMembersOptions={applicationMembersOptions}
+          visited={visited}
+        />
+      </div>
     )
   }
 
@@ -108,14 +110,17 @@ const Panel = ({
         buildMatchingPreferencePanel()}
       <FormGrid.Row expand={false}>
         <div className='form-grid_item column'>
-          <button
-            className='button primary tiny margin-right margin-bottom-none save-panel-btn'
-            type='button'
-            onClick={onSaveWithPreferenceIndex}
-            disabled={loading}
-          >
-            Save
-          </button>
+          {isVeteran(preference.preference_name) &&
+            hasExpanderButton(application.preferences[preferenceIndex + 1].preference_name) && (
+              <button
+                className='button primary tiny margin-right margin-bottom-none save-panel-btn'
+                type='button'
+                onClick={onSaveWithPreferenceIndex}
+                disabled={loading}
+              >
+                Save
+              </button>
+            )}
           <button
             className='button secondary tiny margin-bottom-none'
             type='button'

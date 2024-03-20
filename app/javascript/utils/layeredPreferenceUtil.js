@@ -84,12 +84,15 @@ export const addLayeredPreferenceFields = (
       nonVetPreference.application_member_id,
       applicationMembers
     )
+    // we only want to display unique member names
+    // if vet and non vet member names are the same only display it once
+    const uniqueMemberNames = new Set([vetMemberName, nonVetMemberName])
 
     return {
       ...preference,
       layered_validation: finalConfirmation,
       layered_type_of_proofs: [vetTypeOfProof, nonVetTypeOfProof],
-      layered_member_names: [vetMemberName, nonVetMemberName]
+      layered_member_names: [...uniqueMemberNames]
     }
   })
 }
