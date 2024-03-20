@@ -1,8 +1,7 @@
 import {
   addLayeredValidation,
   isVeteran,
-  addLayeredPreferenceFields,
-  updateVeteranPreferences
+  addLayeredPreferenceFields
 } from 'utils/layeredPreferenceUtil'
 
 import {
@@ -11,7 +10,6 @@ import {
   preferencesWithVeteransUnconfirmed,
   preferencesWithVeteransConfirmed,
   applicationMembers,
-  preferencesWithVeteransMixed,
   preferencesWithVeteransOnly
 } from '../fixtures/layered_preferences'
 
@@ -125,42 +123,6 @@ describe('layeredPreferenceUtil', () => {
       expect(layeredPreferences[1].layered_validation).toBe('Unconfirmed')
       expect(layeredPreferences[1].layered_type_of_proofs).toHaveLength(1)
       expect(layeredPreferences[1].layered_type_of_proofs[0]).toBe('12345')
-    })
-  })
-  describe('updateVeteranPreferences', () => {
-    test('should not update non veteran preferences', () => {
-      // given
-      const currentPreferenceIndex = 0
-
-      // when
-      const { updatedIndexes } = updateVeteranPreferences(
-        preferencesWithoutVeterans,
-        currentPreferenceIndex
-      )
-
-      // then
-      expect(updatedIndexes).toHaveLength(0)
-    })
-    test('should only update veteran preferences that have been received', () => {
-      // given
-      const currentPreferenceIndex = 0
-
-      // when
-      const { updatedIndexes, updatedPreferences } = updateVeteranPreferences(
-        preferencesWithVeteransMixed,
-        currentPreferenceIndex
-      )
-
-      // then
-      expect(updatedIndexes).toHaveLength(1)
-
-      const updatedIndex = updatedIndexes[0]
-      expect(updatedIndex).toBe(2)
-
-      const updatedPreference = updatedPreferences[updatedIndex]
-      expect(updatedPreference.post_lottery_validation).toBe('Confirmed')
-      expect(updatedPreference.veteran_type_of_proof).toBe('DD Form 214')
-      expect(updatedPreference.application_member_id).toBe('1')
     })
   })
 })

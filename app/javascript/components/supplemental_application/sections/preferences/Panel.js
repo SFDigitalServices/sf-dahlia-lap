@@ -5,7 +5,7 @@ import { cond, stubTrue, constant, map } from 'lodash'
 import FormGrid from 'components/molecules/FormGrid'
 import InlineModal from 'components/molecules/InlineModal'
 import { hasExpanderButton } from 'components/supplemental_application/sections/PreferencesTable'
-import { isVeteran, updateVeteranPreferences } from 'utils/layeredPreferenceUtil'
+import { isVeteran } from 'utils/layeredPreferenceUtil'
 
 import AntiDisplacementHousingPanel from './AntiDisplacementHousingPanel'
 import AssistedHousingPanel from './AssistedHousingPanel'
@@ -72,12 +72,7 @@ const Panel = ({
   }
   const applicationMembersOptions = map(applicationMembers, memberOption)
   const onSaveWithPreferenceIndex = () => {
-    const { updatedPreferences, updatedIndexes } = updateVeteranPreferences(
-      form.getState().values.preferences,
-      preferenceIndex
-    )
-    form.change('preferences', updatedPreferences)
-
+    const updatedIndexes = [preferenceIndex]
     // if the current preference is a veteran and its matching non veteran is editable
     // then add it to the list of indexes to be updated
     if (
@@ -87,7 +82,7 @@ const Panel = ({
       updatedIndexes.push(preferenceIndex + 1)
     }
 
-    ;[preferenceIndex, ...updatedIndexes].forEach((index) => onSave(index, form.getState().values))
+    updatedIndexes.forEach((index) => onSave(index, form.getState().values))
   }
 
   const handleOnClose = () => {
@@ -110,17 +105,18 @@ const Panel = ({
         buildMatchingPreferencePanel()}
       <FormGrid.Row expand={false}>
         <div className='form-grid_item column'>
-          {isVeteran(preference.preference_name) &&
-            hasExpanderButton(application.preferences[preferenceIndex + 1].preference_name) && (
-              <button
-                className='button primary tiny margin-right margin-bottom-none save-panel-btn'
-                type='button'
-                onClick={onSaveWithPreferenceIndex}
-                disabled={loading}
-              >
-                Save
-              </button>
-            )}
+          <button
+            className='button primary tiny margin-right margin-bottom-none save-panel-btn'
+            type='button'
+            onClick={onSaveWithPreferenceIndex}
+            disabled={
+              loading ||
+              (isVeteran(preference.preference_name) &&
+                !hasExpanderButton(application.preferences[preferenceIndex + 1].preference_name))
+            }
+          >
+            Save
+          </button>
           <button
             className='button secondary tiny margin-bottom-none'
             type='button'
