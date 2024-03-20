@@ -72,17 +72,13 @@ const Panel = ({
   }
   const applicationMembersOptions = map(applicationMembers, memberOption)
   const onSaveWithPreferenceIndex = () => {
-    const updatedIndexes = [preferenceIndex]
-    // if the current preference is a veteran and its matching non veteran is editable
-    // then add it to the list of indexes to be updated
-    if (
-      isVeteran(application.preferences[preferenceIndex].preference_name) &&
-      hasExpanderButton(application.preferences[preferenceIndex + 1].preference_name)
-    ) {
-      updatedIndexes.push(preferenceIndex + 1)
+    if (!isVeteran(application.preferences[preferenceIndex].preference_name)) {
+      // update current index if it is not a veteran preference
+      onSave(preferenceIndex, preferenceIndex, form.getState().values)
+    } else if (hasExpanderButton(application.preferences[preferenceIndex + 1].preference_name)) {
+      // update next index if the current prefernece is veteran and next preference is editable
+      onSave(preferenceIndex + 1, preferenceIndex, form.getState().values)
     }
-
-    updatedIndexes.forEach((index) => onSave(index, form.getState().values))
   }
 
   const handleOnClose = () => {
@@ -130,9 +126,9 @@ const Panel = ({
 const PanelContainer = ({ onSave, ...panelProps }) => {
   const [loading, setLoading] = useState(false)
 
-  const handleOnSave = async (preferenceIndex, application) => {
+  const handleOnSave = async (preferenceIndexToUpdate, preferenceIndexToClose, application) => {
     setLoading(true)
-    await onSave(preferenceIndex, application)
+    await onSave(preferenceIndexToUpdate, preferenceIndexToClose, application)
     setLoading(false)
   }
 
