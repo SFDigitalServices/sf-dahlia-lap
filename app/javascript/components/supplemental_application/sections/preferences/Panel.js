@@ -109,11 +109,7 @@ const Panel = ({
             className='button primary tiny margin-right margin-bottom-none save-panel-btn'
             type='button'
             onClick={onSaveWithPreferenceIndex}
-            disabled={
-              loading ||
-              (isVeteran(preference.preference_name) &&
-                !hasExpanderButton(application.preferences[preferenceIndex + 1].preference_name))
-            }
+            disabled={loading}
           >
             Save
           </button>
