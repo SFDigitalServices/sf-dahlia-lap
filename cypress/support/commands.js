@@ -46,8 +46,10 @@ Cypress.Commands.add('setupIntercepts', () => {
 })
 
 Cypress.Commands.add('login', () => {
-  if (usingFixtures) {
+  if (usingFixtures()) {
     cy.intercept('api/v1/lease-ups/listings', { fixture: 'listings.json' }).as('listings')
+  } else {
+    cy.intercept('api/v1/lease-ups/listings').as('listings')
   }
 
   cy.get('.sign-in-btn').click()
@@ -61,9 +63,7 @@ Cypress.Commands.add('login', () => {
     cy.get('#Login', { log: Cypress.env('LOG_SECRETS') }).click({ log: Cypress.env('LOG_SECRETS') })
   })
 
-  if (usingFixtures) {
-    cy.wait('@listings')
-  }
+  cy.wait('@listings')
 
   cy.get('.lead-header_title').contains('Lease Ups')
 })
@@ -116,7 +116,7 @@ Cypress.Commands.add('selectStatusDropdownValue', (dropdownSelector, valueSelect
 })
 
 Cypress.Commands.add('checkForStatusUpdateSuccess', () => {
-  if (usingFixtures) {
+  if (usingFixtures()) {
     cy.intercept('POST', 'api/v1/applications/**/field_update_comments', {
       fixture: 'fieldUpdateCommentsPost.json'
     }).as('fieldUpdateComments')
@@ -176,7 +176,7 @@ Cypress.Commands.add('selectSubstatusIfRequired', (selectedStatus) => {
 Cypress.Commands.add('getInputValue', (selector) => cy.get(selector).invoke('val'))
 
 Cypress.Commands.add('saveSupplementalApplication', () => {
-  if (usingFixtures) {
+  if (usingFixtures()) {
     cy.intercept('api/v1/short-form/submit?supplemental=true', {
       fixture: 'shortFormSubmit.json'
     }).as('saveRequest')

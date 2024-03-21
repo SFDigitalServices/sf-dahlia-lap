@@ -48,7 +48,7 @@ describe('SupplementalApplicationPage statuses', () => {
     // Click on the "Add a Comment" button in the Status History sidebar
     cy.get('#add-status-history-comment').click()
 
-    if (usingFixtures) {
+    if (usingFixtures()) {
       cy.intercept('POST', 'api/v1/applications/**/field_update_comments', {
         fixture: 'fieldUpdateCommentsPost.json'
       }).as('fieldUpdateComments')
@@ -79,11 +79,13 @@ describe('SupplementalApplicationPage statuses', () => {
       .first()
       .click()
 
-    if (usingFixtures) {
+    if (usingFixtures()) {
+      cy.log('not using intercept')
       cy.intercept('POST', 'api/v1/applications/**/field_update_comments', {
         fixture: 'fieldUpdateCommentsPost2.json'
       }).as('fieldUpdateComments')
     } else {
+      cy.log('not using intercept')
       cy.intercept('POST', 'api/v1/applications/**/field_update_comments').as('fieldUpdateComments')
     }
     cy.testStatusModalUpdate()
