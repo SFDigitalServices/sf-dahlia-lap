@@ -10,7 +10,8 @@ import {
   preferencesWithVeteransUnconfirmed,
   preferencesWithVeteransConfirmed,
   applicationMembers,
-  preferencesWithVeteransOnly
+  preferencesWithVeteransOnly,
+  preferencesWithSameApplicationMember
 } from '../fixtures/layered_preferences'
 
 describe('layeredPreferenceUtil', () => {
@@ -123,6 +124,27 @@ describe('layeredPreferenceUtil', () => {
       expect(layeredPreferences[1].layered_validation).toBe('Unconfirmed')
       expect(layeredPreferences[1].layered_type_of_proofs).toHaveLength(1)
       expect(layeredPreferences[1].layered_type_of_proofs[0]).toBe('12345')
+
+      expect(layeredPreferences[0].layered_member_names).toHaveLength(2)
+      expect(layeredPreferences[0].layered_member_names[0]).toBe('John Doe')
+      expect(layeredPreferences[0].layered_member_names[1]).toBe('Jane Doe')
+    })
+    test('should add unique member names', () => {
+      // given
+      const proofFiles = []
+      const fileBaseUrl = ''
+
+      // when
+      const layeredPreferences = addLayeredPreferenceFields(
+        preferencesWithSameApplicationMember,
+        proofFiles,
+        fileBaseUrl,
+        applicationMembers
+      )
+
+      // then
+      expect(layeredPreferences[0].layered_member_names).toHaveLength(1)
+      expect(layeredPreferences[0].layered_member_names[0]).toBe('Jane Doe')
     })
   })
 })

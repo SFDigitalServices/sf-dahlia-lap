@@ -55,7 +55,7 @@ const Panel = ({
   const buildMatchingPreferencePanel = () => {
     const MatchingPreferencePanel = getPreferencePanel(application.preferences[preferenceIndex + 1])
     return (
-      <div style={{ borderTop: '1px solid #DEDEE0', paddingTop: '2em' }}>
+      <div className='non-veteran-panel border-top'>
         <MatchingPreferencePanel
           preferenceIndex={preferenceIndex + 1}
           preference={application.preferences[preferenceIndex + 1]}

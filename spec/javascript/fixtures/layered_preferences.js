@@ -59,7 +59,7 @@ export const preferencesWithVeteransUnconfirmed = [
         last_name: 'Doe',
         preference_record_type: 'DTHP',
         application_id: 'application_id_1',
-        application_member_id: '1',
+        application_member_id: '2',
         certificate_number: '12345'
     }
 ]
@@ -94,12 +94,38 @@ export const preferencesWithVeteransOnly = [
     }
 ]
 
+export const preferencesWithSameApplicationMember = [
+    {
+        preference_name: 'Veteran with Displaced Tenant Housing Preference (V-DTHP)',
+        post_lottery_validation: 'Confirmed',
+        first_name: 'John',
+        last_name: 'Doe',
+        preference_record_type: 'DTHP',
+        application_member_id: '2',
+        application_id: 'application_id_1'
+    },
+    {
+        preference_name: 'Displaced Tenant Housing Preference (DTHP)',
+        post_lottery_validation: 'Confirmed',
+        first_name: 'John',
+        last_name: 'Doe',
+        preference_record_type: 'DTHP',
+        application_member_id: '2',
+        application_id: 'application_id_1'
+    }
+]
+
 // applicationMembers
 
 export const applicationMembers = [
     {
         'id': '1',
         'first_name': 'John',
+        'last_name': 'Doe'
+    },
+    {
+        'id': '2',
+        'first_name': 'Jane',
         'last_name': 'Doe'
     }
 ]
