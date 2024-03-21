@@ -21,7 +21,22 @@ module Force
       def app_preferences_for_listing(opts)
         query_scope = app_preferences_for_listing_query(opts)
 
-        query_scope.query
+        app_preferences = query_scope.query
+
+        # only show highest preference for each applicant
+        app_preferences.records = app_preferences_highest_preference_only(app_preferences)
+        app_preferences.total_size = app_preferences.records.length
+        app_preferences
+      end
+
+      def app_preferences_highest_preference_only(preferences)
+        preferences_highest_preference_only = {}
+        preferences.records.each do |pref|
+          unless preferences_highest_preference_only[pref.Application.Applicant.First_Name + pref.Application.Applicant.Last_Name]
+            preferences_highest_preference_only[pref.Application.Applicant.First_Name + pref.Application.Applicant.Last_Name] = pref
+          end
+        end
+        preferences_highest_preference_only.values
       end
 
       def buildAppPreferencesFilters(opts)
@@ -55,48 +70,50 @@ module Force
         end
 
         filters
-    end
-
-    def buildAppPreferencesSearch(search_terms_string)
-      # Given a comma-separated list of search terms:
-      # For each term, we search across name and application number for a match
-      # For multiple terms, we expect the record to match each of the terms individually.
-      search_terms = search_terms_string.split(',')
-      search_fields = [
-        "Application__r.Name",
-        "Application__r.Applicant__r.First_Name__c",
-        "Application__r.Applicant__r.Last_Name__c",
-      ]
-      search = []
-      for search_term in search_terms
-        # For each term we join the fields with OR to return a record if it matches
-        # across any of these fields.
-        search_term_clause = []
-        sanitized_term = ActiveRecord::Base.sanitize_sql_like search_term
-        for search_field in search_fields
-          search_term_clause.push("#{search_field} like '%#{sanitized_term}%'")
-        end
-        search.push('(' + search_term_clause.join(' OR ') + ')')
       end
-      # If there are multiple terms, join the clauses with "AND" because we expect each term to find a match.
-      search.join(' AND ')
-    end
 
-    private
+      def buildAppPreferencesSearch(search_terms_string)
+        # Given a comma-separated list of search terms:
+        # For each term, we search across name and application number for a match
+        # For multiple terms, we expect the record to match each of the terms individually.
+        search_terms = search_terms_string.split(',')
+        search_fields = [
+          'Application__r.Name',
+          'Application__r.Applicant__r.First_Name__c',
+          'Application__r.Applicant__r.Last_Name__c',
+        ]
+        search = []
+        for search_term in search_terms
+          # For each term we join the fields with OR to return a record if it matches
+          # across any of these fields.
+          search_term_clause = []
+          sanitized_term = ActiveRecord::Base.sanitize_sql_like search_term
+          for search_field in search_fields
+            search_term_clause.push("#{search_field} like '%#{sanitized_term}%'")
+          end
+          search.push('(' + search_term_clause.join(' OR ') + ')')
+        end
+        # If there are multiple terms, join the clauses with "AND" because we expect each term to find a match.
+        search.join(' AND ')
+      end
 
-    def app_preferences_for_listing_query(opts)
-      # The query for this was put together to combine the general
-      # preferences with all other preferences as general was not
-      # originally included as a preference name. Because of the
-      # complexity of the query we are dynamically adding filters
-      # within the WHERE clause with the helper function above. The
-      # Preference_All_Name and Preference_All_Lottery_Rank fields
-      # were added to bring all preferences into the same query.
-      filters = buildAppPreferencesFilters(opts)
-      search = opts[:search] ? buildAppPreferencesSearch(opts[:search]) : nil
-      builder.from(:Application_Preference__c)
-             .select(query_fields(:app_preferences_for_listing))
-             .where(%(
+      private
+
+      def app_preferences_for_listing_query(opts)
+        File.open('output.json', 'w') { |file| file.write(opts) }
+
+        # The query for this was put together to combine the general
+        # preferences with all other preferences as general was not
+        # originally included as a preference name. Because of the
+        # complexity of the query we are dynamically adding filters
+        # within the WHERE clause with the helper function above. The
+        # Preference_All_Name and Preference_All_Lottery_Rank fields
+        # were added to bring all preferences into the same query.
+        filters = buildAppPreferencesFilters(opts)
+        search = opts[:search] ? buildAppPreferencesSearch(opts[:search]) : nil
+        builder.from(:Application_Preference__c)
+               .select(query_fields(:app_preferences_for_listing))
+               .where(%(
                 Listing_ID__c = '#{opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]}'
                 #{search ? 'AND (' + search + ')' : ''}
                 #{filters}
@@ -104,10 +121,9 @@ module Force
                 or \(Preference_Name__c = 'Live or Work in San Francisco Preference' and Application__r.General_Lottery_Rank__c != null\)\)
                 and Application__c IN \(SELECT id FROM Application__c\)
               ))
-             .paginate(opts)
-             .order_by("Receives_Preference__c desc, Preference_Order__c, Preference_Lottery_Rank__c,  Application__r.General_Lottery_Rank__c asc")
-             .transform_results { |results| massage(results) }
-    end
+               .order_by('Receives_Preference__c desc, Preference_Order__c, Preference_Lottery_Rank__c,  Application__r.General_Lottery_Rank__c asc')
+               .transform_results { |results| massage(results) }
+      end
 
       def listing_subquery(listing_id)
         builder.from(:Listing_Lottery_Preference__c)

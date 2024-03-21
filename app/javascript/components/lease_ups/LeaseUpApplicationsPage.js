@@ -29,7 +29,7 @@ import { getApplications, getListing } from './utils/leaseUpRequestUtils'
 import TableLayout from '../layouts/TableLayout'
 import { createFieldUpdateComment } from '../supplemental_application/utils/supplementalRequestUtils'
 
-const ROWS_PER_PAGE = 20
+const MAX_ROWS_PER_PAGE = 20
 
 const getPageHeaderData = (listing, reportId) => {
   const baseUrl = typeof SALESFORCE_BASE_URL !== 'undefined' ? SALESFORCE_BASE_URL : ''
@@ -87,7 +87,7 @@ const LeaseUpApplicationsPage = () => {
     pages: 0,
     atMaxPages: false,
     forceRefreshNextPageUpdate: false,
-    eagerPagination: new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
+    eagerPagination: new EagerPagination(MAX_ROWS_PER_PAGE, SERVER_PAGE_SIZE)
   })
 
   const [bulkCheckboxesState, setBulkCheckboxesState, overrideBulkCheckboxesState] = useStateObject(
@@ -336,7 +336,8 @@ const LeaseUpApplicationsPage = () => {
     onSelectAllApplications: handleSelectAllApplications,
     pages: state.pages,
     preferences: listingPreferences,
-    rowsPerPage: ROWS_PER_PAGE,
+    rowsPerPage:
+      MAX_ROWS_PER_PAGE > state.applications.length ? state.applications.length : MAX_ROWS_PER_PAGE,
     statusModal: statusModalState
   }
 

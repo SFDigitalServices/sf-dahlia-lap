@@ -1,6 +1,7 @@
 import { map } from 'lodash'
 
 import apiService from 'apiService'
+import { SERVER_PAGE_SIZE } from 'utils/EagerPagination'
 import { addLayeredValidation } from 'utils/layeredPreferenceUtil'
 import { performInSequence } from 'utils/promiseUtils'
 
@@ -19,20 +20,18 @@ export const sanitizeAndFormatSearch = (str) => {
   return convertToCommaSeparatedList(str.replace(/["']/g, ''))
 }
 
-export const getApplications = async (listingId, page, filters) => {
+export const getApplications = async (listingId, filters) => {
   if (filters?.search) {
     filters = { ...filters, search: sanitizeAndFormatSearch(filters?.search) }
   }
-  return apiService
-    .fetchLeaseUpApplications(listingId, page, { filters })
-    .then(({ records, pages }) => {
-      const preferences = map(records, buildLeaseUpAppPrefModel)
-      const layeredPreferences = addLayeredValidation(preferences)
-      return {
-        records: layeredPreferences,
-        pages
-      }
-    })
+  return apiService.fetchLeaseUpApplications(listingId, { filters }).then(({ records }) => {
+    const preferences = map(records, buildLeaseUpAppPrefModel)
+    const layeredPreferences = addLayeredValidation(preferences)
+    return {
+      records: layeredPreferences,
+      pages: preferences.length / SERVER_PAGE_SIZE
+    }
+  })
 }
 
 export const getListing = async (listingId) => apiService.getLeaseUpListing(listingId)

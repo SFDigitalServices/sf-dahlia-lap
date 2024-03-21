@@ -76,14 +76,13 @@ const fetchApplications = async ({ page, filters }) =>
     true
   )
 
-const fetchLeaseUpApplications = async (listingId, page, { filters }) => {
+const fetchLeaseUpApplications = async (listingId, { filters }) => {
   // Fetch applications associated with a lease up listing.
   return request.get(
     '/lease-ups/applications',
     {
       params: {
         listing_id: listingId,
-        page,
         ...filters
       }
     },

@@ -160,12 +160,15 @@ module Force
     def _result(records, pages = nil, page = nil)
       records = @transform_results.call(records) if @transform_results.present?
 
-      Hashie::Mash.new(
+      result = {
         records: records,
-        pages: pages,
-        page: page,
         total_size: total_size,
-      )
+      }
+
+      result[:pages] = pages if pages
+      result[:page] = page if page
+
+      Hashie::Mash.new(result)
     end
 
     def _format_value(type, value)
