@@ -4,6 +4,9 @@ const mobilitySelector = 'input#form-has_ada_priorities_selected\\.mobility_impa
 const shortFormTabSelector = '.tabs li:nth-child(2)'
 const supplementalTabSelector = '.tabs li:nth-child(1)'
 describe('SupplementalApplicationPage clicking on the short form tab', () => {
+  beforeEach(() => {
+    cy.setupIntercepts()
+  })
   it('should not erase updates made on the supp app tab', () => {
     let originalCheckboxValue
     let checkboxAfterClick
@@ -13,6 +16,13 @@ describe('SupplementalApplicationPage clicking on the short form tab', () => {
 
     // Load the supp app
     cy.visit(`/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
+    cy.wait('@shortForm')
+    cy.wait('@fieldUpdateComments')
+    cy.wait('@leases')
+    cy.wait('@rentalAssistances')
+    cy.wait('@supplementals')
+    cy.wait('@units')
+    cy.wait('@leaseUpListing')
 
     // Change value for ada priorities, mobility impairments
     cy.get(mobilitySelector)
