@@ -20,7 +20,6 @@ export const addLayeredValidation = (preferences) => {
     const filteredPrefs = preferences.filter(
       (data) =>
         data.application_id === preference.application_id &&
-        data.preference_record_type === preference.preference_record_type &&
         data.preference_name !== preference.preference_name
     )
 
