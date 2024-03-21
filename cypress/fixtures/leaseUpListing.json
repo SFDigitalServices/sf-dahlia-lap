@@ -1,0 +1,281 @@
+{
+    "test": true,
+	"listing": {
+		"id": "a0W0P00000GbyuQUAR",
+		"owner_id": "005U0000002DL0EIAW",
+		"owner": "michael.solomon1.3748487765741074E12",
+		"application_due_date": "2018-05-07T21:31:00.000+0000",
+		"name": "TEST Partners Listing (do not modify) - Yellow Acres",
+		"status": "Lease Up",
+		"building": "PR-021026",
+		"min_br": null,
+		"lottery_winners": 0,
+		"max_br": 3,
+		"lottery_results": true,
+		"min_income": 2606,
+		"account": "Cook LLC",
+		"max_income": null,
+		"min_occupancy": 1,
+		"max_occupancy": null,
+		"building_name": "Test Yellow Acres",
+		"neighborhood": "Castro/Upper Market",
+		"building_street_address": "1 South Van Ness Ave",
+		"developer": null,
+		"building_city": "San Francisco",
+		"building_url": "https://sfmohcd.org/sites/default/files/Documents/MOH/Housing%20Listing%20Photos/test-apologies.png",
+		"building_state": "CA",
+		"year_built": 2018,
+		"building_zip_code": "94103",
+		"description": null,
+		"lottery_preferences": null,
+		"accessibility": "Accessibility features in common areas like lobby – wheelchair ramps, wheelchair accessible bathrooms and elevators.",
+		"fee": 45,
+		"amenities": "Private bathroom and kitchen in unit. Laundry room, Landscaped Roof Deck, Ground level commercial space with large storefront windows and tall (19’+) ceilings and pedestrian-oriented features including lush planting & bike parking.",
+		"deposit_min": 1000,
+		"costs_not_included": "Replacements: $75 lock, $25/key, $10/mailbox key, $100/FOB key, $100/garage remote;\r\nLate rent fee: equal to 5% of total amount of monthly rent then in effect;\r\nRenter pay PG&E directly to provider;\r\nNo parking.",
+		"deposit_max": 1883,
+		"lottery_date": "2018-06-01T22:30:00.000+0000",
+		"lottery_results_date": "2018-06-05",
+		"lottery_venue": "<p>MOHCD</p>",
+		"lottery_summary": null,
+		"lottery_street_address": "1 South Van Ness Ave. 5th Fl.",
+		"lottery_city": "San Francisco",
+		"lottery_url": null,
+		"reserved_community_type": null,
+		"application_phone": "(415) 647-7191 ext.127",
+		"application_organization": null,
+		"application_street_address": null,
+		"application_city": null,
+		"download_url": null,
+		"application_state": null,
+		"application_postal_code": null,
+		"in_lottery": 27,
+		"leasing_agent_name": "Jasmine Stewart",
+		"leasing_agent_title": "Leasing Agent",
+		"leasing_agent_email": "brian.minall@caritasmanagement.com",
+		"leasing_agent_phone": "(415) 647-7191 x127",
+		"legal_disclaimers": "All BMR renters must review and acknowledge the <a href=\"http://sf-moh.org/index.aspx?page=295\" target=\"_blank\">Inclusionary Affordable Housing Program Monitoring and Procedures Manual 2013</a> that governs this property upon the signing of a lease for a BMR unit. <br> <br>Applicants should be informed that BMR rental units in some buildings may convert to ownership units in the future.  In the case of conversion, BMR renters will be afforded certain rights as explained in the <a href=\"http://sf-moh.org/index.aspx?page=295\" target=\"_blank\">Inclusionary Affordable Housing Program Monitoring and Procedures Manual 2013</a>. Applicants should inquire with the building contact person listed above to determine if the building has a minimum number of years that it must remain a rental building.  (Some buildings may have such restrictions based on government sources of financing for their building.) Most buildings may have no restrictions on conversion at all. <br> <br>It is also important to note that units governed by the Inclusionary Housing Program are NOT governed by the San Francisco Rent Ordinance (also known as “rent control”). Among other rules, rents may increase beyond increases allowed under “rent control.”  Please see the <a href=\"http://sf-moh.org/index.aspx?page=295\" target=\"_blank\">Inclusionary Affordable Housing Program Monitoring and Procedures Manual 2013</a> for more information.",
+		"building_selection_criteria": "http://sfmohcd.org/sites/default/files/Resident%20Selection%20Criteria/750%20HARRISON%20-%20RESIDENT%20SELECTION%20PLAN%20-%20FAIR%20CHANCE%20ORDINANCE.pdf",
+		"pet_policy": "Pet Deposit: $500\r\nPet Rent: $75 per month\r\n(Certified service animals are exempt.)",
+		"report_id": "00O4U0000041GOV",
+		"required_documents": "Lottery Application Form, documented proof of any preferences claimed (see application\r\nform for details).",
+		"smoking_policy": "No smoking within the building.",
+		"eviction_history": "Both the current and previous landlords (going back three years) will be contacted for information concerning the applicant's history of complying with lease requirements,\r\nincluding any documented lease violations and For Cause evictions. Ellis Act or Owner Move In evictions will not be held against an applicant.",
+		"criminal_history": null,
+		"credit_rating": "A credit report indicating a current FICO score of at least 620 or higher with financial responsibilities and a comprehensive unlawful detainer check will be obtained for each adult applicant. There must be no judgments; no accounts rated over 90 days delinquent or a bankruptcy within the previous one year to make the credit report acceptable.\r\nA credit score below 620 and/or a conditional approval rating where the report contains no judgments, no accounts rated over 90 days delinquent or a bankruptcy within the previous one year will result in an applicant being accepted and required to pay an\r\nadditional deposit equal to 1.5x the standard deposit.\r\nA credit score below 620 where the report contains any judgments, any accounts rated over 90 days delinquent or a bankruptcy within the previous one year, unless satisfactorily explained, will result in the applicant being denied. Guarantors not accepted.\r\nApplicant will not be denied for not having any credit history. Medical debt and/or student debt will not be held against an applicant. Applicant must demonstrate ability to meet all monthly financial obligations.",
+		"lottery_status": "Lottery Complete",
+		"office_hours": null,
+		"tenure": "New rental",
+		"information_sessions": [
+			{
+				"date": "2018-05-05",
+				"start_time": "9:00 AM",
+				"end_time": null,
+				"venue": "SF Public Library",
+				"street_address": null,
+				"city": "San Francisco"
+			}
+		],
+		"open_houses": [
+			{
+				"date": "2018-12-18",
+				"start_time": "5",
+				"end_time": "8"
+			},
+			{
+				"date": "2018-05-02",
+				"start_time": "2:00 PM",
+				"end_time": "5:00 PM"
+			}
+		],
+		"listing_lottery_preferences": [
+			{
+				"id": "a0l0P00001Q1vxUQAR",
+				"total_submitted_apps": 6,
+				"order": 1,
+				"description": "For households in which at least one member holds a Certificate of Preference from the former San Francisco Redevelopment Agency. COP holders were displaced by Agency action generally during the 1960s and 1970s.",
+				"available_units": 9,
+				"pdf_url": null,
+				"lottery_preference": {
+					"id": "a0m0P00000wwi3IQAQ",
+					"name": "Certificate of Preference (COP)"
+				}
+			},
+			{
+				"id": "a0l0P00001Q1vxyQAB",
+				"total_submitted_apps": 6,
+				"order": 2,
+				"description": "For households in which at least one member holds a Displaced Tenant Housing Preference Certificate. DTHP Certificate holders are tenants who were evicted through either an Ellis Act Eviction or an Owner Move In Eviction, or have been displaced by a fire. Once all units reserved for this preference are filled, remaining DTHP holders will receive Live/Work preference, regardless of their current residence or work location.",
+				"available_units": 3,
+				"pdf_url": null,
+				"lottery_preference": {
+					"id": "a0m0P00000www1mQAA",
+					"name": "Displaced Tenant Housing Preference (DTHP)"
+				}
+			},
+			{
+				"id": "a0l0P00001Q1w0mQAB",
+				"total_submitted_apps": 2,
+				"order": 3,
+				"description": "For households who are currently paying more than 50% of income for housing costs or are living in public housing or project based Section 8 housing within San Francisco.",
+				"available_units": 4,
+				"pdf_url": null,
+				"lottery_preference": {
+					"id": "a0m0P00000xTqDtQAK",
+					"name": "Rent Burdened / Assisted Housing Preference"
+				}
+			},
+			{
+				"id": "a0l0P00001Q1w1BQAR",
+				"total_submitted_apps": 12,
+				"order": 4,
+				"description": "For households in which at least one member lives or works in San Francisco.  Requires submission of proof.  Please note in order to claim Work Preference, the applicant currently work in San Francisco at least 75% of their working hours.",
+				"available_units": 9,
+				"pdf_url": null,
+				"lottery_preference": {
+					"id": "a0m0P00000wwi3NQAQ",
+					"name": "Live or Work in San Francisco Preference"
+				}
+			},
+			{
+				"id": "a0l0P00001QRPiaQAH",
+				"total_submitted_apps": 0,
+				"order": 5,
+				"description": "For households in which at least one member was a resident of the Alice Griffith housing development. This includes baseline and current residents that lived in the targeted redevelopment site on or after the time of application for Choice Neighborhoods of October 26, 2010.",
+				"available_units": 5,
+				"pdf_url": null,
+				"lottery_preference": {
+					"id": "a0m0P00000yuzO0QAI",
+					"name": "Alice Griffith Housing Development Resident"
+				}
+			},
+			{
+				"id": "a0l0P00001QRQGzQAP",
+				"total_submitted_apps": 2,
+				"order": 6,
+				"description": "For households in which at least one member either lives within Supervisor district of the project [District #], or within a half-mile of the project.  Requires submission of proof of address.",
+				"available_units": 4,
+				"pdf_url": null,
+				"lottery_preference": {
+					"id": "a0m0P00000www1rQAA",
+					"name": "Neighborhood Resident Housing Preference (NRHP)"
+				}
+			},
+			{
+				"id": "a0l0P00001RbKCJQA3",
+				"total_submitted_apps": 0,
+				"order": 8,
+				"description": null,
+				"available_units": 4,
+				"pdf_url": null,
+				"lottery_preference": {
+					"id": "a0m0P00000xRdmKQAS",
+					"name": "Anti-Displacement Housing Preference (ADHP)"
+				}
+			}
+		],
+		"units": [
+			{
+				"unit_type": "1 BR",
+				"bmr_rent_monthly": 1303,
+				"bmr_rental_minimum_monthly_income_needed": 2606,
+				"status": "Occupied",
+				"property_type": null,
+				"ami_chart_type": "HUD Unadjusted",
+				"ami_chart_year": 2018,
+				"max_ami_for_qualifying_unit": 55,
+				"reserved_type": null
+			},
+			{
+				"unit_type": "1 BR",
+				"bmr_rent_monthly": 1303,
+				"bmr_rental_minimum_monthly_income_needed": 2606,
+				"status": "Occupied",
+				"property_type": null,
+				"ami_chart_type": "HUD Unadjusted",
+				"ami_chart_year": 2018,
+				"max_ami_for_qualifying_unit": 55,
+				"reserved_type": null
+			},
+			{
+				"unit_type": "1 BR",
+				"bmr_rent_monthly": 1303,
+				"bmr_rental_minimum_monthly_income_needed": 2606,
+				"status": "Available",
+				"property_type": null,
+				"ami_chart_type": "HUD Unadjusted",
+				"ami_chart_year": 2018,
+				"max_ami_for_qualifying_unit": 55,
+				"reserved_type": null
+			},
+			{
+				"unit_type": "2 BR",
+				"bmr_rent_monthly": 1465,
+				"bmr_rental_minimum_monthly_income_needed": 2930,
+				"status": "Available",
+				"property_type": null,
+				"ami_chart_type": "HUD Unadjusted",
+				"ami_chart_year": 2018,
+				"max_ami_for_qualifying_unit": 55,
+				"reserved_type": null
+			},
+			{
+				"unit_type": "2 BR",
+				"bmr_rent_monthly": 1465,
+				"bmr_rental_minimum_monthly_income_needed": 2930,
+				"status": "Available",
+				"property_type": null,
+				"ami_chart_type": "HUD Unadjusted",
+				"ami_chart_year": 2018,
+				"max_ami_for_qualifying_unit": 55,
+				"reserved_type": null
+			},
+			{
+				"unit_type": "2 BR",
+				"bmr_rent_monthly": 1465,
+				"bmr_rental_minimum_monthly_income_needed": 2930,
+				"status": "Available",
+				"property_type": null,
+				"ami_chart_type": "HUD Unadjusted",
+				"ami_chart_year": 2018,
+				"max_ami_for_qualifying_unit": 55,
+				"reserved_type": null
+			},
+			{
+				"unit_type": "3 BR",
+				"bmr_rent_monthly": 1628,
+				"bmr_rental_minimum_monthly_income_needed": 3256,
+				"status": "Available",
+				"property_type": null,
+				"ami_chart_type": "HUD Unadjusted",
+				"ami_chart_year": 2018,
+				"max_ami_for_qualifying_unit": 55,
+				"reserved_type": null
+			},
+			{
+				"unit_type": "3 BR",
+				"bmr_rent_monthly": 1628,
+				"bmr_rental_minimum_monthly_income_needed": 3256,
+				"status": "Available",
+				"property_type": null,
+				"ami_chart_type": "HUD Unadjusted",
+				"ami_chart_year": 2018,
+				"max_ami_for_qualifying_unit": 55,
+				"reserved_type": null
+			},
+			{
+				"unit_type": "3 BR",
+				"bmr_rent_monthly": 1628,
+				"bmr_rental_minimum_monthly_income_needed": 3256,
+				"status": "Available",
+				"property_type": null,
+				"ami_chart_type": "HUD Unadjusted",
+				"ami_chart_year": 2018,
+				"max_ami_for_qualifying_unit": 55,
+				"reserved_type": null
+			}
+		],
+		"is_sale": false,
+		"is_rental": true
+	}
+}

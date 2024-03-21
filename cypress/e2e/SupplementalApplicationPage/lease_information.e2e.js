@@ -7,10 +7,20 @@ const parkingRentSelector = '#form-lease\\.monthly_parking_rent'
 const tenantContributionSelector = '#form-lease\\.monthly_tenant_contribution'
 
 describe('SupplementalApplicationPage lease section', () => {
+  beforeEach(() => {
+    cy.setupIntercepts()
+  })
   it('should allow saving of rents', () => {
     cy.visit('http://localhost:3000/')
     cy.login()
     cy.visit(`/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
+    cy.wait('@shortForm')
+    cy.wait('@fieldUpdateComments')
+    cy.wait('@leases')
+    cy.wait('@rentalAssistances')
+    cy.wait('@supplementals')
+    cy.wait('@units')
+    cy.wait('@leaseUpListing')
 
     cy.get('button#edit-lease-button').click()
 
@@ -27,6 +37,7 @@ describe('SupplementalApplicationPage lease section', () => {
 
     // Click save
     cy.saveSupplementalApplication()
+    cy.wait('@lease')
 
     // Verify that the values are there (they will be returned from salesforce as numbers, not currency)
     cy.getInputValue(rentSelector).should('equal', '$' + String(rentValue.float.toFixed(2)))
