@@ -12,21 +12,30 @@ const MOCK_DISPATCH = jest.fn()
 
 const getFiredActions = (dispatchMock) => dispatchMock.mock.calls.map((call) => call[0])
 
+const preferenceIndexToUpdate = 0
+const preferenceIndexToClose = 1
+const formApplicationValues = {
+  id: 'applicationId',
+  total_monthly_rent: '10',
+  preferences: [
+    {
+      id: 'preferenceId'
+    }
+  ]
+}
+
 describe('supplementalApplicationActionCreators', () => {
   describe('updateSavedPreference', () => {
     describe('when all requests succeed', () => {
       let firedActions = []
       beforeEach(async () => {
         mockedRequestUtils.updatePreference.mockResolvedValue(Promise.resolve(true))
-        await updateSavedPreference(MOCK_DISPATCH, 0, {
-          id: 'applicationId',
-          total_monthly_rent: '10',
-          preferences: [
-            {
-              id: 'preferenceId'
-            }
-          ]
-        })
+        await updateSavedPreference(
+          MOCK_DISPATCH,
+          preferenceIndexToUpdate,
+          preferenceIndexToClose,
+          formApplicationValues
+        )
         firedActions = getFiredActions(MOCK_DISPATCH)
       })
 
@@ -50,7 +59,7 @@ describe('supplementalApplicationActionCreators', () => {
           },
           {
             type: ACTIONS.PREF_TABLE_ROW_CLOSED,
-            data: { rowIndex: 0 }
+            data: { rowIndex: preferenceIndexToClose }
           },
           {
             type: ACTIONS.CONFIRMED_PREFERENCES_FAILED,
@@ -59,21 +68,24 @@ describe('supplementalApplicationActionCreators', () => {
           { type: ACTIONS.SUPP_APP_LOAD_COMPLETE }
         ])
       })
+      test('should updatePreference with the correct index', () => {
+        expect(mockedRequestUtils.updatePreference).toHaveBeenCalledWith(
+          preferenceIndexToUpdate,
+          formApplicationValues
+        )
+      })
     })
 
     describe('when all requests fail', () => {
       let firedActions = []
       beforeEach(async () => {
         mockedRequestUtils.updatePreference.mockResolvedValue(Promise.reject(Error('testError')))
-        await updateSavedPreference(MOCK_DISPATCH, 0, {
-          id: 'applicationId',
-          total_monthly_rent: '10',
-          preferences: [
-            {
-              id: 'preferenceId'
-            }
-          ]
-        })
+        await updateSavedPreference(
+          MOCK_DISPATCH,
+          preferenceIndexToUpdate,
+          preferenceIndexToClose,
+          formApplicationValues
+        )
         firedActions = getFiredActions(MOCK_DISPATCH)
       })
 
