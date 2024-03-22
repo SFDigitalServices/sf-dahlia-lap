@@ -2,6 +2,7 @@ import React from 'react'
 
 import { render, screen, fireEvent } from '@testing-library/react'
 import { act } from 'react-dom/test-utils'
+import { BrowserRouter } from 'react-router-dom'
 import selectEvent from 'react-select-event'
 
 import LeaseUpApplicationsFilterContainer from 'components/lease_ups/LeaseUpApplicationsFilterContainer'
@@ -12,17 +13,19 @@ const mockOnClearSelectedApplications = jest.fn()
 const mockOnSelectAllApplications = jest.fn()
 
 const getNode = (bulkCheckboxesState = {}) => (
-  <Provider>
-    <LeaseUpApplicationsFilterContainer
-      onSubmit={mockSubmit}
-      onClearSelectedApplications={mockOnClearSelectedApplications}
-      onSelectAllApplications={mockOnSelectAllApplications}
-      bulkCheckboxesState={bulkCheckboxesState}
-      onBulkLeaseUpStatusChange={() => {}}
-      onBulkLeaseUpCommentChange={() => {}}
-      preferences={['pref option 1', 'pref option 2']}
-    />
-  </Provider>
+  <BrowserRouter>
+    <Provider>
+      <LeaseUpApplicationsFilterContainer
+        onSubmit={mockSubmit}
+        onClearSelectedApplications={mockOnClearSelectedApplications}
+        onSelectAllApplications={mockOnSelectAllApplications}
+        bulkCheckboxesState={bulkCheckboxesState}
+        onBulkLeaseUpStatusChange={() => {}}
+        onBulkLeaseUpCommentChange={() => {}}
+        preferences={['pref option 1', 'pref option 2']}
+      />
+    </Provider>
+  </BrowserRouter>
 )
 
 const getScreen = (bulkCheckboxesState = {}) => render(getNode(bulkCheckboxesState))

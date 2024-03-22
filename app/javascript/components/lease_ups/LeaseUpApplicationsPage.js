@@ -4,13 +4,14 @@ import React from 'react'
 
 import { map } from 'lodash'
 import moment from 'moment'
-import { useParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 
 import {
   applicationsPageLoadComplete,
   applicationsPageMounted,
   applicationsTableFiltersApplied
 } from 'components/lease_ups/actions/actionCreators'
+import { LEASE_UP_APPLICATION_FILTERS } from 'components/lease_ups/applicationFiltersConsts'
 import appPaths from 'utils/appPaths'
 import {
   useAsync,
@@ -78,6 +79,8 @@ const getPreferences = (listing) => {
 const LeaseUpApplicationsPage = () => {
   const [{ breadcrumbData, applicationsListData }, dispatch] = useAppContext()
 
+  const [searchParams] = useSearchParams()
+
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
 
@@ -116,6 +119,26 @@ const LeaseUpApplicationsPage = () => {
       })
 
       applicationsPageLoadComplete(dispatch, listing)
+    }
+  })
+
+  useEffectOnMount(() => {
+    const urlFilters = {}
+    LEASE_UP_APPLICATION_FILTERS.forEach((filter) => {
+      const values = searchParams.getAll(filter.fieldName)
+      if (values.length > 0) {
+        urlFilters[filter.fieldName] = values
+      }
+    })
+
+    const textSearchFilters = searchParams.get('search')
+    if (textSearchFilters) {
+      urlFilters.search = textSearchFilters
+    }
+
+    if (Object.keys(urlFilters).length > 0) {
+      state.forceRefreshNextPageUpdate = true
+      applicationsTableFiltersApplied(dispatch, urlFilters)
     }
   })
 
