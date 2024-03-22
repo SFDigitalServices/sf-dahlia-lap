@@ -12,7 +12,6 @@ export const buildLeaseUpAppGenLotteryModel = (application) => {
     residence_address: applicant.residence_address,
     lease_up_status: application.processing_status,
     status_last_updated: application.status_last_updated,
-    preference_record_type: 'GEN',
     preference_lottery_rank: application.general_lottery_rank,
     post_lottery_validation: application.post_lottery_validation
   }

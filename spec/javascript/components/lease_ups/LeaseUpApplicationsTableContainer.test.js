@@ -7,7 +7,7 @@ describe('LeaseUpApplicationsTableContainer', () => {
         application_id: 'a0o4U00000KLfleQAD',
         preference_order: 1,
         preference_name: 'Right to Return - Sunnydale',
-        preference_record_type: 'AG',
+        custom_preference_type: 'AG',
         preference_lottery_rank: 13
       }
       expect(buildRowData(application).preference_rank).toBe('RtR 13')

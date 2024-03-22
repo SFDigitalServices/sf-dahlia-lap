@@ -6,7 +6,7 @@ export const preferencesWithoutVeterans = [
         post_lottery_validation: 'Confirmed',
         first_name: 'John',
         last_name: 'Doe',
-        preference_record_type: 'COP',
+        custom_preference_type: 'COP',
         certificate_number: '12345',
         application_id: 'application_id_1',
         application_member_id: '1'
@@ -16,7 +16,7 @@ export const preferencesWithoutVeterans = [
         post_lottery_validation: 'Unconfirmed',
         first_name: 'Jane',
         last_name: 'Doe',
-        preference_record_type: 'DTHP',
+        custom_preference_type: 'DTHP',
         certificate_number: 'abcde',
         application_id: 'application_id_2'
     }
@@ -28,7 +28,7 @@ export const preferencesWithVeteransInvalid = [
         post_lottery_validation: 'Confirmed',
         first_name: 'John',
         last_name: 'Doe',
-        preference_record_type: 'NRHP',
+        custom_preference_type: 'NRHP',
         application_id: 'application_id_1'
     },
     {
@@ -36,7 +36,7 @@ export const preferencesWithVeteransInvalid = [
         post_lottery_validation: 'Invalid',
         first_name: 'John',
         last_name: 'Doe',
-        preference_record_type: 'NRHP',
+        custom_preference_type: 'NRHP',
         application_id: 'application_id_1'
     }
 ]
@@ -47,7 +47,7 @@ export const preferencesWithVeteransUnconfirmed = [
         post_lottery_validation: 'Confirmed',
         first_name: 'John',
         last_name: 'Doe',
-        preference_record_type: 'DTHP',
+        custom_preference_type: 'DTHP',
         application_id: 'application_id_1',
         application_member_id: '1',
         veteran_type_of_proof: 'DD Form 214'
@@ -57,7 +57,7 @@ export const preferencesWithVeteransUnconfirmed = [
         post_lottery_validation: 'Unconfirmed',
         first_name: 'John',
         last_name: 'Doe',
-        preference_record_type: 'DTHP',
+        custom_preference_type: 'DTHP',
         application_id: 'application_id_1',
         application_member_id: '1',
         certificate_number: '12345'
@@ -70,7 +70,7 @@ export const preferencesWithVeteransConfirmed = [
         post_lottery_validation: 'Confirmed',
         first_name: 'John',
         last_name: 'Doe',
-        preference_record_type: 'DTHP',
+        custom_preference_type: 'DTHP',
         application_id: 'application_id_1'
     },
     {
@@ -78,7 +78,7 @@ export const preferencesWithVeteransConfirmed = [
         post_lottery_validation: 'Confirmed',
         first_name: 'John',
         last_name: 'Doe',
-        preference_record_type: 'DTHP',
+        custom_preference_type: 'DTHP',
         application_id: 'application_id_1'
     }
 ]
@@ -89,7 +89,7 @@ export const preferencesWithVeteransOnly = [
         post_lottery_validation: 'Confirmed',
         first_name: 'John',
         last_name: 'Doe',
-        preference_record_type: 'DTHP',
+        custom_preference_type: 'DTHP',
         application_id: 'application_id_1'
     }
 ]
@@ -100,7 +100,7 @@ export const preferencesWithVeteransMixed = [
         post_lottery_validation: 'Confirmed',
         first_name: 'John',
         last_name: 'Doe',
-        preference_record_type: 'DTHP',
+        custom_preference_type: 'DTHP',
         application_id: 'application_id_1',
         application_member_id: '1',
         receives_preference: true,
@@ -111,7 +111,7 @@ export const preferencesWithVeteransMixed = [
         post_lottery_validation: 'Confirmed',
         first_name: 'John',
         last_name: 'Doe',
-        preference_record_type: 'DTHP',
+        custom_preference_type: 'DTHP',
         application_id: 'application_id_1',
         receives_preference: true
     },
@@ -120,7 +120,7 @@ export const preferencesWithVeteransMixed = [
         post_lottery_validation: 'Unconfirmed',
         first_name: 'John',
         last_name: 'Doe',
-        preference_record_type: 'NRHP',
+        custom_preference_type: 'NRHP',
         application_id: 'application_id_1',
         receives_preference: true
     },
@@ -129,7 +129,7 @@ export const preferencesWithVeteransMixed = [
         post_lottery_validation: 'Confirmed',
         first_name: 'John',
         last_name: 'Doe',
-        preference_record_type: 'NRHP',
+        custom_preference_type: 'NRHP',
         application_id: 'application_id_1',
         receives_preference: true
     },
@@ -138,7 +138,7 @@ export const preferencesWithVeteransMixed = [
         post_lottery_validation: 'Unconfirmed',
         first_name: 'John',
         last_name: 'Doe',
-        preference_record_type: 'COP',
+        custom_preference_type: 'COP',
         application_id: 'application_id_1',
         receives_preference: false
     },
@@ -147,7 +147,7 @@ export const preferencesWithVeteransMixed = [
         post_lottery_validation: 'Unconfirmed',
         first_name: 'John',
         last_name: 'Doe',
-        preference_record_type: 'COP',
+        custom_preference_type: 'COP',
         application_id: 'application_id_1',
         receives_preference: false
     }

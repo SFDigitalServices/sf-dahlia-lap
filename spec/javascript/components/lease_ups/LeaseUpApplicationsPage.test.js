@@ -105,6 +105,7 @@ const buildMockApplicationWithPreference = ({
   preference_name: 'Certificate of Preference',
   custom_preference_type: (() => {
     if (customPreferenceType) return `${customPreferenceType}`
+    else return 'COP'
   })(),
   application: {
     id: applicationId,

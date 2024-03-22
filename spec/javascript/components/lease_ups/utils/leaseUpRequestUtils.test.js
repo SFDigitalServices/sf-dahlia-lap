@@ -100,7 +100,6 @@ describe('leaseUpActions', () => {
         preference_lottery_rank: 1,
         preference_name: 'Live or Work in San Francisco Preference',
         preference_order: 3,
-        preference_record_type: 'L_W',
         residence_address: '',
         status_last_updated: '2020-05-28T21:23:06.000+0000',
         total_household_size: 1,
