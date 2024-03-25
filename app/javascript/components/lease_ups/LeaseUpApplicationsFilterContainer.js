@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 import classNames from 'classnames'
-import _ from 'lodash'
 import PropTypes from 'prop-types'
 import { Form } from 'react-final-form'
 import { useSearchParams } from 'react-router-dom'
@@ -48,7 +47,7 @@ const LeaseUpApplicationsFilterContainer = ({
 }) => {
   const [isShowingFilters, setIsShowingFilters] = useState(false)
   const [hasChangedFilters, setHasChangedFilters] = useState(false)
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [, setSearchParams] = useSearchParams()
 
   const [
     {
@@ -64,41 +63,30 @@ const LeaseUpApplicationsFilterContainer = ({
 
   const handleFormSubmit = (filters, form) => {
     const filterFormState = form.getState()
-    const filterKeys = Object.keys(filterFormState.values)
+    const filterFormKeys = Object.keys(filterFormState.values)
+    const newURLSearchParams = new URLSearchParams()
 
-    filterKeys.forEach((filterKey) => {
+    if (!filterFormKeys || filterFormKeys.length === 0) {
+      setSearchParams({})
+      return
+    }
+
+    filterFormKeys.forEach((filterKey) => {
       if (filterKey === 'search') {
-        if (!filterFormState.values[filterKey]) {
-          searchParams.delete('search')
-          return
-        }
-        searchParams.set('search', filterFormState.values[filterKey])
+        const searchValue = filterFormState.values.search
+        if (!searchValue) return
+        newURLSearchParams.set('search', searchValue)
         return
       }
 
       const formFilterValues = filterFormState.values[filterKey]
-      const urlFilterValues = searchParams.getAll(filterKey) || []
 
-      console.log({ key: filterKey, formValues: formFilterValues })
-
-      if (!formFilterValues || formFilterValues.length === 0) {
-        // User has removed all values for this filter
-        // Remove this filter from the URL
-        searchParams.delete(filterKey)
-      } else if (formFilterValues.length > urlFilterValues.length) {
-        const valuesToAdd = _.difference(formFilterValues, urlFilterValues)
-        valuesToAdd.forEach((v) => {
-          searchParams.append(filterKey, v)
-        })
-      } else {
-        const valuesToRemove = _.difference(urlFilterValues, formFilterValues)
-        valuesToRemove.forEach((v) => {
-          searchParams.delete(filterKey, v)
-        })
-      }
+      if (!formFilterValues) return
+      formFilterValues.forEach((v) => {
+        newURLSearchParams.append(filterKey, v)
+      })
     })
-
-    setSearchParams(searchParams)
+    setSearchParams(newURLSearchParams)
 
     onSubmit(formUtils.scrubEmptyValues(filters, true))
     form.resetFieldState('search')
@@ -129,7 +117,7 @@ const LeaseUpApplicationsFilterContainer = ({
 
   React.useEffect(() => {
     const keys = Object.keys(appliedFilters)
-    _.remove(keys, (k) => k === 'search')
+    keys.filter((key) => key !== 'search')
     if (keys.length > 0) {
       setIsShowingFilters(true)
     }
