@@ -5,10 +5,15 @@ import ACTIONS from 'context/actions'
  * Returns a promise that resolves to true if the save was successful, false otherwise.
  */
 
-export const updateSavedPreference = async (dispatch, preferenceIndex, formApplicationValues) => {
+export const updateSavedPreference = async (
+  dispatch,
+  preferenceIndexToUpdate,
+  preferenceIndexToClose,
+  formApplicationValues
+) => {
   dispatch({ type: ACTIONS.SUPP_APP_LOAD_START })
 
-  return updatePreference(preferenceIndex, formApplicationValues)
+  return updatePreference(preferenceIndexToUpdate, formApplicationValues)
     .then(() => {
       dispatch({
         type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
@@ -18,7 +23,7 @@ export const updateSavedPreference = async (dispatch, preferenceIndex, formAppli
         }
       })
 
-      preferenceSaveSuccess(dispatch, preferenceIndex)
+      preferenceSaveSuccess(dispatch, preferenceIndexToClose)
 
       return true
     })

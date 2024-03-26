@@ -1,8 +1,7 @@
 import {
   addLayeredValidation,
   isVeteran,
-  addLayeredPreferenceFields,
-  updateVeteranPreferences
+  addLayeredPreferenceFields
 } from 'utils/layeredPreferenceUtil'
 
 import {
@@ -11,8 +10,8 @@ import {
   preferencesWithVeteransUnconfirmed,
   preferencesWithVeteransConfirmed,
   applicationMembers,
-  preferencesWithVeteransMixed,
-  preferencesWithVeteransOnly
+  preferencesWithVeteransOnly,
+  preferencesWithSameApplicationMember
 } from '../fixtures/layered_preferences'
 
 describe('layeredPreferenceUtil', () => {
@@ -125,42 +124,27 @@ describe('layeredPreferenceUtil', () => {
       expect(layeredPreferences[1].layered_validation).toBe('Unconfirmed')
       expect(layeredPreferences[1].layered_type_of_proofs).toHaveLength(1)
       expect(layeredPreferences[1].layered_type_of_proofs[0]).toBe('12345')
+
+      expect(layeredPreferences[0].layered_member_names).toHaveLength(2)
+      expect(layeredPreferences[0].layered_member_names[0]).toBe('John Doe')
+      expect(layeredPreferences[0].layered_member_names[1]).toBe('Jane Doe')
     })
-  })
-  describe('updateVeteranPreferences', () => {
-    test('should not update non veteran preferences', () => {
+    test('should add unique member names', () => {
       // given
-      const currentPreferenceIndex = 0
+      const proofFiles = []
+      const fileBaseUrl = ''
 
       // when
-      const { updatedIndexes } = updateVeteranPreferences(
-        preferencesWithoutVeterans,
-        currentPreferenceIndex
+      const layeredPreferences = addLayeredPreferenceFields(
+        preferencesWithSameApplicationMember,
+        proofFiles,
+        fileBaseUrl,
+        applicationMembers
       )
 
       // then
-      expect(updatedIndexes).toHaveLength(0)
-    })
-    test('should only update veteran preferences that have been received', () => {
-      // given
-      const currentPreferenceIndex = 0
-
-      // when
-      const { updatedIndexes, updatedPreferences } = updateVeteranPreferences(
-        preferencesWithVeteransMixed,
-        currentPreferenceIndex
-      )
-
-      // then
-      expect(updatedIndexes).toHaveLength(1)
-
-      const updatedIndex = updatedIndexes[0]
-      expect(updatedIndex).toBe(2)
-
-      const updatedPreference = updatedPreferences[updatedIndex]
-      expect(updatedPreference.post_lottery_validation).toBe('Confirmed')
-      expect(updatedPreference.veteran_type_of_proof).toBe('DD Form 214')
-      expect(updatedPreference.application_member_id).toBe('1')
+      expect(layeredPreferences[0].layered_member_names).toHaveLength(1)
+      expect(layeredPreferences[0].layered_member_names[0]).toBe('Jane Doe')
     })
   })
 })

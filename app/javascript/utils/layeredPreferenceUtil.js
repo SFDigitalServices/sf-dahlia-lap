@@ -84,12 +84,15 @@ export const addLayeredPreferenceFields = (
       nonVetPreference.application_member_id,
       applicationMembers
     )
+    // we only want to display unique member names
+    // if vet and non vet member names are the same only display it once
+    const uniqueMemberNames = new Set([vetMemberName, nonVetMemberName])
 
     return {
       ...preference,
       layered_validation: finalConfirmation,
       layered_type_of_proofs: [vetTypeOfProof, nonVetTypeOfProof],
-      layered_member_names: [vetMemberName, nonVetMemberName]
+      layered_member_names: [...uniqueMemberNames]
     }
   })
 }
@@ -101,30 +104,5 @@ const calculateFinalConfirmation = (first_confirmation, second_confirmation) => 
     return 'Confirmed'
   } else {
     return 'Unconfirmed'
-  }
-}
-
-export const updateVeteranPreferences = (preferences, currentPreferenceIndex) => {
-  const updatedIndexes = []
-
-  const updatedPreferences = preferences.map((preference, index) => {
-    if (
-      index !== currentPreferenceIndex &&
-      isVeteran(preference.preference_name) &&
-      preference.receives_preference
-    ) {
-      preference.post_lottery_validation =
-        preferences[currentPreferenceIndex].post_lottery_validation
-      preference.veteran_type_of_proof = preferences[currentPreferenceIndex].veteran_type_of_proof
-      preference.application_member_id = preferences[currentPreferenceIndex].application_member_id
-
-      updatedIndexes.push(index)
-    }
-    return preference
-  })
-
-  return {
-    updatedPreferences,
-    updatedIndexes
   }
 }

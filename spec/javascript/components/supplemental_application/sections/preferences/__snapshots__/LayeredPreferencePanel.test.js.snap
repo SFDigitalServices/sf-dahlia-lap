@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayeredPreferencePanel should render successfully 1`] = `
+<DocumentFragment>
+  <div
+    class="form-grid row margin-left-none margin-right-none"
+  >
+    <div
+      class="form-grid_item column small-6"
+    >
+      <div
+        class="form-group"
+      >
+        <label
+          for=""
+        >
+          Preference Name
+        </label>
+        <div
+          class="text-value"
+        >
+          Veteran status
+        </div>
+      </div>
+    </div>
+    <div
+      class="form-grid_item column small-6"
+    >
+      <div
+        class="form-group"
+      >
+        <label
+          for=""
+        >
+          HH Member on Proof
+        </label>
+        <div
+          class="text-value"
+        >
+          John Doe
+        </div>
+      </div>
+    </div>
+    <div
+      class="form-grid_item column small-6"
+    >
+      <div
+        class="form-group"
+      >
+        <label
+          for=""
+        >
+          Type of Proof
+        </label>
+        <div
+          class="text-value"
+        >
+          DD Form 214
+        </div>
+      </div>
+    </div>
+    <div
+      class="form-grid_item column small-6"
+    >
+      <div
+        class="form-group"
+      >
+        <label
+          for=""
+        >
+          Status
+        </label>
+        <div
+          class="text-value"
+        >
+          Unconfirmed
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="form-grid row margin-left-none margin-right-none"
+  >
+    <div
+      class="form-group"
+    >
+      <div
+        class="form-grid_item large-12 column padding-bottom"
+      >
+        <p
+          class="t-base c-steel"
+        >
+          Veteran status already confirmed by MOHCD.
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
