@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent, act } from '@testing-library/react'
 
 import PreferencesTable from 'components/supplemental_application/sections/PreferencesTable'
 import Provider from 'context/Provider'
@@ -10,8 +10,14 @@ import veteranApplication from '../../../fixtures/veteran_application'
 
 const applicationMembers = [{ id: 'a0n0x000000AbE6AAK', first_name: 'karen', last_name: 'jones' }]
 const fileBaseUrl = 'https://test.force.com'
-const onSave = () => {}
-const formApi = {}
+const onSave = jest.fn(() => {})
+const formApi = {
+  getState: () => {
+    return {
+      values: []
+    }
+  }
+}
 
 describe('PreferencesTable', () => {
   test('should render a table of only preferences that the application receives (Receives_Preference = true)', () => {
@@ -60,5 +66,25 @@ describe('PreferencesTable', () => {
       })
     ).toBeInTheDocument()
     expect(screen.getAllByTestId('expandable-table-row')).toHaveLength(2)
+  })
+  test('should save preference panel', async () => {
+    render(
+      <Provider>
+        <PreferencesTable
+          application={veteranApplication}
+          applicationMembers={applicationMembers}
+          onSave={onSave}
+          fileBaseUrl={fileBaseUrl}
+          form={formApi}
+        />
+      </Provider>
+    )
+
+    const veteranButton = screen.getAllByRole('button', { name: /edit/i })[0]
+    fireEvent.click(veteranButton)
+    const saveButton = screen.getAllByRole('button', { name: /save/i })[0]
+    await act(async () => fireEvent.click(saveButton))
+
+    expect(onSave).toHaveBeenCalledTimes(1)
   })
 })
