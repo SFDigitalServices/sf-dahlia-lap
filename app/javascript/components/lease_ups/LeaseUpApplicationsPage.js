@@ -4,7 +4,7 @@ import React from 'react'
 
 import { map } from 'lodash'
 import moment from 'moment'
-import { useParams, useSearchParams } from 'react-router-dom'
+import { useParams, useSearchParams, useLocation } from 'react-router-dom'
 
 import {
   applicationsPageLoadComplete,
@@ -80,6 +80,7 @@ const LeaseUpApplicationsPage = () => {
   const [{ breadcrumbData, applicationsListData }, dispatch] = useAppContext()
 
   const [searchParams] = useSearchParams()
+  const location = useLocation()
 
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
@@ -122,7 +123,7 @@ const LeaseUpApplicationsPage = () => {
     }
   })
 
-  useEffectOnMount(() => {
+  React.useEffect(() => {
     const urlFilters = {}
     LEASE_UP_APPLICATION_FILTERS.forEach((filter) => {
       const values = searchParams.getAll(filter.fieldName)
@@ -140,7 +141,10 @@ const LeaseUpApplicationsPage = () => {
       state.forceRefreshNextPageUpdate = true
       applicationsTableFiltersApplied(dispatch, urlFilters)
     }
-  })
+    // Using just location in the deps array allows us to exclusively run this effect:
+    // on mount, if the user changes the url manually, or if the user hits the back button
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location])
 
   useAsync(
     () => {
