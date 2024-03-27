@@ -168,10 +168,10 @@ const mockApplications = [
   })
 ]
 
-const getWrapper = async () => {
+const getWrapper = async (searchParameters = '') => {
   let wrapper
   await act(async () => {
-    wrapper = renderAppWithUrl(`/lease-ups/listings/${mockListing.id}`)
+    wrapper = renderAppWithUrl(`/lease-ups/listings/${mockListing.id}?${searchParameters}`)
   })
 
   return wrapper
@@ -645,6 +645,19 @@ describe('LeaseUpApplicationsPage', () => {
           })
         })
       })
+    })
+  })
+
+  describe('url search parameters', () => {
+    test('should pull filters from the URL', async () => {
+      await act(() =>
+        getWrapper(
+          'status=Approved&search=Andrew&preference=Displaced+Tenant+Housing+Preference+%28DTHP%29&total_household_size=3&accessibility=Vision+impairments%2C+Hearing+impairments'
+        )
+      )
+
+      expect(screen.getByDisplayValue(/andrew/i)).toBeInTheDocument()
+      expect(screen.getByText('Vision/Hearing')).toBeInTheDocument()
     })
   })
 })
