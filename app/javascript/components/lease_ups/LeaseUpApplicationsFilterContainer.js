@@ -117,8 +117,8 @@ const LeaseUpApplicationsFilterContainer = ({
 
   React.useEffect(() => {
     const keys = Object.keys(appliedFilters)
-    keys.filter((key) => key !== 'search')
-    if (keys.length > 0) {
+    const filteredKeys = keys.filter((key) => key !== 'search')
+    if (filteredKeys.length > 0) {
       setIsShowingFilters(true)
     }
   }, [appliedFilters])

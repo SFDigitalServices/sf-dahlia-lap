@@ -7,6 +7,7 @@ import selectEvent from 'react-select-event'
 
 import LeaseUpApplicationsFilterContainer from 'components/lease_ups/LeaseUpApplicationsFilterContainer'
 import Provider from 'context/Provider'
+import * as customHooks from 'utils/customHooks'
 
 const mockSubmit = jest.fn()
 const mockOnClearSelectedApplications = jest.fn()
@@ -163,6 +164,44 @@ describe('LeaseUpApplicationsFilterContainer', () => {
         getScreen()
         expect(screen.getByText('Show Filters')).toBeInTheDocument()
         expect(screen.queryByText('Apply Filters')).not.toBeInTheDocument()
+      })
+
+      describe('previously applied filters', () => {
+        let spy
+
+        beforeEach(() => {
+          spy = jest.spyOn(customHooks, 'useAppContext')
+        })
+
+        afterEach(() => {
+          spy.mockRestore()
+        })
+
+        test('should show the filters panel when there are extra applied filters present', () => {
+          spy.mockImplementation(() => [
+            {
+              applicationsListData: { appliedFilters: { total_household_size: ['1'] } }
+            }
+          ])
+
+          getScreen()
+
+          expect(screen.getByText('Hide Filters')).toBeInTheDocument()
+          expect(screen.queryByText('Show Filters')).not.toBeInTheDocument()
+        })
+
+        test('should not show the filters panel when there is only previously applied search fields', () => {
+          spy.mockImplementation(() => [
+            {
+              applicationsListData: { appliedFilters: { search: 'test' } }
+            }
+          ])
+
+          getScreen()
+
+          expect(screen.queryByText('Hide Filters')).not.toBeInTheDocument()
+          expect(screen.getByText('Show Filters')).toBeInTheDocument()
+        })
       })
 
       describe('when the show/hide filters button is clicked', () => {
