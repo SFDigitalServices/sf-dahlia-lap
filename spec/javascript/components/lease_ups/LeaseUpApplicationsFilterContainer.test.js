@@ -29,6 +29,20 @@ const getNode = (bulkCheckboxesState = {}) => (
   </BrowserRouter>
 )
 
+let mockSearchParam = new URLSearchParams()
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useSearchParams: () => {
+    return [
+      mockSearchParam,
+      (newParams) => {
+        mockSearchParam = new URLSearchParams(newParams)
+      }
+    ]
+  }
+}))
+
 const getScreen = (bulkCheckboxesState = {}) => render(getNode(bulkCheckboxesState))
 
 describe('LeaseUpApplicationsFilterContainer', () => {
@@ -257,6 +271,11 @@ describe('LeaseUpApplicationsFilterContainer', () => {
             ).toHaveClass('primary')
           })
 
+          test('should contain the filters after apply filters is clicked', async () => {
+            await act(async () => fireEvent.click(screen.getByText(/apply filters/i)))
+            expect(screen.getByText(/processing/i)).toBeInTheDocument()
+          })
+
           describe('when filters are cleared', () => {
             beforeEach(async () => {
               await act(async () => fireEvent.click(screen.getByText(/clear all/i)))
@@ -269,6 +288,17 @@ describe('LeaseUpApplicationsFilterContainer', () => {
                   name: /apply filters/i
                 })
               ).not.toHaveClass('primary')
+            })
+
+            test('applying filters with no filters actually applied should result in blank url search params', async () => {
+              await act(async () =>
+                fireEvent.click(
+                  screen.getByRole('button', {
+                    name: /apply filters/i
+                  })
+                )
+              )
+              expect(mockSearchParam).toEqual(new URLSearchParams())
             })
           })
         })
