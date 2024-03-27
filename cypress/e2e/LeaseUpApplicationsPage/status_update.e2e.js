@@ -150,4 +150,136 @@ describe('LeaseUpApplicationsPage status update', () => {
       })
     })
   })
+  describe('filters', () => {
+    describe('using the application filters', () => {
+      it('should use all filters and update URL', () => {
+        cy.visit('http://localhost:3000/')
+        cy.login()
+        cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
+
+        cy.contains('button', 'Show Filters').click()
+
+        cy.get('div[role="grid"] input[type="checkbox"]')
+          .its('length')
+          .then((initialCount) => {
+            cy.get('[data-testid="multiSelectField"]')
+              .eq(0)
+              .within(() => {
+                cy.get('input').first().click()
+                cy.findByText('Certificate of Preference (COP)').click()
+              })
+
+            cy.get('[data-testid="multiSelectField"]')
+              .eq(1)
+              .within(() => {
+                cy.get('input').first().click()
+                cy.findByText('1').click()
+                cy.get('input').first().click()
+                cy.findByText('2').click()
+              })
+
+            cy.get('[data-testid="multiSelectField"]')
+              .eq(2)
+              .within(() => {
+                cy.get('input').first().click()
+                cy.findByText('Mobility').click()
+                cy.get('input').first().click()
+                cy.findByText('Vision/Hearing').click()
+              })
+
+            cy.get('[data-testid="multiSelectField"]')
+              .eq(3)
+              .within(() => {
+                cy.get('input').first().click()
+                cy.findByText('Approved').click()
+
+                // Submit the form by hitting enter
+                cy.get('input').first().type('{enter}')
+              })
+
+            cy.get('div[role="grid"] input[type="checkbox"]')
+              .its('length')
+              .should('be.lessThan', initialCount)
+
+            cy.url().should(
+              'equal',
+              'http://localhost:3000/lease-ups/listings/a0W0P00000GbyuQ?preference=Certificate+of+Preference+%28COP%29&total_household_size=1&total_household_size=2&accessibility=Mobility+impairments&accessibility=Vision+impairments%2C+Hearing+impairments&status=Approved'
+            )
+
+            cy.get('input[name="search"]').type('Andrew{enter}')
+
+            cy.url().should(
+              'equal',
+              'http://localhost:3000/lease-ups/listings/a0W0P00000GbyuQ?preference=Certificate+of+Preference+%28COP%29&total_household_size=1&total_household_size=2&accessibility=Mobility+impairments&accessibility=Vision+impairments%2C+Hearing+impairments&status=Approved&search=Andrew'
+            )
+
+            cy.contains('button', 'Clear all').click()
+
+            cy.url().should(
+              'equal',
+              'http://localhost:3000/lease-ups/listings/a0W0P00000GbyuQ?search=Andrew'
+            )
+
+            cy.contains('button', 'Hide Filters').click()
+
+            cy.get('button[data-testid="search-icon"]').click()
+
+            cy.url().should('equal', 'http://localhost:3000/lease-ups/listings/a0W0P00000GbyuQ')
+
+            cy.get('div[role="grid"] input[type="checkbox"]')
+              .its('length')
+              .should('equal', initialCount)
+          })
+      })
+
+      it('should use the URL to update filters', () => {
+        cy.visit('http://localhost:3000/')
+        cy.login()
+        cy.visit(
+          `/lease-ups/listings/${LEASE_UP_LISTING_ID}?preference=Certificate+of+Preference+%28COP%29&total_household_size=1&total_household_size=2&accessibility=Mobility+impairments&accessibility=Vision+impairments%2C+Hearing+impairments&status=Approved&search=Andrew`
+        )
+
+        cy.contains('button', 'Hide Filters').should('exist')
+
+        cy.get('[data-testid="multiSelectField"]')
+          .eq(0)
+          .within(() => {
+            cy.contains('Certificate of Preference (COP)').should('exist')
+          })
+
+        cy.get('[data-testid="multiSelectField"]')
+          .eq(1)
+          .within(() => {
+            cy.contains('1').should('exist')
+            cy.contains('2').should('exist')
+          })
+
+        cy.get('[data-testid="multiSelectField"]')
+          .eq(2)
+          .within(() => {
+            cy.contains('Mobility').should('exist')
+            cy.contains('Vision/Hearing').should('exist')
+          })
+
+        cy.get('[data-testid="multiSelectField"]')
+          .eq(3)
+          .within(() => {
+            cy.contains('Approved').should('exist')
+          })
+
+        cy.get('#test-search').should('have.value', 'Andrew')
+
+        cy.contains('button', 'Clear all').click()
+
+        cy.url().should(
+          'equal',
+          'http://localhost:3000/lease-ups/listings/a0W0P00000GbyuQ?search=Andrew'
+        )
+
+        cy.get('button[data-testid="search-icon"]').click()
+
+        cy.url().should('equal', 'http://localhost:3000/lease-ups/listings/a0W0P00000GbyuQ')
+      })
+    })
+  })
 })

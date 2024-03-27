@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import { Form } from 'react-final-form'
+import { useSearchParams } from 'react-router-dom'
 
 import Button from 'components/atoms/Button'
 import Checkbox from 'components/atoms/Checkbox'
@@ -46,6 +47,7 @@ const LeaseUpApplicationsFilterContainer = ({
 }) => {
   const [isShowingFilters, setIsShowingFilters] = useState(false)
   const [hasChangedFilters, setHasChangedFilters] = useState(false)
+  const [, setSearchParams] = useSearchParams()
 
   const [
     {
@@ -60,6 +62,32 @@ const LeaseUpApplicationsFilterContainer = ({
   }
 
   const handleFormSubmit = (filters, form) => {
+    const filterFormState = form.getState()
+    const filterFormKeys = Object.keys(filterFormState.values)
+    const newURLSearchParams = new URLSearchParams()
+
+    if (!filterFormKeys || filterFormKeys.length === 0) {
+      setSearchParams({})
+      return
+    }
+
+    filterFormKeys.forEach((filterKey) => {
+      if (filterKey === 'search') {
+        const searchValue = filterFormState.values.search
+        if (!searchValue) return
+        newURLSearchParams.set('search', searchValue)
+        return
+      }
+
+      const formFilterValues = filterFormState.values[filterKey]
+
+      if (!formFilterValues) return
+      formFilterValues.forEach((v) => {
+        newURLSearchParams.append(filterKey, v)
+      })
+    })
+    setSearchParams(newURLSearchParams)
+
     onSubmit(formUtils.scrubEmptyValues(filters, true))
     form.resetFieldState('search')
     setHasChangedFilters(false)
@@ -86,6 +114,14 @@ const LeaseUpApplicationsFilterContainer = ({
       onSelectAllApplications()
     }
   }
+
+  React.useEffect(() => {
+    const keys = Object.keys(appliedFilters)
+    const filteredKeys = keys.filter((key) => key !== 'search')
+    if (filteredKeys.length > 0) {
+      setIsShowingFilters(true)
+    }
+  }, [appliedFilters])
 
   return (
     <Loading isLoading={loading}>

@@ -4,13 +4,14 @@ import React from 'react'
 
 import { map } from 'lodash'
 import moment from 'moment'
-import { useParams } from 'react-router-dom'
+import { useParams, useSearchParams, useLocation } from 'react-router-dom'
 
 import {
   applicationsPageLoadComplete,
   applicationsPageMounted,
   applicationsTableFiltersApplied
 } from 'components/lease_ups/actions/actionCreators'
+import { LEASE_UP_APPLICATION_FILTERS } from 'components/lease_ups/applicationFiltersConsts'
 import appPaths from 'utils/appPaths'
 import {
   useAsync,
@@ -78,6 +79,9 @@ const getPreferences = (listing) => {
 const LeaseUpApplicationsPage = () => {
   const [{ breadcrumbData, applicationsListData }, dispatch] = useAppContext()
 
+  const [searchParams] = useSearchParams()
+  const location = useLocation()
+
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
 
@@ -118,6 +122,29 @@ const LeaseUpApplicationsPage = () => {
       applicationsPageLoadComplete(dispatch, listing)
     }
   })
+
+  React.useEffect(() => {
+    const urlFilters = {}
+    LEASE_UP_APPLICATION_FILTERS.forEach((filter) => {
+      const values = searchParams.getAll(filter.fieldName)
+      if (values.length > 0) {
+        urlFilters[filter.fieldName] = values
+      }
+    })
+
+    const textSearchFilters = searchParams.get('search')
+    if (textSearchFilters) {
+      urlFilters.search = textSearchFilters
+    }
+
+    if (Object.keys(urlFilters).length > 0) {
+      state.forceRefreshNextPageUpdate = true
+      applicationsTableFiltersApplied(dispatch, urlFilters)
+    }
+    // Using just location in the deps array allows us to exclusively run this effect:
+    // on mount, if the user changes the url manually, or if the user hits the back button
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location])
 
   useAsync(
     () => {
