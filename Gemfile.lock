@@ -99,9 +99,6 @@ GEM
       rexml
     crass (1.0.6)
     date (3.3.4)
-    debase (0.2.5.beta2)
-      debase-ruby_core_source (>= 0.10.12)
-    debase-ruby_core_source (3.2.0)
     debug_inspector (1.1.0)
     devise (4.9.2)
       bcrypt (~> 3.0)
@@ -320,8 +317,6 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.28.0)
       parser (>= 3.2.1.0)
-    ruby-debug-ide (0.7.3)
-      rake (>= 0.8.1)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
@@ -418,7 +413,6 @@ DEPENDENCIES
   binding_of_caller
   byebug
   capybara (~> 3.39)
-  debase (= 0.2.5.beta2)
   devise (~> 4.9.0)
   dotenv-rails (~> 2.2)
   facets
@@ -446,7 +440,6 @@ DEPENDENCIES
   restforce (~> 6.2.2)
   rspec-rails (~> 4.0.2)
   rubocop
-  ruby-debug-ide
   sass-rails (~> 5.0)
   scout_apm
   selenium-webdriver (~> 3.142.7)
