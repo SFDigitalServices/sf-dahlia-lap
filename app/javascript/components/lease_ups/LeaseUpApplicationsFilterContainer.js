@@ -63,29 +63,24 @@ const LeaseUpApplicationsFilterContainer = ({
 
   const handleFormSubmit = (filters, form) => {
     const filterFormState = form.getState()
-    const filterFormKeys = Object.keys(filterFormState.values)
     const newURLSearchParams = new URLSearchParams()
 
-    if (!filterFormKeys || filterFormKeys.length === 0) {
-      setSearchParams({})
-      return
-    }
-
-    filterFormKeys.forEach((filterKey) => {
+    for (const filterKey in filterFormState.values) {
       if (filterKey === 'search') {
         const searchValue = filterFormState.values.search
-        if (!searchValue) return
+        if (!searchValue) continue
         newURLSearchParams.set('search', searchValue)
-        return
+        continue
       }
 
       const formFilterValues = filterFormState.values[filterKey]
 
-      if (!formFilterValues) return
+      if (!formFilterValues) continue
       formFilterValues.forEach((v) => {
         newURLSearchParams.append(filterKey, v)
       })
-    })
+    }
+
     setSearchParams(newURLSearchParams)
 
     onSubmit(formUtils.scrubEmptyValues(filters, true))

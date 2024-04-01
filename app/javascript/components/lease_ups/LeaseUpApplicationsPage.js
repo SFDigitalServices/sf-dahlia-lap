@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { map } from 'lodash'
+import { map, isEqual } from 'lodash'
 import moment from 'moment'
 import { useParams, useSearchParams, useLocation } from 'react-router-dom'
 
@@ -125,6 +125,8 @@ const LeaseUpApplicationsPage = () => {
 
   React.useEffect(() => {
     const urlFilters = {}
+    const { appliedFilters } = applicationsListData
+    console.log(location)
     LEASE_UP_APPLICATION_FILTERS.forEach((filter) => {
       const values = searchParams.getAll(filter.fieldName)
       if (values.length > 0) {
@@ -137,7 +139,7 @@ const LeaseUpApplicationsPage = () => {
       urlFilters.search = textSearchFilters
     }
 
-    if (Object.keys(urlFilters).length > 0) {
+    if (!isEqual(appliedFilters, urlFilters)) {
       state.forceRefreshNextPageUpdate = true
       applicationsTableFiltersApplied(dispatch, urlFilters)
     }
