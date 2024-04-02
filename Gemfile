@@ -56,8 +56,8 @@ group :development, :test do
   # Stop upgrading SimpleCov until the following issue will be resolved.
   # https://github.com/codeclimate/test-reporter/issues/418
   gem 'simplecov', '~> 0.22.0', require: false
-  # gem 'ruby-debug-ide'
-  # gem "debase", "0.2.5.beta2"
+  gem 'ruby-debug-ide'
+  gem "debase", "0.2.5.beta2"
   # gem "debug", ">= 1.0.0"
 end
 
