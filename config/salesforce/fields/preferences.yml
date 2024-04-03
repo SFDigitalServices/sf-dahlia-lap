@@ -29,6 +29,7 @@ preferences:
     Zip_Code__c:
     Post_Lottery_Validation__c:
     Total_Household_Rent__c:
+    Custom_Preference_Type__c:
   app_preferences_for_listing_fields:
     Application__c:
     Application__r.Name:
