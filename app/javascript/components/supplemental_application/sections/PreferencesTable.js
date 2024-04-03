@@ -152,10 +152,9 @@ const PreferencesTable = ({
           originals={sortedAndFilteredPreferences}
           renderExpanderButton={(_, row, original, expanded) => {
             const prefName = row[1].content
-            const expandButton = hasExpanderButton(original.custom_preference_type)
             return (
               !expanded &&
-              expandButton && (
+              hasExpanderButton(original.custom_preference_type) && (
                 <ExpanderButton
                   label='Edit'
                   onClick={() =>
