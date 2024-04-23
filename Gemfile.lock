@@ -99,9 +99,6 @@ GEM
       rexml
     crass (1.0.6)
     date (3.3.4)
-    debase (0.2.5.beta2)
-      debase-ruby_core_source (>= 0.10.12)
-    debase-ruby_core_source (3.2.0)
     debug_inspector (1.1.0)
     devise (4.9.2)
       bcrypt (~> 3.0)
@@ -418,7 +415,6 @@ DEPENDENCIES
   binding_of_caller
   byebug
   capybara (~> 3.39)
-  debase (= 0.2.5.beta2)
   devise (~> 4.9.0)
   dotenv-rails (~> 2.2)
   facets
