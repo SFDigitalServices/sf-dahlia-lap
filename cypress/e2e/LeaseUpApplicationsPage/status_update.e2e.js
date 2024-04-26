@@ -168,6 +168,7 @@ describe('LeaseUpApplicationsPage status update', () => {
         cy.wait('@leaseUpListing')
         cy.contains('button', 'Show Filters').click()
 
+        cy.wait(5000)
         cy.get('div[role="grid"] input[type="checkbox"]')
           .its('length')
           .then((initialCount) => {
