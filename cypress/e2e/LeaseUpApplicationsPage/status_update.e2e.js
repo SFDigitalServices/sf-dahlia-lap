@@ -20,6 +20,9 @@ const APPEALED = 'Appealed'
 describe('LeaseUpApplicationsPage status update', () => {
   beforeEach(() => {
     if (usingFixtures()) {
+      cy.intercept('api/v1/lease-ups/listings', { fixture: 'leaseUpListings.json' }).as(
+        'leaseUpListings'
+      )
       cy.intercept('api/v1/lease-ups/listings/**', { fixture: 'leaseUpListing.json' }).as(
         'leaseUpListing'
       )
@@ -30,6 +33,7 @@ describe('LeaseUpApplicationsPage status update', () => {
         fixture: 'fieldUpdateComments.json'
       }).as('fieldUpdateComments')
     } else {
+      cy.intercept('api/v1/lease-ups/listings').as('leaseUpListings')
       cy.intercept('api/v1/lease-ups/listings/**').as('leaseUpListing')
       cy.intercept('api/v1/lease-ups/applications?listing_id=**&page=0').as('leaseUpApplications')
       cy.intercept('api/v1/applications/**/field_update_comments').as('fieldUpdateComments')
@@ -63,6 +67,7 @@ describe('LeaseUpApplicationsPage status update', () => {
       it('should change the status for selected checkboxes', () => {
         cy.visit('http://localhost:3000/')
         cy.login()
+        cy.wait('@leaseUpListings')
         cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
         cy.wait('@leaseUpListing')
         cy.wait('@leaseUpApplications')
@@ -110,6 +115,7 @@ describe('LeaseUpApplicationsPage status update', () => {
 
         cy.visit('http://localhost:3000/')
         cy.login()
+        cy.wait('@leaseUpListings')
         cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
         cy.wait('@leaseUpListing')
         cy.wait('@leaseUpApplications')
@@ -126,6 +132,7 @@ describe('LeaseUpApplicationsPage status update', () => {
         it('should not update status and substatus', () => {
           cy.visit('http://localhost:3000/')
           cy.login()
+          cy.wait('@leaseUpListings')
           cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
           cy.wait('@leaseUpListing')
           cy.wait('@leaseUpApplications')
@@ -155,8 +162,10 @@ describe('LeaseUpApplicationsPage status update', () => {
       it('should use all filters and update URL', () => {
         cy.visit('http://localhost:3000/')
         cy.login()
+        cy.wait('@leaseUpListings')
         cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
-
+        cy.wait('@leaseUpApplications')
+        cy.wait('@leaseUpListing')
         cy.contains('button', 'Show Filters').click()
 
         cy.get('div[role="grid"] input[type="checkbox"]')

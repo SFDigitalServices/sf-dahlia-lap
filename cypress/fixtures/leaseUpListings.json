@@ -1,0 +1,29 @@
+{
+    "test": true,
+    "listings": [
+        {
+            "id": "a0W0P00000HbwpUUAR",
+            "name": "DAHLIA Gardens (training)",
+            "lottery_date": "2021-07-02T21:00:00.000+0000",
+            "lottery_results_date": "2020-12-21",
+            "in_lottery": 51,
+            "units_available": 1,
+            "lease_signed_application": 9,
+            "last_modified_date": "2024-03-18T19:04:32.000+0000",
+            "is_sale": false,
+            "is_rental": true
+        },
+        {
+            "id": "a0W0P00000GbyuQUAR",
+            "name": "TEST Partners Listing (do not modify) - Yellow Acres",
+            "lottery_date": "2018-06-01T22:30:00.000+0000",
+            "lottery_results_date": "2018-06-05",
+            "in_lottery": 27,
+            "units_available": 7,
+            "lease_signed_application": 2,
+            "last_modified_date": "2024-04-26T22:58:56.000+0000",
+            "is_sale": false,
+            "is_rental": true
+        }
+    ]
+}
