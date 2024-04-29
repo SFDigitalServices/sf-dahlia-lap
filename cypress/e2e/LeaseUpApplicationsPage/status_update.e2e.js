@@ -156,9 +156,11 @@ describe('LeaseUpApplicationsPage status update', () => {
         cy.visit('http://localhost:3000/')
         cy.login()
         cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
-
+        cy.wait('@leaseUpApplications')
+        cy.wait('@leaseUpListing')
         cy.contains('button', 'Show Filters').click()
 
+        cy.wait(5000)
         cy.get('div[role="grid"] input[type="checkbox"]')
           .its('length')
           .then((initialCount) => {

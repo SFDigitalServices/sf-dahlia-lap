@@ -54,7 +54,19 @@ Cypress.Commands.add('login', () => {
 
   cy.get('.sign-in-btn').click()
 
+  // This catches the pesky cross-origin error that happens on login
+  cy.on('uncaught:exception', (e) => {
+    // we expected this error, so let's ignore it
+    // and let the test continue
+    return false
+  })
   cy.origin(Cypress.env('COMMUNITY_LOGIN_URL'), () => {
+    // This catches the pesky cross-origin error that happens on login
+    cy.on('uncaught:exception', (e) => {
+      // we expected this error, so let's ignore it
+      // and let the test continue
+      return false
+    })
     cy.get('#username_container', { timeout: 10000 }).should('be.visible')
     cy.get('#username').click().type(Cypress.env('SALESFORCE_USERNAME'))
     cy.get('#password', { log: Cypress.env('LOG_SECRETS') })
