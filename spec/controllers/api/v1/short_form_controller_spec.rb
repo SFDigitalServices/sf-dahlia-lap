@@ -144,8 +144,7 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
           end
           expect(response).to have_http_status(:success)
           json = JSON.parse(response.body)
-          expect(json['application']['applicatigon_submission_type']).to eq('Electronic')
-
+          expect(json['application']['application_submission_type']).to eq('Electronic')
 
           # Then call put again without type or date to make sure those fields aren't overridden
           application_without_type_or_date = supplemental_application.except('application_submitted_date', 'application_submission_type')
