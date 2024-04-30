@@ -146,6 +146,7 @@ RSpec.describe Api::V1::ShortFormController, type: :controller do
           json = JSON.parse(response.body)
           expect(json['application']['application_submission_type']).to eq('Electronic')
 
+
           # Then call put again without type or date to make sure those fields aren't overridden
           application_without_type_or_date = supplemental_application.except('application_submitted_date', 'application_submission_type')
           VCR.use_cassette('api/v1/short-form/submit/pre-lottery/with-supplemental-param-no-type') do

@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SupplementalApplicationPage it only performs initial load request if nothing is changed 1`] = `<DocumentFragment />`;
+
 exports[`SupplementalApplicationPage it should render as expected 1`] = `
 <DocumentFragment>
   <header
