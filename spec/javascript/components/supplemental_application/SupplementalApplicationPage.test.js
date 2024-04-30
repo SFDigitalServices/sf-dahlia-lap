@@ -164,6 +164,7 @@ jest.mock('apiService', () => {
   }
 })
 const getWrapper = async (id = getMockApplication().id) => {
+  console.log(id)
   return await act(async () => renderAppWithUrl(getWindowUrl(id)))
 }
 
