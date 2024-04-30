@@ -46,10 +46,12 @@ VCR.configure do |config|
   end
 
   config.filter_sensitive_data('<<ACCESS_TOKEN>>') do |interaction|
-    j = JSON.parse(interaction.response.body)
-    j.try(:[], 'access_token')
-  rescue JSON::ParserError, TypeError
-    nil
+    begin
+      j = JSON.parse(interaction.response.body)
+      j.try(:[], 'access_token')
+    rescue JSON::ParserError, TypeError
+      nil
+    end
   end
 
   config.filter_sensitive_data('<<ACCESS_TOKEN>>') do |interaction|

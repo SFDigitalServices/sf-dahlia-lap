@@ -27,7 +27,6 @@ const LeaseUpApplicationsFilters = ({
   onFilterChange = () => {},
   onClearFilters = () => {}
 }) => {
-  console.log(listingType)
   const renderFilter = (filter) => (
     <FormGrid.Item width='25%' key={filter.fieldName}>
       <MultiSelectField
