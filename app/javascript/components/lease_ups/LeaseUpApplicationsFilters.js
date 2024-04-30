@@ -8,6 +8,8 @@ import { LEASE_UP_APPLICATION_FILTERS } from 'components/lease_ups/applicationFi
 import FormGrid from 'components/molecules/FormGrid'
 import MultiSelectField from 'utils/form/final_form/MultiSelectField'
 
+import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from '../../utils/consts'
+
 const styles = {
   containerEndJustified: {
     display: 'flex',
@@ -19,11 +21,13 @@ const styles = {
 }
 
 const LeaseUpApplicationsFilters = ({
+  listingType,
   preferences = [],
   hasChangedFilters,
   onFilterChange = () => {},
   onClearFilters = () => {}
 }) => {
+  console.log(listingType)
   const renderFilter = (filter) => (
     <FormGrid.Item width='25%' key={filter.fieldName}>
       <MultiSelectField
@@ -39,7 +43,11 @@ const LeaseUpApplicationsFilters = ({
   return (
     <div className='padding-top--2x padding-left padding-right' style={styles.whiteSmokeBackground}>
       <FormGrid.Row expand paddingBottom>
-        {LEASE_UP_APPLICATION_FILTERS.map((f) => renderFilter(f))}
+        {LEASE_UP_APPLICATION_FILTERS.filter(
+          (filter) =>
+            listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED ||
+            filter.fieldName !== 'preference'
+        ).map((f) => renderFilter(f))}
       </FormGrid.Row>
 
       <div className='small-12 margin-top' style={styles.containerEndJustified}>

@@ -35,7 +35,9 @@ module Force
           AND Status__c != '#{DRAFT}'
           LIMIT 1
         ))).to_domain
-        application['preferences'] = soql_preference_service.app_preferences_for_application(id, should_order: true)
+        unless application_listing(id).Listing_Type == Force::Listing::LISTING_TYPE_FIRST_COME_FIRST_SERVED
+          application['preferences'] = soql_preference_service.app_preferences_for_application(id, should_order: true)
+        end
         application['proof_files'] = soql_attachment_service.app_proof_files(id)
 
         alternate_contact_id = application.alternate_contact && application.alternate_contact.id

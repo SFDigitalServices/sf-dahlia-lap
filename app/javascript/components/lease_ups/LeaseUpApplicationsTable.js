@@ -13,6 +13,7 @@ import CheckboxCell from 'components/lease_ups/application_page/CheckboxCell'
 import PreferenceRankCell from 'components/lease_ups/application_page/PreferenceRankCell'
 import StatusCell from 'components/lease_ups/application_page/StatusCell'
 import appPaths from 'utils/appPaths'
+import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
 import { useAppContext } from 'utils/customHooks'
 import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
 import { cellFormat } from 'utils/reactTableUtils'
@@ -45,6 +46,7 @@ const textCell = ({ value }) => {
 
 const LeaseUpApplicationsTable = ({
   dataSet,
+  listingType,
   onLeaseUpStatusChange,
   loading,
   pages,
@@ -96,6 +98,7 @@ const LeaseUpApplicationsTable = ({
       accessor: 'rankOrder',
       headerClassName: 'non-resizable',
       width: getCellWidth(88),
+      show: listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED,
       Cell: (cell) => (
         <PreferenceRankCell
           preferenceRank={cell.original.preference_rank}
