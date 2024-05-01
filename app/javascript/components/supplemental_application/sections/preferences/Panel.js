@@ -5,7 +5,7 @@ import { cond, stubTrue, constant, map } from 'lodash'
 import FormGrid from 'components/molecules/FormGrid'
 import InlineModal from 'components/molecules/InlineModal'
 import { hasExpanderButton } from 'components/supplemental_application/sections/PreferencesTable'
-import { isVeteran, updateVeteranPreferences } from 'utils/layeredPreferenceUtil'
+import { isVeteran } from 'utils/layeredPreferenceUtil'
 
 import AntiDisplacementHousingPanel from './AntiDisplacementHousingPanel'
 import AssistedHousingPanel from './AssistedHousingPanel'
@@ -55,13 +55,15 @@ const Panel = ({
   const buildMatchingPreferencePanel = () => {
     const MatchingPreferencePanel = getPreferencePanel(application.preferences[preferenceIndex + 1])
     return (
-      <MatchingPreferencePanel
-        preferenceIndex={preferenceIndex + 1}
-        preference={application.preferences[preferenceIndex + 1]}
-        form={form}
-        applicationMembersOptions={applicationMembersOptions}
-        visited={visited}
-      />
+      <div className='non-veteran-panel border-top'>
+        <MatchingPreferencePanel
+          preferenceIndex={preferenceIndex + 1}
+          preference={application.preferences[preferenceIndex + 1]}
+          form={form}
+          applicationMembersOptions={applicationMembersOptions}
+          visited={visited}
+        />
+      </div>
     )
   }
 
@@ -70,22 +72,13 @@ const Panel = ({
   }
   const applicationMembersOptions = map(applicationMembers, memberOption)
   const onSaveWithPreferenceIndex = () => {
-    const { updatedPreferences, updatedIndexes } = updateVeteranPreferences(
-      form.getState().values.preferences,
-      preferenceIndex
-    )
-    form.change('preferences', updatedPreferences)
-
-    // if the current preference is a veteran and its matching non veteran is editable
-    // then add it to the list of indexes to be updated
-    if (
-      isVeteran(application.preferences[preferenceIndex].preference_name) &&
-      hasExpanderButton(application.preferences[preferenceIndex + 1].preference_name)
-    ) {
-      updatedIndexes.push(preferenceIndex + 1)
+    if (!isVeteran(application.preferences[preferenceIndex].preference_name)) {
+      // update current index if it is not a veteran preference
+      onSave(preferenceIndex, preferenceIndex, form.getState().values)
+    } else if (hasExpanderButton(application.preferences[preferenceIndex + 1].preference_name)) {
+      // update next index if the current prefernece is veteran and next preference is editable
+      onSave(preferenceIndex + 1, preferenceIndex, form.getState().values)
     }
-
-    ;[preferenceIndex, ...updatedIndexes].forEach((index) => onSave(index, form.getState().values))
   }
 
   const handleOnClose = () => {
@@ -133,9 +126,9 @@ const Panel = ({
 const PanelContainer = ({ onSave, ...panelProps }) => {
   const [loading, setLoading] = useState(false)
 
-  const handleOnSave = async (preferenceIndex, application) => {
+  const handleOnSave = async (preferenceIndexToUpdate, preferenceIndexToClose, application) => {
     setLoading(true)
-    await onSave(preferenceIndex, application)
+    await onSave(preferenceIndexToUpdate, preferenceIndexToClose, application)
     setLoading(false)
   }
 

@@ -210,8 +210,13 @@ const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values,
               application={state.application}
               applicationMembers={getApplicationMembers(state.application)}
               fileBaseUrl={state.fileBaseUrl}
-              onSave={(preferenceIndex, formApplicationValues) =>
-                updateSavedPreference(dispatch, preferenceIndex, formApplicationValues)
+              onSave={(preferenceIndexToUpdate, preferenceIndexToClose, formApplicationValues) =>
+                updateSavedPreference(
+                  dispatch,
+                  preferenceIndexToUpdate,
+                  preferenceIndexToClose,
+                  formApplicationValues
+                )
               }
               onDismissError={() => preferenceAlertCloseClicked(dispatch)}
               confirmedPreferencesFailed={state.confirmedPreferencesFailed}

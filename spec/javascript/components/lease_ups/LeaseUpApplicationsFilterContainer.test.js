@@ -2,28 +2,46 @@ import React from 'react'
 
 import { render, screen, fireEvent } from '@testing-library/react'
 import { act } from 'react-dom/test-utils'
+import { BrowserRouter } from 'react-router-dom'
 import selectEvent from 'react-select-event'
 
 import LeaseUpApplicationsFilterContainer from 'components/lease_ups/LeaseUpApplicationsFilterContainer'
 import Provider from 'context/Provider'
+import * as customHooks from 'utils/customHooks'
 
 const mockSubmit = jest.fn()
 const mockOnClearSelectedApplications = jest.fn()
 const mockOnSelectAllApplications = jest.fn()
 
 const getNode = (bulkCheckboxesState = {}) => (
-  <Provider>
-    <LeaseUpApplicationsFilterContainer
-      onSubmit={mockSubmit}
-      onClearSelectedApplications={mockOnClearSelectedApplications}
-      onSelectAllApplications={mockOnSelectAllApplications}
-      bulkCheckboxesState={bulkCheckboxesState}
-      onBulkLeaseUpStatusChange={() => {}}
-      onBulkLeaseUpCommentChange={() => {}}
-      preferences={['pref option 1', 'pref option 2']}
-    />
-  </Provider>
+  <BrowserRouter>
+    <Provider>
+      <LeaseUpApplicationsFilterContainer
+        onSubmit={mockSubmit}
+        onClearSelectedApplications={mockOnClearSelectedApplications}
+        onSelectAllApplications={mockOnSelectAllApplications}
+        bulkCheckboxesState={bulkCheckboxesState}
+        onBulkLeaseUpStatusChange={() => {}}
+        onBulkLeaseUpCommentChange={() => {}}
+        preferences={['pref option 1', 'pref option 2']}
+      />
+    </Provider>
+  </BrowserRouter>
 )
+
+let mockSearchParam = new URLSearchParams()
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useSearchParams: () => {
+    return [
+      mockSearchParam,
+      (newParams) => {
+        mockSearchParam = new URLSearchParams(newParams)
+      }
+    ]
+  }
+}))
 
 const getScreen = (bulkCheckboxesState = {}) => render(getNode(bulkCheckboxesState))
 
@@ -162,6 +180,44 @@ describe('LeaseUpApplicationsFilterContainer', () => {
         expect(screen.queryByText('Apply Filters')).not.toBeInTheDocument()
       })
 
+      describe('previously applied filters', () => {
+        let spy
+
+        beforeEach(() => {
+          spy = jest.spyOn(customHooks, 'useAppContext')
+        })
+
+        afterEach(() => {
+          spy.mockRestore()
+        })
+
+        test('should show the filters panel when there are extra applied filters present', () => {
+          spy.mockImplementation(() => [
+            {
+              applicationsListData: { appliedFilters: { total_household_size: ['1'] } }
+            }
+          ])
+
+          getScreen()
+
+          expect(screen.getByText('Hide Filters')).toBeInTheDocument()
+          expect(screen.queryByText('Show Filters')).not.toBeInTheDocument()
+        })
+
+        test('should not show the filters panel when there is only previously applied search fields', () => {
+          spy.mockImplementation(() => [
+            {
+              applicationsListData: { appliedFilters: { search: 'test' } }
+            }
+          ])
+
+          getScreen()
+
+          expect(screen.queryByText('Hide Filters')).not.toBeInTheDocument()
+          expect(screen.getByText('Show Filters')).toBeInTheDocument()
+        })
+      })
+
       describe('when the show/hide filters button is clicked', () => {
         beforeEach(async () => {
           getScreen()
@@ -215,18 +271,34 @@ describe('LeaseUpApplicationsFilterContainer', () => {
             ).toHaveClass('primary')
           })
 
+          test('should contain the filters after apply filters is clicked', async () => {
+            await act(async () => fireEvent.click(screen.getByText(/apply filters/i)))
+            expect(screen.getByText(/processing/i)).toBeInTheDocument()
+          })
+
           describe('when filters are cleared', () => {
             beforeEach(async () => {
               await act(async () => fireEvent.click(screen.getByText(/clear all/i)))
             })
 
-            test('should keep hasChangedFilters = true', () => {
+            test('should have hasChangedFilters = false', () => {
               // when hasChangedFilters = true, the button should have a primary class
               expect(
                 screen.getByRole('button', {
                   name: /apply filters/i
                 })
-              ).toHaveClass('primary')
+              ).not.toHaveClass('primary')
+            })
+
+            test('applying filters with no filters actually applied should result in blank url search params', async () => {
+              await act(async () =>
+                fireEvent.click(
+                  screen.getByRole('button', {
+                    name: /apply filters/i
+                  })
+                )
+              )
+              expect(mockSearchParam).toEqual(new URLSearchParams())
             })
           })
         })

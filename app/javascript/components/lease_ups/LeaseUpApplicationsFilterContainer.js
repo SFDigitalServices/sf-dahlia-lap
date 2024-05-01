@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import { Form } from 'react-final-form'
+import { useSearchParams } from 'react-router-dom'
 
 import Button from 'components/atoms/Button'
 import Checkbox from 'components/atoms/Checkbox'
@@ -46,6 +47,7 @@ const LeaseUpApplicationsFilterContainer = ({
 }) => {
   const [isShowingFilters, setIsShowingFilters] = useState(false)
   const [hasChangedFilters, setHasChangedFilters] = useState(false)
+  const [, setSearchParams] = useSearchParams()
 
   const [
     {
@@ -60,6 +62,27 @@ const LeaseUpApplicationsFilterContainer = ({
   }
 
   const handleFormSubmit = (filters, form) => {
+    const filterFormState = form.getState()
+    const newURLSearchParams = new URLSearchParams()
+
+    for (const filterKey in filterFormState.values) {
+      if (filterKey === 'search') {
+        const searchValue = filterFormState.values.search
+        if (!searchValue) continue
+        newURLSearchParams.set('search', searchValue)
+        continue
+      }
+
+      const formFilterValues = filterFormState.values[filterKey]
+
+      if (!formFilterValues) continue
+      formFilterValues.forEach((v) => {
+        newURLSearchParams.append(filterKey, v)
+      })
+    }
+
+    setSearchParams(newURLSearchParams)
+
     onSubmit(formUtils.scrubEmptyValues(filters, true))
     form.resetFieldState('search')
     setHasChangedFilters(false)
@@ -70,7 +93,7 @@ const LeaseUpApplicationsFilterContainer = ({
       const isChanged = !!form.getState().values[f.fieldName]
       if (isChanged) {
         form.change(f.fieldName, null)
-        setHasChangedFilters(true)
+        handleFormSubmit(form.getState().values, form)
       }
     })
   }
@@ -86,6 +109,14 @@ const LeaseUpApplicationsFilterContainer = ({
       onSelectAllApplications()
     }
   }
+
+  React.useEffect(() => {
+    const keys = Object.keys(appliedFilters)
+    const filteredKeys = keys.filter((key) => key !== 'search')
+    if (filteredKeys.length > 0) {
+      setIsShowingFilters(true)
+    }
+  }, [appliedFilters])
 
   return (
     <Loading isLoading={loading}>
@@ -132,7 +163,10 @@ const LeaseUpApplicationsFilterContainer = ({
               <div className='filter-group'>
                 <div className='filter-group_item__large'>
                   <SearchField
-                    onClearClick={() => form.change('search', '')}
+                    onClearClick={() => {
+                      form.change('search', '')
+                      form.submit()
+                    }}
                     fieldName='search'
                     id='test-search'
                     placeholder='Application, First Name, Last Name...'

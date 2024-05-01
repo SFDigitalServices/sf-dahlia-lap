@@ -168,10 +168,10 @@ const mockApplications = [
   })
 ]
 
-const getWrapper = async () => {
+const getWrapper = async (searchParameters = '') => {
   let wrapper
   await act(async () => {
-    wrapper = renderAppWithUrl(`/lease-ups/listings/${mockListing.id}`)
+    wrapper = renderAppWithUrl(`/lease-ups/listings/${mockListing.id}?${searchParameters}`)
   })
 
   return wrapper
@@ -376,7 +376,6 @@ describe('LeaseUpApplicationsPage', () => {
             'data-disabled',
             'false'
           )
-          // expect(findWithText(rtlWrapper, Button, 'Set Status').props().disabled).toBeFalsy()
         })
       })
     })
@@ -394,7 +393,6 @@ describe('LeaseUpApplicationsPage', () => {
         const bulkCheck = getBulkEditCheckbox()
         expect(bulkCheck).toBeChecked()
         expect(bulkCheck).toHaveClass('indeterminate')
-        // expect(wrapperProps.className.includes('indeterminate')).toBeTruthy()
       })
 
       test('the first row has a checked box and the rest are unchecked', async () => {
@@ -457,7 +455,6 @@ describe('LeaseUpApplicationsPage', () => {
 
           test('should close the modal', () => {
             expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-            // expect(rtlWrapper.find(StatusModalWrapper).props().isOpen).toBeFalsy()
           })
         })
 
@@ -473,7 +470,6 @@ describe('LeaseUpApplicationsPage', () => {
 
           test('should keep the modal open', () => {
             expect(screen.queryAllByRole('dialog')[0]).toBeInTheDocument()
-            // expect(rtlWrapper.find(StatusModalWrapper).props().isOpen).toBeTruthy()
           })
 
           test('should show an alert', () => {
@@ -496,14 +492,12 @@ describe('LeaseUpApplicationsPage', () => {
 
       test('the bulk input box is checked', () => {
         expect(getBulkEditCheckbox()).toBeChecked()
-        // expect(getBulkEditCheckbox(rtlWrapper).props().checked).toBeTruthy()
       })
 
       test('all of the rows have checked boxes', () => {
         getRowBulkCheckboxInputs().forEach((checkbox) => {
           expect(checkbox).toBeChecked()
         })
-        // expect(getRowBulkCheckboxInputs(rtlWrapper).map(isChecked)).toEqual(Array(6).fill(true))
       })
 
       test('the bulk status button is enabled', () => {
@@ -514,7 +508,6 @@ describe('LeaseUpApplicationsPage', () => {
           'data-disabled',
           'false'
         )
-        // expect(findWithText(rtlWrapper, Button, 'Set Status').props().disabled).toBeFalsy()
       })
 
       describe('when the top-level checkbox is clicked again', () => {
@@ -546,42 +539,25 @@ describe('LeaseUpApplicationsPage', () => {
         beforeEach(() => {
           act(() => {
             fireEvent.click(getRowBulkCheckboxInputs()[0])
-            // getRowBulkCheckboxInputs(rtlWrapper).first().simulate('click')
           })
-          // rtlWrapper.update()
         })
 
         test('the bulk input box is checked and indeterminate', () => {
           expect(getBulkEditCheckbox()).toBeChecked()
-          // const leaseUpApplicationsFilterContainer = screen.getByTestId(
-          //   'lease-up-applications-filter-container'
-          // )
-          // expect(within(leaseUpApplicationsFilterContainer).getByRole('combobox')).toHaveAttribute(
-          //   'data-disabled',
-          //   'false'
-          // )
-          expect(getBulkEditCheckbox()).toHaveClass('indeterminate')
-          // const wrapperProps = getBulkEditCheckbox(rtlWrapper).props()
-          // expect(wrapperProps.checked).toBeTruthy()
 
-          // expect(wrapperProps.className.includes('indeterminate')).toBeTruthy()
+          expect(getBulkEditCheckbox()).toHaveClass('indeterminate')
         })
 
         test('the first row checkbox is unchecked', () => {
           expect(getRowBulkCheckboxInputs()[0]).not.toBeChecked()
-          // expect(getRowBulkCheckboxInputs(rtlWrapper).first().props().checked).toBeFalsy()
         })
 
         test('the rest of the checkboxes are checked', () => {
           const allRowInputs = getRowBulkCheckboxInputs()
-          // expect(allRowInputs.length > 1).toBeTruthy()
 
           allRowInputs.slice(1).forEach((checkbox) => {
             expect(checkbox).toBeChecked()
           })
-
-          // const inputsAfterFirst = allRowInputs.slice(1)
-          // expect(inputsAfterFirst.map(isChecked)).toEqual(Array(5).fill(true))
         })
 
         test('the bulk status button is enabled', () => {
@@ -592,35 +568,27 @@ describe('LeaseUpApplicationsPage', () => {
             'data-disabled',
             'false'
           )
-          // expect(findWithText(rtlWrapper, Button, 'Set Status').props().disabled).toBeFalsy()
         })
 
         describe('when the first checkbox is clicked again', () => {
           beforeEach(() => {
             act(() => {
               fireEvent.click(getRowBulkCheckboxInputs()[0])
-              // getRowBulkCheckboxInputs(rtlWrapper).first().simulate('click')
             })
           })
 
           test('it returns to the all-boxes-checked state', () => {
             expect(getBulkEditCheckbox()).toBeChecked()
-            // expect(getBulkEditCheckbox().props().checked).toBeTruthy()
             expect(getBulkEditCheckbox()).not.toHaveClass('indeterminate')
-            // expect(
-            //   getBulkEditCheckbox(rtlWrapper).props().className.includes('indeterminate')
-            // ).toBeFalsy()
             getRowBulkCheckboxInputs().forEach((checkbox) => {
               expect(checkbox).toBeChecked()
             })
-            // expect(getRowBulkCheckboxInputs(rtlWrapper).map(isChecked)).toEqual(Array(6).fill(true))
             const leaseUpApplicationsFilterContainer = screen.getByTestId(
               'lease-up-applications-filter-container'
             )
             expect(
               within(leaseUpApplicationsFilterContainer).getByRole('combobox')
             ).toHaveAttribute('data-disabled', 'false')
-            // expect(findWithText(rtlWrapper, Button, 'Set Status').props().disabled).toBeFalsy()
           })
         })
 
@@ -628,31 +596,23 @@ describe('LeaseUpApplicationsPage', () => {
           beforeEach(() => {
             act(() => {
               fireEvent.click(getBulkEditCheckbox())
-              // getBulkEditCheckbox(rtlWrapper).simulate('click')
             })
-            // rtlWrapper.update()
           })
 
           test('it returns to the all-boxes-unchecked state', () => {
             expect(getBulkEditCheckbox()).not.toBeChecked()
-            // expect(getBulkEditCheckbox(rtlWrapper).props().checked).toBeFalsy()
             expect(getBulkEditCheckbox()).not.toHaveClass('indeterminate')
-            // expect(
-            //   getBulkEditCheckbox(rtlWrapper).props().className.includes('indeterminate')
-            // ).toBeFalsy()
+
             getRowBulkCheckboxInputs().forEach((checkbox) => {
               expect(checkbox).not.toBeChecked()
             })
-            // expect(getRowBulkCheckboxInputs(rtlWrapper).map(isChecked)).toEqual(
-            //   Array(6).fill(false)
-            // )
+
             const leaseUpApplicationsFilterContainer = screen.getByTestId(
               'lease-up-applications-filter-container'
             )
             expect(
               within(leaseUpApplicationsFilterContainer).getByRole('combobox')
             ).toHaveAttribute('data-disabled', 'true')
-            // expect(findWithText(rtlWrapper, Button, 'Set Status').props().disabled).toBeTruthy()
           })
         })
       })
@@ -662,9 +622,7 @@ describe('LeaseUpApplicationsPage', () => {
       beforeEach(() => {
         act(() => {
           fireEvent.click(getRowBulkCheckboxInputs().pop())
-          // getRowBulkCheckboxInputs(rtlWrapper).last().simulate('click')
         })
-        // rtlWrapper.update()
       })
 
       test('only the two affected rows are checked', () => {
@@ -679,16 +637,27 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(getRowBulkCheckboxInputs().pop())
           })
-          // rtlWrapper.update()
         })
 
         test('all rows are unchecked', () => {
           getRowBulkCheckboxInputs().forEach((checkbox, idx) => {
             expect(checkbox).not.toBeChecked()
           })
-          // expect(getRowBulkCheckboxInputs(rtlWrapper).map(isChecked)).toEqual(Array(6).fill(false))
         })
       })
+    })
+  })
+
+  describe('url search parameters', () => {
+    test('should pull filters from the URL', async () => {
+      await act(() =>
+        getWrapper(
+          'status=Approved&search=Andrew&preference=Displaced+Tenant+Housing+Preference+%28DTHP%29&total_household_size=3&accessibility=Vision+impairments%2C+Hearing+impairments'
+        )
+      )
+
+      expect(screen.getByDisplayValue(/andrew/i)).toBeInTheDocument()
+      expect(screen.getByText('Vision/Hearing')).toBeInTheDocument()
     })
   })
 })

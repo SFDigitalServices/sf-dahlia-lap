@@ -17,8 +17,22 @@ import {
   HOUSEHOLD_MEMBER_DOB_DAY,
   HOUSEHOLD_MEMBER_DOB_YEAR
 } from '../support/consts'
+import { usingFixtures } from '../support/utils'
 
 describe('ApplicationNewPage', () => {
+  beforeEach(() => {
+    if (usingFixtures()) {
+      cy.intercept('GET', 'api/v1/short-form/**', { fixture: 'shortFormGet.json' }).as(
+        'shortFormGet'
+      )
+      cy.intercept('POST', 'api/v1/short-form/submit', { fixture: 'shortFormPost.json' }).as(
+        'shortFormPost'
+      )
+    } else {
+      cy.intercept('GET', 'api/v1/short-form/**').as('shortFormGet')
+      cy.intercept('POST', 'api/v1/short-form/submit').as('shortFormPost')
+    }
+  })
   it('should fail if required fields are missing, and create application if not', () => {
     cy.visit('http://localhost:3000/')
     cy.login()
@@ -44,6 +58,9 @@ describe('ApplicationNewPage', () => {
 
     // Save the application
     cy.get('.save-btn').click()
+    cy.wait('@shortFormPost')
+    cy.wait('@shortFormGet')
+
     // Verify that no errors are present on save
     cy.get('.alert-box').should('not.exist')
 
@@ -91,8 +108,18 @@ describe('ApplicationNewPage', () => {
     cy.get('#household_members_0_date_of_birth_day').type(HOUSEHOLD_MEMBER_DOB_DAY)
     cy.get('#household_members_0_date_of_birth_year').type(HOUSEHOLD_MEMBER_DOB_YEAR)
 
+    if (usingFixtures()) {
+      cy.intercept('GET', 'api/v1/short-form/**', { fixture: 'shortFormGet2.json' }).as(
+        'shortFormGet'
+      )
+    } else {
+      cy.intercept('GET', 'api/v1/short-form/**').as('shortFormGet')
+    }
+
     // Save the application and verify there are no form errors
     cy.get('.save-btn').click()
+    cy.wait('@shortFormPost')
+    cy.wait('@shortFormGet')
 
     cy.get('.alert-box').should('not.exist')
 
@@ -153,8 +180,19 @@ describe('ApplicationNewPage', () => {
     // Select type of proof
     cy.get('#form-preferences\\.0\\.type_of_proof').select('Telephone bill').blur()
 
+    if (usingFixtures()) {
+      cy.intercept('GET', 'api/v1/short-form/**', { fixture: 'shortFormGet3.json' }).as(
+        'shortFormGet'
+      )
+    } else {
+      cy.intercept('GET', 'api/v1/short-form/**').as('shortFormGet')
+    }
+
     // Save and verify that there are no form errors
     cy.get('.save-btn').click()
+    cy.wait('@shortFormPost')
+    cy.wait('@shortFormGet')
+
     cy.get('.alert-box').should('not.exist')
 
     cy.get('.application-details')
@@ -221,8 +259,18 @@ describe('ApplicationNewPage', () => {
     // Clear alternate contact middle name
     cy.get('#alt_middle_name').type('{backspace}')
 
+    if (usingFixtures()) {
+      cy.intercept('GET', 'api/v1/short-form/**', { fixture: 'shortFormGet.json' }).as(
+        'shortFormGet'
+      )
+    } else {
+      cy.intercept('GET', 'api/v1/short-form/**').as('shortFormGet')
+    }
+
     // Save the application and verify there are no form errors
     cy.get('.save-btn').click()
+    cy.wait('@shortFormPost')
+    cy.wait('@shortFormGet')
 
     cy.contains('.alert-box').should('not.exist')
 
@@ -256,8 +304,18 @@ describe('ApplicationNewPage', () => {
     cy.get('#lending_institution').select(Cypress.env('LENDING_INSTITUTION'))
     cy.get('#lending_agent').select(Cypress.env('LENDING_AGENT_ID'))
 
+    if (usingFixtures()) {
+      cy.intercept('GET', 'api/v1/short-form/**', { fixture: 'shortFormGet.json' }).as(
+        'shortFormGet'
+      )
+    } else {
+      cy.intercept('GET', 'api/v1/short-form/**').as('shortFormGet')
+    }
+
     // Save the application and verify that there are no form errors
     cy.get('.save-btn').click()
+    cy.wait('@shortFormPost')
+    cy.wait('@shortFormGet')
 
     cy.get('.alert-box').should('not.exist')
 

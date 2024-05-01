@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render } from '@testing-library/react'
+import { render, act, waitFor, screen } from '@testing-library/react'
 
 import ListingApplicationsPage from 'components/listings/ListingApplicationsPage'
 
@@ -21,8 +21,13 @@ describe('ListingApplicationsPage', () => {
     lottery_date: '2017-03-22T18:00:00.000+0000'
   }
 
-  test('should render successfully', () => {
-    const { asFragment } = render(<ListingApplicationsPage listing={listing} />)
-    expect(asFragment()).toMatchSnapshot()
+  test('should render successfully', async () => {
+    let renderResponse
+    await act(async () => {
+      renderResponse = render(<ListingApplicationsPage listing={listing} />)
+    })
+
+    waitFor(() => screen.getByText('Listing Details'))
+    expect(renderResponse.asFragment()).toMatchSnapshot()
   })
 })

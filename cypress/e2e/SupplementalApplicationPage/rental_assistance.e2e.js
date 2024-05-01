@@ -1,11 +1,19 @@
 import { LEASE_UP_LISTING_APPLICATION_ID } from '../../support/consts'
-import { generateRandomCurrency } from '../../support/utils'
+import { generateRandomCurrency, usingFixtures } from '../../support/utils'
 
 describe('SupplementalApplicationPage Rental Assistance Information section', () => {
   beforeEach(() => {
+    cy.setupIntercepts()
     cy.visit('http://localhost:3000/')
     cy.login()
     cy.visit(`/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
+    cy.wait('@shortForm')
+    cy.wait('@fieldUpdateComments')
+    cy.wait('@leases')
+    cy.wait('@rentalAssistances')
+    cy.wait('@supplementals')
+    cy.wait('@units')
+    cy.wait('@leaseUpListing')
 
     // Click on the Edit Lease button
     cy.get('button#edit-lease-button').click()
@@ -47,10 +55,16 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
       cy.get('#rental-assistance-new-form #assistance_amount').type(`$${amount}`)
 
       // Listen for the rental assistances request.
-      cy.intercept({
-        method: 'POST',
-        url: '**/api/v1/rental-assistances'
-      }).as('rentalAssistancesRequest')
+      if (usingFixtures()) {
+        cy.intercept('POST', 'api/v1/rental-assistances', {
+          fixture: 'rentalAssistancesPost.json'
+        }).as('rentalAssistancesRequest')
+      } else {
+        cy.intercept({
+          method: 'POST',
+          url: 'api/v1/rental-assistances'
+        }).as('rentalAssistancesRequest')
+      }
 
       cy.get('#rental-assistance-new-form #rental-assistance-save').click()
 
@@ -90,11 +104,16 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
     // Clear and enter a new amount value
     cy.get('#assistance_amount').clear().type(`$${amount}`)
 
-    // Listen for the rental assistances request.
-    cy.intercept({
-      method: 'PUT',
-      url: '**/api/v1/rental-assistances/*'
-    }).as('rentalAssistancesRequest')
+    if (usingFixtures()) {
+      cy.intercept('PUT', 'api/v1/rental-assistances/**', {
+        fixture: 'rentalAssistancesPut.json'
+      }).as('rentalAssistancesRequest')
+    } else {
+      cy.intercept({
+        method: 'PUT',
+        url: 'api/v1/rental-assistances/**'
+      }).as('rentalAssistancesRequest')
+    }
 
     cy.get('#rental-assistance-save').click()
 
@@ -130,10 +149,16 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
     cy.get('#assistance_amount').clear().type('$1102')
 
     // Listen for the rental assistances request.
-    cy.intercept({
-      method: 'PUT',
-      url: '**/api/v1/rental-assistances/*'
-    }).as('rentalAssistancesRequest')
+    if (usingFixtures()) {
+      cy.intercept('PUT', 'api/v1/rental-assistances/**', {
+        fixture: 'rentalAssistancesPut.json'
+      }).as('rentalAssistancesRequest')
+    } else {
+      cy.intercept({
+        method: 'PUT',
+        url: 'api/v1/rental-assistances/**'
+      }).as('rentalAssistancesRequest')
+    }
 
     cy.get('#rental-assistance-edit-form-0 #rental-assistance-save').click()
 
@@ -164,10 +189,16 @@ describe('SupplementalApplicationPage Rental Assistance Information section', ()
       cy.get('#rental-assistance-edit-form-0').should('exist')
 
       // Wait for the API rental assistance delete call to complete
-      cy.intercept({
-        method: 'DELETE',
-        url: '**/api/v1/rental-assistances/*'
-      }).as('deleteRequest')
+      if (usingFixtures()) {
+        cy.intercept('DELETE', 'api/v1/rental-assistances/**', {
+          fixture: 'rentalAssistancesDelete.json'
+        }).as('deleteRequest')
+      } else {
+        cy.intercept({
+          method: 'DELETE',
+          url: 'api/v1/rental-assistances/**'
+        }).as('deleteRequest')
+      }
 
       // Delete the rental assistance
       cy.get('#rental-assistance-delete').click()

@@ -44,6 +44,7 @@ const application = {
   "createdby": {
     "name": "DAHLIA API"
   },
+  "confirmed_household_annual_income": "",
   "demographics": {
     "ethnicity": null,
     "gender": null,

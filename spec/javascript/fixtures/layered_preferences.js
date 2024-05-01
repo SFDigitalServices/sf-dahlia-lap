@@ -59,7 +59,7 @@ export const preferencesWithVeteransUnconfirmed = [
         last_name: 'Doe',
         preference_record_type: 'DTHP',
         application_id: 'application_id_1',
-        application_member_id: '1',
+        application_member_id: '2',
         certificate_number: '12345'
     }
 ]
@@ -83,17 +83,26 @@ export const preferencesWithVeteransConfirmed = [
     }
 ]
 
-export const preferencesWithVeteransMixed = [
+export const preferencesWithVeteransOnly = [
     {
         preference_name: 'Veteran with Displaced Tenant Housing Preference (V-DTHP)',
         post_lottery_validation: 'Confirmed',
         first_name: 'John',
         last_name: 'Doe',
         preference_record_type: 'DTHP',
-        application_id: 'application_id_1',
-        application_member_id: '1',
-        receives_preference: true,
-        veteran_type_of_proof: 'DD Form 214'
+        application_id: 'application_id_1'
+    }
+]
+
+export const preferencesWithSameApplicationMember = [
+    {
+        preference_name: 'Veteran with Displaced Tenant Housing Preference (V-DTHP)',
+        post_lottery_validation: 'Confirmed',
+        first_name: 'John',
+        last_name: 'Doe',
+        preference_record_type: 'DTHP',
+        application_member_id: '2',
+        application_id: 'application_id_1'
     },
     {
         preference_name: 'Displaced Tenant Housing Preference (DTHP)',
@@ -101,44 +110,8 @@ export const preferencesWithVeteransMixed = [
         first_name: 'John',
         last_name: 'Doe',
         preference_record_type: 'DTHP',
-        application_id: 'application_id_1',
-        receives_preference: true
-    },
-    {
-        preference_name: 'Veteran Neighborhood Resident Housing Preference (V-NRHP)',
-        post_lottery_validation: 'Unconfirmed',
-        first_name: 'John',
-        last_name: 'Doe',
-        preference_record_type: 'NRHP',
-        application_id: 'application_id_1',
-        receives_preference: true
-    },
-    {
-        preference_name: 'Neighborhood Resident Housing Preference (NRHP)',
-        post_lottery_validation: 'Confirmed',
-        first_name: 'John',
-        last_name: 'Doe',
-        preference_record_type: 'NRHP',
-        application_id: 'application_id_1',
-        receives_preference: true
-    },
-    {
-        preference_name: 'Veteran Certificate of Preference (V-COP)',
-        post_lottery_validation: 'Unconfirmed',
-        first_name: 'John',
-        last_name: 'Doe',
-        preference_record_type: 'COP',
-        application_id: 'application_id_1',
-        receives_preference: false
-    },
-    {
-        preference_name: 'Certificate of Preference (COP)',
-        post_lottery_validation: 'Unconfirmed',
-        first_name: 'John',
-        last_name: 'Doe',
-        preference_record_type: 'COP',
-        application_id: 'application_id_1',
-        receives_preference: false
+        application_member_id: '2',
+        application_id: 'application_id_1'
     }
 ]
 
@@ -148,6 +121,11 @@ export const applicationMembers = [
     {
         'id': '1',
         'first_name': 'John',
+        'last_name': 'Doe'
+    },
+    {
+        'id': '2',
+        'first_name': 'Jane',
         'last_name': 'Doe'
     }
 ]

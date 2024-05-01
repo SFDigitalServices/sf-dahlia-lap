@@ -1,12 +1,12 @@
 [
-    {
-        "id": "a0r1D000000kMHgQAM",
-        "rule_name": "Name + DOB",
-        "total_number_of_pending_review": 200
-    },
-    {
-        "id": "a0r1D000000kMHlQAM",
-        "rule_name": "Email Address",
-        "total_number_of_pending_review": 4
-    }
+  {
+    "id": "a0r0P00002X4r08QAB",
+    "rule_name": "Name + DOB",
+    "total_number_of_pending_review": 54
+  },
+  {
+    "id": "a0r0P000024EwFdQAK",
+    "rule_name": "Residence Address",
+    "total_number_of_pending_review": 41
+  }
 ]

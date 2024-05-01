@@ -9,7 +9,7 @@ import {
   editPreferenceClicked
 } from 'components/supplemental_application/actions/preferenceActionCreators'
 import { useAppContext } from 'utils/customHooks'
-import { addLayeredPreferenceFields, isVeteran } from 'utils/layeredPreferenceUtil'
+import { addLayeredPreferenceFields } from 'utils/layeredPreferenceUtil'
 
 import Panel from './preferences/Panel'
 import PreferenceIcon from './preferences/PreferenceIcon'
@@ -22,7 +22,7 @@ import {
 } from './preferences/utils'
 
 export const hasExpanderButton = (prefName) =>
-  !overSome(isCOP, isDTHP, isAliceGriffith, isRightToReturn)(prefName) || isVeteran(prefName)
+  !overSome(isCOP, isDTHP, isAliceGriffith, isRightToReturn)(prefName)
 
 const onlyValid = (preferences) => {
   return reject(preferences, (pref) => {
@@ -47,15 +47,19 @@ const buildRow = (preference) => {
   ]
 }
 
-const buildRows = (application, applicationMembers, fileBaseUrl) => {
-  const sortedPreferences = orderBy(application.preferences, 'preference_order', 'asc')
+const buildRows = (preferences, proofFiles, applicationMembers, fileBaseUrl) => {
   const layeredPreferences = addLayeredPreferenceFields(
-    sortedPreferences,
-    application.proof_files,
+    preferences,
+    proofFiles,
     fileBaseUrl,
     applicationMembers
   )
-  return onlyValid(layeredPreferences).map(buildRow)
+  return layeredPreferences.map(buildRow)
+}
+
+const sortAndFilter = (preferences) => {
+  const sortedPreferences = orderBy(preferences, 'preference_order', 'asc')
+  return onlyValid(sortedPreferences)
 }
 
 const customCellRenderer = (row) => {
@@ -121,7 +125,14 @@ const PreferencesTable = ({
     dispatch
   ] = useAppContext()
 
-  const rows = buildRows(application, applicationMembers, fileBaseUrl)
+  const sortedAndFilteredPreferences = sortAndFilter(application.preferences)
+
+  const rows = buildRows(
+    sortedAndFilteredPreferences,
+    application.proof_files,
+    applicationMembers,
+    fileBaseUrl
+  )
 
   const expandedRowIndices = convertPreferenceToTableIndices(
     state.preferenceRowsOpened,
@@ -138,11 +149,12 @@ const PreferencesTable = ({
           rowKeyIndex={1}
           expandedRowIndices={expandedRowIndices}
           customCellRenderer={customCellRenderer}
-          renderExpanderButton={(_, row, expanded) => {
+          originals={sortedAndFilteredPreferences}
+          renderExpanderButton={(_, row, original, expanded) => {
             const prefName = row[1].content
             return (
               !expanded &&
-              hasExpanderButton(prefName) && (
+              hasExpanderButton(original.custom_preference_type) && (
                 <ExpanderButton
                   label='Edit'
                   onClick={() =>

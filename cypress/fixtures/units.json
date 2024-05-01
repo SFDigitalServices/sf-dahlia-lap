@@ -1,0 +1,131 @@
+{
+    "test": true,
+    "units": [
+        {
+            "id": "a0b0P00001HIHr9QAH",
+            "priority_type": null,
+            "ami_chart_type": "HUD Unadjusted",
+            "max_ami_for_qualifying_unit": 55,
+            "unit_number": "101",
+            "unit_type": "1 BR",
+            "ami_chart_year": 2018,
+            "leases": [
+                {
+                    "application_id": "a0o0P00000ItlpiQAB",
+                    "lease_status": "Signed",
+                    "preference_used_name": "Live or Work in San Francisco Preference"
+                }
+            ]
+        },
+        {
+            "id": "a0b0P00001HIHrEQAX",
+            "priority_type": "Hearing/Vision impairments",
+            "ami_chart_type": "HUD Unadjusted",
+            "max_ami_for_qualifying_unit": 55,
+            "unit_number": "201",
+            "unit_type": "1 BR",
+            "ami_chart_year": 2018,
+            "leases": [
+                {
+                    "application_id": "a0o0P00000IvWghQAF",
+                    "lease_status": "Signed",
+                    "preference_used_name": "Displaced Tenant Housing Preference (DTHP)"
+                }
+            ]
+        },
+        {
+            "id": "a0b0P00001HIHrJQAX",
+            "priority_type": null,
+            "ami_chart_type": "HUD Unadjusted",
+            "max_ami_for_qualifying_unit": 55,
+            "unit_number": "301",
+            "unit_type": "1 BR",
+            "ami_chart_year": 2018,
+            "leases": [
+                {
+                    "application_id": "a0o0P00000Iv7H4QAJ",
+                    "lease_status": "Draft",
+                    "preference_used_name": null
+                }
+            ]
+        },
+        {
+            "id": "a0b0P00001HIHrTQAX",
+            "priority_type": "Mobility impairments",
+            "ami_chart_type": "HUD Unadjusted",
+            "max_ami_for_qualifying_unit": 55,
+            "unit_number": "103",
+            "unit_type": "2 BR",
+            "ami_chart_year": 2018,
+            "leases": null
+        },
+        {
+            "id": "a0b0P00001HIHrYQAX",
+            "priority_type": null,
+            "ami_chart_type": "HUD Unadjusted",
+            "max_ami_for_qualifying_unit": 55,
+            "unit_number": "203",
+            "unit_type": "2 BR",
+            "ami_chart_year": 2018,
+            "leases": [
+                {
+                    "application_id": "a0o0P00000GZazsQAD",
+                    "lease_status": "Draft",
+                    "preference_used_name": "Certificate of Preference (COP)"
+                }
+            ]
+        },
+        {
+            "id": "a0b0P00001HIHrdQAH",
+            "priority_type": null,
+            "ami_chart_type": "HUD Unadjusted",
+            "max_ami_for_qualifying_unit": 55,
+            "unit_number": "303",
+            "unit_type": "2 BR",
+            "ami_chart_year": 2018,
+            "leases": [
+                {
+                    "application_id": "a0o0P00000Isnf4QAB",
+                    "lease_status": "Draft",
+                    "preference_used_name": "Displaced Tenant Housing Preference (DTHP)"
+                }
+            ]
+        },
+        {
+            "id": "a0b0P00001HIHrnQAH",
+            "priority_type": "Mobility/Hearing/Vision impairments",
+            "ami_chart_type": "HUD Unadjusted",
+            "max_ami_for_qualifying_unit": 55,
+            "unit_number": "105",
+            "unit_type": "3 BR",
+            "ami_chart_year": 2018,
+            "leases": null
+        },
+        {
+            "id": "a0b0P00001HIHrsQAH",
+            "priority_type": null,
+            "ami_chart_type": "HUD Unadjusted",
+            "max_ami_for_qualifying_unit": 55,
+            "unit_number": "205",
+            "unit_type": "3 BR",
+            "ami_chart_year": 2018,
+            "leases": [
+                {
+                    "application_id": "a0o0P00000IvWgXQAV",
+                    "lease_status": "Draft",
+                    "preference_used_name": "Live or Work in San Francisco Preference"
+                }
+            ]
+        },
+        {
+            "id": "a0b0P00001HIHrxQAH",
+            "priority_type": null,
+            "ami_chart_type": "HUD Unadjusted",
+            "max_ami_for_qualifying_unit": 55,
+            "unit_number": "305",
+            "unit_type": "3 BR",
+            "ami_chart_year": 2018,
+            "leases": null
+        }
+    ]
+}

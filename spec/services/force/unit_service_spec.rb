@@ -7,7 +7,6 @@ RSpec.describe Force::UnitsService do
   subject { Force::UnitsService.new(user) }
   LEASE_UP_LISTING_ID = 'a0W0P00000GbyuQUAR' # Yellow Acres test listing
   NON_LEASE_UP_LISTING_ID = 'a0W0P00000F8YG4UAN' # Automated test listing
-  APPLICANT_LIST_LISTING_ID = 'a0W0t000001788TEAQ' # Sample listing with use applicant list for lease up
 
   describe '#units_and_leases_for_listing' do
     expected_lease_keys = %i[

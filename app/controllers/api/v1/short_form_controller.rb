@@ -126,10 +126,6 @@ class Api::V1::ShortFormController < ApiController
           )
   end
 
-  def custom_api_application_service
-    Force::CustomApi::ApplicationService.new(current_user)
-  end
-
   def soql_application_service
     Force::Soql::ApplicationService.new(current_user)
   end

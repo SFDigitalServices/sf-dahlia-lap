@@ -1,19 +1,20 @@
-import React from 'react'
+import { act } from '@testing-library/react'
 
-import { render } from '@testing-library/react'
+import mockFlaggedRecords from '../../../fixtures/flagged_records'
+import { renderAppWithUrl } from '../../../testUtils/wrapperUtil'
 
-import FlaggedApplicationsIndexPage from 'components/applications/flagged/FlaggedApplicationsIndexPage'
-
-import flaggedRecords from '../../../fixtures/flagged_records'
+jest.mock('apiService', () => {
+  return {
+    fetchFlaggedApplications: async (_type) => {
+      return { title: 'Flagged Applications - Pending Review', flaggedRecords: mockFlaggedRecords }
+    }
+  }
+})
 
 describe('FlaggedApplicationsIndexPage', () => {
-  test('should render successfully', () => {
-    const title = 'Flagged Applications - Pending Review'
-
-    const { asFragment } = render(
-      <FlaggedApplicationsIndexPage title={title} type='pending' flaggedRecords={flaggedRecords} />
-    )
-
-    expect(asFragment()).toMatchSnapshot()
+  test('should render successfully', async () => {
+    expect(
+      await act(async () => renderAppWithUrl(`applications/flagged?type=pending`))
+    ).toMatchSnapshot()
   })
 })

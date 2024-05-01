@@ -36,5 +36,6 @@ module.exports = defineConfig({
   },
   // workaround see https://github.com/dequelabs/axe-core/issues/3057
   modifyObstructiveCode: false,
-  experimentalModifyObstructiveThirdPartyCode: true
+  experimentalModifyObstructiveThirdPartyCode: true,
+  chromeWebSecurity: false
 })
