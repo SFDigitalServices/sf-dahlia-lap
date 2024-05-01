@@ -98,6 +98,8 @@ const LeaseUpApplicationsTable = ({
       accessor: 'rankOrder',
       headerClassName: 'non-resizable',
       width: getCellWidth(88),
+      // only show the preference validation if the listing type has preferences
+      // first come first served listings do not have preferences
       show: listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED,
       Cell: (cell) => (
         <PreferenceRankCell

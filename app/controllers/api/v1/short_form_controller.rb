@@ -78,6 +78,8 @@ class Api::V1::ShortFormController < ApiController
     # have to do this here.
     application.total_household_size = application.household_members.length + 1
 
+    # First Come, First Served listings don't have preferences
+    # Only query for preferences if the listing is NOT first come first served
     listing_is_fcfs = listing.listing_type == Force::Listing::LISTING_TYPE_FIRST_COME_FIRST_SERVED
     application.preferences = listing_is_fcfs ? nil : soql_preference_service.app_preferences_for_application(id)
 

@@ -39,14 +39,14 @@ const LeaseUpApplicationsFilters = ({
     </FormGrid.Item>
   )
 
+  // only include preferences filter if the Listing Type is not first come first served
+  const includePreferencesFilter = listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED
+  const filters = LEASE_UP_APPLICATION_FILTERS(includePreferencesFilter)
+
   return (
     <div className='padding-top--2x padding-left padding-right' style={styles.whiteSmokeBackground}>
       <FormGrid.Row expand paddingBottom>
-        {LEASE_UP_APPLICATION_FILTERS.filter(
-          (filter) =>
-            listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED ||
-            filter.fieldName !== 'preference'
-        ).map((f) => renderFilter(f))}
+        {filters.map((f) => renderFilter(f))}
       </FormGrid.Row>
 
       <div className='small-12 margin-top' style={styles.containerEndJustified}>

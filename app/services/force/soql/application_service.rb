@@ -35,15 +35,21 @@ module Force
           AND Status__c != '#{DRAFT}'
           LIMIT 1
         ))).to_domain
+
+        # only query for preferences if the listing has preferences
+        # first come first served listings do not have preferences
         listing_is_fcfs = application_listing(id).Listing_Type == Force::Listing::LISTING_TYPE_FIRST_COME_FIRST_SERVED
         application['preferences'] = listing_is_fcfs ? nil : soql_preference_service.app_preferences_for_application(id, should_order: true)
+
         application['proof_files'] = soql_attachment_service.app_proof_files(id)
 
         alternate_contact_id = application.alternate_contact && application.alternate_contact.id
         application['household_members'] = app_household_members(application.id, application.applicant.id, alternate_contact_id)
 
-        application['lease'] = soql_lease_service.application_lease(id) if opts[:include_lease]
-        if opts[:include_rental_assistances]
+        if (opts[:include_lease])
+          application['lease'] = soql_lease_service.application_lease(id)
+        end
+        if (opts[:include_rental_assistances])
           application['rental_assistances'] = soql_rental_assistance_service.application_rental_assistances(id)
         end
         application
