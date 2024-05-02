@@ -12,6 +12,8 @@ export const buildLeaseUpAppFirstComeFirstServedModel = (application) => {
     residence_address: applicant.residence_address,
     lease_up_status: application.processing_status,
     status_last_updated: application.status_last_updated,
-    post_lottery_validation: application.post_lottery_validation
+    has_ada_priorities_selected: application.has_ada_priorities_selected,
+    total_household_size: application.total_household_size,
+    sub_status: application.sub_status
   }
 }
