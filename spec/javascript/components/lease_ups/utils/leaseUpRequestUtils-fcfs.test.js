@@ -1,7 +1,4 @@
-import {
-  convertToCommaSeparatedList,
-  getApplications
-} from 'components/lease_ups/utils/leaseUpRequestUtils'
+import { getApplications } from 'components/lease_ups/utils/leaseUpRequestUtils'
 
 const mockFetchLeaseUpApplications = jest.fn()
 
