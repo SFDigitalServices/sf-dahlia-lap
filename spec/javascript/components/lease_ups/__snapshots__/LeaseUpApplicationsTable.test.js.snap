@@ -1,0 +1,4642 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LeaseUpApplicationsTable should render succesfully when loading 1`] = `<DocumentFragment />`;
+
+exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`] = `
+<DocumentFragment>
+  <div
+    class="ReactTable rt-table-status"
+  >
+    <div
+      class="rt-table"
+      role="grid"
+    >
+      <div
+        class="rt-thead -header"
+        style="min-width: 1300px;"
+      >
+        <div
+          class="rt-tr"
+          role="row"
+        >
+          <div
+            class="rt-th non-resizable rt-resizable-header"
+            role="columnheader"
+            style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            tabindex="-1"
+          >
+            <div
+              class="rt-resizable-header-content"
+            />
+            <div
+              class="rt-resizer"
+            />
+          </div>
+          <div
+            class="rt-th non-resizable rt-resizable-header"
+            role="columnheader"
+            style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            tabindex="-1"
+          >
+            <div
+              class="rt-resizable-header-content"
+            >
+              Rank
+            </div>
+            <div
+              class="rt-resizer"
+            />
+          </div>
+          <div
+            class="rt-th non-resizable rt-resizable-header"
+            role="columnheader"
+            style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            tabindex="-1"
+          >
+            <div
+              class="rt-resizable-header-content"
+            >
+              Application
+            </div>
+            <div
+              class="rt-resizer"
+            />
+          </div>
+          <div
+            class="rt-th non-resizable rt-resizable-header"
+            role="columnheader"
+            style="flex: 114 0 auto; width: 114px;"
+            tabindex="-1"
+          >
+            <div
+              class="rt-resizable-header-content"
+            >
+              First Name
+            </div>
+            <div
+              class="rt-resizer"
+            />
+          </div>
+          <div
+            class="rt-th non-resizable rt-resizable-header"
+            role="columnheader"
+            style="flex: 114 0 auto; width: 114px;"
+            tabindex="-1"
+          >
+            <div
+              class="rt-resizable-header-content"
+            >
+              Last Name
+            </div>
+            <div
+              class="rt-resizer"
+            />
+          </div>
+          <div
+            class="rt-th non-resizable rt-resizable-header"
+            role="columnheader"
+            style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            tabindex="-1"
+          >
+            <div
+              class="rt-resizable-header-content"
+            >
+              HH
+            </div>
+            <div
+              class="rt-resizer"
+            />
+          </div>
+          <div
+            class="rt-th non-resizable rt-resizable-header"
+            role="columnheader"
+            style="flex: 100 0 auto; width: 100px;"
+            tabindex="-1"
+          >
+            <div
+              class="rt-resizable-header-content"
+            >
+              Requests
+            </div>
+            <div
+              class="rt-resizer"
+            />
+          </div>
+          <div
+            class="rt-th non-resizable rt-resizable-header"
+            role="columnheader"
+            style="flex: 91 0 auto; width: 91px;"
+            tabindex="-1"
+          >
+            <div
+              class="rt-resizable-header-content"
+            >
+              Updated
+            </div>
+            <div
+              class="rt-resizer"
+            />
+          </div>
+          <div
+            class="rt-th td-offset-right rt-resizable-header"
+            role="columnheader"
+            style="flex: 361 0 auto; width: 361px;"
+            tabindex="-1"
+          >
+            <div
+              class="rt-resizable-header-content"
+            >
+              Latest Substatus
+            </div>
+            <div
+              class="rt-resizer"
+            />
+          </div>
+          <div
+            class="rt-th tr-fixed-right rt-resizable-header"
+            role="columnheader"
+            style="flex: 216 0 auto; width: 216px;"
+            tabindex="-1"
+          >
+            <div
+              class="rt-resizable-header-content"
+            >
+              Status
+            </div>
+            <div
+              class="rt-resizer"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="rt-tbody"
+        style="min-width: 1300px;"
+      >
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-disqualified -odd"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIYp1QAH"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIYp1QAH"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  DTHP 1
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIYp1QAH"
+              >
+                APP-00824414
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Tasha"
+              >
+                Tasha
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Velez"
+              >
+                Velez
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              1
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                05/05/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="No response after two or more attempts"
+              >
+                No response after two or more attempts
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-2-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-disqualified tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Disqualified
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-2-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-withdrawn -even"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIKuwQAH"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIKuwQAH"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 1
+                </div>
+                <svg
+                  data-testid="preference-rank-x-icon"
+                  style="width: 1rem; height: 1rem; fill: #e31c3d;"
+                >
+                  <use
+                    style="fill: #e31c3d;"
+                    xlink:href="#i-close"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIKuwQAH"
+              >
+                APP-00821953
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Walter"
+              >
+                Walter
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Young"
+              >
+                Young
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              3
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                05/05/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Written withdrawal"
+              >
+                Written withdrawal
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-3-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-withdrawn tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Withdrawn
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-3-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-disqualified -odd"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIYpGQAX"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIYpGQAX"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 2
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIYpGQAX"
+              >
+                APP-00824415
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Eric"
+              >
+                Eric
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Wiggins"
+              >
+                Wiggins
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              4
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                03/25/2022
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="No response after two or more attempts"
+              >
+                No response after two or more attempts
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-4-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-disqualified tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Disqualified
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-4-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-disqualified -even"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIK4SQAX"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIK4SQAX"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 3
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIK4SQAX"
+              >
+                APP-00821618
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Betty"
+              >
+                Betty
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Phelps"
+              >
+                Phelps
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              1
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                05/05/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="No response after two or more attempts"
+              >
+                No response after two or more attempts
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-5-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-disqualified tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Disqualified
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-5-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-disqualified -odd"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIJxEQAX"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIJxEQAX"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 4
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIJxEQAX"
+              >
+                APP-00821575
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Kristine"
+              >
+                Kristine
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Adams"
+              >
+                Adams
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              1
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Vision, Mobility"
+              >
+                Vision, Mobility
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                05/17/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="No response after two or more attempts"
+              >
+                No response after two or more attempts
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-6-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-disqualified tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Disqualified
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-6-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-withdrawn -even"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIchuQAD"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIchuQAD"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 5
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIchuQAD"
+              >
+                APP-00824919
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Michael"
+              >
+                Michael
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Lindsey"
+              >
+                Lindsey
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              1
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                05/03/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Written withdrawal"
+              >
+                Written withdrawal
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-7-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-withdrawn tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Withdrawn
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-7-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-disqualified -odd"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIKRaQAP"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIKRaQAP"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 6
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIKRaQAP"
+              >
+                APP-00821780
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Jonathan"
+              >
+                Jonathan
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Ellis"
+              >
+                Ellis
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              1
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                05/05/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="No response after two or more attempts"
+              >
+                No response after two or more attempts
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-8-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-disqualified tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Disqualified
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-8-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-disqualified -even"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIXY4QAP"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIXY4QAP"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 7
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIXY4QAP"
+              >
+                APP-00824151
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Christopher"
+              >
+                Christopher
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Benitez"
+              >
+                Benitez
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              3
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                05/17/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="No response after two or more attempts"
+              >
+                No response after two or more attempts
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-9-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-disqualified tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Disqualified
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-9-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-disqualified -odd"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIYrNQAX"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIYrNQAX"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 8
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIYrNQAX"
+              >
+                APP-00824426
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Cynthia"
+              >
+                Cynthia
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Clark"
+              >
+                Clark
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              2
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                05/05/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="No response after two or more attempts"
+              >
+                No response after two or more attempts
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-10-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-disqualified tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Disqualified
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-10-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-withdrawn -even"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIJmNQAX"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIJmNQAX"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 9
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIJmNQAX"
+              >
+                APP-00821445
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Brett"
+              >
+                Brett
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Hunter"
+              >
+                Hunter
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              1
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                05/03/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Written withdrawal"
+              >
+                Written withdrawal
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-11-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-withdrawn tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Withdrawn
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-11-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-disqualified -odd"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIKfnQAH"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIKfnQAH"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 10
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIKfnQAH"
+              >
+                APP-00821876
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Christina"
+              >
+                Christina
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Huynh"
+              >
+                Huynh
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              1
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                05/05/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="No response after two or more attempts"
+              >
+                No response after two or more attempts
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-12-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-disqualified tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Disqualified
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-12-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-disqualified -even"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIKD8QAP"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIKD8QAP"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 11
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIKD8QAP"
+              >
+                APP-00821674
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Stephen"
+              >
+                Stephen
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Johnson"
+              >
+                Johnson
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              1
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                05/05/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="No response after two or more attempts"
+              >
+                No response after two or more attempts
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-13-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-disqualified tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Disqualified
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-13-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-disqualified -odd"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIXj7QAH"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIXj7QAH"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 12
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIXj7QAH"
+              >
+                APP-00824182
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Tracy"
+              >
+                Tracy
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Cannon"
+              >
+                Cannon
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              1
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                05/05/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="No response after two or more attempts"
+              >
+                No response after two or more attempts
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-14-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-disqualified tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Disqualified
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-14-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-disqualified -even"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIJoTQAX"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIJoTQAX"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 13
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIJoTQAX"
+              >
+                APP-00821475
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Matthew"
+              >
+                Matthew
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Baker"
+              >
+                Baker
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              1
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                05/05/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="No response after two or more attempts"
+              >
+                No response after two or more attempts
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-15-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-disqualified tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Disqualified
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-15-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-disqualified -odd"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIKfEQAX"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIKfEQAX"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 14
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIKfEQAX"
+              >
+                APP-00821870
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Laura"
+              >
+                Laura
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Johnson"
+              >
+                Johnson
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              1
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                05/05/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="No response after two or more attempts"
+              >
+                No response after two or more attempts
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-16-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-disqualified tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Disqualified
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-16-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-disqualified -even"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIK3jQAH"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIK3jQAH"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 15
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIK3jQAH"
+              >
+                APP-00821609
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Mikayla"
+              >
+                Mikayla
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Griffin"
+              >
+                Griffin
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              1
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                05/05/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="No response after two or more attempts"
+              >
+                No response after two or more attempts
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-17-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-disqualified tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Disqualified
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-17-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-disqualified -odd"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIXTuQAP"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIXTuQAP"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 16
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIXTuQAP"
+              >
+                APP-00824135
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="David"
+              >
+                David
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Hall"
+              >
+                Hall
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              1
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                08/10/2022
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Over income"
+              >
+                Over income
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-18-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-disqualified tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Disqualified
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-18-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-disqualified -even"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIL49QAH"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIL49QAH"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 17
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIL49QAH"
+              >
+                APP-00821997
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Sean"
+              >
+                Sean
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Ramirez"
+              >
+                Ramirez
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              2
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                06/01/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Missing documents"
+              >
+                Missing documents
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-19-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-disqualified tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Disqualified
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-19-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-disqualified -odd"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIPTJQA5"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIPTJQA5"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 18
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIPTJQA5"
+              >
+                APP-00822926
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Robin"
+              >
+                Robin
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Jensen"
+              >
+                Jensen
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              1
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="None"
+              >
+                None
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                05/14/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="No response after two or more attempts"
+              >
+                No response after two or more attempts
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-20-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-disqualified tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Disqualified
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-20-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rt-tr-group"
+          role="rowgroup"
+        >
+          <div
+            class="rt-tr rt-tr-status is-withdrawn -even"
+            role="row"
+            tabindex="0"
+          >
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+            >
+              <div
+                class="form-group"
+              >
+                <input
+                  aria-checked="false"
+                  class="no-margin"
+                  id="bulk-action-checkbox-a0o4U00000KIUAsQAP"
+                  type="checkbox"
+                />
+                <label
+                  class="form-label"
+                  data-testid="checkbox-label"
+                  for="bulk-action-checkbox-a0o4U00000KIUAsQAP"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+            >
+              <div
+                style="width: 100%; display: flex; justify-content: flex-start; align-items: center;"
+              >
+                <div
+                  style="min-width: 60px; padding-right: 0.5rem;"
+                >
+                  L_W 19
+                </div>
+                <svg
+                  data-testid="preference-rank-check-icon"
+                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                >
+                  <use
+                    style="fill: #2e8540;"
+                    xlink:href="#i-check"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+            >
+              <a
+                href="/lease-ups/applications/a0o4U00000KIUAsQAP"
+              >
+                APP-00823612
+              </a>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Jacob"
+              >
+                Jacob
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 114 0 auto; width: 114px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Thompson"
+              >
+                Thompson
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+            >
+              3
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 100 0 auto; width: 100px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Mobility"
+              >
+                Mobility
+              </div>
+            </div>
+            <div
+              class="rt-td"
+              role="gridcell"
+              style="flex: 91 0 auto; width: 91px;"
+            >
+              <div>
+                07/16/2021
+              </div>
+            </div>
+            <div
+              class="rt-td td-offset-right"
+              role="gridcell"
+              style="flex: 361 0 auto; width: 361px;"
+            >
+              <div
+                style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
+                title="Verbal withdrawal"
+              >
+                Verbal withdrawal
+              </div>
+            </div>
+            <div
+              class="rt-td td-status td-fixed-right"
+              role="gridcell"
+              style="flex: 216 0 auto; width: 216px;"
+            >
+              <div
+                style="display: flex; align-items: center; justify-content: flex-end; width: 100%;"
+              >
+                <div
+                  class="dropdown css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-21-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class="status-dropdown__control css-uuqjpg-Control"
+                  >
+                    <button
+                      class="button dropdown-button is-withdrawn tight-padding tiny margin-bottom-none"
+                      style="padding-top: 0px; padding-bottom: 0px;"
+                      type="button"
+                    >
+                      <div
+                        style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                      >
+                        <span
+                          style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-right: 0.5rem; overflow: auto; flex-grow: 1; text-align: left;"
+                        >
+                          Withdrawn
+                        </span>
+                        <div
+                          style="width: 0px; height: 0px;"
+                        >
+                          <div
+                            class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                          >
+                            <input
+                              aria-activedescendant=""
+                              aria-autocomplete="list"
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              aria-readonly="true"
+                              class="css-mohuvp-dummyInput-DummyInput"
+                              id="react-select-21-input"
+                              inputmode="none"
+                              role="combobox"
+                              tabindex="0"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <span
+                          style="flex-shrink: 0; font-size: 0px;"
+                        >
+                          <svg
+                            style="width: .75rem; height: .75rem;"
+                          >
+                            <use
+                              xlink:href="#i-arrow-down"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  class="margin-left button-icon-only"
+                >
+                  <svg
+                    style="width: 1.2rem; height: 1.2rem; fill: #767676;"
+                  >
+                    <use
+                      style="fill: #767676;"
+                      xlink:href="#i-list-unordered"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="pagination-bottom"
+    >
+      <div
+        class="-pagination"
+      >
+        <div
+          class="-previous"
+        >
+          <button
+            class="-btn"
+            disabled=""
+            type="button"
+          >
+            Previous
+          </button>
+        </div>
+        <div
+          class="-center"
+        >
+          <span
+            class="-pageInfo"
+          >
+            Page 
+            <div
+              class="-pageJump"
+            >
+              <input
+                aria-label="jump to page"
+                type="number"
+                value="1"
+              />
+            </div>
+             of 
+            <span
+              class="-totalPages"
+            >
+              10
+            </span>
+          </span>
+        </div>
+        <div
+          class="-next"
+        >
+          <button
+            class="-btn"
+            type="button"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="-loading"
+    >
+      <div
+        class="-loading-inner"
+      >
+        Loading...
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
