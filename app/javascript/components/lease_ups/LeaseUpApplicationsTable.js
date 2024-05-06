@@ -12,6 +12,7 @@ import {
 import CheckboxCell from 'components/lease_ups/application_page/CheckboxCell'
 import PreferenceRankCell from 'components/lease_ups/application_page/PreferenceRankCell'
 import StatusCell from 'components/lease_ups/application_page/StatusCell'
+import Loading from 'components/molecules/Loading'
 import appPaths from 'utils/appPaths'
 import { useAppContext } from 'utils/customHooks'
 import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
@@ -73,7 +74,11 @@ const LeaseUpApplicationsTable = ({
   const maxPagesMsg = `Unfortunately, we can only display the first ${
     MAX_SERVER_LIMIT / rowsPerPage
   } pages of applications at this time. Please use the filters above to narrow your results.`
-  const noDataMsg = atMaxPages ? maxPagesMsg : 'No results, try adjusting your filters'
+  const noDataMsg = !loading
+    ? atMaxPages
+      ? maxPagesMsg
+      : 'No results, try adjusting your filters'
+    : ''
   const columns = [
     {
       Header: '',
@@ -220,22 +225,24 @@ const LeaseUpApplicationsTable = ({
   }
 
   return (
-    <ReactTable
-      manual
-      className='rt-table-status'
-      data={dataSet}
-      page={page}
-      onPageChange={(newPage) => applicationsTablePageChanged(dispatch, newPage)}
-      pages={pages}
-      columns={columns}
-      getTdProps={getTdProps}
-      getTrProps={getTrProps}
-      defaultPageSize={rowsPerPage}
-      sortable={false}
-      loading={loading}
-      noDataText={noDataMsg}
-      getPaginationProps={getPaginationProps}
-    />
+    !loading && (
+      <ReactTable
+        manual
+        className='rt-table-status'
+        data={dataSet}
+        page={page}
+        onPageChange={(newPage) => applicationsTablePageChanged(dispatch, newPage)}
+        pages={pages}
+        columns={columns}
+        getTdProps={getTdProps}
+        getTrProps={getTrProps}
+        defaultPageSize={rowsPerPage}
+        sortable={false}
+        loading={loading}
+        noDataText={noDataMsg}
+        getPaginationProps={getPaginationProps}
+      />
+    )
   )
 }
 
