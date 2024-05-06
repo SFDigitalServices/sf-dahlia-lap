@@ -45,6 +45,7 @@ const LeaseUpTableContainer = ({
     atMaxPages,
     bulkCheckboxesState,
     listingId,
+    listingType,
     loading,
     onBulkCheckboxClick,
     onCloseStatusModal,
@@ -62,6 +63,7 @@ const LeaseUpTableContainer = ({
   return (
     <>
       <LeaseUpApplicationsFilterContainer
+        listingType={listingType}
         preferences={preferences}
         onSubmit={onFilter}
         loading={loading}
@@ -74,6 +76,7 @@ const LeaseUpTableContainer = ({
       <LeaseUpApplicationsTable
         dataSet={map(applications, buildRowData)}
         listingId={listingId}
+        listingType={listingType}
         onLeaseUpStatusChange={onLeaseUpStatusChange}
         loading={loading}
         pages={pages}

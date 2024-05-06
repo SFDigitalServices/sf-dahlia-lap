@@ -36,6 +36,7 @@ const getNumFiltersApplied = (form) => {
 }
 
 const LeaseUpApplicationsFilterContainer = ({
+  listingType,
   onSubmit,
   preferences = [],
   loading = false,
@@ -193,6 +194,7 @@ const LeaseUpApplicationsFilterContainer = ({
             </div>
             {isShowingFilters && (
               <LeaseUpApplicationsFilters
+                listingType={listingType}
                 preferences={preferences}
                 hasChangedFilters={hasChangedFilters}
                 onFilterChange={handleFilterChange}

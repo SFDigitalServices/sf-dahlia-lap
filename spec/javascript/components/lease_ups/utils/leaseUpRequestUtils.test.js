@@ -1,50 +1,11 @@
+import apiService from 'apiService'
 import {
   convertToCommaSeparatedList,
   getApplications,
   sanitizeAndFormatSearch
 } from 'components/lease_ups/utils/leaseUpRequestUtils'
 
-const mockFetchLeaseUpApplications = jest.fn()
-
-jest.mock('apiService', () => {
-  return {
-    fetchLeaseUpApplications: async (listingId, page, { filters }) => {
-      mockFetchLeaseUpApplications(listingId, page, { filters })
-      const sampleRowResponse = {
-        application: {
-          name: 'APP-00548121',
-          id: 'a0o0P00000JlWi9QAF',
-          general_lottery: false,
-          general_lottery_rank: null,
-          applicant: {
-            first_name: 'Vincent',
-            last_name: 'Rogers',
-            email: 'christopher60@example.org',
-            phone: '(845)136-8280',
-            residence_address: '',
-            mailing_address: '',
-            name: 'Vincent Rogers'
-          },
-          has_ada_priorities_selected: null,
-          processing_status: 'Disqualified',
-          demographics: {},
-          status_last_updated: '2020-05-28T21:23:06.000+0000',
-          total_household_size: 1,
-          sub_status: 'Approval letter sent'
-        },
-        preference_order: 3,
-        receives_preference: true,
-        preference_all_lottery_rank: 1,
-        post_lottery_validation: 'Confirmed',
-        preference_lottery_rank: 1,
-        preference_name: 'Live or Work in San Francisco Preference',
-        record_type_for_app_preferences: 'L_W',
-        custom_preference_type: 'L_W'
-      }
-      return { pages: 10, records: [sampleRowResponse] }
-    }
-  }
-})
+jest.mock('apiService')
 
 const fakeListingId = 'listing_id'
 
@@ -78,9 +39,46 @@ describe('leaseUpActions', () => {
     })
   })
   describe('getApplications', () => {
+    apiService.fetchLeaseUpApplications.mockResolvedValue({
+      pages: 10,
+      records: [
+        {
+          application: {
+            name: 'APP-00548121',
+            id: 'a0o0P00000JlWi9QAF',
+            general_lottery: false,
+            general_lottery_rank: null,
+            applicant: {
+              first_name: 'Vincent',
+              last_name: 'Rogers',
+              email: 'christopher60@example.org',
+              phone: '(845)136-8280',
+              residence_address: '',
+              mailing_address: '',
+              name: 'Vincent Rogers'
+            },
+            has_ada_priorities_selected: null,
+            processing_status: 'Disqualified',
+            demographics: {},
+            status_last_updated: '2020-05-28T21:23:06.000+0000',
+            total_household_size: 1,
+            sub_status: 'Approval letter sent'
+          },
+          preference_order: 3,
+          receives_preference: true,
+          preference_all_lottery_rank: 1,
+          post_lottery_validation: 'Confirmed',
+          preference_lottery_rank: 1,
+          preference_name: 'Live or Work in San Francisco Preference',
+          record_type_for_app_preferences: 'L_W',
+          custom_preference_type: 'L_W'
+        }
+      ]
+    })
+
     test('it makes the expected apiService request when no filters are provided', () => {
       getApplications(fakeListingId, 0)
-      expect(mockFetchLeaseUpApplications).toHaveBeenCalledWith(fakeListingId, 0, {
+      expect(apiService.fetchLeaseUpApplications).toHaveBeenCalledWith(fakeListingId, 0, {
         filters: undefined
       })
     })
@@ -116,7 +114,7 @@ describe('leaseUpActions', () => {
     test('it passes filters to the apiService as expected', () => {
       const fakeFilters = { filter1: 'something', filter2: 'something else' }
       getApplications(fakeListingId, 0, fakeFilters)
-      expect(mockFetchLeaseUpApplications).toHaveBeenCalledWith(fakeListingId, 0, {
+      expect(apiService.fetchLeaseUpApplications).toHaveBeenCalledWith(fakeListingId, 0, {
         filters: fakeFilters
       })
     })
@@ -127,9 +125,60 @@ describe('leaseUpActions', () => {
         search: convertToCommaSeparatedList('word1 word2')
       }
       getApplications(fakeListingId, 0, fakeFilters)
-      expect(mockFetchLeaseUpApplications).toHaveBeenCalledWith(fakeListingId, 0, {
+      expect(apiService.fetchLeaseUpApplications).toHaveBeenCalledWith(fakeListingId, 0, {
         filters: expectedFilters
       })
+    })
+  })
+
+  describe('get First Come, First Served applications', () => {
+    test('it formats returned data as expected', async () => {
+      apiService.fetchLeaseUpApplications.mockResolvedValue({
+        pages: 10,
+        records: [
+          {
+            name: 'APP-00548121',
+            id: 'a0o0P00000JlWi9QAF',
+            general_lottery: false,
+            general_lottery_rank: null,
+            applicant: {
+              first_name: 'Vincent',
+              last_name: 'Rogers',
+              email: 'christopher60@example.org',
+              phone: '(845)136-8280',
+              residence_address: '',
+              mailing_address: '',
+              name: 'Vincent Rogers'
+            },
+            has_ada_priorities_selected: null,
+            processing_status: 'Disqualified',
+            demographics: {},
+            status_last_updated: '2020-05-28T21:23:06.000+0000',
+            total_household_size: 1,
+            sub_status: 'Approval letter sent'
+          }
+        ],
+        listing_type: 'First Come, First Served'
+      })
+
+      const expectedRowData = {
+        application_id: 'a0o0P00000JlWi9QAF',
+        application_number: 'APP-00548121',
+        email: 'christopher60@example.org',
+        first_name: 'Vincent',
+        has_ada_priorities_selected: null,
+        last_name: 'Rogers',
+        lease_up_status: 'Disqualified',
+        mailing_address: '',
+        phone: '(845)136-8280',
+        residence_address: '',
+        status_last_updated: '2020-05-28T21:23:06.000+0000',
+        total_household_size: 1,
+        sub_status: 'Approval letter sent'
+      }
+
+      const expectedResults = { records: [expectedRowData], pages: 10 }
+      expect(await getApplications(fakeListingId, 0)).toEqual(expectedResults)
     })
   })
 })

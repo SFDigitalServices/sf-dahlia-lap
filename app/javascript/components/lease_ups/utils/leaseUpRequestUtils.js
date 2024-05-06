@@ -4,6 +4,8 @@ import apiService from 'apiService'
 import { addLayeredValidation } from 'utils/layeredPreferenceUtil'
 import { performInSequence } from 'utils/promiseUtils'
 
+import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from '../../../utils/consts'
+import { buildLeaseUpAppFirstComeFirstServedModel } from '../leaseUpAppFirstComeFirstServedModel'
 import { buildLeaseUpAppPrefModel } from '../leaseUpAppPrefModel'
 
 export const getLeaseUpListings = async () => apiService.getLeaseUpListings()
@@ -25,11 +27,16 @@ export const getApplications = async (listingId, page, filters) => {
   }
   return apiService
     .fetchLeaseUpApplications(listingId, page, { filters })
-    .then(({ records, pages }) => {
-      const preferences = map(records, buildLeaseUpAppPrefModel)
-      const layeredPreferences = addLayeredValidation(preferences)
+    .then(({ records, pages, listing_type }) => {
+      let apps
+      if (listing_type === LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
+        apps = map(records, buildLeaseUpAppFirstComeFirstServedModel)
+      } else {
+        const preferences = map(records, buildLeaseUpAppPrefModel)
+        apps = addLayeredValidation(preferences)
+      }
       return {
-        records: layeredPreferences,
+        records: apps,
         pages
       }
     })

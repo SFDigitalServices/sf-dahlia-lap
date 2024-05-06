@@ -1,0 +1,415 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 01 May 2024 00:40:34 GMT
+      Set-Cookie:
+      - BrowserId=bBWbVwdTEe-rxkOTQfPpmA; domain=.salesforce.com; path=/; expires=Thu,
+        01-May-2025 00:40:34 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Thu, 01-May-2025 00:40:34 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 01-May-2025 00:40:34
+        GMT; Max-Age=31536000; secure
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D8H0000004dNlUAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1714524034996","signature":"iqxwS0yesKwCpTJAqbrP2UQCl6DMguprGyVtm+9ezzM="}'
+  recorded_at: Wed, 01 May 2024 00:40:34 GMT
+- request:
+    method: get
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20OwnerId,%20Owner.Name,%20Application_Due_Date__c,%20Name,%20Status__c,%20Building__c,%20Building__r.Name,%20Min_BR__c,%20Lottery_Winners__c,%20Max_BR__c,%20Lottery_Results__c,%20Min_Income__c,%20Account__c,%20Account__r.Name,%20Max_Income__c,%20Min_Occupancy__c,%20Max_Occupancy__c,%20Building_Name__c,%20Neighborhood__c,%20Building_Street_Address__c,%20Developer__c,%20Building_City__c,%20Building_URL__c,%20Building_State__c,%20Year_Built__c,%20Building_Zip_Code__c,%20Description__c,%20Lottery_Preferences__c,%20Accessibility__c,%20Fee__c,%20Amenities__c,%20Deposit_Min__c,%20Costs_Not_Included__c,%20Deposit_Max__c,%20Lottery_Date__c,%20Lottery_Results_Date__c,%20Lottery_Venue__c,%20Lottery_Summary__c,%20Lottery_Street_Address__c,%20Lottery_City__c,%20Lottery_URL__c,%20Reserved_community_type__c,%20Application_Phone__c,%20Application_Organization__c,%20Application_Street_Address__c,%20Application_City__c,%20Download_URL__c,%20Application_State__c,%20Application_Postal_Code__c,%20In_Lottery__c,%20Leasing_Agent_Name__c,%20Leasing_Agent_Title__c,%20Leasing_Agent_Email__c,%20Leasing_Agent_Phone__c,%20Legal_Disclaimers__c,%20Building_Selection_Criteria__c,%20Pet_Policy__c,%20Report_id__c,%20Required_Documents__c,%20Smoking_Policy__c,%20Eviction_History__c,%20Criminal_History__c,%20Credit_Rating__c,%20Lottery_Status__c,%20Office_Hours__c,%20Tenure__c,%20Listing_Type__c,%0A%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Date__c,%20Start_Time__c,%20End_Time__c,%20Venue__c,%20Street_Address__c,%20City__c%20FROM%20Information_Sessions__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Date__c,%20Start_Time__c,%20End_Time__c%20FROM%20Open_Houses__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Id,%20Total_Submitted_Apps__c,%20Order__c,%20Description__c,%20Available_Units__c,%20PDF_URL__c,%20Lottery_Preference__r.Id,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Lottery_Preference__r.Name%20FROM%20Listing_Lottery_Preferences__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Unit_Type__c,%20BMR_Rent_Monthly__c,%20BMR_Rental_Minimum_Monthly_Income_Needed__c,%20Status__c,%20Property_Type__c,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20AMI_chart_type__c,%20AMI_chart_year__c,%20Max_AMI_for_Qualifying_Unit__c,%20Reserved_Type__c%20FROM%20Units__r%20ORDER%20BY%20Unit_Type__c)%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20FROM%20Listing__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id=%27a0W8H000001iEAMUA2%27%0A%20%20%20%20%20%20%20%20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 01 May 2024 00:40:35 GMT
+      Set-Cookie:
+      - BrowserId=bFxovQdTEe-EiqkvWjl96A; domain=.salesforce.com; path=/; expires=Thu,
+        01-May-2025 00:40:35 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Thu, 01-May-2025 00:40:35 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 01-May-2025 00:40:35
+        GMT; Max-Age=31536000; secure
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Sforce-Limit-Info:
+      - api-usage=11330/930000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W8H000001iEAMUA2"},"Id":"a0W8H000001iEAMUA2","OwnerId":"005U0000002DL0EIAW","Owner":{"attributes":{"type":"Name","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/005U0000002DL0EIAW"},"Name":"Michael
+        Solomon"},"Application_Due_Date__c":"2023-12-31T20:00:00.000+0000","Name":"First
+        Come First Serve Apps Placeholder","Status__c":"Lease Up","Building__c":"a0a0P00000HPMJdQAP","Building__r":{"attributes":{"type":"Building__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Building__c/a0a0P00000HPMJdQAP"},"Name":"PR-021026"},"Min_BR__c":null,"Lottery_Winners__c":0.0,"Max_BR__c":null,"Lottery_Results__c":true,"Min_Income__c":null,"Account__c":null,"Account__r":null,"Max_Income__c":null,"Min_Occupancy__c":null,"Max_Occupancy__c":null,"Building_Name__c":"Test
+        Yellow Acres","Neighborhood__c":"Castro/Upper Market","Building_Street_Address__c":"1
+        South Van Ness Ave","Developer__c":null,"Building_City__c":"San Francisco","Building_URL__c":null,"Building_State__c":"CA","Year_Built__c":2018.0,"Building_Zip_Code__c":"94103","Description__c":null,"Lottery_Preferences__c":null,"Accessibility__c":null,"Fee__c":null,"Amenities__c":null,"Deposit_Min__c":0.0,"Costs_Not_Included__c":null,"Deposit_Max__c":null,"Lottery_Date__c":null,"Lottery_Results_Date__c":null,"Lottery_Venue__c":null,"Lottery_Summary__c":null,"Lottery_Street_Address__c":null,"Lottery_City__c":"San
+        Francisco","Lottery_URL__c":null,"Reserved_community_type__c":null,"Application_Phone__c":null,"Application_Organization__c":null,"Application_Street_Address__c":null,"Application_City__c":null,"Download_URL__c":null,"Application_State__c":"CA","Application_Postal_Code__c":null,"In_Lottery__c":8.0,"Leasing_Agent_Name__c":"Michael
+        Solomonla","Leasing_Agent_Title__c":"PhD","Leasing_Agent_Email__c":"michael.solomon@sfgov.org","Leasing_Agent_Phone__c":"001-018-201-7888x771","Legal_Disclaimers__c":null,"Building_Selection_Criteria__c":null,"Pet_Policy__c":null,"Report_id__c":null,"Required_Documents__c":null,"Smoking_Policy__c":null,"Eviction_History__c":null,"Criminal_History__c":null,"Credit_Rating__c":null,"Lottery_Status__c":"Lottery
+        Complete","Office_Hours__c":null,"Tenure__c":"New rental","Listing_Type__c":"First
+        Come, First Served","Information_Sessions__r":null,"Open_Houses__r":null,"Listing_Lottery_Preferences__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l8H0000016mhcQAA"},"Id":"a0l8H0000016mhcQAA","Total_Submitted_Apps__c":0.0,"Order__c":1.0,"Description__c":null,"Available_Units__c":null,"PDF_URL__c":null,"Lottery_Preference__r":{"attributes":{"type":"Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lottery_Preference__c/a0m8H000001YXd2QAG"},"Id":"a0m8H000001YXd2QAG","Name":"Placeholder
+        Preference"}}]},"Units__r":null}]}'
+  recorded_at: Wed, 01 May 2024 00:40:35 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 01 May 2024 00:40:35 GMT
+      Set-Cookie:
+      - BrowserId=bKz5wQdTEe-Ws5v_qFgPKg; domain=.salesforce.com; path=/; expires=Thu,
+        01-May-2025 00:40:35 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Thu, 01-May-2025 00:40:35 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 01-May-2025 00:40:35
+        GMT; Max-Age=31536000; secure
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D8H0000004dNlUAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1714524035986","signature":"/IdEx5IrLXjjzvXth2ifBVuRvE41Kv3HOxTWzFqGOfg="}'
+  recorded_at: Wed, 01 May 2024 00:40:35 GMT
+- request:
+    method: get
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Name,%20Applicant__c,%20Primary_Applicant__c,%20Alternate_Contact__c,%20Listing__c,%20Listing__r.Name,%20Listing__r.Id,%20Status__c,%20Listing__r.Reserved_community_type__c,%20Total_Household_Size__c,%20Application_Submission_Type__c,%20Application_Submitted_Date__c,%20CreatedBy.Name,%20Annual_Income__c,%20Confirmed_Household_Annual_Income__c,%20Household_Assets__c,%20HH_Total_Income_with_Assets_Annual__c,%20Imputed_Income_from_Assets__c,%20Monthly_Income__c,%20Housing_Voucher_or_Subsidy__c,%20Referral_Source__c,%20Application_Language__c,%20Lottery_Number_Manual__c,%20Lottery_Number__c,%20Total_Monthly_Rent__c,%20General_Lottery__c,%20General_Lottery_Rank__c,%20Answered_Community_Screening__c,%20Has_Military_Service__c,%20Reserved_Senior__c,%20Has_DevelopmentalDisability__c,%20Has_ADA_Priorities_Selected__c,%20Terms_Acknowledged__c,%20Applicant__r.Id,%20Applicant__r.First_Name__c,%20Applicant__r.Last_Name__c,%20Applicant__r.Middle_Name__c,%20Applicant__r.Name__c,%20Applicant__r.Date_of_Birth__c,%20Applicant__r.Phone_Type__c,%20Applicant__r.Phone__c,%20Applicant__r.Second_Phone_Type__c,%20Applicant__r.Second_Phone__c,%20Applicant__r.Email__c,%20Applicant__r.Primary_Language__c,%20Applicant__r.Residence_Address__c,%20Applicant__r.Street__c,%20Applicant__r.City__c,%20Applicant__r.State__c,%20Applicant__r.Zip_Code__c,%20Applicant__r.Mailing_Address__c,%20Applicant__r.Mailing_Street__c,%20Applicant__r.Mailing_City__c,%20Applicant__r.Mailing_State__c,%20Applicant__r.Mailing_Zip_Code__c,%20Applicant__r.Marital_Status__c,%20Applicant__r.Ethnicity__c,%20Applicant__r.Race__c,%20Applicant__r.Gender__c,%20Applicant__r.Gender_Other__c,%20Applicant__r.Sexual_Orientation__c,%20Applicant__r.Sexual_Orientation_Other__c,%20Alternate_Contact__r.Id,%20Alternate_Contact__r.First_Name__c,%20Alternate_Contact__r.Middle_Name__c,%20Alternate_Contact__r.Last_Name__c,%20Alternate_Contact__r.Phone_Type__c,%20Alternate_Contact__r.Phone__c,%20Alternate_Contact__r.Email__c,%20Alternate_Contact__r.Agency_Name__c,%20Alternate_Contact__r.Alternate_Contact_Type__c,%20Alternate_Contact__r.Alternate_Contact_Type_Other__c,%20Number_of_Dependents__c,%20Number_of_Seniors__c,%20Number_of_Minors__c,%20Alternate_Contact__r.Residence_Address__c,%20Alternate_Contact__r.Street__c,%20Alternate_Contact__r.City__c,%20Alternate_Contact__r.State__c,%20Alternate_Contact__r.Zip_Code__c,%20Alternate_Contact__r.Mailing_Address__c,%20Alternate_Contact__r.Mailing_Street__c,%20Alternate_Contact__r.Mailing_City__c,%20Alternate_Contact__r.Mailing_State__c,%20Alternate_Contact__r.Mailing_Zip_Code__c,%20Alternate_Contact__r.Marital_Status__c,%20Processing_Status__c,%20Is_First_Time_Homebuyer__c,%20Has_Completed_Homebuyer_Education__c,%20Has_Loan_Pre_approval__c,%20Lending_Agent__c,%20AMI_Percentage__c,%20AMI_Chart_Type__c,%20AMI_Chart_Year__c,%20Supp_App_Signed_Date__c,%20Sub_Status__c,%20Processing_Date_Updated__c%20FROM%20Application__c%20WHERE%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Listing__r.ID%20=%20%27a0W8H000001iEAM%27%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20LIMIT%2010000%20OFFSET%200
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 01 May 2024 00:40:36 GMT
+      Set-Cookie:
+      - BrowserId=bPaFrQdTEe-_jGmXtSnDqg; domain=.salesforce.com; path=/; expires=Thu,
+        01-May-2025 00:40:36 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Thu, 01-May-2025 00:40:36 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 01-May-2025 00:40:36
+        GMT; Max-Age=31536000; secure
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Sforce-Limit-Info:
+      - api-usage=11330/930000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":8,"done":true,"records":[{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o8H000002EJquQAG"},"Id":"a0o8H000002EJquQAG","Name":"APP-01271139","Applicant__c":"a0n8H000001cwDzQAI","Primary_Applicant__c":"0038H00000PGv63QAD","Alternate_Contact__c":null,"Listing__c":"a0W8H000001iEAMUA2","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W8H000001iEAMUA2"},"Name":"First
+        Come First Serve Apps Placeholder","Id":"a0W8H000001iEAMUA2","Reserved_community_type__c":null},"Status__c":"Submitted","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Paper","Application_Submitted_Date__c":"2024-04-26","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/005U0000002DL0EIAW"},"Name":"Michael
+        Solomon"},"Annual_Income__c":null,"Confirmed_Household_Annual_Income__c":null,"Household_Assets__c":null,"HH_Total_Income_with_Assets_Annual__c":null,"Imputed_Income_from_Assets__c":null,"Monthly_Income__c":null,"Housing_Voucher_or_Subsidy__c":null,"Referral_Source__c":null,"Application_Language__c":"English","Lottery_Number_Manual__c":null,"Lottery_Number__c":"01271139","Total_Monthly_Rent__c":null,"General_Lottery__c":true,"General_Lottery_Rank__c":7.0,"Answered_Community_Screening__c":null,"Has_Military_Service__c":null,"Reserved_Senior__c":null,"Has_DevelopmentalDisability__c":null,"Has_ADA_Priorities_Selected__c":null,"Terms_Acknowledged__c":true,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n8H000001cwDzQAI"},"Id":"a0n8H000001cwDzQAI","First_Name__c":"Tom","Last_Name__c":"Atoss","Middle_Name__c":null,"Name__c":"Tom
+        Atoss","Date_of_Birth__c":"1955-06-01","Phone_Type__c":null,"Phone__c":"415-555-2222","Second_Phone_Type__c":null,"Second_Phone__c":null,"Email__c":"michael.solomon@sfgov.org","Primary_Language__c":null,"Residence_Address__c":"1
+        South Van Ness Ave, San Francisco, CA, 99887","Street__c":"1 South Van Ness
+        Ave","City__c":"San Francisco","State__c":"CA","Zip_Code__c":"99887","Mailing_Address__c":"1
+        South Van Ness Ave, San Francisco, CA, 99556","Mailing_Street__c":"1 South
+        Van Ness Ave","Mailing_City__c":"San Francisco","Mailing_State__c":"CA","Mailing_Zip_Code__c":"99556","Marital_Status__c":null,"Ethnicity__c":null,"Race__c":null,"Gender__c":null,"Gender_Other__c":null,"Sexual_Orientation__c":null,"Sexual_Orientation_Other__c":null},"Alternate_Contact__r":null,"Number_of_Dependents__c":null,"Number_of_Seniors__c":null,"Number_of_Minors__c":null,"Processing_Status__c":"Processing","Is_First_Time_Homebuyer__c":false,"Has_Completed_Homebuyer_Education__c":false,"Has_Loan_Pre_approval__c":false,"Lending_Agent__c":null,"AMI_Percentage__c":null,"AMI_Chart_Type__c":null,"AMI_Chart_Year__c":null,"Supp_App_Signed_Date__c":null,"Sub_Status__c":null,"Processing_Date_Updated__c":"2024-04-30T17:44:42.000+0000"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o8H000002EKHiQAO"},"Id":"a0o8H000002EKHiQAO","Name":"APP-01271840","Applicant__c":"a0n8H000001cwXaQAI","Primary_Applicant__c":"0038H00000PLvpcQAD","Alternate_Contact__c":null,"Listing__c":"a0W8H000001iEAMUA2","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W8H000001iEAMUA2"},"Name":"First
+        Come First Serve Apps Placeholder","Id":"a0W8H000001iEAMUA2","Reserved_community_type__c":null},"Status__c":"Submitted","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Paper","Application_Submitted_Date__c":"2024-04-26","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/005U0000002DL0EIAW"},"Name":"Michael
+        Solomon"},"Annual_Income__c":null,"Confirmed_Household_Annual_Income__c":null,"Household_Assets__c":null,"HH_Total_Income_with_Assets_Annual__c":null,"Imputed_Income_from_Assets__c":null,"Monthly_Income__c":null,"Housing_Voucher_or_Subsidy__c":null,"Referral_Source__c":null,"Application_Language__c":"English","Lottery_Number_Manual__c":null,"Lottery_Number__c":"01271840","Total_Monthly_Rent__c":null,"General_Lottery__c":true,"General_Lottery_Rank__c":2.0,"Answered_Community_Screening__c":null,"Has_Military_Service__c":null,"Reserved_Senior__c":null,"Has_DevelopmentalDisability__c":null,"Has_ADA_Priorities_Selected__c":null,"Terms_Acknowledged__c":true,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n8H000001cwXaQAI"},"Id":"a0n8H000001cwXaQAI","First_Name__c":"Pete","Last_Name__c":"Zapai","Middle_Name__c":null,"Name__c":"Pete
+        Zapai","Date_of_Birth__c":"1975-06-08","Phone_Type__c":null,"Phone__c":"415-555-5555","Second_Phone_Type__c":null,"Second_Phone__c":null,"Email__c":"michael.solomon@sfgov.org","Primary_Language__c":null,"Residence_Address__c":"ttt,
+        sf, ca, 99999","Street__c":"ttt","City__c":"sf","State__c":"ca","Zip_Code__c":"99999","Mailing_Address__c":"ddd,
+        sf, ca, 88888","Mailing_Street__c":"ddd","Mailing_City__c":"sf","Mailing_State__c":"ca","Mailing_Zip_Code__c":"88888","Marital_Status__c":null,"Ethnicity__c":null,"Race__c":null,"Gender__c":null,"Gender_Other__c":null,"Sexual_Orientation__c":null,"Sexual_Orientation_Other__c":null},"Alternate_Contact__r":null,"Number_of_Dependents__c":null,"Number_of_Seniors__c":null,"Number_of_Minors__c":null,"Processing_Status__c":"Processing","Is_First_Time_Homebuyer__c":false,"Has_Completed_Homebuyer_Education__c":false,"Has_Loan_Pre_approval__c":false,"Lending_Agent__c":null,"AMI_Percentage__c":null,"AMI_Chart_Type__c":null,"AMI_Chart_Year__c":null,"Supp_App_Signed_Date__c":null,"Sub_Status__c":null,"Processing_Date_Updated__c":"2024-04-30T21:55:21.000+0000"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o8H000002EKxnQAG"},"Id":"a0o8H000002EKxnQAG","Name":"APP-01273109","Applicant__c":"a0n8H000001cx7xQAA","Primary_Applicant__c":"0038H00000PNqUtQAL","Alternate_Contact__c":null,"Listing__c":"a0W8H000001iEAMUA2","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W8H000001iEAMUA2"},"Name":"First
+        Come First Serve Apps Placeholder","Id":"a0W8H000001iEAMUA2","Reserved_community_type__c":null},"Status__c":"Submitted","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Paper","Application_Submitted_Date__c":"2024-04-26","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/005U0000002DL0EIAW"},"Name":"Michael
+        Solomon"},"Annual_Income__c":null,"Confirmed_Household_Annual_Income__c":null,"Household_Assets__c":null,"HH_Total_Income_with_Assets_Annual__c":null,"Imputed_Income_from_Assets__c":null,"Monthly_Income__c":null,"Housing_Voucher_or_Subsidy__c":null,"Referral_Source__c":null,"Application_Language__c":"English","Lottery_Number_Manual__c":null,"Lottery_Number__c":"01273109","Total_Monthly_Rent__c":null,"General_Lottery__c":true,"General_Lottery_Rank__c":8.0,"Answered_Community_Screening__c":null,"Has_Military_Service__c":null,"Reserved_Senior__c":null,"Has_DevelopmentalDisability__c":null,"Has_ADA_Priorities_Selected__c":null,"Terms_Acknowledged__c":true,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n8H000001cx7xQAA"},"Id":"a0n8H000001cx7xQAA","First_Name__c":"Pete","Last_Name__c":"Zapai","Middle_Name__c":null,"Name__c":"Pete
+        Zapai","Date_of_Birth__c":"1980-06-09","Phone_Type__c":null,"Phone__c":"415-555-5555","Second_Phone_Type__c":null,"Second_Phone__c":null,"Email__c":"michael.solomon@sfgov.org","Primary_Language__c":null,"Residence_Address__c":"22
+        Rez St, San Francisco, CA, 99999","Street__c":"22 Rez St","City__c":"San Francisco","State__c":"CA","Zip_Code__c":"99999","Mailing_Address__c":"55
+        Mail Lane, San Francisco, CA, 99998","Mailing_Street__c":"55 Mail Lane","Mailing_City__c":"San
+        Francisco","Mailing_State__c":"CA","Mailing_Zip_Code__c":"99998","Marital_Status__c":null,"Ethnicity__c":null,"Race__c":null,"Gender__c":null,"Gender_Other__c":null,"Sexual_Orientation__c":null,"Sexual_Orientation_Other__c":null},"Alternate_Contact__r":null,"Number_of_Dependents__c":null,"Number_of_Seniors__c":null,"Number_of_Minors__c":null,"Processing_Status__c":"Processing","Is_First_Time_Homebuyer__c":false,"Has_Completed_Homebuyer_Education__c":false,"Has_Loan_Pre_approval__c":false,"Lending_Agent__c":null,"AMI_Percentage__c":null,"AMI_Chart_Type__c":null,"AMI_Chart_Year__c":null,"Supp_App_Signed_Date__c":null,"Sub_Status__c":null,"Processing_Date_Updated__c":"2024-04-30T21:55:21.000+0000"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o8H000002EKxsQAG"},"Id":"a0o8H000002EKxsQAG","Name":"APP-01273110","Applicant__c":"a0n8H000001cx82QAA","Primary_Applicant__c":"0038H00000PNqx3QAD","Alternate_Contact__c":null,"Listing__c":"a0W8H000001iEAMUA2","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W8H000001iEAMUA2"},"Name":"First
+        Come First Serve Apps Placeholder","Id":"a0W8H000001iEAMUA2","Reserved_community_type__c":null},"Status__c":"Submitted","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Paper","Application_Submitted_Date__c":"2024-04-26","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/005U0000002DL0EIAW"},"Name":"Michael
+        Solomon"},"Annual_Income__c":null,"Confirmed_Household_Annual_Income__c":null,"Household_Assets__c":null,"HH_Total_Income_with_Assets_Annual__c":null,"Imputed_Income_from_Assets__c":null,"Monthly_Income__c":null,"Housing_Voucher_or_Subsidy__c":null,"Referral_Source__c":null,"Application_Language__c":"English","Lottery_Number_Manual__c":null,"Lottery_Number__c":"01273110","Total_Monthly_Rent__c":null,"General_Lottery__c":true,"General_Lottery_Rank__c":4.0,"Answered_Community_Screening__c":null,"Has_Military_Service__c":null,"Reserved_Senior__c":null,"Has_DevelopmentalDisability__c":null,"Has_ADA_Priorities_Selected__c":null,"Terms_Acknowledged__c":true,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n8H000001cx82QAA"},"Id":"a0n8H000001cx82QAA","First_Name__c":"Anne","Last_Name__c":"Chovees","Middle_Name__c":null,"Name__c":"Anne
+        Chovees","Date_of_Birth__c":"1977-07-08","Phone_Type__c":null,"Phone__c":"415-555-5555","Second_Phone_Type__c":null,"Second_Phone__c":null,"Email__c":"michael.solomon@sfgov.org","Primary_Language__c":null,"Residence_Address__c":"aaa,
+        sf, ca, 99998","Street__c":"aaa","City__c":"sf","State__c":"ca","Zip_Code__c":"99998","Mailing_Address__c":"bbb,
+        sf, ca, 99997","Mailing_Street__c":"bbb","Mailing_City__c":"sf","Mailing_State__c":"ca","Mailing_Zip_Code__c":"99997","Marital_Status__c":null,"Ethnicity__c":null,"Race__c":null,"Gender__c":null,"Gender_Other__c":null,"Sexual_Orientation__c":null,"Sexual_Orientation_Other__c":null},"Alternate_Contact__r":null,"Number_of_Dependents__c":null,"Number_of_Seniors__c":null,"Number_of_Minors__c":null,"Processing_Status__c":null,"Is_First_Time_Homebuyer__c":false,"Has_Completed_Homebuyer_Education__c":false,"Has_Loan_Pre_approval__c":false,"Lending_Agent__c":null,"AMI_Percentage__c":null,"AMI_Chart_Type__c":null,"AMI_Chart_Year__c":null,"Supp_App_Signed_Date__c":null,"Sub_Status__c":null,"Processing_Date_Updated__c":null},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o8H000002EKxxQAG"},"Id":"a0o8H000002EKxxQAG","Name":"APP-01273111","Applicant__c":"a0n8H000001cx87QAA","Primary_Applicant__c":"0038H00000PNrHKQA1","Alternate_Contact__c":null,"Listing__c":"a0W8H000001iEAMUA2","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W8H000001iEAMUA2"},"Name":"First
+        Come First Serve Apps Placeholder","Id":"a0W8H000001iEAMUA2","Reserved_community_type__c":null},"Status__c":"Submitted","Total_Household_Size__c":2.0,"Application_Submission_Type__c":"Paper","Application_Submitted_Date__c":"2024-04-26","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/005U0000002DL0EIAW"},"Name":"Michael
+        Solomon"},"Annual_Income__c":null,"Confirmed_Household_Annual_Income__c":null,"Household_Assets__c":null,"HH_Total_Income_with_Assets_Annual__c":null,"Imputed_Income_from_Assets__c":null,"Monthly_Income__c":null,"Housing_Voucher_or_Subsidy__c":null,"Referral_Source__c":null,"Application_Language__c":"English","Lottery_Number_Manual__c":null,"Lottery_Number__c":"01273111","Total_Monthly_Rent__c":null,"General_Lottery__c":true,"General_Lottery_Rank__c":6.0,"Answered_Community_Screening__c":null,"Has_Military_Service__c":null,"Reserved_Senior__c":null,"Has_DevelopmentalDisability__c":null,"Has_ADA_Priorities_Selected__c":null,"Terms_Acknowledged__c":true,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n8H000001cx87QAA"},"Id":"a0n8H000001cx87QAA","First_Name__c":"Tom","Last_Name__c":"Atoss","Middle_Name__c":null,"Name__c":"Tom
+        Atoss","Date_of_Birth__c":"1990-07-07","Phone_Type__c":null,"Phone__c":"415-555-1212","Second_Phone_Type__c":null,"Second_Phone__c":null,"Email__c":"houzi8biz@yahoo.com","Primary_Language__c":null,"Residence_Address__c":"rrr,
+        sf, ca, 99998","Street__c":"rrr","City__c":"sf","State__c":"ca","Zip_Code__c":"99998","Mailing_Address__c":"mmm,
+        sf, ca, 99997","Mailing_Street__c":"mmm","Mailing_City__c":"sf","Mailing_State__c":"ca","Mailing_Zip_Code__c":"99997","Marital_Status__c":null,"Ethnicity__c":"Not
+        Hispanic/Latino","Race__c":"Asian","Gender__c":"Male","Gender_Other__c":null,"Sexual_Orientation__c":"Gay/Lesbian/Same-Gender
+        Loving","Sexual_Orientation_Other__c":null},"Alternate_Contact__r":null,"Number_of_Dependents__c":null,"Number_of_Seniors__c":null,"Number_of_Minors__c":null,"Processing_Status__c":null,"Is_First_Time_Homebuyer__c":false,"Has_Completed_Homebuyer_Education__c":false,"Has_Loan_Pre_approval__c":false,"Lending_Agent__c":null,"AMI_Percentage__c":null,"AMI_Chart_Type__c":null,"AMI_Chart_Year__c":null,"Supp_App_Signed_Date__c":null,"Sub_Status__c":null,"Processing_Date_Updated__c":null},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o8H000002ELJEQA4"},"Id":"a0o8H000002ELJEQA4","Name":"APP-01273552","Applicant__c":"a0n8H000001cxYtQAI","Primary_Applicant__c":"0038H00000POXi1QAH","Alternate_Contact__c":null,"Listing__c":"a0W8H000001iEAMUA2","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W8H000001iEAMUA2"},"Name":"First
+        Come First Serve Apps Placeholder","Id":"a0W8H000001iEAMUA2","Reserved_community_type__c":null},"Status__c":"Submitted","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Paper","Application_Submitted_Date__c":"2024-04-26","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/005U0000002DL0EIAW"},"Name":"Michael
+        Solomon"},"Annual_Income__c":null,"Confirmed_Household_Annual_Income__c":null,"Household_Assets__c":null,"HH_Total_Income_with_Assets_Annual__c":null,"Imputed_Income_from_Assets__c":null,"Monthly_Income__c":null,"Housing_Voucher_or_Subsidy__c":null,"Referral_Source__c":null,"Application_Language__c":"English","Lottery_Number_Manual__c":null,"Lottery_Number__c":"01273552","Total_Monthly_Rent__c":null,"General_Lottery__c":true,"General_Lottery_Rank__c":3.0,"Answered_Community_Screening__c":null,"Has_Military_Service__c":null,"Reserved_Senior__c":null,"Has_DevelopmentalDisability__c":null,"Has_ADA_Priorities_Selected__c":null,"Terms_Acknowledged__c":true,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n8H000001cxYtQAI"},"Id":"a0n8H000001cxYtQAI","First_Name__c":"Paul","Last_Name__c":"Aroppe","Middle_Name__c":null,"Name__c":"Paul
+        Aroppe","Date_of_Birth__c":"1960-01-01","Phone_Type__c":null,"Phone__c":"415-555-5252","Second_Phone_Type__c":null,"Second_Phone__c":null,"Email__c":"michael.solomon@sfgov.org","Primary_Language__c":null,"Residence_Address__c":"res,
+        sf, ca, 99999","Street__c":"res","City__c":"sf","State__c":"ca","Zip_Code__c":"99999","Mailing_Address__c":"mail,
+        sf, ca, 99998","Mailing_Street__c":"mail","Mailing_City__c":"sf","Mailing_State__c":"ca","Mailing_Zip_Code__c":"99998","Marital_Status__c":null,"Ethnicity__c":null,"Race__c":null,"Gender__c":null,"Gender_Other__c":null,"Sexual_Orientation__c":null,"Sexual_Orientation_Other__c":null},"Alternate_Contact__r":null,"Number_of_Dependents__c":null,"Number_of_Seniors__c":null,"Number_of_Minors__c":null,"Processing_Status__c":null,"Is_First_Time_Homebuyer__c":false,"Has_Completed_Homebuyer_Education__c":false,"Has_Loan_Pre_approval__c":false,"Lending_Agent__c":null,"AMI_Percentage__c":null,"AMI_Chart_Type__c":null,"AMI_Chart_Year__c":null,"Supp_App_Signed_Date__c":null,"Sub_Status__c":null,"Processing_Date_Updated__c":null},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o8H000002ELJkQAO"},"Id":"a0o8H000002ELJkQAO","Name":"APP-01273553","Applicant__c":"a0n8H000001cxYyQAI","Primary_Applicant__c":"0038H00000POXjGQAX","Alternate_Contact__c":null,"Listing__c":"a0W8H000001iEAMUA2","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W8H000001iEAMUA2"},"Name":"First
+        Come First Serve Apps Placeholder","Id":"a0W8H000001iEAMUA2","Reserved_community_type__c":null},"Status__c":"Submitted","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Paper","Application_Submitted_Date__c":"2024-04-26","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/005U0000002DL0EIAW"},"Name":"Michael
+        Solomon"},"Annual_Income__c":null,"Confirmed_Household_Annual_Income__c":null,"Household_Assets__c":null,"HH_Total_Income_with_Assets_Annual__c":null,"Imputed_Income_from_Assets__c":null,"Monthly_Income__c":null,"Housing_Voucher_or_Subsidy__c":null,"Referral_Source__c":null,"Application_Language__c":"English","Lottery_Number_Manual__c":null,"Lottery_Number__c":"01273553","Total_Monthly_Rent__c":null,"General_Lottery__c":true,"General_Lottery_Rank__c":1.0,"Answered_Community_Screening__c":null,"Has_Military_Service__c":null,"Reserved_Senior__c":null,"Has_DevelopmentalDisability__c":null,"Has_ADA_Priorities_Selected__c":null,"Terms_Acknowledged__c":true,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n8H000001cxYyQAI"},"Id":"a0n8H000001cxYyQAI","First_Name__c":"Karen","Last_Name__c":"Alott","Middle_Name__c":null,"Name__c":"Karen
+        Alott","Date_of_Birth__c":"1966-05-05","Phone_Type__c":null,"Phone__c":"415-555-5555","Second_Phone_Type__c":null,"Second_Phone__c":null,"Email__c":"michael.solomon@sfgov.org","Primary_Language__c":null,"Residence_Address__c":"rrr,
+        sf, ca, 99999","Street__c":"rrr","City__c":"sf","State__c":"ca","Zip_Code__c":"99999","Mailing_Address__c":"mmm,
+        sf, ca, 99998","Mailing_Street__c":"mmm","Mailing_City__c":"sf","Mailing_State__c":"ca","Mailing_Zip_Code__c":"99998","Marital_Status__c":null,"Ethnicity__c":null,"Race__c":null,"Gender__c":null,"Gender_Other__c":null,"Sexual_Orientation__c":null,"Sexual_Orientation_Other__c":null},"Alternate_Contact__r":null,"Number_of_Dependents__c":null,"Number_of_Seniors__c":null,"Number_of_Minors__c":null,"Processing_Status__c":null,"Is_First_Time_Homebuyer__c":false,"Has_Completed_Homebuyer_Education__c":false,"Has_Loan_Pre_approval__c":false,"Lending_Agent__c":null,"AMI_Percentage__c":null,"AMI_Chart_Type__c":null,"AMI_Chart_Year__c":null,"Supp_App_Signed_Date__c":null,"Sub_Status__c":null,"Processing_Date_Updated__c":null},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o8H000002ELJpQAO"},"Id":"a0o8H000002ELJpQAO","Name":"APP-01273554","Applicant__c":"a0n8H000001cxZ3QAI","Primary_Applicant__c":"0038H00000POXfeQAH","Alternate_Contact__c":null,"Listing__c":"a0W8H000001iEAMUA2","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W8H000001iEAMUA2"},"Name":"First
+        Come First Serve Apps Placeholder","Id":"a0W8H000001iEAMUA2","Reserved_community_type__c":null},"Status__c":"Submitted","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Paper","Application_Submitted_Date__c":"2024-04-26","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/005U0000002DL0EIAW"},"Name":"Michael
+        Solomon"},"Annual_Income__c":null,"Confirmed_Household_Annual_Income__c":null,"Household_Assets__c":null,"HH_Total_Income_with_Assets_Annual__c":null,"Imputed_Income_from_Assets__c":null,"Monthly_Income__c":null,"Housing_Voucher_or_Subsidy__c":null,"Referral_Source__c":null,"Application_Language__c":"English","Lottery_Number_Manual__c":null,"Lottery_Number__c":"01273554","Total_Monthly_Rent__c":null,"General_Lottery__c":true,"General_Lottery_Rank__c":5.0,"Answered_Community_Screening__c":null,"Has_Military_Service__c":null,"Reserved_Senior__c":null,"Has_DevelopmentalDisability__c":null,"Has_ADA_Priorities_Selected__c":null,"Terms_Acknowledged__c":true,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n8H000001cxZ3QAI"},"Id":"a0n8H000001cxZ3QAI","First_Name__c":"Prim","Last_Name__c":"Ary","Middle_Name__c":null,"Name__c":"Prim
+        Ary","Date_of_Birth__c":"1990-09-09","Phone_Type__c":null,"Phone__c":"415-555-1111","Second_Phone_Type__c":null,"Second_Phone__c":null,"Email__c":"michael.solomon@sfgov.org","Primary_Language__c":null,"Residence_Address__c":"rrr,
+        sf, ca, 99999","Street__c":"rrr","City__c":"sf","State__c":"ca","Zip_Code__c":"99999","Mailing_Address__c":"mmm,
+        sf, ca, 99998","Mailing_Street__c":"mmm","Mailing_City__c":"sf","Mailing_State__c":"ca","Mailing_Zip_Code__c":"99998","Marital_Status__c":null,"Ethnicity__c":null,"Race__c":null,"Gender__c":null,"Gender_Other__c":null,"Sexual_Orientation__c":null,"Sexual_Orientation_Other__c":null},"Alternate_Contact__r":null,"Number_of_Dependents__c":null,"Number_of_Seniors__c":null,"Number_of_Minors__c":null,"Processing_Status__c":null,"Is_First_Time_Homebuyer__c":false,"Has_Completed_Homebuyer_Education__c":false,"Has_Loan_Pre_approval__c":false,"Lending_Agent__c":null,"AMI_Percentage__c":null,"AMI_Chart_Type__c":null,"AMI_Chart_Year__c":null,"Supp_App_Signed_Date__c":null,"Sub_Status__c":null,"Processing_Date_Updated__c":null}]}'
+  recorded_at: Wed, 01 May 2024 00:40:36 GMT
+- request:
+    method: get
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Application__c%20WHERE%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Listing__r.ID%20=%20%27a0W8H000001iEAM%27%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 01 May 2024 00:40:36 GMT
+      Set-Cookie:
+      - BrowserId=bTvMSgdTEe-EiqkvWjl96A; domain=.salesforce.com; path=/; expires=Thu,
+        01-May-2025 00:40:36 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Thu, 01-May-2025 00:40:36 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 01-May-2025 00:40:36
+        GMT; Max-Age=31536000; secure
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Sforce-Limit-Info:
+      - api-usage=11331/930000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":8,"done":true,"records":[]}'
+  recorded_at: Wed, 01 May 2024 00:40:36 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 01 May 2024 00:40:37 GMT
+      Set-Cookie:
+      - BrowserId=bXpbwwdTEe-LjIs-s2AJOQ; domain=.salesforce.com; path=/; expires=Thu,
+        01-May-2025 00:40:37 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Thu, 01-May-2025 00:40:37 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 01-May-2025 00:40:37
+        GMT; Max-Age=31536000; secure
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D8H0000004dNlUAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1714524037314","signature":"+yIJ2N/5wsa02K48ybYhe3J6QUdqsF1txlRKfchKGTU="}'
+  recorded_at: Wed, 01 May 2024 00:40:37 GMT
+- request:
+    method: get
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20OwnerId,%20Owner.Name,%20Application_Due_Date__c,%20Name,%20Status__c,%20Building__c,%20Building__r.Name,%20Min_BR__c,%20Lottery_Winners__c,%20Max_BR__c,%20Lottery_Results__c,%20Min_Income__c,%20Account__c,%20Account__r.Name,%20Max_Income__c,%20Min_Occupancy__c,%20Max_Occupancy__c,%20Building_Name__c,%20Neighborhood__c,%20Building_Street_Address__c,%20Developer__c,%20Building_City__c,%20Building_URL__c,%20Building_State__c,%20Year_Built__c,%20Building_Zip_Code__c,%20Description__c,%20Lottery_Preferences__c,%20Accessibility__c,%20Fee__c,%20Amenities__c,%20Deposit_Min__c,%20Costs_Not_Included__c,%20Deposit_Max__c,%20Lottery_Date__c,%20Lottery_Results_Date__c,%20Lottery_Venue__c,%20Lottery_Summary__c,%20Lottery_Street_Address__c,%20Lottery_City__c,%20Lottery_URL__c,%20Reserved_community_type__c,%20Application_Phone__c,%20Application_Organization__c,%20Application_Street_Address__c,%20Application_City__c,%20Download_URL__c,%20Application_State__c,%20Application_Postal_Code__c,%20In_Lottery__c,%20Leasing_Agent_Name__c,%20Leasing_Agent_Title__c,%20Leasing_Agent_Email__c,%20Leasing_Agent_Phone__c,%20Legal_Disclaimers__c,%20Building_Selection_Criteria__c,%20Pet_Policy__c,%20Report_id__c,%20Required_Documents__c,%20Smoking_Policy__c,%20Eviction_History__c,%20Criminal_History__c,%20Credit_Rating__c,%20Lottery_Status__c,%20Office_Hours__c,%20Tenure__c,%20Listing_Type__c,%0A%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Date__c,%20Start_Time__c,%20End_Time__c,%20Venue__c,%20Street_Address__c,%20City__c%20FROM%20Information_Sessions__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Date__c,%20Start_Time__c,%20End_Time__c%20FROM%20Open_Houses__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Id,%20Total_Submitted_Apps__c,%20Order__c,%20Description__c,%20Available_Units__c,%20PDF_URL__c,%20Lottery_Preference__r.Id,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Lottery_Preference__r.Name%20FROM%20Listing_Lottery_Preferences__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Unit_Type__c,%20BMR_Rent_Monthly__c,%20BMR_Rental_Minimum_Monthly_Income_Needed__c,%20Status__c,%20Property_Type__c,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20AMI_chart_type__c,%20AMI_chart_year__c,%20Max_AMI_for_Qualifying_Unit__c,%20Reserved_Type__c%20FROM%20Units__r%20ORDER%20BY%20Unit_Type__c)%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20FROM%20Listing__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id=%27a0W8H000001iEAMUA2%27%0A%20%20%20%20%20%20%20%20
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 01 May 2024 00:40:37 GMT
+      Set-Cookie:
+      - BrowserId=bbs1JwdTEe-rxkOTQfPpmA; domain=.salesforce.com; path=/; expires=Thu,
+        01-May-2025 00:40:37 GMT; Max-Age=31536000
+      - CookieConsentPolicy=0:1; path=/; expires=Thu, 01-May-2025 00:40:37 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 01-May-2025 00:40:37
+        GMT; Max-Age=31536000; secure
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Sforce-Limit-Info:
+      - api-usage=11330/930000
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W8H000001iEAMUA2"},"Id":"a0W8H000001iEAMUA2","OwnerId":"005U0000002DL0EIAW","Owner":{"attributes":{"type":"Name","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/005U0000002DL0EIAW"},"Name":"Michael
+        Solomon"},"Application_Due_Date__c":"2023-12-31T20:00:00.000+0000","Name":"First
+        Come First Serve Apps Placeholder","Status__c":"Lease Up","Building__c":"a0a0P00000HPMJdQAP","Building__r":{"attributes":{"type":"Building__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Building__c/a0a0P00000HPMJdQAP"},"Name":"PR-021026"},"Min_BR__c":null,"Lottery_Winners__c":0.0,"Max_BR__c":null,"Lottery_Results__c":true,"Min_Income__c":null,"Account__c":null,"Account__r":null,"Max_Income__c":null,"Min_Occupancy__c":null,"Max_Occupancy__c":null,"Building_Name__c":"Test
+        Yellow Acres","Neighborhood__c":"Castro/Upper Market","Building_Street_Address__c":"1
+        South Van Ness Ave","Developer__c":null,"Building_City__c":"San Francisco","Building_URL__c":null,"Building_State__c":"CA","Year_Built__c":2018.0,"Building_Zip_Code__c":"94103","Description__c":null,"Lottery_Preferences__c":null,"Accessibility__c":null,"Fee__c":null,"Amenities__c":null,"Deposit_Min__c":0.0,"Costs_Not_Included__c":null,"Deposit_Max__c":null,"Lottery_Date__c":null,"Lottery_Results_Date__c":null,"Lottery_Venue__c":null,"Lottery_Summary__c":null,"Lottery_Street_Address__c":null,"Lottery_City__c":"San
+        Francisco","Lottery_URL__c":null,"Reserved_community_type__c":null,"Application_Phone__c":null,"Application_Organization__c":null,"Application_Street_Address__c":null,"Application_City__c":null,"Download_URL__c":null,"Application_State__c":"CA","Application_Postal_Code__c":null,"In_Lottery__c":8.0,"Leasing_Agent_Name__c":"Michael
+        Solomonla","Leasing_Agent_Title__c":"PhD","Leasing_Agent_Email__c":"michael.solomon@sfgov.org","Leasing_Agent_Phone__c":"001-018-201-7888x771","Legal_Disclaimers__c":null,"Building_Selection_Criteria__c":null,"Pet_Policy__c":null,"Report_id__c":null,"Required_Documents__c":null,"Smoking_Policy__c":null,"Eviction_History__c":null,"Criminal_History__c":null,"Credit_Rating__c":null,"Lottery_Status__c":"Lottery
+        Complete","Office_Hours__c":null,"Tenure__c":"New rental","Listing_Type__c":"First
+        Come, First Served","Information_Sessions__r":null,"Open_Houses__r":null,"Listing_Lottery_Preferences__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Listing_Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing_Lottery_Preference__c/a0l8H0000016mhcQAA"},"Id":"a0l8H0000016mhcQAA","Total_Submitted_Apps__c":0.0,"Order__c":1.0,"Description__c":null,"Available_Units__c":null,"PDF_URL__c":null,"Lottery_Preference__r":{"attributes":{"type":"Lottery_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lottery_Preference__c/a0m8H000001YXd2QAG"},"Id":"a0m8H000001YXd2QAG","Name":"Placeholder
+        Preference"}}]},"Units__r":null}]}'
+  recorded_at: Wed, 01 May 2024 00:40:37 GMT
+recorded_with: VCR 6.1.0

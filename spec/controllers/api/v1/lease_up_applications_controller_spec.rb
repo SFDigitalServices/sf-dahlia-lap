@@ -7,6 +7,8 @@ RSpec.describe Api::V1::LeaseUpApplicationsController, type: :controller do
   login_admin
 
   lease_up_listing = 'a0W0P00000GbyuQ' # Lease up Listing
+  # if you need to re-record the first come first served spec, you might have to recreate the listing
+  fcfs_listing =  'a0W8H000001iEAMUA2' # First Come First Served listing in lease up
 
   describe '#index' do
     it 'returns only applications with preferences where preference_all_name and preference_all_lottery_rank exist' do
@@ -40,6 +42,18 @@ RSpec.describe Api::V1::LeaseUpApplicationsController, type: :controller do
         r['custom_preference_type'].present?
       end
       expect(all_records_have_custom_preferences).to eq(true)
+    end
+    it 'returns applications for a first come first serve listing' do
+      VCR.use_cassette('/api/v1/lease-ups/fcfs-applications') do
+        params = {
+          listing_id: fcfs_listing,
+          page: 0,
+        }
+        get :index, params: params
+      end
+      expect(response).to have_http_status(:success)
+      json = JSON.parse(response.body)
+      expect(json['listing_type']).to eq('First Come, First Served')
     end
   end
 end
