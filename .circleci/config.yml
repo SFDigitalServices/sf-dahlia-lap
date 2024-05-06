@@ -159,6 +159,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - prepare_workspace
       - run: bundle exec rails tests:e2e_cleanup
   waiter:
     # This is workaround that lets us to run a job after all other jobs in the workflow are complete, regardless of prior jobs' success or failure.
