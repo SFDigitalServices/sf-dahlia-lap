@@ -73,11 +73,7 @@ const LeaseUpApplicationsTable = ({
   const maxPagesMsg = `Unfortunately, we can only display the first ${
     MAX_SERVER_LIMIT / rowsPerPage
   } pages of applications at this time. Please use the filters above to narrow your results.`
-  const noDataMsg = !loading
-    ? atMaxPages
-      ? maxPagesMsg
-      : 'No results, try adjusting your filters'
-    : ''
+  const noDataMsg = atMaxPages ? maxPagesMsg : 'No results, try adjusting your filters'
   const columns = [
     {
       Header: '',
