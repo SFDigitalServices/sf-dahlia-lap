@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 namespace :tests do
   desc 'Cleanup E2E Test Data'
   task e2e_cleanup: :environment do
