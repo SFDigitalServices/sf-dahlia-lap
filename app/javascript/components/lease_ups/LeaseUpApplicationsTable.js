@@ -12,7 +12,6 @@ import {
 import CheckboxCell from 'components/lease_ups/application_page/CheckboxCell'
 import PreferenceRankCell from 'components/lease_ups/application_page/PreferenceRankCell'
 import StatusCell from 'components/lease_ups/application_page/StatusCell'
-import Loading from 'components/molecules/Loading'
 import appPaths from 'utils/appPaths'
 import { useAppContext } from 'utils/customHooks'
 import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
