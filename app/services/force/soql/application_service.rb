@@ -35,7 +35,12 @@ module Force
           AND Status__c != '#{DRAFT}'
           LIMIT 1
         ))).to_domain
-        application['preferences'] = soql_preference_service.app_preferences_for_application(id, should_order: true)
+
+        # only query for preferences if the listing has preferences
+        # first come first served listings do not have preferences
+        listing_is_fcfs = application_listing(id).Listing_Type == Force::Listing::LISTING_TYPE_FIRST_COME_FIRST_SERVED
+        application['preferences'] = listing_is_fcfs ? nil : soql_preference_service.app_preferences_for_application(id, should_order: true)
+
         application['proof_files'] = soql_attachment_service.app_proof_files(id)
 
         alternate_contact_id = application.alternate_contact && application.alternate_contact.id

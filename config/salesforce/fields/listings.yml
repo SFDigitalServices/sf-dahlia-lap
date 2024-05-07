@@ -88,6 +88,7 @@ listings:
     Lottery_Status__c:
     Office_Hours__c:
     Tenure__c:
+    Listing_Type__c:
   lease_up_listing_fields:
     Id:
     Name:

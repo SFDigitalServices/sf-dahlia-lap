@@ -81,7 +81,10 @@ module Force
       { domain: 'building', salesforce: 'Building' },
       { domain: 'listing_lottery_preferences', salesforce: 'Listing_Lottery_Preferences' },
       { domain: 'units', salesforce: 'Units' },
+      { domain: 'listing_type', salesforce: 'Listing_Type' },
     ].freeze
+
+    LISTING_TYPE_FIRST_COME_FIRST_SERVED = 'First Come, First Served'
 
     def map_list_to_domain(domain_fields, listDomainFieldName, forceClass)
       if domain_fields[listDomainFieldName]

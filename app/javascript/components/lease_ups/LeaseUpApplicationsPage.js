@@ -111,12 +111,13 @@ const LeaseUpApplicationsPage = () => {
 
   const isMountedRef = useIsMountedRef()
 
-  const [{ reportId, listingPreferences }, setListingState] = useStateObject({})
+  const [{ reportId, listingPreferences, listingType }, setListingState] = useStateObject({})
   useAsyncOnMount(() => getListing(listingId), {
     onSuccess: (listing) => {
       setListingState({
         reportId: listing.report_id,
-        listingPreferences: getPreferences(listing)
+        listingPreferences: getPreferences(listing),
+        listingType: listing.listing_type
       })
 
       applicationsPageLoadComplete(dispatch, listing)
@@ -355,6 +356,7 @@ const LeaseUpApplicationsPage = () => {
     atMaxPages: state.atMaxPages,
     bulkCheckboxesState,
     listingId,
+    listingType,
     loading: state.loading,
     onBulkCheckboxClick: handleBulkCheckboxClick,
     onCloseStatusModal: handleCloseStatusModal,

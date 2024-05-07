@@ -4,9 +4,14 @@ import classNames from 'classnames'
 
 import Button from 'components/atoms/Button'
 import { COLORS } from 'components/atoms/colors'
-import { LEASE_UP_APPLICATION_FILTERS } from 'components/lease_ups/applicationFiltersConsts'
+import {
+  LEASE_UP_APPLICATION_FILTERS,
+  LEASE_UP_APPLICATION_FILTERS_WITHOUT_PREFERENCES
+} from 'components/lease_ups/applicationFiltersConsts'
 import FormGrid from 'components/molecules/FormGrid'
 import MultiSelectField from 'utils/form/final_form/MultiSelectField'
+
+import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from '../../utils/consts'
 
 const styles = {
   containerEndJustified: {
@@ -19,6 +24,7 @@ const styles = {
 }
 
 const LeaseUpApplicationsFilters = ({
+  listingType,
   preferences = [],
   hasChangedFilters,
   onFilterChange = () => {},
@@ -36,10 +42,16 @@ const LeaseUpApplicationsFilters = ({
     </FormGrid.Item>
   )
 
+  // only include preferences filter if the Listing Type is not first come first served
+  const includePreferencesFilter = listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED
+  const filters = includePreferencesFilter
+    ? LEASE_UP_APPLICATION_FILTERS
+    : LEASE_UP_APPLICATION_FILTERS_WITHOUT_PREFERENCES
+
   return (
     <div className='padding-top--2x padding-left padding-right' style={styles.whiteSmokeBackground}>
       <FormGrid.Row expand paddingBottom>
-        {LEASE_UP_APPLICATION_FILTERS.map((f) => renderFilter(f))}
+        {filters.map((f) => renderFilter(f))}
       </FormGrid.Row>
 
       <div className='small-12 margin-top' style={styles.containerEndJustified}>
