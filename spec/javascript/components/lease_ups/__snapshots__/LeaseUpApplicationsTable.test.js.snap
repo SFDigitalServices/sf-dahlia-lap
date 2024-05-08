@@ -1,7 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LeaseUpApplicationsTable should render succesfully when loading 1`] = `<DocumentFragment />`;
-
 exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`] = `
 <DocumentFragment>
   <div

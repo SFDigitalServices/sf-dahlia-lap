@@ -48,7 +48,6 @@ const LeaseUpApplicationsTable = ({
   dataSet,
   listingType,
   onLeaseUpStatusChange,
-  loading,
   pages,
   rowsPerPage,
   atMaxPages,
@@ -225,24 +224,21 @@ const LeaseUpApplicationsTable = ({
   }
 
   return (
-    !loading && (
-      <ReactTable
-        manual
-        className='rt-table-status'
-        data={dataSet}
-        page={page}
-        onPageChange={(newPage) => applicationsTablePageChanged(dispatch, newPage)}
-        pages={pages}
-        columns={columns}
-        getTdProps={getTdProps}
-        getTrProps={getTrProps}
-        defaultPageSize={rowsPerPage}
-        sortable={false}
-        loading={loading}
-        noDataText={noDataMsg}
-        getPaginationProps={getPaginationProps}
-      />
-    )
+    <ReactTable
+      manual
+      className='rt-table-status'
+      data={dataSet}
+      page={page}
+      onPageChange={(newPage) => applicationsTablePageChanged(dispatch, newPage)}
+      pages={pages}
+      columns={columns}
+      getTdProps={getTdProps}
+      getTrProps={getTrProps}
+      defaultPageSize={rowsPerPage}
+      sortable={false}
+      noDataText={noDataMsg}
+      getPaginationProps={getPaginationProps}
+    />
   )
 }
 

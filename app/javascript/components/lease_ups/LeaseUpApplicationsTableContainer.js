@@ -73,18 +73,20 @@ const LeaseUpTableContainer = ({
         onBulkLeaseUpStatusChange={(val) => onLeaseUpStatusChange(val, null, false)}
         onBulkLeaseUpCommentChange={(val) => onLeaseUpStatusChange(null, null, true)}
       />
-      <LeaseUpApplicationsTable
-        dataSet={map(applications, buildRowData)}
-        listingId={listingId}
-        listingType={listingType}
-        onLeaseUpStatusChange={onLeaseUpStatusChange}
-        loading={loading}
-        pages={pages}
-        rowsPerPage={rowsPerPage}
-        atMaxPages={atMaxPages}
-        bulkCheckboxesState={bulkCheckboxesState}
-        onBulkCheckboxClick={onBulkCheckboxClick}
-      />
+      {!loading && (
+        <LeaseUpApplicationsTable
+          dataSet={map(applications, buildRowData)}
+          listingId={listingId}
+          listingType={listingType}
+          onLeaseUpStatusChange={onLeaseUpStatusChange}
+          loading={loading}
+          pages={pages}
+          rowsPerPage={rowsPerPage}
+          atMaxPages={atMaxPages}
+          bulkCheckboxesState={bulkCheckboxesState}
+          onBulkCheckboxClick={onBulkCheckboxClick}
+        />
+      )}
       <StatusModalWrapper
         alertMsg={statusModal.alertMsg}
         isBulkUpdate={statusModal.isBulkUpdate}

@@ -558,34 +558,11 @@ describe('LeaseUpApplicationsTable', () => {
             dataSet={mockDataSet}
             listingId='a0W4U00000Hm6qRUAR'
             onLeaseUpStatusChange={jest.fn()}
-            loading={false}
             pages={10}
             rowsPerPage={10}
             atMaxPages={false}
             bulkCheckboxesState={mockBulkCheckboxesState}
             onBulkCheckboxClick={jest.fn()}
-          />
-        </Provider>
-      </BrowserRouter>
-    )
-
-    expect(asFragment()).toMatchSnapshot()
-  })
-
-  test('should render succesfully when loading', () => {
-    const { asFragment } = render(
-      <BrowserRouter>
-        <Provider value={{ applicationsListData: {} }}>
-          <LeaseUpApplicationsTable
-            dataSet={mockDataSet}
-            listingId='a0W4U00000Hm6qRUAR'
-            onLeaseUpStatusChange={jest.fn()}
-            loading={true}
-            pages={10}
-            rowsPerPage={10}
-            atMaxPages={false}
-            onBulkCheckboxClick={jest.fn()}
-            bulkCheckboxesState={mockBulkCheckboxesState}
           />
         </Provider>
       </BrowserRouter>
