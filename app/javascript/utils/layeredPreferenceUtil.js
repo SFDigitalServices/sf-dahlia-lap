@@ -35,7 +35,9 @@ export const addLayeredValidation = (preferences) => {
     }
 
     const finalConfirmation = calculateFinalConfirmation(
-      preference.lottery_status,
+      preference.post_lottery_validation === 'Invalid'
+        ? preference.post_lottery_validation
+        : preference.lottery_status,
       nonVetConfirmation
     )
 
@@ -72,7 +74,9 @@ export const addLayeredPreferenceFields = (
     const nonVetPreference = preferences[index + 1]
 
     const finalConfirmation = calculateFinalConfirmation(
-      preference.lottery_status,
+      preference.post_lottery_validation === 'Invalid'
+        ? preference.post_lottery_validation
+        : preference.lottery_status,
       nonVetPreference.post_lottery_validation
     )
 
@@ -98,7 +102,7 @@ export const addLayeredPreferenceFields = (
 }
 
 const calculateFinalConfirmation = (first_confirmation, second_confirmation) => {
-  if (second_confirmation === 'Invalid') {
+  if (first_confirmation === 'Invalid' || second_confirmation === 'Invalid') {
     return 'Invalid'
   } else if (second_confirmation === 'Unconfirmed') {
     return 'Unconfirmed'
