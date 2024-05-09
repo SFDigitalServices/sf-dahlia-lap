@@ -1,5 +1,4 @@
 preferences:
-  # TODO: used for application
   app_preferences_for_application_fields:
     Id:
     Name:
@@ -32,8 +31,6 @@ preferences:
     Lottery_Status__c:
     Total_Household_Rent__c:
     Custom_Preference_Type__c:
-  # TODO: used for listing
-  # TODO: Map keys must be unique
   app_preferences_for_listing_fields:
     Application__c:
     Application__r.Name:

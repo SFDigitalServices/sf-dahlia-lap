@@ -7,7 +7,6 @@ module Force
       FIELD_NAME = :preferences
       FIELDS = load_fields(FIELD_NAME).freeze
 
-      # TODO: this is used during applications page
       def app_preferences_for_application(application_id, should_order: false)
         result = parsed_index_query(%(
           SELECT #{query_fields(:app_preferences_for_application)}
@@ -19,7 +18,6 @@ module Force
         Force::Preference.convert_list(result, :from_salesforce, :to_domain)
       end
 
-      # TODO: this is used during listing page
       def app_preferences_for_listing(opts)
         query_scope = app_preferences_for_listing_query(opts)
 
