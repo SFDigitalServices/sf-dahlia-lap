@@ -204,7 +204,6 @@ workflows:
           requires:
             - build
       - waiter: 
-          <<: *non_production_jobs
           requires:
             - build
       - cleanup-test-data:
