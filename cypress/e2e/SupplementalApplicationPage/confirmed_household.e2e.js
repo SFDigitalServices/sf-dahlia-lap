@@ -43,7 +43,7 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
         : 'HCD Unadjusted'
     const chartYear =
       Cypress.env('salesforceInstanceUrl') === 'https://sfhousing--full.sandbox.my.salesforce.com'
-        ? 'HCD Unadjusted'
+        ? '2018'
         : '2020'
 
     // Enter AMI Info
