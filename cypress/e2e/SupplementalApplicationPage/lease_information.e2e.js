@@ -1,10 +1,10 @@
-import { LEASE_UP_LISTING_APPLICATION_ID } from '../../support/consts'
 import { generateRandomCurrency } from '../../support/utils'
 
 const rentSelector = '#form-lease\\.total_monthly_rent_without_parking'
 const parkingDropdownSelector = '#form-lease\\.bmr_parking_space_assigned'
 const parkingRentSelector = '#form-lease\\.monthly_parking_rent'
 const tenantContributionSelector = '#form-lease\\.monthly_tenant_contribution'
+const LEASE_UP_LISTING_APPLICATION_ID = Cypress.env('LEASE_UP_LISTING_APPLICATION_ID')
 
 describe('SupplementalApplicationPage lease section', () => {
   beforeEach(() => {

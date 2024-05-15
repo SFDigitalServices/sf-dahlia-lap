@@ -1,29 +1,6 @@
 require('dotenv').config()
 
-// Default to Automated Test Listing on Full
-export const NON_LEASE_UP_LISTING_ID =
-  process.env.E2E_NON_LEASE_UP_LISTING_ID || 'a0W0P00000F8YG4UAN'
-
-// Default to Yellow Acres on Full
-export const LEASE_UP_LISTING_ID = process.env.E2E_LEASE_UP_LISTING_ID || 'a0W0P00000GbyuQ'
-
-// Default to an application from Yellow Acres on Full
-export const LEASE_UP_LISTING_APPLICATION_ID =
-  process.env.E2E_LEASE_UP_LISTING_APPLICATION_ID || 'a0o0P00000GZazOQAT'
-export const FIRST_ROW_LEASE_UP_APP_ID =
-  process.env.FIRST_ROW_LEASE_UP_APP_ID || 'a0o0P00000IvWgcQAF'
-export const SECOND_ROW_LEASE_UP_APP_ID =
-  process.env.SECOND_ROW_LEASE_UP_APP_ID || 'a0o0P00000GZazsQAD'
-export const THIRD_ROW_LEASE_UP_APP_ID =
-  process.env.THIRD_ROW_LEASE_UP_APP_ID || 'a0o0P00000IvWgXQAV'
-
 export const DEFAULT_E2E_TIME_OUT = 240000 // 4 minutes
-
-// Default to Sale Test Listing Homeownership Acres on Full
-export const SALE_LISTING_ID = process.env.E2E_SALE_LISTING_ID || 'a0W0P00000GlKfBUAV'
-
-// Default to sample flagged record set on full
-export const FLAGGED_RECORD_SET_ID = process.env.E2E_FLAGGED_RECORD_SET_ID || 'a0r0P00002WqGZ6QAN'
 
 // Application Fields
 export const FIRST_NAME = 'E2ETEST-VERY_LONG_FIRST_NAME_THAT_IS_40!NOWOVER'

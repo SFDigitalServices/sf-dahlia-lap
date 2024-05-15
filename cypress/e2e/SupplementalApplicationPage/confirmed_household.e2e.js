@@ -1,4 +1,3 @@
-import { LEASE_UP_LISTING_APPLICATION_ID } from '../../support/consts'
 import { generateRandomCurrency, usingFixtures } from '../../support/utils'
 
 const hhAssetsSelector = '#form-household_assets'
@@ -8,6 +7,7 @@ const finalHHAnnualSelector = '#form-hh_total_income_with_assets_annual'
 const amiPercentageSelector = '#ami_percentage'
 const amiChartTypeSelector = '#ami_chart_type'
 const amiChartYearSelector = '#ami_chart_year'
+const LEASE_UP_LISTING_APPLICATION_ID = Cypress.env('LEASE_UP_LISTING_APPLICATION_ID')
 
 describe('SupplementalApplicationPage confirmed household income section', () => {
   beforeEach(() => {
@@ -37,12 +37,19 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
     cy.get(confirmedAnnualSelector).clear().type(confirmedAnnualValue.currency)
     cy.get(finalHHAnnualSelector).clear().type(finalHHAnnualValue.currency)
 
-    console.log({ hhAssetsValue, hhImputedAssetsValue, confirmedAnnualValue, finalHHAnnualValue })
+    const chartType =
+      Cypress.env('salesforceInstanceUrl') === 'https://sfhousing--full.sandbox.my.salesforce.com'
+        ? 'HUD Unadjusted'
+        : 'HCD Unadjusted'
+    const chartYear =
+      Cypress.env('salesforceInstanceUrl') === 'https://sfhousing--full.sandbox.my.salesforce.com'
+        ? 'HCD Unadjusted'
+        : '2020'
 
     // Enter AMI Info
     cy.get(amiPercentageSelector).clear().type('5.55')
-    cy.get(amiChartTypeSelector).select('HUD Unadjusted')
-    cy.get(amiChartYearSelector).select('2018')
+    cy.get(amiChartTypeSelector).select(chartType)
+    cy.get(amiChartYearSelector).select(chartYear)
 
     // Click save
     cy.saveSupplementalApplication(usingFixtures())
@@ -62,7 +69,7 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
       '$' + String(finalHHAnnualValue.float.toFixed(2))
     )
     cy.getInputValue(amiPercentageSelector).should('equal', '5.55%')
-    cy.getInputValue(amiChartTypeSelector).should('equal', 'HUD Unadjusted')
-    cy.getInputValue(amiChartYearSelector).should('equal', '2018')
+    cy.getInputValue(amiChartTypeSelector).should('equal', chartType)
+    cy.getInputValue(amiChartYearSelector).should('equal', chartYear)
   })
 })
