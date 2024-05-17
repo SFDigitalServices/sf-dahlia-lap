@@ -1,5 +1,6 @@
-import { LEASE_UP_LISTING_APPLICATION_ID } from '../../support/consts'
 import { generateRandomCurrency, usingFixtures } from '../../support/utils'
+
+const LEASE_UP_LISTING_APPLICATION_ID = Cypress.env('LEASE_UP_LISTING_APPLICATION_ID')
 
 describe('SupplementalApplicationPage Rental Assistance Information section', () => {
   beforeEach(() => {

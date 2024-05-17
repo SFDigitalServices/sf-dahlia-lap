@@ -1,4 +1,4 @@
-import { LEASE_UP_LISTING_APPLICATION_ID } from '../support/consts'
+const LEASE_UP_LISTING_APPLICATION_ID = Cypress.env('LEASE_UP_LISTING_APPLICATION_ID')
 
 describe('ApplicationEditPage', () => {
   it('should redirect edit application when lottery_status is anything other than "Not Yet Run"', () => {

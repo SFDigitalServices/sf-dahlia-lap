@@ -1,6 +1,6 @@
-import { LEASE_UP_LISTING_APPLICATION_ID } from '../../support/consts'
 import { usingFixtures } from '../../support/utils'
 
+const LEASE_UP_LISTING_APPLICATION_ID = Cypress.env('LEASE_UP_LISTING_APPLICATION_ID')
 const unselectedStatusMenuItem = 'li[aria-selected="false"].dropdown-menu_item > a'
 
 describe('SupplementalApplicationPage statuses', () => {

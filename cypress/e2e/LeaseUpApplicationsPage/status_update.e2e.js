@@ -1,9 +1,4 @@
 import {
-  LEASE_UP_LISTING_ID,
-  SECOND_ROW_LEASE_UP_APP_ID,
-  THIRD_ROW_LEASE_UP_APP_ID
-} from '../../support/consts'
-import {
   bulkActionCheckboxId,
   statusMenuItemSelector,
   nthRowStatusDropdownSelector,
@@ -16,6 +11,9 @@ const unselectedStatusMenuItem = 'li[aria-selected="false"].dropdown-menu_item >
 const bulkStatusDropdown = '.filter-row .status-dropdown__control .dropdown-button'
 const PROCESSING = 'Processing'
 const APPEALED = 'Appealed'
+const LEASE_UP_LISTING_ID = Cypress.env('LEASE_UP_LISTING_ID')
+const SECOND_ROW_LEASE_UP_APP_ID = Cypress.env('SECOND_ROW_LEASE_UP_APP_ID')
+const THIRD_ROW_LEASE_UP_APP_ID = Cypress.env('THIRD_ROW_LEASE_UP_APP_ID')
 
 describe('LeaseUpApplicationsPage status update', () => {
   beforeEach(() => {

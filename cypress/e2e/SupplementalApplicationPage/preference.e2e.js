@@ -1,10 +1,11 @@
-import { LEASE_UP_LISTING_APPLICATION_ID } from '../../support/consts'
 import {
   notSelectedOptionSelector,
   selectedOptionSelector,
   generateRandomCurrency,
   usingFixtures
 } from '../../support/utils'
+
+const LEASE_UP_LISTING_APPLICATION_ID = Cypress.env('LEASE_UP_LISTING_APPLICATION_ID')
 
 const setupSupplementalsIntercept = () => {
   if (usingFixtures()) {
