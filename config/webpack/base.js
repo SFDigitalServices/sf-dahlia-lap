@@ -17,7 +17,12 @@ const generatedWebpackConfig = generateWebpackConfig()
 
 generatedWebpackConfig.plugins.unshift(
   new webpack.DefinePlugin({
-    'process.env': { SENTRY_DSN: JSON.stringify(process.env.SENTRY_DSN) }
+    'process.env': {
+      SENTRY_DSN: JSON.stringify(process.env.SENTRY_DSN),
+      UNLEASH_URL: JSON.stringify(process.env.UNLEASH_URL),
+      UNLEASH_TOKEN: JSON.stringify(process.env.UNLEASH_TOKEN),
+      UNLEASH_ENV: JSON.stringify(process.env.UNLEASH_ENV)
+    }
   })
 )
 
