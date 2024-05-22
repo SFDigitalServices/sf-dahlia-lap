@@ -48,7 +48,6 @@ const LeaseUpApplicationsTable = ({
   dataSet,
   listingType,
   onLeaseUpStatusChange,
-  loading,
   pages,
   rowsPerPage,
   atMaxPages,
@@ -237,7 +236,6 @@ const LeaseUpApplicationsTable = ({
       getTrProps={getTrProps}
       defaultPageSize={rowsPerPage}
       sortable={false}
-      loading={loading}
       noDataText={noDataMsg}
       getPaginationProps={getPaginationProps}
     />
