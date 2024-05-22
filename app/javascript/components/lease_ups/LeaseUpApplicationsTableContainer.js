@@ -79,7 +79,6 @@ const LeaseUpTableContainer = ({
           listingId={listingId}
           listingType={listingType}
           onLeaseUpStatusChange={onLeaseUpStatusChange}
-          loading={loading}
           pages={pages}
           rowsPerPage={rowsPerPage}
           atMaxPages={atMaxPages}
