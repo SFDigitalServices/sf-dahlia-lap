@@ -1,7 +1,4 @@
 import {
-  NON_LEASE_UP_LISTING_ID,
-  SALE_LISTING_ID,
-  LEASE_UP_LISTING_ID,
   FIRST_NAME,
   LAST_NAME,
   TRUNCATED_FIRST_NAME,
@@ -18,6 +15,10 @@ import {
   HOUSEHOLD_MEMBER_DOB_YEAR
 } from '../support/consts'
 import { usingFixtures } from '../support/utils'
+
+const NON_LEASE_UP_LISTING_ID = Cypress.env('NON_LEASE_UP_LISTING_ID')
+const LEASE_UP_LISTING_ID = Cypress.env('LEASE_UP_LISTING_ID')
+const SALE_LISTING_ID = Cypress.env('SALE_LISTING_ID')
 
 describe('ApplicationNewPage', () => {
   beforeEach(() => {

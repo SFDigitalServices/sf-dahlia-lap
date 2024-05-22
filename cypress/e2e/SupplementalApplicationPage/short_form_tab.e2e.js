@@ -1,8 +1,8 @@
-import { LEASE_UP_LISTING_APPLICATION_ID } from '../../support/consts'
-
 const mobilitySelector = 'input#form-has_ada_priorities_selected\\.mobility_impairments'
 const shortFormTabSelector = '.tabs li:nth-child(2)'
 const supplementalTabSelector = '.tabs li:nth-child(1)'
+const LEASE_UP_LISTING_APPLICATION_ID = Cypress.env('LEASE_UP_LISTING_APPLICATION_ID')
+
 describe('SupplementalApplicationPage clicking on the short form tab', () => {
   beforeEach(() => {
     cy.setupIntercepts()
