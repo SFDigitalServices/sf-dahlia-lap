@@ -35,9 +35,7 @@ export const addLayeredValidation = (preferences) => {
     }
 
     const finalConfirmation = calculateFinalConfirmation(
-      preference.post_lottery_validation === 'Invalid'
-        ? preference.post_lottery_validation
-        : preference.lottery_status,
+      preference.post_lottery_validation,
       nonVetConfirmation
     )
 
@@ -74,9 +72,7 @@ export const addLayeredPreferenceFields = (
     const nonVetPreference = preferences[index + 1]
 
     const finalConfirmation = calculateFinalConfirmation(
-      preference.post_lottery_validation === 'Invalid'
-        ? preference.post_lottery_validation
-        : preference.lottery_status,
+      preference.post_lottery_validation,
       nonVetPreference.post_lottery_validation
     )
 
@@ -101,12 +97,13 @@ export const addLayeredPreferenceFields = (
   })
 }
 
+// TODO: rename inputs and test
 const calculateFinalConfirmation = (first_confirmation, second_confirmation) => {
   if (first_confirmation === 'Invalid' || second_confirmation === 'Invalid') {
     return 'Invalid'
   } else if (second_confirmation === 'Unconfirmed') {
     return 'Unconfirmed'
-  } else if (first_confirmation === 'Valid for lottery') {
+  } else {
     return 'Confirmed'
   }
 }
