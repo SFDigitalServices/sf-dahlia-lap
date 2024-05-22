@@ -9,6 +9,7 @@ describe('useFeatureFlag', () => {
   let consoleSpy
 
   beforeEach(() => {
+    process.env.UNLEASH_ENV = 'development'
     consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
   })
 
