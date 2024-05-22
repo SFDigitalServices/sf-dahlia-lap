@@ -17,6 +17,8 @@
     "@popperjs/core": "^2.11.8",
     "@sentry/browser": "^7.93.0",
     "@sentry/node": "^7.93.0",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@unleash/proxy-client-react": "^4.2.3",
     "axios": "^1.6.5",
     "babel-plugin-root-import": "^6.6.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
@@ -52,6 +54,7 @@
     "sass-loader": "^13.3.3",
     "shakapacker": "^7.2.1",
     "style-loader": "^3.3.4",
+    "unleash-proxy-client": "^3.4.0",
     "webpack-assets-manifest": "^5.1.0",
     "webpack-merge": "^5.10.0"
   },

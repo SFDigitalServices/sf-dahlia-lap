@@ -1,9 +1,4 @@
 import {
-  LEASE_UP_LISTING_ID,
-  SECOND_ROW_LEASE_UP_APP_ID,
-  THIRD_ROW_LEASE_UP_APP_ID
-} from '../../support/consts'
-import {
   bulkActionCheckboxId,
   statusMenuItemSelector,
   nthRowStatusDropdownSelector,
@@ -16,6 +11,9 @@ const unselectedStatusMenuItem = 'li[aria-selected="false"].dropdown-menu_item >
 const bulkStatusDropdown = '.filter-row .status-dropdown__control .dropdown-button'
 const PROCESSING = 'Processing'
 const APPEALED = 'Appealed'
+const LEASE_UP_LISTING_ID = Cypress.env('LEASE_UP_LISTING_ID')
+const SECOND_ROW_LEASE_UP_APP_ID = Cypress.env('SECOND_ROW_LEASE_UP_APP_ID')
+const THIRD_ROW_LEASE_UP_APP_ID = Cypress.env('THIRD_ROW_LEASE_UP_APP_ID')
 
 describe('LeaseUpApplicationsPage status update', () => {
   beforeEach(() => {
@@ -160,7 +158,6 @@ describe('LeaseUpApplicationsPage status update', () => {
         cy.wait('@leaseUpListing')
         cy.contains('button', 'Show Filters').click()
 
-        cy.wait(5000)
         cy.get('div[role="grid"] input[type="checkbox"]')
           .its('length')
           .then((initialCount) => {
@@ -193,7 +190,7 @@ describe('LeaseUpApplicationsPage status update', () => {
               .eq(3)
               .within(() => {
                 cy.get('input').first().click()
-                cy.findByText('Approved').click()
+                cy.findByText('Processing').click()
 
                 // Submit the form by hitting enter
                 cy.get('input').first().type('{enter}')
@@ -205,14 +202,14 @@ describe('LeaseUpApplicationsPage status update', () => {
 
             cy.url().should(
               'equal',
-              'http://localhost:3000/lease-ups/listings/a0W0P00000GbyuQ?preference=Certificate+of+Preference+%28COP%29&total_household_size=1&total_household_size=2&accessibility=Mobility+impairments&accessibility=Vision+impairments%2C+Hearing+impairments&status=Approved'
+              'http://localhost:3000/lease-ups/listings/a0W0P00000GbyuQ?preference=Certificate+of+Preference+%28COP%29&total_household_size=1&total_household_size=2&accessibility=Mobility+impairments&accessibility=Vision+impairments%2C+Hearing+impairments&status=Processing'
             )
 
             cy.get('input[name="search"]').type('Andrew{enter}')
 
             cy.url().should(
               'equal',
-              'http://localhost:3000/lease-ups/listings/a0W0P00000GbyuQ?preference=Certificate+of+Preference+%28COP%29&total_household_size=1&total_household_size=2&accessibility=Mobility+impairments&accessibility=Vision+impairments%2C+Hearing+impairments&status=Approved&search=Andrew'
+              'http://localhost:3000/lease-ups/listings/a0W0P00000GbyuQ?preference=Certificate+of+Preference+%28COP%29&total_household_size=1&total_household_size=2&accessibility=Mobility+impairments&accessibility=Vision+impairments%2C+Hearing+impairments&status=Processing&search=Andrew'
             )
 
             cy.contains('button', 'Clear all').click()

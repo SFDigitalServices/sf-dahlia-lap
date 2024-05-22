@@ -24,7 +24,20 @@ module.exports = defineConfig({
       LENDING_INSTITUTION: process.env.E2E_LENDING_INSTITUTION || 'Chase',
       LENDING_AGENT_ID: process.env.E2E_LENDING_AGENT_ID || '0030P00002NI63uQAD',
       COMMUNITY_LOGIN_URL: process.env.COMMUNITY_LOGIN_URL,
-
+      // Default to Automated Test Listing on Full
+      NON_LEASE_UP_LISTING_ID: process.env.E2E_NON_LEASE_UP_LISTING_ID || 'a0W0P00000F8YG4UAN',
+      // Default to Yellow Acres on Full
+      LEASE_UP_LISTING_ID: process.env.E2E_LEASE_UP_LISTING_ID || 'a0W0P00000GbyuQ',
+      // Default to an application from Yellow Acres on Full
+      LEASE_UP_LISTING_APPLICATION_ID:
+        process.env.E2E_LEASE_UP_LISTING_APPLICATION_ID || 'a0o0P00000GZazOQAT',
+      FIRST_ROW_LEASE_UP_APP_ID: process.env.FIRST_ROW_LEASE_UP_APP_ID || 'a0o0P00000IvWgcQAF',
+      SECOND_ROW_LEASE_UP_APP_ID: process.env.SECOND_ROW_LEASE_UP_APP_ID || 'a0o0P00000GZazsQAD',
+      THIRD_ROW_LEASE_UP_APP_ID: process.env.THIRD_ROW_LEASE_UP_APP_ID || 'a0o0P00000IvWgXQAV',
+      // Default to Sale Test Listing Homeownership Acres on Full
+      SALE_LISTING_ID: process.env.E2E_SALE_LISTING_ID || 'a0W0P00000GlKfBUAV',
+      // Default to sample flagged record set on full
+      FLAGGED_RECORD_SET_ID: process.env.E2E_FLAGGED_RECORD_SET_ID || 'a0r0P00002WqGZ6QAN',
       // When this is turned to true, Cypress will log the Salesforce password to the console
       // This is useful for debugging, but should never be turned on in a PR
       LOG_SECRETS: false

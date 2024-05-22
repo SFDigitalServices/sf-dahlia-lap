@@ -1,9 +1,9 @@
-import { FLAGGED_RECORD_SET_ID } from '../support/consts'
 import { notSelectedOptionSelector, usingFixtures } from '../support/utils'
 
 const commentInputSelector = 'input[type="text"]'
 const openRowSelector = '.rt-expander.-open'
 const statusInputSelector = 'select'
+const FLAGGED_RECORD_SET_ID = Cypress.env('FLAGGED_RECORD_SET_ID')
 
 describe('FlaggedApplicationsShowPage', () => {
   beforeEach(() => {
