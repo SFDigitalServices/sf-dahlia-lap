@@ -1505,6 +1505,1406 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
               </div>
             </div>
           </div>
+          <div
+            class="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              class="rt-tr -padRow -odd rt-tr-status"
+              role="row"
+            >
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 100 0 auto; width: 100px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 91 0 auto; width: 91px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-offset-right"
+                role="gridcell"
+                style="flex: 361 0 auto; width: 361px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-status td-fixed-right"
+                role="gridcell"
+                style="flex: 216 0 auto; width: 216px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              class="rt-tr -padRow -even rt-tr-status"
+              role="row"
+            >
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 100 0 auto; width: 100px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 91 0 auto; width: 91px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-offset-right"
+                role="gridcell"
+                style="flex: 361 0 auto; width: 361px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-status td-fixed-right"
+                role="gridcell"
+                style="flex: 216 0 auto; width: 216px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              class="rt-tr -padRow -odd rt-tr-status"
+              role="row"
+            >
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 100 0 auto; width: 100px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 91 0 auto; width: 91px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-offset-right"
+                role="gridcell"
+                style="flex: 361 0 auto; width: 361px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-status td-fixed-right"
+                role="gridcell"
+                style="flex: 216 0 auto; width: 216px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              class="rt-tr -padRow -even rt-tr-status"
+              role="row"
+            >
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 100 0 auto; width: 100px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 91 0 auto; width: 91px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-offset-right"
+                role="gridcell"
+                style="flex: 361 0 auto; width: 361px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-status td-fixed-right"
+                role="gridcell"
+                style="flex: 216 0 auto; width: 216px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              class="rt-tr -padRow -odd rt-tr-status"
+              role="row"
+            >
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 100 0 auto; width: 100px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 91 0 auto; width: 91px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-offset-right"
+                role="gridcell"
+                style="flex: 361 0 auto; width: 361px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-status td-fixed-right"
+                role="gridcell"
+                style="flex: 216 0 auto; width: 216px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              class="rt-tr -padRow -even rt-tr-status"
+              role="row"
+            >
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 100 0 auto; width: 100px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 91 0 auto; width: 91px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-offset-right"
+                role="gridcell"
+                style="flex: 361 0 auto; width: 361px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-status td-fixed-right"
+                role="gridcell"
+                style="flex: 216 0 auto; width: 216px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              class="rt-tr -padRow -odd rt-tr-status"
+              role="row"
+            >
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 100 0 auto; width: 100px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 91 0 auto; width: 91px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-offset-right"
+                role="gridcell"
+                style="flex: 361 0 auto; width: 361px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-status td-fixed-right"
+                role="gridcell"
+                style="flex: 216 0 auto; width: 216px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              class="rt-tr -padRow -even rt-tr-status"
+              role="row"
+            >
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 100 0 auto; width: 100px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 91 0 auto; width: 91px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-offset-right"
+                role="gridcell"
+                style="flex: 361 0 auto; width: 361px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-status td-fixed-right"
+                role="gridcell"
+                style="flex: 216 0 auto; width: 216px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              class="rt-tr -padRow -odd rt-tr-status"
+              role="row"
+            >
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 100 0 auto; width: 100px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 91 0 auto; width: 91px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-offset-right"
+                role="gridcell"
+                style="flex: 361 0 auto; width: 361px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-status td-fixed-right"
+                role="gridcell"
+                style="flex: 216 0 auto; width: 216px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              class="rt-tr -padRow -even rt-tr-status"
+              role="row"
+            >
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 100 0 auto; width: 100px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 91 0 auto; width: 91px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-offset-right"
+                role="gridcell"
+                style="flex: 361 0 auto; width: 361px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-status td-fixed-right"
+                role="gridcell"
+                style="flex: 216 0 auto; width: 216px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              class="rt-tr -padRow -odd rt-tr-status"
+              role="row"
+            >
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 100 0 auto; width: 100px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 91 0 auto; width: 91px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-offset-right"
+                role="gridcell"
+                style="flex: 361 0 auto; width: 361px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-status td-fixed-right"
+                role="gridcell"
+                style="flex: 216 0 auto; width: 216px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              class="rt-tr -padRow -even rt-tr-status"
+              role="row"
+            >
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 100 0 auto; width: 100px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 91 0 auto; width: 91px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-offset-right"
+                role="gridcell"
+                style="flex: 361 0 auto; width: 361px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-status td-fixed-right"
+                role="gridcell"
+                style="flex: 216 0 auto; width: 216px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              class="rt-tr -padRow -odd rt-tr-status"
+              role="row"
+            >
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 100 0 auto; width: 100px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 91 0 auto; width: 91px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-offset-right"
+                role="gridcell"
+                style="flex: 361 0 auto; width: 361px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-status td-fixed-right"
+                role="gridcell"
+                style="flex: 216 0 auto; width: 216px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rt-tr-group"
+            role="rowgroup"
+          >
+            <div
+              class="rt-tr -padRow -even rt-tr-status"
+              role="row"
+            >
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 48 0 auto; width: 48px; max-width: 48px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 104 0 auto; width: 104px; max-width: 104px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 112 0 auto; width: 112px; max-width: 112px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 114 0 auto; width: 114px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 40 0 auto; width: 40px; max-width: 40px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 100 0 auto; width: 100px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td"
+                role="gridcell"
+                style="flex: 91 0 auto; width: 91px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-offset-right"
+                role="gridcell"
+                style="flex: 361 0 auto; width: 361px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+              <div
+                class="rt-td td-status td-fixed-right"
+                role="gridcell"
+                style="flex: 216 0 auto; width: 216px;"
+              >
+                <span>
+                   
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div
