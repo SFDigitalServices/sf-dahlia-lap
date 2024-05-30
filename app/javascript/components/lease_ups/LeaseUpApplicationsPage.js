@@ -72,7 +72,7 @@ const getPageHeaderData = (listing, reportId) => {
 }
 
 const getPreferences = (listing) => {
-  if (!listing) return []
+  if (!listing || !listing.listing_lottery_preferences) return []
   return map(listing.listing_lottery_preferences, (pref) => pref.lottery_preference.name)
 }
 
