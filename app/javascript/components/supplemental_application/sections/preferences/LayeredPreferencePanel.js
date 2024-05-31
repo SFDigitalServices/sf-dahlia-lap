@@ -20,7 +20,9 @@ export const LayeredPreferencePanel = ({ preference }) => {
           </div>
         </FormItem>
         <FormItem label='Status'>
-          <div className='text-value'>{preference.post_lottery_validation}</div>
+          <div className='text-value'>
+            {preference.post_lottery_validation === 'Invalid' ? 'Invalid' : 'Confirmed'}
+          </div>
         </FormItem>
       </FormGrid.Row>
       <FormGrid.Row expand={false}>
