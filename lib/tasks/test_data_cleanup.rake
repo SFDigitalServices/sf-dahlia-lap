@@ -9,7 +9,7 @@ namespace :tests do
     # Create restforce client
     client = Restforce.new(access_token)
     # Hit endpoint
-    response = client.get('/services/apexrest/FrontEndTestDataCleanUp')
+    response = client.delete('/services/apexrest/FrontEndTestDataCleanUp')
     if response.body == 200
       puts 'Successfully triggered front end test data cleanup.'
     else
