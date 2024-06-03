@@ -302,8 +302,8 @@ describe('ApplicationNewPage', () => {
     cy.get('#has_loan_preapproval').click()
     cy.get('#has_completed_homebuyer_education').click()
     cy.get('#is_first_time_homebuyer').click()
-    cy.get('#lending_institution').select(Cypress.env('LENDING_INSTITUTION'))
-    cy.get('#lending_agent').select(Cypress.env('LENDING_AGENT_ID'))
+    cy.get('#lending_institution').select(1)
+    cy.get('#lending_agent').select(1)
 
     if (usingFixtures()) {
       cy.intercept('GET', 'api/v1/short-form/**', { fixture: 'shortFormGet.json' }).as(
