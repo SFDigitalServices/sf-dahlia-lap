@@ -10,21 +10,21 @@ const LotteryManager = ({ spreadsheetData }) => {
   const componentToPrint = useRef(null)
   const handlePrint = useReactToPrint({
     documentTitle: 'Lottery Results',
-    onBeforePrint: console.log('printing...'),
-    onAfterPrint: console.log('printed!'),
     removeAfterPrint: true
   })
 
-  let name = ''
-  let address = ''
-  let date = ''
+  let listing = {
+    name: '',
+    address: '',
+    date: ''
+  }
   let buckets
 
   if (spreadsheetData) {
-    const { listing, results } = processExcelData(spreadsheetData)
+    const data = processExcelData(spreadsheetData)
 
-    ;({ name, address, date } = listing)
-    buckets = processLotteryBuckets(results.lotteryBuckets, true)
+    listing = data.listing
+    buckets = processLotteryBuckets(data.results.lotteryBuckets, true)
   }
 
   return (
@@ -42,9 +42,9 @@ const LotteryManager = ({ spreadsheetData }) => {
           </div>
           <LotteryResults
             ref={componentToPrint}
-            name={name}
-            address={address}
-            date={date}
+            name={listing.name}
+            address={listing.address}
+            date={listing.date}
             buckets={buckets}
           />
         </>

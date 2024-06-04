@@ -4,9 +4,6 @@ import DropTarget from './DropTarget'
 import LotteryManager from './LotteryManager'
 
 const LotteryResultsPdfGenerator = () => {
-  // somewhat awkwardly, we have two sources for the current listing: the
-  // listing selected in the menu and the one specified by listing ID in the
-  // URL.  one sets the other, depending on which is set first.
   const [showDropTarget, setShowDropTarget] = useState(false)
   const [spreadsheetData, setSpreadsheetData] = useState()
 
@@ -31,8 +28,6 @@ const LotteryResultsPdfGenerator = () => {
       const [file] = event.dataTransfer.files
       const data = await file.arrayBuffer()
 
-      // set the URL back to root to clear any existing listing ID, since we're
-      // replacing the results with the dropped file
       setSpreadsheetData(data)
     }
   }
