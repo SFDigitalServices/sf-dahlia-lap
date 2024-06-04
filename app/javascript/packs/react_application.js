@@ -9,6 +9,7 @@ import FlaggedApplicationsShowPage from 'components/applications/flagged/Flagged
 import ListingApplicationsPage from 'components/listings/ListingApplicationsPage'
 import ListingPage from 'components/listings/ListingPage'
 import ListingsPage from 'components/listings/ListingsPage'
+import LotteryResultsPdfGenerator from 'components/LotteryResultsPdfGenerator/LotteryResultsPdfGenerator'
 import HomePage from 'components/pages/HomePage'
 import LeaseUpApp from 'routes/LeaseUpApp'
 
@@ -24,6 +25,7 @@ ReactOnRails.register({ ListingPage })
 ReactOnRails.register({ ListingsPage })
 ReactOnRails.register({ HomePage })
 ReactOnRails.register({ LeaseUpApp })
+ReactOnRails.register({ LotteryResultsPdfGenerator })
 
 window.onload = () => {
   ReactModal.setAppElement('#root')

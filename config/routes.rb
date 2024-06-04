@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/lottery-results' => 'lottery_results_pdf_generator#index'
+
   # API namespacing
   namespace :api do
     namespace :v1 do

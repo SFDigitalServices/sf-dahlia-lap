@@ -1,0 +1,63 @@
+import * as XLSX from 'xlsx'
+
+import { getApplicantsAndPrefs } from './dataHelpers'
+import rootBucket from '../data/buckets'
+import { Preferences } from '../utils/constants'
+
+export function processExcelData(data) {
+  const workbook = XLSX.read(data)
+  const sheetName = workbook.SheetNames[0].trim()
+  const [applicants, prefIDs] = getApplicantsAndPrefs(workbook)
+
+  // clear out the applicants from any previous addApplicant calls
+  rootBucket.reset()
+  applicants.forEach((applicant) => rootBucket.addApplicant(applicant))
+
+  const applicantPaths = rootBucket.getApplicants()
+  // this assumes the last path component is unique across buckets
+  const groupedApplicants = Object.groupBy(applicantPaths, ([, path]) => path.at(-1))
+  const buckets = prefIDs.map((id) => {
+    const bucket = {
+      preferenceName: Preferences[id].name,
+      preferenceResults:
+        groupedApplicants[id]?.map(([{ Rank: lotteryRank, LotteryNum: lotteryNumber }]) => ({
+          lotteryRank,
+          lotteryNumber
+        })) || []
+    }
+
+    return bucket
+  })
+
+  return {
+    listing: {
+      name: sheetName,
+      address: sheetName,
+      date: 'someday'
+    },
+    results: {
+      lotteryBuckets: buckets,
+      lotteryStatus: 'Complete',
+      lotteryDate: 'someday'
+    }
+  }
+}
+
+export function readWorkbook(data) {
+  const workbook = XLSX.read(data)
+  return workbook
+}
+
+export function processWorkbook(workbook) {
+  const [applicants, prefIDs] = getApplicantsAndPrefs(workbook)
+  applicants.forEach((applicant) => rootBucket.addApplicant(applicant))
+
+  const applicantPaths = rootBucket.getApplicants()
+  const groupedApplicants = Object.groupBy(applicantPaths, ([, path]) => path.join('/'))
+
+  console.log(groupedApplicants)
+
+  console.log(applicants)
+
+  return applicants
+}

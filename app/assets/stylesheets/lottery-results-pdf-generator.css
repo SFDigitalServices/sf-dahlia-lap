@@ -1,0 +1,338 @@
+#lottery-results-pdf-generator-container {
+	font-family: Verdana, sans-serif!important;
+	box-sizing: border-box;
+}
+
+#lottery-results-pdf-generator-container {
+	padding: 0;
+	margin: 0;
+}
+
+#lottery-results-pdf-generator-container {
+	outline-color: darkblue;
+}
+
+#lottery-results-pre-drop-message {
+	width: 100%;
+	height: 70vh;
+	left: 0;
+	margin: 0;
+	padding: 1rem;
+}
+
+#lottery-results-pre-drop-message div {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	font-weight: bold;
+	color: #666;
+	pointer-events: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#lottery-results-pdf-column  {
+	font-weight: 400;
+	background-color: white;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+#lottery-results-pdf-th  {
+	background-color: white;
+	border-bottom: none;
+	padding-top: 0;
+  	padding-bottom: 0;
+}
+
+#drop-target {
+	background: white;
+	width: 100%;
+	height: 70vh;
+	left: 0;
+	margin: 0;
+	padding: 1rem;
+	z-index: 1000;
+}
+
+#drop-target div {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	font-weight: bold;
+	color: #666;
+	background-color: aliceblue;
+	border: 3px solid darkblue;
+	pointer-events: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#results {
+	padding: 3rem;
+	display: none;
+}
+
+#lottery-results-pdf-generator-container {
+    /* make the #lottery-results-pdf-generator-container element stretch to the full height of the viewport so that
+        it can accept a dropped file even when no listing is selected  */
+	min-height: 100vh;
+}
+
+#save-lottery-results-button-container {
+	padding-top: 20px;
+  	display: flex;
+  	justify-content: center;
+}
+
+#lottery-results-header.toolbar {
+	background: #eee;
+	padding: .75rem;
+	align-items: center;
+	gap: 1.5rem;
+	display: flex;
+	top: 0;
+	position: sticky;
+	z-index: 100;
+}
+
+label > input {
+	margin: 0 .5rem 0 0;
+}
+
+#lottery-results-pdf-generator-main > header {
+	text-align: center;
+}
+
+#lottery-results-header > h1 {
+	font-weight: 700;
+	font-family: Verdana, sans-serif;
+	font-size: 1.5rem;
+	margin: 0;
+}
+
+#lottery-results-header > h2 {
+	font-size: 1.25rem;
+	margin: 0 auto .75rem auto;
+	width: fit-content;
+}
+
+#lottery-results-header > h3 {
+	font-size: 1rem;
+	margin: 0 auto .25rem auto;
+	font-weight: normal;
+	width: fit-content;
+}
+
+#lottery-results-header .easy-edit-wrapper {
+	display: inline-block;
+}
+
+#lottery-results-header .easy-edit-hover-on {
+	font-style: normal;
+	color: darkblue;
+	background: #eef;
+}
+
+.easy-edit-component-wrapper input {
+	padding: .25rem;
+	border: 1px solid #aaa
+}
+
+.easy-edit-button-wrapper {
+	margin-left: .35rem;
+	gap: .25rem;
+	align-items: center;
+	display: inline-flex;
+}
+
+#lottery-results-header #lottery-results-seal {
+	width: 6rem;
+	margin: 2.5rem 0;
+}
+
+#address {
+	margin-top: 0;
+}
+
+#lottery-results-header > blockquote {
+	width: 40%;
+	margin: 2rem auto;
+}
+
+#lottery-results-header > blockquote > h4, #lottery-results-header > blockquote > h5 {
+	font-weight: normal;
+	font-size: .75rem;
+	line-height: 1;
+	margin: 0;
+}
+
+#lottery-results-header > blockquote > h5 {
+	margin-top: .75rem;
+}
+
+#lottery-results-section {
+	margin: 2rem auto 0 auto;
+}
+
+#lottery-results-table {
+	/* ensure the columns widths are even */
+	background-color: white;
+	table-layout: fixed;
+	width: 100%;
+	--count-width: 2rem
+}
+
+
+
+#lottery-results-pdf-column, #lottery-results-pdf-th {
+	text-align: left;
+	vertical-align: top;
+	/* this actually functions like a min-width */
+	width: 11ch;
+}
+
+#lottery-results-pdf-th-h4 {
+	font-size: 14px;
+  	text-transform: none;
+	font-family: Verdana, Sans-serif;
+	height: 2em;
+	font-weight: 700;
+  	letter-spacing: 0;	
+}
+
+#lottery-results-pdf-row {
+	font-family: Verdana, sans-serif!important;
+}
+
+#lottery-results-pdf-row > div {
+	padding-right: 1.25rem;
+	flex: 1;
+}
+
+#lottery-results-pdf-row > :nth-of-type(1) {
+	color: black;
+}
+
+#lottery-results-pdf-row > :nth-of-type(2) {
+	color: rebeccapurple;
+}
+
+#lottery-results-pdf-row > :nth-of-type(3) {
+	color: darkgreen;
+}
+
+#lottery-results-pdf-row > :nth-of-type(4) {
+	color: darkred;
+}
+
+#lottery-results-pdf-row > :nth-of-type(5) {
+	color: darkblue;
+}
+
+#lottery-results-pdf-row > :nth-of-type(6) {
+	color: darkorange;
+}
+
+#lottery-results-pdf-row > :nth-of-type(7) {
+	color: darkolivegreen;
+}
+
+#lottery-results-pdf-row > :nth-of-type(8) {
+	color: darkorchid;
+}
+
+#lottery-results-pdf-row > :nth-of-type(9) {
+	color: darkgoldenrod;
+}
+
+#lottery-results-pdf-th-h4, #lottery-results-pdf-column h5 {
+	margin: .25rem 0 .5rem var(--count-width);
+	flex-wrap: wrap;
+	display: flex;
+	font-family: Verdana, sans-serif;
+}
+
+#lottery-results-pdf-th-h4 {
+	height: 2em;
+	align-content: flex-end;
+}
+
+#lottery-results-pdf-column h5 {
+	font-size: .75rem;
+	font-weight: normal;
+	height: 2.5em;
+}
+
+#lottery-results-pdf-row ol {
+	list-style: none;
+	counter-reset: lottery;
+	margin: 0;
+	padding: 0;
+}
+
+#lottery-results-pdf-row ol > li {
+	counter-increment: lottery;
+	white-space: nowrap;
+}
+
+#lottery-results-pdf-row ol > li::before {
+	content: counter(lottery) ".";
+	color: #999;
+	font-weight: bold;
+	font-size: .65em;
+	text-align: right;
+	width: var(--count-width);
+	margin-right: 0.2rem;
+	display: inline-block;
+}
+
+kbd {
+	font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: .75rem;
+	font-weight: bold;
+	font-style: normal;
+	padding: 3px 5px;
+	line-height: 1;
+	vertical-align: middle;
+	color: #444d56;
+	background-color: #fafbfc;
+	border: solid 1px #c6cbd1;
+	border-bottom-color: #959da5;
+	border-radius: 3px;
+	box-shadow: inset 0 -1px 0 #959da5;
+	display: inline-block;
+}
+
+kbd + kbd {
+	margin-left: .15rem;
+}
+
+@media print {
+	@page {
+		margin: .5in .25in;
+	}
+
+	:root {
+		font-size: 12px;
+	}
+
+	#lottery-results-header.toolbar {
+		display: none;
+	}
+
+	#lottery-results-pdf-generator-container > #lottery-results-pdf-generator-main {
+			/* remove top padding when printing since there's already a page margin */
+		padding: 0 2rem 5rem 2rem;
+	}
+
+	#lottery-results-pdf-row {
+		gap: 0;
+	}
+
+	#lottery-results-pdf-row > div {
+		padding-right: 0;
+	}
+}
