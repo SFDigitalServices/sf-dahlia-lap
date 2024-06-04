@@ -49,7 +49,7 @@ export function readWorkbook(data) {
 }
 
 export function processWorkbook(workbook) {
-  const [applicants, prefIDs] = getApplicantsAndPrefs(workbook)
+  const [applicants] = getApplicantsAndPrefs(workbook)
   applicants.forEach((applicant) => rootBucket.addApplicant(applicant))
 
   const applicantPaths = rootBucket.getApplicants()
