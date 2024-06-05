@@ -1,4 +1,3 @@
-import listing from 'spec/javascript/fixtures/listing'
 import * as XLSX from 'xlsx'
 
 import { getApplicantsAndPrefs } from './dataHelpers'

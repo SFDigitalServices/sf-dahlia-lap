@@ -32,6 +32,24 @@ function getRowObjects(workbook) {
   return rows.map((row) => getRowAsObject(row, cols))
 }
 
+const prefIDsInOrder = (foundPrefs) => {
+  // put the prefs in the correct order, since foundPrefs will have them in whatever order they were found in.  then
+  // call flat() to remove any holes in the array, which we'll have if the spreadsheet doesn't include the full
+  // complement of available prefs.
+  const prefIDsInOrder = [...foundPrefs]
+    .reduce((result, id) => {
+      result[IndexByPrefID[id]] = id
+
+      return result
+    }, [])
+    .flat()
+
+  // the "General List" contains everyone who has zero prefs, and isn't its
+  // own preference, so it won't have been added to prefIDsInOrder.  but every
+  // lottery should have that category, so add it.
+  return prefIDsInOrder.push('General List')
+}
+
 export function buildApplicantsAndPrefs(rowObjects) {
   const applicantsByNumber = {}
   const foundPrefs = new Set()
@@ -59,22 +77,7 @@ export function buildApplicantsAndPrefs(rowObjects) {
     }
   }
 
-  // put the prefs in the correct order, since foundPrefs will have them in whatever order they were found in.  then
-  // call flat() to remove any holes in the array, which we'll have if the spreadsheet doesn't include the full
-  // complement of available prefs.
-  const prefIDsInOrder = [...foundPrefs]
-    .reduce((result, id) => {
-      result[IndexByPrefID[id]] = id
-      return result
-    }, [])
-    .flat()
-
-  // the "General List" contains everyone who has zero prefs, and isn't its
-  // own preference, so it won't have been added to prefIDsInOrder.  but every
-  // lottery should have that category, so add it.
-  prefIDsInOrder.push('General List')
-
-  return { applicants: Object.values(applicantsByNumber), prefIDs: prefIDsInOrder }
+  return { applicants: Object.values(applicantsByNumber), prefIDs: prefIDsInOrder(foundPrefs) }
 }
 
 export const getApplicantsAndPrefs = (workbook) => {
