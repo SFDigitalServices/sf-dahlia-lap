@@ -5,7 +5,15 @@ import rootBucket from '../data/buckets'
 import { Preferences } from '../utils/constants'
 
 export function processExcelData(data) {
-  const workbook = XLSX.read(data)
+  const workbook = getWorkbook(data)
+  return processData(workbook)
+}
+
+const getWorkbook = (data) => {
+  return XLSX.read(data)
+}
+
+export function processData(workbook) {
   const sheetName = workbook.SheetNames[0].trim()
   const [applicants, prefIDs] = getApplicantsAndPrefs(workbook)
 
@@ -41,23 +49,4 @@ export function processExcelData(data) {
       lotteryDate: 'someday'
     }
   }
-}
-
-export function readWorkbook(data) {
-  const workbook = XLSX.read(data)
-  return workbook
-}
-
-export function processWorkbook(workbook) {
-  const [applicants] = getApplicantsAndPrefs(workbook)
-  applicants.forEach((applicant) => rootBucket.addApplicant(applicant))
-
-  const applicantPaths = rootBucket.getApplicants()
-  const groupedApplicants = Object.groupBy(applicantPaths, ([, path]) => path.join('/'))
-
-  console.log(groupedApplicants)
-
-  console.log(applicants)
-
-  return applicants
 }
