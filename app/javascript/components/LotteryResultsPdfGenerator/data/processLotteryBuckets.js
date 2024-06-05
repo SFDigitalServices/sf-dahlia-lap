@@ -3,7 +3,7 @@ import { Preferences } from '../utils/constants'
 const isVeteranBucket = (bucket) => Preferences[bucket.preferenceName].isVeteran
 const isNotVeteranBucket = (bucket) => !isVeteranBucket(bucket)
 
-export function processLotteryBuckets(buckets, combineGroups = false) {
+const filterBuckets = (buckets) => {
   const veterans = new Set()
 
   // we know all the applicants in veteran buckets have the veteran preference,
@@ -23,6 +23,12 @@ export function processLotteryBuckets(buckets, combineGroups = false) {
       applicant.hasVeteranPref = veterans.has(applicant.lotteryNumber)
     })
   })
+
+  return buckets
+}
+
+export function processLotteryBuckets(rawBuckets, combineGroups = false) {
+  const buckets = filterBuckets(rawBuckets)
 
   if (!combineGroups) {
     return buckets

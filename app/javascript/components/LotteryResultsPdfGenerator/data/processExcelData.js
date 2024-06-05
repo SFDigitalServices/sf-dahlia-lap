@@ -1,3 +1,4 @@
+import listing from 'spec/javascript/fixtures/listing'
 import * as XLSX from 'xlsx'
 
 import { getApplicantsAndPrefs } from './dataHelpers'
@@ -11,6 +12,21 @@ export function processExcelData(data) {
 
 const getWorkbook = (data) => {
   return XLSX.read(data)
+}
+
+const createDataResponseObject = (sheetName, buckets) => {
+  return {
+    listing: {
+      name: sheetName,
+      address: sheetName,
+      date: 'someday'
+    },
+    results: {
+      lotteryBuckets: buckets,
+      lotteryStatus: 'Complete',
+      lotteryDate: 'someday'
+    }
+  }
 }
 
 export function processData(workbook) {
@@ -37,16 +53,5 @@ export function processData(workbook) {
     return bucket
   })
 
-  return {
-    listing: {
-      name: sheetName,
-      address: sheetName,
-      date: 'someday'
-    },
-    results: {
-      lotteryBuckets: buckets,
-      lotteryStatus: 'Complete',
-      lotteryDate: 'someday'
-    }
-  }
+  return createDataResponseObject(sheetName, buckets)
 }
