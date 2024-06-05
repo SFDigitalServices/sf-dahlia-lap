@@ -47,7 +47,9 @@ const prefIDsInOrder = (foundPrefs) => {
   // the "General List" contains everyone who has zero prefs, and isn't its
   // own preference, so it won't have been added to prefIDsInOrder.  but every
   // lottery should have that category, so add it.
-  return prefIDsInOrder.push('General List')
+  prefIDsInOrder.push('General List')
+
+  return prefIDsInOrder
 }
 
 export function buildApplicantsAndPrefs(rowObjects) {
