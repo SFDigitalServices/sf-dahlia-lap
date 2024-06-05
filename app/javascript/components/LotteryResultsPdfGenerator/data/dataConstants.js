@@ -24,3 +24,14 @@ export function getPreferenceByName(prefName) {
 
   return result ? result[1] : null
 }
+
+export const InputColumns = [
+  ['Rank', 'Lottery Rank (Unsorted)'],
+  ['LotteryNum', 'Lottery Number'],
+  ['Name', 'Primary Applicant Contact: Full Name'],
+  ['PrefName', 'Preference'],
+  ['HasPref', 'Receives Preference'],
+  ['PrefRank', 'Preference Rank']
+]
+
+export const VetPref = 'VET'

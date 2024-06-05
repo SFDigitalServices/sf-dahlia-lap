@@ -35,7 +35,7 @@ const LotteryResultsPdfGenerator = () => {
   return (
     <>
       <div id='lottery-results-pdf-generator-container' onDragEnter={handleDragEnter}>
-        <LotteryManager spreadsheetData={spreadsheetData} />
+        {!showDropTarget && <LotteryManager spreadsheetData={spreadsheetData} />}
         {!showDropTarget && !spreadsheetData && (
           <div id='lottery-results-pre-drop-message'>
             <div>Drag and drop a .xlsx results spreadsheet here</div>
