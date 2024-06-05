@@ -114,12 +114,14 @@ label > input {
 }
 
 #lottery-results-header > h2 {
+	font-family: Verdana, sans-serif;
 	font-size: 1.25rem;
 	margin: 0 auto .75rem auto;
 	width: fit-content;
 }
 
 #lottery-results-header > h3 {
+	font-family: Verdana, sans-serif;
 	font-size: 1rem;
 	margin: 0 auto .25rem auto;
 	font-weight: normal;
@@ -158,6 +160,7 @@ label > input {
 }
 
 #lottery-results-header > blockquote {
+	font-family: Verdana, sans-serif;
 	width: 40%;
 	margin: 2rem auto;
 }
@@ -167,27 +170,29 @@ label > input {
 	font-size: .75rem;
 	line-height: 1;
 	margin: 0;
+	font-family: Verdana, sans-serif;
 }
 
 #lottery-results-header > blockquote > h5 {
 	margin-top: .75rem;
+	font-family: Verdana, sans-serif;
 }
 
 #lottery-results-section {
+	font-family: Verdana, sans-serif;
 	margin: 2rem auto 0 auto;
 }
 
 #lottery-results-table {
+	font-family: Verdana, sans-serif;
 	/* ensure the columns widths are even */
 	background-color: white;
 	table-layout: fixed;
 	width: 100%;
-	--count-width: 2rem
 }
 
-
-
 #lottery-results-pdf-column, #lottery-results-pdf-th {
+	font-family: Verdana, sans-serif;
 	text-align: left;
 	vertical-align: top;
 	/* this actually functions like a min-width */
@@ -208,6 +213,7 @@ label > input {
 }
 
 #lottery-results-pdf-row > div {
+	font-family: Verdana, sans-serif;
 	padding-right: 1.25rem;
 	flex: 1;
 }
@@ -249,7 +255,7 @@ label > input {
 }
 
 #lottery-results-pdf-th-h4, #lottery-results-pdf-column h5 {
-	margin: .25rem 0 .5rem var(--count-width);
+	margin: .5rem 0 .5rem 2rem;
 	flex-wrap: wrap;
 	display: flex;
 	font-family: Verdana, sans-serif;
@@ -284,7 +290,7 @@ label > input {
 	font-weight: bold;
 	font-size: .65em;
 	text-align: right;
-	width: var(--count-width);
+	width: 2rem;
 	margin-right: 0.2rem;
 	display: inline-block;
 }
