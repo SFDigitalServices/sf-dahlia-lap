@@ -33,17 +33,15 @@ const LotteryResultsPdfGenerator = () => {
   }
 
   return (
-    <>
-      <div id='lottery-results-pdf-generator-container' onDragEnter={handleDragEnter}>
-        {!showDropTarget && <LotteryManager spreadsheetData={spreadsheetData} />}
-        {!showDropTarget && !spreadsheetData && (
-          <div id='lottery-results-pre-drop-message'>
-            <div>Drag and drop a .xlsx results spreadsheet here</div>
-          </div>
-        )}
-        {showDropTarget && <DropTarget onDrop={handleDrop} onLeave={handleDragLeave} />}
-      </div>
-    </>
+    <div id='lottery-results-pdf-generator-container' onDragEnter={handleDragEnter}>
+      {!showDropTarget && <LotteryManager spreadsheetData={spreadsheetData} />}
+      {!showDropTarget && !spreadsheetData && (
+        <div id='lottery-results-pre-drop-message'>
+          <div>Drag and drop a .xlsx results spreadsheet here</div>
+        </div>
+      )}
+      {showDropTarget && <DropTarget onDrop={handleDrop} onLeave={handleDragLeave} />}
+    </div>
   )
 }
 

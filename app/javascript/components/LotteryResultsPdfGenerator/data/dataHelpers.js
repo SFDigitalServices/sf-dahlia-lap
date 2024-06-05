@@ -65,7 +65,6 @@ export function buildApplicantsAndPrefs(rowObjects) {
   const prefIDsInOrder = [...foundPrefs]
     .reduce((result, id) => {
       result[IndexByPrefID[id]] = id
-
       return result
     }, [])
     .flat()
@@ -78,7 +77,7 @@ export function buildApplicantsAndPrefs(rowObjects) {
   return { applicants: Object.values(applicantsByNumber), prefIDs: prefIDsInOrder }
 }
 
-export function getApplicantsAndPrefs(workbook) {
+export const getApplicantsAndPrefs = (workbook) => {
   const rowObjects = getRowObjects(workbook)
   return buildApplicantsAndPrefs(rowObjects)
 }
