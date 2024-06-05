@@ -25,40 +25,39 @@ function getRowAsObject(row, cols) {
   return data
 }
 
-const applicantsByLotteryNumber = {}
-const foundPrefs = new Set()
-
-const processRow = (row) => {
-  const { Name, Rank, LotteryNum, PrefName, HasPref } = row
-  const applicant =
-    applicantsByLotteryNumber[LotteryNum] ||
-    (applicantsByLotteryNumber[LotteryNum] = { Name, Rank, LotteryNum, prefs: {} })
-  // we can't just index into Preferences with the name because the names can vary by listing
-  const prefID = getPreferenceByName(PrefName)?.id
-
-  if (prefID) {
-    applicant.prefs[prefID] = HasPref
-    foundPrefs.add(prefID)
-
-    if (prefID.startsWith('V-')) {
-      applicant.prefs[VetPref] = HasPref
-    }
-  } else {
-    console.error(`Unknown preference: ${PrefName}`)
-  }
-}
-
-export function getApplicantsAndPrefs(workbook) {
+function getRowObjects(workbook) {
   const ws = workbook.Sheets[workbook.SheetNames[0]]
   const [header, ...rows] = XLSX.utils.sheet_to_json(ws, { header: 1 })
   const cols = getCols(InputColumns, header)
-  const rowObjects = rows.map((row) => getRowAsObject(row, cols))
+  return rows.map((row) => getRowAsObject(row, cols))
+}
+
+export function buildApplicantsAndPrefs(rowObjects) {
+  console.log('rowObjects', rowObjects)
+  const applicantsByNumber = {}
+  const foundPrefs = new Set()
 
   // make sure the rows are sorted ascending by lottery rank, which may not always be the case in the exported file
   rowObjects.sort((a, b) => a.Rank - b.Rank)
 
   for (const row of rowObjects) {
-    processRow(row)
+    const { Name, Rank, LotteryNum, PrefName, HasPref } = row
+    const applicant =
+      applicantsByNumber[LotteryNum] ||
+      (applicantsByNumber[LotteryNum] = { Name, Rank, LotteryNum, prefs: {} })
+    // we can't just index into Preferences with the name because the names can vary by listing
+    const prefID = getPreferenceByName(PrefName)?.id
+
+    if (prefID) {
+      applicant.prefs[prefID] = HasPref
+      foundPrefs.add(prefID)
+
+      if (prefID.startsWith('V-')) {
+        applicant.prefs[VetPref] = HasPref
+      }
+    } else {
+      console.error(`Unknown preference: ${PrefName}`)
+    }
   }
 
   // put the prefs in the correct order, since foundPrefs will have them in whatever order they were found in.  then
@@ -77,5 +76,11 @@ export function getApplicantsAndPrefs(workbook) {
   // lottery should have that category, so add it.
   prefIDsInOrder.push('General List')
 
-  return [Object.values(applicantsByLotteryNumber), prefIDsInOrder]
+  console.log({ applicants: Object.values(applicantsByNumber), prefIDs: prefIDsInOrder })
+  return { applicants: Object.values(applicantsByNumber), prefIDs: prefIDsInOrder }
+}
+
+export function getApplicantsAndPrefs(workbook) {
+  const rowObjects = getRowObjects(workbook)
+  return buildApplicantsAndPrefs(rowObjects)
 }

@@ -15,7 +15,7 @@ const getWorkbook = (data) => {
 
 export function processData(workbook) {
   const sheetName = workbook.SheetNames[0].trim()
-  const [applicants, prefIDs] = getApplicantsAndPrefs(workbook)
+  const { applicants, prefIDs } = getApplicantsAndPrefs(workbook)
 
   // clear out the applicants from any previous addApplicant calls
   rootBucket.reset()
