@@ -27,7 +27,7 @@ function getRowAsObject(row, cols) {
 
 function getRowObjects(workbook) {
   const ws = workbook.Sheets[workbook.SheetNames[0]]
-  const [header, ...rows] = XLSX.utils.sheet_to_json(ws, { header: 1 })
+  const [header, ...rows] = XLSX.utils.sheet_to_json(ws, { header: 1, blankrows: false })
   const cols = getCols(InputColumns, header)
   return rows.map((row) => getRowAsObject(row, cols))
 }
