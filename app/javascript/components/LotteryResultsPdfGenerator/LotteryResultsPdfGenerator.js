@@ -3,6 +3,11 @@ import React, { useState } from 'react'
 import DropTarget from './DropTarget'
 import LotteryManager from './LotteryManager'
 
+const processDrop = async (files) => {
+  const [file] = files
+  return await file.arrayBuffer()
+}
+
 const LotteryResultsPdfGenerator = () => {
   const [showDropTarget, setShowDropTarget] = useState(false)
   const [spreadsheetData, setSpreadsheetData] = useState()
@@ -21,12 +26,10 @@ const LotteryResultsPdfGenerator = () => {
 
   const handleDrop = async (event) => {
     event.preventDefault()
-    event.stopPropagation()
     setShowDropTarget(false)
 
     if (event.dataTransfer.types.includes('Files')) {
-      const [file] = event.dataTransfer.files
-      const data = await file.arrayBuffer()
+      const data = await processDrop(event.dataTransfer.files)
 
       setSpreadsheetData(data)
     }
@@ -34,13 +37,15 @@ const LotteryResultsPdfGenerator = () => {
 
   return (
     <div id='lottery-results-pdf-generator-container' onDragEnter={handleDragEnter}>
-      {!showDropTarget && <LotteryManager spreadsheetData={spreadsheetData} />}
-      {!showDropTarget && !spreadsheetData && (
+      {showDropTarget ? (
+        <DropTarget onDrop={handleDrop} onLeave={handleDragLeave} />
+      ) : spreadsheetData ? (
+        <LotteryManager spreadsheetData={spreadsheetData} />
+      ) : (
         <div id='lottery-results-pre-drop-message'>
           <div>Drag and drop a .xlsx results spreadsheet here</div>
         </div>
       )}
-      {showDropTarget && <DropTarget onDrop={handleDrop} onLeave={handleDragLeave} />}
     </div>
   )
 }
