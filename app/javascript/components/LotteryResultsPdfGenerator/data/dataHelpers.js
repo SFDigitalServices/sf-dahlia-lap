@@ -33,7 +33,6 @@ function getRowObjects(workbook) {
 }
 
 export function buildApplicantsAndPrefs(rowObjects) {
-  console.log('rowObjects', rowObjects)
   const applicantsByNumber = {}
   const foundPrefs = new Set()
 
@@ -76,7 +75,6 @@ export function buildApplicantsAndPrefs(rowObjects) {
   // lottery should have that category, so add it.
   prefIDsInOrder.push('General List')
 
-  console.log({ applicants: Object.values(applicantsByNumber), prefIDs: prefIDsInOrder })
   return { applicants: Object.values(applicantsByNumber), prefIDs: prefIDsInOrder }
 }
 
