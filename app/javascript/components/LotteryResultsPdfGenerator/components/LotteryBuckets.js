@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { by } from './utils/byFunction'
-import { Preferences } from './utils/constants'
+import { by } from '../utils/byFunction'
+import { Preferences } from '../utils/constants'
 
 const ColumnMaxWidth = 20 // in ch units
 

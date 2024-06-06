@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-import DropTarget from './DropTarget'
-import LotteryManager from './LotteryManager'
+import DropTarget from './components/DropTarget'
+import LotteryManager from './components/LotteryManager'
 
 const processDrop = async (files) => {
   const [file] = files

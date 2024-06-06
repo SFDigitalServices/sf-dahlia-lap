@@ -2,9 +2,9 @@ import React, { useRef } from 'react'
 
 import { useReactToPrint } from 'react-to-print'
 
-import { processExcelData } from './data/processExcelData'
-import { processLotteryBuckets } from './data/processLotteryBuckets'
 import { LotteryResults } from './LotteryResults'
+import { processExcelData } from '../data/processExcelData'
+import { processLotteryBuckets } from '../data/processLotteryBuckets'
 
 const LotteryManager = ({ spreadsheetData }) => {
   const componentToPrint = useRef(null)
