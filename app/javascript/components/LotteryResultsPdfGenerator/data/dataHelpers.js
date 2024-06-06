@@ -2,10 +2,10 @@ import * as XLSX from 'xlsx'
 
 import { getPreferenceByName, IndexByPrefID, InputColumns, VetPref } from './dataConstants'
 
-function getCols(columns, headers) {
+export const getCols = (headers) => {
   const cols = {}
 
-  for (const [name, label] of columns) {
+  for (const [name, label] of InputColumns) {
     cols[name] = {
       label,
       index: headers.indexOf(label)
@@ -15,7 +15,7 @@ function getCols(columns, headers) {
   return cols
 }
 
-function getRowAsObject(row, cols) {
+export const getRowAsObject = (row, cols) => {
   const data = {}
 
   for (const [name, { index }] of Object.entries(cols)) {
@@ -28,7 +28,7 @@ function getRowAsObject(row, cols) {
 function getRowObjects(workbook) {
   const ws = workbook.Sheets[workbook.SheetNames[0]]
   const [header, ...rows] = XLSX.utils.sheet_to_json(ws, { header: 1, blankrows: false })
-  const cols = getCols(InputColumns, header)
+  const cols = getCols(header)
   return rows.map((row) => getRowAsObject(row, cols))
 }
 

@@ -1,4 +1,8 @@
-import { buildApplicantsAndPrefs } from 'components/LotteryResultsPdfGenerator/data/dataHelpers'
+import {
+  buildApplicantsAndPrefs,
+  getRowAsObject,
+  getCols
+} from 'components/LotteryResultsPdfGenerator/data/dataHelpers'
 
 const testRowObjects = [
   {
@@ -38,6 +42,58 @@ const applicationsResult = [
   }
 ]
 
+const testRow = [
+  458,
+  '01382810',
+  'Shirley Gainey',
+  'Veteran with Displaced Tenant Housing Preference (V-DTHP)',
+  false
+]
+
+const testCols = {
+  Rank: {
+    label: 'Lottery Rank (Unsorted)',
+    index: 0
+  },
+  LotteryNum: {
+    label: 'Lottery Number',
+    index: 1
+  },
+  Name: {
+    label: 'Primary Applicant Contact: Full Name',
+    index: 2
+  },
+  PrefName: {
+    label: 'Preference',
+    index: 3
+  },
+  HasPref: {
+    label: 'Receives Preference',
+    index: 4
+  },
+  PrefRank: {
+    label: 'Preference Rank',
+    index: 5
+  }
+}
+
+const testResponseObject = {
+  Rank: 458,
+  LotteryNum: '01382810',
+  Name: 'Shirley Gainey',
+  PrefName: 'Veteran with Displaced Tenant Housing Preference (V-DTHP)',
+  HasPref: false
+}
+
+const testHeaders = [
+  'Lottery Rank (Unsorted)',
+  'Lottery Number',
+  'Primary Applicant Contact: Full Name',
+  'Preference',
+  'Receives Preference',
+  'Preference Rank'
+]
+
 const testPrefIDsResult = ['V-COP', 'V-DTHP', 'General List']
 describe('Data Helpers', () => {
   describe('buildApplicantsAndPrefs returns correct result', () => {
@@ -46,6 +102,17 @@ describe('Data Helpers', () => {
         applicants: applicationsResult,
         prefIDs: testPrefIDsResult
       })
+    })
+  })
+  describe('getRowAsObject', () => {
+    test('it receives a row and cols and returns an object', () => {
+      expect(getRowAsObject(testRow, testCols)).toEqual(testResponseObject)
+    })
+  })
+
+  describe('getCols', () => {
+    test('it receives headers and returns the correct column data', () => {
+      expect(getCols(testHeaders)).toEqual(testCols)
     })
   })
 })
