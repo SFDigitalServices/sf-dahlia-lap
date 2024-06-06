@@ -96,12 +96,27 @@ const testHeaders = [
 
 const testPrefIDsResult = ['V-COP', 'V-DTHP', 'General List']
 describe('Data Helpers', () => {
-  describe('buildApplicantsAndPrefs returns correct result', () => {
+  describe('buildApplicantsAndPrefs', () => {
     test('it should return the correct data', () => {
       expect(buildApplicantsAndPrefs(testRowObjects)).toEqual({
         applicants: applicationsResult,
         prefIDs: testPrefIDsResult
       })
+    })
+    test('it returns an error if there is an unknown preference', () => {
+      const logSpy = jest.spyOn(console, 'error')
+
+      const badRowObjects = [
+        {
+          Rank: 1,
+          LotteryNum: '01381911',
+          Name: 'Lawanda Travis',
+          PrefName: 'Bad Pref Name',
+          HasPref: false
+        }
+      ]
+      buildApplicantsAndPrefs(badRowObjects)
+      expect(logSpy).toHaveBeenCalledWith('Unknown preference: Bad Pref Name')
     })
   })
   describe('getRowAsObject', () => {
