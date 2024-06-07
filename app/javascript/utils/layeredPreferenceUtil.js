@@ -97,11 +97,10 @@ export const addLayeredPreferenceFields = (
   })
 }
 
-// TODO: rename inputs and test
-const calculateFinalConfirmation = (first_confirmation, second_confirmation) => {
-  if (first_confirmation === 'Invalid' || second_confirmation === 'Invalid') {
+const calculateFinalConfirmation = (veteran_confirmation, base_confirmation) => {
+  if (veteran_confirmation === 'Invalid' || base_confirmation === 'Invalid') {
     return 'Invalid'
-  } else if (second_confirmation === 'Unconfirmed') {
+  } else if (base_confirmation === 'Unconfirmed') {
     return 'Unconfirmed'
   } else {
     return 'Confirmed'

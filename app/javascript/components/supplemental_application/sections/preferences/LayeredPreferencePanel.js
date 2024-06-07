@@ -4,6 +4,11 @@ import FormGrid from 'components/molecules/FormGrid'
 
 import { Comment, FormItem } from './utils'
 
+// if a veteran preference has receives_preference set to true then it has been confirmed
+// this is only overridable when post_lottery_validation has been set to Invalid
+const status = (post_lottery_validation) =>
+  post_lottery_validation === 'Invalid' ? 'Invalid' : 'Confirmed'
+
 export const LayeredPreferencePanel = ({ preference }) => {
   return (
     <>
@@ -20,9 +25,7 @@ export const LayeredPreferencePanel = ({ preference }) => {
           </div>
         </FormItem>
         <FormItem label='Status'>
-          <div className='text-value'>
-            {preference.post_lottery_validation === 'Invalid' ? 'Invalid' : 'Confirmed'}
-          </div>
+          <div className='text-value'>{status(preference.post_lottery_validation)}</div>
         </FormItem>
       </FormGrid.Row>
       <FormGrid.Row expand={false}>
