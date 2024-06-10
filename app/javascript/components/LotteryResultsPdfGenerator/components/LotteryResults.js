@@ -4,10 +4,10 @@ import EasyEdit from 'react-easy-edit'
 
 import LotteryBuckets from './LotteryBuckets'
 
-export const LotteryResults = React.forwardRef(({ name, address, date, buckets }, ref) => {
+export const LotteryResults = React.forwardRef(({ name, address, buckets }, ref) => {
   const [currentName, setCurrentName] = useState(name)
   const [currentAddress, setCurrentAddress] = useState(address)
-  const [currentDate, setCurrentDate] = useState(date)
+  const [currentDate, setCurrentDate] = useState(new Date().toDateString())
 
   return (
     <article id='lottery-results-pdf-generator-main' ref={ref}>

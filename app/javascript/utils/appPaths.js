@@ -22,6 +22,8 @@ const toApplicationsFlaggedIndex = (type) => `${toApplicationsFlaggedIndexBase()
 
 const toListingLeaseUps = (listingId) => `/lease-ups/listings/${listingId}`
 
+const toLotteryResults = (listingId) => `/lease-ups/listings/${listingId}/lottery-results`
+
 const toListing = (listingId) => `/listings/${listingId}`
 
 const toLeaseUps = () => '/lease-ups/listings'
@@ -53,5 +55,6 @@ export default {
   toApplicationNew,
   toLeaseUps,
   toLeaseUpApplications,
-  toAttachmentDownload
+  toAttachmentDownload,
+  toLotteryResults
 }

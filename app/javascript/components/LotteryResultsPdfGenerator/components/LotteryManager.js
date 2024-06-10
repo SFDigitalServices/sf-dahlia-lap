@@ -6,30 +6,35 @@ import { LotteryResults } from './LotteryResults'
 import { processExcelData } from '../data/processExcelData'
 import { processLotteryBuckets } from '../data/processLotteryBuckets'
 
-const LotteryManager = ({ spreadsheetData }) => {
+const LotteryManager = ({ applications, listing }) => {
   const componentToPrint = useRef(null)
   const handlePrint = useReactToPrint({
     documentTitle: 'Lottery Results',
     removeAfterPrint: true
   })
 
-  let listing = {
-    name: '',
-    address: '',
-    date: ''
-  }
-  let buckets
+  const groupedBuckets = Object.values(applications).reduce((acc, app) => {
+    if (app.preference_lottery_rank) {
+      if (acc[app.custom_preference_type]) {
+        acc[app.custom_preference_type].push(app)
+      } else {
+        acc[app.custom_preference_type] = [app]
+      }
+    } else {
+      if (acc.generalList) {
+        acc.generalList.push(app)
+      } else {
+        acc.generalList = [app]
+      }
+    }
+    return acc
+  }, {})
 
-  if (spreadsheetData) {
-    const data = processExcelData(spreadsheetData)
-
-    listing = data.listing
-    buckets = processLotteryBuckets(data.results.lotteryBuckets, true)
-  }
+  const processedBuckets = processLotteryBuckets(groupedBuckets)
 
   return (
     <>
-      {buckets && (
+      {processedBuckets && (
         <>
           <div id='save-lottery-results-button-container'>
             <button
@@ -43,9 +48,8 @@ const LotteryManager = ({ spreadsheetData }) => {
           <LotteryResults
             ref={componentToPrint}
             name={listing.name}
-            address={listing.address}
-            date={listing.date}
-            buckets={buckets}
+            address={listing.building_street_address}
+            buckets={processedBuckets}
           />
         </>
       )}

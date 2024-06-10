@@ -5,57 +5,73 @@ import { Preferences } from '../utils/constants'
 
 const ColumnMaxWidth = 20 // in ch units
 
-function Column({ bucket }) {
-  const items = bucket.preferenceResults.map(({ lotteryNumber, hasVeteranPref }) => (
-    <li key={lotteryNumber}>
-      {lotteryNumber}
-      {hasVeteranPref ? '*' : ''}
-    </li>
-  ))
+const Column = ({ bucket }) => {
+  const items = bucket.map((application) => {
+    let lotteryNumber = ''
+    if (application.application) {
+      lotteryNumber =
+        application.application?.lottery_number_manual ?? application.application.lottery_number
+    } else {
+      lotteryNumber = application.lottery_number ?? application.lottery_number_manual
+    }
+
+    return (
+      <li key={lotteryNumber}>
+        {lotteryNumber}
+        {application.isVeteran ? '*' : ''}
+      </li>
+    )
+  })
 
   return <ol>{items}</ol>
 }
 
 export default function LotteryBuckets({ buckets = [] }) {
-  const applicants = new Map()
+  const unfilteredPreferenceResults = Object.values(buckets).reduce((acc, bucket) => {
+    for (const result of bucket) acc.push(result)
+    return acc
+  }, [])
 
-  // combine all the buckets into one list with every applicant appearing once
-  buckets
-    ?.map(({ preferenceResults }) => preferenceResults)
-    .flat()
-    .forEach((applicant) => {
-      applicants.set(applicant.lotteryNumber, applicant)
-    })
-
-  // create a bucket with a rank-ordered list of applicants
   const unfilteredBucket = {
-    preferenceName: 'Unfiltered',
-    preferenceResults: [...applicants.values()].sort(by('lotteryRank'))
+    preferenceName: 'Unfiltered Rank',
+    preferenceResults: unfilteredPreferenceResults.sort(by('preference_all_lottery_rank'))
   }
+
   // put the bucket of unfiltered applicants first
-  const combinedBuckets = [unfilteredBucket, ...buckets]
+  const combinedBuckets = [unfilteredBucket, ...Object.values(buckets)]
   const maxWidth = `${combinedBuckets.length * ColumnMaxWidth}ch`
   const titleCells = []
   const subtitleCells = []
   const resultCells = []
 
   combinedBuckets.forEach((bucket) => {
-    const { id, shortName, subtitle } = Preferences[bucket.preferenceName]
+    let shortCode = ''
+    if (bucket.preferenceName) {
+      shortCode = bucket.preferenceName
+    } else {
+      shortCode = bucket[0]?.custom_preference_type ?? 'General List'
+    }
+
+    if (bucket.preferenceResults) {
+      bucket = bucket.preferenceResults
+    }
+
+    const { subtitle, shortName } = Preferences[shortCode]
 
     titleCells.push(
-      <th id='lottery-results-pdf-th' key={id}>
+      <th id='lottery-results-pdf-th' key={shortCode}>
         <h4 id='lottery-results-pdf-th-h4'>{shortName}</h4>
       </th>
     )
 
     subtitleCells.push(
-      <td id='lottery-results-pdf-column' key={id}>
+      <td id='lottery-results-pdf-column' key={shortCode}>
         <h5>{subtitle}</h5>
       </td>
     )
 
     resultCells.push(
-      <td id='lottery-results-pdf-column' key={id}>
+      <td id='lottery-results-pdf-column' key={shortCode}>
         <Column bucket={bucket} />
       </td>
     )

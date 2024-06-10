@@ -9,7 +9,7 @@ const UnitsRemaining = 'Remaining units'
 // the results PDF.  the third item is a subtitle only used in the PDF.
 export const Preferences = [
   {
-    name: 'Veteran with Certificate of Preference (V-COP)',
+    name: 'Veteran with Certificate of Preference',
     id: 'V-COP',
     subtitle: Units100Pct
   },
@@ -19,33 +19,33 @@ export const Preferences = [
     subtitle: Units100Pct
   },
   {
-    name: 'Veteran with Displaced Tenant Housing Preference (V-DTHP)',
+    name: 'Veteran with Displaced Tenant Housing Preference',
     id: 'V-DTHP',
     subtitle: Units20Pct
   },
   {
-    name: 'Displaced Tenant Housing Preference (DTHP)',
+    name: 'Displaced Tenant Housing Preference',
     id: 'DTHP',
     subtitle: Units20Pct
   },
   {
-    name: 'Veteran with Neighborhood Resident Housing Preference (V-NRHP)',
+    name: 'Veteran with Neighborhood Resident Housing Preference',
     id: 'V-NRHP',
     subtitle: Units40Pct
   },
   {
-    name: 'Neighborhood Resident Housing Preference (NRHP)',
+    name: 'Neighborhood Resident Housing Preference',
     id: 'NRHP',
     subtitle: Units40Pct
   },
   {
-    name: 'Veteran with Live or Work in San Francisco Preference (V-L_W)',
-    id: 'V-LW',
+    name: 'Veteran with Live or Work in San Francisco Preference',
+    id: 'V-L_W',
     subtitle: Units100PctRemaining
   },
   {
     name: 'Live or Work in San Francisco Preference',
-    id: 'LW',
+    id: 'L_W',
     shortName: 'Live/Work',
     subtitle: Units100PctRemaining
   },

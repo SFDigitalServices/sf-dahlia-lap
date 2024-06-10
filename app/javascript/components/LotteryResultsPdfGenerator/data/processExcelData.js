@@ -1,42 +1,49 @@
 import * as XLSX from 'xlsx'
 
+import { getPreferenceNameByShortcode } from './dataConstants'
 import { getApplicantsAndPrefs } from './dataHelpers'
-import rootBucket from '../data/buckets'
-import { Preferences } from '../utils/constants'
 
 export const buildBuckets = (applicants, prefIDs) => {
-  // clear out the applicants from any previous addApplicant calls
-  rootBucket.reset()
-  applicants.forEach((applicant) => rootBucket.addApplicant(applicant))
+  const buckets = applicants.reduce((acc, { Rank, LotteryNum, prefs }) => {
+    let delegated = false
+    for (const prefID of prefIDs) {
+      if (prefs[prefID]) {
+        if (acc[prefID]?.preferenceResults) {
+          acc[prefID].preferenceResults.push({ Rank, LotteryNum })
+        } else {
+          acc[prefID] = {
+            preferenceName: getPreferenceNameByShortcode(prefID),
+            preferenceResults: [{ Rank, LotteryNum }]
+          }
+        }
+        delegated = true
+      } else {
+        if (!acc[prefID]?.preferenceResults) {
+          acc[prefID] = {
+            preferenceName: getPreferenceNameByShortcode(prefID),
+            preferenceResults: []
+          }
+        }
+      }
+    }
 
-  const applicantPaths = rootBucket.getApplicants()
-  // this assumes the last path component is unique across buckets
-  const groupedApplicants = Object.values(applicantPaths).reduce((acc, applicant) => {
-    if (acc[applicant[1].at(-1)]) {
-      acc[applicant[1].at(-1)].push(applicant)
-    } else {
-      acc[applicant[1].at(-1)] = [applicant]
+    if (!delegated) {
+      if (acc.generalLottery?.preferenceResults) {
+        acc.generalLottery.preferenceResults.push({ Rank, LotteryNum })
+      } else {
+        acc.generalLottery = {
+          preferenceName: 'generalLottery',
+          preferenceResults: [{ Rank, LotteryNum }]
+        }
+      }
     }
     return acc
   }, {})
 
-  const buckets = prefIDs.map((id) => {
-    const bucket = {
-      preferenceName: Preferences[id].name,
-      preferenceResults:
-        groupedApplicants[id]?.map(([{ Rank: lotteryRank, LotteryNum: lotteryNumber }]) => ({
-          lotteryRank,
-          lotteryNumber
-        })) || []
-    }
-
-    return bucket
-  })
-
-  return buckets
+  return Object.values(buckets)
 }
 
-export function processExcelData(data) {
+export const processExcelData = (data) => {
   const workbook = XLSX.read(data)
   const sheetName = workbook.SheetNames[0].trim()
 

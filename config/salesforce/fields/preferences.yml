@@ -43,6 +43,8 @@ preferences:
     Application__r.Applicant__r.Mailing_Address__c:
     Application__r.Has_ADA_Priorities_Selected__c:
     Application__r.Total_Household_Size__c:
+    Application__r.Lottery_Number__c:    
+    Application__r.Lottery_Number_Manual__c:
     Preference_Order__c:
     Receives_Preference__c:
     Preference_All_Name__c:

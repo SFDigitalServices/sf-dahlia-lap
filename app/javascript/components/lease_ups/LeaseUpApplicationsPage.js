@@ -371,9 +371,19 @@ const LeaseUpApplicationsPage = () => {
     statusModal: statusModalState
   }
 
+  const tabs = {
+    items: [
+      { title: 'Applications', url: '', active: true },
+      { title: 'Lottery Results', url: `/lease-ups/listings/${listingId}/lottery-results` }
+    ]
+  }
+
   return (
     <Context.Provider value={context}>
-      <TableLayout pageHeader={getPageHeaderData(breadcrumbData.listing, reportId)}>
+      <TableLayout
+        pageHeader={getPageHeaderData(breadcrumbData.listing, reportId)}
+        tabSection={tabs}
+      >
         <LeaseUpApplicationsTableContainer />
       </TableLayout>
     </Context.Provider>

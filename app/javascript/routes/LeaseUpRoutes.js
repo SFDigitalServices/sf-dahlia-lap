@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 import ApplicationPage from 'components/applications/ApplicationPage'
 import LeaseUpApplicationsPage from 'components/lease_ups/LeaseUpApplicationsPage'
 import LeaseUpListingsPage from 'components/lease_ups/LeaseUpListingsPage'
+import LotteryResultsPdfGenerator from 'components/LotteryResultsPdfGenerator/LotteryResultsPdfGenerator'
 import SupplementalApplicationPage from 'components/supplemental_application/SupplementalApplicationPage'
 import appPaths from 'utils/appPaths'
 
@@ -34,6 +35,11 @@ const LeaseUpRoutes = () => (
       element={<SupplementalApplicationPage />}
     />
     <Route exact path={appPaths.toApplication(':applicationId')} element={<ApplicationPage />} />
+    <Route
+      exact
+      path={appPaths.toLotteryResults(':listingId')}
+      element={<LotteryResultsPdfGenerator />}
+    />
   </Routes>
 )
 

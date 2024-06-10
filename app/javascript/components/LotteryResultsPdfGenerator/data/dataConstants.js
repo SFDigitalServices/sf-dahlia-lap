@@ -25,6 +25,20 @@ export function getPreferenceByName(prefName) {
   return result ? result[1] : null
 }
 
+export const getPreferenceNameByShortcode = (prefShortCode) => {
+  const preferencesByShortCode = {
+    'V-COP': 'Veteran with Certificate of Preference (V-COP)',
+    COP: 'Certificate of Preference (COP)',
+    'V-DTHP': 'Veteran with Displaced Tenant Housing Preference (V-DTHP)',
+    DTHP: 'Displaced Tenant Housing Preference (DTHP)',
+    'V-NRHP': 'Veteran with Neighborhood Resident Housing Preference (V-NRHP)',
+    NRHP: 'Neighborhood Resident Housing Preference (NRHP)',
+    'V-LW': 'Veteran with Live or Work in San Francisco Preference (V-L_W)',
+    LW: 'Live or Work in San Francisco Preference'
+  }
+  return preferencesByShortCode[prefShortCode] ?? 'generalLottery'
+}
+
 export const InputColumns = [
   ['Rank', 'Lottery Rank (Unsorted)'],
   ['LotteryNum', 'Lottery Number'],

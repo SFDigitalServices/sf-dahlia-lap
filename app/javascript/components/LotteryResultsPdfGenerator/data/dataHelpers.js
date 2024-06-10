@@ -44,11 +44,6 @@ const prefIDsInOrder = (foundPrefs) => {
     }, [])
     .flat()
 
-  // the "General List" contains everyone who has zero prefs, and isn't its
-  // own preference, so it won't have been added to prefIDsInOrder.  but every
-  // lottery should have that category, so add it.
-  prefIDsInOrder.push('General List')
-
   return prefIDsInOrder
 }
 
