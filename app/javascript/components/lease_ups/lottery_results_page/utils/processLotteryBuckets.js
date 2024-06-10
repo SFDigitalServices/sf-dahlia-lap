@@ -72,6 +72,11 @@ const combineVeteranBuckets = (buckets) => {
       preferenceName: 'DTHP',
       preferenceResults: []
     },
+    NRHP: {
+      shortCode: 'NRHP',
+      preferenceName: 'NRHP',
+      preferenceResults: []
+    },
     L_W: {
       shortCode: 'L_W',
       preferenceName: 'Live/Work',
