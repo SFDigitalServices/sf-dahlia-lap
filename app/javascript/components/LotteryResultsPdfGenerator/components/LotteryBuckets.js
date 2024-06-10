@@ -1,12 +1,26 @@
 import React from 'react'
 
-import { by } from '../utils/byFunction'
 import { Preferences } from '../utils/constants'
 
 const ColumnMaxWidth = 20 // in ch units
 
-const Column = ({ bucket }) => {
-  const items = bucket.map((application) => {
+const LotteryBucketTitle = ({ id, shortName }) => {
+  return (
+    <th id='lottery-results-pdf-th' key={id}>
+      <h4 id='lottery-results-pdf-th-h4'>{shortName}</h4>
+    </th>
+  )
+}
+
+const LotteryBucketSubtitle = ({ id, subtitle }) => {
+  return (
+    <td id='lottery-results-pdf-column' key={id}>
+      <h5>{subtitle}</h5>
+    </td>
+  )
+}
+const LotteryBucketResult = ({ id, preferenceResults }) => {
+  const items = preferenceResults.map((application) => {
     let lotteryNumber = ''
     if (application.application) {
       lotteryNumber =
@@ -23,50 +37,27 @@ const Column = ({ bucket }) => {
     )
   })
 
-  return <ol>{items}</ol>
+  return (
+    <td id='lottery-results-pdf-column' key={id}>
+      <ol>{items}</ol>
+    </td>
+  )
 }
 
 export const LotteryBuckets = ({ buckets = [] }) => {
-  const unfilteredPreferenceResults = Object.values(buckets).reduce((acc, bucket) => {
-    if (bucket.preferenceResults.length > 0) {
-      for (const result of bucket.preferenceResults) acc.push(result)
-    }
-    return acc
-  }, [])
-
-  const unfilteredBucket = {
-    preferenceName: 'Unfiltered Rank',
-    preferenceResults: unfilteredPreferenceResults.sort(by('preference_all_lottery_rank')),
-    shortCode: 'Unfiltered'
-  }
-
-  // put the bucket of unfiltered applicants first
-  const combinedBuckets = [unfilteredBucket, ...Object.values(buckets)]
-  const maxWidth = `${combinedBuckets.length * ColumnMaxWidth}ch`
+  const maxWidth = `${buckets.length * ColumnMaxWidth}ch`
   const titleCells = []
   const subtitleCells = []
   const resultCells = []
 
-  combinedBuckets.forEach((bucket) => {
+  buckets.forEach((bucket) => {
     const { id, subtitle, shortName } = Preferences[bucket.shortCode]
 
-    titleCells.push(
-      <th id='lottery-results-pdf-th' key={id}>
-        <h4 id='lottery-results-pdf-th-h4'>{shortName}</h4>
-      </th>
-    )
+    titleCells.push(<LotteryBucketTitle id={id} shortName={shortName} />)
 
-    subtitleCells.push(
-      <td id='lottery-results-pdf-column' key={id}>
-        <h5>{subtitle}</h5>
-      </td>
-    )
+    subtitleCells.push(<LotteryBucketSubtitle id={id} subtitle={subtitle} />)
 
-    resultCells.push(
-      <td id='lottery-results-pdf-column' key={id}>
-        <Column bucket={bucket.preferenceResults} />
-      </td>
-    )
+    resultCells.push(<LotteryBucketResult id={id} preferenceResults={bucket.preferenceResults} />)
   })
 
   // to allow the table to expand, up to a point, when there's more room, we

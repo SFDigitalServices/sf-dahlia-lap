@@ -4,6 +4,7 @@ import { useReactToPrint } from 'react-to-print'
 
 import { LotteryResults } from './LotteryResults'
 import { processLotteryBuckets } from '../data/processLotteryBuckets'
+import { by } from '../utils/byFunction'
 
 const LotteryManager = ({ applicationPrefs, listing }) => {
   // set up print component

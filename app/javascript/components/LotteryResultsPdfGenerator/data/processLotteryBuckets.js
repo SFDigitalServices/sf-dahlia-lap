@@ -1,5 +1,5 @@
+import { by } from '../utils/byFunction'
 import { Preferences } from '../utils/constants'
-
 // group application preferences into buckets by preference type
 // {
 //     "application": {
@@ -33,6 +33,24 @@ const groupBuckets = (applicationPreferences) => {
     }
     return acc
   }, {})
+}
+
+const processUnfilteredBucket = (combinedBuckets) => {
+  const unfilteredPreferenceResults = Object.values(combinedBuckets).reduce((acc, bucket) => {
+    if (bucket.preferenceResults.length > 0) {
+      for (const result of bucket.preferenceResults) acc.push(result)
+    }
+    return acc
+  }, [])
+
+  const unfilteredBucket = {
+    preferenceName: 'Unfiltered Rank',
+    preferenceResults: unfilteredPreferenceResults.sort(by('preference_all_lottery_rank')),
+    shortCode: 'Unfiltered'
+  }
+
+  // put the bucket of unfiltered applicants first
+  return [unfilteredBucket, ...Object.values(combinedBuckets)]
 }
 
 export const processLotteryBuckets = (applicationPreferences) => {
@@ -101,5 +119,5 @@ export const processLotteryBuckets = (applicationPreferences) => {
     combinedBuckets.generalList.preferenceResults = buckets.generalList
   }
 
-  return combinedBuckets
+  return processUnfilteredBucket(combinedBuckets)
 }
