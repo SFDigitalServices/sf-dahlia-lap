@@ -92,7 +92,7 @@ const fetchLeaseUpApplications = async (listingId, page, { filters }) => {
 }
 
 const fetchApplicationsForLotteryResults = async (listingId) => {
-  return request.get(`/lease-ups/applications?listing_id=${listingId}&page=0`)
+  return request.get(`/lottery-results?listing_id=${listingId}`)
 }
 
 const getAMI = async ({ chartType, chartYear }) =>

@@ -65,6 +65,8 @@ Rails.application.routes.draw do
 
       resources :short_form, path: '/short-form', only: %w[show]
 
+      resources :lottery_results, path: '/lottery-results', only: %w[index]
+
       scope '/short-form' do
         match 'submit', to: 'short_form#submit', via: %i[put post]
       end
