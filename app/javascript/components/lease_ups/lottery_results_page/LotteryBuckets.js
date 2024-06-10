@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Preferences } from '../utils/constants'
+import { Preferences } from './utils/constants'
 
 const ColumnMaxWidth = 20 // in ch units
 

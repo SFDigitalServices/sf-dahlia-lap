@@ -1,5 +1,5 @@
-import { by } from '../utils/byFunction'
-import { Preferences } from '../utils/constants'
+import { by } from './byFunction'
+import { Preferences } from './constants'
 // group application preferences into buckets by preference type
 // {
 //     "application": {

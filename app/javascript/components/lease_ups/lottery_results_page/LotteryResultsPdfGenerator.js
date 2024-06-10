@@ -5,7 +5,7 @@ import TableLayout from 'components/layouts/TableLayout'
 import Loading from 'components/molecules/Loading'
 import appPaths from 'utils/appPaths'
 
-import LotteryManager from './components/LotteryManager'
+import LotteryManager from './LotteryManager'
 
 const getPageHeaderData = (listing) => {
   const levelAboveBreadcrumb = {

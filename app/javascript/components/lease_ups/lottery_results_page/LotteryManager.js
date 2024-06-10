@@ -3,8 +3,7 @@ import React, { useRef } from 'react'
 import { useReactToPrint } from 'react-to-print'
 
 import { LotteryResults } from './LotteryResults'
-import { processLotteryBuckets } from '../data/processLotteryBuckets'
-import { by } from '../utils/byFunction'
+import { processLotteryBuckets } from './utils/processLotteryBuckets'
 
 const LotteryManager = ({ applicationPrefs, listing }) => {
   // set up print component
