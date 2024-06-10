@@ -26,15 +26,18 @@ const Column = ({ bucket }) => {
   return <ol>{items}</ol>
 }
 
-export default function LotteryBuckets({ buckets = [] }) {
+export const LotteryBuckets = ({ buckets = [] }) => {
   const unfilteredPreferenceResults = Object.values(buckets).reduce((acc, bucket) => {
-    for (const result of bucket) acc.push(result)
+    if (bucket.preferenceResults.length > 0) {
+      for (const result of bucket.preferenceResults) acc.push(result)
+    }
     return acc
   }, [])
 
   const unfilteredBucket = {
     preferenceName: 'Unfiltered Rank',
-    preferenceResults: unfilteredPreferenceResults.sort(by('preference_all_lottery_rank'))
+    preferenceResults: unfilteredPreferenceResults.sort(by('preference_all_lottery_rank')),
+    shortCode: 'Unfiltered'
   }
 
   // put the bucket of unfiltered applicants first
@@ -45,34 +48,23 @@ export default function LotteryBuckets({ buckets = [] }) {
   const resultCells = []
 
   combinedBuckets.forEach((bucket) => {
-    let shortCode = ''
-    if (bucket.preferenceName) {
-      shortCode = bucket.preferenceName
-    } else {
-      shortCode = bucket[0]?.custom_preference_type ?? 'General List'
-    }
-
-    if (bucket.preferenceResults) {
-      bucket = bucket.preferenceResults
-    }
-
-    const { subtitle, shortName } = Preferences[shortCode]
+    const { id, subtitle, shortName } = Preferences[bucket.shortCode]
 
     titleCells.push(
-      <th id='lottery-results-pdf-th' key={shortCode}>
+      <th id='lottery-results-pdf-th' key={id}>
         <h4 id='lottery-results-pdf-th-h4'>{shortName}</h4>
       </th>
     )
 
     subtitleCells.push(
-      <td id='lottery-results-pdf-column' key={shortCode}>
+      <td id='lottery-results-pdf-column' key={id}>
         <h5>{subtitle}</h5>
       </td>
     )
 
     resultCells.push(
-      <td id='lottery-results-pdf-column' key={shortCode}>
-        <Column bucket={bucket} />
+      <td id='lottery-results-pdf-column' key={id}>
+        <Column bucket={bucket.preferenceResults} />
       </td>
     )
   })
@@ -94,3 +86,5 @@ export default function LotteryBuckets({ buckets = [] }) {
     </div>
   )
 }
+
+export default LotteryBuckets

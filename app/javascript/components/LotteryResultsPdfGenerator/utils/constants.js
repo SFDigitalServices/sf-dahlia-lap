@@ -1,74 +1,182 @@
-const Units100Pct = 'Up to 100% of units'
-const Units100PctRemaining = 'Up to 100% of remaining units'
-const Units40Pct = 'Up to 40% of units'
-const Units20Pct = 'Up to 20% of units'
-const UnitsRemaining = 'Remaining units'
-
-// the first item in each array is the preference name supplied by Salesforce.
-// the second is a shorter ID we want to use to refer to it in our code and in
-// the results PDF.  the third item is a subtitle only used in the PDF.
-export const Preferences = [
-  {
-    name: 'Veteran with Certificate of Preference',
+export const Preferences = {
+  'V-COP': {
     id: 'V-COP',
-    subtitle: Units100Pct
+    name: 'Veteran with Certificate of Preference',
+    subtitle: 'Up to 100% of units',
+    shortName: 'V-COP',
+    index: 0,
+    isVeteran: true,
+    relatedPrefID: 'COP'
   },
-  {
-    name: 'Certificate of Preference (COP)',
+  'Veteran with Certificate of Preference': {
+    id: 'V-COP',
+    name: 'Veteran with Certificate of Preference',
+    subtitle: 'Up to 100% of units',
+    shortName: 'V-COP',
+    index: 0,
+    isVeteran: true,
+    relatedPrefID: 'COP'
+  },
+  COP: {
     id: 'COP',
-    subtitle: Units100Pct
+    name: 'Certificate of Preference (COP)',
+    subtitle: 'Up to 100% of units',
+    shortName: 'COP',
+    index: 1,
+    isVeteran: false,
+    relatedPrefID: ''
   },
-  {
-    name: 'Veteran with Displaced Tenant Housing Preference',
+  'Certificate of Preference (COP)': {
+    id: 'COP',
+    name: 'Certificate of Preference (COP)',
+    subtitle: 'Up to 100% of units',
+    shortName: 'COP',
+    index: 1,
+    isVeteran: false,
+    relatedPrefID: ''
+  },
+  'V-DTHP': {
     id: 'V-DTHP',
-    subtitle: Units20Pct
+    name: 'Veteran with Displaced Tenant Housing Preference',
+    subtitle: 'Up to 20% of units',
+    shortName: 'V-DTHP',
+    index: 2,
+    isVeteran: true,
+    relatedPrefID: 'DTHP'
   },
-  {
-    name: 'Displaced Tenant Housing Preference',
+  'Veteran with Displaced Tenant Housing Preference': {
+    id: 'V-DTHP',
+    name: 'Veteran with Displaced Tenant Housing Preference',
+    subtitle: 'Up to 20% of units',
+    shortName: 'V-DTHP',
+    index: 2,
+    isVeteran: true,
+    relatedPrefID: 'DTHP'
+  },
+  DTHP: {
     id: 'DTHP',
-    subtitle: Units20Pct
+    name: 'Displaced Tenant Housing Preference',
+    subtitle: 'Up to 20% of units',
+    shortName: 'DTHP',
+    index: 3,
+    isVeteran: false,
+    relatedPrefID: ''
   },
-  {
-    name: 'Veteran with Neighborhood Resident Housing Preference',
+  'Displaced Tenant Housing Preference': {
+    id: 'DTHP',
+    name: 'Displaced Tenant Housing Preference',
+    subtitle: 'Up to 20% of units',
+    shortName: 'DTHP',
+    index: 3,
+    isVeteran: false,
+    relatedPrefID: ''
+  },
+  'V-NRHP': {
     id: 'V-NRHP',
-    subtitle: Units40Pct
+    name: 'Veteran with Neighborhood Resident Housing Preference',
+    subtitle: 'Up to 40% of units',
+    shortName: 'V-NRHP',
+    index: 4,
+    isVeteran: true,
+    relatedPrefID: 'NRHP'
   },
-  {
-    name: 'Neighborhood Resident Housing Preference',
+  'Veteran with Neighborhood Resident Housing Preference': {
+    id: 'V-NRHP',
+    name: 'Veteran with Neighborhood Resident Housing Preference',
+    subtitle: 'Up to 40% of units',
+    shortName: 'V-NRHP',
+    index: 4,
+    isVeteran: true,
+    relatedPrefID: 'NRHP'
+  },
+  NRHP: {
     id: 'NRHP',
-    subtitle: Units40Pct
+    name: 'Neighborhood Resident Housing Preference',
+    subtitle: 'Up to 40% of units',
+    shortName: 'NRHP',
+    index: 5,
+    isVeteran: false,
+    relatedPrefID: ''
   },
-  {
-    name: 'Veteran with Live or Work in San Francisco Preference',
+  'Neighborhood Resident Housing Preference': {
+    id: 'NRHP',
+    name: 'Neighborhood Resident Housing Preference',
+    subtitle: 'Up to 40% of units',
+    shortName: 'NRHP',
+    index: 5,
+    isVeteran: false,
+    relatedPrefID: ''
+  },
+  'V-L_W': {
     id: 'V-L_W',
-    subtitle: Units100PctRemaining
+    name: 'Veteran with Live or Work in San Francisco Preference',
+    subtitle: 'Up to 100% of remaining units',
+    shortName: 'V-L_W',
+    index: 6,
+    isVeteran: true,
+    relatedPrefID: 'L_W'
   },
-  {
-    name: 'Live or Work in San Francisco Preference',
+  'Veteran with Live or Work in San Francisco Preference': {
+    id: 'V-L_W',
+    name: 'Veteran with Live or Work in San Francisco Preference',
+    subtitle: 'Up to 100% of remaining units',
+    shortName: 'V-L_W',
+    index: 6,
+    isVeteran: true,
+    relatedPrefID: 'L_W'
+  },
+  L_W: {
     id: 'L_W',
+    name: 'Live or Work in San Francisco Preference',
+    subtitle: 'Up to 100% of remaining units',
     shortName: 'Live/Work',
-    subtitle: Units100PctRemaining
+    index: 7,
+    isVeteran: false,
+    relatedPrefID: ''
   },
-  {
-    name: 'generalLottery',
+  'Live or Work in San Francisco Preference': {
+    id: 'L_W',
+    name: 'Live or Work in San Francisco Preference',
+    subtitle: 'Up to 100% of remaining units',
+    shortName: 'Live/Work',
+    index: 7,
+    isVeteran: false,
+    relatedPrefID: ''
+  },
+  'General List': {
     id: 'General List',
-    subtitle: UnitsRemaining
+    name: 'generalLottery',
+    subtitle: 'Remaining units',
+    shortName: 'General List',
+    index: 8,
+    isVeteran: false,
+    relatedPrefID: ''
   },
-  {
-    name: 'Unfiltered',
+  generalLottery: {
+    id: 'General List',
+    name: 'generalLottery',
+    subtitle: 'Remaining units',
+    shortName: 'General List',
+    index: 8,
+    isVeteran: false,
+    relatedPrefID: ''
+  },
+  'Unfiltered Rank': {
     id: 'Unfiltered Rank',
-    subtitle: 'Ticket #'
+    name: 'Unfiltered',
+    subtitle: 'Ticket #',
+    shortName: 'Unfiltered Rank',
+    index: 9,
+    isVeteran: false,
+    relatedPrefID: ''
+  },
+  Unfiltered: {
+    id: 'Unfiltered Rank',
+    name: 'Unfiltered',
+    subtitle: 'Ticket #',
+    shortName: 'Unfiltered Rank',
+    index: 9,
+    isVeteran: false,
+    relatedPrefID: ''
   }
-].reduce((result, { name, id, subtitle, shortName = id }, index) => {
-  const isVeteran = id.startsWith('V-')
-  const relatedPrefID = isVeteran ? id.slice(2) : ''
-  const pref = { id, name, subtitle, shortName, index, isVeteran, relatedPrefID }
-
-  // make the pref accessible by both name and ID
-  result[name] = result[id] = pref
-
-  return result
-}, {})
-
-export const PreferenceIDs = [...new Set(Object.values(Preferences).map(({ id }) => id))]
-export const IndexByPrefID = Object.fromEntries(PreferenceIDs.map((id, i) => [id, i]))
+}

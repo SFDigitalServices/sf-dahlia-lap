@@ -1,10 +1,66 @@
-import { by } from '../utils/byFunction'
 import { Preferences } from '../utils/constants'
 
-export const processLotteryBuckets = (buckets) => {
+// group application preferences into buckets by preference type
+// {
+//     "application": {
+//       "general_lottery": false,
+//       "general_lottery_rank": null,
+//       "lottery_number": "01398467",
+//       "lottery_number_manual": null,
+//       ...
+//    }
+//   "preference_all_lottery_rank": 1,
+//   "preference_lottery_rank": 1,
+//   "custom_preference_type": "COP",
+//   "record_type_for_app_preferences": "COP",
+//   "preference_name": "Certificate of Preference (COP)",
+//    ...
+// }
+const groupBuckets = (applicationPreferences) => {
+  return Object.values(applicationPreferences).reduce((acc, appPref) => {
+    if (appPref.application.general_lottery) {
+      if (acc.generalList) {
+        acc.generalList.push(appPref)
+      } else {
+        acc.generalList = [appPref]
+      }
+    } else {
+      if (acc[appPref.custom_preference_type]) {
+        acc[appPref.custom_preference_type].push(appPref)
+      } else {
+        acc[appPref.custom_preference_type] = [appPref]
+      }
+    }
+    return acc
+  }, {})
+}
+
+export const processLotteryBuckets = (applicationPreferences) => {
+  const buckets = groupBuckets(applicationPreferences)
   const bucketsQueue = Object.entries(buckets)
 
-  const combinedBuckets = {}
+  const combinedBuckets = {
+    COP: {
+      shortCode: 'COP',
+      preferenceName: 'COP',
+      preferenceResults: []
+    },
+    L_W: {
+      shortCode: 'L_W',
+      preferenceName: 'Live/Work',
+      preferenceResults: []
+    },
+    DTHP: {
+      shortCode: 'DTHP',
+      preferenceName: 'DTHP',
+      preferenceResults: []
+    },
+    generalList: {
+      shortCode: 'generalLottery',
+      preferenceName: 'General List',
+      preferenceResults: []
+    }
+  }
   for (const bucket of bucketsQueue) {
     // shape of bucket is ["bucketKey e.g. COP or V-COP", [array of applications]]
     const bucketKey = bucket[0]
@@ -31,15 +87,18 @@ export const processLotteryBuckets = (buckets) => {
             nonVeteranApplications.push(application)
           }
         }
-        combinedBuckets[bucketKey] = [...veteranApplications, ...nonVeteranApplications]
+        combinedBuckets[bucketKey].preferenceResults = [
+          ...veteranApplications,
+          ...nonVeteranApplications
+        ]
       } else {
-        combinedBuckets[bucketKey] = bucketApplications
+        combinedBuckets[bucketKey].preferenceResults = bucketApplications
       }
     }
   }
 
   if (buckets.generalList) {
-    combinedBuckets.generalList = buckets.generalList
+    combinedBuckets.generalList.preferenceResults = buckets.generalList
   }
 
   return combinedBuckets
