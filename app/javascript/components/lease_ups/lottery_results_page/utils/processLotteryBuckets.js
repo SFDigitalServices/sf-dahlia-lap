@@ -3,13 +3,13 @@ import { Preferences } from './constants'
 
 const emptyBuckets = {
   COP: [],
-  "V-COP": [],
+  'V-COP': [],
   DTHP: [],
-  "V-DTHP": [],
+  'V-DTHP': [],
   NRHP: [],
-  "V-NRHP": [],
+  'V-NRHP': [],
   L_W: [],
-  "V-L_W": [],
+  'V-L_W': [],
   generalLottery: []
 }
 
@@ -44,7 +44,9 @@ export const processUnfilteredBucket = (combinedBuckets) => {
     return acc
   }, [])
 
-  unfilteredBucket.preferenceResults = unfilteredPreferenceResults.sort(by('preference_all_lottery_rank'))
+  unfilteredBucket.preferenceResults = unfilteredPreferenceResults.sort(
+    by('preference_all_lottery_rank')
+  )
 
   // put the bucket of unfiltered applicants first
   return [unfilteredBucket, ...Object.values(combinedBuckets)]
@@ -73,6 +75,21 @@ const emptyCombinedBuckets = {
   }
 }
 
+const processVeteranBucket = (bucketApplications, relatedVeteranApplications) => {
+  const nonVeteranApplications = []
+  const veteranApplications = []
+  for (const application of bucketApplications) {
+    const name = application.application.name
+    if (relatedVeteranApplications.find((application) => application.application.name === name)) {
+      application.isVeteran = true
+      veteranApplications.push(application)
+    } else {
+      nonVeteranApplications.push(application)
+    }
+  }
+  return [...veteranApplications, ...nonVeteranApplications]
+}
+
 export const combineVeteranBuckets = (buckets) => {
   const combinedBuckets = emptyCombinedBuckets
 
@@ -83,29 +100,13 @@ export const combineVeteranBuckets = (buckets) => {
     const bucketInfo = Preferences[bucketKey]
 
     if (bucketKey !== 'generalLottery' && !bucketInfo.isVeteran) {
-      const relatedVeteranBucket = buckets.find(
-        (veteranBucket) => veteranBucket[0] === `V-${bucketKey}`
-      )
+      const relatedVeteranBucket = buckets.find((bucket) => bucket[0] === `V-${bucketKey}`)
 
-      const nonVeteranApplications = []
-      const veteranApplications = []
-
-      if (relatedVeteranBucket !== undefined) {
-        for (const application of bucketApplications) {
-          const name = application.application.name
-          if (
-            relatedVeteranBucket[1].find((application) => application.application.name === name)
-          ) {
-            application.isVeteran = true
-            veteranApplications.push(application)
-          } else {
-            nonVeteranApplications.push(application)
-          }
-        }
-        combinedBuckets[bucketKey].preferenceResults = [
-          ...veteranApplications,
-          ...nonVeteranApplications
-        ]
+      if (relatedVeteranBucket) {
+        combinedBuckets[bucketKey].preferenceResults = processVeteranBucket(
+          bucketApplications,
+          relatedVeteranBucket[1]
+        )
       } else {
         combinedBuckets[bucketKey].preferenceResults = bucketApplications
       }
