@@ -21,17 +21,9 @@ const LotteryBucketSubtitle = ({ id, subtitle }) => {
 }
 const LotteryBucketResult = ({ id, preferenceResults }) => {
   const items = preferenceResults.map((application) => {
-    let lotteryNumber = ''
-    if (application.application) {
-      lotteryNumber =
-        application.application?.lottery_number_manual ?? application.application.lottery_number
-    } else {
-      lotteryNumber = application.lottery_number ?? application.lottery_number_manual
-    }
-
     return (
-      <li key={lotteryNumber}>
-        {lotteryNumber}
+      <li key={application.lottery_number}>
+        {application.lottery_number}
         {application.isVeteran ? '*' : ''}
       </li>
     )

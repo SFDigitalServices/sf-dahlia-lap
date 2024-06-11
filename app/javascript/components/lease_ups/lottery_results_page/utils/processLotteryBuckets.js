@@ -14,10 +14,15 @@ const emptyBuckets = {
 
 export const groupBuckets = (applicationPreferences) => {
   return Object.values(applicationPreferences).reduce((acc, appPref) => {
+    const cleanApp = {
+      lottery_number:
+        appPref.application.lottery_number_manual ?? appPref.application.lottery_number,
+      unsorted_lottery_rank: appPref.application.unsorted_lottery_rank
+    }
     if (appPref.application.general_lottery) {
-      acc.generalLottery.push(appPref)
+      acc.generalLottery.push(cleanApp)
     } else {
-      acc[appPref.custom_preference_type].push(appPref)
+      acc[appPref.custom_preference_type].push(cleanApp)
     }
     return acc
   }, emptyBuckets)
@@ -31,7 +36,7 @@ const unfilteredBucket = {
 
 const sortUnfilteredBuckets = (unfilteredPreferenceResults) => {
   const filtered = unfilteredPreferenceResults.sort(
-    (a, b) => a.application.unsorted_lottery_rank - b.application.unsorted_lottery_rank
+    (a, b) => a.unsorted_lottery_rank - b.unsorted_lottery_rank
   )
   return filtered
 }
@@ -45,8 +50,7 @@ export const processUnfilteredBucket = (combinedBuckets) => {
   const uniquePrefResults = combinedPrefResults.reduce((uniqPrefResults, prefResult) => {
     // find new prefResult in unique pref result
     const foundMatch = uniqPrefResults.find(
-      (uniqPrefResult) =>
-        uniqPrefResult.application.lottery_number === prefResult.application.lottery_number
+      (uniqPrefResult) => uniqPrefResult.lottery_number === prefResult.lottery_number
     )
 
     if (!foundMatch) {
@@ -89,8 +93,10 @@ const processVeteranBucket = (bucketApplications, relatedVeteranApplications) =>
   const nonVeteranApplications = []
   const veteranApplications = []
   for (const application of bucketApplications) {
-    const name = application.application.name
-    if (relatedVeteranApplications.find((application) => application.application.name === name)) {
+    const lotteryNumber = application.lottery_number
+    if (
+      relatedVeteranApplications.find((application) => application.lottery_number === lotteryNumber)
+    ) {
       application.isVeteran = true
       veteranApplications.push(application)
     } else {
