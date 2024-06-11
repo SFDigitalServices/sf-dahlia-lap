@@ -2,45 +2,26 @@ import { by } from './byFunction'
 import { Preferences } from './constants'
 
 const emptyBuckets = {
-  COP: {
-    shortCode: 'COP',
-    preferenceName: 'COP',
-    preferenceResults: []
-  },
-  DTHP: {
-    shortCode: 'DTHP',
-    preferenceName: 'DTHP',
-    preferenceResults: []
-  },
-  NRHP: {
-    shortCode: 'NRHP',
-    preferenceName: 'NRHP',
-    preferenceResults: []
-  },
-  L_W: {
-    shortCode: 'L_W',
-    preferenceName: 'Live/Work',
-    preferenceResults: []
-  }
+  COP: [],
+  "V-COP": [],
+  DTHP: [],
+  "V-DTHP": [],
+  NRHP: [],
+  "V-NRHP": [],
+  L_W: [],
+  "V-L_W": [],
+  generalLottery: []
 }
 
 export const groupBuckets = (applicationPreferences) => {
   return Object.values(applicationPreferences).reduce((acc, appPref) => {
     if (appPref.application.general_lottery) {
-      if (acc.generalLottery) {
-        acc.generalLottery.push(appPref)
-      } else {
-        acc.generalLottery = [appPref]
-      }
+      acc.generalLottery.push(appPref)
     } else {
-      if (acc[appPref.custom_preference_type]) {
-        acc[appPref.custom_preference_type].push(appPref)
-      } else {
-        acc[appPref.custom_preference_type] = [appPref]
-      }
+      acc[appPref.custom_preference_type].push(appPref)
     }
     return acc
-  }, {})
+  }, emptyBuckets)
 }
 
 export const processUnfilteredBucket = (combinedBuckets) => {
@@ -67,8 +48,31 @@ export const processUnfilteredBucket = (combinedBuckets) => {
   return [unfilteredBucket, ...Object.values(combinedBuckets)]
 }
 
+const emptyCombinedBuckets = {
+  COP: {
+    shortCode: 'COP',
+    preferenceName: 'COP',
+    preferenceResults: []
+  },
+  DTHP: {
+    shortCode: 'DTHP',
+    preferenceName: 'DTHP',
+    preferenceResults: []
+  },
+  NRHP: {
+    shortCode: 'NRHP',
+    preferenceName: 'NRHP',
+    preferenceResults: []
+  },
+  L_W: {
+    shortCode: 'L_W',
+    preferenceName: 'Live/Work',
+    preferenceResults: []
+  }
+}
+
 export const combineVeteranBuckets = (buckets) => {
-  const combinedBuckets = emptyBuckets
+  const combinedBuckets = emptyCombinedBuckets
 
   for (const bucket of buckets) {
     // shape of bucket is ["bucketKey e.g. COP or V-COP", [array of applications]]
