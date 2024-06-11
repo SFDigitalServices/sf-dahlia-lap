@@ -1,4 +1,3 @@
-import { by } from './byFunction'
 import { Preferences } from './constants'
 
 const emptyBuckets = {
@@ -30,23 +29,34 @@ const unfilteredBucket = {
   shortCode: 'Unfiltered'
 }
 
+const sortUnfilteredBuckets = (unfilteredPreferenceResults) => {
+  const filtered = unfilteredPreferenceResults.sort(
+    (a, b) => a.application.unsorted_lottery_rank - b.application.unsorted_lottery_rank
+  )
+  return filtered
+}
+
 export const processUnfilteredBucket = (combinedBuckets) => {
-  const included = []
-  const unfilteredPreferenceResults = combinedBuckets.reduce((acc, bucket) => {
-    if (bucket.preferenceResults.length > 0) {
-      for (const pref of bucket.preferenceResults) {
-        if (!acc.includes(pref.application.lottery_number)) {
-          included.push(pref.application.lottery_number)
-          acc.push(pref)
-        }
-      }
+  const combinedPrefResults = combinedBuckets.reduce(
+    (prefResults, bucket) => [...prefResults, ...bucket.preferenceResults],
+    []
+  )
+
+  const uniquePrefResults = combinedPrefResults.reduce((uniqPrefResults, prefResult) => {
+    // find new prefResult in unique pref result
+    const foundMatch = uniqPrefResults.find(
+      (uniqPrefResult) =>
+        uniqPrefResult.application.lottery_number === prefResult.application.lottery_number
+    )
+
+    if (!foundMatch) {
+      uniqPrefResults.push(prefResult)
     }
-    return acc
+
+    return uniqPrefResults
   }, [])
 
-  unfilteredBucket.preferenceResults = unfilteredPreferenceResults.sort(
-    by('preference_all_lottery_rank')
-  )
+  unfilteredBucket.preferenceResults = sortUnfilteredBuckets(uniquePrefResults)
 
   // put the bucket of unfiltered applicants first
   return [unfilteredBucket, ...Object.values(combinedBuckets)]

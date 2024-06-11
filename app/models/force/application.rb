@@ -26,6 +26,7 @@ module Force
       { custom_api: 'formMetadata', domain: '', salesforce: '' },
       { custom_api: '', domain: 'general_lottery', salesforce: 'General_Lottery' },
       { custom_api: '', domain: 'general_lottery_rank', salesforce: 'General_Lottery_Rank' },
+      { custom_api: '', domain: 'unsorted_lottery_rank', salesforce: 'Lottery_Rank' },
       { custom_api: 'hasCompletedHomebuyerEducation', domain: 'has_completed_homebuyer_education', salesforce: '?' },
       { custom_api: 'hasDevelopmentalDisability', domain: 'has_developmental_disability', salesforce: 'Has_DevelopmentalDisability' },
       { custom_api: 'hasLoanPreapproval', domain: 'has_loan_preapproval', salesforce: '?' },
@@ -110,7 +111,8 @@ module Force
         if domain_fields['alternate_contact'] && !domain_fields['alternate_contact'].values.all?(&:blank?)
           if existing_fields['Alternate_Contact']
             domain_fields.alternate_contact = Force::ApplicationMember.from_salesforce(domain_fields.alternate_contact).to_domain
-          else existing_fields['alternateContact']
+          else
+            existing_fields['alternateContact']
             domain_fields.alternate_contact = Force::ApplicationMember.from_custom_api(domain_fields.alternate_contact).to_domain
           end
         end
