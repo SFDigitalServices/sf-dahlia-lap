@@ -1,7 +1,7 @@
 import { by } from './byFunction'
 import { Preferences } from './constants'
 
-const groupBuckets = (applicationPreferences) => {
+export const groupBuckets = (applicationPreferences) => {
   // group application preferences into buckets by preference type
   // {
   //     "application": {
@@ -36,7 +36,7 @@ const groupBuckets = (applicationPreferences) => {
   }, {})
 }
 
-const processUnfilteredBucket = (combinedBuckets) => {
+export const processUnfilteredBucket = (combinedBuckets) => {
   const included = []
   const unfilteredPreferenceResults = Object.values(combinedBuckets).reduce((acc, bucket) => {
     if (bucket.preferenceResults.length > 0) {
@@ -60,7 +60,7 @@ const processUnfilteredBucket = (combinedBuckets) => {
   return [unfilteredBucket, ...Object.values(combinedBuckets)]
 }
 
-const combineVeteranBuckets = (buckets) => {
+export const combineVeteranBuckets = (buckets) => {
   const combinedBuckets = {
     COP: {
       shortCode: 'COP',
