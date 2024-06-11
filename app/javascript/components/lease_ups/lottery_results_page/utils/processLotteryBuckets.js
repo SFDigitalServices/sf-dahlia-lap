@@ -21,31 +21,10 @@ const emptyBuckets = {
     shortCode: 'L_W',
     preferenceName: 'Live/Work',
     preferenceResults: []
-  },
-  generalLottery: {
-    shortCode: 'generalLottery',
-    preferenceName: 'General List',
-    preferenceResults: []
   }
 }
 
 export const groupBuckets = (applicationPreferences) => {
-  // group application preferences into buckets by preference type
-  // {
-  //     "application": {
-  //       "general_lottery": false,
-  //       "general_lottery_rank": null,
-  //       "lottery_number": "01398467",
-  //       "lottery_number_manual": null,
-  //       ...
-  //    }
-  //   "preference_all_lottery_rank": 1,
-  //   "preference_lottery_rank": 1,
-  //   "custom_preference_type": "COP",
-  //   "record_type_for_app_preferences": "COP",
-  //   "preference_name": "Certificate of Preference (COP)",
-  //    ...
-  // }
   return Object.values(applicationPreferences).reduce((acc, appPref) => {
     if (appPref.application.general_lottery) {
       if (acc.generalLottery) {
@@ -66,7 +45,7 @@ export const groupBuckets = (applicationPreferences) => {
 
 export const processUnfilteredBucket = (combinedBuckets) => {
   const included = []
-  const unfilteredPreferenceResults = Object.values(combinedBuckets).reduce((acc, bucket) => {
+  const unfilteredPreferenceResults = combinedBuckets.reduce((acc, bucket) => {
     if (bucket.preferenceResults.length > 0) {
       for (const pref of bucket.preferenceResults) {
         if (!included.includes(pref.application.lottery_number)) {
@@ -90,7 +69,7 @@ export const processUnfilteredBucket = (combinedBuckets) => {
 
 export const combineVeteranBuckets = (buckets) => {
   const combinedBuckets = emptyBuckets
-  
+
   for (const bucket of buckets) {
     // shape of bucket is ["bucketKey e.g. COP or V-COP", [array of applications]]
     const bucketKey = bucket[0]
@@ -132,18 +111,22 @@ export const combineVeteranBuckets = (buckets) => {
 
 export const processLotteryBuckets = (applicationPreferences) => {
   // group application preferences into buckets by preference type
-  const buckets = groupBuckets(applicationPreferences)
+  const buckets = groupBuckets(Object.values(applicationPreferences))
 
   // combine non-veteran and their related veteran bucket
   const combinedBuckets = combineVeteranBuckets(Object.entries(buckets))
 
   // add general lottery bucket
   if (buckets.generalLottery) {
-    combinedBuckets.generalLottery.preferenceResults = buckets.generalLottery
+    combinedBuckets.generalLottery = {
+      shortCode: 'generalLottery',
+      preferenceName: 'General List',
+      preferenceResults: buckets.generalLottery
+    }
   }
 
   // add the unfiltered bucket
-  const processedBuckets = processUnfilteredBucket(combinedBuckets)
+  const processedBuckets = processUnfilteredBucket(Object.values(combinedBuckets))
 
   return processedBuckets
 }
