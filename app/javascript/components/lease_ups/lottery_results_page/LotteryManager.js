@@ -4,6 +4,7 @@ import { useReactToPrint } from 'react-to-print'
 
 import { LotteryResults } from './LotteryResults'
 import { processLotteryBuckets } from './utils/processLotteryBuckets'
+import Loading from 'components/molecules/Loading'
 
 const LotteryManager = ({ applicationPrefs, listing }) => {
   // set up print component
@@ -14,11 +15,11 @@ const LotteryManager = ({ applicationPrefs, listing }) => {
   })
 
   // process applications into buckets
-  const processedBuckets = processLotteryBuckets(applicationPrefs)
+  const processedBuckets = applicationPrefs ? processLotteryBuckets(applicationPrefs) : null
 
   return (
     <>
-      {processedBuckets && (
+      {processedBuckets ? (
         <>
           <div id='save-lottery-results-button-container'>
             <button
@@ -36,7 +37,7 @@ const LotteryManager = ({ applicationPrefs, listing }) => {
             buckets={processedBuckets}
           />
         </>
-      )}
+      ) : <Loading isLoading/>}
     </>
   )
 }

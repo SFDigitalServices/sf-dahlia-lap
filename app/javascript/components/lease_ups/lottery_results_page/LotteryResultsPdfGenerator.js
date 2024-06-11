@@ -8,30 +8,24 @@ import appPaths from 'utils/appPaths'
 import LotteryManager from './LotteryManager'
 
 const getPageHeaderData = (listing) => {
-  const levelAboveBreadcrumb = {
-    title: 'Lease Ups',
-    link: appPaths.toLeaseUps()
-  }
-
-  const emptyBreadCrumb = {
-    title: '',
-    link: '#'
-  }
-
-  const breadcrumbs = [
-    levelAboveBreadcrumb,
-    listing.name
-      ? {
-          title: listing.name,
-          link: appPaths.toLeaseUpApplications(listing.id)
-        }
-      : emptyBreadCrumb
-  ]
-
   return {
     title: listing?.name || <span>&nbsp;</span>,
     content: listing?.buildingAddress || '',
-    breadcrumbs
+    breadcrumbs: [
+      {
+        title: 'Lease Ups',
+        link: appPaths.toLeaseUps()
+      },
+      listing.name
+        ? {
+            title: listing.name,
+            link: appPaths.toLeaseUpApplications(listing.id)
+          }
+        : {
+          title: '',
+          link: '#'
+        }
+    ]
   }
 }
 
@@ -62,11 +56,7 @@ const LotteryResultsPdfGenerator = (props) => {
     <>
       {listing ? (
         <TableLayout pageHeader={getPageHeaderData(listing)} tabSection={tabs}>
-          {applications ? (
             <LotteryManager applicationPrefs={applications} listing={listing} />
-          ) : (
-            <Loading isLoading />
-          )}
         </TableLayout>
       ) : (
         <Loading isLoading />

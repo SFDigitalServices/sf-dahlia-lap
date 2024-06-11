@@ -24,12 +24,18 @@ export const groupBuckets = (applicationPreferences) => {
   }, emptyBuckets)
 }
 
+const unfilteredBucket = {
+  preferenceName: 'Unfiltered Rank',
+  preferenceResults: [],
+  shortCode: 'Unfiltered'
+}
+
 export const processUnfilteredBucket = (combinedBuckets) => {
   const included = []
   const unfilteredPreferenceResults = combinedBuckets.reduce((acc, bucket) => {
     if (bucket.preferenceResults.length > 0) {
       for (const pref of bucket.preferenceResults) {
-        if (!included.includes(pref.application.lottery_number)) {
+        if (!acc.includes(pref.application.lottery_number)) {
           included.push(pref.application.lottery_number)
           acc.push(pref)
         }
@@ -38,11 +44,7 @@ export const processUnfilteredBucket = (combinedBuckets) => {
     return acc
   }, [])
 
-  const unfilteredBucket = {
-    preferenceName: 'Unfiltered Rank',
-    preferenceResults: unfilteredPreferenceResults.sort(by('preference_all_lottery_rank')),
-    shortCode: 'Unfiltered'
-  }
+  unfilteredBucket.preferenceResults = unfilteredPreferenceResults.sort(by('preference_all_lottery_rank'))
 
   // put the bucket of unfiltered applicants first
   return [unfilteredBucket, ...Object.values(combinedBuckets)]
