@@ -1,6 +1,34 @@
 import { by } from './byFunction'
 import { Preferences } from './constants'
 
+const emptyBuckets = {
+  COP: {
+    shortCode: 'COP',
+    preferenceName: 'COP',
+    preferenceResults: []
+  },
+  DTHP: {
+    shortCode: 'DTHP',
+    preferenceName: 'DTHP',
+    preferenceResults: []
+  },
+  NRHP: {
+    shortCode: 'NRHP',
+    preferenceName: 'NRHP',
+    preferenceResults: []
+  },
+  L_W: {
+    shortCode: 'L_W',
+    preferenceName: 'Live/Work',
+    preferenceResults: []
+  },
+  generalLottery: {
+    shortCode: 'generalLottery',
+    preferenceName: 'General List',
+    preferenceResults: []
+  }
+}
+
 export const groupBuckets = (applicationPreferences) => {
   // group application preferences into buckets by preference type
   // {
@@ -61,33 +89,8 @@ export const processUnfilteredBucket = (combinedBuckets) => {
 }
 
 export const combineVeteranBuckets = (buckets) => {
-  const combinedBuckets = {
-    COP: {
-      shortCode: 'COP',
-      preferenceName: 'COP',
-      preferenceResults: []
-    },
-    DTHP: {
-      shortCode: 'DTHP',
-      preferenceName: 'DTHP',
-      preferenceResults: []
-    },
-    NRHP: {
-      shortCode: 'NRHP',
-      preferenceName: 'NRHP',
-      preferenceResults: []
-    },
-    L_W: {
-      shortCode: 'L_W',
-      preferenceName: 'Live/Work',
-      preferenceResults: []
-    },
-    generalLottery: {
-      shortCode: 'generalLottery',
-      preferenceName: 'General List',
-      preferenceResults: []
-    }
-  }
+  const combinedBuckets = emptyBuckets
+  
   for (const bucket of buckets) {
     // shape of bucket is ["bucketKey e.g. COP or V-COP", [array of applications]]
     const bucketKey = bucket[0]
