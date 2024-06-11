@@ -2,9 +2,10 @@ import React, { useRef } from 'react'
 
 import { useReactToPrint } from 'react-to-print'
 
+import Loading from 'components/molecules/Loading'
+
 import { LotteryResults } from './LotteryResults'
 import { processLotteryBuckets } from './utils/processLotteryBuckets'
-import Loading from 'components/molecules/Loading'
 
 const LotteryManager = ({ applicationPrefs, listing }) => {
   // set up print component
@@ -37,7 +38,9 @@ const LotteryManager = ({ applicationPrefs, listing }) => {
             buckets={processedBuckets}
           />
         </>
-      ) : <Loading isLoading/>}
+      ) : (
+        <Loading isLoading />
+      )}
     </>
   )
 }

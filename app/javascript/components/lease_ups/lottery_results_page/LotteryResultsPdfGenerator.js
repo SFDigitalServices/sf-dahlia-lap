@@ -22,9 +22,9 @@ const getPageHeaderData = (listing) => {
             link: appPaths.toLeaseUpApplications(listing.id)
           }
         : {
-          title: '',
-          link: '#'
-        }
+            title: '',
+            link: '#'
+          }
     ]
   }
 }
@@ -58,7 +58,7 @@ const LotteryResultsPdfGenerator = (props) => {
     <>
       {listing ? (
         <TableLayout pageHeader={getPageHeaderData(listing)} tabSection={getTabs(props.listing_id)}>
-            <LotteryManager applicationPrefs={applications} listing={listing} />
+          <LotteryManager applicationPrefs={applications} listing={listing} />
         </TableLayout>
       ) : (
         <Loading isLoading />

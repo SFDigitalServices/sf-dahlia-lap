@@ -53,11 +53,11 @@ export const LotteryBuckets = ({ buckets = [] }) => {
   buckets.forEach((bucket) => {
     const { id, subtitle, shortName } = Preferences[bucket.shortCode]
 
-    titleCells.push(<LotteryBucketTitle id={id} shortName={shortName} />)
+    titleCells.push(<LotteryBucketTitle key={id} shortName={shortName} />)
 
-    subtitleCells.push(<LotteryBucketSubtitle id={id} subtitle={subtitle} />)
+    subtitleCells.push(<LotteryBucketSubtitle key={id} subtitle={subtitle} />)
 
-    resultCells.push(<LotteryBucketResult id={id} preferenceResults={bucket.preferenceResults} />)
+    resultCells.push(<LotteryBucketResult key={id} preferenceResults={bucket.preferenceResults} />)
   })
 
   // to allow the table to expand, up to a point, when there's more room, we
