@@ -11,8 +11,12 @@ import {
   preferencesWithVeteransConfirmed,
   applicationMembers,
   preferencesWithVeteransOnly,
-  preferencesWithSameApplicationMember
+  preferencesWithSameApplicationMember,
+  preferencesWithNonVeteransInvalid
 } from '../fixtures/layered_preferences'
+
+const proofFiles = []
+const fileBaseUrl = ''
 
 describe('layeredPreferenceUtil', () => {
   describe('isVeteran', () => {
@@ -42,7 +46,7 @@ describe('layeredPreferenceUtil', () => {
     })
     test('should invalidate veteran when non-veteran is invalid', () => {
       // when
-      const layeredPreferences = addLayeredValidation(preferencesWithVeteransInvalid)
+      const layeredPreferences = addLayeredValidation(preferencesWithNonVeteransInvalid)
 
       // then
       expect(layeredPreferences[0].layered_validation).toBe('Invalid')
@@ -78,13 +82,17 @@ describe('layeredPreferenceUtil', () => {
         'matching non vet preference not found, falling back to unconfirmed status for veteran preference'
       )
     })
+    test('should set veteran preference to invalid if veteran is invalid', () => {
+      // when
+      const layeredPreferences = addLayeredValidation(preferencesWithVeteransInvalid)
+
+      // then
+      expect(layeredPreferences[0].layered_validation).toBe('Invalid')
+      expect(layeredPreferences[1].layered_validation).toBe('Confirmed')
+    })
   })
   describe('addLayeredPreferenceFields', () => {
     test('should add preference fields to non-veteran preferences', () => {
-      // given
-      const proofFiles = []
-      const fileBaseUrl = ''
-
       // when
       const layeredPreferences = addLayeredPreferenceFields(
         preferencesWithoutVeterans,
@@ -103,10 +111,6 @@ describe('layeredPreferenceUtil', () => {
       expect(layeredPreferences[0].layered_member_names[0]).toBe('John Doe')
     })
     test('should add preference fields to veteran preferences', () => {
-      // given
-      const proofFiles = []
-      const fileBaseUrl = ''
-
       // when
       const layeredPreferences = addLayeredPreferenceFields(
         preferencesWithVeteransUnconfirmed,
@@ -130,10 +134,6 @@ describe('layeredPreferenceUtil', () => {
       expect(layeredPreferences[0].layered_member_names[1]).toBe('Jane Doe')
     })
     test('should add unique member names', () => {
-      // given
-      const proofFiles = []
-      const fileBaseUrl = ''
-
       // when
       const layeredPreferences = addLayeredPreferenceFields(
         preferencesWithSameApplicationMember,

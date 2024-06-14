@@ -28,6 +28,7 @@ preferences:
     Street__c:
     Zip_Code__c:
     Post_Lottery_Validation__c:
+    Lottery_Status__c:
     Total_Household_Rent__c:
     Custom_Preference_Type__c:
   app_preferences_for_listing_fields:
@@ -48,6 +49,7 @@ preferences:
     Preference_All_Name__c:
     Preference_All_Lottery_Rank__c:
     Post_Lottery_Validation__c:
+    Lottery_Status__c:
     Preference_Lottery_Rank__c:
     Receives_Preference__c:
     Application__r.Sub_Status__c:
