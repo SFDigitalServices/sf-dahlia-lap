@@ -1,4 +1,4 @@
-import { Preferences } from './constants'
+import { Preferences } from './preferences'
 
 const emptyBuckets = {
   COP: [],
