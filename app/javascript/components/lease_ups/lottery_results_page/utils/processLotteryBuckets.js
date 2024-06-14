@@ -22,7 +22,9 @@ export const groupBuckets = (applicationPreferences) => {
     if (appPref.application.general_lottery) {
       acc.generalLottery.push(cleanApp)
     } else {
-      acc[appPref.custom_preference_type].push(cleanApp)
+      if (acc[appPref.custom_preference_type]) {
+        acc[appPref.custom_preference_type].push(cleanApp)
+      }
     }
     return acc
   }, emptyBuckets)
