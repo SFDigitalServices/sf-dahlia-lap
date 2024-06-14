@@ -111,8 +111,7 @@ module Force
         if domain_fields['alternate_contact'] && !domain_fields['alternate_contact'].values.all?(&:blank?)
           if existing_fields['Alternate_Contact']
             domain_fields.alternate_contact = Force::ApplicationMember.from_salesforce(domain_fields.alternate_contact).to_domain
-          else
-            existing_fields['alternateContact']
+          else existing_fields['alternateContact']
             domain_fields.alternate_contact = Force::ApplicationMember.from_custom_api(domain_fields.alternate_contact).to_domain
           end
         end
