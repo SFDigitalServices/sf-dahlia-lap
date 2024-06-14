@@ -32,12 +32,9 @@ const getPageHeaderData = (listing) => {
 const getTabs = (listingId) => {
   return {
     items: [
-      { title: 'Applications', url: appPaths.toLeaseUpApplications(listingId) },
-      {
-        title: 'Lottery Results',
-        url: appPaths.toLotteryResults(listingId),
-        active: true
-      }
+      { title: 'Listing Details', url: appPaths.toListing(listingId) },
+      { title: 'Applications', url: appPaths.toApplications(listingId) },
+      { title: 'Lottery Results', url: appPaths.toLotteryResults(listingId), active: true }
     ]
   }
 }

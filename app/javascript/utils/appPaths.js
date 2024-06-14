@@ -22,7 +22,7 @@ const toApplicationsFlaggedIndex = (type) => `${toApplicationsFlaggedIndexBase()
 
 const toListingLeaseUps = (listingId) => `/lease-ups/listings/${listingId}`
 
-const toLotteryResults = (listingId) => `/lease-ups/listings/${listingId}/lottery-results`
+const toLotteryResults = (listingId) => `/listings/${listingId}/lottery-results`
 
 const toListing = (listingId) => `/listings/${listingId}`
 
