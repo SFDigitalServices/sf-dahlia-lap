@@ -866,6 +866,19 @@ exports[`ListingPage should render succesfully 1`] = `
           Applications
         </a>
       </li>
+      <li
+        class="tab-title"
+        role="none"
+      >
+        <a
+          class="button-unstyled"
+          href="/listings/a0W0x000000GhJUEA0/lottery-results"
+          role="menuitem"
+          tabindex="0"
+        >
+          Lottery Results
+        </a>
+      </li>
     </ul>
   </div>
   <section
