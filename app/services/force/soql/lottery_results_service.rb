@@ -13,8 +13,6 @@ module Force
         query_scope.query
       end
 
-      private
-
       def app_preferences_for_listing_query(listing_id)
         builder.from(:Application_Preference__c)
                .select(query_fields(:app_preferences_for_lottery_results))
