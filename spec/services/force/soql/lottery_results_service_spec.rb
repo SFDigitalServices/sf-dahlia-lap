@@ -13,7 +13,6 @@ RSpec.describe Force::Soql::LotteryResultsService do
       VCR.use_cassette('services/soql/lottery_results_service') do
         response = subject.app_preferences_for_listing(LEASE_UP_LISTING_ID)
 
-        puts response
         expect(response.total_size).to equal(43)
       end
     end
