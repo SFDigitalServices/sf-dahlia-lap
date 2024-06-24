@@ -9,23 +9,7 @@ import LotteryManager from './LotteryManager'
 
 const getPageHeaderData = (listing) => {
   return {
-    title: listing?.name || <span>&nbsp;</span>,
-    content: listing?.buildingAddress || '',
-    breadcrumbs: [
-      {
-        title: 'Lease Ups',
-        link: appPaths.toLeaseUps()
-      },
-      listing.name
-        ? {
-            title: listing.name,
-            link: appPaths.toLeaseUpApplications(listing.id)
-          }
-        : {
-            title: '',
-            link: '#'
-          }
-    ]
+    title: listing?.name || <span>&nbsp;</span>
   }
 }
 

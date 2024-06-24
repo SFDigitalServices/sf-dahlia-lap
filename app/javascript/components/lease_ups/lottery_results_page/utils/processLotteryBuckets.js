@@ -30,12 +30,6 @@ export const groupBuckets = (applicationPreferences) => {
   }, emptyBuckets)
 }
 
-const unfilteredBucket = {
-  preferenceName: 'Unfiltered Rank',
-  preferenceResults: [],
-  shortCode: 'Unfiltered'
-}
-
 const sortUnfilteredBuckets = (unfilteredPreferenceResults) => {
   const filtered = unfilteredPreferenceResults.sort(
     (a, b) => a.unsorted_lottery_rank - b.unsorted_lottery_rank
@@ -44,6 +38,12 @@ const sortUnfilteredBuckets = (unfilteredPreferenceResults) => {
 }
 
 export const processUnfilteredBucket = (combinedBuckets) => {
+  const unfilteredBucket = {
+    preferenceName: 'Unfiltered Rank',
+    preferenceResults: [],
+    shortCode: 'Unfiltered'
+  }
+
   const combinedPrefResults = combinedBuckets.reduce(
     (prefResults, bucket) => [...prefResults, ...bucket.preferenceResults],
     []
@@ -111,10 +111,8 @@ const processVeteranBucket = (bucketApplications, relatedVeteranApplications) =>
 export const combineVeteranBuckets = (buckets) => {
   const combinedBuckets = emptyCombinedBuckets
 
-  for (const bucket of buckets) {
-    // shape of bucket is ["bucketKey e.g. COP or V-COP", [array of applications]]
-    const bucketKey = bucket[0]
-    const bucketApplications = bucket[1]
+  // shape of bucket is ["bucketKey e.g. COP or V-COP", [array of applications]]
+  for (const [bucketKey, bucketApplications] of buckets) {
     const bucketInfo = Preferences[bucketKey]
 
     if (bucketKey !== 'generalLottery' && !bucketInfo.isVeteran) {
