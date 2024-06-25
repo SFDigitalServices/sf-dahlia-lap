@@ -28,6 +28,8 @@ const mockPostRequest = jest.fn(() => Promise.resolve(true))
 const mockPutRequest = jest.fn(() => Promise.resolve(true))
 const mockDestroyRequest = jest.fn(() => Promise.resolve(true))
 const mockFetchFlaggedApplicationsRequest = jest.fn(() => Promise.resolve(true))
+const mockFetchApplicationsForLotteryResults = jest.fn(() => Promise.resolve({}))
+
 request.destroy = mockDestroyRequest
 
 const getExpectedLeaseResponse = (lease, contact = undefined, leaseStartDate = {}) => ({
@@ -398,6 +400,16 @@ describe('apiService', () => {
       await apiService.fetchFlaggedApplicationsByRecordSet(recordSetId)
       expect(mockFetchFlaggedApplicationsRequest.mock.calls[0][0]).toBe(
         `/flagged-applications/record-set/${recordSetId}`
+      )
+    })
+  })
+
+  describe('fetchApplicationsForLotteryResults', () => {
+    test('calls request.get', async () => {
+      request.get = mockFetchApplicationsForLotteryResults
+      await apiService.fetchApplicationsForLotteryResults('fake-listing-id')
+      expect(mockFetchApplicationsForLotteryResults.mock.calls[0][0]).toBe(
+        `/lottery-results?listing_id=fake-listing-id`
       )
     })
   })

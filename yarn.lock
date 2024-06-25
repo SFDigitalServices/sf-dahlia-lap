@@ -8960,6 +8960,11 @@ react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
+react-easy-edit@^1.17.2:
+  version "1.17.2"
+  resolved "https://registry.yarnpkg.com/react-easy-edit/-/react-easy-edit-1.17.2.tgz#86000c23efc47edec49825d3b2ca77ff211db5bd"
+  integrity sha512-UdYch/aJGw2U6FmbhNDGqKq2JqBlgxymTALjBv92BTgjLBVrYbMjVZ5xqjhm22dmJtzAQIPot1eBR6VTZq0t5Q==
+
 react-error-boundary@^3.1.0:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/react-error-boundary/-/react-error-boundary-3.1.4.tgz#255db92b23197108757a888b01e5b729919abde0"
@@ -9122,6 +9127,11 @@ react-test-renderer@^18.2.0:
     react-is "^18.2.0"
     react-shallow-renderer "^16.15.0"
     scheduler "^0.23.0"
+
+react-to-print@^2.15.1:
+  version "2.15.1"
+  resolved "https://registry.yarnpkg.com/react-to-print/-/react-to-print-2.15.1.tgz#c9a6732cadf1118fc90d886b54a9388c419561b9"
+  integrity sha512-1foogIFbCpzAVxydkhBiDfMiFYhIMphiagDOfcG4X/EcQ+fBPqJ0rby9Wv/emzY1YLkIQy/rEgOrWQT+rBKhjw==
 
 react-transition-group@^4.3.0:
   version "4.4.5"

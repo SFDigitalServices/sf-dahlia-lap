@@ -27,11 +27,13 @@ Rails.application.routes.draw do
     resources :applications, as: 'application_lease_up', only: %w[show]
 
     scope module: 'listings' do
-        resources :lease_ups, :path => '/listings', only: %w[index] do
-          resources :applications, :path => '', module: 'lease_ups', only: %w[index]
-        end
+      resources :lease_ups, path: '/listings', only: %w[index] do
+        resources :applications, path: '', module: 'lease_ups', only: %w[index]
+      end
     end
   end
+
+  get '/listings/:id/lottery-results' => 'lottery_results_pdf_generator#index'
 
   # API namespacing
   namespace :api do
@@ -63,9 +65,10 @@ Rails.application.routes.draw do
 
       resources :short_form, path: '/short-form', only: %w[show]
 
+      resources :lottery_results, path: '/lottery-results', only: %w[index]
 
       scope '/short-form' do
-        match 'submit', to: 'short_form#submit', via: [:put, :post]
+        match 'submit', to: 'short_form#submit', via: %i[put post]
       end
     end
   end
