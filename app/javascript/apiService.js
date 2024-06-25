@@ -91,6 +91,10 @@ const fetchLeaseUpApplications = async (listingId, page, { filters }) => {
   )
 }
 
+const fetchApplicationsForLotteryResults = async (listingId) => {
+  return request.get(`/lottery-results?listing_id=${listingId}`)
+}
+
 const getAMI = async ({ chartType, chartYear }) =>
   request.get('/ami', {
     params: {
@@ -228,5 +232,6 @@ export default {
   deleteRentalAssistance,
   createLease,
   deleteLease,
-  updateLease
+  updateLease,
+  fetchApplicationsForLotteryResults
 }

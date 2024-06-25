@@ -16,7 +16,8 @@ const ListingApplicationsPage = ({ listing }) => {
   const tabs = {
     items: [
       { title: 'Listing Details', url: appPaths.toListing(listing.id) },
-      { title: 'Applications', url: appPaths.toApplications(listing.id), active: true }
+      { title: 'Applications', url: appPaths.toApplications(listing.id), active: true },
+      { title: 'Lottery Results', url: appPaths.toLotteryResults(listing.id) }
     ]
   }
 

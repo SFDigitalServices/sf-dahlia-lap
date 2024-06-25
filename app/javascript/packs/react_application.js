@@ -6,6 +6,7 @@ import ApplicationNewPage from 'components/applications/ApplicationNewPage'
 import ApplicationsPage from 'components/applications/ApplicationsPage'
 import FlaggedApplicationsIndexPage from 'components/applications/flagged/FlaggedApplicationsIndexPage'
 import FlaggedApplicationsShowPage from 'components/applications/flagged/FlaggedApplicationsShowPage'
+import LotteryResultsPdfGenerator from 'components/lease_ups/lottery_results_page/LotteryResultsPdfGenerator'
 import ListingApplicationsPage from 'components/listings/ListingApplicationsPage'
 import ListingPage from 'components/listings/ListingPage'
 import ListingsPage from 'components/listings/ListingsPage'
@@ -24,6 +25,7 @@ ReactOnRails.register({ ListingPage })
 ReactOnRails.register({ ListingsPage })
 ReactOnRails.register({ HomePage })
 ReactOnRails.register({ LeaseUpApp })
+ReactOnRails.register({ LotteryResultsPdfGenerator })
 
 window.onload = () => {
   ReactModal.setAppElement('#root')
