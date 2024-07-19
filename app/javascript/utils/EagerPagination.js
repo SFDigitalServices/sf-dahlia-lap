@@ -3,7 +3,7 @@ import { slice } from 'lodash'
 // Note: This needs to match the page size defined on the server in soql_query_builder.rb.
 const SERVER_PAGE_SIZE = 10000
 
-const MAX_SERVER_LIMIT = 2100
+const MAX_SERVER_LIMIT = 10000
 
 const getServerPageForEagerPage = (eagerCurrentPage, eagerSize, serverSize) => {
   const recordsSize = eagerCurrentPage * eagerSize

@@ -115,19 +115,13 @@ module Force
                 \)
                 and Application__c IN \(SELECT id FROM Application__c\)
               ))
-               .paginate(opts)
                .order_by('Receives_Preference__c desc, Preference_Order__c, Preference_Lottery_Rank__c,  Application__r.General_Lottery_Rank__c asc')
                .transform_results { |results| massage(results) }
       end
 
       def general_for_listing_query(opts)
-        # The query for this was put together to combine the general
-        # preferences with all other preferences as general was not
-        # originally included as a preference name. Because of the
-        # complexity of the query we are dynamically adding filters
-        # within the WHERE clause with the helper function above. The
-        # Preference_All_Name and Preference_All_Lottery_Rank fields
-        # were added to bring all preferences into the same query.
+        general_lottery_rank = opts[:general_lottery_rank].present? ? opts[:general_lottery_rank] : 0
+
         filters = buildAppPreferencesFilters(opts)
         search = opts[:search] ? buildAppPreferencesSearch(opts[:search]) : nil
         builder.from(:Application_Preference__c)
@@ -136,10 +130,11 @@ module Force
                 Listing_ID__c = '#{opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]}'
                 #{search ? 'AND (' + search + ')' : ''}
                 #{filters}
-                and \(Preference_Name__c = 'Live or Work in San Francisco Preference' and Application__r.General_Lottery_Rank__c != null\)\)                \)
+                and \(Preference_Name__c = 'Live or Work in San Francisco Preference'
+                and Application__r.General_Lottery_Rank__c != null
+                and Application__r.General_Lottery_Rank__c \> #{general_lottery_rank}\)
                 and Application__c IN \(SELECT id FROM Application__c\)
               ))
-               .paginate(opts)
                .order_by('Receives_Preference__c desc, Preference_Order__c, Preference_Lottery_Rank__c,  Application__r.General_Lottery_Rank__c asc')
                .transform_results { |results| massage(results) }
       end
