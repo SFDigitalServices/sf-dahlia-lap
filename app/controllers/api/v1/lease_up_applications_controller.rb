@@ -32,22 +32,18 @@ module Api::V1
 
     private
 
-    def get_application_preferences(general = false, prev_applications = nil, acc_size = 0)
+    def get_application_preferences(general = false, prev_applications = nil, acc_size = 0) # rubocop:disable Style/OptionalBooleanParameter
       params = lease_up_apps_params
       if prev_applications
         if general
-          params[:general_lottery_rank] = prev_applications[-1]['Application']['General_Lottery_Rank'] if prev_applications
+          params[:general_lottery_rank] = prev_applications[-1]['Application']['General_Lottery_Rank']
         else
           params[:preference_order] = prev_applications[-1]['Preference_Order']
           params[:preference_lottery_rank] = prev_applications[-1]['Preference_Lottery_Rank']
         end
       end
 
-      if general
-        applications_response = soql_preference_service.general_for_listing(params)
-      else
-        applications_response = soql_preference_service.app_preferences_for_listing(params)
-      end
+      applications_response = soql_preference_service.app_preferences_for_listing(params, general)
       applications = [*prev_applications, *applications_response[:records]]
       acc_size += applications_response.total_size
 

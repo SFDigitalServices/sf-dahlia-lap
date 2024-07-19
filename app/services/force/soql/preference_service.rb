@@ -18,14 +18,8 @@ module Force
         Force::Preference.convert_list(result, :from_salesforce, :to_domain)
       end
 
-      def app_preferences_for_listing(opts)
-        query_scope = app_preferences_for_listing_query(opts)
-
-        query_scope.query
-      end
-
-      def general_for_listing(opts)
-        query_scope = general_for_listing_query(opts)
+      def app_preferences_for_listing(opts, general = false)
+        query_scope = app_preferences_for_listing_query(opts, general)
 
         query_scope.query
       end
@@ -90,49 +84,32 @@ module Force
 
       private
 
-      def app_preferences_for_listing_query(opts)
-        # The query for this was put together to combine the general
-        # preferences with all other preferences as general was not
-        # originally included as a preference name. Because of the
-        # complexity of the query we are dynamically adding filters
-        # within the WHERE clause with the helper function above. The
-        # Preference_All_Name and Preference_All_Lottery_Rank fields
-        # were added to bring all preferences into the same query.
-        preference_order = opts[:preference_order].present? ? opts[:preference_order] : 0
-        preference_lottery_rank = opts[:preference_lottery_rank].present? ? opts[:preference_lottery_rank] : 0
+      def app_preferences_for_listing_query(opts, general = false)
         filters = buildAppPreferencesFilters(opts)
         search = opts[:search] ? buildAppPreferencesSearch(opts[:search]) : nil
-        builder.from(:Application_Preference__c)
-               .select(query_fields(:app_preferences_for_listing))
-               .where(%(
-                Listing_ID__c = '#{opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]}'
-                #{search ? 'AND (' + search + ')' : ''}
-                #{filters}
-                and \(
-                  Preference_Lottery_Rank__c != null and Receives_Preference__c = true
-                  and \(\(Preference_Order__c \= #{preference_order} and Preference_Lottery_Rank__c \> #{preference_lottery_rank}\)
-                  or Preference_Order__c \> #{preference_order}\)
-                \)
-                and Application__c IN \(SELECT id FROM Application__c\)
-              ))
-               .order_by('Receives_Preference__c desc, Preference_Order__c, Preference_Lottery_Rank__c,  Application__r.General_Lottery_Rank__c asc')
-               .transform_results { |results| massage(results) }
-      end
-
-      def general_for_listing_query(opts)
-        general_lottery_rank = opts[:general_lottery_rank].present? ? opts[:general_lottery_rank] : 0
-
-        filters = buildAppPreferencesFilters(opts)
-        search = opts[:search] ? buildAppPreferencesSearch(opts[:search]) : nil
-        builder.from(:Application_Preference__c)
-               .select(query_fields(:app_preferences_for_listing))
-               .where(%(
-                Listing_ID__c = '#{opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]}'
-                #{search ? 'AND (' + search + ')' : ''}
-                #{filters}
-                and \(Preference_Name__c = 'Live or Work in San Francisco Preference'
+        listing_id = opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]
+        if general
+          general_lottery_rank = opts[:general_lottery_rank].present? ? opts[:general_lottery_rank] : 0
+          where = "and \(Preference_Name__c = 'Live or Work in San Francisco Preference'
                 and Application__r.General_Lottery_Rank__c != null
-                and Application__r.General_Lottery_Rank__c \> #{general_lottery_rank}\)
+                and Application__r.General_Lottery_Rank__c \> #{general_lottery_rank}\)"
+        else
+          preference_order = opts[:preference_order].present? ? opts[:preference_order] : 0
+          preference_lottery_rank = opts[:preference_lottery_rank].present? ? opts[:preference_lottery_rank] : 0
+          where = "and \(
+              Preference_Lottery_Rank__c != null and Receives_Preference__c = true
+              and \(\(Preference_Order__c \= #{preference_order} and Preference_Lottery_Rank__c \> #{preference_lottery_rank}\)
+              or Preference_Order__c \> #{preference_order}\)
+            \)"
+        end
+
+        builder.from(:Application_Preference__c)
+               .select(query_fields(:app_preferences_for_listing))
+               .where(%(
+                Listing_ID__c = '#{listing_id}'
+                #{search ? 'AND (' + search + ')' : ''}
+                #{filters}
+                #{where}
                 and Application__c IN \(SELECT id FROM Application__c\)
               ))
                .order_by('Receives_Preference__c desc, Preference_Order__c, Preference_Lottery_Rank__c,  Application__r.General_Lottery_Rank__c asc')
