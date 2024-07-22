@@ -84,20 +84,28 @@ module Force
 
       private
 
-      def where(opts, general)
-        if general
-          general_lottery_rank = opts[:general_lottery_rank].present? ? opts[:general_lottery_rank] : 0
-          "and \(Preference_Name__c = 'Live or Work in San Francisco Preference'
+      def general_where(opts)
+        general_lottery_rank = opts[:general_lottery_rank].present? ? opts[:general_lottery_rank] : 0
+        "and \(Preference_Name__c = 'Live or Work in San Francisco Preference'
                 and Application__r.General_Lottery_Rank__c != null
                 and Application__r.General_Lottery_Rank__c \> #{general_lottery_rank}\)"
-        else
-          preference_order = opts[:preference_order].present? ? opts[:preference_order] : 0
-          preference_lottery_rank = opts[:preference_lottery_rank].present? ? opts[:preference_lottery_rank] : 0
-          "and \(
+      end
+
+      def app_pref_where(opts)
+        preference_order = opts[:preference_order].present? ? opts[:preference_order] : 0
+        preference_lottery_rank = opts[:preference_lottery_rank].present? ? opts[:preference_lottery_rank] : 0
+        "and \(
               Preference_Lottery_Rank__c != null and Receives_Preference__c = true
               and \(\(Preference_Order__c \= #{preference_order} and Preference_Lottery_Rank__c \> #{preference_lottery_rank}\)
               or Preference_Order__c \> #{preference_order}\)
             \)"
+      end
+
+      def where(opts, general)
+        if general
+          general_where(opts)
+        else
+          app_pref_where(opts)
         end
       end
 
