@@ -84,24 +84,28 @@ module Force
 
       private
 
-      def app_preferences_for_listing_query(opts, general = false)
-        filters = buildAppPreferencesFilters(opts)
-        search = opts[:search] ? buildAppPreferencesSearch(opts[:search]) : nil
-        listing_id = opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]
+      def where(opts, general)
         if general
           general_lottery_rank = opts[:general_lottery_rank].present? ? opts[:general_lottery_rank] : 0
-          where = "and \(Preference_Name__c = 'Live or Work in San Francisco Preference'
+          "and \(Preference_Name__c = 'Live or Work in San Francisco Preference'
                 and Application__r.General_Lottery_Rank__c != null
                 and Application__r.General_Lottery_Rank__c \> #{general_lottery_rank}\)"
         else
           preference_order = opts[:preference_order].present? ? opts[:preference_order] : 0
           preference_lottery_rank = opts[:preference_lottery_rank].present? ? opts[:preference_lottery_rank] : 0
-          where = "and \(
+          "and \(
               Preference_Lottery_Rank__c != null and Receives_Preference__c = true
               and \(\(Preference_Order__c \= #{preference_order} and Preference_Lottery_Rank__c \> #{preference_lottery_rank}\)
               or Preference_Order__c \> #{preference_order}\)
             \)"
         end
+      end
+
+      def app_preferences_for_listing_query(opts, general = false)
+        filters = buildAppPreferencesFilters(opts)
+        search = opts[:search] ? buildAppPreferencesSearch(opts[:search]) : nil
+        listing_id = opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]
+        where = where(opts, general)
 
         builder.from(:Application_Preference__c)
                .select(query_fields(:app_preferences_for_listing))
