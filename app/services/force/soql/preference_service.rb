@@ -124,6 +124,7 @@ module Force
                 #{where}
                 and Application__c IN \(SELECT id FROM Application__c\)
               ))
+               .paginate(opts)
                .order_by('Receives_Preference__c desc, Preference_Order__c, Preference_Lottery_Rank__c,  Application__r.General_Lottery_Rank__c asc')
                .transform_results { |results| massage(results) }
       end
