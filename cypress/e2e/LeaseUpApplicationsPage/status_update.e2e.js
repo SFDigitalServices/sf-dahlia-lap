@@ -21,7 +21,7 @@ describe('LeaseUpApplicationsPage status update', () => {
       cy.intercept('api/v1/lease-ups/listings/**', { fixture: 'leaseUpListing.json' }).as(
         'leaseUpListing'
       )
-      cy.intercept('api/v1/lease-ups/applications?listing_id=**&page=0', {
+      cy.intercept('api/v1/lease-ups/applications?listing_id=**', {
         fixture: 'leaseUpApplications.json'
       }).as('leaseUpApplications')
       cy.intercept('api/v1/applications/**/field_update_comments', {
@@ -29,7 +29,7 @@ describe('LeaseUpApplicationsPage status update', () => {
       }).as('fieldUpdateComments')
     } else {
       cy.intercept('api/v1/lease-ups/listings/**').as('leaseUpListing')
-      cy.intercept('api/v1/lease-ups/applications?listing_id=**&page=0').as('leaseUpApplications')
+      cy.intercept('api/v1/lease-ups/applications?listing_id=**').as('leaseUpApplications')
       cy.intercept('api/v1/applications/**/field_update_comments').as('fieldUpdateComments')
     }
   })
