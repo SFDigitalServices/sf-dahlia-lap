@@ -153,7 +153,7 @@ const LeaseUpApplicationsPage = () => {
     () => {
       const { appliedFilters, page } = applicationsListData
 
-      if (state.eagerPagination.isOverLimit(page)) {
+      if (state.eagerPagination.isOverLimit(page, 50000)) {
         setState({
           applications: [],
           atMaxPage: true,

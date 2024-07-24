@@ -112,8 +112,8 @@ const getLeaseUpApplications = async (listingId, filters, general = false) => {
   let listingType
   let lastPref
 
-  // we stop when we've retrieved 10000 records so that we don't accidentally loop forever if there is an error
-  while (applications.length < 10000) {
+  // we stop when we've retrieved 50000 records so that we don't accidentally loop forever if there is an error
+  while (applications.length < 50000) {
     const response = await request.get(
       '/lease-ups/applications',
       {
