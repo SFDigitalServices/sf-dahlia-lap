@@ -89,6 +89,23 @@ const fetchLeaseUpApplications = async (listingId, page, { filters }) => {
   }
 }
 
+const buildLeaseUpApplicationsParams = (listingId, filters, lastPref, general) => {
+  const params = {
+    listing_id: listingId,
+    ...filters
+  }
+
+  if (general) {
+    params.general = true
+    params.general_lottery_rank = lastPref?.general_lottery_rank ?? null
+  } else {
+    params.preference_order = lastPref?.preference_order ?? null
+    params.preference_lottery_rank = lastPref?.preference_lottery_rank ?? null
+  }
+
+  return params
+}
+
 const getLeaseUpApplications = async (listingId, filters, general = false) => {
   const applications = []
   let pages
@@ -97,23 +114,10 @@ const getLeaseUpApplications = async (listingId, filters, general = false) => {
 
   // we stop when we've retrieved 10000 records so that we don't accidentally loop forever if there is an error
   while (applications.length < 10000) {
-    const params = {
-      listing_id: listingId,
-      ...filters
-    }
-
-    if (general) {
-      params.general = true
-      params.general_lottery_rank = lastPref?.general_lottery_rank ?? null
-    } else {
-      params.preference_order = lastPref?.preference_order ?? null
-      params.preference_lottery_rank = lastPref?.preference_lottery_rank ?? null
-    }
-
     const response = await request.get(
       '/lease-ups/applications',
       {
-        params
+        params: buildLeaseUpApplicationsParams(listingId, filters, lastPref, general)
       },
       true
     )
