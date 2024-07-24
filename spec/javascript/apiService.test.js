@@ -9,6 +9,8 @@ const mockFailedRequest = jest.fn(() =>
     throw new Error('Promise failed')
   })
 )
+
+const mockLeaseUpApplicationsGetRequest = jest.fn(() => Promise.resolve({ lease: true }))
 const mockLeasePostRequest = jest.fn(() => Promise.resolve({ lease: true }))
 const mockLeaseDeleteRequest = jest.fn(() => Promise.resolve(true))
 const mockLeasePutRequest = jest.fn(() => Promise.resolve({ lease: true }))
@@ -29,6 +31,9 @@ const mockPutRequest = jest.fn(() => Promise.resolve(true))
 const mockDestroyRequest = jest.fn(() => Promise.resolve(true))
 const mockFetchFlaggedApplicationsRequest = jest.fn(() => Promise.resolve(true))
 const mockFetchApplicationsForLotteryResults = jest.fn(() => Promise.resolve({}))
+const mockFetchLeaseUpApplications = jest.fn(() =>
+  Promise.resolve({ records: [], pages: 0, listing_type: 'Standard Lottery', total_size: 0 })
+)
 
 request.destroy = mockDestroyRequest
 
@@ -411,6 +416,18 @@ describe('apiService', () => {
       expect(mockFetchApplicationsForLotteryResults.mock.calls[0][0]).toBe(
         `/lottery-results?listing_id=fake-listing-id`
       )
+    })
+  })
+
+  describe('fetchLeaseUpApplications', () => {
+    beforeAll(() => {
+      request.get = mockLeaseUpApplicationsGetRequest
+    })
+
+    test('calls request.get', async () => {
+      request.get = mockFetchLeaseUpApplications
+      await apiService.fetchLeaseUpApplications('fake-listing-id', 0, { filters: { test: 'test' } })
+      expect(mockFetchLeaseUpApplications.mock.calls[0][0]).toBe(`/lease-ups/applications`)
     })
   })
 })
