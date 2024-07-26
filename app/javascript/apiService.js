@@ -77,18 +77,67 @@ const fetchApplications = async ({ page, filters }) =>
   )
 
 const fetchLeaseUpApplications = async (listingId, page, { filters }) => {
-  // Fetch applications associated with a lease up listing.
-  return request.get(
-    '/lease-ups/applications',
-    {
-      params: {
-        listing_id: listingId,
-        page,
-        ...filters
-      }
-    },
-    true
-  )
+  // Fetch application preferences associated with a lease up listing.
+  const appPrefs = await getLeaseUpApplications(listingId, filters)
+  // Fetch general applications associated with a lease up listing.
+  const generalApps = await getLeaseUpApplications(listingId, filters, true)
+
+  return {
+    records: [...appPrefs.records, ...generalApps.records],
+    pages: appPrefs.pages + generalApps.pages,
+    listing_type: appPrefs.listing_type
+  }
+}
+
+const buildLeaseUpApplicationsParams = (listingId, filters, lastPref, general) => {
+  const params = {
+    listing_id: listingId,
+    ...filters
+  }
+
+  if (general) {
+    params.general = true
+    params.general_lottery_rank = lastPref?.general_lottery_rank ?? null
+  } else {
+    params.preference_order = lastPref?.preference_order ?? null
+    params.preference_lottery_rank = lastPref?.preference_lottery_rank ?? null
+  }
+
+  return params
+}
+
+const getLeaseUpApplications = async (listingId, filters, general = false) => {
+  const applications = []
+  let pages
+  let listingType
+  let lastPref
+
+  // we stop when we've retrieved 50000 records so that we don't accidentally loop forever if there is an error
+  while (applications.length < 50000) {
+    const response = await request.get(
+      '/lease-ups/applications',
+      {
+        params: buildLeaseUpApplicationsParams(listingId, filters, lastPref, general)
+      },
+      true
+    )
+
+    lastPref = response.records[response.records.length - 1]
+
+    // We want to use the pages from the first call because it has all the pages
+    if (!pages) {
+      pages = response.pages
+      listingType = response.listing_type
+    }
+
+    applications.push(...response.records)
+
+    if (response.total_size < 2000) {
+      break
+    }
+  }
+
+  return { records: applications, pages, listing_type: listingType }
 }
 
 const fetchApplicationsForLotteryResults = async (listingId) => {
