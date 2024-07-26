@@ -9,6 +9,7 @@ const mockFailedRequest = jest.fn(() =>
     throw new Error('Promise failed')
   })
 )
+
 const mockLeasePostRequest = jest.fn(() => Promise.resolve({ lease: true }))
 const mockLeaseDeleteRequest = jest.fn(() => Promise.resolve(true))
 const mockLeasePutRequest = jest.fn(() => Promise.resolve({ lease: true }))

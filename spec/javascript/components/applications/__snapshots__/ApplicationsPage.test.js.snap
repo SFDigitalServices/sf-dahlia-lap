@@ -1679,7 +1679,7 @@ exports[`ApplicationsPage should render successfully 1`] = `
                 <span
                   class="-totalPages"
                 >
-                  500
+                  2500
                 </span>
               </span>
             </div>
