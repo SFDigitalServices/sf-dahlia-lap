@@ -99,13 +99,18 @@ const LeaseUpApplicationsTable = ({
       width: getCellWidth(88),
       // only show the preference validation if the listing type has preferences
       // first come first served listings do not have preferences
-      show: listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED,
-      Cell: (cell) => (
-        <PreferenceRankCell
-          preferenceRank={cell.original.preference_rank}
-          preferenceValidation={cell.original.layered_validation}
-        />
-      )
+      Cell: (cell) => {
+        if (listingType === LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
+          return `General ${cell.index + 1}`
+        } else {
+          return (
+            <PreferenceRankCell
+              preferenceRank={cell.original.preference_rank}
+              preferenceValidation={cell.original.layered_validation}
+            />
+          )
+        }
+      }
     },
     {
       Header: 'Application',
