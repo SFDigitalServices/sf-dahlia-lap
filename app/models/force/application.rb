@@ -20,6 +20,7 @@ module Force
       { custom_api: 'applicationSubmittedDate', domain: 'application_submitted_date', salesforce: 'Application_Submitted_Date' },
       { custom_api: 'appRTType', domain: '', salesforce: '' },
       { custom_api: '', domain: 'createdby', salesforce: 'CreatedBy' },
+      { custom_api: '', domain: 'createddate', salesforce: 'CreatedDate' },
       { custom_api: 'didApplicantUseHousingCounselingAgency', domain: '', salesforce: 'Applicant_used_housing_counseling_agency' },
       { custom_api: 'externalSessionId', domain: '', salesforce: 'Third_Party_External_ID' },
       { custom_api: 'finalHouseholdIncome', domain: '', salesforce: 'Final_Household_Income' },
