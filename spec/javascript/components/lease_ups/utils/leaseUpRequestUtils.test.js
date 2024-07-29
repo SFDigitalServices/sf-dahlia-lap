@@ -151,6 +151,7 @@ describe('leaseUpActions', () => {
               name: 'Vincent Rogers'
             },
             has_ada_priorities_selected: null,
+            index: 0,
             processing_status: 'Disqualified',
             demographics: {},
             status_last_updated: '2020-05-28T21:23:06.000+0000',
@@ -167,6 +168,7 @@ describe('leaseUpActions', () => {
         email: 'christopher60@example.org',
         first_name: 'Vincent',
         has_ada_priorities_selected: null,
+        index: 0,
         last_name: 'Rogers',
         lease_up_status: 'Disqualified',
         mailing_address: '',
