@@ -32,6 +32,10 @@ export const getApplications = async (listingId, page, filters) => {
       if (listing_type === LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
         const cleanRecords = records.filter((record) => record.applicant != null)
         apps = map(cleanRecords, buildLeaseUpAppFirstComeFirstServedModel)
+        apps.map((app, index) => {
+          app.index = index
+          return app
+        })
       } else {
         const preferences = map(records, buildLeaseUpAppPrefModel)
         apps = addLayeredValidation(preferences)
