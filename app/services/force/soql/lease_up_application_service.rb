@@ -80,6 +80,7 @@ module Force
                   #{search ? "AND (#{search})" : ''}
                   #{filters}
                 ))
+               .order_by('CreatedDate')
                .paginate(opts)
                .transform_results { |results| massage(results) }
       end

@@ -96,6 +96,7 @@ applications:
     Total_Household_Size__c:
     Application_Submission_Type__c:
     Application_Submitted_Date__c:
+    CreatedDate:
     CreatedBy.Name:
       label: 'Created By'
     Annual_Income__c:
