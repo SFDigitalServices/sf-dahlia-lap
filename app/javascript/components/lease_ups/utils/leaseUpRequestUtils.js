@@ -30,7 +30,14 @@ export const getApplications = async (listingId, page, filters) => {
     .then(({ records, pages, listing_type }) => {
       let apps
       if (listing_type === LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
-        apps = map(records, buildLeaseUpAppFirstComeFirstServedModel)
+        // remove records that don't have an applicant (this is a bug with form assembly, but we are hiding them for now)
+        const cleanRecords = records.filter((record) => record.applicant != null)
+        apps = map(cleanRecords, buildLeaseUpAppFirstComeFirstServedModel)
+        // add an index, which will be used as the applicant's "rank"
+        apps.map((app, index) => {
+          app.index = index
+          return app
+        })
       } else {
         const preferences = map(records, buildLeaseUpAppPrefModel)
         apps = addLayeredValidation(preferences)
