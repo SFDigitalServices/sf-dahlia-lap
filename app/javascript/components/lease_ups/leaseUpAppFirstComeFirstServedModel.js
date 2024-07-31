@@ -14,6 +14,10 @@ export const buildLeaseUpAppFirstComeFirstServedModel = (application) => {
     status_last_updated: application.status_last_updated,
     has_ada_priorities_selected: application.has_ada_priorities_selected,
     total_household_size: application.total_household_size,
-    sub_status: application.sub_status
+    sub_status: application.sub_status,
+    // preference order doesn't matter for fcfs listings and all applications are 'General'
+    preference_lottery_rank: application.general_lottery_rank,
+    preference_order: 1,
+    preference_name: 'General'
   }
 }
