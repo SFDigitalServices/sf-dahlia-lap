@@ -8,7 +8,7 @@ RSpec.describe Api::V1::LeaseUpApplicationsController, type: :controller do
 
   lease_up_listing = 'a0W0P00000GbyuQ' # Lease up Listing
   # if you need to re-record the first come first served spec, you might have to recreate the listing
-  fcfs_listing =  'a0W4U00000NEbKpUAL' # First Come First Served listing in lease up
+  fcfs_listing =  'a0W6s000008C9TlEAK' # First Come First Served listing in lease up
 
   describe '#index' do
     it 'returns only applications with preferences where preference_all_name and preference_all_lottery_rank exist' do
