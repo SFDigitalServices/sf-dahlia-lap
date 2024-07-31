@@ -52,7 +52,8 @@ const LeaseUpApplicationsTable = ({
   rowsPerPage,
   atMaxPages,
   bulkCheckboxesState,
-  onBulkCheckboxClick
+  onBulkCheckboxClick,
+  ranks
 }) => {
   const [
     {
@@ -101,7 +102,11 @@ const LeaseUpApplicationsTable = ({
       // first come first served listings do not have preferences
       Cell: (cell) => {
         if (listingType === LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
-          return `General ${cell.original.index + 1}`
+          if (ranks) {
+            return `General ${ranks[cell.original.application_id] + 1}`
+          } else {
+            return null
+          }
         } else {
           return (
             <PreferenceRankCell

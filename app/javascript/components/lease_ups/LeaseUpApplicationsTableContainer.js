@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { capitalize, compact, map, cloneDeep } from 'lodash'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
+import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
 
 import { withContext } from './context'
 import LeaseUpApplicationsFilterContainer from './LeaseUpApplicationsFilterContainer'
 import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
+import { getApplicationRanks } from './utils/leaseUpRequestUtils'
 
 // Format applications for the Lease Up applications table
 export const buildRowData = (application) => {
@@ -60,6 +62,16 @@ const LeaseUpTableContainer = ({
     statusModal
   }
 }) => {
+  const [applicationRanks, setApplicationRanks] = useState(null)
+
+  useEffect(() => {
+    if (listingType === LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
+      getApplicationRanks(listingId).then((response) => {
+        setApplicationRanks(response)
+      })
+    }
+  }, [listingId, listingType])
+
   return (
     <>
       <LeaseUpApplicationsFilterContainer
@@ -84,6 +96,7 @@ const LeaseUpTableContainer = ({
           atMaxPages={atMaxPages}
           bulkCheckboxesState={bulkCheckboxesState}
           onBulkCheckboxClick={onBulkCheckboxClick}
+          ranks={applicationRanks}
         />
       )}
       <StatusModalWrapper

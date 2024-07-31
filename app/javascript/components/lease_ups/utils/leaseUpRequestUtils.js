@@ -21,6 +21,27 @@ export const sanitizeAndFormatSearch = (str) => {
   return convertToCommaSeparatedList(str.replace(/["']/g, ''))
 }
 
+export const getApplicationRanks = async (listingId) => {
+  const ranks = {}
+  return apiService.fetchLeaseUpApplications(listingId, 0, {}).then(({ records, listing_type }) => {
+    let apps
+    if (listing_type !== LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
+      console.error('This should only be used for First Come, First Served listings!')
+      return null
+    } else {
+      // remove records that don't have an applicant (this is a bug with form assembly, but we are hiding them for now)
+      const cleanRecords = records.filter((record) => record.applicant != null)
+      apps = map(cleanRecords, buildLeaseUpAppFirstComeFirstServedModel)
+      // add an index, which will be used as the applicant's "rank"
+      apps.forEach((app, index) => {
+        ranks[app.application_id] = index
+      })
+    }
+
+    return ranks
+  })
+}
+
 export const getApplications = async (listingId, page, filters) => {
   if (filters?.search) {
     filters = { ...filters, search: sanitizeAndFormatSearch(filters?.search) }
