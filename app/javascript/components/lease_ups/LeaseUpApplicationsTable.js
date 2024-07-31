@@ -102,11 +102,14 @@ const LeaseUpApplicationsTable = ({
       // first come first served listings do not have preferences
       Cell: (cell) => {
         if (listingType === LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
-          if (ranks) {
-            return `General ${ranks[cell.original.application_id] + 1}`
-          } else {
-            return null
-          }
+          return (
+            <PreferenceRankCell
+              preferenceRank={
+                ranks ? `General ${ranks[cell.original.application_id] + 1}` : 'General'
+              }
+              loading={!ranks}
+            />
+          )
         } else {
           return (
             <PreferenceRankCell

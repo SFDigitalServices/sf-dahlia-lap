@@ -21,7 +21,11 @@ const textStyle = {
   paddingRight: '0.5rem'
 }
 
-const PreferenceRankCell = ({ preferenceRank, preferenceValidation }) => {
+const PreferenceRankCell = ({
+  preferenceRank,
+  preferenceValidation = VALIDATION_UNCONFIRMED,
+  loading = false
+}) => {
   const showXIcon = preferenceValidation === VALIDATION_INVALID
   const showCheckIcon = preferenceValidation === VALIDATION_CONFIRMED
 
@@ -44,6 +48,7 @@ const PreferenceRankCell = ({ preferenceRank, preferenceValidation }) => {
           dataTestId={'preference-rank-check-icon'}
         />
       )}
+      {loading && <span className='rank-loader' />}
     </div>
   )
 }
