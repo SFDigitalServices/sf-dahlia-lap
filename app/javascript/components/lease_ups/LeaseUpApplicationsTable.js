@@ -13,7 +13,6 @@ import CheckboxCell from 'components/lease_ups/application_page/CheckboxCell'
 import PreferenceRankCell from 'components/lease_ups/application_page/PreferenceRankCell'
 import StatusCell from 'components/lease_ups/application_page/StatusCell'
 import appPaths from 'utils/appPaths'
-import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
 import { useAppContext } from 'utils/customHooks'
 import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
 import { cellFormat } from 'utils/reactTableUtils'
@@ -99,18 +98,12 @@ const LeaseUpApplicationsTable = ({
       width: getCellWidth(88),
       // only show the preference validation if the listing type has preferences
       // first come first served listings do not have preferences
-      Cell: (cell) => {
-        if (listingType === LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
-          return `General ${cell.original.index + 1}`
-        } else {
-          return (
-            <PreferenceRankCell
-              preferenceRank={cell.original.preference_rank}
-              preferenceValidation={cell.original.layered_validation}
-            />
-          )
-        }
-      }
+      Cell: (cell) => (
+        <PreferenceRankCell
+          preferenceRank={cell.original.preference_rank}
+          preferenceValidation={cell.original.layered_validation}
+        />
+      )
     },
     {
       Header: 'Application',
