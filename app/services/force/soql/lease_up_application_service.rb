@@ -81,7 +81,7 @@ module Force
                   #{search ? "AND (#{search})" : ''}
                   #{filters}
                 ))
-               .order_by('CreatedDate')
+               .order_by('Lottery_Rank__c NULLS LAST, CreatedDate')
                .paginate(opts)
                .transform_results { |results| massage(results) }
       end
