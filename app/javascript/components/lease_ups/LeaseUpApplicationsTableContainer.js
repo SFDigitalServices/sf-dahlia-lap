@@ -32,7 +32,9 @@ export const buildRowData = (application) => {
       : application.preference_record_type
   }
 
-  rowData.preference_rank = `${prefKey} ${application.preference_lottery_rank}`
+  rowData.preference_rank = application.preference_lottery_rank
+    ? `${prefKey} ${application.preference_lottery_rank}`
+    : 'Unranked'
   const prefNum = parseFloat(application.preference_order)
   const rankNum = parseFloat(application.preference_lottery_rank)
   rowData.rankOrder = prefNum + rankNum * 0.0001
