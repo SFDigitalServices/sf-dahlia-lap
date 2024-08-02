@@ -141,18 +141,16 @@ const Lease = ({ form, values }) => {
     deleteLeaseClicked(dispatch, state.application)
   }
 
-  const confirmedPreferences = () => {
-    const sortedAndFilteredPreferences = sortAndFilter(state.application.preferences)
-    const layeredValidationPreferences = addLayeredPreferenceFields(sortedAndFilteredPreferences)
-    console.log(layeredValidationPreferences)
-    return filter(layeredValidationPreferences, {
+  const confirmedPreferences = filter(
+    addLayeredPreferenceFields(sortAndFilter(state.application.preferences)),
+    {
       layered_validation: 'Confirmed'
-    })
-  }
+    }
+  )
 
   const confirmedPreferenceOptions = formUtils.toOptions([
     formUtils.toEmptyOption(NONE_PREFERENCE_LABEL),
-    ...map(confirmedPreferences(), pluck('id', 'preference_name'))
+    ...map(confirmedPreferences, pluck('id', 'preference_name'))
   ])
 
   /**
@@ -178,7 +176,7 @@ const Lease = ({ form, values }) => {
   const areNoUnitsAvailable = !availableUnitsOptions.length
 
   const isSelected = (pref) => {
-    const prefUsed = confirmedPreferences().find(
+    const prefUsed = confirmedPreferences.find(
       (pref) => pref.id === form.getState().values.lease?.preference_used
     )
     return prefUsed?.preference_name === pref
