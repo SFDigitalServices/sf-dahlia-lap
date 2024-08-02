@@ -1,5 +1,5 @@
 import { render, screen, fireEvent, within, act } from '@testing-library/react'
-import { cloneDeep, merge } from 'lodash'
+import { cloneDeep } from 'lodash'
 import selectEvent from 'react-select-event'
 
 import supplementalApplication from '../../fixtures/supplemental_application'
@@ -63,7 +63,9 @@ jest.mock('apiService', () => {
 
       _merge(appWithPrefs.preferences[2], {
         id: 'validDTHPPref',
-        post_lottery_validation: 'Confirmed'
+        post_lottery_validation: 'Confirmed',
+        receives_preference: true,
+        layered_validation: 'Confirmed'
       })
 
       return {
@@ -284,27 +286,27 @@ describe('SupplementalApplicationPage', () => {
     test('it saves a live/work application preference panel', async () => {
       await getWrapper()
 
-      expect(screen.getAllByTestId('expandable-table-row')[2]).toHaveAttribute(
+      expect(screen.getAllByTestId('expandable-table-row')[3]).toHaveAttribute(
         'aria-expanded',
         'false'
       )
       // Click edit to open up the panel
       act(() => {
         fireEvent.click(
-          within(screen.getAllByTestId('expandable-table-row')[2]).getByRole('button', {
+          within(screen.getAllByTestId('expandable-table-row')[3]).getByRole('button', {
             name: /edit/i
           })
         )
       })
 
-      expect(screen.getAllByTestId('expandable-table-row')[2]).toHaveAttribute(
+      expect(screen.getAllByTestId('expandable-table-row')[3]).toHaveAttribute(
         'aria-expanded',
         'true'
       )
       // Save the preference panel without making updates
       await act(async () => {
         fireEvent.click(
-          within(screen.getAllByTestId('expandable-table-row-button')[2]).getByRole('button', {
+          within(screen.getAllByTestId('expandable-table-row-button')[3]).getByRole('button', {
             name: /save/i
           })
         )
@@ -432,12 +434,6 @@ describe('SupplementalApplicationPage', () => {
     let mockApplication
     beforeEach(async () => {
       mockApplication = getMockApplication()
-
-      // Add a valid preference for preference used
-      merge(mockApplication.preferences[0], {
-        id: 'validDTHPPref',
-        post_lottery_validation: 'Confirmed'
-      })
     })
 
     test('should save a lease object', async () => {
