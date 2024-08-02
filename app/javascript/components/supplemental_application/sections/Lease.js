@@ -25,7 +25,7 @@ import { CurrencyField, FieldError, Label, SelectField } from 'utils/form/final_
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import { areLeaseAndRentalAssistancesValid } from 'utils/form/formSectionValidations'
 import formUtils from 'utils/formUtils'
-import { addLayeredValidation } from 'utils/layeredPreferenceUtil'
+import { addLayeredPreferenceFields } from 'utils/layeredPreferenceUtil'
 import { pluck } from 'utils/utils'
 
 import ParkingInformationInputs from './ParkingInformationInputs'
@@ -141,16 +141,18 @@ const Lease = ({ form, values }) => {
     deleteLeaseClicked(dispatch, state.application)
   }
 
-  const confirmedPreferences = filter(
-    addLayeredValidation(sortAndFilter(state.application.preferences)),
-    {
+  const confirmedPreferences = () => {
+    const sortedAndFilteredPreferences = sortAndFilter(state.application.preferences)
+    const layeredValidationPreferences = addLayeredPreferenceFields(sortedAndFilteredPreferences)
+    console.log(layeredValidationPreferences)
+    return filter(layeredValidationPreferences, {
       layered_validation: 'Confirmed'
-    }
-  )
+    })
+  }
 
   const confirmedPreferenceOptions = formUtils.toOptions([
     formUtils.toEmptyOption(NONE_PREFERENCE_LABEL),
-    ...map(confirmedPreferences, pluck('id', 'preference_name'))
+    ...map(confirmedPreferences(), pluck('id', 'preference_name'))
   ])
 
   /**
@@ -176,7 +178,7 @@ const Lease = ({ form, values }) => {
   const areNoUnitsAvailable = !availableUnitsOptions.length
 
   const isSelected = (pref) => {
-    const prefUsed = confirmedPreferences.find(
+    const prefUsed = confirmedPreferences().find(
       (pref) => pref.id === form.getState().values.lease?.preference_used
     )
     return prefUsed?.preference_name === pref
