@@ -77,10 +77,11 @@ module Force
                .select(query_fields(:show), 'Sub_Status__c', 'Processing_Date_Updated__c')
                .where(%(
                   Listing__r.ID = '#{opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]}'
+                  AND Status__c != 'Removed'
                   #{search ? "AND (#{search})" : ''}
                   #{filters}
                 ))
-               .order_by('CreatedDate')
+               .order_by('Lottery_Rank__c NULLS LAST, CreatedDate')
                .paginate(opts)
                .transform_results { |results| massage(results) }
       end

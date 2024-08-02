@@ -8,6 +8,10 @@ import { withContext } from './context'
 import LeaseUpApplicationsFilterContainer from './LeaseUpApplicationsFilterContainer'
 import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
 
+const getRank = (prefKey, prefLotteryRank) => {
+  return prefLotteryRank ? `${prefKey} ${prefLotteryRank}` : 'Unranked'
+}
+
 // Format applications for the Lease Up applications table
 export const buildRowData = (application) => {
   const rowData = cloneDeep(application)
@@ -32,7 +36,7 @@ export const buildRowData = (application) => {
       : application.preference_record_type
   }
 
-  rowData.preference_rank = `${prefKey} ${application.preference_lottery_rank}`
+  rowData.preference_rank = getRank(prefKey, application.preference_lottery_rank)
   const prefNum = parseFloat(application.preference_order)
   const rankNum = parseFloat(application.preference_lottery_rank)
   rowData.rankOrder = prefNum + rankNum * 0.0001
