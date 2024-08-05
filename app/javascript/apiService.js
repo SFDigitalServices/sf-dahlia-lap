@@ -1,4 +1,5 @@
 import { request } from 'api/request'
+import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
 
 import { isLeaseAlreadyCreated } from './components/supplemental_application/utils/supplementalApplicationUtils'
 
@@ -77,10 +78,20 @@ const fetchApplications = async ({ page, filters }) =>
   )
 
 const fetchLeaseUpApplications = async (listingId, page, { filters }) => {
+  const generalApps = {
+    records: [],
+    pages: 0
+  }
+
   // Fetch application preferences associated with a lease up listing.
   const appPrefs = await getLeaseUpApplications(listingId, filters)
-  // Fetch general applications associated with a lease up listing.
-  const generalApps = await getLeaseUpApplications(listingId, filters, true)
+
+  if (appPrefs.listing_type !== LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
+    // Fetch general applications associated with a lease up listing.
+    const generalAppsResponse = await getLeaseUpApplications(listingId, filters, true)
+    generalApps.records = generalAppsResponse.records
+    generalApps.pages = generalAppsResponse.pages
+  }
 
   return {
     records: [...appPrefs.records, ...generalApps.records],
