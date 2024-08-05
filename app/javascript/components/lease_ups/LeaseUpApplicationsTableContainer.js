@@ -40,8 +40,8 @@ export const buildRowData = (application) => {
   }
 
   const prefKey = getPrefKey(application)
-  rowData.preference_rank = getRank(prefKey, application.preference_lottery_rank)
 
+  rowData.preference_rank = getRank(prefKey, application.preference_lottery_rank)
   const prefNum = parseFloat(application.preference_order)
   const rankNum = parseFloat(application.preference_lottery_rank)
   rowData.rankOrder = prefNum + rankNum * 0.0001
