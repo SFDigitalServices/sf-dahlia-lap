@@ -403,6 +403,99 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                               aria-expanded="false"
                               class="tr-expand"
                               data-testid="expandable-table-row"
+                              id="displaced-tenant-housing-preference-dthp-row"
+                            >
+                              <td
+                                class=""
+                              >
+                                <span
+                                  class="ui-icon ui-medium i-success"
+                                >
+                                  <svg>
+                                    <use
+                                      xlink:href="#i-check"
+                                    />
+                                  </svg>
+                                </span>
+                              </td>
+                              <td
+                                class=""
+                              >
+                                Displaced Tenant Housing Preference (DTHP)
+                              </td>
+                              <td
+                                class="table-no-wrap"
+                              >
+                                <div>
+                                  None
+                                </div>
+                              </td>
+                              <td
+                                class="text-right"
+                              />
+                              <td
+                                class="table-no-wrap"
+                              >
+                                <div>
+                                  None
+                                </div>
+                              </td>
+                              <td
+                                class=""
+                              >
+                                Confirmed
+                              </td>
+                              <td>
+                                <button
+                                  class="button button-link action-link"
+                                  id="displaced-tenant-housing-preference-dthp-edit"
+                                  type="button"
+                                >
+                                  Edit
+                                </button>
+                              </td>
+                            </tr>
+                            <tr
+                              aria-hidden="true"
+                              class="tr-expand-content"
+                              data-testid="expandable-table-row-button"
+                              id="displaced-tenant-housing-preference-dthp-panel"
+                            >
+                              <td
+                                class="td-expand-nested no-padding"
+                                colspan="7"
+                              >
+                                <div
+                                  class="inline-modal padding-left--2x padding-right--2x"
+                                >
+                                  <div />
+                                  <div
+                                    class="form-grid row margin-left-none margin-right-none"
+                                  >
+                                    <div
+                                      class="form-grid_item column"
+                                    >
+                                      <button
+                                        class="button primary tiny margin-right margin-bottom-none save-panel-btn"
+                                        type="button"
+                                      >
+                                        Save
+                                      </button>
+                                      <button
+                                        class="button secondary tiny margin-bottom-none"
+                                        type="button"
+                                      >
+                                        Cancel
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr
+                              aria-expanded="false"
+                              class="tr-expand"
+                              data-testid="expandable-table-row"
                               id="assisted-housing-preference-row"
                             >
                               <td
@@ -5313,14 +5406,14 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                             None
                           </option>
                           <option
-                            value="a0w0P00000OUJc3QAH"
-                          >
-                            Live or Work in San Francisco Preference
-                          </option>
-                          <option
                             value="validDTHPPref"
                           >
                             Displaced Tenant Housing Preference (DTHP)
+                          </option>
+                          <option
+                            value="a0w0P00000OUJc3QAH"
+                          >
+                            Live or Work in San Francisco Preference
                           </option>
                         </select>
                       </div>

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { reject, orderBy } from 'lodash'
+
 import FormGrid from 'components/molecules/FormGrid'
 import formUtils from 'utils/formUtils'
 
@@ -31,6 +33,17 @@ export const isLiveInSF = (value) => value === 'Live in SF'
 export const isAssistedHousing = (value) => value === 'Assisted Housing'
 
 export const isRentBurdened = (value) => value === 'Rent Burdened'
+
+const onlyValid = (preferences) => {
+  return reject(preferences, (pref) => {
+    return !pref.receives_preference
+  })
+}
+
+export const sortAndFilter = (preferences) => {
+  const sortedPreferences = orderBy(preferences, 'preference_order', 'asc')
+  return onlyValid(sortedPreferences)
+}
 
 export const getPreferenceName = (preference) => {
   const preferenceName = preference.preference_name

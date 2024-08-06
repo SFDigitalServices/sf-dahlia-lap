@@ -25,9 +25,11 @@ import { CurrencyField, FieldError, Label, SelectField } from 'utils/form/final_
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import { areLeaseAndRentalAssistancesValid } from 'utils/form/formSectionValidations'
 import formUtils from 'utils/formUtils'
+import { addLayeredPreferenceFields } from 'utils/layeredPreferenceUtil'
 import { pluck } from 'utils/utils'
 
 import ParkingInformationInputs from './ParkingInformationInputs'
+import { sortAndFilter } from './preferences/utils'
 import RentalAssistance from './RentalAssistance'
 import { convertPercentAndCurrency, validateLeaseCurrency } from '../../../utils/form/validations'
 import Button from '../../atoms/Button'
@@ -139,9 +141,12 @@ const Lease = ({ form, values }) => {
     deleteLeaseClicked(dispatch, state.application)
   }
 
-  const confirmedPreferences = filter(state.application.preferences, {
-    post_lottery_validation: 'Confirmed'
-  })
+  const confirmedPreferences = filter(
+    addLayeredPreferenceFields(sortAndFilter(state.application.preferences)),
+    {
+      layered_validation: 'Confirmed'
+    }
+  )
 
   const confirmedPreferenceOptions = formUtils.toOptions([
     formUtils.toEmptyOption(NONE_PREFERENCE_LABEL),
