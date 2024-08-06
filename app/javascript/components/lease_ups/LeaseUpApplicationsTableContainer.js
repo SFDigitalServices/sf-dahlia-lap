@@ -12,6 +12,21 @@ const getRank = (prefKey, prefLotteryRank) => {
   return prefLotteryRank ? `${prefKey} ${prefLotteryRank}` : 'Unranked'
 }
 
+const getPrefKey = (application) => {
+  // Override the key we display for certain cases
+  if (application.preference_name === 'General') {
+    return 'General'
+  } else if (application.preference_name?.includes('Right to Return')) {
+    return 'RtR'
+  } else if (application.preference_name?.includes('Tier')) {
+    return application.custom_preference_type.replace('G', 'General')
+  }
+
+  return application.custom_preference_type
+    ? application.custom_preference_type
+    : application.preference_record_type
+}
+
 // Format applications for the Lease Up applications table
 export const buildRowData = (application) => {
   const rowData = cloneDeep(application)
@@ -23,18 +38,7 @@ export const buildRowData = (application) => {
     rowData.accessibility = accessibilityKeys.map((key) => capitalize(key.split('_')[0])).join(', ')
   }
 
-  // Override the key we display for certain cases
-  let prefKey
-  if (application.preference_name?.includes('General')) {
-    prefKey = 'General'
-  } else if (application.preference_name?.includes('Right to Return')) {
-    prefKey = 'RtR'
-  } else {
-    // TODO: DAH-1904 - clean up references to unused prefrenece type field
-    prefKey = application.custom_preference_type
-      ? application.custom_preference_type
-      : application.preference_record_type
-  }
+  const prefKey = getPrefKey(application)
 
   rowData.preference_rank = getRank(prefKey, application.preference_lottery_rank)
   const prefNum = parseFloat(application.preference_order)

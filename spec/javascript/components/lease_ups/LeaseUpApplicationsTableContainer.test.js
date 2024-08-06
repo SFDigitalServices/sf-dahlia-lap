@@ -15,6 +15,9 @@ describe('LeaseUpApplicationsTableContainer', () => {
       expect(buildRowData(application).preference_rank).toBe('General 13')
       application.preference_name = 'Alice Griffith'
       expect(buildRowData(application).preference_rank).toBe('AG 13')
+      application.preference_name = 'Tier 1 General Pool'
+      application.custom_preference_type = 'T1-G'
+      expect(buildRowData(application).preference_rank).toBe('T1-General 13')
     })
   })
 })
