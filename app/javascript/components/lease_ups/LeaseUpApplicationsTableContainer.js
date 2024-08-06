@@ -22,7 +22,6 @@ const getPrefKey = (application) => {
     return application.custom_preference_type.replace('G', 'General')
   }
 
-  // TODO: DAH-1904 - clean up references to unused prefrenece type field
   return application.custom_preference_type
     ? application.custom_preference_type
     : application.preference_record_type
