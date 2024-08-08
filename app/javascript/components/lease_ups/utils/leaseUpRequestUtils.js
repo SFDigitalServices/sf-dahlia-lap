@@ -21,7 +21,7 @@ export const sanitizeAndFormatSearch = (str) => {
   return convertToCommaSeparatedList(str.replace(/["']/g, ''))
 }
 
-export const getApplications = async (listingId, page, filters) => {
+export const getApplications = async (listingId, page, filters, withLayeredValidation = false) => {
   if (filters?.search) {
     filters = { ...filters, search: sanitizeAndFormatSearch(filters?.search) }
   }
@@ -40,7 +40,8 @@ export const getApplications = async (listingId, page, filters) => {
         })
       } else {
         const preferences = map(records, buildLeaseUpAppPrefModel)
-        apps = addLayeredValidation(preferences)
+        // only do the layered validation loop if necessary
+        apps = withLayeredValidation ? addLayeredValidation(preferences) : preferences
       }
       return {
         records: apps,

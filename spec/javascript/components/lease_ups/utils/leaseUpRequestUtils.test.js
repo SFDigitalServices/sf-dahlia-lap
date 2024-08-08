@@ -108,7 +108,7 @@ describe('leaseUpActions', () => {
       }
 
       const expectedResults = { records: [expectedRowData], pages: 10 }
-      expect(await getApplications(fakeListingId, 0)).toEqual(expectedResults)
+      expect(await getApplications(fakeListingId, 0, {}, true)).toEqual(expectedResults)
     })
 
     test('it passes filters to the apiService as expected', () => {

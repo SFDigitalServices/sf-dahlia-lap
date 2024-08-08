@@ -21,6 +21,29 @@ export const mockBulkCheckboxesState = {
     a0o4U00000KIUAsQAP: false
 }
 
+export const mockPrefMap = {
+    "a0o4U00000KIYp1QAH-Displaced Tenant Housing Preference (DTHP)": "Confirmed",
+    "a0o4U00000KIKuwQAH-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIYpGQAX-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIK4SQAX-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIJxEQAX-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIchuQAD-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIKRaQAP-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIXY4QAP-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIYrNQAX-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIJmNQAX-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIKfnQAH-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIKD8QAP-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIXj7QAH-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIJoTQAX-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIKfEQAX-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIK3jQAH-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIXTuQAP-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIL49QAH-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIPTJQA5-Live or Work in San Francisco Preference": "Confirmed",
+    "a0o4U00000KIUAsQAP-Live or Work in San Francisco Preference": "Confirmed"
+}
+
 export const mockDataSet = [
     {
         application_id: 'a0o4U00000KIYp1QAH',
