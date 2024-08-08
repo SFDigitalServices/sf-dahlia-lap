@@ -21,12 +21,18 @@ export const sanitizeAndFormatSearch = (str) => {
   return convertToCommaSeparatedList(str.replace(/["']/g, ''))
 }
 
-export const getApplications = async (listingId, page, filters, withLayeredValidation = false) => {
+export const getApplications = async (
+  listingId,
+  page,
+  filters,
+  withLayeredValidation = false,
+  withGeneral = true
+) => {
   if (filters?.search) {
     filters = { ...filters, search: sanitizeAndFormatSearch(filters?.search) }
   }
   return apiService
-    .fetchLeaseUpApplications(listingId, page, { filters })
+    .fetchLeaseUpApplications(listingId, page, { filters }, withGeneral)
     .then(({ records, pages, listing_type }) => {
       let apps
       if (listing_type === LISTING_TYPE_FIRST_COME_FIRST_SERVED) {

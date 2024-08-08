@@ -78,9 +78,14 @@ describe('leaseUpActions', () => {
 
     test('it makes the expected apiService request when no filters are provided', () => {
       getApplications(fakeListingId, 0)
-      expect(apiService.fetchLeaseUpApplications).toHaveBeenCalledWith(fakeListingId, 0, {
-        filters: undefined
-      })
+      expect(apiService.fetchLeaseUpApplications).toHaveBeenCalledWith(
+        fakeListingId,
+        0,
+        {
+          filters: undefined
+        },
+        true
+      )
     })
     test('it formats returned data as expected', async () => {
       const expectedRowData = {
@@ -114,9 +119,14 @@ describe('leaseUpActions', () => {
     test('it passes filters to the apiService as expected', () => {
       const fakeFilters = { filter1: 'something', filter2: 'something else' }
       getApplications(fakeListingId, 0, fakeFilters)
-      expect(apiService.fetchLeaseUpApplications).toHaveBeenCalledWith(fakeListingId, 0, {
-        filters: fakeFilters
-      })
+      expect(apiService.fetchLeaseUpApplications).toHaveBeenCalledWith(
+        fakeListingId,
+        0,
+        {
+          filters: fakeFilters
+        },
+        true
+      )
     })
     test('it reformats search strings as expected', () => {
       const fakeFilters = { filter1: 'something', search: 'word1 word2' }
@@ -125,9 +135,14 @@ describe('leaseUpActions', () => {
         search: convertToCommaSeparatedList('word1 word2')
       }
       getApplications(fakeListingId, 0, fakeFilters)
-      expect(apiService.fetchLeaseUpApplications).toHaveBeenCalledWith(fakeListingId, 0, {
-        filters: expectedFilters
-      })
+      expect(apiService.fetchLeaseUpApplications).toHaveBeenCalledWith(
+        fakeListingId,
+        0,
+        {
+          filters: expectedFilters
+        },
+        true
+      )
     })
   })
 

@@ -75,7 +75,7 @@ const LeaseUpTableContainer = ({
   useEffect(() => {
     // don't need layered validation for fcfs
     if (listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
-      getApplications(listingId, 0, {}, true).then(({ records }) => {
+      getApplications(listingId, 0, {}, true, false).then(({ records }) => {
         const prefMap = {}
         records.forEach((preference) => {
           prefMap[`${preference.application_id}-${preference.preference_name}`] =

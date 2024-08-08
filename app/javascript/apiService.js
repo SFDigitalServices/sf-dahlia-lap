@@ -77,7 +77,7 @@ const fetchApplications = async ({ page, filters }) =>
     true
   )
 
-const fetchLeaseUpApplications = async (listingId, page, { filters }) => {
+const fetchLeaseUpApplications = async (listingId, page, { filters }, withGeneral = true) => {
   const generalApps = {
     records: [],
     pages: 0
@@ -86,7 +86,7 @@ const fetchLeaseUpApplications = async (listingId, page, { filters }) => {
   // Fetch application preferences associated with a lease up listing.
   const appPrefs = await getLeaseUpApplications(listingId, filters)
 
-  if (appPrefs.listing_type !== LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
+  if (appPrefs.listing_type !== LISTING_TYPE_FIRST_COME_FIRST_SERVED && withGeneral) {
     // Fetch general applications associated with a lease up listing.
     const generalAppsResponse = await getLeaseUpApplications(listingId, filters, true)
     generalApps.records = generalAppsResponse.records
