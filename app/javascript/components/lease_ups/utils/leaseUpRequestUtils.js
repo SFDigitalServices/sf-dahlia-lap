@@ -26,13 +26,13 @@ export const getApplications = async (
   page,
   filters,
   withLayeredValidation = false,
-  withGeneral = true
+  includeGeneralApps = true
 ) => {
   if (filters?.search) {
     filters = { ...filters, search: sanitizeAndFormatSearch(filters?.search) }
   }
   return apiService
-    .fetchLeaseUpApplications(listingId, page, { filters }, withGeneral)
+    .fetchLeaseUpApplications(listingId, page, { filters }, includeGeneralApps)
     .then(({ records, pages, listing_type }) => {
       let apps
       if (listing_type === LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
