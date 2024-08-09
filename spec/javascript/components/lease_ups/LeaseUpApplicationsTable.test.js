@@ -7,7 +7,11 @@ import LeaseUpApplicationsTable from 'components/lease_ups/LeaseUpApplicationsTa
 import Provider from 'context/Provider'
 import * as customHooks from 'utils/customHooks'
 
-import { mockBulkCheckboxesState, mockDataSet } from '../../fixtures/lease_up_applications'
+import {
+  mockBulkCheckboxesState,
+  mockDataSet,
+  mockPrefMap
+} from '../../fixtures/lease_up_applications'
 
 describe('LeaseUpApplicationsTable', () => {
   let spy
@@ -30,6 +34,7 @@ describe('LeaseUpApplicationsTable', () => {
       <BrowserRouter>
         <Provider value={{ applicationsListData: {} }}>
           <LeaseUpApplicationsTable
+            prefMap={mockPrefMap}
             dataSet={mockDataSet}
             listingId='a0W4U00000Hm6qRUAR'
             onLeaseUpStatusChange={jest.fn()}

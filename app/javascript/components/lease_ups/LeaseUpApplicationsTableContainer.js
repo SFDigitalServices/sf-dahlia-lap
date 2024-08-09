@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { capitalize, compact, map, cloneDeep } from 'lodash'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
+import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
 
 import { withContext } from './context'
 import LeaseUpApplicationsFilterContainer from './LeaseUpApplicationsFilterContainer'
 import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
+import { getApplications } from './utils/leaseUpRequestUtils'
 
 const getRank = (prefKey, prefLotteryRank) => {
   return prefLotteryRank ? `${prefKey} ${prefLotteryRank}` : 'Unranked'
@@ -68,22 +70,39 @@ const LeaseUpTableContainer = ({
     statusModal
   }
 }) => {
+  const [prefMap, setPrefMap] = useState(null)
+
+  useEffect(() => {
+    // don't need layered validation for fcfs
+    if (listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
+      getApplications(listingId, 0, {}, true, false).then(({ records }) => {
+        const prefMap = {}
+        records.forEach((preference) => {
+          prefMap[`${preference.application_id}-${preference.preference_name}`] =
+            preference.layered_validation
+        })
+        setPrefMap(prefMap)
+      })
+    }
+  }, [listingId, listingType])
+
   return (
     <>
       <LeaseUpApplicationsFilterContainer
         listingType={listingType}
         preferences={preferences}
         onSubmit={onFilter}
-        loading={loading}
+        loading={loading || (!prefMap && listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED)}
         bulkCheckboxesState={bulkCheckboxesState}
         onClearSelectedApplications={onClearSelectedApplications}
         onSelectAllApplications={onSelectAllApplications}
         onBulkLeaseUpStatusChange={(val) => onLeaseUpStatusChange(val, null, false)}
         onBulkLeaseUpCommentChange={(val) => onLeaseUpStatusChange(null, null, true)}
       />
-      {!loading && (
+      {!loading && (prefMap || listingType === LISTING_TYPE_FIRST_COME_FIRST_SERVED) && (
         <LeaseUpApplicationsTable
           dataSet={map(applications, buildRowData)}
+          prefMap={prefMap}
           listingId={listingId}
           listingType={listingType}
           onLeaseUpStatusChange={onLeaseUpStatusChange}

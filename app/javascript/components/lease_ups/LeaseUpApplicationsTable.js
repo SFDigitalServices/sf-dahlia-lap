@@ -45,7 +45,7 @@ const textCell = ({ value }) => {
 
 const LeaseUpApplicationsTable = ({
   dataSet,
-  listingType,
+  prefMap,
   onLeaseUpStatusChange,
   pages,
   rowsPerPage,
@@ -101,7 +101,9 @@ const LeaseUpApplicationsTable = ({
       Cell: (cell) => (
         <PreferenceRankCell
           preferenceRank={cell.original.preference_rank}
-          preferenceValidation={cell.original.layered_validation}
+          preferenceValidation={
+            prefMap[`${cell.original.application_id}-${cell.original.preference_name}`]
+          }
         />
       )
     },
