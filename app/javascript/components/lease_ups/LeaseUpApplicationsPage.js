@@ -124,34 +124,26 @@ const LeaseUpApplicationsPage = () => {
     }
   })
 
-  React.useEffect(() => {
-    const urlFilters = {}
-    const { appliedFilters } = applicationsListData
-    console.log(location)
-    LEASE_UP_APPLICATION_FILTERS.forEach((filter) => {
-      const values = searchParams.getAll(filter.fieldName)
-      if (values.length > 0) {
-        urlFilters[filter.fieldName] = values
-      }
-    })
-
-    const textSearchFilters = searchParams.get('search')
-    if (textSearchFilters) {
-      urlFilters.search = textSearchFilters
-    }
-
-    if (!isEqual(appliedFilters, urlFilters)) {
-      state.forceRefreshNextPageUpdate = true
-      applicationsTableFiltersApplied(dispatch, urlFilters)
-    }
-    // Using just location in the deps array allows us to exclusively run this effect:
-    // on mount, if the user changes the url manually, or if the user hits the back button
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location])
-
   useAsync(
     () => {
+      const urlFilters = {}
       const { appliedFilters, page } = applicationsListData
+      LEASE_UP_APPLICATION_FILTERS.forEach((filter) => {
+        const values = searchParams.getAll(filter.fieldName)
+        if (values.length > 0) {
+          urlFilters[filter.fieldName] = values
+        }
+      })
+
+      const textSearchFilters = searchParams.get('search')
+      if (textSearchFilters) {
+        urlFilters.search = textSearchFilters
+      }
+
+      if (!isEqual(appliedFilters, urlFilters)) {
+        state.forceRefreshNextPageUpdate = true
+        applicationsTableFiltersApplied(dispatch, urlFilters)
+      }
 
       if (state.eagerPagination.isOverLimit(page, 50000)) {
         setState({
@@ -183,7 +175,10 @@ const LeaseUpApplicationsPage = () => {
         console.trace(e)
       }
     },
-    [applicationsListData.appliedFilters, applicationsListData.page]
+    // Using location in the deps array allows us to run this effect:
+    // on mount, if the user changes the url manually, or if the user hits the back button
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [location, applicationsListData.appliedFilters, applicationsListData.page]
   )
 
   useEffectOnMount(() => applicationsPageMounted(dispatch))
