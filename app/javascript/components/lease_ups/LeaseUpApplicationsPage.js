@@ -126,8 +126,9 @@ const LeaseUpApplicationsPage = () => {
 
   useAsync(
     () => {
+      console.log('use effect')
       const urlFilters = {}
-      const { appliedFilters, page } = applicationsListData
+      let { appliedFilters, page } = applicationsListData
       LEASE_UP_APPLICATION_FILTERS.forEach((filter) => {
         const values = searchParams.getAll(filter.fieldName)
         if (values.length > 0) {
@@ -141,9 +142,11 @@ const LeaseUpApplicationsPage = () => {
       }
 
       if (!isEqual(appliedFilters, urlFilters)) {
+        appliedFilters = urlFilters
         state.forceRefreshNextPageUpdate = true
-        applicationsTableFiltersApplied(dispatch, urlFilters)
       }
+
+      applicationsTableFiltersApplied(dispatch, appliedFilters)
 
       if (state.eagerPagination.isOverLimit(page, 50000)) {
         setState({
@@ -178,7 +181,7 @@ const LeaseUpApplicationsPage = () => {
     // Using location in the deps array allows us to run this effect:
     // on mount, if the user changes the url manually, or if the user hits the back button
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [location, applicationsListData.appliedFilters, applicationsListData.page]
+    [location, applicationsListData.page]
   )
 
   useEffectOnMount(() => applicationsPageMounted(dispatch))
