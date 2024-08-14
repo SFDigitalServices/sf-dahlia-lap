@@ -126,7 +126,6 @@ const LeaseUpApplicationsPage = () => {
 
   useAsync(
     () => {
-      console.log('use effect')
       const urlFilters = {}
       let { appliedFilters, page } = applicationsListData
       LEASE_UP_APPLICATION_FILTERS.forEach((filter) => {
@@ -179,7 +178,6 @@ const LeaseUpApplicationsPage = () => {
     },
     // Using location in the deps array allows us to run this effect:
     // on mount, if the user changes the url manually, or if the user hits the back button
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [location, applicationsListData.page]
   )
 
