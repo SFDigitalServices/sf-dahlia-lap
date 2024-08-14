@@ -144,9 +144,8 @@ const LeaseUpApplicationsPage = () => {
       if (!isEqual(appliedFilters, urlFilters)) {
         appliedFilters = urlFilters
         state.forceRefreshNextPageUpdate = true
+        applicationsTableFiltersApplied(dispatch, appliedFilters)
       }
-
-      applicationsTableFiltersApplied(dispatch, appliedFilters)
 
       if (state.eagerPagination.isOverLimit(page, 50000)) {
         setState({
