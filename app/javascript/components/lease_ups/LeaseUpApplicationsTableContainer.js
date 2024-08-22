@@ -29,7 +29,7 @@ const getPrefKey = (application) => {
     : application.preference_record_type
 }
 
-const getAccessibilityKeys = (application) => {
+export const getAccessibilityKeys = (application) => {
   const accessibilityKeys = compact(Object.keys(application.has_ada_priorities_selected))
 
   return accessibilityKeys
