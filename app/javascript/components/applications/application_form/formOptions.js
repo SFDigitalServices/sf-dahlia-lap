@@ -180,8 +180,7 @@ const householdVouchersSubsidiesOptions = labelize([
 const adaPriorityValueToLabelMap = {
   mobility_impairments: 'Mobility impairments',
   vision_impairments: 'Vision impairments',
-  hearing_impairments: 'Hearing impairments',
-  hcbs_units: 'HCBS units'
+  hearing_impairments: 'Hearing impairments'
 }
 
 const yesNoOptions = labelize(['Yes', 'No', 'Left Blank'])
