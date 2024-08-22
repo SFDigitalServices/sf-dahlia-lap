@@ -121,7 +121,7 @@ module Force
           # Allow date to be set to nil
           [v[:domain], { v[:domain] => %w[day year month] }]
         elsif v[:type] == 'ada_priorities'
-          { v[:domain] => %w[vision_impairments hearing_impairments mobility_impairments] }
+          { v[:domain] => %w[vision_impairments hearing_impairments mobility_impairments hcbs_units] }
         else
           v[:domain]
         end

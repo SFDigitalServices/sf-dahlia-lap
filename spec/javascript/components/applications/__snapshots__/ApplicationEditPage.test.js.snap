@@ -1548,6 +1548,32 @@ exports[`ApplicationEditPage should render successfully 1`] = `
                             </div>
                           </div>
                         </div>
+                        <div
+                          class="form-item"
+                        >
+                          <div
+                            class="checkbox"
+                          >
+                            <div
+                              class="form-group"
+                            >
+                              <input
+                                class=""
+                                id="form-has_ada_priorities_selected.hcbs_units"
+                                name="has_ada_priorities_selected.hcbs_units"
+                                type="checkbox"
+                                value=""
+                              />
+                              <label
+                                class="form-label"
+                                for="form-has_ada_priorities_selected.hcbs_units"
+                                id="label-has_ada_priorities_selected-hcbs_units"
+                              >
+                                HCBS units
+                              </label>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -3756,6 +3782,32 @@ exports[`ApplicationEditPage should render successfully with preferences 1`] = `
                                 id="label-has_ada_priorities_selected-hearing_impairments"
                               >
                                 Hearing impairments
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="form-item"
+                        >
+                          <div
+                            class="checkbox"
+                          >
+                            <div
+                              class="form-group"
+                            >
+                              <input
+                                class=""
+                                id="form-has_ada_priorities_selected.hcbs_units"
+                                name="has_ada_priorities_selected.hcbs_units"
+                                type="checkbox"
+                                value=""
+                              />
+                              <label
+                                class="form-label"
+                                for="form-has_ada_priorities_selected.hcbs_units"
+                                id="label-has_ada_priorities_selected-hcbs_units"
+                              >
+                                HCBS units
                               </label>
                             </div>
                           </div>
