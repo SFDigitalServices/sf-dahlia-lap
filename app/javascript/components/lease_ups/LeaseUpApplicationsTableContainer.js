@@ -29,15 +29,27 @@ const getPrefKey = (application) => {
     : application.preference_record_type
 }
 
+export const getAccessibilityKeys = (application) => {
+  const accessibilityKeys = compact(Object.keys(application.has_ada_priorities_selected))
+
+  return accessibilityKeys
+    .map((key) => {
+      if (key === 'hcbs_units') {
+        return 'HCBS Units'
+      } else {
+        return capitalize(key.split('_')[0])
+      }
+    })
+    .join(', ')
+}
+
 // Format applications for the Lease Up applications table
 export const buildRowData = (application) => {
   const rowData = cloneDeep(application)
 
   // get keys and remove empty values
-  const accessibilityKeys = compact(Object.keys(application.has_ada_priorities_selected || []))
-
-  if (accessibilityKeys && accessibilityKeys.length > 0) {
-    rowData.accessibility = accessibilityKeys.map((key) => capitalize(key.split('_')[0])).join(', ')
+  if (application.has_ada_priorities_selected) {
+    rowData.accessibility = getAccessibilityKeys(application)
   }
 
   const prefKey = getPrefKey(application)

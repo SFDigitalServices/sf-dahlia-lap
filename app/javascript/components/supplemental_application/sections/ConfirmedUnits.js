@@ -22,6 +22,10 @@ const ConfirmedUnits = ({ form }) => {
                 fieldName='has_ada_priorities_selected.hearing_impairments'
                 label='Hearing Impairments'
               />
+              <CheckboxField
+                fieldName='has_ada_priorities_selected.hcbs_units'
+                label='HCBS Units'
+              />
             </div>
           </FormGrid.Group>
         </FormGrid.Item>
