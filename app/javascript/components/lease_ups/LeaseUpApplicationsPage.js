@@ -363,7 +363,8 @@ const LeaseUpApplicationsPage = () => {
     pages: state.pages,
     preferences: listingPreferences,
     rowsPerPage: ROWS_PER_PAGE,
-    statusModal: statusModalState
+    statusModal: statusModalState,
+    hasFilters: Object.keys(applicationsListData.appliedFilters).length > 0
   }
 
   return (
