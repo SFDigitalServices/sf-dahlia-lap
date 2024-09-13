@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 import { request } from 'api/request'
 import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
 
@@ -88,6 +90,20 @@ const fetchLeaseUpApplications = async (
     pages: 0
   }
 
+  // TODO: if no filters call API, else continue to call SOQL
+  // the API will return all prefs including general in a single call
+
+  console.log(filters)
+  if (Object.keys(filters).length === 0) {
+    const resp = await axios.get('http://localhost:3000/api/v1/lease-ups/api/applications')
+    console.log(resp)
+    return {
+      records: [...resp.data],
+      pages: 1
+      // listing_type: null
+    }
+  }
+
   // Fetch application preferences associated with a lease up listing.
   const appPrefs = await getLeaseUpApplications(listingId, filters)
 
@@ -99,6 +115,9 @@ const fetchLeaseUpApplications = async (
     generalApps.records = generalAppsResponse.records
     generalApps.pages = generalAppsResponse.pages
   }
+
+  console.log(appPrefs)
+  console.log(generalApps)
 
   return {
     records: [...appPrefs.records, ...generalApps.records],

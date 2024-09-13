@@ -56,6 +56,7 @@ Rails.application.routes.draw do
         get 'record-set/:id' => 'flagged_applications#record_set'
       end
 
+      resources :lease_up_api_applications, path: 'lease-ups/api/applications', only: %w[index]
       resources :lease_up_applications, path: 'lease-ups/applications', only: %w[index]
       resources :lease_up_listings, path: 'lease-ups/listings', only: %w[index show]
 

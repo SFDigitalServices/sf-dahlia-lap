@@ -41,6 +41,13 @@ module Force
         application(result['id'])
       end
 
+      def application_prefernce
+        api_get('/Listing/Application/Preference/a0W4U00000KRHeEUAX')
+        # 'hello'
+      rescue Faraday::ResourceNotFound
+        nil
+      end
+
       private
 
       def update_application(custom_api_attrs)
