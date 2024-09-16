@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 import { request } from 'api/request'
 import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
 
@@ -95,10 +93,10 @@ const fetchLeaseUpApplications = async (
 
   console.log(filters)
   if (Object.keys(filters).length === 0) {
-    const resp = await axios.get('http://localhost:3000/api/v1/lease-ups/api/applications')
+    const resp = await request.get('/lease-ups/applications/rest_api?listing_id=a0W4U00000KRHeEUAX')
     console.log(resp)
     return {
-      records: [...resp.data],
+      records: [...resp],
       pages: 1
       // listing_type: null
     }

@@ -86,7 +86,6 @@ const LeaseUpTableContainer = ({
 
   useEffect(() => {
     // don't need layered validation for fcfs
-    // no need when no filters or veterans, another ticket
     if (listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
       getApplications(listingId, 0, {}, true, false).then(({ records }) => {
         const prefMap = {}
