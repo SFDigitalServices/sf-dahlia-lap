@@ -4,6 +4,7 @@ import { capitalize, compact, map, cloneDeep } from 'lodash'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
+import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import { addLayeredValidation } from 'utils/layeredPreferenceUtil'
 
 import { withContext } from './context'
@@ -85,12 +86,16 @@ const LeaseUpTableContainer = ({
   }
 }) => {
   const [prefMap, setPrefMap] = useState(null)
+  const usePerformanceUpdates = useFeatureFlag('partners_lease_up_perf', false)
 
   useEffect(() => {
     // don't need layered validation for fcfs
     // don't need layered validation for non-veteran listings
     // don't need layered validation for initial call
-    if (!hasFilters || (preferences && preferences.every((pref) => !pref.includes('Veteran')))) {
+    if (
+      usePerformanceUpdates &&
+      (!hasFilters || (preferences && preferences.every((pref) => !pref.includes('Veteran'))))
+    ) {
       const prefMap = {}
       addLayeredValidation(applications).forEach((preference) => {
         prefMap[`${preference.application_id}-${preference.preference_name}`] =
@@ -107,7 +112,7 @@ const LeaseUpTableContainer = ({
         setPrefMap(prefMap)
       })
     }
-  }, [applications, hasFilters, listingId, listingType, preferences])
+  }, [applications, hasFilters, listingId, listingType, preferences, usePerformanceUpdates])
 
   return (
     <>
