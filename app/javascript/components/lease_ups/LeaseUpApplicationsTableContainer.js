@@ -4,6 +4,7 @@ import { capitalize, compact, map, cloneDeep } from 'lodash'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
+import { addLayeredValidation } from 'utils/layeredPreferenceUtil'
 
 import { withContext } from './context'
 import LeaseUpApplicationsFilterContainer from './LeaseUpApplicationsFilterContainer'
@@ -79,14 +80,24 @@ const LeaseUpTableContainer = ({
     pages,
     preferences,
     rowsPerPage,
-    statusModal
+    statusModal,
+    hasFilters
   }
 }) => {
   const [prefMap, setPrefMap] = useState(null)
 
   useEffect(() => {
     // don't need layered validation for fcfs
-    if (listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
+    // don't need layered validation for non-veteran listings
+    // don't need layered validation for initial call
+    if (!hasFilters || (preferences && preferences.every((pref) => !pref.includes('Veteran')))) {
+      const prefMap = {}
+      addLayeredValidation(applications).forEach((preference) => {
+        prefMap[`${preference.application_id}-${preference.preference_name}`] =
+          preference.layered_validation
+      })
+      setPrefMap(prefMap)
+    } else if (listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
       getApplications(listingId, 0, {}, true, false).then(({ records }) => {
         const prefMap = {}
         records.forEach((preference) => {
@@ -96,7 +107,7 @@ const LeaseUpTableContainer = ({
         setPrefMap(prefMap)
       })
     }
-  }, [listingId, listingType])
+  }, [applications, hasFilters, listingId, listingType, preferences])
 
   return (
     <>
