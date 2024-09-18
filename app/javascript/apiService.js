@@ -1,5 +1,5 @@
 import { request } from 'api/request'
-import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
+// import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
 
 import { isLeaseAlreadyCreated } from './components/supplemental_application/utils/supplementalApplicationUtils'
 
@@ -89,16 +89,16 @@ const fetchLeaseUpApplications = async (
   }
 
   // Fetch application preferences associated with a lease up listing.
-  const appPrefs = await getLeaseUpApplications(listingId, filters)
+  const appPrefs = await getLeaseUpApplications(listingId, filters, page)
 
-  // don't need to include general applications for first come fist served listings
-  // or when getting applications for layered preferences
-  if (appPrefs.listing_type !== LISTING_TYPE_FIRST_COME_FIRST_SERVED && includeGeneralApps) {
-    // Fetch general applications associated with a lease up listing.
-    const generalAppsResponse = await getLeaseUpApplications(listingId, filters, true)
-    generalApps.records = generalAppsResponse.records
-    generalApps.pages = generalAppsResponse.pages
-  }
+  // // don't need to include general applications for first come fist served listings
+  // // or when getting applications for layered preferences
+  // if (appPrefs.listing_type !== LISTING_TYPE_FIRST_COME_FIRST_SERVED && includeGeneralApps) {
+  //   // Fetch general applications associated with a lease up listing.
+  //   const generalAppsResponse = await getLeaseUpApplications(listingId, filters, true)
+  //   generalApps.records = generalAppsResponse.records
+  //   generalApps.pages = generalAppsResponse.pages
+  // }
 
   return {
     records: [...appPrefs.records, ...generalApps.records],
@@ -107,9 +107,10 @@ const fetchLeaseUpApplications = async (
   }
 }
 
-const buildLeaseUpApplicationsParams = (listingId, filters, lastPref, general) => {
+const buildLeaseUpApplicationsParams = (listingId, filters, lastPref, general, page) => {
   const params = {
     listing_id: listingId,
+    page,
     ...filters
   }
 
@@ -124,18 +125,18 @@ const buildLeaseUpApplicationsParams = (listingId, filters, lastPref, general) =
   return params
 }
 
-const getLeaseUpApplications = async (listingId, filters, general = false) => {
+const getLeaseUpApplications = async (listingId, filters, page = 0, general = false) => {
   const applications = []
   let pages
   let listingType
   let lastPref
 
   // we stop when we've retrieved 50000 records so that we don't accidentally loop forever if there is an error
-  while (applications.length < 50000) {
+  while (applications.length < 20) {
     const response = await request.get(
       '/lease-ups/applications',
       {
-        params: buildLeaseUpApplicationsParams(listingId, filters, lastPref, general)
+        params: buildLeaseUpApplicationsParams(listingId, filters, lastPref, general, page)
       },
       true
     )
