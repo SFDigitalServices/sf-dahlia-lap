@@ -3,8 +3,16 @@
 import React from 'react'
 
 import { within, screen, fireEvent, act, waitFor } from '@testing-library/react'
+import { useFlag as useFlagUnleash, useFlagsStatus } from '@unleash/proxy-client-react'
 
 import { renderAppWithUrl } from '../../testUtils/wrapperUtil'
+
+jest.mock('@unleash/proxy-client-react')
+
+useFlagUnleash.mockImplementation(() => true)
+useFlagsStatus.mockImplementation(() => ({
+  flagsError: false
+}))
 
 const mockGetLeaseUpListing = jest.fn()
 const mockFetchLeaseUpApplications = jest.fn()
@@ -193,7 +201,7 @@ describe('LeaseUpApplicationsPage', () => {
   })
 
   test('calls get applications with the listing id and page number = 0', () => {
-    expect(mockFetchLeaseUpApplications.mock.calls).toHaveLength(2)
+    expect(mockFetchLeaseUpApplications.mock.calls).toHaveLength(1)
     expect(mockFetchLeaseUpApplications.mock.calls[0][0]).toEqual(mockListing.id)
     expect(mockFetchLeaseUpApplications.mock.calls[0][1]).toBe(0)
   })
