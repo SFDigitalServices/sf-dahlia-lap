@@ -3,8 +3,16 @@
 import React from 'react'
 
 import { within, screen, fireEvent, act, waitFor } from '@testing-library/react'
+import { useFlag as useFlagUnleash, useFlagsStatus } from '@unleash/proxy-client-react'
 
 import { renderAppWithUrl } from '../../testUtils/wrapperUtil'
+
+jest.mock('@unleash/proxy-client-react')
+
+useFlagUnleash.mockImplementation(() => true)
+useFlagsStatus.mockImplementation(() => ({
+  flagsError: false
+}))
 
 const mockGetLeaseUpListing = jest.fn()
 const mockFetchLeaseUpApplications = jest.fn()
