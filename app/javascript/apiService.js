@@ -93,11 +93,11 @@ const fetchLeaseUpApplications = async (
 
   console.log(filters)
   if (Object.keys(filters).length === 0) {
-    const resp = await request.get('/lease-ups/applications/rest_api?listing_id=a0W4U00000KRHeEUAX')
-    console.log(resp)
+    const resp = await request.get(`/lease-ups/applications/rest_api?listing_id=${listingId}`)
+    const rowsPerPage = 50000
     return {
       records: [...resp],
-      pages: 1
+      pages: resp.length / rowsPerPage
       // listing_type: null
     }
   }
