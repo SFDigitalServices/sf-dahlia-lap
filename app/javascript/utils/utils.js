@@ -37,21 +37,15 @@ export const isChanged = (prev, current) => {
 }
 
 export const filterChanged = (prev, current) => {
-  if (!prev) {
-    return current
-  }
+  if (!prev) return current
   const changedFields = {}
   forEach(current, (value, key) => {
     if (!isEqual(prev[key], value)) {
       // date fields need to be treated as whole
       if (isPlainObject(value) && prev[key] !== null && !isDateObject(value)) {
         const obj = filterChanged(prev[key], value)
-        if (!isEmpty(obj)) {
-          if (value.id) {
-            obj.id = value.id
-          }
-          changedFields[key] = obj
-        }
+        if (!isEmpty(obj) && value.id) obj.id = value.id
+        if (!isEmpty(obj)) changedFields[key] = obj
       } else {
         changedFields[key] = value
       }
