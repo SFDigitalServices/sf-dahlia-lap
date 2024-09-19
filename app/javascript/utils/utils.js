@@ -63,6 +63,10 @@ export const filterChanged = (prev, current) => {
   forEach(missingKeys, (key) => {
     changedFields[key] = null
   })
+  // ada priority fields need to be treated as a whole
+  if (changedFields.has_ada_priorities_selected) {
+    changedFields.has_ada_priorities_selected = current.has_ada_priorities_selected
+  }
   return changedFields
 }
 
