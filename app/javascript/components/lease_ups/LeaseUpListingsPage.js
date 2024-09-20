@@ -35,7 +35,7 @@ const LeaseUpListingsPage = () => {
     title: 'Lease Ups'
   }
 
-  const testFlag = useFeatureFlag('test-partners', false)
+  const { unleashFlag: testFlag } = useFeatureFlag('test-partners', false)
 
   const onCellClick = ({ original: listing }) => {
     listingRowClicked(dispatch, listing)
