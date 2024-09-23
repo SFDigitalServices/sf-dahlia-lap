@@ -38,6 +38,8 @@ module.exports = defineConfig({
       SALE_LISTING_ID: process.env.E2E_SALE_LISTING_ID || 'a0W0P00000GlKfBUAV',
       // Default to sample flagged record set on full
       FLAGGED_RECORD_SET_ID: process.env.E2E_FLAGGED_RECORD_SET_ID || 'a0r0P00002WqGZ6QAN',
+      // Default to 400 China Basin in full
+      FCFS_LISTING_ID: process.env.FCFS_LISTING_ID || 'a0W4U00000Nlb5lUAB',
       // When this is turned to true, Cypress will log the Salesforce password to the console
       // This is useful for debugging, but should never be turned on in a PR
       LOG_SECRETS: false
