@@ -117,15 +117,8 @@ const LeaseUpTableContainer = ({
         })
       }
     }
-  }, [
-    applications,
-    flagsReady,
-    hasFilters,
-    listingId,
-    listingType,
-    preferences,
-    usePerformanceUpdates
-  ])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hasFilters, listingId, listingType, preferences, usePerformanceUpdates])
 
   return (
     <>
