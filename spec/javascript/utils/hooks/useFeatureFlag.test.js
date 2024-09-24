@@ -25,7 +25,7 @@ describe('useFeatureFlag', () => {
 
     const { result } = renderHook(() => useFeatureFlag('testFlag', false))
     expect(consoleSpy).toHaveBeenCalled()
-    expect(result.current).toBe(false)
+    expect(result.current.unleashFlag).toBe(false)
   })
 
   it('returns the default value when there is a flagError', () => {
@@ -37,7 +37,7 @@ describe('useFeatureFlag', () => {
     const { result } = renderHook(() => useFeatureFlag('testFlag', false))
 
     expect(consoleSpy).toHaveBeenCalled()
-    expect(result.current).toBe(false)
+    expect(result.current.unleashFlag).toBe(false)
   })
 
   it('returns the actual Unleash value when there is no URL flag or loading errors', () => {
@@ -49,7 +49,7 @@ describe('useFeatureFlag', () => {
     const { result } = renderHook(() => useFeatureFlag('testFlag', false))
 
     expect(consoleSpy).not.toHaveBeenCalled()
-    expect(result.current).toBe(true)
+    expect(result.current.unleashFlag).toBe(true)
   })
 
   it('returns true when the url override is set to true', () => {
@@ -66,7 +66,7 @@ describe('useFeatureFlag', () => {
     const { result } = renderHook(() => useFeatureFlag('testFlag', false))
 
     expect(consoleSpy).not.toHaveBeenCalled()
-    expect(result.current).toBe(true)
+    expect(result.current.unleashFlag).toBe(true)
   })
 
   it('returns false when the url override is set to false', () => {
@@ -83,7 +83,7 @@ describe('useFeatureFlag', () => {
     const { result } = renderHook(() => useFeatureFlag('testFlag', true))
 
     expect(consoleSpy).not.toHaveBeenCalled()
-    expect(result.current).toBe(false)
+    expect(result.current.unleashFlag).toBe(false)
   })
 
   it('returns the unleash flag when the url override is set to something random', () => {
@@ -100,7 +100,7 @@ describe('useFeatureFlag', () => {
     const { result } = renderHook(() => useFeatureFlag('testFlag', false))
 
     expect(consoleSpy).not.toHaveBeenCalled()
-    expect(result.current).toBe(true)
+    expect(result.current.unleashFlag).toBe(true)
   })
 
   it('returns the default flag when the url override is set to something random and there is no unleash flag available', () => {
@@ -123,6 +123,6 @@ describe('useFeatureFlag', () => {
     const { result } = renderHook(() => useFeatureFlag('testFlag', false))
 
     expect(consoleSpy).toHaveBeenCalled()
-    expect(result.current).toBe(false)
+    expect(result.current.unleashFlag).toBe(false)
   })
 })

@@ -11,7 +11,8 @@ jest.mock('@unleash/proxy-client-react')
 
 useFlagUnleash.mockImplementation(() => true)
 useFlagsStatus.mockImplementation(() => ({
-  flagsError: false
+  flagsError: false,
+  flagsReady: true
 }))
 
 const mockGetLeaseUpListing = jest.fn()

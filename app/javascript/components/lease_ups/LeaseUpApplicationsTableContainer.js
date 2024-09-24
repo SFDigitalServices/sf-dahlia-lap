@@ -86,33 +86,39 @@ const LeaseUpTableContainer = ({
   }
 }) => {
   const [prefMap, setPrefMap] = useState(null)
-  const usePerformanceUpdates = useFeatureFlag('partners_lease_up_perf', false)
+  const { flagsReady, unleashFlag: usePerformanceUpdates } = useFeatureFlag(
+    'partners_lease_up_perf',
+    false
+  )
 
   useEffect(() => {
-    // don't need layered validation for fcfs
-    // don't need layered validation for non-veteran listings
-    // don't need layered validation for initial call
-    if (
-      usePerformanceUpdates &&
-      (!hasFilters || (preferences && preferences.every((pref) => !pref.includes('Veteran'))))
-    ) {
-      const prefMap = {}
-      addLayeredValidation(applications).forEach((preference) => {
-        prefMap[`${preference.application_id}-${preference.preference_name}`] =
-          preference.layered_validation
-      })
-      setPrefMap(prefMap)
-    } else if (listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
-      getApplications(listingId, 0, {}, true, false).then(({ records }) => {
+    if (flagsReady) {
+      // don't need layered validation for fcfs
+      // don't need layered validation for non-veteran listings
+      // don't need layered validation for initial call
+      if (
+        usePerformanceUpdates &&
+        (!hasFilters || (preferences && preferences.every((pref) => !pref.includes('Veteran'))))
+      ) {
         const prefMap = {}
-        records.forEach((preference) => {
+        addLayeredValidation(applications).forEach((preference) => {
           prefMap[`${preference.application_id}-${preference.preference_name}`] =
             preference.layered_validation
         })
         setPrefMap(prefMap)
-      })
+      } else if (listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
+        getApplications(listingId, 0, {}, true, false).then(({ records }) => {
+          const prefMap = {}
+          records.forEach((preference) => {
+            prefMap[`${preference.application_id}-${preference.preference_name}`] =
+              preference.layered_validation
+          })
+          setPrefMap(prefMap)
+        })
+      }
     }
-  }, [applications, hasFilters, listingId, listingType, preferences, usePerformanceUpdates])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hasFilters, listingId, listingType, preferences, usePerformanceUpdates])
 
   return (
     <>
