@@ -239,6 +239,25 @@ describe('filterChanged', () => {
     expect(diff).toEqual(expectedFilteredApp)
   })
 
+  test('should pass all ada priority fields', async () => {
+    const prevApp = {
+      id: 'abc',
+      a: '1',
+      has_ada_priorities_selected: { mobility_impairments: true }
+    }
+    const newApp = {
+      id: 'abc',
+      a: '1',
+      has_ada_priorities_selected: { mobility_impairments: true, vision_impairments: true }
+    }
+    const expectedFilteredApp = {
+      id: 'abc',
+      has_ada_priorities_selected: { mobility_impairments: true, vision_impairments: true }
+    }
+    const diff = filterChanged(prevApp, newApp)
+    expect(diff).toEqual(expectedFilteredApp)
+  })
+
   test('should set removed field to null', async () => {
     const prevApp = { id: 'abc', a: '1', b: { day: '01', month: '01', year: '2021' } }
     const newApp = { id: 'abc', a: '1' }
