@@ -4,7 +4,6 @@ import { capitalize, compact, map, cloneDeep } from 'lodash'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
-import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import { addLayeredValidation } from 'utils/layeredPreferenceUtil'
 
 import { withContext } from './context'
@@ -86,77 +85,35 @@ const LeaseUpTableContainer = ({
   }
 }) => {
   const [prefMap, setPrefMap] = useState(null)
-  const { flagsReady, unleashFlag: usePerformanceUpdates } = useFeatureFlag(
-    'partners_lease_up_perf',
-    false
-  )
 
   useEffect(() => {
-    if (flagsReady) {
-      // don't need layered validation for fcfs
-      // don't need layered validation for non-veteran listings
-      // don't need layered validation for initial call
-      if (
-        usePerformanceUpdates &&
-        (!hasFilters || (preferences && preferences.every((pref) => !pref.includes('Veteran'))))
-      ) {
+    console.log('preferences:')
+    console.log(preferences)
+    // don't need layered validation for fcfs
+    // don't need layered validation for non-veteran listings
+    // don't need layered validation for initial call
+    if (preferences && preferences.every((pref) => !pref.includes('Veteran'))) {
+      const prefMap = {}
+      console.log('in if statement')
+      console.log(applications)
+      addLayeredValidation(applications).forEach((preference) => {
+        prefMap[`${preference.application_id}-${preference.preference_name}`] =
+          preference.layered_validation
+      })
+      setPrefMap(prefMap)
+    } else if (listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
+      console.log('in else statement')
+      console.log(applications)
+      getApplications(listingId, 0, {}, true, false).then(({ records }) => {
         const prefMap = {}
-        console.log('adding validations reload')
-        console.log(applications)
-        addLayeredValidation(applications).forEach((preference) => {
+        records.forEach((preference) => {
           prefMap[`${preference.application_id}-${preference.preference_name}`] =
             preference.layered_validation
         })
         setPrefMap(prefMap)
-      } else if (listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
-        console.log(applications)
-        getApplications(listingId, 0, {}, true, false).then(({ records }) => {
-          const prefMap = {}
-          records.forEach((preference) => {
-            prefMap[`${preference.application_id}-${preference.preference_name}`] =
-              preference.layered_validation
-          })
-          setPrefMap(prefMap)
-        })
-      }
+      })
     }
-  }, [
-    flagsReady,
-    applications,
-    hasFilters,
-    listingId,
-    listingType,
-    preferences,
-    usePerformanceUpdates
-  ])
-
-  // useEffect(() => {
-  //   // don't need layered validation for fcfs
-  //   // don't need layered validation for non-veteran listings
-  //   // don't need layered validation for initial call
-  //   console.log(hasFilters)
-  //   if (!hasFilters && preferences && preferences.every((pref) => !pref.includes('Veteran'))) {
-  //     const prefMap = {}
-  //     console.log('in the if statement')
-  //     console.log(applications)
-  //     addLayeredValidation(applications).forEach((preference) => {
-  //       prefMap[`${preference.application_id}-${preference.preference_name}`] =
-  //         preference.layered_validation
-  //     })
-  //     setPrefMap(prefMap)
-  //   } else if (listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
-  //     console.log('in the else statement')
-  //     console.log(applications)
-  //     getApplications(listingId, 0, {}, true, false).then(({ records }) => {
-  //       const prefMap = {}
-  //       records.forEach((preference) => {
-  //         prefMap[`${preference.application_id}-${preference.preference_name}`] =
-  //           preference.layered_validation
-  //       })
-  //       setPrefMap(prefMap)
-  //     })
-  //   }
-  // }, [applications, hasFilters, listingId, listingType, preferences, usePerformanceUpdates])
+  }, [applications, hasFilters, listingId, listingType, preferences])
 
   return (
     <>
