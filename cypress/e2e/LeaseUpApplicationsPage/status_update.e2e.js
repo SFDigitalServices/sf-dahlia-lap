@@ -237,6 +237,8 @@ describe('LeaseUpApplicationsPage status update', () => {
         cy.visit(
           `/lease-ups/listings/${LEASE_UP_LISTING_ID}?preference=Certificate+of+Preference+%28COP%29&total_household_size=1&total_household_size=2&accessibility=Mobility+impairments&accessibility=Vision+impairments%2C+Hearing+impairments&status=Approved&search=Andrew`
         )
+        cy.wait('@leaseUpListing')
+        cy.wait('@leaseUpApplications')
 
         cy.contains('button', 'Hide Filters').should('exist')
 
