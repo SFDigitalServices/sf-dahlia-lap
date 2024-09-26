@@ -87,6 +87,7 @@ const LeaseUpTableContainer = ({
   const [prefMap, setPrefMap] = useState(null)
 
   useEffect(() => {
+    if (!preferences) return
     console.log('preferences:')
     console.log(preferences)
     // don't need layered validation for fcfs
@@ -101,7 +102,7 @@ const LeaseUpTableContainer = ({
           preference.layered_validation
       })
       setPrefMap(prefMap)
-    } else if (listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
+    } else {
       console.log('in else statement')
       console.log(applications)
       getApplications(listingId, 0, {}, true, false).then(({ records }) => {
