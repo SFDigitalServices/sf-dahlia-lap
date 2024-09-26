@@ -101,12 +101,15 @@ const LeaseUpTableContainer = ({
         (!hasFilters || (preferences && preferences.every((pref) => !pref.includes('Veteran'))))
       ) {
         const prefMap = {}
+        console.log('adding validations reload')
+        console.log(applications)
         addLayeredValidation(applications).forEach((preference) => {
           prefMap[`${preference.application_id}-${preference.preference_name}`] =
             preference.layered_validation
         })
         setPrefMap(prefMap)
       } else if (listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
+        console.log(applications)
         getApplications(listingId, 0, {}, true, false).then(({ records }) => {
           const prefMap = {}
           records.forEach((preference) => {
@@ -117,8 +120,43 @@ const LeaseUpTableContainer = ({
         })
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hasFilters, listingId, listingType, preferences, usePerformanceUpdates])
+  }, [
+    flagsReady,
+    applications,
+    hasFilters,
+    listingId,
+    listingType,
+    preferences,
+    usePerformanceUpdates
+  ])
+
+  // useEffect(() => {
+  //   // don't need layered validation for fcfs
+  //   // don't need layered validation for non-veteran listings
+  //   // don't need layered validation for initial call
+  //   console.log(hasFilters)
+  //   if (!hasFilters && preferences && preferences.every((pref) => !pref.includes('Veteran'))) {
+  //     const prefMap = {}
+  //     console.log('in the if statement')
+  //     console.log(applications)
+  //     addLayeredValidation(applications).forEach((preference) => {
+  //       prefMap[`${preference.application_id}-${preference.preference_name}`] =
+  //         preference.layered_validation
+  //     })
+  //     setPrefMap(prefMap)
+  //   } else if (listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
+  //     console.log('in the else statement')
+  //     console.log(applications)
+  //     getApplications(listingId, 0, {}, true, false).then(({ records }) => {
+  //       const prefMap = {}
+  //       records.forEach((preference) => {
+  //         prefMap[`${preference.application_id}-${preference.preference_name}`] =
+  //           preference.layered_validation
+  //       })
+  //       setPrefMap(prefMap)
+  //     })
+  //   }
+  // }, [applications, hasFilters, listingId, listingType, preferences, usePerformanceUpdates])
 
   return (
     <>
