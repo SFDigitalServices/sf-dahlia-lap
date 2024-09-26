@@ -88,23 +88,17 @@ const LeaseUpTableContainer = ({
 
   useEffect(() => {
     if (!preferences) return
-    console.log('preferences:')
-    console.log(preferences)
     // don't need layered validation for fcfs
     // don't need layered validation for non-veteran listings
     // don't need layered validation for initial call
-    if (preferences && preferences.every((pref) => !pref.includes('Veteran'))) {
+    if (preferences.every((pref) => !pref.includes('Veteran'))) {
       const prefMap = {}
-      console.log('in if statement')
-      console.log(applications)
       addLayeredValidation(applications).forEach((preference) => {
         prefMap[`${preference.application_id}-${preference.preference_name}`] =
           preference.layered_validation
       })
       setPrefMap(prefMap)
     } else {
-      console.log('in else statement')
-      console.log(applications)
       getApplications(listingId, 0, {}, true, false).then(({ records }) => {
         const prefMap = {}
         records.forEach((preference) => {
