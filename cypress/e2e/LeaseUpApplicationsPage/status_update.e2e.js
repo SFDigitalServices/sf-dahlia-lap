@@ -21,7 +21,7 @@ describe('LeaseUpApplicationsPage status update', () => {
       cy.intercept('api/v1/lease-ups/listings/**', { fixture: 'leaseUpListing.json' }).as(
         'leaseUpListing'
       )
-      cy.intercept('api/v1/lease-ups/applications?listing_id=**', {
+      cy.intercept(`api/v1/lease-ups/applications?listing_id=${LEASE_UP_LISTING_ID}`, {
         fixture: 'leaseUpApplications.json'
       }).as('leaseUpApplications')
       cy.intercept('api/v1/applications/**/field_update_comments', {
@@ -149,6 +149,12 @@ describe('LeaseUpApplicationsPage status update', () => {
     })
   })
   describe('filters', () => {
+    beforeEach(() => {
+      cy.intercept(
+        `api/v1/lease-ups/applications?listing_id=${LEASE_UP_LISTING_ID}&preference[]=Certificate+of+Preference+(COP)**`,
+        { fixture: 'leaseUpApplicationsFiltered.json' }
+      ).as('leaseUpApplicationsFiltered')
+    })
     describe('using the application filters', () => {
       it('should use all filters and update URL', () => {
         cy.visit('http://localhost:3000/')

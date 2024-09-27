@@ -1,0 +1,40 @@
+{
+  "test": true,
+  "records": [
+    {
+      "application": {
+        "name": "APP-00304154",
+        "id": "a0o0P00000IvWgcQAF",
+        "general_lottery": false,
+        "general_lottery_rank": null,
+        "applicant": {
+          "first_name": "Lori",
+          "last_name": "Ortiz",
+          "residence_address": "",
+          "mailing_address": "",
+          "name": "Lori Ortiz"
+        },
+        "has_ada_priorities_selected": {
+          "mobility_impairments": true,
+          "hearing_impairments": true
+        },
+        "total_household_size": 3,
+        "sub_status": null,
+        "processing_status": "Processing",
+        "status_last_updated": "2024-03-06T21:13:53.000+0000",
+        "demographics": {}
+      },
+      "preference_order": 1,
+      "receives_preference": true,
+      "preference_all_lottery_rank": 1,
+      "post_lottery_validation": "Unconfirmed",
+      "preference_lottery_rank": 1,
+      "custom_preference_type": "COP",
+      "record_type_for_app_preferences": "COP",
+      "preference_name": "Certificate of Preference (COP)"
+    }
+  ],
+  "pages": 0.001,
+  "page": "0",
+  "total_size": 1
+}
