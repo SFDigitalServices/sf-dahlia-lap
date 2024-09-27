@@ -182,23 +182,6 @@ workflows:
   build-and-deploy:
     jobs:
       - build
-      - backend:
-          <<: *non_production_jobs
-          requires:
-            - build
-      - frontend:
-          <<: *non_production_jobs
-          requires:
-            - build
-      - e2e:
-          <<: *non_production_jobs
-          requires:
-            - build
-      - coverage:
-          <<: *non_production_jobs
-          requires:
-            - backend
-            - frontend
       - e2e:
           <<: *prod_and_release_jobs
           name: e2e-production
