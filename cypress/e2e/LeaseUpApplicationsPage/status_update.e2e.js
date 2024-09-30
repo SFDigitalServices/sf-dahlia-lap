@@ -149,24 +149,14 @@ describe('LeaseUpApplicationsPage status update', () => {
     })
   })
   describe('filters', () => {
-    beforeEach(() => {
-      if (usingFixtures()) {
-        cy.intercept(`api/v1/lease-ups/applications?listing_id=${LEASE_UP_LISTING_ID}**`, {
-          fixture: 'leaseUpApplicationsFiltered.json'
-        }).as('leaseUpApplicationsFiltered')
-      } else {
-        cy.intercept(`api/v1/lease-ups/applications?listing_id=${LEASE_UP_LISTING_ID}**`).as(
-          'leaseUpApplicationsFiltered'
-        )
-      }
-    })
     describe('using the application filters', () => {
       it('should use all filters and update URL', () => {
         cy.visit('http://localhost:3000/')
         cy.login()
         cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
         cy.wait('@leaseUpListing')
-        cy.wait('@leaseUpApplicationsFiltered')
+        cy.wait('@leaseUpApplications')
+        cy.wait('@leaseUpApplicationsGeneral')
 
         cy.contains('button', 'Show Filters').click()
 
@@ -250,7 +240,7 @@ describe('LeaseUpApplicationsPage status update', () => {
           `/lease-ups/listings/${LEASE_UP_LISTING_ID}?preference=Certificate+of+Preference+%28COP%29&total_household_size=1&total_household_size=2&accessibility=Mobility+impairments&accessibility=Vision+impairments%2C+Hearing+impairments&status=Approved&search=Andrew`
         )
         cy.wait('@leaseUpListing')
-        cy.wait('@leaseUpApplicationsFiltered')
+        // cy.wait('@leaseUpApplicationsFiltered')
 
         cy.contains('button', 'Hide Filters').should('exist')
 
