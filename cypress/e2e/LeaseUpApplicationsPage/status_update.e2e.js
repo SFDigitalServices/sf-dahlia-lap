@@ -165,8 +165,9 @@ describe('LeaseUpApplicationsPage status update', () => {
         cy.visit('http://localhost:3000/')
         cy.login()
         cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
-        cy.wait('@leaseUpApplications')
         cy.wait('@leaseUpListing')
+        cy.wait('@leaseUpApplicationsFiltered')
+
         cy.contains('button', 'Show Filters').click()
 
         cy.get('div[role="grid"] input[type="checkbox"]')
