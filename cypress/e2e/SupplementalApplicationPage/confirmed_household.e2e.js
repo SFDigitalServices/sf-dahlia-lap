@@ -37,14 +37,8 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
     cy.get(confirmedAnnualSelector).clear().type(confirmedAnnualValue.currency)
     cy.get(finalHHAnnualSelector).clear().type(finalHHAnnualValue.currency)
 
-    const chartType =
-      Cypress.env('salesforceInstanceUrl') === 'https://sfhousing--full.sandbox.my.salesforce.com'
-        ? 'HUD Unadjusted'
-        : 'HCD Unadjusted'
-    const chartYear =
-      Cypress.env('salesforceInstanceUrl') === 'https://sfhousing--full.sandbox.my.salesforce.com'
-        ? '2018'
-        : '2020'
+    const chartType = 'HUD Unadjusted'
+    const chartYear = '2018'
 
     // Enter AMI Info
     cy.get(amiPercentageSelector).clear().type('5.55')

@@ -1,131 +1,131 @@
 {
-    "test": true,
-    "flagged_records": [
-        {
-            "id": "a0q0P00000OJkaqQAD",
-            "application": {
-                "id": "a0o0P00000ItCWGQA3",
-                "name": "APP-00267189"
-            },
-            "flagged_record": {
-                "rule_name": "Name + DOB",
-                "listing": {
-                    "lottery_status": "Not Yet Run",
-                    "is_sale": false,
-                    "is_rental": true
-                }
-            },
-            "primary_application_applicant_name": "Joseph Lee",
-            "review_status": "Pending Review",
-            "comments": "this is a comment"
-        },
-        {
-            "id": "a0q0P00000OJkarQAD",
-            "application": {
-                "id": "a0o0P00000Isg2SQAR",
-                "name": "APP-00255035"
-            },
-            "flagged_record": {
-                "rule_name": "Name + DOB",
-                "listing": {
-                    "lottery_status": "Not Yet Run",
-                    "is_sale": false,
-                    "is_rental": true
-                }
-            },
-            "primary_application_applicant_name": "Joseph Lee",
-            "review_status": "Reviewed - Keep in Lottery",
-            "comments": null
-        },
-        {
-            "id": "a0q0P00000OKLfnQAH",
-            "application": {
-                "id": "a0o0P00000IuwVtQAJ",
-                "name": "APP-00298469"
-            },
-            "flagged_record": {
-                "rule_name": "Name + DOB",
-                "listing": {
-                    "lottery_status": "Not Yet Run",
-                    "is_sale": false,
-                    "is_rental": true
-                }
-            },
-            "primary_application_applicant_name": "Joseph Lauren Robles Lee",
-            "review_status": "Pending Review",
-            "comments": null
-        },
-        {
-            "id": "a0q0P00000OKLfoQAH",
-            "application": {
-                "id": "a0o0P00000IuqlLQAR",
-                "name": "APP-00298010"
-            },
-            "flagged_record": {
-                "rule_name": "Name + DOB",
-                "listing": {
-                    "lottery_status": "Not Yet Run",
-                    "is_sale": false,
-                    "is_rental": true
-                }
-            },
-            "primary_application_applicant_name": "Joseph Robert Hart Lee",
-            "review_status": "Pending Review",
-            "comments": null
-        },
-        {
-            "id": "a0q0P00000OKLfsQAH",
-            "application": {
-                "id": "a0o0P00000IuwVyQAJ",
-                "name": "APP-00298470"
-            },
-            "flagged_record": {
-                "rule_name": "Name + DOB",
-                "listing": {
-                    "lottery_status": "Not Yet Run",
-                    "is_sale": false,
-                    "is_rental": true
-                }
-            },
-            "primary_application_applicant_name": "Joseph Lauren Robles Lee",
-            "review_status": "Pending Review",
-            "comments": null
-        },
-        {
-            "id": "a0q0P00000OKON8QAP",
-            "application": {
-                "id": "a0o0P00000Iv7GfQAJ",
-                "name": "APP-00299772"
-            },
-            "flagged_record": {
-                "rule_name": "Name + DOB",
-                "listing": {
-                    "lottery_status": "Not Yet Run",
-                    "is_sale": false,
-                    "is_rental": true
-                }
-            },
-            "primary_application_applicant_name": "Joseph Lee",
-            "review_status": "Pending Review",
-            "comments": null
-        },
-        {
-            "id": "a0q8H000000BpD4QAK",
-            "application": {
-                "id": "a0o0P00000IshY6QAJ",
-                "name": "APP-00255369"
-            },
-            "flagged_record": {
-                "rule_name": "Name + DOB",
-                "listing": {
-                    "lottery_status": "Not Yet Run",
-                    "is_sale": false,
-                    "is_rental": true
-                }
-            },
-            "primary_application_applicant_name": "Joseph Lee",
-            "review_status": "Pending Review",
-            "comments": null
+  "test": true,
+  "flagged_records": [
+    {
+      "id": "a0q0P00000OJkaqQAD",
+      "application": {
+        "id": "a0o0P00000ItCWGQA3",
+        "name": "APP-00267189"
+      },
+      "flagged_record": {
+        "rule_name": "Name + DOB",
+        "listing": {
+          "lottery_status": "Not Yet Run",
+          "is_sale": false,
+          "is_rental": true
         }
-    ]
+      },
+      "primary_application_applicant_name": "Joseph Lee",
+      "review_status": "Pending Review",
+      "comments": "this is a comment"
+    },
+    {
+      "id": "a0q0P00000OJkarQAD",
+      "application": {
+        "id": "a0o0P00000Isg2SQAR",
+        "name": "APP-00255035"
+      },
+      "flagged_record": {
+        "rule_name": "Name + DOB",
+        "listing": {
+          "lottery_status": "Not Yet Run",
+          "is_sale": false,
+          "is_rental": true
+        }
+      },
+      "primary_application_applicant_name": "Joseph Lee",
+      "review_status": "Reviewed - Keep in Lottery",
+      "comments": null
+    },
+    {
+      "id": "a0q0P00000OKLfnQAH",
+      "application": {
+        "id": "a0o0P00000IuwVtQAJ",
+        "name": "APP-00298469"
+      },
+      "flagged_record": {
+        "rule_name": "Name + DOB",
+        "listing": {
+          "lottery_status": "Not Yet Run",
+          "is_sale": false,
+          "is_rental": true
+        }
+      },
+      "primary_application_applicant_name": "Joseph Lauren Robles Lee",
+      "review_status": "Pending Review",
+      "comments": null
+    },
+    {
+      "id": "a0q0P00000OKLfoQAH",
+      "application": {
+        "id": "a0o0P00000IuqlLQAR",
+        "name": "APP-00298010"
+      },
+      "flagged_record": {
+        "rule_name": "Name + DOB",
+        "listing": {
+          "lottery_status": "Not Yet Run",
+          "is_sale": false,
+          "is_rental": true
+        }
+      },
+      "primary_application_applicant_name": "Joseph Robert Hart Lee",
+      "review_status": "Pending Review",
+      "comments": null
+    },
+    {
+      "id": "a0q0P00000OKLfsQAH",
+      "application": {
+        "id": "a0o0P00000IuwVyQAJ",
+        "name": "APP-00298470"
+      },
+      "flagged_record": {
+        "rule_name": "Name + DOB",
+        "listing": {
+          "lottery_status": "Not Yet Run",
+          "is_sale": false,
+          "is_rental": true
+        }
+      },
+      "primary_application_applicant_name": "Joseph Lauren Robles Lee",
+      "review_status": "Pending Review",
+      "comments": null
+    },
+    {
+      "id": "a0q0P00000OKON8QAP",
+      "application": {
+        "id": "a0o0P00000Iv7GfQAJ",
+        "name": "APP-00299772"
+      },
+      "flagged_record": {
+        "rule_name": "Name + DOB",
+        "listing": {
+          "lottery_status": "Not Yet Run",
+          "is_sale": false,
+          "is_rental": true
+        }
+      },
+      "primary_application_applicant_name": "Joseph Lee",
+      "review_status": "Pending Review",
+      "comments": null
+    },
+    {
+      "id": "a0q8H000000BpD4QAK",
+      "application": {
+        "id": "a0o0P00000IshY6QAJ",
+        "name": "APP-00255369"
+      },
+      "flagged_record": {
+        "rule_name": "Name + DOB",
+        "listing": {
+          "lottery_status": "Not Yet Run",
+          "is_sale": false,
+          "is_rental": true
+        }
+      },
+      "primary_application_applicant_name": "Joseph Lee",
+      "review_status": "Pending Review",
+      "comments": null
+    }
+  ]
 }
