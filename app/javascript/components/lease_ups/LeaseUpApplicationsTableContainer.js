@@ -62,6 +62,35 @@ export const buildRowData = (application) => {
   return rowData
 }
 
+export const buildApplicationsWithLayeredValidations = (
+  listingId,
+  applications,
+  preferences,
+  setPrefMap
+) => {
+  if (!preferences) return
+  // don't need layered validation for fcfs
+  // don't need layered validation for non-veteran listings
+  // don't need layered validation for initial call
+  if (preferences.every((pref) => !pref.includes('Veteran'))) {
+    const prefMap = {}
+    addLayeredValidation(applications).forEach((preference) => {
+      prefMap[`${preference.application_id}-${preference.preference_name}`] =
+        preference.layered_validation
+    })
+    setPrefMap(prefMap)
+  } else {
+    getApplications(listingId, 0, {}, true, false).then(({ records }) => {
+      const prefMap = {}
+      records.forEach((preference) => {
+        prefMap[`${preference.application_id}-${preference.preference_name}`] =
+          preference.layered_validation
+      })
+      setPrefMap(prefMap)
+    })
+  }
+}
+
 const LeaseUpTableContainer = ({
   store: {
     applications,
@@ -87,27 +116,7 @@ const LeaseUpTableContainer = ({
   const [prefMap, setPrefMap] = useState(null)
 
   useEffect(() => {
-    if (!preferences) return
-    // don't need layered validation for fcfs
-    // don't need layered validation for non-veteran listings
-    // don't need layered validation for initial call
-    if (preferences.every((pref) => !pref.includes('Veteran'))) {
-      const prefMap = {}
-      addLayeredValidation(applications).forEach((preference) => {
-        prefMap[`${preference.application_id}-${preference.preference_name}`] =
-          preference.layered_validation
-      })
-      setPrefMap(prefMap)
-    } else {
-      getApplications(listingId, 0, {}, true, false).then(({ records }) => {
-        const prefMap = {}
-        records.forEach((preference) => {
-          prefMap[`${preference.application_id}-${preference.preference_name}`] =
-            preference.layered_validation
-        })
-        setPrefMap(prefMap)
-      })
-    }
+    buildApplicationsWithLayeredValidations(listingId, applications, preferences, setPrefMap)
   }, [applications, hasFilters, listingId, listingType, preferences])
 
   return (
