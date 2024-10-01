@@ -1,0 +1,429 @@
+{
+  "test": true,
+  "records": [
+    {
+      "application": {
+        "name": "APP-00308587",
+        "id": "a0o0P00000Iw6RrQAJ",
+        "general_lottery": true,
+        "general_lottery_rank": 1,
+        "applicant": {
+          "first_name": "8dns___!",
+          "last_name": "smithtest",
+          "residence_address": "",
+          "mailing_address": "",
+          "name": "8dns___! smithtest"
+        },
+        "has_ada_priorities_selected": null,
+        "total_household_size": 1,
+        "sub_status": "Written withdrawal",
+        "processing_status": "Withdrawn",
+        "status_last_updated": "2024-05-11T16:22:25.000+0000",
+        "demographics": {}
+      },
+      "preference_order": 4,
+      "receives_preference": false,
+      "preference_all_lottery_rank": 1,
+      "post_lottery_validation": null,
+      "lottery_status": "None",
+      "preference_lottery_rank": null,
+      "custom_preference_type": "L_W",
+      "record_type_for_app_preferences": "L_W",
+      "preference_name": "General"
+    },
+    {
+      "application": {
+        "name": "APP-00271349",
+        "id": "a0o0P00000ItlltQAB",
+        "general_lottery": true,
+        "general_lottery_rank": 2,
+        "applicant": {
+          "first_name": "Some first name",
+          "last_name": "Some last name",
+          "residence_address": "",
+          "mailing_address": "",
+          "name": "Some first name Some last name"
+        },
+        "has_ada_priorities_selected": null,
+        "total_household_size": 1,
+        "sub_status": null,
+        "processing_status": "Processing",
+        "status_last_updated": "2024-05-10T23:48:49.000+0000",
+        "demographics": {}
+      },
+      "preference_order": 4,
+      "receives_preference": false,
+      "preference_all_lottery_rank": 2,
+      "post_lottery_validation": null,
+      "lottery_status": "None",
+      "preference_lottery_rank": null,
+      "custom_preference_type": "L_W",
+      "record_type_for_app_preferences": "L_W",
+      "preference_name": "General"
+    },
+    {
+      "application": {
+        "name": "APP-00243687",
+        "id": "a0o0P00000GZawFQAT",
+        "general_lottery": true,
+        "general_lottery_rank": 3,
+        "applicant": {
+          "first_name": "Lappy",
+          "last_name": "Laptest",
+          "residence_address": "",
+          "mailing_address": "",
+          "name": "Lappy Laptest"
+        },
+        "has_ada_priorities_selected": null,
+        "total_household_size": 3,
+        "sub_status": null,
+        "processing_status": "Processing",
+        "status_last_updated": "2024-05-03T21:14:30.000+0000",
+        "demographics": {}
+      },
+      "preference_order": 4,
+      "receives_preference": false,
+      "preference_all_lottery_rank": 3,
+      "post_lottery_validation": null,
+      "lottery_status": "None",
+      "preference_lottery_rank": null,
+      "custom_preference_type": "L_W",
+      "record_type_for_app_preferences": "L_W",
+      "preference_name": "General"
+    },
+    {
+      "application": {
+        "name": "APP-00255019",
+        "id": "a0o0P00000Isg1AQAR",
+        "general_lottery": true,
+        "general_lottery_rank": 4,
+        "applicant": {
+          "first_name": "Jesse",
+          "last_name": "Arnold",
+          "residence_address": "",
+          "mailing_address": "",
+          "name": "Jesse Arnold"
+        },
+        "has_ada_priorities_selected": null,
+        "total_household_size": 1,
+        "sub_status": null,
+        "processing_status": "Processing",
+        "status_last_updated": "2024-06-06T17:25:27.000+0000",
+        "demographics": {}
+      },
+      "preference_order": 4,
+      "receives_preference": false,
+      "preference_all_lottery_rank": 4,
+      "post_lottery_validation": null,
+      "lottery_status": "None",
+      "preference_lottery_rank": null,
+      "custom_preference_type": "L_W",
+      "record_type_for_app_preferences": "L_W",
+      "preference_name": "General"
+    },
+    {
+      "application": {
+        "name": "APP-00308590",
+        "id": "a0o0P00000Iw6S6QAJ",
+        "general_lottery": true,
+        "general_lottery_rank": 5,
+        "applicant": {
+          "first_name": "cynthiatest",
+          "last_name": "smithtest",
+          "residence_address": "",
+          "mailing_address": "",
+          "name": "cynthiatest smithtest"
+        },
+        "has_ada_priorities_selected": null,
+        "total_household_size": 1,
+        "sub_status": null,
+        "processing_status": null,
+        "status_last_updated": null,
+        "demographics": {}
+      },
+      "preference_order": 4,
+      "receives_preference": false,
+      "preference_all_lottery_rank": 5,
+      "post_lottery_validation": null,
+      "lottery_status": "None",
+      "preference_lottery_rank": null,
+      "custom_preference_type": "L_W",
+      "record_type_for_app_preferences": "L_W",
+      "preference_name": "General"
+    },
+    {
+      "application": {
+        "name": "APP-00308589",
+        "id": "a0o0P00000Iw6S1QAJ",
+        "general_lottery": true,
+        "general_lottery_rank": 6,
+        "applicant": {
+          "first_name": "cythiatest",
+          "last_name": "smithtest",
+          "residence_address": "",
+          "mailing_address": "",
+          "name": "cythiatest smithtest"
+        },
+        "has_ada_priorities_selected": null,
+        "total_household_size": 1,
+        "sub_status": null,
+        "processing_status": null,
+        "status_last_updated": null,
+        "demographics": {}
+      },
+      "preference_order": 4,
+      "receives_preference": false,
+      "preference_all_lottery_rank": 6,
+      "post_lottery_validation": null,
+      "lottery_status": "None",
+      "preference_lottery_rank": null,
+      "custom_preference_type": "L_W",
+      "record_type_for_app_preferences": "L_W",
+      "preference_name": "General"
+    },
+    {
+      "application": {
+        "name": "APP-00308588",
+        "id": "a0o0P00000Iw6RwQAJ",
+        "general_lottery": true,
+        "general_lottery_rank": 7,
+        "applicant": {
+          "first_name": "cynthiatest",
+          "last_name": "289dinlask",
+          "residence_address": "",
+          "mailing_address": "",
+          "name": "cynthiatest 289dinlask"
+        },
+        "has_ada_priorities_selected": null,
+        "total_household_size": 1,
+        "sub_status": null,
+        "processing_status": "Processing",
+        "status_last_updated": "2024-04-26T21:30:04.000+0000",
+        "demographics": {}
+      },
+      "preference_order": 4,
+      "receives_preference": false,
+      "preference_all_lottery_rank": 7,
+      "post_lottery_validation": null,
+      "lottery_status": "None",
+      "preference_lottery_rank": null,
+      "custom_preference_type": "L_W",
+      "record_type_for_app_preferences": "L_W",
+      "preference_name": "General"
+    },
+    {
+      "application": {
+        "name": "APP-00308583",
+        "id": "a0o0P00000Iw6RXQAZ",
+        "general_lottery": true,
+        "general_lottery_rank": 8,
+        "applicant": {
+          "first_name": "987sj",
+          "last_name": "sjld9",
+          "residence_address": "",
+          "mailing_address": "",
+          "name": "987sj sjld9"
+        },
+        "has_ada_priorities_selected": null,
+        "total_household_size": 1,
+        "sub_status": null,
+        "processing_status": null,
+        "status_last_updated": null,
+        "demographics": {}
+      },
+      "preference_order": 4,
+      "receives_preference": false,
+      "preference_all_lottery_rank": 8,
+      "post_lottery_validation": null,
+      "lottery_status": "None",
+      "preference_lottery_rank": null,
+      "custom_preference_type": "L_W",
+      "record_type_for_app_preferences": "L_W",
+      "preference_name": "General"
+    },
+    {
+      "application": {
+        "name": "APP-00271363",
+        "id": "a0o0P00000ItlpdQAB",
+        "general_lottery": true,
+        "general_lottery_rank": 9,
+        "applicant": {
+          "first_name": "Some first name",
+          "last_name": "Some last name",
+          "residence_address": "",
+          "mailing_address": "",
+          "name": "Some first name Some last name"
+        },
+        "has_ada_priorities_selected": null,
+        "total_household_size": 1,
+        "sub_status": null,
+        "processing_status": "Appealed",
+        "status_last_updated": "2018-12-06T21:36:28.000+0000",
+        "demographics": {}
+      },
+      "preference_order": 4,
+      "receives_preference": false,
+      "preference_all_lottery_rank": 9,
+      "post_lottery_validation": null,
+      "lottery_status": "None",
+      "preference_lottery_rank": null,
+      "custom_preference_type": "L_W",
+      "record_type_for_app_preferences": "L_W",
+      "preference_name": "General"
+    },
+    {
+      "application": {
+        "name": "APP-00271348",
+        "id": "a0o0P00000ItlloQAB",
+        "general_lottery": true,
+        "general_lottery_rank": 10,
+        "applicant": {
+          "first_name": "Some first name",
+          "last_name": "Some last name",
+          "residence_address": "",
+          "mailing_address": "",
+          "name": "Some first name Some last name"
+        },
+        "has_ada_priorities_selected": null,
+        "total_household_size": 1,
+        "sub_status": "Written withdrawal",
+        "processing_status": "Withdrawn",
+        "status_last_updated": "2024-06-06T06:16:50.000+0000",
+        "demographics": {}
+      },
+      "preference_order": 4,
+      "receives_preference": false,
+      "preference_all_lottery_rank": 10,
+      "post_lottery_validation": null,
+      "lottery_status": "None",
+      "preference_lottery_rank": null,
+      "custom_preference_type": "L_W",
+      "record_type_for_app_preferences": "L_W",
+      "preference_name": "General"
+    },
+    {
+      "application": {
+        "name": "APP-00306509",
+        "id": "a0o0P00000IvwNUQAZ",
+        "general_lottery": true,
+        "general_lottery_rank": 11,
+        "applicant": {
+          "first_name": "Test",
+          "last_name": "Testerino",
+          "residence_address": "",
+          "mailing_address": "",
+          "name": "Test Testerino"
+        },
+        "has_ada_priorities_selected": null,
+        "total_household_size": 1,
+        "sub_status": null,
+        "processing_status": null,
+        "status_last_updated": null,
+        "demographics": {}
+      },
+      "preference_order": 4,
+      "receives_preference": false,
+      "preference_all_lottery_rank": 11,
+      "post_lottery_validation": null,
+      "lottery_status": "None",
+      "preference_lottery_rank": null,
+      "custom_preference_type": "L_W",
+      "record_type_for_app_preferences": "L_W",
+      "preference_name": "General"
+    },
+    {
+      "application": {
+        "name": "APP-00271350",
+        "id": "a0o0P00000ItllyQAB",
+        "general_lottery": true,
+        "general_lottery_rank": 12,
+        "applicant": {
+          "first_name": "Some first name",
+          "last_name": "Some last name",
+          "residence_address": "",
+          "mailing_address": "",
+          "name": "Some first name Some last name"
+        },
+        "has_ada_priorities_selected": null,
+        "total_household_size": 1,
+        "sub_status": null,
+        "processing_status": null,
+        "status_last_updated": null,
+        "demographics": {}
+      },
+      "preference_order": 4,
+      "receives_preference": false,
+      "preference_all_lottery_rank": 12,
+      "post_lottery_validation": null,
+      "lottery_status": "None",
+      "preference_lottery_rank": null,
+      "custom_preference_type": "L_W",
+      "record_type_for_app_preferences": "L_W",
+      "preference_name": "General"
+    },
+    {
+      "application": {
+        "name": "APP-00271344",
+        "id": "a0o0P00000ItllUQAR",
+        "general_lottery": true,
+        "general_lottery_rank": 13,
+        "applicant": {
+          "first_name": "Some first name",
+          "last_name": "Some last name",
+          "residence_address": "",
+          "mailing_address": "",
+          "name": "Some first name Some last name"
+        },
+        "has_ada_priorities_selected": null,
+        "total_household_size": 1,
+        "sub_status": null,
+        "processing_status": null,
+        "status_last_updated": null,
+        "demographics": {}
+      },
+      "preference_order": 4,
+      "receives_preference": false,
+      "preference_all_lottery_rank": 13,
+      "post_lottery_validation": null,
+      "lottery_status": "None",
+      "preference_lottery_rank": null,
+      "custom_preference_type": "L_W",
+      "record_type_for_app_preferences": "L_W",
+      "preference_name": "General"
+    },
+    {
+      "application": {
+        "name": "APP-00271346",
+        "id": "a0o0P00000ItlleQAB",
+        "general_lottery": true,
+        "general_lottery_rank": 14,
+        "applicant": {
+          "first_name": "Some first name",
+          "last_name": "Some last name",
+          "residence_address": "",
+          "mailing_address": "",
+          "name": "Some first name Some last name"
+        },
+        "has_ada_priorities_selected": null,
+        "total_household_size": 1,
+        "sub_status": null,
+        "processing_status": null,
+        "status_last_updated": null,
+        "demographics": {}
+      },
+      "preference_order": 4,
+      "receives_preference": false,
+      "preference_all_lottery_rank": 14,
+      "post_lottery_validation": null,
+      "lottery_status": "None",
+      "preference_lottery_rank": null,
+      "custom_preference_type": "L_W",
+      "record_type_for_app_preferences": "L_W",
+      "preference_name": "General"
+    }
+  ],
+  "pages": 0.00028,
+  "page": 0,
+  "total_size": 14,
+  "listing_type": "Invalid or Test Listing"
+}
