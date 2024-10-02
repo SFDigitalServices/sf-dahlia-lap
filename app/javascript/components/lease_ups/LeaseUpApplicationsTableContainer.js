@@ -68,10 +68,10 @@ export const buildApplicationsWithLayeredValidations = (
   preferences,
   setPrefMap
 ) => {
+  // don't need layered validation for fcfs or listings that do not have preferences
   if (!preferences) return
-  // don't need layered validation for fcfs
-  // don't need layered validation for non-veteran listings
-  // don't need layered validation for initial call
+
+  // don't need to make additional calls to the backend for listings w/out veterans
   if (preferences.every((pref) => !pref.includes('Veteran'))) {
     const prefMap = {}
     addLayeredValidation(applications).forEach((preference) => {
