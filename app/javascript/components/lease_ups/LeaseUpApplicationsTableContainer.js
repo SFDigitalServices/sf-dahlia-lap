@@ -4,7 +4,6 @@ import { capitalize, compact, map, cloneDeep } from 'lodash'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
-import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import { addLayeredValidation } from 'utils/layeredPreferenceUtil'
 
 import { withContext } from './context'
@@ -63,6 +62,35 @@ export const buildRowData = (application) => {
   return rowData
 }
 
+export const buildApplicationsWithLayeredValidations = (
+  listingId,
+  applications,
+  preferences,
+  setPrefMap
+) => {
+  // don't need layered validation for fcfs or listings that do not have preferences
+  if (!preferences) return
+
+  // don't need to make additional calls to the backend for listings w/out veterans
+  if (preferences.every((pref) => !pref.includes('Veteran'))) {
+    const prefMap = {}
+    addLayeredValidation(applications).forEach((preference) => {
+      prefMap[`${preference.application_id}-${preference.preference_name}`] =
+        preference.layered_validation
+    })
+    setPrefMap(prefMap)
+  } else {
+    getApplications(listingId, 0, {}, true, false).then(({ records }) => {
+      const prefMap = {}
+      records.forEach((preference) => {
+        prefMap[`${preference.application_id}-${preference.preference_name}`] =
+          preference.layered_validation
+      })
+      setPrefMap(prefMap)
+    })
+  }
+}
+
 const LeaseUpTableContainer = ({
   store: {
     applications,
@@ -86,39 +114,10 @@ const LeaseUpTableContainer = ({
   }
 }) => {
   const [prefMap, setPrefMap] = useState(null)
-  const { flagsReady, unleashFlag: usePerformanceUpdates } = useFeatureFlag(
-    'partners_lease_up_perf',
-    false
-  )
 
   useEffect(() => {
-    if (flagsReady) {
-      // don't need layered validation for fcfs
-      // don't need layered validation for non-veteran listings
-      // don't need layered validation for initial call
-      if (
-        usePerformanceUpdates &&
-        (!hasFilters || (preferences && preferences.every((pref) => !pref.includes('Veteran'))))
-      ) {
-        const prefMap = {}
-        addLayeredValidation(applications).forEach((preference) => {
-          prefMap[`${preference.application_id}-${preference.preference_name}`] =
-            preference.layered_validation
-        })
-        setPrefMap(prefMap)
-      } else if (listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
-        getApplications(listingId, 0, {}, true, false).then(({ records }) => {
-          const prefMap = {}
-          records.forEach((preference) => {
-            prefMap[`${preference.application_id}-${preference.preference_name}`] =
-              preference.layered_validation
-          })
-          setPrefMap(prefMap)
-        })
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hasFilters, listingId, listingType, preferences, usePerformanceUpdates])
+    buildApplicationsWithLayeredValidations(listingId, applications, preferences, setPrefMap)
+  }, [applications, hasFilters, listingId, listingType, preferences])
 
   return (
     <>
