@@ -15,7 +15,7 @@
     "@babel/preset-env": "^7.23.8",
     "@babel/preset-react": "7.23.3",
     "@popperjs/core": "^2.11.8",
-    "@sentry/browser": "^7.93.0",
+    "@sentry/browser": "^7.119.1",
     "@sentry/node": "^7.93.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@unleash/proxy-client-react": "^4.2.3",
