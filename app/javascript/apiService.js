@@ -81,7 +81,8 @@ const fetchLeaseUpApplications = async (
   listingId,
   page,
   { filters },
-  includeGeneralApps = true
+  includeGeneralApps = true,
+  getAll
 ) => {
   const generalApps = {
     records: [],
@@ -89,11 +90,15 @@ const fetchLeaseUpApplications = async (
   }
 
   // Fetch application preferences associated with a lease up listing.
-  const appPrefs = await getLeaseUpApplications(listingId, filters)
+  const appPrefs = await getLeaseUpApplications(listingId, filters, false, getAll)
 
   // don't need to include general applications for first come fist served listings
   // or when getting applications for layered preferences
-  if (appPrefs.listing_type !== LISTING_TYPE_FIRST_COME_FIRST_SERVED && includeGeneralApps) {
+  if (
+    appPrefs.records.length < 2000 &&
+    appPrefs.listing_type !== LISTING_TYPE_FIRST_COME_FIRST_SERVED &&
+    includeGeneralApps
+  ) {
     // Fetch general applications associated with a lease up listing.
     const generalAppsResponse = await getLeaseUpApplications(listingId, filters, true)
     generalApps.records = generalAppsResponse.records
@@ -124,7 +129,7 @@ const buildLeaseUpApplicationsParams = (listingId, filters, lastPref, general) =
   return params
 }
 
-const getLeaseUpApplications = async (listingId, filters, general = false) => {
+const getLeaseUpApplications = async (listingId, filters, general = false, getAll = false) => {
   const applications = []
   let pages
   let listingType
@@ -150,7 +155,7 @@ const getLeaseUpApplications = async (listingId, filters, general = false) => {
 
     applications.push(...response.records)
 
-    if (response.total_size < 2000) {
+    if (!getAll || response.total_size < 2000) {
       break
     }
   }

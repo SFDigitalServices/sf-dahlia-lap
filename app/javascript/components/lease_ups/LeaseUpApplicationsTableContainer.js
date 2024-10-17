@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { capitalize, compact, map, cloneDeep } from 'lodash'
+import { capitalize, compact, map, cloneDeep, isEmpty } from 'lodash'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
@@ -62,24 +62,17 @@ export const buildRowData = (application) => {
   return rowData
 }
 
-export const buildApplicationsWithLayeredValidations = (
-  listingId,
-  applications,
-  preferences,
-  setPrefMap
-) => {
+export const buildApplicationsWithLayeredValidations = (listingId, preferences, setPrefMap) => {
   // don't need layered validation for fcfs or listings that do not have preferences
   if (!preferences) return
 
   // don't need to make additional calls to the backend for listings w/out veterans
-  if (preferences.every((pref) => !pref.includes('Veteran'))) {
-    const prefMap = {}
-    addLayeredValidation(applications).forEach((preference) => {
-      prefMap[`${preference.application_id}-${preference.preference_name}`] =
-        preference.layered_validation
+  if (
+    preferences.some((pref) => {
+      console.log(pref)
+      return !pref.includes('Veteran')
     })
-    setPrefMap(prefMap)
-  } else {
+  ) {
     getApplications(listingId, 0, {}, true, false).then(({ records }) => {
       const prefMap = {}
       records.forEach((preference) => {
@@ -113,11 +106,25 @@ const LeaseUpTableContainer = ({
     hasFilters
   }
 }) => {
-  const [prefMap, setPrefMap] = useState(null)
+  const [prefMap, setPrefMap] = useState({})
+
+  useEffect(() => {
+    if (isEmpty(applications)) {
+      setPrefMap(false)
+    } else {
+      const buildPrefMap = {}
+      addLayeredValidation(applications).forEach((preference) => {
+        buildPrefMap[`${preference.application_id}-${preference.preference_name}`] =
+          preference.layered_validation
+      })
+      setPrefMap(buildPrefMap)
+    }
+  }, [applications])
 
   useEffect(() => {
     buildApplicationsWithLayeredValidations(listingId, applications, preferences, setPrefMap)
-  }, [applications, hasFilters, listingId, listingType, preferences])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hasFilters, listingId, listingType, preferences])
 
   return (
     <>
@@ -125,27 +132,31 @@ const LeaseUpTableContainer = ({
         listingType={listingType}
         preferences={preferences}
         onSubmit={onFilter}
-        loading={loading || (!prefMap && listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED)}
+        loading={
+          loading ||
+          (prefMap && isEmpty(prefMap) && listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED)
+        }
         bulkCheckboxesState={bulkCheckboxesState}
         onClearSelectedApplications={onClearSelectedApplications}
         onSelectAllApplications={onSelectAllApplications}
         onBulkLeaseUpStatusChange={(val) => onLeaseUpStatusChange(val, null, false)}
         onBulkLeaseUpCommentChange={(val) => onLeaseUpStatusChange(null, null, true)}
       />
-      {!loading && (prefMap || listingType === LISTING_TYPE_FIRST_COME_FIRST_SERVED) && (
-        <LeaseUpApplicationsTable
-          dataSet={map(applications, buildRowData)}
-          prefMap={prefMap}
-          listingId={listingId}
-          listingType={listingType}
-          onLeaseUpStatusChange={onLeaseUpStatusChange}
-          pages={pages}
-          rowsPerPage={rowsPerPage}
-          atMaxPages={atMaxPages}
-          bulkCheckboxesState={bulkCheckboxesState}
-          onBulkCheckboxClick={onBulkCheckboxClick}
-        />
-      )}
+      {!loading &&
+        (!prefMap || !isEmpty(prefMap) || listingType === LISTING_TYPE_FIRST_COME_FIRST_SERVED) && (
+          <LeaseUpApplicationsTable
+            dataSet={map(applications, buildRowData)}
+            prefMap={prefMap}
+            listingId={listingId}
+            listingType={listingType}
+            onLeaseUpStatusChange={onLeaseUpStatusChange}
+            pages={pages}
+            rowsPerPage={rowsPerPage}
+            atMaxPages={atMaxPages}
+            bulkCheckboxesState={bulkCheckboxesState}
+            onBulkCheckboxClick={onBulkCheckboxClick}
+          />
+        )}
       <StatusModalWrapper
         alertMsg={statusModal.alertMsg}
         isBulkUpdate={statusModal.isBulkUpdate}

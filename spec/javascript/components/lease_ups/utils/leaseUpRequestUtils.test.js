@@ -84,7 +84,8 @@ describe('leaseUpActions', () => {
         {
           filters: undefined
         },
-        true
+        true,
+        false
       )
     })
     test('it formats returned data as expected', async () => {
@@ -125,7 +126,8 @@ describe('leaseUpActions', () => {
         {
           filters: fakeFilters
         },
-        true
+        true,
+        false
       )
     })
     test('it reformats search strings as expected', () => {
@@ -141,7 +143,8 @@ describe('leaseUpActions', () => {
         {
           filters: expectedFilters
         },
-        true
+        true,
+        false
       )
     })
   })
