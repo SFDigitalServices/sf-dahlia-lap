@@ -67,12 +67,7 @@ export const buildApplicationsWithLayeredValidations = (listingId, preferences, 
   if (!preferences) return
 
   // don't need to make additional calls to the backend for listings w/out veterans
-  if (
-    preferences.some((pref) => {
-      console.log(pref)
-      return !pref.includes('Veteran')
-    })
-  ) {
+  if (preferences.some((pref) => pref.includes('Veteran'))) {
     getApplications(listingId, 0, {}, true, false).then(({ records }) => {
       const prefMap = {}
       records.forEach((preference) => {
@@ -109,17 +104,21 @@ const LeaseUpTableContainer = ({
   const [prefMap, setPrefMap] = useState({})
 
   useEffect(() => {
-    if (isEmpty(applications)) {
-      setPrefMap(false)
-    } else {
-      const buildPrefMap = {}
-      addLayeredValidation(applications).forEach((preference) => {
-        buildPrefMap[`${preference.application_id}-${preference.preference_name}`] =
-          preference.layered_validation
-      })
-      setPrefMap(buildPrefMap)
+    if (!preferences) return
+
+    if (preferences.every((pref) => !pref.includes('Veteran'))) {
+      if (isEmpty(applications)) {
+        setPrefMap(false)
+      } else {
+        const buildPrefMap = {}
+        addLayeredValidation(applications).forEach((preference) => {
+          buildPrefMap[`${preference.application_id}-${preference.preference_name}`] =
+            preference.layered_validation
+        })
+        setPrefMap(buildPrefMap)
+      }
     }
-  }, [applications])
+  }, [applications, preferences])
 
   useEffect(() => {
     buildApplicationsWithLayeredValidations(listingId, preferences, setPrefMap)
