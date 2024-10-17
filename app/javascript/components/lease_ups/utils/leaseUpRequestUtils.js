@@ -32,7 +32,13 @@ export const getApplications = async (
     filters = { ...filters, search: sanitizeAndFormatSearch(filters?.search) }
   }
   return apiService
-    .fetchLeaseUpApplications(listingId, page, { filters }, includeGeneralApps)
+    .fetchLeaseUpApplications(
+      listingId,
+      page,
+      { filters },
+      includeGeneralApps,
+      withLayeredValidation
+    )
     .then(({ records, pages, listing_type }) => {
       let apps
       if (listing_type === LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
