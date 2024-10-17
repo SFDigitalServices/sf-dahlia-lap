@@ -122,7 +122,7 @@ const LeaseUpTableContainer = ({
   }, [applications])
 
   useEffect(() => {
-    buildApplicationsWithLayeredValidations(listingId, applications, preferences, setPrefMap)
+    buildApplicationsWithLayeredValidations(listingId, preferences, setPrefMap)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasFilters, listingId, listingType, preferences])
 
