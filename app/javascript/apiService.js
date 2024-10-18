@@ -94,6 +94,7 @@ const fetchLeaseUpApplications = async (
 
   // don't need to include general applications for first come fist served listings
   // or when getting applications for layered preferences
+  // or when there are more than 2000 records in the preference response (right now, we don't need to show more than 2000 records)
   if (
     appPrefs.records.length < 2000 &&
     appPrefs.listing_type !== LISTING_TYPE_FIRST_COME_FIRST_SERVED &&
