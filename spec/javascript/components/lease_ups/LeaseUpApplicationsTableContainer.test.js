@@ -95,7 +95,6 @@ describe('LeaseUpApplicationsTableContainer', () => {
 
       buildApplicationsWithLayeredValidations(
         'listingId',
-        [],
         [
           'Tier 1 Veteran with Certificate of Preference',
           'Live or Work in San Francisco Preference',
