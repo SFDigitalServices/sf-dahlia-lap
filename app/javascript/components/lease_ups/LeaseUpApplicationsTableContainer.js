@@ -107,6 +107,7 @@ const LeaseUpTableContainer = ({
     if (!preferences) return
 
     if (preferences.every((pref) => !pref.includes('Veteran'))) {
+      console.log(applications)
       if (!isEmpty(applications)) {
         const buildPrefMap = {}
         addLayeredValidation(applications).forEach((preference) => {
@@ -117,6 +118,12 @@ const LeaseUpTableContainer = ({
       }
     }
   }, [applications, preferences])
+
+  const prefMapLoading =
+    listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED &&
+    !isEmpty(applications) &&
+    prefMap &&
+    isEmpty(prefMap)
 
   useEffect(() => {
     buildApplicationsWithLayeredValidations(listingId, preferences, setPrefMap)
@@ -129,31 +136,27 @@ const LeaseUpTableContainer = ({
         listingType={listingType}
         preferences={preferences}
         onSubmit={onFilter}
-        loading={
-          loading ||
-          (prefMap && isEmpty(prefMap) && listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED)
-        }
+        loading={loading || prefMapLoading}
         bulkCheckboxesState={bulkCheckboxesState}
         onClearSelectedApplications={onClearSelectedApplications}
         onSelectAllApplications={onSelectAllApplications}
         onBulkLeaseUpStatusChange={(val) => onLeaseUpStatusChange(val, null, false)}
         onBulkLeaseUpCommentChange={(val) => onLeaseUpStatusChange(null, null, true)}
       />
-      {!loading &&
-        (!prefMap || !isEmpty(prefMap) || listingType === LISTING_TYPE_FIRST_COME_FIRST_SERVED) && (
-          <LeaseUpApplicationsTable
-            dataSet={map(applications, buildRowData)}
-            prefMap={prefMap}
-            listingId={listingId}
-            listingType={listingType}
-            onLeaseUpStatusChange={onLeaseUpStatusChange}
-            pages={pages}
-            rowsPerPage={rowsPerPage}
-            atMaxPages={atMaxPages}
-            bulkCheckboxesState={bulkCheckboxesState}
-            onBulkCheckboxClick={onBulkCheckboxClick}
-          />
-        )}
+      {!loading && !prefMapLoading && (
+        <LeaseUpApplicationsTable
+          dataSet={map(applications, buildRowData)}
+          prefMap={prefMap}
+          listingId={listingId}
+          listingType={listingType}
+          onLeaseUpStatusChange={onLeaseUpStatusChange}
+          pages={pages}
+          rowsPerPage={rowsPerPage}
+          atMaxPages={atMaxPages}
+          bulkCheckboxesState={bulkCheckboxesState}
+          onBulkCheckboxClick={onBulkCheckboxClick}
+        />
+      )}
       <StatusModalWrapper
         alertMsg={statusModal.alertMsg}
         isBulkUpdate={statusModal.isBulkUpdate}
