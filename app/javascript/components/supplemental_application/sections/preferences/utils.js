@@ -13,9 +13,9 @@ export const isCOP = testRegex(/COP/)
 
 export const isDTHP = testRegex(/DTHP/)
 
-export const isAliceGriffith = testRegex(/Griffith/)
+export const isAliceGriffith = testRegex(/AG/)
 
-export const isRightToReturn = testRegex(/Right to Return/)
+export const isRightToReturn = testRegex(/RTR/)
 
 export const isLWinSF = (value) => value === 'Live or Work in San Francisco Preference'
 
