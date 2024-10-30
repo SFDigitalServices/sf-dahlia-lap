@@ -28,6 +28,15 @@ module Force
         Force::Listing.convert_list(result, :from_salesforce, :to_domain)
       end
 
+      def listings
+        result = parsed_index_query(%(
+          SELECT #{query_fields(:index)} FROM Listing__c
+          ORDER BY Name
+        ))
+
+        Force::Listing.convert_list(result, :from_salesforce, :to_domain)
+      end
+
       def listing(id)
         show_fields = query_fields(:show)
         Force::Listing.from_salesforce(query_first(%(

@@ -108,11 +108,26 @@ exports[`ListingApplicationsPage should render successfully 1`] = `
             <div
               class="filter-group_item"
             >
-              <input
-                disabled=""
-                type="text"
-                value="listing name"
-              />
+              <div
+                class="form-group"
+              >
+                <select
+                  class=""
+                  id="form-listing_id"
+                  name="listing_id"
+                >
+                  <option
+                    value=""
+                  >
+                    Any Listing
+                  </option>
+                  <option
+                    value="listingId"
+                  >
+                    listing name
+                  </option>
+                </select>
+              </div>
             </div>
             <div
               class="filter-group_item"
