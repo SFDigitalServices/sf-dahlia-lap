@@ -6,7 +6,7 @@ class ApplicationsController < ApplicationController
   before_action :application_listing, only: %i[listing_index new]
 
   def index
-    @listings = soql_listing_service.pre_lottery_listings
+    @listings = soql_listing_service.listings
   end
 
   def edit
