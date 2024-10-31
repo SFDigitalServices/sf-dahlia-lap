@@ -32,4 +32,16 @@ RSpec.describe Force::Soql::ListingService do
       end
     end
   end
+
+  describe '#listings' do
+    it 'should return all listings' do
+      VCR.use_cassette('services/soql/listing_service_listings') do
+        listings = subject.listings
+        ids = listings.map { |listing| listing[:id] }
+
+        expect(ids).to include(LEASE_UP_LISTING_ID)
+        expect(ids).to include(NON_LEASE_UP_LISTING_ID)
+      end
+    end
+  end
 end
