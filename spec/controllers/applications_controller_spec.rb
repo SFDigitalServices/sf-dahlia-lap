@@ -6,6 +6,17 @@ RSpec.describe ApplicationsController, type: :controller do
   render_views
   login_admin
 
+  describe '#index' do
+    it 'should render successfully' do
+      VCR.use_cassette('applications/index') do
+        get :index, params: { id: valid_listing_id }
+      end
+
+      expect(response.body).to have_react_component('ApplicationsPage')
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe '#show' do
     it 'should render successfully' do
       VCR.use_cassette('api/v1/short-form/show/non_lease_up_application') do
