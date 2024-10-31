@@ -50,6 +50,8 @@ export const addLayeredValidation = (preferences) => {
  * addLayeredPreferenceFields goes through a list of preferences to set several layered preference fields
  * 1. non-veteran preferences only consider themselves for these layered preference fields
  * 2. veteran preferences look for their counterpart non-veteran preference when setting these fields
+ *
+ * for post_lottery_validation, treat blank values as 'Unconfirmed'
  */
 export const addLayeredPreferenceFields = (
   preferences,
@@ -61,7 +63,7 @@ export const addLayeredPreferenceFields = (
     if (!isVeteran(preference.preference_name)) {
       return {
         ...preference,
-        layered_validation: preference.post_lottery_validation,
+        layered_validation: preference.post_lottery_validation || 'Unconfirmed',
         layered_type_of_proofs: [getTypeOfProof(preference, proofFiles, fileBaseUrl)],
         layered_member_names: [
           memberNameFromPref(preference.application_member_id, applicationMembers)
