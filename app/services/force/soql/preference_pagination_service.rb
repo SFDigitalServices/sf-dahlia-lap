@@ -58,7 +58,7 @@ module Force
         filters
       end
 
-      def buildAppPreferencesSearch(search_terms_string)
+      def build_app_preferences_search(search_terms_string)
         # Given a comma-separated list of search terms:
         # For each term, we search across name and application number for a match
         # For multiple terms, we expect the record to match each of the terms individually.
@@ -94,7 +94,7 @@ module Force
         # Preference_All_Name and Preference_All_Lottery_Rank fields
         # were added to bring all preferences into the same query.
         filters = build_app_preferences_filters(opts)
-        search = opts[:search] ? buildAppPreferencesSearch(opts[:search]) : nil
+        search = opts[:search] ? build_app_preferences_search(opts[:search]) : nil
         builder.from(:Application_Preference__c)
                .select(query_fields(:app_preferences_for_listing))
                .where(%(
