@@ -9,7 +9,7 @@ import { renderAppWithUrl } from '../../testUtils/wrapperUtil'
 
 jest.mock('@unleash/proxy-client-react')
 
-useFlagUnleash.mockImplementation(() => true)
+useFlagUnleash.mockImplementation(() => false)
 useFlagsStatus.mockImplementation(() => ({
   flagsError: false,
   flagsReady: true
