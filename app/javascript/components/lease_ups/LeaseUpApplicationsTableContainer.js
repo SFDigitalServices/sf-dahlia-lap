@@ -107,7 +107,6 @@ const LeaseUpTableContainer = ({
     if (!preferences) return
 
     if (preferences.every((pref) => !pref.includes('Veteran'))) {
-      console.log(applications)
       if (!isEmpty(applications)) {
         const buildPrefMap = {}
         addLayeredValidation(applications).forEach((preference) => {
