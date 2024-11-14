@@ -24,36 +24,37 @@ module Force
         query_scope.query
       end
 
-      def buildAppPreferencesFilters(opts)
+      def accessibility_string
+        opts[:accessibility].map do |accessibility|
+          accessibility.split(', ').map { |item| "'#{item}'" }
+        end.join(', ')
+      end
+
+      def preferences
+        opts[:preference].map { |preference| "Preference_All_Name__c like '%#{preference}'" }.join(' or ')
+      end
+
+      def states
+        opts[:status].map do |status|
+          "Application__r.Processing_Status__c = #{status == 'No Status' ? 'NULL' : "'#{status}'"}"
+        end.join(' or ')
+      end
+
+      def total_household_size
+        opts[:total_household_size].map do |size|
+          size == '5+' ? 'Application__r.Total_Household_Size__c >= 5' : "Application__r.Total_Household_Size__c = #{size}"
+        end.join(' or ')
+      end
+
+      def build_app_preferences_filters(opts)
         # This builds the syntax need for soql to do an
         # OR statement when passing the option of `Vision/Hearing`
         # https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_querying_multiselect_picklists.htm
-        if opts[:accessibility].present?
-          accessibility_string = opts[:accessibility].map do |accessibility|
-            accessibility.split(', ').map { |item| "'#{item}'" }
-          end.join(', ')
-        end
         filters = ''
         filters += " and Application__r.Has_ADA_Priorities_Selected__c INCLUDES (#{accessibility_string}) " if opts[:accessibility].present?
-
-        if opts[:preference].present?
-          preferences = opts[:preference].map { |preference| "Preference_All_Name__c like '%#{preference}'" }.join(' or ')
-          filters += " and (#{preferences})"
-        end
-        if opts[:status].present?
-          states = opts[:status].map do |status|
-            'Application__r.Processing_Status__c = ' + (status == 'No Status' ? 'NULL' : "'#{status}'")
-          end.join(' or ')
-          filters += " and (#{states})"
-        end
-
-        if opts[:total_household_size].present?
-          total_household_size = opts[:total_household_size].map do |size|
-            size == '5+' ? 'Application__r.Total_Household_Size__c >= 5' : "Application__r.Total_Household_Size__c = #{size}"
-          end.join(' or ')
-          filters += " and (#{total_household_size})"
-        end
-
+        filters += " and (#{preferences})" if opts[:preference].present?
+        filters += " and (#{states})" if opts[:status].present?
+        filters += " and (#{total_household_size})" if opts[:total_household_size].present?
         filters
       end
 
@@ -68,15 +69,15 @@ module Force
           'Application__r.Applicant__r.Last_Name__c',
         ]
         search = []
-        for search_term in search_terms
+        search_terms.each do |search_term|
           # For each term we join the fields with OR to return a record if it matches
           # across any of these fields.
           search_term_clause = []
           sanitized_term = ActiveRecord::Base.sanitize_sql_like search_term
-          for search_field in search_fields
+          search_fields.each do |search_field|
             search_term_clause.push("#{search_field} like '%#{sanitized_term}%'")
           end
-          search.push('(' + search_term_clause.join(' OR ') + ')')
+          search.push("(#{search_term_clause.join(' OR ')})")
         end
         # If there are multiple terms, join the clauses with "AND" because we expect each term to find a match.
         search.join(' AND ')
@@ -92,13 +93,13 @@ module Force
         # within the WHERE clause with the helper function above. The
         # Preference_All_Name and Preference_All_Lottery_Rank fields
         # were added to bring all preferences into the same query.
-        filters = buildAppPreferencesFilters(opts)
+        filters = build_app_preferences_filters(opts)
         search = opts[:search] ? buildAppPreferencesSearch(opts[:search]) : nil
         builder.from(:Application_Preference__c)
                .select(query_fields(:app_preferences_for_listing))
                .where(%(
                 Listing_ID__c = '#{opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]}'
-                #{search ? 'AND (' + search + ')' : ''}
+                #{search ? "AND (#{search})" : ''}
                 #{filters}
                 and \(\(Preference_Lottery_Rank__c != null and Receives_Preference__c = true\)
                 or \(Preference_Name__c = 'Live or Work in San Francisco Preference' and Application__r.General_Lottery_Rank__c != null\)\)
