@@ -1,4 +1,5 @@
 import { request } from 'api/request'
+import { buildLeaseUpApplicationsParams } from 'components/lease_ups/utils/leaseUpRequestUtils'
 import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
 
 import { isLeaseAlreadyCreated } from './components/supplemental_application/utils/supplementalApplicationUtils'
@@ -93,6 +94,9 @@ const fetchLeaseUpApplicationsPagination = async (listingId, page, { filters }) 
   )
 }
 
+/**
+ * @deprecated in favor of fetchLeaseUpApplicationsPagination
+ */
 const fetchLeaseUpApplications = async (
   listingId,
   page,
@@ -129,23 +133,7 @@ const fetchLeaseUpApplications = async (
   }
 }
 
-const buildLeaseUpApplicationsParams = (listingId, filters, lastPref, general) => {
-  const params = {
-    listing_id: listingId,
-    ...filters
-  }
-
-  if (general) {
-    params.general = true
-    params.general_lottery_rank = lastPref?.general_lottery_rank ?? null
-  } else {
-    params.preference_order = lastPref?.preference_order ?? null
-    params.preference_lottery_rank = lastPref?.preference_lottery_rank ?? null
-  }
-
-  return params
-}
-
+/** @deprecated */
 const getLeaseUpApplications = async (listingId, filters, general = false, getAll = false) => {
   const applications = []
   let pages

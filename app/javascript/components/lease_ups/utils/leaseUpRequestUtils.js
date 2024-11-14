@@ -21,48 +21,55 @@ export const sanitizeAndFormatSearch = (str) => {
   return convertToCommaSeparatedList(str.replace(/["']/g, ''))
 }
 
-export const getApplicationsPagination = async (
-  listingId,
-  page,
-  filters,
-  withLayeredValidation = false,
-  includeGeneralApps = true
-) => {
-  console.log('in getApplicationsPagination')
+/**
+ * @deprecated
+ */
+export const buildLeaseUpApplicationsParams = (listingId, filters, lastPref, general) => {
+  const params = {
+    listing_id: listingId,
+    ...filters
+  }
+
+  if (general) {
+    params.general = true
+    params.general_lottery_rank = lastPref?.general_lottery_rank ?? null
+  } else {
+    params.preference_order = lastPref?.preference_order ?? null
+    params.preference_lottery_rank = lastPref?.preference_lottery_rank ?? null
+  }
+
+  return params
+}
+
+const processFcfsApplicationRecords = (records) => {
+  // remove records that don't have an applicant (this is a bug with form assembly, but we are hiding them for now)
+  const cleanRecords = records.filter((record) => record.applicant != null)
+  const apps = map(cleanRecords, buildLeaseUpAppFirstComeFirstServedModel)
+  // add an index, which will be used as the applicant's "rank"
+  return apps.map((app, index) => {
+    app.index = index
+    return app
+  })
+}
+
+export const getApplicationsPagination = async (listingId, page, filters) => {
   if (filters?.search) {
     filters = { ...filters, search: sanitizeAndFormatSearch(filters?.search) }
   }
   return apiService
-    .fetchLeaseUpApplicationsPagination(
-      listingId,
-      page,
-      { filters },
-      includeGeneralApps,
-      withLayeredValidation
-    )
+    .fetchLeaseUpApplicationsPagination(listingId, page, { filters })
     .then(({ records, pages, listing_type }) => {
-      let apps
-      if (listing_type === LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
-        // remove records that don't have an applicant (this is a bug with form assembly, but we are hiding them for now)
-        const cleanRecords = records.filter((record) => record.applicant != null)
-        apps = map(cleanRecords, buildLeaseUpAppFirstComeFirstServedModel)
-        // add an index, which will be used as the applicant's "rank"
-        apps.map((app, index) => {
-          app.index = index
-          return app
-        })
-      } else {
-        const preferences = map(records, buildLeaseUpAppPrefModel)
-        // only do the layered validation loop if necessary
-        apps = withLayeredValidation ? addLayeredValidation(preferences) : preferences
-      }
       return {
-        records: apps,
+        records:
+          listing_type === LISTING_TYPE_FIRST_COME_FIRST_SERVED
+            ? processFcfsApplicationRecords(records)
+            : map(records, buildLeaseUpAppPrefModel),
         pages
       }
     })
 }
 
+/** @deprecated in favor of getApplicationsPagination */
 export const getApplications = async (
   listingId,
   page,
@@ -84,14 +91,7 @@ export const getApplications = async (
     .then(({ records, pages, listing_type }) => {
       let apps
       if (listing_type === LISTING_TYPE_FIRST_COME_FIRST_SERVED) {
-        // remove records that don't have an applicant (this is a bug with form assembly, but we are hiding them for now)
-        const cleanRecords = records.filter((record) => record.applicant != null)
-        apps = map(cleanRecords, buildLeaseUpAppFirstComeFirstServedModel)
-        // add an index, which will be used as the applicant's "rank"
-        apps.map((app, index) => {
-          app.index = index
-          return app
-        })
+        apps = processFcfsApplicationRecords(records)
       } else {
         const preferences = map(records, buildLeaseUpAppPrefModel)
         // only do the layered validation loop if necessary
