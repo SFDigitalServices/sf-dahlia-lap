@@ -77,6 +77,22 @@ const fetchApplications = async ({ page, filters }) =>
     true
   )
 
+const fetchLeaseUpApplicationsPagination = async (listingId, page, { filters }) => {
+  // Fetch applications associated with a lease up listing.
+  return request.get(
+    '/lease-ups/applications',
+    {
+      params: {
+        listing_id: listingId,
+        page,
+        ...filters,
+        pagination: true
+      }
+    },
+    true
+  )
+}
+
 const fetchLeaseUpApplications = async (
   listingId,
   page,
@@ -288,6 +304,7 @@ export default {
   submitApplication,
   fetchApplications,
   fetchLeaseUpApplications,
+  fetchLeaseUpApplicationsPagination,
   getAMI,
   getUnits,
   getLease,

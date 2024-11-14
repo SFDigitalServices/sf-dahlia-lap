@@ -3,7 +3,7 @@
 module Force
   module Soql
     # Provide Salesforce SOQL API interactions for preferences
-    class PreferenceService < Force::Base
+    class PreferencePaginationService < Force::Base
       FIELD_NAME = :preferences
       FIELDS = load_fields(FIELD_NAME).freeze
 
@@ -18,8 +18,8 @@ module Force
         Force::Preference.convert_list(result, :from_salesforce, :to_domain)
       end
 
-      def app_preferences_for_listing(opts, general = false)
-        query_scope = app_preferences_for_listing_query(opts, general)
+      def app_preferences_for_listing(opts)
+        query_scope = app_preferences_for_listing_query(opts)
 
         query_scope.query
       end
@@ -84,47 +84,27 @@ module Force
 
       private
 
-      def general_where(opts)
-        general_lottery_rank = opts[:general_lottery_rank].present? ? opts[:general_lottery_rank] : 0
-        "and \(Preference_Name__c = 'Live or Work in San Francisco Preference'
-                and Application__r.General_Lottery_Rank__c != null
-                and Application__r.General_Lottery_Rank__c \> #{general_lottery_rank}\)"
-      end
-
-      def app_pref_where(opts)
-        preference_order = opts[:preference_order].present? ? opts[:preference_order] : 0
-        preference_lottery_rank = opts[:preference_lottery_rank].present? ? opts[:preference_lottery_rank] : 0
-        "and \(
-              Preference_Lottery_Rank__c != null and Receives_Preference__c = true
-              and \(\(Preference_Order__c \= #{preference_order} and Preference_Lottery_Rank__c \> #{preference_lottery_rank}\)
-              or Preference_Order__c \> #{preference_order}\)
-            \)"
-      end
-
-      def where(opts, general)
-        if general
-          general_where(opts)
-        else
-          app_pref_where(opts)
-        end
-      end
-
-      def app_preferences_for_listing_query(opts, general = false)
+      def app_preferences_for_listing_query(opts)
+        # The query for this was put together to combine the general
+        # preferences with all other preferences as general was not
+        # originally included as a preference name. Because of the
+        # complexity of the query we are dynamically adding filters
+        # within the WHERE clause with the helper function above. The
+        # Preference_All_Name and Preference_All_Lottery_Rank fields
+        # were added to bring all preferences into the same query.
         filters = buildAppPreferencesFilters(opts)
         search = opts[:search] ? buildAppPreferencesSearch(opts[:search]) : nil
-        listing_id = opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]
-        where = where(opts, general)
-
         builder.from(:Application_Preference__c)
                .select(query_fields(:app_preferences_for_listing))
                .where(%(
-                Listing_ID__c = '#{listing_id}'
+                Listing_ID__c = '#{opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]}'
                 #{search ? 'AND (' + search + ')' : ''}
                 #{filters}
-                #{where}
+                and \(\(Preference_Lottery_Rank__c != null and Receives_Preference__c = true\)
+                or \(Preference_Name__c = 'Live or Work in San Francisco Preference' and Application__r.General_Lottery_Rank__c != null\)\)
                 and Application__c IN \(SELECT id FROM Application__c\)
               ))
-               .paginate({ per_page: 50_000 })
+               .paginate(opts)
                .order_by('Receives_Preference__c desc, Preference_Order__c, Preference_Lottery_Rank__c,  Application__r.General_Lottery_Rank__c asc')
                .transform_results { |results| massage(results) }
       end
