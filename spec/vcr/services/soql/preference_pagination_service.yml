@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 15 Nov 2024 00:56:12 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Vary:
+      - Accept-Encoding
+      Set-Cookie:
+      - BrowserId=aLRBn6LsEe-V3QtA9jMgEw; domain=.salesforce.com; path=/; expires=Sat,
+        15-Nov-2025 00:56:12 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Sat, 15-Nov-2025 00:56:12 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Sat, 15-Nov-2025 00:56:12
+        GMT; Max-Age=31536000; secure
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Readonlymode:
+      - 'false'
+      X-Robots-Tag:
+      - none
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - bcede35cfc3bb27a38784c651050c2d4
+      X-Request-Id:
+      - bcede35cfc3bb27a38784c651050c2d4
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D6s000000tHVMEA2/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1731632172503","signature":"ISG8/defxRzCifNUGRIHlJRZHgxF4nD4KVDz9edOpdM="}'
+  recorded_at: Fri, 15 Nov 2024 00:56:12 GMT
+recorded_with: VCR 6.1.0
