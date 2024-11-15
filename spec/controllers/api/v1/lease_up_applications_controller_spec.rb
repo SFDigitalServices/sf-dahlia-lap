@@ -33,13 +33,13 @@ RSpec.describe Api::V1::LeaseUpApplicationsController, type: :controller do
         params = {
           listing_id: lease_up_listing,
           page: 1,
-          paginated: true,
+          pagination: true,
         }
         get :index, params: params
       end
       expect(response).to have_http_status(:success)
       json = JSON.parse(response.body)
-      expect(json['total_size']).to eq(29)
+      expect(json['total_size']).to eq(43)
     end
     it 'returns custom preference type' do
       VCR.use_cassette('/api/v1/lease-ups/applications') do
