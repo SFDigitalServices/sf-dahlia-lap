@@ -24,23 +24,23 @@ module Force
         query_scope.query
       end
 
-      def accessibility_string
+      def accessibility_string(opts)
         opts[:accessibility].map do |accessibility|
           accessibility.split(', ').map { |item| "'#{item}'" }
         end.join(', ')
       end
 
-      def preferences
+      def preferences(opts)
         opts[:preference].map { |preference| "Preference_All_Name__c like '%#{preference}'" }.join(' or ')
       end
 
-      def states
+      def states(opts)
         opts[:status].map do |status|
           "Application__r.Processing_Status__c = #{status == 'No Status' ? 'NULL' : "'#{status}'"}"
         end.join(' or ')
       end
 
-      def total_household_size
+      def total_household_size(opts)
         opts[:total_household_size].map do |size|
           size == '5+' ? 'Application__r.Total_Household_Size__c >= 5' : "Application__r.Total_Household_Size__c = #{size}"
         end.join(' or ')
@@ -51,10 +51,12 @@ module Force
         # OR statement when passing the option of `Vision/Hearing`
         # https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_querying_multiselect_picklists.htm
         filters = ''
-        filters += " and Application__r.Has_ADA_Priorities_Selected__c INCLUDES (#{accessibility_string}) " if opts[:accessibility].present?
-        filters += " and (#{preferences})" if opts[:preference].present?
-        filters += " and (#{states})" if opts[:status].present?
-        filters += " and (#{total_household_size})" if opts[:total_household_size].present?
+        if opts[:accessibility].present?
+          filters += " and Application__r.Has_ADA_Priorities_Selected__c INCLUDES (#{accessibility_string(opts)}) "
+        end
+        filters += " and (#{preferences(opts)})" if opts[:preference].present?
+        filters += " and (#{states(opts)})" if opts[:status].present?
+        filters += " and (#{total_household_size(opts)})" if opts[:total_household_size].present?
         filters
       end
 
