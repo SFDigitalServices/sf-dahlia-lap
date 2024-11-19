@@ -100,7 +100,7 @@ const LeaseUpApplicationsPage = () => {
 
   useEffect(() => {
     if (flagsReady && !partnersPaginationEnabled) {
-      state.eagerPagination = new EagerPagination(ROWS_PER_PAGE, 50000)
+      setState({ eagerPagination: new EagerPagination(ROWS_PER_PAGE, 50000) })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flagsReady])
@@ -199,7 +199,7 @@ const LeaseUpApplicationsPage = () => {
     },
     // Using location in the deps array allows us to run this effect:
     // on mount, if the user changes the url manually, or if the user hits the back button
-    [location, applicationsListData.page, flagsReady]
+    [location, applicationsListData.page, flagsReady, state.eagerPagination]
   )
 
   useEffectOnMount(() => applicationsPageMounted(dispatch))
