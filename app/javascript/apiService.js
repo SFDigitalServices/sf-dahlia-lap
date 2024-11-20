@@ -96,6 +96,7 @@ const fetchLeaseUpApplicationsPagination = async (listingId, page, { filters }) 
 
 /**
  * @deprecated in favor of fetchLeaseUpApplicationsPagination
+ * @todo remove in DAH-2969
  */
 const fetchLeaseUpApplications = async (
   listingId,
@@ -133,7 +134,10 @@ const fetchLeaseUpApplications = async (
   }
 }
 
-/** @deprecated */
+/**
+ * @deprecated
+ * @todo remove in DAH-2969
+ * */
 const getLeaseUpApplications = async (listingId, filters, general = false, getAll = false) => {
   const applications = []
   let pages
