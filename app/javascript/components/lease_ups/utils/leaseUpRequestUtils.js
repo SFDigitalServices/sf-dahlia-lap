@@ -23,6 +23,7 @@ export const sanitizeAndFormatSearch = (str) => {
 
 /**
  * @deprecated
+ * @todo remove in DAH-2969
  */
 export const buildLeaseUpApplicationsParams = (listingId, filters, lastPref, general) => {
   const params = {
@@ -69,7 +70,10 @@ export const getApplicationsPagination = async (listingId, page, filters) => {
     })
 }
 
-/** @deprecated in favor of getApplicationsPagination */
+/**
+ * @deprecated in favor of getApplicationsPagination
+ * @todo remove in DAH-2969
+ */
 export const getApplications = async (
   listingId,
   page,
@@ -108,6 +112,7 @@ export const getListing = async (listingId) => apiService.getLeaseUpListing(list
 
 /**
  * @deprecated No longer used anywhere.
+ * @todo remove in DAH-2969
  */
 export const getListingAndApplications = async (listingId, page, filters) => {
   const getListing = () => apiService.getLeaseUpListing(listingId)
