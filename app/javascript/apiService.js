@@ -89,6 +89,20 @@ const fetchLeaseUpApplications = async (
     pages: 0
   }
 
+  // TODO: if no filters call API, else continue to call SOQL
+  // the API will return all prefs including general in a single call
+
+  console.log(filters)
+  if (Object.keys(filters).length === 0) {
+    const resp = await request.get(`/lease-ups/applications/rest_api?listing_id=${listingId}`)
+    const rowsPerPage = 50000
+    return {
+      records: [...resp],
+      pages: resp.length / rowsPerPage
+      // listing_type: null
+    }
+  }
+
   // Fetch application preferences associated with a lease up listing.
   const appPrefs = await getLeaseUpApplications(listingId, filters, false, getAll)
 
@@ -105,6 +119,9 @@ const fetchLeaseUpApplications = async (
     generalApps.records = generalAppsResponse.records
     generalApps.pages = generalAppsResponse.pages
   }
+
+  console.log(appPrefs)
+  console.log(generalApps)
 
   return {
     records: [...appPrefs.records, ...generalApps.records],
