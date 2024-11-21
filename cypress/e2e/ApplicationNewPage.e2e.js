@@ -19,7 +19,7 @@ import { usingFixtures } from '../support/utils'
 const NON_LEASE_UP_LISTING_ID = Cypress.env('NON_LEASE_UP_LISTING_ID')
 const LEASE_UP_LISTING_ID = Cypress.env('LEASE_UP_LISTING_ID')
 const SALE_LISTING_ID = Cypress.env('SALE_LISTING_ID')
-const FCFS_LISTING_ID = Cypress.env('FCFS_LISTING_ID')
+const FCFS_RENTAL_LISTING_ID = Cypress.env('FCFS_RENTAL_LISTING_ID')
 
 describe('ApplicationNewPage', () => {
   beforeEach(() => {
@@ -331,10 +331,10 @@ describe('ApplicationNewPage', () => {
     cy.contains(DATE_OF_BIRTH).should('exist')
   })
 
-  it('should fail for an incomplete new sale fcfs application, and create successfully when complete', () => {
+  it('should fail for an incomplete new rental fcfs application, and create successfully when complete', () => {
     cy.visit('http://localhost:3000/')
     cy.login()
-    cy.visit(`/listings/${FCFS_LISTING_ID}/applications/new`)
+    cy.visit(`/listings/${FCFS_RENTAL_LISTING_ID}/applications/new`)
 
     cy.get('#application_language').select('English')
     cy.get('#first_name').type(FIRST_NAME)
@@ -345,18 +345,9 @@ describe('ApplicationNewPage', () => {
 
     cy.get('.save-btn').click()
 
-    cy.contains('The applicant cannot qualify for the listing unless this is true.').should('exist')
-
     cy.get('.alert-box').should('exist')
 
     cy.fillOutRequiredFields()
-
-    // eligibility section fields
-    cy.get('#has_loan_preapproval').click()
-    cy.get('#has_completed_homebuyer_education').click()
-    cy.get('#is_first_time_homebuyer').click()
-    cy.get('#lending_institution').select(1)
-    cy.get('#lending_agent').select(1)
 
     if (usingFixtures()) {
       cy.intercept('GET', 'api/v1/short-form/**', { fixture: 'shortFormGet.json' }).as(
