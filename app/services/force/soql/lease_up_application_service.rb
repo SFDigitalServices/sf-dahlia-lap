@@ -74,7 +74,7 @@ module Force
         search = opts[:search] ? build_applications_search(opts[:search]) : nil
 
         builder.from(:Application__c)
-               .select(query_fields(:show), 'Sub_Status__c', 'Processing_Date_Updated__c')
+               .select(query_fields(:show_rental_fcfs), 'Sub_Status__c', 'Processing_Date_Updated__c')
                .where(%(
                   Listing__r.ID = '#{opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]}'
                   AND Status__c != 'Removed'
