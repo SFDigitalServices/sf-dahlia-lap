@@ -184,6 +184,20 @@ applications:
     AMI_Chart_Type__c:
     AMI_Chart_Year__c:
     Supp_App_Signed_Date__c:
+  show_rental_fcfs_fields:
+    Id:
+    Name:
+      label: 'Application Number'
+    Applicant__r.First_Name__c:
+    Applicant__r.Last_Name__c:
+    Applicant__r.Email__c:
+    Applicant__r.Mailing_Address__c:
+    Applicant__r.Residence_Address__c:
+    Has_ADA_Priorities_Selected__c:
+    Processing_Status__c:
+    Applicant__r.Phone__c:
+    General_Lottery_Rank__c:
+    Total_Household_Size__c:
 
 flagged_record_sets:
   pending_review_fields:
