@@ -4,6 +4,7 @@ import { capitalize, compact, map, cloneDeep, isEmpty } from 'lodash'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
+import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import { addLayeredValidation } from 'utils/layeredPreferenceUtil'
 
 import { withContext } from './context'
@@ -103,11 +104,13 @@ const LeaseUpTableContainer = ({
 }) => {
   const [prefMap, setPrefMap] = useState({})
 
-  useEffect(() => {
-    if (!preferences) return
+  const { unleashFlag: partnersPaginationEnabled, flagsReady } =
+    useFeatureFlag('PARTNERS_PAGINATION')
 
-    if (preferences.every((pref) => !pref.includes('Veteran'))) {
-      console.log(applications)
+  useEffect(() => {
+    if (!preferences || !flagsReady) return
+
+    if (preferences.every((pref) => !pref.includes('Veteran')) || partnersPaginationEnabled) {
       if (!isEmpty(applications)) {
         const buildPrefMap = {}
         addLayeredValidation(applications).forEach((preference) => {
@@ -117,18 +120,19 @@ const LeaseUpTableContainer = ({
         setPrefMap(buildPrefMap)
       }
     }
-  }, [applications, preferences])
+  }, [applications, flagsReady, partnersPaginationEnabled, preferences])
+
+  useEffect(() => {
+    if (flagsReady && !partnersPaginationEnabled) {
+      buildApplicationsWithLayeredValidations(listingId, preferences, setPrefMap)
+    }
+  }, [hasFilters, listingId, listingType, preferences, flagsReady, partnersPaginationEnabled])
 
   const prefMapLoading =
     listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED &&
     !isEmpty(applications) &&
     prefMap &&
     isEmpty(prefMap)
-
-  useEffect(() => {
-    buildApplicationsWithLayeredValidations(listingId, preferences, setPrefMap)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hasFilters, listingId, listingType, preferences])
 
   return (
     <>

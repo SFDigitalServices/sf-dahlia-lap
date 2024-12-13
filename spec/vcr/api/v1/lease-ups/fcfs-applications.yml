@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 02 Aug 2024 17:49:43 GMT
+      - Thu, 14 Nov 2024 17:46:02 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -29,34 +29,36 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - BrowserId=ma0kflD3Ee-WZqMQ5w6GpQ; domain=.salesforce.com; path=/; expires=Sat,
-        02-Aug-2025 17:49:43 GMT; Max-Age=31536000; secure; SameSite=Lax
-      - CookieConsentPolicy=0:1; path=/; expires=Sat, 02-Aug-2025 17:49:43 GMT; Max-Age=31536000;
+      - BrowserId=UNEctqKwEe-ndeNQi-_sxg; domain=.salesforce.com; path=/; expires=Fri,
+        14-Nov-2025 17:46:02 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 14-Nov-2025 17:46:02 GMT; Max-Age=31536000;
         secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Sat, 02-Aug-2025 17:49:43
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 14-Nov-2025 17:46:02
         GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
       X-Robots-Tag:
       - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Readonlymode:
-      - 'false'
       Vary:
       - Accept-Encoding
+      X-Readonlymode:
+      - 'false'
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Content-Type-Options:
+      - nosniff
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 4f8193cd3c0f9cdc11611d4e493eab7a
+      - 3c440ae705acb498b47faa49c48d6dd8
+      X-Request-Id:
+      - 3c440ae705acb498b47faa49c48d6dd8
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D6s000000tHVMEA2/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1722620983824","signature":"rBYAap71NTEoI9OmN7umuF1mGpTVNAO57dyF2pUtSSI="}'
-  recorded_at: Fri, 02 Aug 2024 17:49:43 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D6s000000tHVMEA2/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1731606362660","signature":"EvhhqNTS5LyaO7ikK79XJcizh5CI4xsxCjhlv+dWUnw="}'
+  recorded_at: Thu, 14 Nov 2024 17:46:02 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20OwnerId,%20Owner.Name,%20Application_Due_Date__c,%20Name,%20Status__c,%20Building__c,%20Building__r.Name,%20Min_BR__c,%20Lottery_Winners__c,%20Max_BR__c,%20Lottery_Results__c,%20Min_Income__c,%20Account__c,%20Account__r.Name,%20Max_Income__c,%20Min_Occupancy__c,%20Max_Occupancy__c,%20Building_Name__c,%20Neighborhood__c,%20Building_Street_Address__c,%20Developer__c,%20Building_City__c,%20Building_URL__c,%20Building_State__c,%20Year_Built__c,%20Building_Zip_Code__c,%20Description__c,%20Lottery_Preferences__c,%20Accessibility__c,%20Fee__c,%20Amenities__c,%20Deposit_Min__c,%20Costs_Not_Included__c,%20Deposit_Max__c,%20Lottery_Date__c,%20Lottery_Results_Date__c,%20Lottery_Venue__c,%20Lottery_Summary__c,%20Lottery_Street_Address__c,%20Lottery_City__c,%20Lottery_URL__c,%20Reserved_community_type__c,%20Application_Phone__c,%20Application_Organization__c,%20Application_Street_Address__c,%20Application_City__c,%20Download_URL__c,%20Application_State__c,%20Application_Postal_Code__c,%20In_Lottery__c,%20Leasing_Agent_Name__c,%20Leasing_Agent_Title__c,%20Leasing_Agent_Email__c,%20Leasing_Agent_Phone__c,%20Legal_Disclaimers__c,%20Building_Selection_Criteria__c,%20Pet_Policy__c,%20Report_id__c,%20Required_Documents__c,%20Smoking_Policy__c,%20Eviction_History__c,%20Criminal_History__c,%20Credit_Rating__c,%20Lottery_Status__c,%20Office_Hours__c,%20Tenure__c,%20Listing_Type__c,%0A%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Date__c,%20Start_Time__c,%20End_Time__c,%20Venue__c,%20Street_Address__c,%20City__c%20FROM%20Information_Sessions__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Date__c,%20Start_Time__c,%20End_Time__c%20FROM%20Open_Houses__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Id,%20Total_Submitted_Apps__c,%20Order__c,%20Description__c,%20Available_Units__c,%20PDF_URL__c,%20Lottery_Preference__r.Id,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Lottery_Preference__r.Name%20FROM%20Listing_Lottery_Preferences__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Unit_Type__c,%20BMR_Rent_Monthly__c,%20BMR_Rental_Minimum_Monthly_Income_Needed__c,%20Status__c,%20Property_Type__c,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20AMI_chart_type__c,%20AMI_chart_year__c,%20Max_AMI_for_Qualifying_Unit__c,%20Reserved_Type__c%20FROM%20Units__r%20ORDER%20BY%20Unit_Type__c)%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20FROM%20Listing__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id=%27a0W6s000008C9TlEAK%27%0A%20%20%20%20%20%20%20%20
@@ -78,22 +80,15 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 02 Aug 2024 17:49:44 GMT
+      - Thu, 14 Nov 2024 17:46:03 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Set-Cookie:
-      - BrowserId=mduu4lD3Ee-EgX1uFeKKpQ; domain=.salesforce.com; path=/; expires=Sat,
-        02-Aug-2025 17:49:44 GMT; Max-Age=31536000; secure; SameSite=Lax
-      - CookieConsentPolicy=0:1; path=/; expires=Sat, 02-Aug-2025 17:49:44 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Sat, 02-Aug-2025 17:49:44
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
+      Vary:
+      - Accept-Encoding
       X-Content-Type-Options:
       - nosniff
       X-Robots-Tag:
@@ -101,13 +96,22 @@ http_interactions:
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Sforce-Limit-Info:
-      - api-usage=24627/930000
-      Vary:
-      - Accept-Encoding
+      - api-usage=36013/930000
+      Set-Cookie:
+      - BrowserId=UPs5QqKwEe-WAvU5YxDycQ; domain=.salesforce.com; path=/; expires=Fri,
+        14-Nov-2025 17:46:02 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 14-Nov-2025 17:46:02 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 14-Nov-2025 17:46:02
+        GMT; Max-Age=31536000; secure
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - a8e383bd36a3234e705220e45ef37601
+      - 2738599b6460290948aa260fc447e269
+      X-Request-Id:
+      - 2738599b6460290948aa260fc447e269
       X-Sfdc-Edge-Cache:
       - MISS
     body:
@@ -122,7 +126,7 @@ http_interactions:
         Yet Run","Office_Hours__c":null,"Tenure__c":"Re-rental","Listing_Type__c":"First
         Come, First Served","Information_Sessions__r":null,"Open_Houses__r":null,"Listing_Lottery_Preferences__r":null,"Units__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b6s000002bvorAAA"},"Unit_Type__c":"1
         BR","BMR_Rent_Monthly__c":1628.0,"BMR_Rental_Minimum_Monthly_Income_Needed__c":3256.0,"Status__c":"Available","Property_Type__c":"Apartment","AMI_chart_type__c":"MOHCD","AMI_chart_year__c":2023.0,"Max_AMI_for_Qualifying_Unit__c":90.0,"Reserved_Type__c":null}]}}]}'
-  recorded_at: Fri, 02 Aug 2024 17:49:44 GMT
+  recorded_at: Thu, 14 Nov 2024 17:46:03 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -144,42 +148,44 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 02 Aug 2024 17:49:44 GMT
+      - Thu, 14 Nov 2024 17:46:03 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Set-Cookie:
-      - BrowserId=mgknhVD3Ee-EgX1uFeKKpQ; domain=.salesforce.com; path=/; expires=Sat,
-        02-Aug-2025 17:49:44 GMT; Max-Age=31536000; secure; SameSite=Lax
-      - CookieConsentPolicy=0:1; path=/; expires=Sat, 02-Aug-2025 17:49:44 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Sat, 02-Aug-2025 17:49:44
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
       X-Robots-Tag:
       - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
+      Set-Cookie:
+      - BrowserId=UTEWxKKwEe-131fZZpkodw; domain=.salesforce.com; path=/; expires=Fri,
+        14-Nov-2025 17:46:03 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 14-Nov-2025 17:46:03 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 14-Nov-2025 17:46:03
+        GMT; Max-Age=31536000; secure
+      X-Content-Type-Options:
+      - nosniff
       X-Readonlymode:
       - 'false'
       Vary:
       - Accept-Encoding
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - a0b33e16d8ab26d46e54773db8ef8331
+      - 442330d49ed3cef26d637e53b7e89207
+      X-Request-Id:
+      - 442330d49ed3cef26d637e53b7e89207
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D6s000000tHVMEA2/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1722620984413","signature":"SN4tMEfnW4Oqe9xKqB3k3nDfY0zMA29gpULSgFNVnMI="}'
-  recorded_at: Fri, 02 Aug 2024 17:49:44 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D6s000000tHVMEA2/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1731606363300","signature":"Jm6MtANJgqzyhLhGkx6+Df9ZphiJ2sYZ31T1CpNTaVU="}'
+  recorded_at: Thu, 14 Nov 2024 17:46:03 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Name,%20Applicant__r.First_Name__c,%20Applicant__r.Last_Name__c,%20Applicant__r.Email__c,%20Applicant__r.Mailing_Address__c,%20Applicant__r.Residence_Address__c,%20Has_ADA_Priorities_Selected__c,%20Processing_Status__c,%20Applicant__r.Phone__c,%20General_Lottery_Rank__c,%20Total_Household_Size__c,%20Sub_Status__c,%20Processing_Date_Updated__c%20FROM%20Application__c%20WHERE%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Listing__r.ID%20=%20%27a0W6s000008C9Tl%27%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20AND%20Status__c%20!=%20%27Removed%27%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20ORDER%20BY%20Lottery_Rank__c%20NULLS%20LAST,%20CreatedDate%20LIMIT%2050000%20OFFSET%200
@@ -201,36 +207,38 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 02 Aug 2024 17:49:44 GMT
+      - Thu, 14 Nov 2024 17:46:03 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Set-Cookie:
-      - BrowserId=mjIzKFD3Ee-EwOlQa-XCXQ; domain=.salesforce.com; path=/; expires=Sat,
-        02-Aug-2025 17:49:44 GMT; Max-Age=31536000; secure; SameSite=Lax
-      - CookieConsentPolicy=0:1; path=/; expires=Sat, 02-Aug-2025 17:49:44 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Sat, 02-Aug-2025 17:49:44
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
       X-Content-Type-Options:
       - nosniff
       X-Robots-Tag:
       - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Sforce-Limit-Info:
-      - api-usage=24627/930000
+      Set-Cookie:
+      - BrowserId=UV-gYqKwEe-VJV1rJ-Ubmw; domain=.salesforce.com; path=/; expires=Fri,
+        14-Nov-2025 17:46:03 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 14-Nov-2025 17:46:03 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 14-Nov-2025 17:46:03
+        GMT; Max-Age=31536000; secure
       Vary:
       - Accept-Encoding
+      Sforce-Limit-Info:
+      - api-usage=36013/930000
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 05fc7b601d662ad67f91949508c1e9a7
+      - b197a2001095829206f5599d8ef71dca
+      X-Request-Id:
+      - b197a2001095829206f5599d8ef71dca
       X-Sfdc-Edge-Cache:
       - MISS
     body:
@@ -257,7 +265,7 @@ http_interactions:
         SF, CA, 94103","Mailing_Street__c":"1 SVN","Mailing_City__c":"SF","Mailing_State__c":"CA","Mailing_Zip_Code__c":"94103","Marital_Status__c":"Single","Ethnicity__c":"Not
         Hispanic/Latino","Race__c":"American Indian/Alaskan Native and Black/African
         American","Gender__c":"Trans Male","Gender_Other__c":null,"Sexual_Orientation__c":"Straight/Heterosexual","Sexual_Orientation_Other__c":null},"Alternate_Contact__r":null,"Number_of_Dependents__c":0.0,"Number_of_Seniors__c":0.0,"Number_of_Minors__c":0.0,"Processing_Status__c":"Processing","Is_First_Time_Homebuyer__c":false,"Has_Completed_Homebuyer_Education__c":false,"Has_Loan_Pre_approval__c":false,"Lending_Agent__c":null,"AMI_Percentage__c":null,"AMI_Chart_Type__c":null,"AMI_Chart_Year__c":null,"Supp_App_Signed_Date__c":null,"Sub_Status__c":null,"Processing_Date_Updated__c":"2024-06-06T18:18:05.000+0000"}]}'
-  recorded_at: Fri, 02 Aug 2024 17:49:44 GMT
+  recorded_at: Thu, 14 Nov 2024 17:46:03 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Application__c%20WHERE%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Listing__r.ID%20=%20%27a0W6s000008C9Tl%27%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20AND%20Status__c%20!=%20%27Removed%27%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)
@@ -279,42 +287,44 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 02 Aug 2024 17:49:44 GMT
+      - Thu, 14 Nov 2024 17:46:03 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Set-Cookie:
-      - BrowserId=mlzGLFD3Ee-CFwvyfvdboA; domain=.salesforce.com; path=/; expires=Sat,
-        02-Aug-2025 17:49:44 GMT; Max-Age=31536000; secure; SameSite=Lax
-      - CookieConsentPolicy=0:1; path=/; expires=Sat, 02-Aug-2025 17:49:44 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Sat, 02-Aug-2025 17:49:44
-        GMT; Max-Age=31536000; secure
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Sforce-Limit-Info:
-      - api-usage=24627/930000
       Vary:
       - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      Sforce-Limit-Info:
+      - api-usage=36013/930000
+      X-Robots-Tag:
+      - none
+      Set-Cookie:
+      - BrowserId=UY__06KwEe-ZmsPfPwc7Zw; domain=.salesforce.com; path=/; expires=Fri,
+        14-Nov-2025 17:46:03 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 14-Nov-2025 17:46:03 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 14-Nov-2025 17:46:03
+        GMT; Max-Age=31536000; secure
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 8fc71f49bd99ae78ca0097145f7d65c6
+      - c0a45e74c68655e58da1604388c6a925
+      X-Request-Id:
+      - c0a45e74c68655e58da1604388c6a925
       X-Sfdc-Edge-Cache:
       - MISS
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":3,"done":true,"records":[]}'
-  recorded_at: Fri, 02 Aug 2024 17:49:44 GMT
+  recorded_at: Thu, 14 Nov 2024 17:46:03 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -336,42 +346,44 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 02 Aug 2024 17:49:45 GMT
+      - Thu, 14 Nov 2024 17:46:04 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Set-Cookie:
-      - BrowserId=modYulD3Ee-MtOFqMytREg; domain=.salesforce.com; path=/; expires=Sat,
-        02-Aug-2025 17:49:45 GMT; Max-Age=31536000; secure; SameSite=Lax
-      - CookieConsentPolicy=0:1; path=/; expires=Sat, 02-Aug-2025 17:49:45 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Sat, 02-Aug-2025 17:49:45
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
       X-Content-Type-Options:
       - nosniff
-      X-Robots-Tag:
-      - none
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Robots-Tag:
+      - none
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Readonlymode:
-      - 'false'
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Set-Cookie:
+      - BrowserId=UbR3kKKwEe-imNkwtauqcA; domain=.salesforce.com; path=/; expires=Fri,
+        14-Nov-2025 17:46:04 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 14-Nov-2025 17:46:04 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 14-Nov-2025 17:46:04
+        GMT; Max-Age=31536000; secure
       Vary:
       - Accept-Encoding
+      X-Readonlymode:
+      - 'false'
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - a87fb54b01600140f8cff6686b5bca2a
+      - 3c8d591690c70b2235020315e1ed3943
+      X-Request-Id:
+      - 3c8d591690c70b2235020315e1ed3943
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D6s000000tHVMEA2/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1722620985241","signature":"xvP7e/nlWWZWMoU0dai13qgxPNhhY9/aGWXDuYdFq5A="}'
-  recorded_at: Fri, 02 Aug 2024 17:49:45 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D6s000000tHVMEA2/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1731606364154","signature":"j8QS4YliJh/db4cmppaiNMSELnV04RgS4qEdVPqpmuU="}'
+  recorded_at: Thu, 14 Nov 2024 17:46:04 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20OwnerId,%20Owner.Name,%20Application_Due_Date__c,%20Name,%20Status__c,%20Building__c,%20Building__r.Name,%20Min_BR__c,%20Lottery_Winners__c,%20Max_BR__c,%20Lottery_Results__c,%20Min_Income__c,%20Account__c,%20Account__r.Name,%20Max_Income__c,%20Min_Occupancy__c,%20Max_Occupancy__c,%20Building_Name__c,%20Neighborhood__c,%20Building_Street_Address__c,%20Developer__c,%20Building_City__c,%20Building_URL__c,%20Building_State__c,%20Year_Built__c,%20Building_Zip_Code__c,%20Description__c,%20Lottery_Preferences__c,%20Accessibility__c,%20Fee__c,%20Amenities__c,%20Deposit_Min__c,%20Costs_Not_Included__c,%20Deposit_Max__c,%20Lottery_Date__c,%20Lottery_Results_Date__c,%20Lottery_Venue__c,%20Lottery_Summary__c,%20Lottery_Street_Address__c,%20Lottery_City__c,%20Lottery_URL__c,%20Reserved_community_type__c,%20Application_Phone__c,%20Application_Organization__c,%20Application_Street_Address__c,%20Application_City__c,%20Download_URL__c,%20Application_State__c,%20Application_Postal_Code__c,%20In_Lottery__c,%20Leasing_Agent_Name__c,%20Leasing_Agent_Title__c,%20Leasing_Agent_Email__c,%20Leasing_Agent_Phone__c,%20Legal_Disclaimers__c,%20Building_Selection_Criteria__c,%20Pet_Policy__c,%20Report_id__c,%20Required_Documents__c,%20Smoking_Policy__c,%20Eviction_History__c,%20Criminal_History__c,%20Credit_Rating__c,%20Lottery_Status__c,%20Office_Hours__c,%20Tenure__c,%20Listing_Type__c,%0A%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Date__c,%20Start_Time__c,%20End_Time__c,%20Venue__c,%20Street_Address__c,%20City__c%20FROM%20Information_Sessions__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Date__c,%20Start_Time__c,%20End_Time__c%20FROM%20Open_Houses__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Id,%20Total_Submitted_Apps__c,%20Order__c,%20Description__c,%20Available_Units__c,%20PDF_URL__c,%20Lottery_Preference__r.Id,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Lottery_Preference__r.Name%20FROM%20Listing_Lottery_Preferences__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Unit_Type__c,%20BMR_Rent_Monthly__c,%20BMR_Rental_Minimum_Monthly_Income_Needed__c,%20Status__c,%20Property_Type__c,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20AMI_chart_type__c,%20AMI_chart_year__c,%20Max_AMI_for_Qualifying_Unit__c,%20Reserved_Type__c%20FROM%20Units__r%20ORDER%20BY%20Unit_Type__c)%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20FROM%20Listing__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id=%27a0W6s000008C9TlEAK%27%0A%20%20%20%20%20%20%20%20
@@ -393,36 +405,38 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 02 Aug 2024 17:49:45 GMT
+      - Thu, 14 Nov 2024 17:46:04 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Set-Cookie:
-      - BrowserId=mrBjkVD3Ee--doXp6hdp5A; domain=.salesforce.com; path=/; expires=Sat,
-        02-Aug-2025 17:49:45 GMT; Max-Age=31536000; secure; SameSite=Lax
-      - CookieConsentPolicy=0:1; path=/; expires=Sat, 02-Aug-2025 17:49:45 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Sat, 02-Aug-2025 17:49:45
-        GMT; Max-Age=31536000; secure
+      Vary:
+      - Accept-Encoding
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
       X-Content-Type-Options:
       - nosniff
-      X-Robots-Tag:
-      - none
+      Sforce-Limit-Info:
+      - api-usage=36013/930000
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
-      Sforce-Limit-Info:
-      - api-usage=24627/930000
-      Vary:
-      - Accept-Encoding
+      Set-Cookie:
+      - BrowserId=UeFT06KwEe-8OPEXen3rAg; domain=.salesforce.com; path=/; expires=Fri,
+        14-Nov-2025 17:46:04 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 14-Nov-2025 17:46:04 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 14-Nov-2025 17:46:04
+        GMT; Max-Age=31536000; secure
+      X-Robots-Tag:
+      - none
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 3f11a029ddb6f7ea4c1b3719cfbae3db
+      - cb9753c135c81c7f4461caf9a36e1a03
+      X-Request-Id:
+      - cb9753c135c81c7f4461caf9a36e1a03
       X-Sfdc-Edge-Cache:
       - MISS
     body:
@@ -437,5 +451,5 @@ http_interactions:
         Yet Run","Office_Hours__c":null,"Tenure__c":"Re-rental","Listing_Type__c":"First
         Come, First Served","Information_Sessions__r":null,"Open_Houses__r":null,"Listing_Lottery_Preferences__r":null,"Units__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b6s000002bvorAAA"},"Unit_Type__c":"1
         BR","BMR_Rent_Monthly__c":1628.0,"BMR_Rental_Minimum_Monthly_Income_Needed__c":3256.0,"Status__c":"Available","Property_Type__c":"Apartment","AMI_chart_type__c":"MOHCD","AMI_chart_year__c":2023.0,"Max_AMI_for_Qualifying_Unit__c":90.0,"Reserved_Type__c":null}]}}]}'
-  recorded_at: Fri, 02 Aug 2024 17:49:45 GMT
+  recorded_at: Thu, 14 Nov 2024 17:46:04 GMT
 recorded_with: VCR 6.1.0
