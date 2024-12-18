@@ -15,6 +15,7 @@ import StatusCell from 'components/lease_ups/application_page/StatusCell'
 import appPaths from 'utils/appPaths'
 import { useAppContext } from 'utils/customHooks'
 import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
+import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import { cellFormat } from 'utils/reactTableUtils'
 import { getLeaseUpStatusClass } from 'utils/statusUtils'
 
@@ -62,6 +63,9 @@ const LeaseUpApplicationsTable = ({
 
   const navigate = useNavigate()
 
+  const { unleashFlag: partnersPaginationEnabled, flagsReady } =
+    useFeatureFlag('PARTNERS_PAGINATION')
+
   const updateSelectedApplicationState = (application, navigateToApplication = false) => {
     applicationRowClicked(dispatch, application)
 
@@ -103,7 +107,9 @@ const LeaseUpApplicationsTable = ({
         <PreferenceRankCell
           preferenceRank={cell.original.preference_rank}
           preferenceValidation={
-            prefMap[`${cell.original.application_id}-${cell.original.preference_name}`]
+            partnersPaginationEnabled && flagsReady
+              ? cell.original.layered_preference_validation
+              : prefMap[`${cell.original.application_id}-${cell.original.preference_name}`]
           }
         />
       )

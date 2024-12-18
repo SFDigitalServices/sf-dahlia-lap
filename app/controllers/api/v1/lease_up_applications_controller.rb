@@ -47,6 +47,7 @@ module Api::V1
         :general_lottery_rank,
         :general,
         :pagination,
+        :layered_preference_validation,
         accessibility: [],
         preference: [],
         status: [],
