@@ -1,6 +1,6 @@
 /* global SALESFORCE_BASE_URL */
 
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { map, isEqual } from 'lodash'
 import moment from 'moment'
@@ -22,11 +22,12 @@ import {
   useAppContext
 } from 'utils/customHooks'
 import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
+import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
 import Context from './context'
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
-import { getApplications, getListing } from './utils/leaseUpRequestUtils'
+import { getApplicationsPagination, getApplications, getListing } from './utils/leaseUpRequestUtils'
 import TableLayout from '../layouts/TableLayout'
 import { createFieldUpdateComment } from '../supplemental_application/utils/supplementalRequestUtils'
 
@@ -85,6 +86,9 @@ const LeaseUpApplicationsPage = () => {
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
 
+  const { unleashFlag: partnersPaginationEnabled, flagsReady } =
+    useFeatureFlag('PARTNERS_PAGINATION')
+
   const [state, setState] = useStateObject({
     loading: false,
     applications: [],
@@ -93,6 +97,13 @@ const LeaseUpApplicationsPage = () => {
     forceRefreshNextPageUpdate: false,
     eagerPagination: new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
   })
+
+  useEffect(() => {
+    if (flagsReady && !partnersPaginationEnabled) {
+      setState({ eagerPagination: new EagerPagination(ROWS_PER_PAGE, 50000) })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [flagsReady])
 
   const [bulkCheckboxesState, setBulkCheckboxesState, overrideBulkCheckboxesState] = useStateObject(
     {}
@@ -146,7 +157,7 @@ const LeaseUpApplicationsPage = () => {
         applicationsTableFiltersApplied(dispatch, appliedFilters)
       }
 
-      if (state.eagerPagination.isOverLimit(page, 50000)) {
+      if (state.eagerPagination.isOverLimit(page)) {
         setState({
           applications: [],
           atMaxPage: true,
@@ -157,11 +168,21 @@ const LeaseUpApplicationsPage = () => {
         return null
       }
 
-      const fetcher = (p) => getApplications(listingId, p, appliedFilters)
+      const fetcher = (p) =>
+        partnersPaginationEnabled
+          ? getApplicationsPagination(listingId, p, appliedFilters)
+          : getApplications(listingId, p, appliedFilters)
 
       setState({ loading: true })
 
-      return state.eagerPagination.getPage(page, fetcher, state.forceRefreshNextPageUpdate)
+      if (flagsReady) {
+        return state.eagerPagination.getPage(
+          page,
+          fetcher,
+          state.forceRefreshNextPageUpdate,
+          partnersPaginationEnabled
+        )
+      }
     },
     {
       onSuccess: ({ records, pages }) => {
@@ -178,7 +199,7 @@ const LeaseUpApplicationsPage = () => {
     },
     // Using location in the deps array allows us to run this effect:
     // on mount, if the user changes the url manually, or if the user hits the back button
-    [location, applicationsListData.page]
+    [location, applicationsListData.page, flagsReady, state.eagerPagination]
   )
 
   useEffectOnMount(() => applicationsPageMounted(dispatch))

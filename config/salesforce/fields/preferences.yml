@@ -59,10 +59,11 @@ preferences:
       label: "Status Updated"
     Listing_Preference_ID__r.Record_Type_For_App_Preferences__c:
     Custom_Preference_Type__c:
+    Layered_Preference_Validation__c:
   app_preferences_for_lottery_results_fields:
     Application__r.General_Lottery__c:
     Application__r.General_Lottery_Rank__c:
-    Application__r.Lottery_Number__c:    
+    Application__r.Lottery_Number__c:
     Application__r.Lottery_Number_Manual__c:
     Application__r.Lottery_Rank__c:
     Preference_All_Name__c:

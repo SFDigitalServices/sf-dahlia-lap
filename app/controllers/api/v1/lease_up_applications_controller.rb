@@ -8,6 +8,10 @@ module Api::V1
         # First Come, First Served listings don't have preferences
         applications = soql_lease_up_application_service.lease_up_applications(lease_up_apps_params)
         applications[:records] = Force::Application.convert_list(applications[:records], :from_salesforce, :to_domain)
+      elsif lease_up_apps_params[:pagination]
+        # All other listings need to be queried by preferences first
+        applications = soql_preference_pagination_service.app_preferences_for_listing(lease_up_apps_params)
+        applications[:records] = Force::Preference.convert_list(applications[:records], :from_salesforce, :to_domain)
       else
         # All other listings need to be queried by preferences first
         applications = soql_preference_service.app_preferences_for_listing(lease_up_apps_params, lease_up_apps_params[:general])
@@ -20,6 +24,10 @@ module Api::V1
     end
 
     private
+
+    def soql_preference_pagination_service
+      Force::Soql::PreferencePaginationService.new(current_user)
+    end
 
     def soql_preference_service
       Force::Soql::PreferenceService.new(current_user)
@@ -38,6 +46,8 @@ module Api::V1
         :preference_lottery_rank,
         :general_lottery_rank,
         :general,
+        :pagination,
+        :layered_preference_validation,
         accessibility: [],
         preference: [],
         status: [],
