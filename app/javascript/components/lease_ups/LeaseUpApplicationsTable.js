@@ -79,6 +79,17 @@ const LeaseUpApplicationsTable = ({
   } pages of applications at this time. Please use the filters above to narrow your results.`
   const noDataMsg =
     atMaxPages || page >= 100 ? maxPagesMsg : 'No results, try adjusting your filters'
+
+  const getPreferenceValidation = (cell) => {
+    if (partnersPaginationEnabled && flagsReady) {
+      return cell.original.layered_preference_validation
+        ? cell.original.layered_preference_validation
+        : cell.original.post_lottery_validation
+    } else {
+      return prefMap[`${cell.original.application_id}-${cell.original.preference_name}`]
+    }
+  }
+
   const columns = [
     {
       Header: '',
@@ -106,11 +117,7 @@ const LeaseUpApplicationsTable = ({
       Cell: (cell) => (
         <PreferenceRankCell
           preferenceRank={cell.original.preference_rank}
-          preferenceValidation={
-            partnersPaginationEnabled && flagsReady
-              ? cell.original.layered_preference_validation
-              : prefMap[`${cell.original.application_id}-${cell.original.preference_name}`]
-          }
+          preferenceValidation={getPreferenceValidation(cell)}
         />
       )
     },
