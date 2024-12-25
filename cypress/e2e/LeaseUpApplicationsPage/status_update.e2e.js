@@ -45,7 +45,7 @@ describe('LeaseUpApplicationsPage status update', () => {
 
       cy.visit('http://localhost:3000/')
       cy.login()
-      cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
+      cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}?featureFlag[PARTNERS_PAGINATION]=false`)
       cy.wait('@leaseUpListing')
       cy.wait('@leaseUpApplications')
       cy.wait('@leaseUpApplicationsGeneral')
@@ -68,7 +68,9 @@ describe('LeaseUpApplicationsPage status update', () => {
       it('should change the status for selected checkboxes', () => {
         cy.visit('http://localhost:3000/')
         cy.login()
-        cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
+        cy.visit(
+          `/lease-ups/listings/${LEASE_UP_LISTING_ID}?featureFlag[PARTNERS_PAGINATION]=false`
+        )
         cy.wait('@leaseUpListing')
         cy.wait('@leaseUpApplications')
         cy.wait('@leaseUpApplicationsGeneral')
@@ -116,7 +118,9 @@ describe('LeaseUpApplicationsPage status update', () => {
 
         cy.visit('http://localhost:3000/')
         cy.login()
-        cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
+        cy.visit(
+          `/lease-ups/listings/${LEASE_UP_LISTING_ID}?featureFlag[PARTNERS_PAGINATION]=false`
+        )
         cy.wait('@leaseUpListing')
         cy.wait('@leaseUpApplications')
         cy.wait('@leaseUpApplicationsGeneral')
@@ -133,7 +137,9 @@ describe('LeaseUpApplicationsPage status update', () => {
         it('should not update status and substatus', () => {
           cy.visit('http://localhost:3000/')
           cy.login()
-          cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
+          cy.visit(
+            `/lease-ups/listings/${LEASE_UP_LISTING_ID}?featureFlag[PARTNERS_PAGINATION]=false`
+          )
           cy.wait('@leaseUpListing')
           cy.wait('@leaseUpApplications')
           cy.wait('@leaseUpApplicationsGeneral')
@@ -163,7 +169,9 @@ describe('LeaseUpApplicationsPage status update', () => {
       it('should use all filters and update URL', () => {
         cy.visit('http://localhost:3000/')
         cy.login()
-        cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
+        cy.visit(
+          `/lease-ups/listings/${LEASE_UP_LISTING_ID}?featureFlag[PARTNERS_PAGINATION]=false`
+        )
         cy.wait('@leaseUpListing')
         cy.wait('@leaseUpApplications')
         cy.wait('@leaseUpApplicationsGeneral')
