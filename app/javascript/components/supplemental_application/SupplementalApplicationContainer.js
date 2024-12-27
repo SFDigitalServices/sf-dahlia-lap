@@ -108,7 +108,10 @@ const ConfirmedPreferencesSection = ({
       </FormGrid.Row>
     </ContentSection.Sub>
     <ContentSection.Sub title='Household Reserved and Priority Units'>
-      <ConfirmedUnits form={form} />
+      <ConfirmedUnits
+        form={form}
+        showHCBSUnitsCheckbox={application.listing.name.includes('Kelsey')}
+      />
     </ContentSection.Sub>
   </ContentSection>
 )
