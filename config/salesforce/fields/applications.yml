@@ -91,6 +91,7 @@ applications:
     Listing__r.Name:
       label: 'Listing Name'
     Listing__r.Id:
+    Listing__r.Custom_Listing_Type__c:
     Status__c:
     Listing__r.Reserved_community_type__c:
     Total_Household_Size__c:

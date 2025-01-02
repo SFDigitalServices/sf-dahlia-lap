@@ -82,6 +82,7 @@ module Force
       { domain: 'listing_lottery_preferences', salesforce: 'Listing_Lottery_Preferences' },
       { domain: 'units', salesforce: 'Units' },
       { domain: 'listing_type', salesforce: 'Listing_Type' },
+      { domain: 'custom_listing_type', salesforce: 'Custom_Listing_Type' },
     ].freeze
 
     LISTING_TYPE_FIRST_COME_FIRST_SERVED = 'First Come, First Served'

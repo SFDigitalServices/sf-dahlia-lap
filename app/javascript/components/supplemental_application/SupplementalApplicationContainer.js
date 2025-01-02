@@ -110,7 +110,7 @@ const ConfirmedPreferencesSection = ({
     <ContentSection.Sub title='Household Reserved and Priority Units'>
       <ConfirmedUnits
         form={form}
-        showHCBSUnitsCheckbox={application.listing.name.includes('Kelsey')}
+        showHCBSUnitsCheckbox={application.listing.custom_listing_type === 'HCBS Units'}
       />
     </ContentSection.Sub>
   </ContentSection>
