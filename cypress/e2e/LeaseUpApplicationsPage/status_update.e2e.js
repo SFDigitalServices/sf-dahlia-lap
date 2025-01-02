@@ -27,16 +27,10 @@ describe('LeaseUpApplicationsPage status update', () => {
       cy.intercept('api/v1/applications/**/field_update_comments', {
         fixture: 'fieldUpdateComments.json'
       }).as('fieldUpdateComments')
-      cy.intercept(`api/v1/lease-ups/applications?listing_id=${LEASE_UP_LISTING_ID}&general=true`, {
-        fixture: 'leaseUpApplicationsGeneral.json'
-      }).as('leaseUpApplicationsGeneral')
     } else {
       cy.intercept('api/v1/lease-ups/listings/**').as('leaseUpListing')
       cy.intercept('api/v1/lease-ups/applications?listing_id=**').as('leaseUpApplications')
       cy.intercept('api/v1/applications/**/field_update_comments').as('fieldUpdateComments')
-      cy.intercept(
-        `api/v1/lease-ups/applications?listing_id=${LEASE_UP_LISTING_ID}&general=true`
-      ).as('leaseUpApplicationsGeneral')
     }
   })
   describe('using the individual row status dropdown', () => {
@@ -48,7 +42,6 @@ describe('LeaseUpApplicationsPage status update', () => {
       cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}?featureFlag[PARTNERS_PAGINATION]=false`)
       cy.wait('@leaseUpListing')
       cy.wait('@leaseUpApplications')
-      cy.wait('@leaseUpApplicationsGeneral')
 
       // Change status to one that is not currently selected.
       cy.getText(firstRowStatusDropdown).then((text) => {
@@ -73,7 +66,6 @@ describe('LeaseUpApplicationsPage status update', () => {
         )
         cy.wait('@leaseUpListing')
         cy.wait('@leaseUpApplications')
-        cy.wait('@leaseUpApplicationsGeneral')
 
         // Check the checkboxes in the 2nd and 3rd row
         cy.get(bulkActionCheckboxId(SECOND_ROW_LEASE_UP_APP_ID)).click()
@@ -123,7 +115,6 @@ describe('LeaseUpApplicationsPage status update', () => {
         )
         cy.wait('@leaseUpListing')
         cy.wait('@leaseUpApplications')
-        cy.wait('@leaseUpApplicationsGeneral')
 
         cy.get(bulkEditCheckboxId).click()
 
@@ -142,7 +133,6 @@ describe('LeaseUpApplicationsPage status update', () => {
           )
           cy.wait('@leaseUpListing')
           cy.wait('@leaseUpApplications')
-          cy.wait('@leaseUpApplicationsGeneral')
 
           const originalStatus = cy.getText(nthRowStatusDropdownSelector(2))
           const originalSubStatus = cy.getText(secondRowSubstatus)
@@ -174,7 +164,6 @@ describe('LeaseUpApplicationsPage status update', () => {
         )
         cy.wait('@leaseUpListing')
         cy.wait('@leaseUpApplications')
-        cy.wait('@leaseUpApplicationsGeneral')
 
         cy.contains('button', 'Show Filters').click()
 

@@ -15,6 +15,7 @@ import StatusCell from 'components/lease_ups/application_page/StatusCell'
 import appPaths from 'utils/appPaths'
 import { useAppContext } from 'utils/customHooks'
 import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
+import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import { cellFormat } from 'utils/reactTableUtils'
 import { getLeaseUpStatusClass } from 'utils/statusUtils'
 
@@ -62,6 +63,9 @@ const LeaseUpApplicationsTable = ({
 
   const navigate = useNavigate()
 
+  const { unleashFlag: partnersPaginationEnabled, flagsReady } =
+    useFeatureFlag('PARTNERS_PAGINATION')
+
   const updateSelectedApplicationState = (application, navigateToApplication = false) => {
     applicationRowClicked(dispatch, application)
 
@@ -75,6 +79,17 @@ const LeaseUpApplicationsTable = ({
   } pages of applications at this time. Please use the filters above to narrow your results.`
   const noDataMsg =
     atMaxPages || page >= 100 ? maxPagesMsg : 'No results, try adjusting your filters'
+
+  const getPreferenceValidation = (cell) => {
+    if (partnersPaginationEnabled && flagsReady) {
+      return cell.original.layered_preference_validation
+        ? cell.original.layered_preference_validation
+        : cell.original.post_lottery_validation
+    } else {
+      return prefMap[`${cell.original.application_id}-${cell.original.preference_name}`]
+    }
+  }
+
   const columns = [
     {
       Header: '',
@@ -102,9 +117,7 @@ const LeaseUpApplicationsTable = ({
       Cell: (cell) => (
         <PreferenceRankCell
           preferenceRank={cell.original.preference_rank}
-          preferenceValidation={
-            prefMap[`${cell.original.application_id}-${cell.original.preference_name}`]
-          }
+          preferenceValidation={getPreferenceValidation(cell)}
         />
       )
     },
