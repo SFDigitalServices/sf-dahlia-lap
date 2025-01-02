@@ -43,9 +43,7 @@ export const buildLeaseUpApplicationsParams = (listingId, filters, lastPref, gen
 }
 
 const processFcfsApplicationRecords = (records) => {
-  // remove records that don't have an applicant (this is a bug with form assembly, but we are hiding them for now)
-  const cleanRecords = records.filter((record) => record.applicant != null)
-  const apps = map(cleanRecords, buildLeaseUpAppFirstComeFirstServedModel)
+  const apps = map(records, buildLeaseUpAppFirstComeFirstServedModel)
   // add an index, which will be used as the applicant's "rank"
   return apps.map((app, index) => {
     app.index = index
