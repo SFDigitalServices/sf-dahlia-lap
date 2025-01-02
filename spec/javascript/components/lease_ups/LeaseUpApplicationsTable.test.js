@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { render } from '@testing-library/react'
+import { useFlag, useFlagsStatus } from '@unleash/proxy-client-react'
 import { BrowserRouter } from 'react-router-dom'
 
 import LeaseUpApplicationsTable from 'components/lease_ups/LeaseUpApplicationsTable'
@@ -12,6 +13,8 @@ import {
   mockDataSet,
   mockPrefMap
 } from '../../fixtures/lease_up_applications'
+
+jest.mock('@unleash/proxy-client-react')
 
 describe('LeaseUpApplicationsTable', () => {
   let spy
@@ -30,6 +33,10 @@ describe('LeaseUpApplicationsTable', () => {
   })
 
   test('should render succesfully when not loading', () => {
+    useFlag.mockImplementation(() => true)
+    useFlagsStatus.mockImplementation(() => ({
+      flagsError: false
+    }))
     const { asFragment } = render(
       <BrowserRouter>
         <Provider value={{ applicationsListData: {} }}>
