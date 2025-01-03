@@ -187,11 +187,17 @@ describe('SupplementalApplicationPage', () => {
   })
 
   test('it should render as expected', async () => {
+    jest.useFakeTimers()
+    const mockDate = new Date('2024-06-01T00:00:00Z')
+    jest.setSystemTime(mockDate)
+
     const { asFragment } = await act(() =>
       render(leaseUpAppWithUrl(getWindowUrl(getMockApplication().id)))
     )
 
     expect(asFragment()).toMatchSnapshot()
+
+    jest.useRealTimers()
   })
 
   test('it only performs initial load request if nothing is changed', async () => {
