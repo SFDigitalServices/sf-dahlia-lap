@@ -82,7 +82,7 @@ module Force
                   #{filters}
                 ))
                .order_by('Lottery_Rank__c NULLS LAST, CreatedDate')
-               .paginate(opts)
+               .paginate({ per_page: 50_000 })
                .transform_results { |results| massage(results) }
       end
     end
