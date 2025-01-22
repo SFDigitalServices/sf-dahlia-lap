@@ -72,6 +72,7 @@ module Force
       def lease_up_applications_query(opts)
         filters = build_applications_filters(opts)
         search = opts[:search] ? build_applications_search(opts[:search]) : nil
+        per_page = opts[:pagination] ? opts : { per_page: 50_000 }
 
         builder.from(:Application__c)
                .select(query_fields(:show_rental_fcfs), 'Sub_Status__c', 'Processing_Date_Updated__c')
@@ -82,7 +83,7 @@ module Force
                   #{filters}
                 ))
                .order_by('Lottery_Rank__c NULLS LAST, CreatedDate')
-               .paginate(opts)
+               .paginate(per_page)
                .transform_results { |results| massage(results) }
       end
     end

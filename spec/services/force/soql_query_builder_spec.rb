@@ -15,7 +15,7 @@ RSpec.describe Force::SoqlQueryBuilder do
                     .paginate(page: 2)
                     .to_soql
 
-      expect(soql).to eq("SELECT Id FROM Application__c WHERE (Status__c != 'DRAFT') LIMIT 50000 OFFSET 100000")
+      expect(soql).to eq("SELECT Id FROM Application__c WHERE (Status__c != 'DRAFT') LIMIT 100 OFFSET 200")
     end
 
     it 'should allow multiple wheres' do
@@ -28,7 +28,7 @@ RSpec.describe Force::SoqlQueryBuilder do
                     .paginate(page: 2)
                     .to_soql
 
-      expect(soql).to eq("SELECT Id FROM Application__c WHERE (Status__c != 'DRAFT') AND (Id == 1) LIMIT 50000 OFFSET 100000")
+      expect(soql).to eq("SELECT Id FROM Application__c WHERE (Status__c != 'DRAFT') AND (Id == 1) LIMIT 100 OFFSET 200")
     end
 
     it 'should allow queries without a where clause' do

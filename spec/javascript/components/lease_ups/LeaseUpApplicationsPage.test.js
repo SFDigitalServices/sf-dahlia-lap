@@ -9,7 +9,7 @@ import { renderAppWithUrl } from '../../testUtils/wrapperUtil'
 
 jest.mock('@unleash/proxy-client-react')
 
-useFlagUnleash.mockImplementation(() => true)
+useFlagUnleash.mockImplementation(() => false)
 useFlagsStatus.mockImplementation(() => ({
   flagsError: false,
   flagsReady: true
@@ -202,7 +202,7 @@ describe('LeaseUpApplicationsPage', () => {
   })
 
   test('calls get applications with the listing id and page number = 0', () => {
-    expect(mockFetchLeaseUpApplications.mock.calls).toHaveLength(1)
+    expect(mockFetchLeaseUpApplications.mock.calls).toHaveLength(2)
     expect(mockFetchLeaseUpApplications.mock.calls[0][0]).toEqual(mockListing.id)
     expect(mockFetchLeaseUpApplications.mock.calls[0][1]).toBe(0)
   })

@@ -3,9 +3,10 @@
 module Force
   # Build simple SOQL queries to access data in Salesforce
   class SoqlQueryBuilder
-    DEFAULT_PAGE_SIZE = 50_000
+    DEFAULT_PAGE_SIZE = 100
 
     attr_reader :client
+
     def initialize(client)
       @client = client
       @where = []
@@ -149,7 +150,7 @@ module Force
 
     def _from_soql
       _from = "FROM #{@from}"
-      _from += " WHERE #{_where_soql}" if !_where_soql.empty?
+      _from += " WHERE #{_where_soql}" unless _where_soql.empty?
       _from
     end
 

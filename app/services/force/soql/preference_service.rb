@@ -55,34 +55,34 @@ module Force
         end
 
         filters
-    end
-
-    def buildAppPreferencesSearch(search_terms_string)
-      # Given a comma-separated list of search terms:
-      # For each term, we search across name and application number for a match
-      # For multiple terms, we expect the record to match each of the terms individually.
-      search_terms = search_terms_string.split(',')
-      search_fields = [
-        "Application__r.Name",
-        "Application__r.Applicant__r.First_Name__c",
-        "Application__r.Applicant__r.Last_Name__c",
-      ]
-      search = []
-      for search_term in search_terms
-        # For each term we join the fields with OR to return a record if it matches
-        # across any of these fields.
-        search_term_clause = []
-        sanitized_term = ActiveRecord::Base.sanitize_sql_like search_term
-        for search_field in search_fields
-          search_term_clause.push("#{search_field} like '%#{sanitized_term}%'")
-        end
-        search.push('(' + search_term_clause.join(' OR ') + ')')
       end
-      # If there are multiple terms, join the clauses with "AND" because we expect each term to find a match.
-      search.join(' AND ')
-    end
 
-    private
+      def buildAppPreferencesSearch(search_terms_string)
+        # Given a comma-separated list of search terms:
+        # For each term, we search across name and application number for a match
+        # For multiple terms, we expect the record to match each of the terms individually.
+        search_terms = search_terms_string.split(',')
+        search_fields = [
+          'Application__r.Name',
+          'Application__r.Applicant__r.First_Name__c',
+          'Application__r.Applicant__r.Last_Name__c',
+        ]
+        search = []
+        for search_term in search_terms
+          # For each term we join the fields with OR to return a record if it matches
+          # across any of these fields.
+          search_term_clause = []
+          sanitized_term = ActiveRecord::Base.sanitize_sql_like search_term
+          for search_field in search_fields
+            search_term_clause.push("#{search_field} like '%#{sanitized_term}%'")
+          end
+          search.push('(' + search_term_clause.join(' OR ') + ')')
+        end
+        # If there are multiple terms, join the clauses with "AND" because we expect each term to find a match.
+        search.join(' AND ')
+      end
+
+      private
 
       def general_where(opts)
         general_lottery_rank = opts[:general_lottery_rank].present? ? opts[:general_lottery_rank] : 0
@@ -124,7 +124,7 @@ module Force
                 #{where}
                 and Application__c IN \(SELECT id FROM Application__c\)
               ))
-               .paginate(opts)
+               .paginate({ per_page: 50_000 })
                .order_by('Receives_Preference__c desc, Preference_Order__c, Preference_Lottery_Rank__c,  Application__r.General_Lottery_Rank__c asc')
                .transform_results { |results| massage(results) }
       end
