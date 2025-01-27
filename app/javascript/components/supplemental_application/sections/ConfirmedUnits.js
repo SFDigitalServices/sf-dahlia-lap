@@ -3,7 +3,7 @@ import React from 'react'
 import FormGrid from 'components/molecules/FormGrid'
 import { CheckboxField, TextCheckboxField } from 'utils/form/final_form/Field'
 
-const ConfirmedUnits = ({ form }) => {
+const ConfirmedUnits = ({ form, showHCBSUnitsCheckbox }) => {
   return (
     <>
       <FormGrid.Row>
@@ -22,10 +22,12 @@ const ConfirmedUnits = ({ form }) => {
                 fieldName='has_ada_priorities_selected.hearing_impairments'
                 label='Hearing Impairments'
               />
-              <CheckboxField
-                fieldName='has_ada_priorities_selected.hcbs_units'
-                label='HCBS Units'
-              />
+              {showHCBSUnitsCheckbox && (
+                <CheckboxField
+                  fieldName='has_ada_priorities_selected.hcbs_units'
+                  label='HCBS Units'
+                />
+              )}
             </div>
           </FormGrid.Group>
         </FormGrid.Item>

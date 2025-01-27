@@ -1221,24 +1221,6 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                             Hearing Impairments
                           </label>
                         </div>
-                        <div
-                          class="form-group"
-                        >
-                          <input
-                            class=""
-                            id="form-has_ada_priorities_selected.hcbs_units"
-                            name="has_ada_priorities_selected.hcbs_units"
-                            type="checkbox"
-                            value=""
-                          />
-                          <label
-                            class="form-label"
-                            for="form-has_ada_priorities_selected.hcbs_units"
-                            id="label-has_ada_priorities_selected-hcbs_units"
-                          >
-                            HCBS Units
-                          </label>
-                        </div>
                       </div>
                     </div>
                   </div>
