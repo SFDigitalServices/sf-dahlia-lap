@@ -1655,11 +1655,6 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                         >
                           2024
                         </option>
-                        <option
-                          value="2025"
-                        >
-                          2025
-                        </option>
                       </select>
                     </div>
                   </div>
