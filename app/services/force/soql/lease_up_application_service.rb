@@ -79,6 +79,7 @@ module Force
                .where(%(
                   Listing__r.ID = '#{opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]}'
                   AND Status__c != 'Removed'
+                  AND Applicant__c != null
                   #{search ? "AND (#{search})" : ''}
                   #{filters}
                 ))
