@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 8.0.0'
+gem 'rails', '~> 7.1.0'
 # Set a minimum version for Rack to avoid security vulnerability in Rack <2.2.3
 gem 'rack', '>= 2.2.3'
 # Use Puma as the app server
@@ -48,7 +48,7 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.2'
   gem 'pry-rails'
   gem 'binding_of_caller'
-  gem 'rspec-rails', '~> 4.0.2'
+  gem 'rspec-rails', '>= 4.0.2'
   gem 'webmock'
   gem "pry-byebug", '>= 3.9.0'
   gem 'awesome_print'
@@ -92,7 +92,7 @@ gem "devise", "~> 4.9.0"
 gem "omniauth-salesforce", "~> 1.0.5"
 gem "omniauth-rails_csrf_protection"
 
-gem "restforce", "~> 6.2.2"
+gem "restforce", ">= 6.2.2"
 # handy ruby extensions
 gem 'facets', require: false
 
