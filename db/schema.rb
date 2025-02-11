@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2017_10_23_065206) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_10_235233) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.integer "sign_in_count", default: 0, null: false
@@ -29,5 +29,4 @@ ActiveRecord::Schema[7.0].define(version: 2017_10_23_065206) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
-
 end

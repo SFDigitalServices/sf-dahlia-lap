@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '3.1.3'
+ruby '3.4.1'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0.8'
+gem 'rails', '~> 8.0.0'
 # Set a minimum version for Rack to avoid security vulnerability in Rack <2.2.3
 gem 'rack', '>= 2.2.3'
 # Use Puma as the app server
@@ -37,6 +37,8 @@ gem 'mini_portile2', '~> 2.5', '>= 2.5.1'
 
 gem 'psych', '< 4'
 
+gem 'mutex_m'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -48,7 +50,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'rspec-rails', '~> 4.0.2'
   gem 'webmock'
-  gem "pry-byebug", '~> 3.9.0'
+  gem "pry-byebug", '>= 3.9.0'
   gem 'awesome_print'
   gem 'vcr'
   gem 'rails-controller-testing'
@@ -57,7 +59,7 @@ group :development, :test do
   # https://github.com/codeclimate/test-reporter/issues/418
   gem 'simplecov', '~> 0.22.0', require: false
   gem 'ruby-debug-ide'
-  gem "debase", "0.2.5.beta2"
+  gem "debase"
   # gem "debug", ">= 1.0.0"
 end
 
@@ -74,11 +76,14 @@ group :development do
   gem 'better_errors'
   gem 'rubocop', require: false
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.6.2'
+  gem 'sqlite3', '>= 2.1'
 end
 
 gem 'rails_12factor', group: :production
-gem "sentry-raven"
+gem 'sentry-ruby'
+gem "sentry-rails"
+gem "sentry-sidekiq"
+gem "sentry-delayed_job"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
