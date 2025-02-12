@@ -81,12 +81,11 @@ jobs:
       - checkout
       - prepare_workspace
       - run:
-          name: Configure Bundler for debase
-          command: bundle config build.debase --use-system-libraries
-      - run:
           name: install dependencies
           command: |
-            bundle check --path vendor/bundle || bundle install --deployment --jobs=4 --retry=3 --path vendor/bundle
+            bundle config set deployment true
+            bundle config set path 'vendor/bundle'
+            bundle install --jobs=4 --retry=3
       - save_cache:
           key: partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1-{{ checksum "Gemfile.lock" }}
           paths:
