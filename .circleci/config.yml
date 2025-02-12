@@ -48,7 +48,7 @@ commands:
     description: 'Attach workspace and restore cache'
     steps:
       - *attach_workspace
-      - *restore_yarn_cache
+      # - *restore_yarn_cache
       - *restore_bundler_cache
   run-e2e:
     description: 'Run e2e tests'
@@ -86,10 +86,10 @@ jobs:
             bundle config set deployment true
             bundle config set path 'vendor/bundle'
             bundle install --jobs=4 --retry=3
-      - save_cache:
-          key: partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1-{{ checksum "Gemfile.lock" }}
-          paths:
-            - ./vendor/bundle/
+      # - save_cache:
+      #     key: partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1-{{ checksum "Gemfile.lock" }}
+      #     paths:
+      #       - ./vendor/bundle/
       - run:
           name: install yarn dependencies
           command: yarn install --check-files
