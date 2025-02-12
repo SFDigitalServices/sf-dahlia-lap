@@ -97,6 +97,11 @@ jobs:
       - checkout
       - prepare_workspace
       - install-node
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules/
       - run:
           name: install dependencies
           command: |
@@ -105,11 +110,6 @@ jobs:
           key: partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1-{{ checksum "Gemfile.lock" }}
           paths:
             - ./vendor/bundle/
-      - save_cache:
-          name: Save Yarn Package Cache
-          key: partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
-          paths:
-            - node_modules/
       - run: bundle exec rake db:setup
       - run: bundle exec rake db:test:prepare
       - run:
