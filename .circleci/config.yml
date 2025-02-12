@@ -81,6 +81,9 @@ jobs:
       - checkout
       - prepare_workspace
       - run:
+          name: Configure Bundler for debase
+          command: bundle config build.debase --use-system-libraries
+      - run:
           name: install dependencies
           command: |
             bundle check --path vendor/bundle || bundle install --deployment --jobs=4 --retry=3 --path vendor/bundle
