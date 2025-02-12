@@ -50,17 +50,6 @@ commands:
       - *attach_workspace
       - *restore_yarn_cache
       - *restore_bundler_cache
-  install-node:
-    description: "install node"
-    steps:
-      - run:
-          command: |
-            curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
-            source ~/.nvm/nvm.sh
-            nvm install 18.12.1
-            nvm use 18.12.1
-            echo "Using Node.js version: $(node -v)"
-      - run: yarn install
   run-e2e:
     description: 'Run e2e tests'
     steps:
@@ -91,12 +80,6 @@ jobs:
     steps:
       - checkout
       - prepare_workspace
-      - install-node
-      - save_cache:
-          name: Save Yarn Package Cache
-          key: partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
-          paths:
-            - node_modules/
       - run:
           name: install dependencies
           command: |
@@ -105,6 +88,14 @@ jobs:
           key: partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1-{{ checksum "Gemfile.lock" }}
           paths:
             - ./vendor/bundle/
+      - run:
+          name: install yarn dependencies
+          command: yarn install --check-files
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules/
       - run: bundle exec rake db:setup
       - run: bundle exec rake db:test:prepare
       - run:
