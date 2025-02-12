@@ -1,11 +1,11 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 orbs:
-  ruby: circleci/ruby@2.4.0
+  ruby: circleci/ruby@2.1.0
 defaults: &defaults
   working_directory: ~/tmp
   docker:
-    - image: cimg/ruby:3.4.1-browsers
+    - image: cimg/ruby:3.1.3-browsers
       environment:
         RAILS_ENV: development
         PGHOST: 127.0.0.1
@@ -83,9 +83,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            bundle config set deployment true
-            bundle config set path 'vendor/bundle'
-            bundle install --jobs=4 --retry=3
+            bundle check --path vendor/bundle || bundle install --deployment --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           key: partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1-{{ checksum "Gemfile.lock" }}
           paths:
