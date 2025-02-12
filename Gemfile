@@ -14,8 +14,8 @@ gem 'rack', '>= 2.2.3'
 gem 'puma', '~> 6.4.3'
 # Use SCSS for stylesheets
 gem 'sassc-rails'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+# Use terser as compressor for JavaScript assets
+gem 'terser'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
