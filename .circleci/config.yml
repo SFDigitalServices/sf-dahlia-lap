@@ -5,7 +5,7 @@ orbs:
 defaults: &defaults
   working_directory: ~/tmp
   docker:
-    - image: cimg/ruby:3.4.1-node18.12-browsers
+    - image: cimg/ruby:3.4.1-browsers
       environment:
         RAILS_ENV: development
         PGHOST: 127.0.0.1
@@ -50,6 +50,22 @@ commands:
       - *attach_workspace
       - *restore_yarn_cache
       - *restore_bundler_cache
+  install-node:
+    description: "install node"
+    steps:
+      - run:
+          command: |
+            set +e
+            touch $BASH_ENV
+            curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash
+            echo 'export NVM_DIR="$HOME/.nvm"' >> $BASH_ENV
+            echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
+            echo 'nvm install v18.12.1' >> $BASH_ENV
+            echo 'nvm alias default v18.12.1' >> $BASH_ENV
+      - run: |
+          curl -o- -L https://yarnpkg.com/install.sh | bash
+          echo 'export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"' >> $BASH_ENV
+      - run: yarn install
   run-e2e:
     description: 'Run e2e tests'
     steps:
@@ -88,9 +104,7 @@ jobs:
           key: partners-{{ .Environment.CACHE_VERSION }}-dependencies-v1-{{ checksum "Gemfile.lock" }}
           paths:
             - ./vendor/bundle/
-      - run:
-          name: install yarn dependencies
-          command: yarn install --check-files
+      - install-node
       - save_cache:
           name: Save Yarn Package Cache
           key: partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
