@@ -40,6 +40,7 @@ gem 'psych', '< 4'
 gem 'mutex_m'
 
 group :development, :test do
+  gem "debase"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
@@ -59,7 +60,6 @@ group :development, :test do
   # https://github.com/codeclimate/test-reporter/issues/418
   gem 'simplecov', '~> 0.22.0', require: false
   gem 'ruby-debug-ide'
-  gem "debase"
   # gem "debug", ">= 1.0.0"
 end
 
