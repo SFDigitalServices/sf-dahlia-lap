@@ -21,7 +21,7 @@ class ApiController < ActionController::API
     else
       message = 'Not found.'
     end
-    Raven.capture_exception(e)
+    Sentry.capture_exception(e)
     logger.error "<< API Error >> #{message}"
     status_code = Rack::Utils::SYMBOL_TO_STATUS_CODE[status]
     render json: { message: message, status: status_code }, status: status
