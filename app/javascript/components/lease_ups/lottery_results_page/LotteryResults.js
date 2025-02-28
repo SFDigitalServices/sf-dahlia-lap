@@ -16,7 +16,7 @@ export const LotteryResults = React.forwardRef(({ name, address, buckets }, ref)
           {"Mayor's Office of Housing and Community Development"}
           <br />
           <img
-            src='https://www.sf.gov/themes/custom/sfgovpl/logo.svg'
+            src='https://www.sf.gov/static/CCSF-seal-vector.svg'
             alt='SF'
             id='lottery-results-seal'
           />
