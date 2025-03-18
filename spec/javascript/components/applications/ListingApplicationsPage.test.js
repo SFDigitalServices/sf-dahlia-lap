@@ -24,10 +24,16 @@ describe('ListingApplicationsPage', () => {
   test('should render successfully', async () => {
     let renderResponse
     await act(async () => {
-      renderResponse = render(<ListingApplicationsPage listing={listing} />)
+      renderResponse = render(<ListingApplicationsPage listing={listing} user_is_admin />)
     })
 
     waitFor(() => screen.getByText('Listing Details'))
     expect(renderResponse.asFragment()).toMatchSnapshot()
+  })
+
+  test('hides lottery results tab for non-admin users', () => {
+    render(<ListingApplicationsPage listing={listing} user_is_admin={false} />)
+
+    expect(screen.queryByText('Lottery Results')).not.toBeInTheDocument()
   })
 })
