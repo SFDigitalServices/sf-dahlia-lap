@@ -8,7 +8,9 @@ module Listings
     before_action :validate_listing!
     before_action :listing_accepts_new_applications, only: [:new]
 
-    def index; end
+    def index
+      @user_is_admin = current_user.admin.present?
+    end
 
     def new
       @lending_institutions = soql_listing_service.sale?(@listing) ? lending_institutions : {}
