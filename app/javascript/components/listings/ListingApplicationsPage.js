@@ -7,7 +7,7 @@ import { fetchApplications } from '../applications/applicationRequestUtils'
 import ApplicationsTableContainer from '../applications/ApplicationsTableContainer'
 import TableLayout from '../layouts/TableLayout'
 
-const ListingApplicationsPage = ({ listing }) => {
+const ListingApplicationsPage = ({ listing, user_is_admin }) => {
   const filters = { listing_id: listing.id }
   const pageHeader = {
     title: listing.name
@@ -16,9 +16,12 @@ const ListingApplicationsPage = ({ listing }) => {
   const tabs = {
     items: [
       { title: 'Listing Details', url: appPaths.toListing(listing.id) },
-      { title: 'Applications', url: appPaths.toApplications(listing.id), active: true },
-      { title: 'Lottery Results', url: appPaths.toLotteryResults(listing.id) }
+      { title: 'Applications', url: appPaths.toApplications(listing.id), active: true }
     ]
+  }
+
+  if (user_is_admin) {
+    tabs.items.push({ title: 'Lottery Results', url: appPaths.toLotteryResults(listing.id) })
   }
 
   return (
@@ -32,9 +35,10 @@ const ListingApplicationsPage = ({ listing }) => {
   )
 }
 
-const mapProperties = ({ listing }) => {
+const mapProperties = ({ listing, user_is_admin }) => {
   return {
     listing,
+    user_is_admin,
     onFetchData: fetchApplications
   }
 }

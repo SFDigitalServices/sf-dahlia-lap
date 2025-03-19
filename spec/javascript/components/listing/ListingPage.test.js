@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import {
   detailsFields,
@@ -32,9 +32,15 @@ describe('ListingPage', () => {
   const listing = modelsFactory.listingDetail()
 
   test('should render succesfully', () => {
-    const { asFragment } = render(<ListingPage listing={listing} />)
+    const { asFragment } = render(<ListingPage listing={listing} user_is_admin />)
 
     expect(asFragment()).toMatchSnapshot()
+  })
+
+  test('hides lottery results tab for non-admin users', () => {
+    render(<ListingPage listing={listing} user_is_admin={false} />)
+
+    expect(screen.queryByText('Lottery Results')).not.toBeInTheDocument()
   })
 
   describe('individual fields', () => {

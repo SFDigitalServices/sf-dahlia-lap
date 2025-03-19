@@ -11,6 +11,7 @@ class ListingsController < ApplicationController
 
   def show
     @listing = service.listing(params[:id])
+    @user_is_admin = current_user.admin.present?
   end
 
   private
