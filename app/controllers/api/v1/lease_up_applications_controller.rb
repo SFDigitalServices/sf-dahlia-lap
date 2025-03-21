@@ -10,7 +10,20 @@ module Api::V1
         applications[:records] = Force::Application.convert_list(applications[:records], :from_salesforce, :to_domain)
       elsif lease_up_apps_params[:pagination]
         # All other listings need to be queried by preferences first
-        applications = soql_preference_pagination_service.app_preferences_for_listing(lease_up_apps_params)
+
+        puts "\n\nDEBUG lease_up_apps_params==========================================================="
+        luap = lease_up_apps_params
+        luap['pagination'] = 'false'
+        luap['per_page'] = 3000
+        p luap
+        puts "\n"
+
+        applications = soql_preference_pagination_service.app_preferences_for_listing(luap)
+
+        puts "\n\nDEBUG applications[:records].length=================================================="
+        p applications[:records].length
+        puts "\n"
+
         applications[:records] = Force::Preference.convert_list(applications[:records], :from_salesforce, :to_domain)
       else
         # All other listings need to be queried by preferences first
