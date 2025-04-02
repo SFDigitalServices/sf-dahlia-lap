@@ -13,6 +13,7 @@ module Force
     def units_and_leases_for_listing(listing_id)
       lease_query = builder.from(:Leases__r)
                          .select('Application__c, Lease_Status__c, Preference_Used_Name__c')
+                         .where_eq('Listing__c', listing_id, :string)
                          .to_soql
 
       result = builder.from(:Unit__c)
