@@ -22,6 +22,10 @@ module Force
              .query
              .records
 
+      Rails.logger.debug 'DEBUG UnitsService#units_and_leases_for_listing'
+      Rails.logger.debug "\nlease_query #{lease_query.inspect}\n"
+      Rails.logger.debug "\nresult #{result.inspect}\n"
+
       #format/convert unit and lease objects
       domain_units = result.map do |unit|
         domain_unit = Force::Unit.from_salesforce(unit).to_domain
