@@ -19,7 +19,7 @@
     "@sentry/node": "^7.93.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@unleash/proxy-client-react": "^4.2.3",
-    "axios": "^1.7.4",
+    "axios": "^1.8.2",
     "babel-plugin-root-import": "^6.6.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "classnames": "^2.5.1",
