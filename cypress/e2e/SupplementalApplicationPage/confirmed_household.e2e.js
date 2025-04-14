@@ -37,8 +37,8 @@ describe('SupplementalApplicationPage confirmed household income section', () =>
     cy.get(confirmedAnnualSelector).clear().type(confirmedAnnualValue.currency)
     cy.get(finalHHAnnualSelector).clear().type(finalHHAnnualValue.currency)
 
-    const chartType = 'HUD Unadjusted'
-    const chartYear = '2018'
+    const chartType = 'MOHCD'
+    const chartYear = '2024'
 
     // Enter AMI Info
     cy.get(amiPercentageSelector).clear().type('5.55')
