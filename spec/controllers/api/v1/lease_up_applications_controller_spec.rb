@@ -6,7 +6,7 @@ RSpec.describe Api::V1::LeaseUpApplicationsController, type: :controller do
   render_views
   login_admin
 
-  lease_up_listing = 'a0W0P00000GbyuQ' # Lease up Listing
+  lease_up_listing = 'a0W0P00000GbyuQUAR' # Lease up Listing
   # if you need to re-record the first come first served spec, you might have to recreate the listing
   fcfs_listing =  'a0W6s000008C9TlEAK' # First Come First Served listing in lease up
 
