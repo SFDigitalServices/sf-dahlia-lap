@@ -331,48 +331,50 @@ describe('ApplicationNewPage', () => {
     cy.contains(DATE_OF_BIRTH).should('exist')
   })
 
-  it('should fail for an incomplete new rental fcfs application, and create successfully when complete', () => {
-    cy.visit('http://localhost:3000/')
-    cy.login()
-    cy.visit(`/listings/${FCFS_RENTAL_LISTING_ID}/applications/new`)
+  // FCFS listing in Full environment was destroyed in the 2025 Salesforce refresh
+  // Disabling this FCFS test until we recreate the FCFS listing
+  // it('should fail for an incomplete new rental fcfs application, and create successfully when complete', () => {
+  //   cy.visit('http://localhost:3000/')
+  //   cy.login()
+  //   cy.visit(`/listings/${FCFS_RENTAL_LISTING_ID}/applications/new`)
 
-    cy.get('#application_language').select('English')
-    cy.get('#first_name').type(FIRST_NAME)
-    cy.get('#last_name').type(LAST_NAME)
-    cy.get('#date_of_birth_month').type(DOB_MONTH)
-    cy.get('#date_of_birth_day').type(DOB_DAY)
-    cy.get('#date_of_birth_year').type(DOB_YEAR)
+  //   cy.get('#application_language').select('English')
+  //   cy.get('#first_name').type(FIRST_NAME)
+  //   cy.get('#last_name').type(LAST_NAME)
+  //   cy.get('#date_of_birth_month').type(DOB_MONTH)
+  //   cy.get('#date_of_birth_day').type(DOB_DAY)
+  //   cy.get('#date_of_birth_year').type(DOB_YEAR)
 
-    cy.get('.save-btn').click()
+  //   cy.get('.save-btn').click()
 
-    cy.get('.alert-box').should('exist')
+  //   cy.get('.alert-box').should('exist')
 
-    cy.fillOutRequiredFields()
+  //   cy.fillOutRequiredFields()
 
-    if (usingFixtures()) {
-      cy.intercept('GET', 'api/v1/short-form/**', { fixture: 'shortFormGet.json' }).as(
-        'shortFormGet'
-      )
-    } else {
-      cy.intercept('GET', 'api/v1/short-form/**').as('shortFormGet')
-    }
+  //   if (usingFixtures()) {
+  //     cy.intercept('GET', 'api/v1/short-form/**', { fixture: 'shortFormGet.json' }).as(
+  //       'shortFormGet'
+  //     )
+  //   } else {
+  //     cy.intercept('GET', 'api/v1/short-form/**').as('shortFormGet')
+  //   }
 
-    // Save the application and verify that there are no form errors
-    cy.get('.save-btn').click()
-    cy.wait('@shortFormPost')
-    cy.wait('@shortFormGet')
+  //   // Save the application and verify that there are no form errors
+  //   cy.get('.save-btn').click()
+  //   cy.wait('@shortFormPost')
+  //   cy.wait('@shortFormGet')
 
-    cy.get('.alert-box').should('not.exist')
+  //   cy.get('.alert-box').should('not.exist')
 
-    cy.get('.application-details')
+  //   cy.get('.application-details')
 
-    // Verify that the values match on the application view page
-    cy.url().should('match', /\/applications\/.*\?showAddBtn=true/)
+  //   // Verify that the values match on the application view page
+  //   cy.url().should('match', /\/applications\/.*\?showAddBtn=true/)
 
-    cy.contains(TRUNCATED_FIRST_NAME).should('exist')
-    cy.contains(TRUNCATED_LAST_NAME).should('exist')
-    cy.contains(DATE_OF_BIRTH).should('exist')
-  })
+  //   cy.contains(TRUNCATED_FIRST_NAME).should('exist')
+  //   cy.contains(TRUNCATED_LAST_NAME).should('exist')
+  //   cy.contains(DATE_OF_BIRTH).should('exist')
+  // })
 
   it('should redirect when lottery_status is anything other than "Not Yet Run"', () => {
     cy.applicationRedirectRouteCheck('new', LEASE_UP_LISTING_ID)
