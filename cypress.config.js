@@ -27,7 +27,7 @@ module.exports = defineConfig({
       // Default to Automated Test Listing on Full
       NON_LEASE_UP_LISTING_ID: process.env.E2E_NON_LEASE_UP_LISTING_ID || 'a0W0P00000F8YG4UAN',
       // Default to Yellow Acres on Full
-      LEASE_UP_LISTING_ID: process.env.E2E_LEASE_UP_LISTING_ID || 'a0W0P00000GbyuQ',
+      LEASE_UP_LISTING_ID: process.env.E2E_LEASE_UP_LISTING_ID || 'a0W0P00000GbyuQUAR',
       // Default to an application from Yellow Acres on Full
       LEASE_UP_LISTING_APPLICATION_ID:
         process.env.E2E_LEASE_UP_LISTING_APPLICATION_ID || 'a0o0P00000GZazOQAT',
