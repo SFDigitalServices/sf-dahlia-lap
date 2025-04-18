@@ -18,9 +18,10 @@ const sliceRecords = (records, eagerCurrentPage, eagerSize, serverSize) => {
 }
 
 class EagerPagination {
-  constructor(eagerPageSize, serverPageSize) {
+  constructor(eagerPageSize, serverPageSize, noLimit = false) {
     this.eager = { currentPage: -1, size: eagerPageSize }
     this.server = { currentPage: -1, size: serverPageSize }
+    this.noLimit = noLimit
   }
 
   reset() {
@@ -29,6 +30,7 @@ class EagerPagination {
   }
 
   isOverLimit(page) {
+    if (this.noLimit) return false
     return page * this.eager.size >= MAX_SERVER_LIMIT
   }
 
