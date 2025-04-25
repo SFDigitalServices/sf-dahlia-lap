@@ -21,8 +21,9 @@ describe('LeaseUpApplicationsPage status update', () => {
       cy.intercept('api/v1/lease-ups/listings/**', { fixture: 'leaseUpListing.json' }).as(
         'leaseUpListing'
       )
-      cy.intercept(`api/v1/lease-ups/applications?listing_id=${LEASE_UP_LISTING_ID}`, {
-        fixture: 'leaseUpApplications.json'
+      cy.intercept(`api/v1/lease-ups/applications?listing_id=${LEASE_UP_LISTING_ID}`, (req) => {
+        console.log('Intercepted request:', req) // logs to the terminal
+        req.reply({ fixture: 'leaseUpApplications.json' })
       }).as('leaseUpApplications')
       cy.intercept('api/v1/applications/**/field_update_comments', {
         fixture: 'fieldUpdateComments.json'
@@ -232,7 +233,10 @@ describe('LeaseUpApplicationsPage status update', () => {
 
             cy.get('button[data-testid="search-icon"]').click()
 
-            cy.url().should('equal', `http://localhost:3000/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
+            cy.url().should(
+              'equal',
+              `http://localhost:3000/lease-ups/listings/${LEASE_UP_LISTING_ID}`
+            )
 
             cy.get('div[role="grid"] input[type="checkbox"]')
               .its('length')
