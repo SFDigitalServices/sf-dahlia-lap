@@ -27,7 +27,7 @@ module.exports = defineConfig({
       // Default to Automated Test Listing on Full
       NON_LEASE_UP_LISTING_ID: process.env.E2E_NON_LEASE_UP_LISTING_ID || 'a0W0P00000F8YG4UAN',
       // Default to Yellow Acres on Full
-      LEASE_UP_LISTING_ID: process.env.E2E_LEASE_UP_LISTING_ID || 'a0W0P00000GbyuQ',
+      LEASE_UP_LISTING_ID: process.env.E2E_LEASE_UP_LISTING_ID || 'a0W0P00000GbyuQUAR',
       // Default to an application from Yellow Acres on Full
       LEASE_UP_LISTING_APPLICATION_ID:
         process.env.E2E_LEASE_UP_LISTING_APPLICATION_ID || 'a0o0P00000GZazOQAT',
@@ -39,7 +39,7 @@ module.exports = defineConfig({
       // Default to sample flagged record set on full
       FLAGGED_RECORD_SET_ID: process.env.E2E_FLAGGED_RECORD_SET_ID || 'a0r0P00002WqGZ6QAN',
       // Default to 400 China Basin in full
-      FCFS_RENTAL_LISTING_ID: process.env.FCFS_RENTAL_LISTING_ID || 'a0W6s000008CO5yEAG',
+      FCFS_RENTAL_LISTING_ID: process.env.FCFS_RENTAL_LISTING_ID || 'a0W4U00000SWKbMUAX',
       // When this is turned to true, Cypress will log the Salesforce password to the console
       // This is useful for debugging, but should never be turned on in a PR
       LOG_SECRETS: false

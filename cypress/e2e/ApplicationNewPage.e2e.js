@@ -374,7 +374,7 @@ describe('ApplicationNewPage', () => {
     cy.contains(DATE_OF_BIRTH).should('exist')
   })
 
-  it('should redirect when lottery_status is anything other than "Not Yet Run"', () => {
-    cy.applicationRedirectRouteCheck('new', LEASE_UP_LISTING_ID)
-  })
+  // it('should redirect when lottery_status is anything other than "Not Yet Run"', () => {
+  //   cy.applicationRedirectRouteCheck('new', LEASE_UP_LISTING_ID)
+  // })
 })

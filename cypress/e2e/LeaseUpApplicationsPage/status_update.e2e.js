@@ -211,28 +211,28 @@ describe('LeaseUpApplicationsPage status update', () => {
 
             cy.url().should(
               'equal',
-              'http://localhost:3000/lease-ups/listings/a0W0P00000GbyuQ?preference=Certificate+of+Preference+%28COP%29&total_household_size=1&total_household_size=2&accessibility=Mobility+impairments&accessibility=Vision+impairments%2C+Hearing+impairments&status=Processing'
+              `http://localhost:3000/lease-ups/listings/${LEASE_UP_LISTING_ID}?preference=Certificate+of+Preference+%28COP%29&total_household_size=1&total_household_size=2&accessibility=Mobility+impairments&accessibility=Vision+impairments%2C+Hearing+impairments&status=Processing`
             )
 
             cy.get('input[name="search"]').type('Andrew{enter}')
 
             cy.url().should(
               'equal',
-              'http://localhost:3000/lease-ups/listings/a0W0P00000GbyuQ?preference=Certificate+of+Preference+%28COP%29&total_household_size=1&total_household_size=2&accessibility=Mobility+impairments&accessibility=Vision+impairments%2C+Hearing+impairments&status=Processing&search=Andrew'
+              `http://localhost:3000/lease-ups/listings/${LEASE_UP_LISTING_ID}?preference=Certificate+of+Preference+%28COP%29&total_household_size=1&total_household_size=2&accessibility=Mobility+impairments&accessibility=Vision+impairments%2C+Hearing+impairments&status=Processing&search=Andrew`
             )
 
             cy.contains('button', 'Clear all').click()
 
             cy.url().should(
               'equal',
-              'http://localhost:3000/lease-ups/listings/a0W0P00000GbyuQ?search=Andrew'
+              `http://localhost:3000/lease-ups/listings/${LEASE_UP_LISTING_ID}?search=Andrew`
             )
 
             cy.contains('button', 'Hide Filters').click()
 
             cy.get('button[data-testid="search-icon"]').click()
 
-            cy.url().should('equal', 'http://localhost:3000/lease-ups/listings/a0W0P00000GbyuQ')
+            cy.url().should('equal', `http://localhost:3000/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
 
             cy.get('div[role="grid"] input[type="checkbox"]')
               .its('length')
@@ -282,12 +282,12 @@ describe('LeaseUpApplicationsPage status update', () => {
 
         cy.url().should(
           'equal',
-          'http://localhost:3000/lease-ups/listings/a0W0P00000GbyuQ?search=Andrew'
+          `http://localhost:3000/lease-ups/listings/${LEASE_UP_LISTING_ID}?search=Andrew`
         )
 
         cy.get('button[data-testid="search-icon"]').click()
 
-        cy.url().should('equal', 'http://localhost:3000/lease-ups/listings/a0W0P00000GbyuQ')
+        cy.url().should('equal', `http://localhost:3000/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
       })
     })
   })
