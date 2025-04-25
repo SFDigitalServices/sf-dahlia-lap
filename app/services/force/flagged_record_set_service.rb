@@ -65,7 +65,7 @@ module Force
     def update_flagged_application(data)
       data = Hashie::Mash.new(data)
       return nil unless data[:Id]
-      puts "updating flagged application with: #{data.as_json}"
+      # puts "updating flagged application with: #{data.as_json}"
       # by passing data[:Id] it will know to update that record
       @client.update!('Flagged_Application__c', data)
     end

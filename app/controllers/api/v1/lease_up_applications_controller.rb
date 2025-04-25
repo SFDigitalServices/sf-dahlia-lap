@@ -11,9 +11,10 @@ module Api::V1
         lease_up_applications.query
         applications[:records] = lease_up_applications.response_as_restforce_objects[:records]
         applications[:pages] = lease_up_applications.page_count
+        applications[:total_size] = lease_up_applications.total_count
         applications[:records] = Force::Application.convert_list(applications[:records], :from_salesforce, :to_domain)
         # soql-based query with 2000 record limit
-        # applications = soql_lease_up_application_service.lease_up_applications(lease_up_apps_params)
+        # applications = Force::Soql::LeaseUpApplicationService.new(current_user).lease_up_applications(lease_up_apps_params)
         # applications[:records] = Force::Application.convert_list(applications[:records], :from_salesforce, :to_domain)
       else
         # All other listings need to be queried by preferences first
@@ -21,9 +22,10 @@ module Api::V1
         lease_up_application_preferences.query
         applications[:records] = lease_up_application_preferences.response_as_restforce_objects[:records]
         applications[:pages] = lease_up_application_preferences.page_count
+        applications[:total_size] = lease_up_application_preferences.total_count
         applications[:records] = Force::Preference.convert_list(applications[:records], :from_salesforce, :to_domain)
         # soql-based query with 2000 record limit
-        # applications = soql_preference_pagination_service.app_preferences_for_listing(lease_up_apps_params)
+        # applications = Force::Soql::PreferencePaginationService.new(current_user).app_preferences_for_listing(lease_up_apps_params)
         # applications[:records] = Force::Preference.convert_list(applications[:records], :from_salesforce, :to_domain)
       end
 
@@ -33,18 +35,6 @@ module Api::V1
     end
 
     private
-
-    def soql_preference_pagination_service
-      Force::Soql::PreferencePaginationService.new(current_user)
-    end
-
-    def soql_preference_service
-      Force::Soql::PreferenceService.new(current_user)
-    end
-
-    def soql_lease_up_application_service
-      Force::Soql::LeaseUpApplicationService.new(current_user)
-    end
 
     def lease_up_apps_params
       params.permit(
