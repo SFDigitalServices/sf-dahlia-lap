@@ -29,8 +29,8 @@ RSpec.describe LotteryResultsPdfGeneratorController, type: :controller do
           get :index, params: { id: valid_listing_id }
         end
 
-        expect(response.body).to include('redirected')
-        expect(response).to have_http_status(:redirect)
+        expect(response).to have_http_status(:found)
+        expect(response).to redirect_to('http://test.host/')
       end
     end
   end
