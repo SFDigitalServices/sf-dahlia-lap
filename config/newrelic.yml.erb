@@ -12,7 +12,7 @@
 
 common: &default_settings
   # Required license key associated with your New Relic account.
-  license_key: <%= ENV.fetch("NEW_RELIC_LICENSE_KEY") %>
+  license_key: <%= ENV["NEW_RELIC_LICENSE_KEY"] %>
 
   # Your application name. Renaming here affects where data displays in New
   # Relic.  For more details, see https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/renaming-applications
@@ -31,6 +31,9 @@ common: &default_settings
 development:
   <<: *default_settings
   app_name: DAHLIA LAP (Development)
+  # NOTE: There is substantial overhead when running in developer mode.
+  # Do not use for production or load testing.
+  developer_mode: true
 
 test:
   <<: *default_settings

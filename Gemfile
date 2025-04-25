@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '3.1.3'
+ruby '3.4.1'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -7,15 +7,15 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0.8'
+gem 'rails', '8.0.1'
 # Set a minimum version for Rack to avoid security vulnerability in Rack <2.2.3
 gem 'rack', '>= 2.2.3'
 # Use Puma as the app server
 gem 'puma', '~> 6.4.3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'sassc-rails'
+# Use terser as compressor for JavaScript assets
+gem 'terser'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -37,6 +37,8 @@ gem 'mini_portile2', '~> 2.5', '>= 2.5.1'
 
 gem 'psych', '< 4'
 
+gem 'mutex_m'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -46,9 +48,9 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.2'
   gem 'pry-rails'
   gem 'binding_of_caller'
-  gem 'rspec-rails', '~> 4.0.2'
+  gem 'rspec-rails', '>= 4.0.2'
   gem 'webmock'
-  gem "pry-byebug", '~> 3.9.0'
+  gem "pry-byebug", '>= 3.9.0'
   gem 'awesome_print'
   gem 'vcr'
   gem 'rails-controller-testing'
@@ -56,8 +58,10 @@ group :development, :test do
   # Stop upgrading SimpleCov until the following issue will be resolved.
   # https://github.com/codeclimate/test-reporter/issues/418
   gem 'simplecov', '~> 0.22.0', require: false
-  gem 'ruby-debug-ide'
-  gem "debase", "0.2.5.beta2"
+
+  # debase is causing issues in the CI pipeline and we aren't even using it
+  # gem 'ruby-debug-ide'
+  # gem 'debase', '>= 0.2.9'
   # gem "debug", ">= 1.0.0"
 end
 
@@ -74,11 +78,12 @@ group :development do
   gem 'better_errors'
   gem 'rubocop', require: false
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.6.2'
+  gem 'sqlite3', '>= 2.1'
 end
 
 gem 'rails_12factor', group: :production
-gem "sentry-raven"
+gem 'sentry-ruby'
+gem "sentry-rails"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -87,7 +92,7 @@ gem "devise", "~> 4.9.0"
 gem "omniauth-salesforce", "~> 1.0.5"
 gem "omniauth-rails_csrf_protection"
 
-gem "restforce", "~> 6.2.2"
+gem "restforce", ">= 6.2.2"
 # handy ruby extensions
 gem 'facets', require: false
 
