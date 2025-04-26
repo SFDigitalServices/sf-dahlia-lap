@@ -21,9 +21,9 @@ describe('LeaseUpApplicationsPage status update', () => {
       cy.intercept('api/v1/lease-ups/listings/**', { fixture: 'leaseUpListing.json' }).as(
         'leaseUpListing'
       )
-      cy.intercept(`api/v1/lease-ups/applications?listing_id=${LEASE_UP_LISTING_ID}`, (req) => {
-        console.log('Intercepted request:', req) // logs to the terminal
-        req.reply({ fixture: 'leaseUpApplications.json' })
+      cy.intercept(`api/v1/lease-ups/applications?listing_id=${LEASE_UP_LISTING_ID}`, {
+        fixture: 'leaseUpApplications.json',
+        log: true
       }).as('leaseUpApplications')
       cy.intercept('api/v1/applications/**/field_update_comments', {
         fixture: 'fieldUpdateComments.json'
@@ -42,7 +42,9 @@ describe('LeaseUpApplicationsPage status update', () => {
       cy.login()
       cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}?featureFlag[PARTNERS_PAGINATION]=false`)
       cy.wait('@leaseUpListing')
-      cy.wait('@leaseUpApplications')
+      cy.wait('@leaseUpApplications').then((interception) => {
+        console.log('Intercepted:', interception)
+      })
 
       // Change status to one that is not currently selected.
       cy.getText(firstRowStatusDropdown).then((text) => {
