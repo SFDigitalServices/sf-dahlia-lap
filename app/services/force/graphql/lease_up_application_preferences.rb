@@ -20,7 +20,6 @@ module Force
         call(build_lease_up_applications_query(@params, @paging_cursor))
       end
 
-      # ported from PreferencePaginationService.app_preferences_for_listing_query
       def build_lease_up_applications_query(opts, cursor = nil)
         where_clause_str = build_where_clause(opts)
         # https://developer.salesforce.com/docs/platform/graphql/guide/paginate-use-upperbound.html
@@ -65,6 +64,9 @@ module Force
                         Processing_Date_Updated__c {value}
                         Applicant__r { 
                           First_Name__c {value}
+                          Last_Name__c {value}
+                          Residence_Address__c {value}
+                          Mailing_Address__c {value}
                         }
                       }
                     }
@@ -98,7 +100,7 @@ module Force
         filters = build_applications_filters(opts)
         search = build_applications_search(opts)
         where_clause_ary = [
-          "{Listing_ID__c: {eq: \"#{opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]}\" }}",
+          "{Listing_ID__c: {eq: \"#{truncated_listing_id(opts[:listing_id])}\"}}",
           default,
           filters,
           search,
@@ -209,9 +211,9 @@ module Force
           GQL
         end
         <<~GQL
-          { or: [
+          {or: [
             #{total_household_size_ary.map(&:strip).join(",\n")}
-          ] }
+          ]}
         GQL
       end
     end

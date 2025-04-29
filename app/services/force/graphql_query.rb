@@ -20,7 +20,7 @@ module Force
         host: EnvUtils.get!('SALESFORCE_HOST'),
       )
       @params = params
-      @record_batch_size = 2_000
+      @record_batch_size = params[:record_batch_size].try(:to_i) || 2_000 # supports 200 to 2_000
       @records = []
       @paging_cursor = nil
       @total_count = nil
@@ -33,24 +33,15 @@ module Force
       response = @client.send('post', GRAPHQL_ENDPOINT, query_str)
 
       gql_errors = response.try(:body).try(:[], 'errors')
-      puts "[GQL Errors] #{self.class} ->\n#{gql_errors}\n" if Rails.env.development? && gql_errors # TODO use logger
+      puts "[GQL Errors] #{self.class} ->\n#{gql_errors}\n" if Rails.env.development? && gql_errors.present?
 
-      @total_count ||= response.body.dig('data', 'uiapi', 'query', @salesforce_object_name, 'totalCount')
-      if response.body.dig('data', 'uiapi', 'query', @salesforce_object_name, 'pageInfo', 'hasNextPage').present?
-        @paging_cursor = response.body.dig('data', 'uiapi', 'query', @salesforce_object_name, 'pageInfo', 'endCursor')
-      else
-        @paging_cursor = nil
-      end
-      @records =
-        response.body.dig('data', 'uiapi', 'query', @salesforce_object_name, 'edges').map do |edge|
-          Force::Responses.massage(graphql_to_soql_response(edge['node']))
-        end
+      process_graphql_response(response)
     end
 
     def page_count
       return 1 if total_count.blank?
 
-      @total_count.to_f / @record_batch_size.to_f
+      @total_count.to_f / @record_batch_size
     end
 
     # all salesforce data processing requires Restforce:SObject
@@ -59,6 +50,8 @@ module Force
       # https://github.com/restforce/restforce/blob/main/lib/restforce/mash.rb#L26
       Restforce::Mash.build({ records: @records }, @client)
     end
+
+    private
 
     # convert graphql response (with nested hashes) to soql response format
     # e.g. this:
@@ -91,6 +84,20 @@ module Force
     #     "Last_Name__c" => "Mathews",
     #   }
     # }
+
+    def process_graphql_response(response)
+      @total_count ||= response.body.dig('data', 'uiapi', 'query', @salesforce_object_name, 'totalCount')
+      if response.body.dig('data', 'uiapi', 'query', @salesforce_object_name, 'pageInfo', 'hasNextPage').present?
+        @paging_cursor = response.body.dig('data', 'uiapi', 'query', @salesforce_object_name, 'pageInfo', 'endCursor')
+      else
+        @paging_cursor = nil
+      end
+      @records =
+        response.body.dig('data', 'uiapi', 'query', @salesforce_object_name, 'edges').map do |edge|
+          Force::Responses.massage(graphql_to_soql_response(edge['node']))
+        end
+    end
+
     def graphql_to_soql_response(graphql_response)
       soql_response = { attributes: { placeholder: 'placeholder' } }
       graphql_response.each do |k,v|
@@ -103,6 +110,10 @@ module Force
         end
       end
       soql_response
+    end
+
+    def truncated_listing_id(listing_id)
+      listing_id.length >= 18 ? listing_id[0...-3] : listing_id
     end
   end
 end

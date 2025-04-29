@@ -13,9 +13,6 @@ module Api::V1
         applications[:pages] = lease_up_applications.page_count
         applications[:total_size] = lease_up_applications.total_count
         applications[:records] = Force::Application.convert_list(applications[:records], :from_salesforce, :to_domain)
-        # soql-based query with 2000 record limit
-        # applications = Force::Soql::LeaseUpApplicationService.new(current_user).lease_up_applications(lease_up_apps_params)
-        # applications[:records] = Force::Application.convert_list(applications[:records], :from_salesforce, :to_domain)
       else
         # All other listings need to be queried by preferences first
         lease_up_application_preferences = Force::Graphql::LeaseUpApplicationPreferences.new(lease_up_apps_params)
@@ -24,9 +21,6 @@ module Api::V1
         applications[:pages] = lease_up_application_preferences.page_count
         applications[:total_size] = lease_up_application_preferences.total_count
         applications[:records] = Force::Preference.convert_list(applications[:records], :from_salesforce, :to_domain)
-        # soql-based query with 2000 record limit
-        # applications = Force::Soql::PreferencePaginationService.new(current_user).app_preferences_for_listing(lease_up_apps_params)
-        # applications[:records] = Force::Preference.convert_list(applications[:records], :from_salesforce, :to_domain)
       end
 
       # providing the listing type so we know how to handle the response
@@ -47,6 +41,7 @@ module Api::V1
         :general,
         :pagination,
         :layered_preference_validation,
+        :record_batch_size,
         accessibility: [],
         preference: [],
         status: [],

@@ -10,7 +10,7 @@ module Force
       end
 
       def query
-        call(build_lease_up_applications_query(@params))
+        call(build_lease_up_applications_query(@params)) # TODO: store instance var. in query string
         @params[:page].to_i.times do
           next_page
         end
@@ -20,7 +20,6 @@ module Force
         call(build_lease_up_applications_query(@params, @paging_cursor))
       end
 
-      # ported from LeaseUpApplicationService.lease_up_applications_query
       def build_lease_up_applications_query(opts, cursor = nil)
         where_clause_str = build_where_clause(opts)
         # https://developer.salesforce.com/docs/platform/graphql/guide/paginate-use-upperbound.html
@@ -71,11 +70,13 @@ module Force
         GQL
       end
 
+      private
+
       def build_where_clause(opts)
         filters = build_applications_filters(opts)
         search = build_applications_search(opts)
         where_clause_ary = [
-          "{Listing__r: {Id: {eq: \"#{opts[:listing_id].length >= 18 ? opts[:listing_id][0...-3] : opts[:listing_id]}\"}}}",
+          "{Listing__r: {Id: {eq: \"#{truncated_listing_id(opts[:listing_id])}\"}}}",
           '{Status__c: {ne: "Removed"}}',
           '{Applicant__c: {ne: null}}',
           filters,

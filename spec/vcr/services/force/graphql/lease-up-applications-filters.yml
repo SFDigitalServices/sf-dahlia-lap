@@ -1,0 +1,206 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/data/v63.0/graphql
+    body:
+      encoding: UTF-8
+      string: '{"query":"query applications(\n  $where: Application__c_Filter = {and:
+        [\n  {Listing__r: {Id: {eq: \"a0W4U00000SWKbM\"}}},\n{Status__c: {ne: \"Removed\"}},\n{Applicant__c:
+        {ne: null}},\n{and: [\n  {Has_ADA_Priorities_Selected__c: {includes: [\"Vision
+        impairments\", \"Hearing impairments\", \"Mobility impairments\"]}},\n{ or:
+        [\n  {Processing_Status__c: {eq: null}},\n{Processing_Status__c: {eq: \"Disqualified\"}},\n{Processing_Status__c:
+        {eq: \"Approved\"}}\n] },\n{or: [\n  {Total_Household_Size__c: {eq: 1}},\n{Total_Household_Size__c:
+        {gte: 5}}\n]}\n]}\n]\n}\n) {\n  uiapi {\n    query {\n      Application__c(\n        where:
+        $where,\n        orderBy: {Lottery_Rank__c: {order: ASC, nulls: LAST}, CreatedDate:
+        {order: ASC}}\n,\n        first: 2000,\n        upperBound: 10000\n      )\n      {\n        edges
+        {\n          node {\n            Id\n            Name {value}\n            Has_ADA_Priorities_Selected__c
+        {value}\n            General_Lottery_Rank__c {value}\n            Total_Household_Size__c
+        {value}\n            Sub_Status__c {value}\n            Processing_Status__c
+        {value}\n            Processing_Date_Updated__c {value}\n            Applicant__r
+        {\n              First_Name__c {value}\n              Last_Name__c {value}\n              Email__c
+        {value}\n              Mailing_Address__c {value}\n              Residence_Address__c
+        {value}\n              Phone__c {value}\n            }\n          }\n        }\n        totalCount\n        pageInfo\n        {\n          hasNextPage\n          endCursor\n        }\n      }\n    }\n  }\n}\n"}'
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<<ACCESS_TOKEN>>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Tue, 29 Apr 2025 03:50:39 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Www-Authenticate:
+      - Token
+      Set-Cookie:
+      - BrowserId=HbIe4SStEfCFemcqXbkLeg; domain=.salesforce.com; path=/; expires=Wed,
+        29-Apr-2026 03:50:39 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 03:50:39 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 03:50:39
+        GMT; Max-Age=31536000; secure
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Robots-Tag:
+      - none
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - bb7167c4ab9b3af49efaa8a7737be24d
+      X-Request-Id:
+      - bb7167c4ab9b3af49efaa8a7737be24d
+    body:
+      encoding: UTF-8
+      string: '[{"message":"INVALID_AUTH_HEADER","errorCode":"INVALID_AUTH_HEADER"}]'
+  recorded_at: Tue, 29 Apr 2025 03:50:39 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Apr 2025 03:50:39 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Robots-Tag:
+      - none
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Vary:
+      - Accept-Encoding
+      Set-Cookie:
+      - BrowserId=Hcz54iStEfCFemcqXbkLeg; domain=.salesforce.com; path=/; expires=Wed,
+        29-Apr-2026 03:50:39 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 03:50:39 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 03:50:39
+        GMT; Max-Age=31536000; secure
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - b1196966a5daf70b9fc9bb3b3b8d09b9
+      X-Request-Id:
+      - b1196966a5daf70b9fc9bb3b3b8d09b9
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1745898639763","signature":"1wGdNvIxeR2DG0g0vaC2FeDRbLExSNBGPawJsSkcW68="}'
+  recorded_at: Tue, 29 Apr 2025 03:50:39 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/data/v63.0/graphql
+    body:
+      encoding: UTF-8
+      string: '{"query":"query applications(\n  $where: Application__c_Filter = {and:
+        [\n  {Listing__r: {Id: {eq: \"a0W4U00000SWKbM\"}}},\n{Status__c: {ne: \"Removed\"}},\n{Applicant__c:
+        {ne: null}},\n{and: [\n  {Has_ADA_Priorities_Selected__c: {includes: [\"Vision
+        impairments\", \"Hearing impairments\", \"Mobility impairments\"]}},\n{ or:
+        [\n  {Processing_Status__c: {eq: null}},\n{Processing_Status__c: {eq: \"Disqualified\"}},\n{Processing_Status__c:
+        {eq: \"Approved\"}}\n] },\n{or: [\n  {Total_Household_Size__c: {eq: 1}},\n{Total_Household_Size__c:
+        {gte: 5}}\n]}\n]}\n]\n}\n) {\n  uiapi {\n    query {\n      Application__c(\n        where:
+        $where,\n        orderBy: {Lottery_Rank__c: {order: ASC, nulls: LAST}, CreatedDate:
+        {order: ASC}}\n,\n        first: 2000,\n        upperBound: 10000\n      )\n      {\n        edges
+        {\n          node {\n            Id\n            Name {value}\n            Has_ADA_Priorities_Selected__c
+        {value}\n            General_Lottery_Rank__c {value}\n            Total_Household_Size__c
+        {value}\n            Sub_Status__c {value}\n            Processing_Status__c
+        {value}\n            Processing_Date_Updated__c {value}\n            Applicant__r
+        {\n              First_Name__c {value}\n              Last_Name__c {value}\n              Email__c
+        {value}\n              Mailing_Address__c {value}\n              Residence_Address__c
+        {value}\n              Phone__c {value}\n            }\n          }\n        }\n        totalCount\n        pageInfo\n        {\n          hasNextPage\n          endCursor\n        }\n      }\n    }\n  }\n}\n"}'
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Apr 2025 03:50:40 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - BrowserId=HgA_OyStEfC39TfKdV8R6w; domain=.salesforce.com; path=/; expires=Wed,
+        29-Apr-2026 03:50:39 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 03:50:39 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 03:50:39
+        GMT; Max-Age=31536000; secure
+      X-Robots-Tag:
+      - none
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - 3d58ba629b320a13428919756ae817a1
+      X-Request-Id:
+      - 3d58ba629b320a13428919756ae817a1
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"uiapi":{"query":{"Application__c":{"edges":[],"totalCount":0,"pageInfo":{"hasNextPage":false,"endCursor":null}}}}},"errors":[]}'
+  recorded_at: Tue, 29 Apr 2025 03:50:40 GMT
+recorded_with: VCR 6.1.0

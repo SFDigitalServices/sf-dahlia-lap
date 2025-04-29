@@ -1,0 +1,179 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/data/v63.0/graphql
+    body:
+      encoding: UTF-8
+      string: '{"query":"}{ query accounts {uiapi {query {Account {edges {node {Id
+        Name {value}}}}}}}"}'
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<<ACCESS_TOKEN>>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Tue, 29 Apr 2025 18:51:55 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=BbqSLyUrEfCrwnXvsXvKsA; domain=.salesforce.com; path=/; expires=Wed,
+        29-Apr-2026 18:51:55 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 18:51:55 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 18:51:55
+        GMT; Max-Age=31536000; secure
+      X-Content-Type-Options:
+      - nosniff
+      X-Robots-Tag:
+      - none
+      Www-Authenticate:
+      - Token
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - bb05a341a74ac84aeca09aa1abe5ee61
+      X-Request-Id:
+      - bb05a341a74ac84aeca09aa1abe5ee61
+    body:
+      encoding: UTF-8
+      string: '[{"message":"INVALID_AUTH_HEADER","errorCode":"INVALID_AUTH_HEADER"}]'
+  recorded_at: Tue, 29 Apr 2025 18:51:55 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Apr 2025 18:51:56 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Set-Cookie:
+      - BrowserId=BdhTiCUrEfCzjtuQrO-XlA; domain=.salesforce.com; path=/; expires=Wed,
+        29-Apr-2026 18:51:56 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 18:51:56 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 18:51:56
+        GMT; Max-Age=31536000; secure
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Vary:
+      - Accept-Encoding
+      X-Readonlymode:
+      - 'false'
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - 8ed2b2189cff673b24f3d3778e513c36
+      X-Request-Id:
+      - 8ed2b2189cff673b24f3d3778e513c36
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1745952716159","signature":"DKPTuwKzTnv/XCcvqDJcMXTCVUNiPiiBXsai3sHNgns="}'
+  recorded_at: Tue, 29 Apr 2025 18:51:56 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/data/v63.0/graphql
+    body:
+      encoding: UTF-8
+      string: '{"query":"}{ query accounts {uiapi {query {Account {edges {node {Id
+        Name {value}}}}}}}"}'
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 29 Apr 2025 18:51:56 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Robots-Tag:
+      - none
+      Set-Cookie:
+      - BrowserId=Bgl1xiUrEfCLaympO2YgIQ; domain=.salesforce.com; path=/; expires=Wed,
+        29-Apr-2026 18:51:56 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 18:51:56 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 18:51:56
+        GMT; Max-Age=31536000; secure
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - 2c2193d3f3ed320ac40b62ca743c3cb2
+      X-Request-Id:
+      - 2c2193d3f3ed320ac40b62ca743c3cb2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{},"errors":[{"extensions":{"ErrorType":"InvalidSyntax"},"locations":[{"column":1,"line":1}],"message":"Invalid
+        syntax with offending token &#39;}&#39; at line 1 column 1","paths":[]}]}'
+  recorded_at: Tue, 29 Apr 2025 18:51:56 GMT
+recorded_with: VCR 6.1.0
