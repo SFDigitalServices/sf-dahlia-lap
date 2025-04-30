@@ -84,6 +84,8 @@ module Force
         GQL
       end
 
+      private
+
       def build_where_clause(opts)
         default = <<~GQL
           {or: [

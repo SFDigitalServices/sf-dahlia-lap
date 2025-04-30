@@ -27,13 +27,13 @@ module Force
     end
 
     def call(query_str)
-      puts "[GQL] #{self.class} ->\n#{query_str.squish}\n" if Rails.env.development?
+      puts "[GQL] #{self.class} ->\n#{query_str.squish}\n\n" if Rails.env.development?
       query_str = query_str.gsub('"', '\"').gsub(/\n/, '\\n')
       query_str = "{\"query\":\"#{query_str}\"}"
       response = @client.send('post', GRAPHQL_ENDPOINT, query_str)
 
       gql_errors = response.try(:body).try(:[], 'errors')
-      puts "[GQL Errors] #{self.class} ->\n#{gql_errors}\n" if Rails.env.development? && gql_errors.present?
+      puts "[GQL Errors] #{self.class} ->\n#{gql_errors}\n\n" if Rails.env.development? && gql_errors.present?
 
       process_graphql_response(response)
     end
@@ -52,6 +52,19 @@ module Force
     end
 
     private
+
+    def process_graphql_response(response)
+      @total_count ||= response.body.dig('data', 'uiapi', 'query', @salesforce_object_name, 'totalCount')
+      if response.body.dig('data', 'uiapi', 'query', @salesforce_object_name, 'pageInfo', 'hasNextPage').present?
+        @paging_cursor = response.body.dig('data', 'uiapi', 'query', @salesforce_object_name, 'pageInfo', 'endCursor')
+      else
+        @paging_cursor = nil
+      end
+      @records =
+        response.body.dig('data', 'uiapi', 'query', @salesforce_object_name, 'edges').map do |edge|
+          Force::Responses.massage(graphql_to_soql_response(edge['node']))
+        end
+    end
 
     # convert graphql response (with nested hashes) to soql response format
     # e.g. this:
@@ -84,20 +97,6 @@ module Force
     #     "Last_Name__c" => "Mathews",
     #   }
     # }
-
-    def process_graphql_response(response)
-      @total_count ||= response.body.dig('data', 'uiapi', 'query', @salesforce_object_name, 'totalCount')
-      if response.body.dig('data', 'uiapi', 'query', @salesforce_object_name, 'pageInfo', 'hasNextPage').present?
-        @paging_cursor = response.body.dig('data', 'uiapi', 'query', @salesforce_object_name, 'pageInfo', 'endCursor')
-      else
-        @paging_cursor = nil
-      end
-      @records =
-        response.body.dig('data', 'uiapi', 'query', @salesforce_object_name, 'edges').map do |edge|
-          Force::Responses.massage(graphql_to_soql_response(edge['node']))
-        end
-    end
-
     def graphql_to_soql_response(graphql_response)
       soql_response = { attributes: { placeholder: 'placeholder' } }
       graphql_response.each do |k,v|
