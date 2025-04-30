@@ -22,20 +22,27 @@ module Force
       @params = params
       @record_batch_size = params[:record_batch_size].try(:to_i) || 2_000 # supports 200 to 2_000
       @records = []
+      @response = nil
       @paging_cursor = nil
       @total_count = nil
     end
 
-    def call(query_str)
+    def call(query_string = nil)
+      query_str = query_string || @query_string
       puts "[GQL] #{self.class} ->\n#{query_str.squish}\n\n" if Rails.env.development?
       query_str = query_str.gsub('"', '\"').gsub(/\n/, '\\n')
       query_str = "{\"query\":\"#{query_str}\"}"
+
       response = @client.send('post', GRAPHQL_ENDPOINT, query_str)
 
       gql_errors = response.try(:body).try(:[], 'errors')
       puts "[GQL Errors] #{self.class} ->\n#{gql_errors}\n\n" if Rails.env.development? && gql_errors.present?
 
-      process_graphql_response(response)
+      if @salesforce_object_name.present?
+        process_graphql_response(response)
+      else
+        @response = response
+      end
     end
 
     def page_count

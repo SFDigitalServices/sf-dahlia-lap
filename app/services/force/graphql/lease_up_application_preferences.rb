@@ -7,20 +7,18 @@ module Force
       def initialize(params)
         super(params)
         @salesforce_object_name = 'Application_Preference__c'
+        @query_string = build_lease_up_application_preferences_query(@params, @paging_cursor)
       end
 
       def query
-        call(build_lease_up_applications_query(@params))
+        call
         @params[:page].to_i.times do
-          next_page
+          @query_string = build_lease_up_application_preferences_query(@params, @paging_cursor)
+          call
         end
       end
 
-      def next_page
-        call(build_lease_up_applications_query(@params, @paging_cursor))
-      end
-
-      def build_lease_up_applications_query(opts, cursor = nil)
+      def build_lease_up_application_preferences_query(opts, cursor)
         where_clause_str = build_where_clause(opts)
         # https://developer.salesforce.com/docs/platform/graphql/guide/paginate-use-upperbound.html
         after_clause = cursor.present? ? "after: \"#{cursor}\"" : 'upperBound: 10000'

@@ -27,8 +27,7 @@ RSpec.describe Force::GraphqlQuery do
       it 'prints the query string' do
         allow(Rails.env).to receive(:development?).and_return(true)
         valid_query_string = 'query accounts {uiapi {query {Account {edges {node {Id Name {value}}}}}}}'
-        query = Force::GraphqlQuery.new({ foo: 'bar' })
-        allow(query).to receive(:process_graphql_response)
+        query = Force::GraphqlQuery.new({})
 
         VCR.use_cassette('/services/force/graphql-query') do
           expect { query.call(valid_query_string) }.to output(a_string_including('[GQL]')).to_stdout
@@ -38,8 +37,7 @@ RSpec.describe Force::GraphqlQuery do
       it 'prints an query error string' do
         allow(Rails.env).to receive(:development?).and_return(true)
         invalid_query_string = '}{ query accounts {uiapi {query {Account {edges {node {Id Name {value}}}}}}}'
-        query = Force::GraphqlQuery.new({ foo: 'bar' })
-        allow(query).to receive(:process_graphql_response)
+        query = Force::GraphqlQuery.new({})
 
         VCR.use_cassette('/services/force/graphql-query-invalid') do
           expect { query.call(invalid_query_string) }.to output(a_string_including('[GQL Errors]')).to_stdout
