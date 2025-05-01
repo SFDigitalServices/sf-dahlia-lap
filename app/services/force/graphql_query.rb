@@ -7,18 +7,8 @@ module Force
 
     attr_reader :total_count
 
-    def initialize(params)
-      @client = Restforce.new(
-        instance_url: EnvUtils.get!('SALESFORCE_INSTANCE_URL'),
-        username: EnvUtils.get!('SALESFORCE_USERNAME'),
-        password: EnvUtils.get!('SALESFORCE_PASSWORD'),
-        client_id: EnvUtils.get!('SALESFORCE_CLIENT_ID'),
-        client_secret: EnvUtils.get!('SALESFORCE_CLIENT_SECRET'),
-        api_version: EnvUtils.get!('SALESFORCE_API_VERSION'),
-        mashify: false,
-        authentication_retries: 1,
-        host: EnvUtils.get!('SALESFORCE_HOST'),
-      )
+    def initialize(user, params)
+      @client = ClientFactory.new(user).build
       @params = params
       @record_batch_size = params[:record_batch_size].try(:to_i) || 2_000 # supports 200 to 2_000
       @records = []

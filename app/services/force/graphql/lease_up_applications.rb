@@ -4,8 +4,8 @@ module Force
   module Graphql
     # Query for Applications that are in lease up, with filters
     class LeaseUpApplications < Force::GraphqlQuery
-      def initialize(params)
-        super(params)
+      def initialize(user, params)
+        super(user, params)
         @salesforce_object_name = 'Application__c'
         @query_string = build_lease_up_applications_query(@params, @paging_cursor)
       end

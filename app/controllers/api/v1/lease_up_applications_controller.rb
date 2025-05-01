@@ -7,7 +7,7 @@ module Api::V1
       applications = {}
       if listing_type == Force::Listing::LISTING_TYPE_FIRST_COME_FIRST_SERVED
         # First Come, First Served listings don't have preferences
-        lease_up_applications = Force::Graphql::LeaseUpApplications.new(lease_up_apps_params)
+        lease_up_applications = Force::Graphql::LeaseUpApplications.new(current_user, lease_up_apps_params)
         lease_up_applications.query
         applications[:records] = lease_up_applications.response_as_restforce_objects[:records]
         applications[:pages] = lease_up_applications.page_count
@@ -15,7 +15,7 @@ module Api::V1
         applications[:records] = Force::Application.convert_list(applications[:records], :from_salesforce, :to_domain)
       else
         # All other listings need to be queried by preferences first
-        lease_up_application_preferences = Force::Graphql::LeaseUpApplicationPreferences.new(lease_up_apps_params)
+        lease_up_application_preferences = Force::Graphql::LeaseUpApplicationPreferences.new(current_user, lease_up_apps_params)
         lease_up_application_preferences.query
         applications[:records] = lease_up_application_preferences.response_as_restforce_objects[:records]
         applications[:pages] = lease_up_application_preferences.page_count

@@ -2,97 +2,13 @@
 http_interactions:
 - request:
     method: post
-    uri: https://<<SALESFORCE_HOST>>/services/data/v63.0/graphql
-    body:
-      encoding: UTF-8
-      string: '{"query":"query applications(\n  $where: Application_Preference__c_Filter
-        = {and: [\n  {Listing_ID__c: {eq: \"a0W0P00000GbyuQ\" }},\n{or: [\n  { and:
-        [\n    {Preference_Lottery_Rank__c: {ne: null}},\n    {Receives_Preference__c:
-        {eq: true}}\n  ]},\n  {and: [\n        {Preference_Name__c: {eq: \"Live or
-        Work in San Francisco Preference\" }},\n        {Application__r: {General_Lottery_Rank__c:
-        {ne: null}}}\n  ]}\n]},\n{and: [\n  {or: [\n  {Application__r: {Name: {like:
-        \"%becky%\"}}},\n  {Application__r: {Applicant__r: {First_Name__c: {like:
-        \"%becky%\"}}}},\n  {Application__r: {Applicant__r: {Last_Name__c: {like:
-        \"%becky%\"}}}},\n]},\n{or: [\n  {Application__r: {Name: {like: \"%keller%\"}}},\n  {Application__r:
-        {Applicant__r: {First_Name__c: {like: \"%keller%\"}}}},\n  {Application__r:
-        {Applicant__r: {Last_Name__c: {like: \"%keller%\"}}}},\n]}\n]}\n]\n}\n) {\n  uiapi
-        {\n    query {\n      Application_Preference__c(\n        where: $where,\n        orderBy:
-        {\n  Receives_Preference__c: {order: DESC},\n  Preference_Order__c: {order:
-        ASC},\n  Preference_Lottery_Rank__c: {order: ASC},\n  Application__r: {General_Lottery_Rank__c:
-        {order: ASC}}\n}\n,\n        first: 2000,\n        upperBound: 10000\n      )\n      {\n        edges
-        {\n          node {\n            Listing_ID__c {value}\n            Preference_Order__c
-        {value}\n            Receives_Preference__c {value}\n            Preference_All_Name__c
-        {value}\n            Preference_All_Lottery_Rank__c {value}\n            Post_Lottery_Validation__c
-        {value}\n            Lottery_Status__c {value}\n            Preference_Lottery_Rank__c
-        {value}\n            Custom_Preference_Type__c {value}\n            Layered_Preference_Validation__c
-        {value}\n            Listing_Preference_ID__r { \n              Record_Type_For_App_Preferences__c
-        {value}\n            }\n            Application__r {\n              Id\n              Name
-        {value}\n              General_Lottery__c {value}\n              General_Lottery_Rank__c
-        {value}\n              Has_ADA_Priorities_Selected__c {value}\n              Total_Household_Size__c
-        {value}\n              Sub_Status__c {value}\n              Processing_Status__c
-        {value}\n              Processing_Date_Updated__c {value}\n              Applicant__r
-        { \n                First_Name__c {value}\n                Last_Name__c {value}\n                Residence_Address__c
-        {value}\n                Mailing_Address__c {value}\n              }\n            }\n          }\n        }\n        totalCount\n        pageInfo\n        {\n          hasNextPage\n          endCursor\n        }\n      }\n    }\n  }\n}\n"}'
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Content-Type:
-      - application/json
-      Authorization:
-      - "<<ACCESS_TOKEN>>"
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Date:
-      - Tue, 29 Apr 2025 04:17:30 GMT
-      Content-Type:
-      - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      X-Content-Type-Options:
-      - nosniff
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Www-Authenticate:
-      - Token
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      Set-Cookie:
-      - BrowserId=3h3i-CSwEfCNutFH9eQb_g; domain=.salesforce.com; path=/; expires=Wed,
-        29-Apr-2026 04:17:30 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 04:17:30 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 04:17:30
-        GMT; Max-Age=31536000; secure
-      X-Robots-Tag:
-      - none
-      Server:
-      - sfdcedge
-      X-Sfdc-Request-Id:
-      - 3c099e7feb13a970102a8aa140cf921c
-      X-Request-Id:
-      - 3c099e7feb13a970102a8aa140cf921c
-    body:
-      encoding: UTF-8
-      string: '[{"message":"INVALID_AUTH_HEADER","errorCode":"INVALID_AUTH_HEADER"}]'
-  recorded_at: Tue, 29 Apr 2025 04:17:30 GMT
-- request:
-    method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
     body:
       encoding: US-ASCII
       string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
     headers:
       User-Agent:
-      - Faraday v2.7.4
+      - Faraday v2.12.2
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
@@ -105,51 +21,51 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 29 Apr 2025 04:17:31 GMT
+      - Thu, 01 May 2025 18:31:20 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
       X-Robots-Tag:
       - none
-      X-Readonlymode:
-      - 'false'
-      Vary:
-      - Accept-Encoding
+      Set-Cookie:
+      - BrowserId=eeBKFSa6EfCHy5mGfH3U8A; domain=.salesforce.com; path=/; expires=Fri,
+        01-May-2026 18:31:19 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 01-May-2026 18:31:19 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 01-May-2026 18:31:19
+        GMT; Max-Age=31536000; secure
       X-Content-Type-Options:
       - nosniff
+      X-Readonlymode:
+      - 'false'
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Vary:
+      - Accept-Encoding
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
-      Set-Cookie:
-      - BrowserId=3jpr6SSwEfCrwnXvsXvKsA; domain=.salesforce.com; path=/; expires=Wed,
-        29-Apr-2026 04:17:30 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 04:17:30 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 04:17:30
-        GMT; Max-Age=31536000; secure
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - f0cd236950c1f5a1d2bdcf99f37b109f
+      - bbc20265d910c7cd532349e9ca9b047b
       X-Request-Id:
-      - f0cd236950c1f5a1d2bdcf99f37b109f
+      - bbc20265d910c7cd532349e9ca9b047b
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1745900251097","signature":"v3DFQy1e3FQi+XRrsZrEDE01C7eY5lM5GlpspRrgA+U="}'
-  recorded_at: Tue, 29 Apr 2025 04:17:31 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1746124279991","signature":"kSkuAjBXvPB243rNb8qhpsRUI7ZKDBjp+IX6v0q8pd4="}'
+  recorded_at: Thu, 01 May 2025 18:31:20 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/data/v63.0/graphql
     body:
       encoding: UTF-8
       string: '{"query":"query applications(\n  $where: Application_Preference__c_Filter
-        = {and: [\n  {Listing_ID__c: {eq: \"a0W0P00000GbyuQ\" }},\n{or: [\n  { and:
+        = {and: [\n  {Listing_ID__c: {eq: \"a0W0P00000GbyuQ\"}},\n{or: [\n  { and:
         [\n    {Preference_Lottery_Rank__c: {ne: null}},\n    {Receives_Preference__c:
         {eq: true}}\n  ]},\n  {and: [\n        {Preference_Name__c: {eq: \"Live or
         Work in San Francisco Preference\" }},\n        {Application__r: {General_Lottery_Rank__c:
@@ -178,7 +94,7 @@ http_interactions:
         {value}\n                Mailing_Address__c {value}\n              }\n            }\n          }\n        }\n        totalCount\n        pageInfo\n        {\n          hasNextPage\n          endCursor\n        }\n      }\n    }\n  }\n}\n"}'
     headers:
       User-Agent:
-      - Faraday v2.7.4
+      - Faraday v2.12.2
       Content-Type:
       - application/json
       Authorization:
@@ -193,48 +109,48 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 29 Apr 2025 04:17:31 GMT
+      - Thu, 01 May 2025 18:31:20 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      X-Content-Type-Options:
-      - nosniff
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
       X-Robots-Tag:
       - none
       Set-Cookie:
-      - BrowserId=3mp8tCSwEfCLaympO2YgIQ; domain=.salesforce.com; path=/; expires=Wed,
-        29-Apr-2026 04:17:31 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 04:17:31 GMT; Max-Age=31536000;
+      - BrowserId=ehc4jCa6EfCN4e9RTfmm4g; domain=.salesforce.com; path=/; expires=Fri,
+        01-May-2026 18:31:20 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 01-May-2026 18:31:20 GMT; Max-Age=31536000;
         secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 29-Apr-2026 04:17:31
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 01-May-2026 18:31:20
         GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Content-Type-Options:
+      - nosniff
       Vary:
       - Accept-Encoding
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - d7ec77224d2d5645f694f4423a84828a
+      - 9ce256fdae4cbddaa2a4edb2560163d0
       X-Request-Id:
-      - d7ec77224d2d5645f694f4423a84828a
+      - 9ce256fdae4cbddaa2a4edb2560163d0
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"uiapi":{"query":{"Application_Preference__c":{"edges":[{"node":{"Listing_ID__c":{"value":"a0W0P00000GbyuQ"},"Preference_Order__c":{"value":1.0},"Receives_Preference__c":{"value":true},"Preference_All_Name__c":{"value":"Certificate
         of Preference (COP)"},"Preference_All_Lottery_Rank__c":{"value":1.0},"Post_Lottery_Validation__c":{"value":"Unconfirmed"},"Lottery_Status__c":{"value":"Unconfirmed"},"Preference_Lottery_Rank__c":{"value":1.0},"Custom_Preference_Type__c":{"value":"COP"},"Layered_Preference_Validation__c":{"value":null},"Listing_Preference_ID__r":{"Record_Type_For_App_Preferences__c":{"value":"COP"}},"Application__r":{"Id":"a0o0P00000IvWgcQAF","Name":{"value":"APP-00304154"},"General_Lottery__c":{"value":false},"General_Lottery_Rank__c":{"value":null},"Has_ADA_Priorities_Selected__c":{"value":"Hearing
         impairments"},"Total_Household_Size__c":{"value":3.0},"Sub_Status__c":{"value":"Written
-        withdrawal"},"Processing_Status__c":{"value":"Withdrawn"},"Processing_Date_Updated__c":{"value":"2025-04-29T02:02:54.000Z"},"Applicant__r":{"First_Name__c":{"value":"Becky"},"Last_Name__c":{"value":"Keller"},"Residence_Address__c":{"value":"796
+        withdrawal"},"Processing_Status__c":{"value":"Withdrawn"},"Processing_Date_Updated__c":{"value":"2025-04-30T22:35:30.000Z"},"Applicant__r":{"First_Name__c":{"value":"Becky"},"Last_Name__c":{"value":"Keller"},"Residence_Address__c":{"value":"796
         Jeanette Turnpike Suite 880, Monicahaven, Wy, 51896"},"Mailing_Address__c":{"value":"504
         Wiley Street Apt. 208, Mariechester, Ma, 14457"}}}}},{"node":{"Listing_ID__c":{"value":"a0W0P00000GbyuQ"},"Preference_Order__c":{"value":4.0},"Receives_Preference__c":{"value":true},"Preference_All_Name__c":{"value":"Live
         or Work in San Francisco Preference"},"Preference_All_Lottery_Rank__c":{"value":3.0},"Post_Lottery_Validation__c":{"value":"Unconfirmed"},"Lottery_Status__c":{"value":"None"},"Preference_Lottery_Rank__c":{"value":3.0},"Custom_Preference_Type__c":{"value":"L_W"},"Layered_Preference_Validation__c":{"value":null},"Listing_Preference_ID__r":{"Record_Type_For_App_Preferences__c":{"value":"L_W"}},"Application__r":{"Id":"a0o0P00000IvWgcQAF","Name":{"value":"APP-00304154"},"General_Lottery__c":{"value":false},"General_Lottery_Rank__c":{"value":null},"Has_ADA_Priorities_Selected__c":{"value":"Hearing
         impairments"},"Total_Household_Size__c":{"value":3.0},"Sub_Status__c":{"value":"Written
-        withdrawal"},"Processing_Status__c":{"value":"Withdrawn"},"Processing_Date_Updated__c":{"value":"2025-04-29T02:02:54.000Z"},"Applicant__r":{"First_Name__c":{"value":"Becky"},"Last_Name__c":{"value":"Keller"},"Residence_Address__c":{"value":"796
+        withdrawal"},"Processing_Status__c":{"value":"Withdrawn"},"Processing_Date_Updated__c":{"value":"2025-04-30T22:35:30.000Z"},"Applicant__r":{"First_Name__c":{"value":"Becky"},"Last_Name__c":{"value":"Keller"},"Residence_Address__c":{"value":"796
         Jeanette Turnpike Suite 880, Monicahaven, Wy, 51896"},"Mailing_Address__c":{"value":"504
         Wiley Street Apt. 208, Mariechester, Ma, 14457"}}}}}],"totalCount":2,"pageInfo":{"hasNextPage":false,"endCursor":null}}}}},"errors":[]}'
-  recorded_at: Tue, 29 Apr 2025 04:17:31 GMT
-recorded_with: VCR 6.1.0
+  recorded_at: Thu, 01 May 2025 18:31:20 GMT
+recorded_with: VCR 6.3.1

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Force::Graphql::LeaseUpApplications do
-
+  let(:user) { User.create(email: 'agent@example.com', admin: false) }
   let(:fcfs_listing_id) { 'a0W4U00000SWKbMUAX' }
 
   it 'queries data with search terms' do
@@ -11,7 +11,7 @@ RSpec.describe Force::Graphql::LeaseUpApplications do
         search: 'carlos,mathews',
         page: 0,
       }
-      lease_up_applications = Force::Graphql::LeaseUpApplications.new(params)
+      lease_up_applications = Force::Graphql::LeaseUpApplications.new(user, params)
       lease_up_applications.query
       applications = lease_up_applications.response_as_restforce_objects[:records]
       expect(applications.first.dig('Applicant', 'First_Name')).to eq('Carlos')
@@ -28,7 +28,7 @@ RSpec.describe Force::Graphql::LeaseUpApplications do
         status: ['No Status', 'Disqualified', 'Approved'],
         page: 0,
       }
-      lease_up_applications = Force::Graphql::LeaseUpApplications.new(params)
+      lease_up_applications = Force::Graphql::LeaseUpApplications.new(user, params)
       lease_up_applications.query
       applications = lease_up_applications.response_as_restforce_objects[:records]
       expect(applications).to be_truthy
