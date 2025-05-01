@@ -4,7 +4,6 @@ import { capitalize, compact, map, cloneDeep, isEmpty } from 'lodash'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
-import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import { addLayeredValidation } from 'utils/layeredPreferenceUtil'
 
 import { withContext } from './context'
@@ -104,29 +103,18 @@ const LeaseUpTableContainer = ({
 }) => {
   const [prefMap, setPrefMap] = useState({})
 
-  const { unleashFlag: partnersPaginationEnabled, flagsReady } =
-    useFeatureFlag('PARTNERS_PAGINATION')
-
   useEffect(() => {
-    if (!preferences || !flagsReady) return
+    if (!preferences) return
 
-    if (preferences.every((pref) => !pref.includes('Veteran')) || partnersPaginationEnabled) {
-      if (!isEmpty(applications)) {
-        const buildPrefMap = {}
-        addLayeredValidation(applications).forEach((preference) => {
-          buildPrefMap[`${preference.application_id}-${preference.preference_name}`] =
-            preference.layered_validation
-        })
-        setPrefMap(buildPrefMap)
-      }
+    if (!isEmpty(applications)) {
+      const buildPrefMap = {}
+      addLayeredValidation(applications).forEach((preference) => {
+        buildPrefMap[`${preference.application_id}-${preference.preference_name}`] =
+          preference.layered_validation
+      })
+      setPrefMap(buildPrefMap)
     }
-  }, [applications, flagsReady, partnersPaginationEnabled, preferences])
-
-  useEffect(() => {
-    if (flagsReady && !partnersPaginationEnabled) {
-      buildApplicationsWithLayeredValidations(listingId, preferences, setPrefMap)
-    }
-  }, [hasFilters, listingId, listingType, preferences, flagsReady, partnersPaginationEnabled])
+  }, [applications, preferences])
 
   const prefMapLoading =
     listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED &&
