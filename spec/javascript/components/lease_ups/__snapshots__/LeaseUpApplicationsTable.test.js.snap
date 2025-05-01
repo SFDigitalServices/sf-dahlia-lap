@@ -436,12 +436,12 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
                   L_W 1
                 </div>
                 <svg
-                  data-testid="preference-rank-check-icon"
-                  style="width: 1.25rem; height: 1.25rem; fill: #2e8540;"
+                  data-testid="preference-rank-x-icon"
+                  style="width: 1rem; height: 1rem; fill: #e31c3d;"
                 >
                   <use
-                    style="fill: #2e8540;"
-                    xlink:href="#i-check"
+                    style="fill: #e31c3d;"
+                    xlink:href="#i-close"
                   />
                 </svg>
               </div>
