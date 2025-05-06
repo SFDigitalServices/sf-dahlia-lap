@@ -419,14 +419,16 @@ describe('apiService', () => {
     })
   })
 
-  describe('fetchLeaseUpApplications', () => {
+  describe('fetchLeaseUpApplicationsPagination', () => {
     beforeAll(() => {
       request.get = mockLeaseUpApplicationsGetRequest
     })
 
     test('calls request.get', async () => {
       request.get = mockFetchLeaseUpApplications
-      await apiService.fetchLeaseUpApplications('fake-listing-id', 0, { filters: { test: 'test' } })
+      await apiService.fetchLeaseUpApplicationsPagination('fake-listing-id', 0, {
+        filters: { test: 'test' }
+      })
       expect(mockFetchLeaseUpApplications.mock.calls[0][0]).toBe(`/lease-ups/applications`)
     })
   })

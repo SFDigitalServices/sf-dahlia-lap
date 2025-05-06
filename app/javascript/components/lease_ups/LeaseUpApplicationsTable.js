@@ -45,7 +45,6 @@ const textCell = ({ value }) => {
 
 const LeaseUpApplicationsTable = ({
   dataSet,
-  prefMap,
   onLeaseUpStatusChange,
   pages,
   rowsPerPage,
