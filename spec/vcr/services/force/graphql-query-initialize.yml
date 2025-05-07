@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 01 May 2025 18:40:28 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Robots-Tag:
+      - none
+      Set-Cookie:
+      - BrowserId=wJhs6Ca7EfCe9jnnyxe8pA; domain=.salesforce.com; path=/; expires=Fri,
+        01-May-2026 18:40:28 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 01-May-2026 18:40:28 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 01-May-2026 18:40:28
+        GMT; Max-Age=31536000; secure
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding
+      X-Readonlymode:
+      - 'false'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - d18155107c02ecce0763ea1f4c7edc0a
+      X-Request-Id:
+      - d18155107c02ecce0763ea1f4c7edc0a
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1746124828214","signature":"ZDU0SbtookWqkOKkDx0MxuMUXfKAUdemKm73Sy3B4R8="}'
+  recorded_at: Thu, 01 May 2025 18:40:28 GMT
+recorded_with: VCR 6.3.1

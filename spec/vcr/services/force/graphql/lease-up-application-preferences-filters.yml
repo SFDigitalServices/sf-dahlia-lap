@@ -1,0 +1,164 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 01 May 2025 18:31:20 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Robots-Tag:
+      - none
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      Set-Cookie:
+      - BrowserId=elpcmia6EfCVXinqx9AIuw; domain=.salesforce.com; path=/; expires=Fri,
+        01-May-2026 18:31:20 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 01-May-2026 18:31:20 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 01-May-2026 18:31:20
+        GMT; Max-Age=31536000; secure
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - a3da65c20c6bc87079f6932b4081a626
+      X-Request-Id:
+      - a3da65c20c6bc87079f6932b4081a626
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1746124280816","signature":"AqZarewxxbe54EZ3Tkdjg4WnUnEKePw9JNNatzrFvrc="}'
+  recorded_at: Thu, 01 May 2025 18:31:20 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/data/v63.0/graphql
+    body:
+      encoding: UTF-8
+      string: '{"query":"query applications(\n  $where: Application_Preference__c_Filter
+        = {and: [\n  {Listing_ID__c: {eq: \"a0W0P00000GbyuQ\"}},\n{or: [\n  { and:
+        [\n    {Preference_Lottery_Rank__c: {ne: null}},\n    {Receives_Preference__c:
+        {eq: true}}\n  ]},\n  {and: [\n        {Preference_Name__c: {eq: \"Live or
+        Work in San Francisco Preference\" }},\n        {Application__r: {General_Lottery_Rank__c:
+        {ne: null}}}\n  ]}\n]},\n{and: [\n  {or: [\n  {Preference_All_Name__c: {like:
+        \"%Certificate of Preference (COP)\"}},\n{Preference_All_Name__c: {like: \"%Live
+        or Work in San Francisco Preference\"}}\n]},\n{Application__r: {Has_ADA_Priorities_Selected__c:
+        {includes: [\"Vision impairments\", \"Hearing impairments\", \"Mobility impairments\"]}}},\n{
+        or: [\n  {Application__r: {Processing_Status__c: {eq: null}}},\n{Application__r:
+        {Processing_Status__c: {eq: \"Processing\"}}},\n{Application__r: {Processing_Status__c:
+        {eq: \"Lease Signed\"}}}\n] },\n{or: [\n  {Application__r: {Total_Household_Size__c:
+        {eq: 2}}},\n{Application__r: {Total_Household_Size__c: {gte: 5}}}\n]}\n]}\n]\n}\n)
+        {\n  uiapi {\n    query {\n      Application_Preference__c(\n        where:
+        $where,\n        orderBy: {\n  Receives_Preference__c: {order: DESC},\n  Preference_Order__c:
+        {order: ASC},\n  Preference_Lottery_Rank__c: {order: ASC},\n  Application__r:
+        {General_Lottery_Rank__c: {order: ASC}}\n}\n,\n        first: 2000,\n        upperBound:
+        10000\n      )\n      {\n        edges {\n          node {\n            Listing_ID__c
+        {value}\n            Preference_Order__c {value}\n            Receives_Preference__c
+        {value}\n            Preference_All_Name__c {value}\n            Preference_All_Lottery_Rank__c
+        {value}\n            Post_Lottery_Validation__c {value}\n            Lottery_Status__c
+        {value}\n            Preference_Lottery_Rank__c {value}\n            Custom_Preference_Type__c
+        {value}\n            Layered_Preference_Validation__c {value}\n            Listing_Preference_ID__r
+        { \n              Record_Type_For_App_Preferences__c {value}\n            }\n            Application__r
+        {\n              Id\n              Name {value}\n              General_Lottery__c
+        {value}\n              General_Lottery_Rank__c {value}\n              Has_ADA_Priorities_Selected__c
+        {value}\n              Total_Household_Size__c {value}\n              Sub_Status__c
+        {value}\n              Processing_Status__c {value}\n              Processing_Date_Updated__c
+        {value}\n              Applicant__r { \n                First_Name__c {value}\n                Last_Name__c
+        {value}\n                Residence_Address__c {value}\n                Mailing_Address__c
+        {value}\n              }\n            }\n          }\n        }\n        totalCount\n        pageInfo\n        {\n          hasNextPage\n          endCursor\n        }\n      }\n    }\n  }\n}\n"}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 01 May 2025 18:31:21 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Robots-Tag:
+      - none
+      Set-Cookie:
+      - BrowserId=epKqKSa6EfC-CdHnicOn3g; domain=.salesforce.com; path=/; expires=Fri,
+        01-May-2026 18:31:21 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 01-May-2026 18:31:21 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 01-May-2026 18:31:21
+        GMT; Max-Age=31536000; secure
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - 5c5141c8ea80d3311f34c87d7ef4f4bb
+      X-Request-Id:
+      - 5c5141c8ea80d3311f34c87d7ef4f4bb
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"uiapi":{"query":{"Application_Preference__c":{"edges":[{"node":{"Listing_ID__c":{"value":"a0W0P00000GbyuQ"},"Preference_Order__c":{"value":1.0},"Receives_Preference__c":{"value":true},"Preference_All_Name__c":{"value":"Certificate
+        of Preference (COP)"},"Preference_All_Lottery_Rank__c":{"value":5.0},"Post_Lottery_Validation__c":{"value":"Unconfirmed"},"Lottery_Status__c":{"value":"Unconfirmed"},"Preference_Lottery_Rank__c":{"value":5.0},"Custom_Preference_Type__c":{"value":"COP"},"Layered_Preference_Validation__c":{"value":null},"Listing_Preference_ID__r":{"Record_Type_For_App_Preferences__c":{"value":"COP"}},"Application__r":{"Id":"a0o0P00000Isnf4QAB","Name":{"value":"APP-00258654"},"General_Lottery__c":{"value":false},"General_Lottery_Rank__c":{"value":null},"Has_ADA_Priorities_Selected__c":{"value":"Vision
+        impairments;Mobility impairments;Hearing impairments"},"Total_Household_Size__c":{"value":2.0},"Sub_Status__c":{"value":null},"Processing_Status__c":{"value":"Processing"},"Processing_Date_Updated__c":{"value":"2020-12-15T19:10:21.000Z"},"Applicant__r":{"First_Name__c":{"value":"Lindsay"},"Last_Name__c":{"value":"Landry"},"Residence_Address__c":{"value":"258
+        Alyssa Parks, Lake Anneborough, Wy, 53493"},"Mailing_Address__c":{"value":null}}}}},{"node":{"Listing_ID__c":{"value":"a0W0P00000GbyuQ"},"Preference_Order__c":{"value":4.0},"Receives_Preference__c":{"value":true},"Preference_All_Name__c":{"value":"Live
+        or Work in San Francisco Preference"},"Preference_All_Lottery_Rank__c":{"value":1.0},"Post_Lottery_Validation__c":{"value":"Unconfirmed"},"Lottery_Status__c":{"value":"None"},"Preference_Lottery_Rank__c":{"value":1.0},"Custom_Preference_Type__c":{"value":"L_W"},"Layered_Preference_Validation__c":{"value":null},"Listing_Preference_ID__r":{"Record_Type_For_App_Preferences__c":{"value":"L_W"}},"Application__r":{"Id":"a0o0P00000IvWtNQAV","Name":{"value":"APP-00304174"},"General_Lottery__c":{"value":false},"General_Lottery_Rank__c":{"value":null},"Has_ADA_Priorities_Selected__c":{"value":"Hearing
+        impairments"},"Total_Household_Size__c":{"value":2.0},"Sub_Status__c":{"value":null},"Processing_Status__c":{"value":"Processing"},"Processing_Date_Updated__c":{"value":"2024-06-06T06:23:26.000Z"},"Applicant__r":{"First_Name__c":{"value":"Laurie"},"Last_Name__c":{"value":"Salinas"},"Residence_Address__c":{"value":"278
+        Ponce Square, Monicahaven, Wy, 82712"},"Mailing_Address__c":{"value":"5767
+        Tami Plains Apt. 552, Mariechester, Ma, 62381"}}}}},{"node":{"Listing_ID__c":{"value":"a0W0P00000GbyuQ"},"Preference_Order__c":{"value":4.0},"Receives_Preference__c":{"value":true},"Preference_All_Name__c":{"value":"Live
+        or Work in San Francisco Preference"},"Preference_All_Lottery_Rank__c":{"value":5.0},"Post_Lottery_Validation__c":{"value":"Unconfirmed"},"Lottery_Status__c":{"value":"None"},"Preference_Lottery_Rank__c":{"value":5.0},"Custom_Preference_Type__c":{"value":"L_W"},"Layered_Preference_Validation__c":{"value":null},"Listing_Preference_ID__r":{"Record_Type_For_App_Preferences__c":{"value":"L_W"}},"Application__r":{"Id":"a0o0P00000IvWghQAF","Name":{"value":"APP-00304155"},"General_Lottery__c":{"value":false},"General_Lottery_Rank__c":{"value":null},"Has_ADA_Priorities_Selected__c":{"value":"Hearing
+        impairments"},"Total_Household_Size__c":{"value":2.0},"Sub_Status__c":{"value":null},"Processing_Status__c":{"value":"Lease
+        Signed"},"Processing_Date_Updated__c":{"value":"2020-12-05T01:25:10.000Z"},"Applicant__r":{"First_Name__c":{"value":"Allen"},"Last_Name__c":{"value":"Nguyen"},"Residence_Address__c":{"value":"35218
+        Floyd Street, Monicahaven, Wy, 51896"},"Mailing_Address__c":{"value":"4997
+        Chase Isle Apt. 303, Mariechester, Ma, 14457"}}}}},{"node":{"Listing_ID__c":{"value":"a0W0P00000GbyuQ"},"Preference_Order__c":{"value":4.0},"Receives_Preference__c":{"value":true},"Preference_All_Name__c":{"value":"Live
+        or Work in San Francisco Preference"},"Preference_All_Lottery_Rank__c":{"value":11.0},"Post_Lottery_Validation__c":{"value":"Unconfirmed"},"Lottery_Status__c":{"value":"None"},"Preference_Lottery_Rank__c":{"value":11.0},"Custom_Preference_Type__c":{"value":"L_W"},"Layered_Preference_Validation__c":{"value":null},"Listing_Preference_ID__r":{"Record_Type_For_App_Preferences__c":{"value":"L_W"}},"Application__r":{"Id":"a0o0P00000Isnf4QAB","Name":{"value":"APP-00258654"},"General_Lottery__c":{"value":false},"General_Lottery_Rank__c":{"value":null},"Has_ADA_Priorities_Selected__c":{"value":"Vision
+        impairments;Mobility impairments;Hearing impairments"},"Total_Household_Size__c":{"value":2.0},"Sub_Status__c":{"value":null},"Processing_Status__c":{"value":"Processing"},"Processing_Date_Updated__c":{"value":"2020-12-15T19:10:21.000Z"},"Applicant__r":{"First_Name__c":{"value":"Lindsay"},"Last_Name__c":{"value":"Landry"},"Residence_Address__c":{"value":"258
+        Alyssa Parks, Lake Anneborough, Wy, 53493"},"Mailing_Address__c":{"value":null}}}}}],"totalCount":4,"pageInfo":{"hasNextPage":false,"endCursor":null}}}}},"errors":[]}'
+  recorded_at: Thu, 01 May 2025 18:31:21 GMT
+recorded_with: VCR 6.3.1
