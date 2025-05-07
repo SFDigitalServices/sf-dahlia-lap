@@ -109,7 +109,7 @@ describe('leaseUpActions', () => {
       }
 
       const expectedResults = { records: [expectedRowData], pages: 10 }
-      expect(await getApplicationsPagination(fakeListingId, 0, {}, true)).toEqual(expectedResults)
+      expect(await getApplicationsPagination(fakeListingId, 0, {})).toEqual(expectedResults)
     })
 
     test('it passes filters to the apiService as expected', () => {
@@ -129,6 +129,62 @@ describe('leaseUpActions', () => {
       expect(apiService.fetchLeaseUpApplicationsPagination).toHaveBeenCalledWith(fakeListingId, 0, {
         filters: expectedFilters
       })
+    })
+  })
+
+  describe('get First Come, First Served applications', () => {
+    test('it formats returned data as expected', async () => {
+      apiService.fetchLeaseUpApplicationsPagination.mockResolvedValue({
+        pages: 10,
+        records: [
+          {
+            name: 'APP-00548121',
+            id: 'a0o0P00000JlWi9QAF',
+            general_lottery: false,
+            general_lottery_rank: null,
+            applicant: {
+              first_name: 'Vincent',
+              last_name: 'Rogers',
+              email: 'christopher60@example.org',
+              phone: '(845)136-8280',
+              residence_address: '',
+              mailing_address: '',
+              name: 'Vincent Rogers'
+            },
+            has_ada_priorities_selected: null,
+            index: 0,
+            processing_status: 'Disqualified',
+            demographics: {},
+            status_last_updated: '2020-05-28T21:23:06.000+0000',
+            total_household_size: 1,
+            sub_status: 'Approval letter sent'
+          }
+        ],
+        listing_type: 'First Come, First Served'
+      })
+
+      const expectedRowData = {
+        application_id: 'a0o0P00000JlWi9QAF',
+        application_number: 'APP-00548121',
+        email: 'christopher60@example.org',
+        first_name: 'Vincent',
+        has_ada_priorities_selected: null,
+        index: 0,
+        last_name: 'Rogers',
+        lease_up_status: 'Disqualified',
+        mailing_address: '',
+        phone: '(845)136-8280',
+        preference_lottery_rank: null,
+        preference_name: 'General',
+        preference_order: 1,
+        residence_address: '',
+        status_last_updated: '2020-05-28T21:23:06.000+0000',
+        total_household_size: 1,
+        sub_status: 'Approval letter sent'
+      }
+
+      const expectedResults = { records: [expectedRowData], pages: 10 }
+      expect(await getApplicationsPagination(fakeListingId, 0)).toEqual(expectedResults)
     })
   })
 })

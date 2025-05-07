@@ -1,7 +1,13 @@
 import {
+  buildApplicationsWithLayeredValidations,
   buildRowData,
   getAccessibilityKeys
 } from 'components/lease_ups/LeaseUpApplicationsTableContainer'
+import { getApplicationsPagination } from 'components/lease_ups/utils/leaseUpRequestUtils'
+
+jest.mock('components/lease_ups/utils/leaseUpRequestUtils.js', () => ({
+  getApplicationsPagination: jest.fn()
+}))
 
 describe('LeaseUpApplicationsTableContainer', () => {
   describe('buildRowData', () => {
@@ -52,6 +58,51 @@ describe('LeaseUpApplicationsTableContainer', () => {
         }
       }
       expect(getAccessibilityKeys(application)).toBe('HCBS Units, Mobility')
+    })
+  })
+
+  describe('buildApplicationsWithLayeredValidations', () => {
+    test('should not call api when there are no preferences', async () => {
+      buildApplicationsWithLayeredValidations('listingId', [], [], () => {})
+      expect(getApplicationsPagination).not.toHaveBeenCalled()
+    })
+
+    test('should not call api when there are no veteran preferences', async () => {
+      buildApplicationsWithLayeredValidations(
+        'listingId',
+        [],
+        [
+          'Live or Work in San Francisco Preference',
+          'Neighborhood Resident Housing Preference (NRHP)'
+        ],
+        () => {}
+      )
+      expect(getApplicationsPagination).not.toHaveBeenCalled()
+    })
+
+    test('should call api when there are veteran preferences', async () => {
+      getApplicationsPagination.mockImplementation(() =>
+        Promise.resolve({
+          records: [
+            {
+              application_id: 'application_id',
+              preference_name: 'preference_name',
+              layered_validation: 'Confirmed'
+            }
+          ]
+        })
+      )
+
+      buildApplicationsWithLayeredValidations(
+        'listingId',
+        [
+          'Tier 1 Veteran with Certificate of Preference',
+          'Live or Work in San Francisco Preference',
+          'Neighborhood Resident Housing Preference (NRHP)'
+        ],
+        () => {}
+      )
+      expect(getApplicationsPagination).toHaveBeenCalledTimes(1)
     })
   })
 })
