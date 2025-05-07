@@ -3,10 +3,10 @@ import {
   buildRowData,
   getAccessibilityKeys
 } from 'components/lease_ups/LeaseUpApplicationsTableContainer'
-import { getApplications } from 'components/lease_ups/utils/leaseUpRequestUtils'
+import { getApplicationsPagination } from 'components/lease_ups/utils/leaseUpRequestUtils'
 
 jest.mock('components/lease_ups/utils/leaseUpRequestUtils.js', () => ({
-  getApplications: jest.fn()
+  getApplicationsPagination: jest.fn()
 }))
 
 describe('LeaseUpApplicationsTableContainer', () => {
@@ -64,7 +64,7 @@ describe('LeaseUpApplicationsTableContainer', () => {
   describe('buildApplicationsWithLayeredValidations', () => {
     test('should not call api when there are no preferences', async () => {
       buildApplicationsWithLayeredValidations('listingId', [], [], () => {})
-      expect(getApplications).not.toHaveBeenCalled()
+      expect(getApplicationsPagination).not.toHaveBeenCalled()
     })
 
     test('should not call api when there are no veteran preferences', async () => {
@@ -77,11 +77,11 @@ describe('LeaseUpApplicationsTableContainer', () => {
         ],
         () => {}
       )
-      expect(getApplications).not.toHaveBeenCalled()
+      expect(getApplicationsPagination).not.toHaveBeenCalled()
     })
 
     test('should call api when there are veteran preferences', async () => {
-      getApplications.mockImplementation(() =>
+      getApplicationsPagination.mockImplementation(() =>
         Promise.resolve({
           records: [
             {
@@ -102,7 +102,7 @@ describe('LeaseUpApplicationsTableContainer', () => {
         ],
         () => {}
       )
-      expect(getApplications).toHaveBeenCalledTimes(1)
+      expect(getApplicationsPagination).toHaveBeenCalledTimes(1)
     })
   })
 })

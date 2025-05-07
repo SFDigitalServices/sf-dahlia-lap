@@ -47,7 +47,7 @@ module Force
                       Preference_Lottery_Rank__c {value}
                       Custom_Preference_Type__c {value}
                       Layered_Preference_Validation__c {value}
-                      Listing_Preference_ID__r { 
+                      Listing_Preference_ID__r {
                         Record_Type_For_App_Preferences__c {value}
                       }
                       Application__r {
@@ -60,7 +60,7 @@ module Force
                         Sub_Status__c {value}
                         Processing_Status__c {value}
                         Processing_Date_Updated__c {value}
-                        Applicant__r { 
+                        Applicant__r {
                           First_Name__c {value}
                           Last_Name__c {value}
                           Residence_Address__c {value}

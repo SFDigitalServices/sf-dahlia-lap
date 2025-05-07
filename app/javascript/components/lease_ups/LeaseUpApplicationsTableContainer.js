@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 import { capitalize, compact, map, cloneDeep, isEmpty } from 'lodash'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
-import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
-import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import { addLayeredValidation } from 'utils/layeredPreferenceUtil'
 
 import { withContext } from './context'
 import LeaseUpApplicationsFilterContainer from './LeaseUpApplicationsFilterContainer'
 import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
-import { getApplications } from './utils/leaseUpRequestUtils'
+import { getApplicationsPagination } from './utils/leaseUpRequestUtils'
 
 const getRank = (prefKey, prefLotteryRank) => {
   return prefLotteryRank ? `${prefKey} ${prefLotteryRank}` : 'Unranked'
@@ -69,14 +67,7 @@ export const buildApplicationsWithLayeredValidations = (listingId, preferences, 
 
   // don't need to make additional calls to the backend for listings w/out veterans
   if (preferences.some((pref) => pref.includes('Veteran'))) {
-    getApplications(listingId, 0, {}, true, false).then(({ records }) => {
-      const prefMap = {}
-      records.forEach((preference) => {
-        prefMap[`${preference.application_id}-${preference.preference_name}`] =
-          preference.layered_validation
-      })
-      setPrefMap(prefMap)
-    })
+    getApplicationsPagination(listingId, 0, {})
   }
 }
 
@@ -98,41 +89,16 @@ const LeaseUpTableContainer = ({
     pages,
     preferences,
     rowsPerPage,
-    statusModal,
-    hasFilters
+    statusModal
   }
 }) => {
-  const [prefMap, setPrefMap] = useState({})
-
-  const { unleashFlag: partnersPaginationEnabled, flagsReady } =
-    useFeatureFlag('PARTNERS_PAGINATION')
-
   useEffect(() => {
-    if (!preferences || !flagsReady) return
+    if (!preferences) return
 
-    if (preferences.every((pref) => !pref.includes('Veteran')) || partnersPaginationEnabled) {
-      if (!isEmpty(applications)) {
-        const buildPrefMap = {}
-        addLayeredValidation(applications).forEach((preference) => {
-          buildPrefMap[`${preference.application_id}-${preference.preference_name}`] =
-            preference.layered_validation
-        })
-        setPrefMap(buildPrefMap)
-      }
+    if (!isEmpty(applications)) {
+      addLayeredValidation(applications)
     }
-  }, [applications, flagsReady, partnersPaginationEnabled, preferences])
-
-  useEffect(() => {
-    if (flagsReady && !partnersPaginationEnabled) {
-      buildApplicationsWithLayeredValidations(listingId, preferences, setPrefMap)
-    }
-  }, [hasFilters, listingId, listingType, preferences, flagsReady, partnersPaginationEnabled])
-
-  const prefMapLoading =
-    listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED &&
-    !isEmpty(applications) &&
-    prefMap &&
-    isEmpty(prefMap)
+  }, [applications, preferences])
 
   return (
     <>
@@ -140,17 +106,16 @@ const LeaseUpTableContainer = ({
         listingType={listingType}
         preferences={preferences}
         onSubmit={onFilter}
-        loading={loading || prefMapLoading}
+        loading={loading}
         bulkCheckboxesState={bulkCheckboxesState}
         onClearSelectedApplications={onClearSelectedApplications}
         onSelectAllApplications={onSelectAllApplications}
         onBulkLeaseUpStatusChange={(val) => onLeaseUpStatusChange(val, null, false)}
         onBulkLeaseUpCommentChange={(val) => onLeaseUpStatusChange(null, null, true)}
       />
-      {!loading && !prefMapLoading && (
+      {!loading && (
         <LeaseUpApplicationsTable
           dataSet={map(applications, buildRowData)}
-          prefMap={prefMap}
           listingId={listingId}
           listingType={listingType}
           onLeaseUpStatusChange={onLeaseUpStatusChange}

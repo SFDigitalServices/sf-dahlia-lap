@@ -1,6 +1,4 @@
 import { request } from 'api/request'
-import { buildLeaseUpApplicationsParams } from 'components/lease_ups/utils/leaseUpRequestUtils'
-import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
 
 import { isLeaseAlreadyCreated } from './components/supplemental_application/utils/supplementalApplicationUtils'
 
@@ -92,84 +90,6 @@ const fetchLeaseUpApplicationsPagination = async (listingId, page, { filters }) 
     },
     true
   )
-}
-
-/**
- * @deprecated in favor of fetchLeaseUpApplicationsPagination
- * @todo remove in DAH-2969
- */
-const fetchLeaseUpApplications = async (
-  listingId,
-  page,
-  { filters },
-  includeGeneralApps = true,
-  getAll
-) => {
-  const generalApps = {
-    records: [],
-    pages: 0
-  }
-
-  // Fetch application preferences associated with a lease up listing.
-  const appPrefs = await getLeaseUpApplications(listingId, filters, false, getAll)
-
-  // don't need to include general applications for first come fist served listings
-  // or when getting applications for layered preferences
-  // or when there are more than 2000 records in the preference response (right now, we don't need to show more than 2000 records)
-  if (
-    appPrefs.records.length < 2000 &&
-    appPrefs.listing_type !== LISTING_TYPE_FIRST_COME_FIRST_SERVED &&
-    includeGeneralApps
-  ) {
-    // Fetch general applications associated with a lease up listing.
-    const generalAppsResponse = await getLeaseUpApplications(listingId, filters, true)
-    generalApps.records = generalAppsResponse.records
-    generalApps.pages = generalAppsResponse.pages
-  }
-
-  return {
-    records: [...appPrefs.records, ...generalApps.records],
-    pages: appPrefs.pages + generalApps.pages,
-    listing_type: appPrefs.listing_type
-  }
-}
-
-/**
- * @deprecated
- * @todo remove in DAH-2969
- * */
-const getLeaseUpApplications = async (listingId, filters, general = false, getAll = false) => {
-  const applications = []
-  let pages
-  let listingType
-  let lastPref
-
-  // we stop when we've retrieved 50000 records so that we don't accidentally loop forever if there is an error
-  while (applications.length < 50000) {
-    const response = await request.get(
-      '/lease-ups/applications',
-      {
-        params: buildLeaseUpApplicationsParams(listingId, filters, lastPref, general)
-      },
-      true
-    )
-
-    lastPref = response.records[response.records.length - 1]
-
-    // We want to use the pages from the first call because it has all the pages
-    if (!pages) {
-      pages = response.pages
-      listingType = response.listing_type
-    }
-
-    applications.push(...response.records)
-
-    if (!getAll || response.total_size < 2000) {
-      break
-    }
-  }
-
-  return { records: applications, pages, listing_type: listingType }
 }
 
 const fetchApplicationsForLotteryResults = async (listingId) => {
@@ -295,7 +215,6 @@ export default {
   updateFlaggedApplication,
   submitApplication,
   fetchApplications,
-  fetchLeaseUpApplications,
   fetchLeaseUpApplicationsPagination,
   getAMI,
   getUnits,
