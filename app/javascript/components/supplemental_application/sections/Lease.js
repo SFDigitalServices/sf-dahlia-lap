@@ -20,11 +20,13 @@ import {
   getApplicationMembers,
   totalSetAsidesForPref
 } from 'components/supplemental_application/utils/supplementalApplicationUtils'
+import { UNIT_STATUS_OCCUPIED } from 'utils/consts'
 import { useAppContext } from 'utils/customHooks'
 import { CurrencyField, FieldError, Label, SelectField } from 'utils/form/final_form/Field'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import { areLeaseAndRentalAssistancesValid } from 'utils/form/formSectionValidations'
 import formUtils from 'utils/formUtils'
+import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import { addLayeredPreferenceFields } from 'utils/layeredPreferenceUtil'
 import { pluck } from 'utils/utils'
 
@@ -119,6 +121,8 @@ const LeaseActions = ({
 }
 
 const Lease = ({ form, values }) => {
+  const { unleashFlag: unitStatusFlagEnabled } = useFeatureFlag('partners.unitStatus', false)
+
   const [
     {
       supplementalApplicationData: { supplemental: state }
@@ -155,17 +159,24 @@ const Lease = ({ form, values }) => {
 
   /**
    * available units fit the following criteria
-   *  - if it doesn't have any leases
-   *  - if there are leases, they cannot be in draft or signed status
-   *  - if the unit has an application, it must match the current one
+   *  - if unitStatusFlagEnabled, check unit status is not occupied
+   *  - else
+   *    - if it doesn't have any leases
+   *    - if there are leases, they cannot be in draft or signed status
+   *    - if the unit has an application, it must match the current one
+   *
+   * todo: clean up feature flag code
    */
   const unavailableStatuses = ['Draft', 'Signed']
-  const availableUnits = state.units.filter(
-    (unit) =>
+  const availableUnits = state.units.filter((unit) => {
+    if (unitStatusFlagEnabled) return (unit) => unit.status && unit.status !== UNIT_STATUS_OCCUPIED
+
+    return (
       !Array.isArray(unit.leases) ||
       !unit.leases.some((lease) => unavailableStatuses.includes(lease.lease_status)) ||
       unit.leases.some((lease) => lease.application_id === state.application.id)
-  )
+    )
+  })
 
   const availableUnitsOptions = formUtils.toOptions(
     map(availableUnits, pluck('id', 'unit_number', 'priority_type'))
