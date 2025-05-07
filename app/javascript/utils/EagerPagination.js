@@ -3,6 +3,9 @@ import { slice } from 'lodash'
 // Note: This needs to match the page size defined on the server in soql_query_builder.rb.
 const SERVER_PAGE_SIZE = 100
 
+// This needs to match the page size defined on the server in graphql_query.rb
+export const GRAPHQL_SERVER_PAGE_SIZE = 2000
+
 const MAX_SERVER_LIMIT = 2100
 
 const getServerPageForEagerPage = (eagerCurrentPage, eagerSize, serverSize) => {
@@ -18,9 +21,10 @@ const sliceRecords = (records, eagerCurrentPage, eagerSize, serverSize) => {
 }
 
 class EagerPagination {
-  constructor(eagerPageSize, serverPageSize) {
+  constructor(eagerPageSize, serverPageSize, noLimit = false) {
     this.eager = { currentPage: -1, size: eagerPageSize }
     this.server = { currentPage: -1, size: serverPageSize }
+    this.noLimit = noLimit
   }
 
   reset() {
@@ -29,6 +33,7 @@ class EagerPagination {
   }
 
   isOverLimit(page) {
+    if (this.noLimit) return false
     return page * this.eager.size >= MAX_SERVER_LIMIT
   }
 

@@ -17,7 +17,7 @@ class ApiController < ActionController::API
     status = opts.status || :internal_server_error
     if opts.exception
       e = opts.exception
-      message = "#{e.class.name}, #{e.message}"
+      message = "#{e.class.name}, #{e.message}, #{e.backtrace[0..3]}"
     else
       message = 'Not found.'
     end

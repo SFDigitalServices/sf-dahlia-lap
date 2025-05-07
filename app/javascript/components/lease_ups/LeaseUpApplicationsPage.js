@@ -21,7 +21,7 @@ import {
   useIsMountedRef,
   useAppContext
 } from 'utils/customHooks'
-import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
+import { GRAPHQL_SERVER_PAGE_SIZE, EagerPagination } from 'utils/EagerPagination'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
 import Context from './context'
@@ -91,7 +91,7 @@ const LeaseUpApplicationsPage = () => {
     pages: 0,
     atMaxPages: false,
     forceRefreshNextPageUpdate: false,
-    eagerPagination: new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
+    eagerPagination: new EagerPagination(ROWS_PER_PAGE, GRAPHQL_SERVER_PAGE_SIZE, true)
   })
 
   const [bulkCheckboxesState, setBulkCheckboxesState, overrideBulkCheckboxesState] = useStateObject(

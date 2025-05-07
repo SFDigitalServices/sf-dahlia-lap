@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'facets/hash/rekey'
+
 module Force
   # Methods for handling Salesforce Responses
   module Responses
