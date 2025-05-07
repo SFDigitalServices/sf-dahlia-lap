@@ -3,6 +3,9 @@ import { slice } from 'lodash'
 // Note: This needs to match the page size defined on the server in soql_query_builder.rb.
 const SERVER_PAGE_SIZE = 100
 
+// This needs to match the page size defined on the server in graphql_query.rb
+export const GRAPHQL_SERVER_PAGE_SIZE = 2000
+
 const MAX_SERVER_LIMIT = 2100
 
 const getServerPageForEagerPage = (eagerCurrentPage, eagerSize, serverSize) => {

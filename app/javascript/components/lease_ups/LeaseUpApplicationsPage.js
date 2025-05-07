@@ -21,7 +21,7 @@ import {
   useIsMountedRef,
   useAppContext
 } from 'utils/customHooks'
-import { EagerPagination } from 'utils/EagerPagination'
+import { GRAPHQL_SERVER_PAGE_SIZE, EagerPagination } from 'utils/EagerPagination'
 import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
@@ -32,9 +32,6 @@ import TableLayout from '../layouts/TableLayout'
 import { createFieldUpdateComment } from '../supplemental_application/utils/supplementalRequestUtils'
 
 const ROWS_PER_PAGE = 20
-// for lease up applications endpoint, Rails has different paging limits
-// see app/services/force/graphql_query.rb for details
-const GRAPHQL_SERVER_PAGE_SIZE = 2000
 
 const getPageHeaderData = (listing, reportId) => {
   const baseUrl = typeof SALESFORCE_BASE_URL !== 'undefined' ? SALESFORCE_BASE_URL : ''
