@@ -1,0 +1,127 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 01 May 2025 18:40:28 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Robots-Tag:
+      - none
+      Set-Cookie:
+      - BrowserId=wNKP3Sa7EfC-CdHnicOn3g; domain=.salesforce.com; path=/; expires=Fri,
+        01-May-2026 18:40:28 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 01-May-2026 18:40:28 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 01-May-2026 18:40:28
+        GMT; Max-Age=31536000; secure
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - b1fcad7601fc100a9ee2b6f70b14c25e
+      X-Request-Id:
+      - b1fcad7601fc100a9ee2b6f70b14c25e
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1746124828522","signature":"eNPC5MMh+9sR0XrMwJ+tauNMz8vbUPBVJPCIzLPUq5Q="}'
+  recorded_at: Thu, 01 May 2025 18:40:28 GMT
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/data/v63.0/graphql
+    body:
+      encoding: UTF-8
+      string: '{"query":"query accounts {uiapi {query {Account {edges {node {Id Name
+        {value}}}}}}}"}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 01 May 2025 18:40:29 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Robots-Tag:
+      - none
+      Vary:
+      - Accept-Encoding
+      Set-Cookie:
+      - BrowserId=wRKmcia7EfCN4e9RTfmm4g; domain=.salesforce.com; path=/; expires=Fri,
+        01-May-2026 18:40:28 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 01-May-2026 18:40:28 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 01-May-2026 18:40:28
+        GMT; Max-Age=31536000; secure
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - c3dd6719ba1df6428e3c7f512acdf0e5
+      X-Request-Id:
+      - c3dd6719ba1df6428e3c7f512acdf0e5
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"uiapi":{"query":{"Account":{"edges":[{"node":{"Id":"0010P00001kM7lBQAS","Name":{"value":"Spears,
+        Barr and Roy"}}},{"node":{"Id":"0010P00001kM7ojQAC","Name":{"value":"Spears,
+        Barr and Roy"}}},{"node":{"Id":"0010P00001kM7sRQAS","Name":{"value":"Ferguson-Hale"}}},{"node":{"Id":"0010P00001kM8HDQA0","Name":{"value":"Hooper
+        Group"}}},{"node":{"Id":"0010P00001kM8aeQAC","Name":{"value":"Cisneros, Sanford
+        and Roberson"}}},{"node":{"Id":"0010P00001kM8hkQAC","Name":{"value":"Cisneros,
+        Sanford and Roberson"}}},{"node":{"Id":"0010P00001kMA65QAG","Name":{"value":"Morton
+        LLC"}}},{"node":{"Id":"0010P00001kMAPRQA4","Name":{"value":"Morales-Riggs"}}},{"node":{"Id":"0010P00001kMASQQA4","Name":{"value":"Morales-Riggs"}}},{"node":{"Id":"0010P00001kMAjCQAW","Name":{"value":"Olsen,
+        Glover and Mooney"}}}]}}}},"errors":[]}'
+  recorded_at: Thu, 01 May 2025 18:40:29 GMT
+recorded_with: VCR 6.3.1
