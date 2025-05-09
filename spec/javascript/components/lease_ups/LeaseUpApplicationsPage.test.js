@@ -2,7 +2,7 @@
 /* eslint-disable jest/no-conditional-expect */
 import React from 'react'
 
-import { within, screen, fireEvent, act, waitFor } from '@testing-library/react'
+import { cleanup, within, screen, fireEvent, act, waitFor } from '@testing-library/react'
 import { useFlag as useFlagUnleash, useFlagsStatus } from '@unleash/proxy-client-react'
 
 import { renderAppWithUrl } from '../../testUtils/wrapperUtil'
@@ -16,7 +16,7 @@ useFlagsStatus.mockImplementation(() => ({
 }))
 
 const mockGetLeaseUpListing = jest.fn()
-const mockFetchLeaseUpApplications = jest.fn()
+const mockFetchLeaseUpApplicationsPagination = jest.fn()
 const mockCreateFieldUpdateComment = jest.fn()
 
 jest.mock('apiService', () => {
@@ -25,8 +25,8 @@ jest.mock('apiService', () => {
       mockGetLeaseUpListing(id)
       return Promise.resolve({ ...mockListing })
     },
-    fetchLeaseUpApplications: async (listingId, page, filters) => {
-      mockFetchLeaseUpApplications(listingId, page, filters)
+    fetchLeaseUpApplicationsPagination: async (listingId, page, filters) => {
+      mockFetchLeaseUpApplicationsPagination(listingId, page, filters)
       return Promise.resolve({ records: mockApplications })
     },
     createFieldUpdateComment: async (applicationId, status, comment, substatus) => {
@@ -192,6 +192,12 @@ describe('LeaseUpApplicationsPage', () => {
     rtlWrapper = await getWrapper()
   })
 
+  afterEach(() => {
+    cleanup()
+    jest.clearAllMocks()
+    jest.resetAllMocks()
+  })
+
   test('should match the snapshot', async () => {
     expect(rtlWrapper.asFragment()).toMatchSnapshot()
   })
@@ -202,9 +208,9 @@ describe('LeaseUpApplicationsPage', () => {
   })
 
   test('calls get applications with the listing id and page number = 0', () => {
-    expect(mockFetchLeaseUpApplications.mock.calls).toHaveLength(2)
-    expect(mockFetchLeaseUpApplications.mock.calls[0][0]).toEqual(mockListing.id)
-    expect(mockFetchLeaseUpApplications.mock.calls[0][1]).toBe(0)
+    expect(mockFetchLeaseUpApplicationsPagination.mock.calls).toHaveLength(1)
+    expect(mockFetchLeaseUpApplicationsPagination.mock.calls[0][0]).toEqual(mockListing.id)
+    expect(mockFetchLeaseUpApplicationsPagination.mock.calls[0][1]).toBe(0)
   })
 
   test('it is not loading', () => {

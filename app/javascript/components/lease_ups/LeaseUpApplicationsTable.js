@@ -15,7 +15,6 @@ import StatusCell from 'components/lease_ups/application_page/StatusCell'
 import appPaths from 'utils/appPaths'
 import { useAppContext } from 'utils/customHooks'
 import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
-import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import { cellFormat } from 'utils/reactTableUtils'
 import { getLeaseUpStatusClass } from 'utils/statusUtils'
 
@@ -46,7 +45,6 @@ const textCell = ({ value }) => {
 
 const LeaseUpApplicationsTable = ({
   dataSet,
-  prefMap,
   onLeaseUpStatusChange,
   pages,
   rowsPerPage,
@@ -63,9 +61,6 @@ const LeaseUpApplicationsTable = ({
 
   const navigate = useNavigate()
 
-  const { unleashFlag: partnersPaginationEnabled, flagsReady } =
-    useFeatureFlag('PARTNERS_PAGINATION')
-
   const updateSelectedApplicationState = (application, navigateToApplication = false) => {
     applicationRowClicked(dispatch, application)
 
@@ -81,13 +76,9 @@ const LeaseUpApplicationsTable = ({
     atMaxPages || page >= 100 ? maxPagesMsg : 'No results, try adjusting your filters'
 
   const getPreferenceValidation = (cell) => {
-    if (partnersPaginationEnabled && flagsReady) {
-      return cell.original.layered_preference_validation
-        ? cell.original.layered_preference_validation
-        : cell.original.post_lottery_validation
-    } else {
-      return prefMap[`${cell.original.application_id}-${cell.original.preference_name}`]
-    }
+    return cell.original.layered_preference_validation
+      ? cell.original.layered_preference_validation
+      : cell.original.post_lottery_validation
   }
 
   const columns = [
