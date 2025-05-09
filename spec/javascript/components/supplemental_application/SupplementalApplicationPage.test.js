@@ -1,4 +1,5 @@
 import { render, screen, fireEvent, within, act } from '@testing-library/react'
+import { useFlag as useFlagUnleash, useFlagsStatus } from '@unleash/proxy-client-react'
 import { cloneDeep } from 'lodash'
 import selectEvent from 'react-select-event'
 
@@ -20,6 +21,13 @@ const getWindowUrl = (id) => `/lease-ups/applications/${id}`
 
 const ID_NO_AVAILABLE_UNITS = 'idwithnoavailableunits'
 const ID_WITH_TOTAL_MONTHLY_RENT = 'idwithtotalmonthlyrent'
+
+jest.mock('@unleash/proxy-client-react')
+useFlagUnleash.mockImplementation(() => false)
+useFlagsStatus.mockImplementation(() => ({
+  flagsError: false,
+  flagsReady: true
+}))
 
 /**
  * TODO: instead of mocking apiService, we should probably be mocking one level up (actions.js).

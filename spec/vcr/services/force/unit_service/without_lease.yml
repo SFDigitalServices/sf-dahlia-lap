@@ -53,7 +53,7 @@ http_interactions:
   recorded_at: Mon, 11 Mar 2024 20:07:30 GMT
 - request:
     method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Priority_Type__c,%20AMI_chart_type__c,%20Max_AMI_for_Qualifying_Unit__c,%20Unit_Number__c,%20Unit_Type__c,%20AMI_chart_year__c,%20(SELECT%20Application__c,%20Lease_Status__c,%20Preference_Used_Name__c%20FROM%20Leases__r)%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000F8YG4UAN%27)
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Priority_Type__c,%20AMI_chart_type__c,%20Max_AMI_for_Qualifying_Unit__c,%20Unit_Number__c,%20Unit_Type__c,%20AMI_chart_year__c,%20Status__c,%20(SELECT%20Application__c,%20Lease_Status__c,%20Preference_Used_Name__c%20FROM%20Leases__r)%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000F8YG4UAN%27)
     body:
       encoding: US-ASCII
       string: ''
