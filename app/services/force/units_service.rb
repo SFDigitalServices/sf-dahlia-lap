@@ -16,7 +16,7 @@ module Force
                          .to_soql
 
       result = builder.from(:Unit__c)
-             .select("Id, Priority_Type__c, AMI_chart_type__c, Max_AMI_for_Qualifying_Unit__c, Unit_Number__c, Unit_Type__c, AMI_chart_year__c, (#{lease_query})")
+             .select("Id, Priority_Type__c, AMI_chart_type__c, Max_AMI_for_Qualifying_Unit__c, Unit_Number__c, Unit_Type__c, AMI_chart_year__c, Status__c, (#{lease_query})")
              .where_eq('Listing__c', listing_id, :string)
              .transform_results { |results| massage(results) }
              .query

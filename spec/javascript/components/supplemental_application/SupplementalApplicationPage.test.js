@@ -1,4 +1,5 @@
 import { render, screen, fireEvent, within, act } from '@testing-library/react'
+import { useFlag as useFlagUnleash, useFlagsStatus } from '@unleash/proxy-client-react'
 import { cloneDeep } from 'lodash'
 import selectEvent from 'react-select-event'
 
@@ -20,6 +21,13 @@ const getWindowUrl = (id) => `/lease-ups/applications/${id}`
 
 const ID_NO_AVAILABLE_UNITS = 'idwithnoavailableunits'
 const ID_WITH_TOTAL_MONTHLY_RENT = 'idwithtotalmonthlyrent'
+
+jest.mock('@unleash/proxy-client-react')
+useFlagUnleash.mockImplementation(() => false)
+useFlagsStatus.mockImplementation(() => ({
+  flagsError: false,
+  flagsReady: true
+}))
 
 /**
  * TODO: instead of mocking apiService, we should probably be mocking one level up (actions.js).
@@ -90,6 +98,7 @@ jest.mock('apiService', () => {
         unit_type: 'studio',
         priority_type: null,
         max_ami_for_qualifying_unit: 50,
+        status: 'Occupied',
         leases: [
           {
             application_id: 'testId',
@@ -107,13 +116,15 @@ jest.mock('apiService', () => {
               id: 'unit_without_priority',
               unit_number: 'unit without priority',
               priority_type: null,
-              max_ami_for_qualifying_unit: 50
+              max_ami_for_qualifying_unit: 50,
+              status: 'Available'
             }),
             _merge(mockedUnits[1], {
               id: 'unit_with_priority',
               unit_number: 'unit with priority',
               priority_type: 'Hearing/Vision impairments',
-              max_ami_for_qualifying_unit: 50
+              max_ami_for_qualifying_unit: 50,
+              status: 'Available'
             })
           ]
     },
@@ -653,6 +664,22 @@ describe('SupplementalApplicationPage', () => {
 
       test('it decreases the number of accessibility units', () => {
         expect(screen.getByTestId('accessibility-available-count').textContent).toBe('0')
+      })
+    })
+
+    describe('partners.unitStatus feature toggle', () => {
+      beforeEach(async () => {
+        await getWrapper()
+      })
+
+      test('shows available units based on leases when toggle is off', () => {
+        useFlagUnleash.mockImplementation(() => false)
+        expect(screen.getByTestId('total-available-count').textContent).toBe('2')
+      })
+
+      test('shows available units based on unit status when toggle is on', () => {
+        useFlagUnleash.mockImplementation(() => true)
+        expect(screen.getByTestId('total-available-count').textContent).toBe('2')
       })
     })
   })

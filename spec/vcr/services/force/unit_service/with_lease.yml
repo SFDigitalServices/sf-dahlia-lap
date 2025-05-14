@@ -8,7 +8,7 @@ http_interactions:
       string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
     headers:
       User-Agent:
-      - Faraday v2.7.4
+      - Faraday v2.12.2
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
@@ -21,45 +21,53 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 11 Mar 2024 21:47:14 GMT
-      Set-Cookie:
-      - BrowserId=7CNey9_wEe69eTkH6Vhq2Q; domain=.salesforce.com; path=/; expires=Tue,
-        11-Mar-2025 21:47:14 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Tue, 11-Mar-2025 21:47:14 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Tue, 11-Mar-2025 21:47:14
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Readonlymode:
-      - 'false'
+      - Wed, 14 May 2025 17:24:23 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
       Transfer-Encoding:
       - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Readonlymode:
+      - 'false'
+      X-Robots-Tag:
+      - none
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Content-Type-Options:
+      - nosniff
+      Set-Cookie:
+      - BrowserId=R0FAmzDoEfCtfye--l_eiQ; domain=.salesforce.com; path=/; expires=Thu,
+        14-May-2026 17:24:23 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Thu, 14-May-2026 17:24:23 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 14-May-2026 17:24:23
+        GMT; Max-Age=31536000; secure
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - 5bf98f5b37766bf44f4659dfbaa362b1
+      X-Request-Id:
+      - 5bf98f5b37766bf44f4659dfbaa362b1
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D8H0000004dNlUAI/0058H000005lZogQAE","token_type":"Bearer","issued_at":"1710193634314","signature":"bgg9jWaMD18uMxaZyuUoYM0edvexvWoXm75uVw0754A="}'
-  recorded_at: Mon, 11 Mar 2024 21:47:14 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1747243463623","signature":"V+0xcvbClsQyxa4NVfhMMm6x+5pDH27BSigAIUmFEjs="}'
+  recorded_at: Wed, 14 May 2025 17:24:23 GMT
 - request:
     method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Priority_Type__c,%20AMI_chart_type__c,%20Max_AMI_for_Qualifying_Unit__c,%20Unit_Number__c,%20Unit_Type__c,%20AMI_chart_year__c,%20(SELECT%20Application__c,%20Lease_Status__c,%20Preference_Used_Name__c%20FROM%20Leases__r)%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000GbyuQUAR%27)
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Priority_Type__c,%20AMI_chart_type__c,%20Max_AMI_for_Qualifying_Unit__c,%20Unit_Number__c,%20Unit_Type__c,%20AMI_chart_year__c,%20Status__c,%20(SELECT%20Application__c,%20Lease_Status__c,%20Preference_Used_Name__c%20FROM%20Leases__r)%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000GbyuQUAR%27)
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.7.4
+      - Faraday v2.12.2
       Authorization:
       - OAuth <<ACCESS_TOKEN>>
       Accept-Encoding:
@@ -72,56 +80,47 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 11 Mar 2024 21:47:14 GMT
-      Set-Cookie:
-      - BrowserId=7HIa1t_wEe61Pd0JfiT2KA; domain=.salesforce.com; path=/; expires=Tue,
-        11-Mar-2025 21:47:14 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Tue, 11-Mar-2025 21:47:14 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Tue, 11-Mar-2025 21:47:14
-        GMT; Max-Age=31536000; secure
+      - Wed, 14 May 2025 17:24:24 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Robots-Tag:
+      - none
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
       X-Content-Type-Options:
       - nosniff
-      X-Robots-Tag:
-      - none
+      Sforce-Limit-Info:
+      - api-usage=28296/982000
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
-      Sforce-Limit-Info:
-      - api-usage=15882/930000
-      Content-Type:
-      - application/json;charset=UTF-8
+      Set-Cookie:
+      - BrowserId=R4EwnjDoEfCrHrvfGByfkg; domain=.salesforce.com; path=/; expires=Thu,
+        14-May-2026 17:24:23 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Thu, 14-May-2026 17:24:23 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 14-May-2026 17:24:23
+        GMT; Max-Age=31536000; secure
       Vary:
       - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - 69f41022f4f35e9d82cc718f23d16201
+      X-Request-Id:
+      - 69f41022f4f35e9d82cc718f23d16201
+      X-Sfdc-Edge-Cache:
+      - MISS
     body:
       encoding: ASCII-8BIT
-      string: '{"totalSize":9,"done":true,"records":[{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHr9QAH"},"Id":"a0b0P00001HIHr9QAH","Priority_Type__c":null,"AMI_chart_type__c":"HUD
-        Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"101","Unit_Type__c":"1
-        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a138H000000GWjSQAW"},"Application__c":"a0o0P00000GZazOQAT","Lease_Status__c":"Draft","Preference_Used_Name__c":null}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrEQAX"},"Id":"a0b0P00001HIHrEQAX","Priority_Type__c":"Hearing/Vision
-        impairments","AMI_chart_type__c":"HUD Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"201","Unit_Type__c":"1
-        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6trQAC"},"Application__c":"a0o0P00000IvWghQAF","Lease_Status__c":"Signed","Preference_Used_Name__c":"Displaced
-        Tenant Housing Preference (DTHP)"}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrJQAX"},"Id":"a0b0P00001HIHrJQAX","Priority_Type__c":null,"AMI_chart_type__c":"HUD
-        Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"301","Unit_Type__c":"1
-        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6tgQAC"},"Application__c":"a0o0P00000Iv7H4QAJ","Lease_Status__c":"Draft","Preference_Used_Name__c":null}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrTQAX"},"Id":"a0b0P00001HIHrTQAX","Priority_Type__c":"Mobility
-        impairments","AMI_chart_type__c":"HUD Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"103","Unit_Type__c":"2
-        BR","AMI_chart_year__c":2018.0,"Leases__r":null},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrYQAX"},"Id":"a0b0P00001HIHrYQAX","Priority_Type__c":null,"AMI_chart_type__c":"HUD
-        Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"203","Unit_Type__c":"2
-        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6tiQAC"},"Application__c":"a0o0P00000GZazsQAD","Lease_Status__c":"Draft","Preference_Used_Name__c":"Certificate
-        of Preference (COP)"}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrdQAH"},"Id":"a0b0P00001HIHrdQAH","Priority_Type__c":null,"AMI_chart_type__c":"HUD
-        Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"303","Unit_Type__c":"2
-        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6tfQAC"},"Application__c":"a0o0P00000Isnf4QAB","Lease_Status__c":"Draft","Preference_Used_Name__c":"Displaced
-        Tenant Housing Preference (DTHP)"}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrnQAH"},"Id":"a0b0P00001HIHrnQAH","Priority_Type__c":"Mobility/Hearing/Vision
-        impairments","AMI_chart_type__c":"HUD Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"105","Unit_Type__c":"3
-        BR","AMI_chart_year__c":2018.0,"Leases__r":null},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrsQAH"},"Id":"a0b0P00001HIHrsQAH","Priority_Type__c":null,"AMI_chart_type__c":"HUD
-        Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"205","Unit_Type__c":"3
-        BR","AMI_chart_year__c":2018.0,"Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6thQAC"},"Application__c":"a0o0P00000IvWgXQAV","Lease_Status__c":"Draft","Preference_Used_Name__c":"Live
-        or Work in San Francisco Preference"}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrxQAH"},"Id":"a0b0P00001HIHrxQAH","Priority_Type__c":null,"AMI_chart_type__c":"HUD
-        Unadjusted","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"305","Unit_Type__c":"3
-        BR","AMI_chart_year__c":2018.0,"Leases__r":null}]}'
-  recorded_at: Mon, 11 Mar 2024 21:47:14 GMT
+      string: '{"totalSize":2,"done":true,"records":[{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHr9QAH"},"Id":"a0b0P00001HIHr9QAH","Priority_Type__c":null,"AMI_chart_type__c":"MOHCD","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"101","Unit_Type__c":"Studio","AMI_chart_year__c":2024.0,"Status__c":"Occupied","Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007B4ugQAC"},"Application__c":"a0o0P00000ItlpiQAB","Lease_Status__c":"Draft","Preference_Used_Name__c":"Live
+        or Work in San Francisco Preference"}]}},{"attributes":{"type":"Unit__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Unit__c/a0b0P00001HIHrEQAX"},"Id":"a0b0P00001HIHrEQAX","Priority_Type__c":"Hearing/Vision
+        impairments","AMI_chart_type__c":"MOHCD","Max_AMI_for_Qualifying_Unit__c":55.0,"Unit_Number__c":"201","Unit_Type__c":"Studio","AMI_chart_year__c":2024.0,"Status__c":"Occupied","Leases__r":{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Lease__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Lease__c/a130P000007U6trQAC"},"Application__c":"a0o0P00000IvWghQAF","Lease_Status__c":"Signed","Preference_Used_Name__c":"Displaced
+        Tenant Housing Preference (DTHP)"}]}}]}'
+  recorded_at: Wed, 14 May 2025 17:24:24 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Unit__c%20WHERE%20(Listing__c%20=%20%27a0W0P00000GbyuQUAR%27)
@@ -130,7 +129,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.7.4
+      - Faraday v2.12.2
       Authorization:
       - OAuth <<ACCESS_TOKEN>>
       Accept-Encoding:
@@ -143,32 +142,42 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 11 Mar 2024 21:47:15 GMT
+      - Wed, 14 May 2025 17:24:24 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       Set-Cookie:
-      - BrowserId=7Lq84N_wEe60f3myxJslPg; domain=.salesforce.com; path=/; expires=Tue,
-        11-Mar-2025 21:47:15 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Tue, 11-Mar-2025 21:47:15 GMT; Max-Age=31536000;
+      - BrowserId=R7-Y_jDoEfCfBlXyeAIwAQ; domain=.salesforce.com; path=/; expires=Thu,
+        14-May-2026 17:24:24 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Thu, 14-May-2026 17:24:24 GMT; Max-Age=31536000;
         secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Tue, 11-Mar-2025 21:47:15
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Thu, 14-May-2026 17:24:24
         GMT; Max-Age=31536000; secure
+      Sforce-Limit-Info:
+      - api-usage=28288/982000
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
       X-Robots-Tag:
       - none
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
-      Sforce-Limit-Info:
-      - api-usage=15882/930000
-      Content-Type:
-      - application/json;charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
       Vary:
       - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - 8d18cbadb05367a6f2b80d37d18dda21
+      X-Request-Id:
+      - 8d18cbadb05367a6f2b80d37d18dda21
+      X-Sfdc-Edge-Cache:
+      - MISS
     body:
       encoding: ASCII-8BIT
-      string: '{"totalSize":9,"done":true,"records":[]}'
-  recorded_at: Mon, 11 Mar 2024 21:47:15 GMT
-recorded_with: VCR 6.1.0
+      string: '{"totalSize":2,"done":true,"records":[]}'
+  recorded_at: Wed, 14 May 2025 17:24:24 GMT
+recorded_with: VCR 6.3.1
