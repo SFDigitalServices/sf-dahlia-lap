@@ -2,6 +2,7 @@
 version: 2.1
 orbs:
   ruby: circleci/ruby@2.1.0
+  qlty: qltysh/qlty-orb@0.0.6
 defaults: &defaults
   working_directory: ~/tmp
   docker:
@@ -152,6 +153,8 @@ jobs:
       - run: ./tmp/cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.backend.json coverage/backend/.resultset.json
       - run: ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
       - run: ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
+      - qlty/coverage_publish:
+          files: coverage/frontend/.resultset.json, coverage/backend/.resultset.json
       - persist_to_workspace:
           root: .
           paths:
