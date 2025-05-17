@@ -3,9 +3,11 @@
 A portal for leasing agents, sales agents, and developers to manage listings and applications.
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/9e8566f1a7a92c4eca3e/maintainability)](https://codeclimate.com/github/SFDigitalServices/sf-dahlia-lap/maintainability)
+[![QLTY Maintainability](https://qlty.sh/badges/3497c285-f114-41d4-aba0-f04ba7425a9c/maintainability.svg)](https://qlty.sh/gh/SFDigitalServices/projects/sf-dahlia-lap)
 
 Only showing rspec tests for now:
 [![Test Coverage](https://api.codeclimate.com/v1/badges/9e8566f1a7a92c4eca3e/test_coverage)](https://codeclimate.com/github/SFDigitalServices/sf-dahlia-lap/test_coverage)
+[![QLTY Code Coverage](https://qlty.sh/badges/3497c285-f114-41d4-aba0-f04ba7425a9c/test_coverage.svg)](https://qlty.sh/gh/SFDigitalServices/projects/sf-dahlia-lap)
 
 Cross-browser testing done with <a href="https://www.browserstack.com/"><img src="./Browserstack-logo@2x.png?raw=true" height="36" ></a>
 
@@ -140,6 +142,14 @@ To run all tests (unit and e2e):
 To run an individual test:
 
 `yarn test:all path/to/test`
+
+### Qlty
+
+[Qlty](https://qlty.sh) was spun out of Code Climate to focus on code quality checks.
+Qlty provides a cli to run checks locally.
+
+- Install the CLI: `curl https://qlty.sh | sh`
+- [CLI Quickstart](https://docs.qlty.sh/cli/quickstart)
 
 ### Writing unit tests with React Testing Library
 
