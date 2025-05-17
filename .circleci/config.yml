@@ -154,7 +154,7 @@ jobs:
       - run: ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
       - run: ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
       - qlty/coverage_publish:
-          files: coverage/frontend/.resultset.json, coverage/backend/.resultset.json
+          files: coverage/lcov.info, coverage/coverage.json
       - persist_to_workspace:
           root: .
           paths:
