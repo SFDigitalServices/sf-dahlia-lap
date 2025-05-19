@@ -4,7 +4,7 @@ module Force
   # GraphQL Requests to Salesforce
   class GraphqlQuery
     GRAPHQL_ENDPOINT = '/services/data/v63.0/graphql'
-    RECORD_BATCH_SIZE = 2_000 # supports 200 to 2_000
+    RECORD_BATCH_SIZE = 200 # supports 200 to 2_000
 
     attr_reader :total_count
 
