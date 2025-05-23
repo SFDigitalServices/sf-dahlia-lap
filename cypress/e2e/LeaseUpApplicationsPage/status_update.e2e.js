@@ -21,7 +21,7 @@ describe('LeaseUpApplicationsPage status update', () => {
       cy.intercept('api/v1/lease-ups/listings/**', { fixture: 'leaseUpListing.json' }).as(
         'leaseUpListing'
       )
-      cy.intercept(`api/v1/lease-ups/applications?listing_id=${LEASE_UP_LISTING_ID}`, {
+      cy.intercept(`api/v1/lease-ups/applications?listing_id=${LEASE_UP_LISTING_ID}**`, {
         fixture: 'leaseUpApplications.json'
       }).as('leaseUpApplications')
       cy.intercept('api/v1/applications/**/field_update_comments', {
@@ -197,9 +197,13 @@ describe('LeaseUpApplicationsPage status update', () => {
                 cy.get('input').first().type('{enter}')
               })
 
-            cy.get('div[role="grid"] input[type="checkbox"]')
-              .its('length')
-              .should('be.lessThan', initialCount)
+            // TODO: using fixture data is not compatible with filter testing
+            //   the number of applications returned will always be the same
+            if(!usingFixtures()) {
+              cy.get('div[role="grid"] input[type="checkbox"]')
+                .its('length')
+                .should('be.lessThan', initialCount)
+            }
 
             cy.url().should(
               'equal',
