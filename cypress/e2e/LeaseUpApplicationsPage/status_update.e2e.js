@@ -197,9 +197,13 @@ describe('LeaseUpApplicationsPage status update', () => {
                 cy.get('input').first().type('{enter}')
               })
 
-            cy.get('div[role="grid"] input[type="checkbox"]')
-              .its('length')
-              .should('be.lessThan', initialCount)
+            // TODO: using fixture data is not compatible with filter testing
+            //   the number of applications returned will always be the same
+            if(!usingFixtures()) {
+              cy.get('div[role="grid"] input[type="checkbox"]')
+                .its('length')
+                .should('be.lessThan', initialCount)
+            }
 
             cy.url().should(
               'equal',
