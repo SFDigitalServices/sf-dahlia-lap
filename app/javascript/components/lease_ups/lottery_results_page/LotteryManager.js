@@ -5,9 +5,9 @@ import { useReactToPrint } from 'react-to-print'
 import Loading from 'components/molecules/Loading'
 
 import { LotteryResults } from './LotteryResults'
-import { processLotteryBuckets } from './utils/processLotteryBuckets'
+import { processLotteryBuckets, massageLotteryBuckets } from './utils/processLotteryBuckets'
 
-const LotteryManager = ({ applicationPrefs, listing }) => {
+const LotteryManager = ({ applications, listing }) => {
   // set up print component
   const componentToPrint = useRef(null)
   const handlePrint = useReactToPrint({
@@ -16,7 +16,12 @@ const LotteryManager = ({ applicationPrefs, listing }) => {
   })
 
   // process applications into buckets
-  const processedBuckets = applicationPrefs ? processLotteryBuckets(applicationPrefs) : null
+  let processedBuckets = null
+  if (applications && applications[0].totalSubmittedApps) {
+    processedBuckets = massageLotteryBuckets(applications)
+  } else if (applications) {
+    processedBuckets = processLotteryBuckets(applications)
+  }
 
   return (
     <>
