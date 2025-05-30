@@ -153,3 +153,31 @@ export const processLotteryBuckets = (applicationPreferences) => {
 
   return processedBuckets
 }
+
+export const massageLotteryBuckets = (buckets) => {
+  const processedBuckets = buckets.map((bucket) => ({
+    shortCode: bucket.preferenceShortCode || 'generalLottery',
+    preferenceResults: bucket.preferenceResults.map((result) => ({
+      lottery_number: result.lotteryNumber
+    }))
+  }))
+
+  const unfilteredResults = []
+  buckets.forEach((bucket) =>
+    bucket.preferenceResults.forEach((result) =>
+      unfilteredResults.push({
+        lottery_number: result.lotteryNumber,
+        unsorted_lottery_rank: result.lotteryRank
+      })
+    )
+  )
+
+  return [
+    {
+      preferenceName: 'Unfiltered Rank',
+      preferenceResults: sortUnfilteredBuckets(unfilteredResults),
+      shortCode: 'Unfiltered'
+    },
+    ...processedBuckets
+  ]
+}
