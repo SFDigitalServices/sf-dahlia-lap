@@ -4,14 +4,14 @@ module Force
   # GraphQL Requests to Salesforce
   class GraphqlQuery
     GRAPHQL_ENDPOINT = '/services/data/v63.0/graphql'
-    RECORD_BATCH_SIZE = 2_000 # supports 200 to 2_000
+    GRAPHQL_SERVER_PAGE_SIZE = 200 # supports 200 to 2_000
 
     attr_reader :total_count
 
     def initialize(user, params)
       @client = ClientFactory.new(user).build
       @params = params
-      @record_batch_size = params[:record_batch_size].try(:to_i) || RECORD_BATCH_SIZE
+      @record_batch_size = params[:record_batch_size].try(:to_i) || GRAPHQL_SERVER_PAGE_SIZE
       @records = []
       @response = nil
       @paging_cursor = nil
