@@ -2,7 +2,7 @@ export const Preferences = {
   DFR: {
     id: 'DFR',
     name: 'DALP First Responders',
-    subtitle: 'TODO subtitle',
+    subtitle: 'subtitle',
     shortName: 'First Responders',
     index: 0,
     isVeteran: false,
@@ -11,7 +11,7 @@ export const Preferences = {
   DSE: {
     id: 'DSE',
     name: 'DALP Educators',
-    subtitle: 'TODO subtitle',
+    subtitle: 'subtitle',
     shortName: 'Educator',
     index: 0,
     isVeteran: false,
