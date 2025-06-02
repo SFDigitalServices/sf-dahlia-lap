@@ -97,7 +97,7 @@ const fetchApplicationsForLotteryResults = async (listingId) => {
 }
 
 const fetchLotteryResults = async (listingId) => {
-  return request.get(`/lottery-results?listing_id=${listingId}&lottery_results=true`)
+  return request.get(`/lottery-results?listing_id=${listingId}&use_lottery_result_api=true`)
 }
 
 const getAMI = async ({ chartType, chartYear }) =>
