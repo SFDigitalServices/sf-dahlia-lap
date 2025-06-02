@@ -420,7 +420,7 @@ describe('apiService', () => {
     })
   })
 
-    describe('fetchLotteryResults', () => {
+  describe('fetchLotteryResults', () => {
     test('calls request.get', async () => {
       request.get = mockFetchLotteryResults
       await apiService.fetchLotteryResults('fake-listing-id')
