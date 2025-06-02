@@ -155,7 +155,7 @@ export const processLotteryBuckets = (applicationPreferences) => {
 }
 
 export const massageLotteryBuckets = (buckets) => {
-  const processedBuckets = buckets.map((bucket) => ({
+  const massagedBuckets = buckets.map((bucket) => ({
     shortCode: bucket.preferenceShortCode || 'generalLottery',
     preferenceResults: bucket.preferenceResults.map((result) => ({
       lottery_number: result.lotteryNumber
@@ -178,6 +178,6 @@ export const massageLotteryBuckets = (buckets) => {
       preferenceResults: sortUnfilteredBuckets(unfilteredResults),
       shortCode: 'Unfiltered'
     },
-    ...processedBuckets
+    ...massagedBuckets
   ]
 }

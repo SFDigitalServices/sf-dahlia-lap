@@ -4,7 +4,7 @@ module Api::V1
   # Lottery results controller for access via the API
   class LotteryResultsController < ApiController
     def index
-      if params[:lottery_results]
+      if params[:use_lottery_result_api]
         applications = soql_lottery_results_service.listing_lottery_results(params[:listing_id])
       else
         applications = soql_lottery_results_service.app_preferences_for_listing(params[:listing_id])
