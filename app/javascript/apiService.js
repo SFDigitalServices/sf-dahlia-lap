@@ -96,6 +96,10 @@ const fetchApplicationsForLotteryResults = async (listingId) => {
   return request.get(`/lottery-results?listing_id=${listingId}`)
 }
 
+const fetchLotteryResults = async (listingId) => {
+  return request.get(`/lottery-results?listing_id=${listingId}&use_lottery_result_api=true`)
+}
+
 const getAMI = async ({ chartType, chartYear }) =>
   request.get('/ami', {
     params: {
@@ -234,5 +238,6 @@ export default {
   createLease,
   deleteLease,
   updateLease,
-  fetchApplicationsForLotteryResults
+  fetchApplicationsForLotteryResults,
+  fetchLotteryResults
 }

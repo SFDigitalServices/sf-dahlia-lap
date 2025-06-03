@@ -25,6 +25,10 @@ module Force
                .order_by('Receives_Preference__c desc, Preference_Order__c, Preference_Lottery_Rank__c,  Application__r.General_Lottery_Rank__c asc')
                .transform_results { |results| massage(results) }
       end
+
+      def listing_lottery_results(listing_id)
+        api_get("/Listing/LotteryResult/#{listing_id}")
+      end
     end
   end
 end
