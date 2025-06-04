@@ -26,6 +26,7 @@ prod_and_release_jobs: &prod_and_release_jobs
         - /^release.*$/
         - /^hotfix.*$/
         - production
+        - debug-prod-tests
 aliases:
   - &attach_workspace
     attach_workspace:
@@ -73,7 +74,7 @@ commands:
           name: Run Cypress tests
           command: |
             TESTFILES=$(circleci tests glob "cypress/e2e/**/*.e2e.js" | circleci tests split)
-            yarn cypress run --spec $TESTFILES
+            ELECTRON_ENABLE_LOGGING=true DEBUG=cypress:electron yarn cypress run --spec "$TESTFILES"
 
 jobs:
   build:
