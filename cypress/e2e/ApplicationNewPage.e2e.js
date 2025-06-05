@@ -334,7 +334,6 @@ describe('ApplicationNewPage', () => {
   it('should fail for an incomplete new rental fcfs application, and create successfully when complete', () => {
     cy.visit('http://localhost:3000/')
     cy.login()
-    console.log(`/listings/${FCFS_RENTAL_LISTING_ID}/applications/new`)
     cy.visit(`/listings/${FCFS_RENTAL_LISTING_ID}/applications/new`)
 
     cy.get('#application_language').select('English')

@@ -26,6 +26,7 @@ prod_and_release_jobs: &prod_and_release_jobs
         - /^release.*$/
         - /^hotfix.*$/
         - production
+        - DAH-3387-prod-e2e-test-leaseupapplicationspage
 aliases:
   - &attach_workspace
     attach_workspace:
@@ -72,8 +73,8 @@ commands:
       - run:
           name: Run Cypress tests
           command: |
-            TESTFILES=$(circleci tests glob "cypress/e2e/**/*.e2e.js" | circleci tests split)
-            ELECTRON_ENABLE_LOGGING=true DEBUG=cypress:electron yarn cypress run --spec $TESTFILES
+            TESTFILES=$(circleci tests glob "cypress/e2e/**/*.e2e.js" | circleci tests split --split-by=timings | paste -sd ',')
+            yarn cypress run --spec $TESTFILES
 
 jobs:
   build:
