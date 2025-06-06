@@ -20,7 +20,7 @@ import {
   getApplicationMembers,
   totalSetAsidesForPref
 } from 'components/supplemental_application/utils/supplementalApplicationUtils'
-import { UNIT_STATUS_OCCUPIED } from 'utils/consts'
+import { UNIT_STATUS_AVAILABLE } from 'utils/consts'
 import { useAppContext } from 'utils/customHooks'
 import { CurrencyField, FieldError, Label, SelectField } from 'utils/form/final_form/Field'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
@@ -169,7 +169,7 @@ const Lease = ({ form, values }) => {
    */
   const unavailableStatuses = ['Draft', 'Signed']
   const availableUnits = state.units.filter((unit) => {
-    if (unitStatusFlagEnabled) return unit.status && unit.status !== UNIT_STATUS_OCCUPIED
+    if (unitStatusFlagEnabled) return unit.status && unit.status === UNIT_STATUS_AVAILABLE
 
     return (
       !Array.isArray(unit.leases) ||
