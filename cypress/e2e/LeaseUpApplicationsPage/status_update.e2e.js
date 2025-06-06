@@ -16,24 +16,24 @@ const SECOND_ROW_LEASE_UP_APP_ID = Cypress.env('SECOND_ROW_LEASE_UP_APP_ID')
 const THIRD_ROW_LEASE_UP_APP_ID = Cypress.env('THIRD_ROW_LEASE_UP_APP_ID')
 
 describe('LeaseUpApplicationsPage status update', () => {
-  beforeEach(() => {
-    if (usingFixtures()) {
-      cy.intercept('api/v1/lease-ups/listings/**', { fixture: 'leaseUpListing.json' }).as(
-        'leaseUpListing'
-      )
-      cy.intercept(`api/v1/lease-ups/applications?listing_id=${LEASE_UP_LISTING_ID}`, {
-        fixture: 'leaseUpApplications.json'
-      }).as('leaseUpApplications')
-      cy.intercept('api/v1/applications/**/field_update_comments', {
-        fixture: 'fieldUpdateComments.json'
-      }).as('fieldUpdateComments')
-    } else {
-      cy.intercept('api/v1/lease-ups/listings/**').as('leaseUpListing')
-      cy.intercept('api/v1/lease-ups/applications?listing_id=**').as('leaseUpApplications')
-      cy.intercept('api/v1/applications/**/field_update_comments').as('fieldUpdateComments')
-    }
-  })
   describe('using the individual row status dropdown', () => {
+    beforeEach(() => {
+      if (usingFixtures()) {
+        cy.intercept('api/v1/lease-ups/listings/**', { fixture: 'leaseUpListing.json' }).as(
+          'leaseUpListing'
+        )
+        cy.intercept(`api/v1/lease-ups/applications?listing_id=${LEASE_UP_LISTING_ID}**`, {
+          fixture: 'leaseUpApplications.json'
+        }).as('leaseUpApplications')
+        cy.intercept('api/v1/applications/**/field_update_comments', {
+          fixture: 'fieldUpdateComments.json'
+        }).as('fieldUpdateComments')
+      } else {
+        cy.intercept('api/v1/lease-ups/listings/**').as('leaseUpListing')
+        cy.intercept('api/v1/lease-ups/applications?listing_id=**').as('leaseUpApplications')
+        cy.intercept('api/v1/applications/**/field_update_comments').as('fieldUpdateComments')
+      }
+    })
     it('should change status, substatus, and last updated date for the application application', () => {
       let originalStatus
 
@@ -150,6 +150,11 @@ describe('LeaseUpApplicationsPage status update', () => {
   })
   describe('filters', () => {
     describe('using the application filters', () => {
+      // filter tests require calling the real API, fixtures do not work
+      beforeEach(() => {
+        cy.intercept('api/v1/lease-ups/listings/**').as('leaseUpListing')
+        cy.intercept('api/v1/lease-ups/applications?listing_id=**').as('leaseUpApplications')
+      })
       it('should use all filters and update URL', () => {
         cy.visit('http://localhost:3000/')
         cy.login()

@@ -4,7 +4,7 @@
         {
             "id": "a0b0P00001HIHr9QAH",
             "priority_type": null,
-            "ami_chart_type": "HUD Unadjusted",
+            "ami_chart_type": "MOHCD",
             "max_ami_for_qualifying_unit": 55,
             "unit_number": "101",
             "unit_type": "1 BR",
