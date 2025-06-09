@@ -26,7 +26,6 @@ prod_and_release_jobs: &prod_and_release_jobs
         - /^release.*$/
         - /^hotfix.*$/
         - production
-        - DAH-3387-prod-e2e-test-leaseupapplicationspage
 aliases:
   - &attach_workspace
     attach_workspace:
