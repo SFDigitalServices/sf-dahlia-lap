@@ -23,11 +23,6 @@ const ID_NO_AVAILABLE_UNITS = 'idwithnoavailableunits'
 const ID_WITH_TOTAL_MONTHLY_RENT = 'idwithtotalmonthlyrent'
 
 jest.mock('@unleash/proxy-client-react')
-useFlagUnleash.mockImplementation(() => false)
-useFlagsStatus.mockImplementation(() => ({
-  flagsError: false,
-  flagsReady: true
-}))
 
 /**
  * TODO: instead of mocking apiService, we should probably be mocking one level up (actions.js).
@@ -124,7 +119,7 @@ jest.mock('apiService', () => {
               unit_number: 'unit with priority',
               priority_type: 'Hearing/Vision impairments',
               max_ami_for_qualifying_unit: 50,
-              status: 'Available'
+              status: ''
             })
           ]
     },
@@ -191,6 +186,11 @@ describe('SupplementalApplicationPage', () => {
       reload: jest.fn(),
       hash: ''
     }
+
+    useFlagsStatus.mockImplementation(() => ({
+      flagsError: false,
+      flagsReady: true
+    }))
   })
 
   afterEach(() => {
@@ -668,18 +668,16 @@ describe('SupplementalApplicationPage', () => {
     })
 
     describe('partners.unitStatus feature toggle', () => {
-      beforeEach(async () => {
-        await getWrapper()
-      })
-
-      test('shows available units based on leases when toggle is off', () => {
+      test('shows available units based on leases when toggle is off', async () => {
         useFlagUnleash.mockImplementation(() => false)
+        await getWrapper()
         expect(screen.getByTestId('total-available-count').textContent).toBe('2')
       })
 
-      test('shows available units based on unit status when toggle is on', () => {
+      test('shows available units based on unit status when toggle is on', async () => {
         useFlagUnleash.mockImplementation(() => true)
-        expect(screen.getByTestId('total-available-count').textContent).toBe('2')
+        await getWrapper()
+        expect(screen.getByTestId('total-available-count').textContent).toBe('1')
       })
     })
   })
