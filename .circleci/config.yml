@@ -72,7 +72,7 @@ commands:
       - run:
           name: Run Cypress tests
           command: |
-            TESTFILES=$(circleci tests glob "cypress/e2e/**/*.e2e.js" | circleci tests split)
+            TESTFILES=$(circleci tests glob "cypress/e2e/**/*.e2e.js" | circleci tests split --split-by=timings | paste -sd ',')
             yarn cypress run --spec $TESTFILES
 
 jobs:
