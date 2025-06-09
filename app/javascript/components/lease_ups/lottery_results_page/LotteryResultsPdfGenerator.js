@@ -27,9 +27,11 @@ const LotteryResultsPdfGenerator = (props) => {
   const [applications, setApplications] = useState()
   const [listing, setListing] = useState()
 
+  const useLotteryResultApi = () =>
+    (new URLSearchParams(window.location.search)).has('useLotteryResultApi')
+
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search)
-    if (urlParams.has('useLotteryResultApi')) {
+    if (useLotteryResultApi()) {
       apiService.fetchLotteryResults(props.listing_id).then((res) => {
         setApplications(res.lotteryBuckets)
       })
@@ -46,7 +48,7 @@ const LotteryResultsPdfGenerator = (props) => {
     <>
       {listing ? (
         <TableLayout pageHeader={getPageHeaderData(listing)} tabSection={getTabs(props.listing_id)}>
-          <LotteryManager applications={applications} listing={listing} />
+          <LotteryManager applications={applications} listing={listing} useLotteryResultApi={useLotteryResultApi()} />
         </TableLayout>
       ) : (
         <Loading isLoading />
