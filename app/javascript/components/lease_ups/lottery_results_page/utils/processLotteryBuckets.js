@@ -164,22 +164,22 @@ const uniqueLotteryNumbers = (results) =>
   )
 
 export const massageLotteryBuckets = (buckets) => {
-  const massagedBuckets = buckets.map((bucket) => ({
-    shortCode: bucket.preferenceShortCode || 'generalLottery',
-    preferenceResults: bucket.preferenceResults.map((result) => ({
-      lottery_number: result.lotteryNumber
-    }))
-  }))
-
+  const massagedBuckets = []
   const unfilteredResults = []
-  buckets.forEach((bucket) =>
-    bucket.preferenceResults.forEach((result) =>
+  buckets.forEach((bucket) => {
+    const massagedBucket = {
+      shortCode: bucket.preferenceShortCode || 'generalLottery',
+      preferenceResults: []
+    }
+    bucket.preferenceResults.forEach((result) => {
       unfilteredResults.push({
         lottery_number: result.lotteryNumber,
         unsorted_lottery_rank: result.lotteryRank
       })
-    )
-  )
+      massagedBucket.preferenceResults.push({ lottery_number: result.lotteryNumber })
+    })
+    massagedBuckets.push(massagedBucket)
+  })
 
   return [
     {

@@ -7,7 +7,7 @@ import Loading from 'components/molecules/Loading'
 import { LotteryResults } from './LotteryResults'
 import { processLotteryBuckets, massageLotteryBuckets } from './utils/processLotteryBuckets'
 
-const LotteryManager = ({ applications, listing, useLotteryResultApi }) => {
+const LotteryManager = ({ applications, listing, withLotteryResultApi }) => {
   // set up print component
   const componentToPrint = useRef(null)
   const handlePrint = useReactToPrint({
@@ -17,7 +17,7 @@ const LotteryManager = ({ applications, listing, useLotteryResultApi }) => {
 
   // process applications into buckets
   let processedBuckets = null
-  if (useLotteryResultApi && applications) {
+  if (withLotteryResultApi && applications) {
     processedBuckets = massageLotteryBuckets(applications)
   } else if (applications) {
     processedBuckets = processLotteryBuckets(applications)
