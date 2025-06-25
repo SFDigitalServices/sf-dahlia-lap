@@ -16,10 +16,12 @@ module Force
     end
 
     def new_with_oauth_token(oauth_token)
+      Restforce.log = true
       Restforce.new(
         authentication_retries: 1,
         oauth_token: oauth_token,
         instance_url: ENV['SALESFORCE_INSTANCE_URL'],
+        log_level: :debug,
       )
     end
   end

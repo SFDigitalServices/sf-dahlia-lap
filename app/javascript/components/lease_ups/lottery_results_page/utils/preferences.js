@@ -1,4 +1,22 @@
 export const Preferences = {
+  DFR: {
+    id: 'DFR',
+    name: 'DALP First Responders',
+    subtitle: 'subtitle',
+    shortName: 'First Responders',
+    index: 0,
+    isVeteran: false,
+    relatedPrefID: ''
+  },
+  DSE: {
+    id: 'DSE',
+    name: 'DALP Educators',
+    subtitle: 'subtitle',
+    shortName: 'Educator',
+    index: 0,
+    isVeteran: false,
+    relatedPrefID: ''
+  },
   'V-COP': {
     id: 'V-COP',
     name: 'Veteran with Certificate of Preference',

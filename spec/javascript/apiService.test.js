@@ -31,6 +31,7 @@ const mockPutRequest = jest.fn(() => Promise.resolve(true))
 const mockDestroyRequest = jest.fn(() => Promise.resolve(true))
 const mockFetchFlaggedApplicationsRequest = jest.fn(() => Promise.resolve(true))
 const mockFetchApplicationsForLotteryResults = jest.fn(() => Promise.resolve({}))
+const mockFetchLotteryResults = jest.fn(() => Promise.resolve({}))
 const mockFetchLeaseUpApplications = jest.fn(() =>
   Promise.resolve({ records: [], pages: 0, listing_type: 'Standard Lottery', total_size: 0 })
 )
@@ -415,6 +416,16 @@ describe('apiService', () => {
       await apiService.fetchApplicationsForLotteryResults('fake-listing-id')
       expect(mockFetchApplicationsForLotteryResults.mock.calls[0][0]).toBe(
         `/lottery-results?listing_id=fake-listing-id`
+      )
+    })
+  })
+
+  describe('fetchLotteryResults', () => {
+    test('calls request.get', async () => {
+      request.get = mockFetchLotteryResults
+      await apiService.fetchLotteryResults('fake-listing-id')
+      expect(mockFetchLotteryResults.mock.calls[0][0]).toBe(
+        `/lottery-results?listing_id=fake-listing-id&use_lottery_result_api=true`
       )
     })
   })
