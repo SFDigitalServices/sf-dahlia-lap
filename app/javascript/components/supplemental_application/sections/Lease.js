@@ -169,7 +169,11 @@ const Lease = ({ form, values }) => {
    */
   const unavailableStatuses = ['Draft', 'Signed']
   const availableUnits = state.units.filter((unit) => {
-    if (unitStatusFlagEnabled) return unit.status && unit.status === UNIT_STATUS_AVAILABLE
+    if (unitStatusFlagEnabled)
+      return (
+        (unit.status && unit.status === UNIT_STATUS_AVAILABLE) ||
+        (unit.leases && unit.leases.some((lease) => lease.application_id === state.application.id))
+      )
 
     return (
       !Array.isArray(unit.leases) ||

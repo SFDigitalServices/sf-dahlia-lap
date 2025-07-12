@@ -52,6 +52,12 @@ jest.mock('apiService', () => {
         appWithPrefs.listing.id = _ID_NO_AVAILABLE_UNITS
       }
 
+      if (applicationId === 'testId') {
+        // let the listing know that it should have no available units.
+        appWithPrefs.id = 'testId'
+        appWithPrefs.listing.id = 'testId'
+      }
+
       _merge(appWithPrefs.preferences[0], {
         preference_name: 'Rent Burdened Assisted Housing',
         individual_preference: 'Rent Burdened',
@@ -670,14 +676,14 @@ describe('SupplementalApplicationPage', () => {
     describe('partners.unitStatus feature toggle', () => {
       test('shows available units based on leases when toggle is off', async () => {
         useFlagUnleash.mockImplementation(() => false)
-        await getWrapper()
-        expect(screen.getByTestId('total-available-count').textContent).toBe('2')
+        await getWrapper('testId')
+        expect(screen.getByTestId('total-available-count').textContent).toBe('3')
       })
 
       test('shows available units based on unit status when toggle is on', async () => {
         useFlagUnleash.mockImplementation(() => true)
-        await getWrapper()
-        expect(screen.getByTestId('total-available-count').textContent).toBe('1')
+        await getWrapper('testId')
+        expect(screen.getByTestId('total-available-count').textContent).toBe('2')
       })
     })
   })
