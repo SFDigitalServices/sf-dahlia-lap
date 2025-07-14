@@ -22,6 +22,9 @@ const getWindowUrl = (id) => `/lease-ups/applications/${id}`
 const ID_NO_AVAILABLE_UNITS = 'idwithnoavailableunits'
 const ID_WITH_TOTAL_MONTHLY_RENT = 'idwithtotalmonthlyrent'
 
+const LISTING_ID_WITH_LEASE_MATCHING_APPLICANT = 'listingidwithleasematchingapplicant'
+const APPLICATION_ID_WITH_LEASE_MATCHING_APPLICANT = 'applicationidwithleasematchingapplicant'
+
 jest.mock('@unleash/proxy-client-react')
 
 /**
@@ -52,10 +55,9 @@ jest.mock('apiService', () => {
         appWithPrefs.listing.id = _ID_NO_AVAILABLE_UNITS
       }
 
-      if (applicationId === 'testId') {
-        // let the listing know that it should have no available units.
-        appWithPrefs.id = 'testId'
-        appWithPrefs.listing.id = 'testId'
+      if (applicationId === APPLICATION_ID_WITH_LEASE_MATCHING_APPLICANT) {
+        appWithPrefs.id = APPLICATION_ID_WITH_LEASE_MATCHING_APPLICANT
+        appWithPrefs.listing.id = LISTING_ID_WITH_LEASE_MATCHING_APPLICANT
       }
 
       _merge(appWithPrefs.preferences[0], {
@@ -102,7 +104,7 @@ jest.mock('apiService', () => {
         status: 'Occupied',
         leases: [
           {
-            application_id: 'testId',
+            application_id: APPLICATION_ID_WITH_LEASE_MATCHING_APPLICANT,
             preference_used_name: '',
             lease_status: 'Signed'
           }
@@ -676,13 +678,13 @@ describe('SupplementalApplicationPage', () => {
     describe('partners.unitStatus feature toggle', () => {
       test('shows available units based on leases when toggle is off', async () => {
         useFlagUnleash.mockImplementation(() => false)
-        await getWrapper('testId')
+        await getWrapper(APPLICATION_ID_WITH_LEASE_MATCHING_APPLICANT)
         expect(screen.getByTestId('total-available-count').textContent).toBe('3')
       })
 
       test('shows available units based on unit status when toggle is on', async () => {
         useFlagUnleash.mockImplementation(() => true)
-        await getWrapper('testId')
+        await getWrapper(APPLICATION_ID_WITH_LEASE_MATCHING_APPLICANT)
         expect(screen.getByTestId('total-available-count').textContent).toBe('2')
       })
     })

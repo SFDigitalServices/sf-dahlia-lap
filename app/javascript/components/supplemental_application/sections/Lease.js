@@ -159,7 +159,7 @@ const Lease = ({ form, values }) => {
 
   /**
    * available units fit the following criteria
-   *  - if unitStatusFlagEnabled, check unit status is not occupied
+   *  - if unitStatusFlagEnabled, check unit status is available or lease is for current application
    *  - else
    *    - if it doesn't have any leases
    *    - if there are leases, they cannot be in draft or signed status
