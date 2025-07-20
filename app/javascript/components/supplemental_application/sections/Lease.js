@@ -159,7 +159,7 @@ const Lease = ({ form, values }) => {
 
   /**
    * available units fit the following criteria
-   *  - if unitStatusFlagEnabled, check unit status is not occupied
+   *  - if unitStatusFlagEnabled, check unit status is available or lease is for current application
    *  - else
    *    - if it doesn't have any leases
    *    - if there are leases, they cannot be in draft or signed status
@@ -169,7 +169,11 @@ const Lease = ({ form, values }) => {
    */
   const unavailableStatuses = ['Draft', 'Signed']
   const availableUnits = state.units.filter((unit) => {
-    if (unitStatusFlagEnabled) return unit.status && unit.status === UNIT_STATUS_AVAILABLE
+    if (unitStatusFlagEnabled)
+      return (
+        (unit.status && unit.status === UNIT_STATUS_AVAILABLE) ||
+        (unit.leases && unit.leases.some((lease) => lease.application_id === state.application.id))
+      )
 
     return (
       !Array.isArray(unit.leases) ||
