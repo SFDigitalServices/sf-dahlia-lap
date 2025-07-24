@@ -20,7 +20,6 @@ module Force
         authentication_retries: 1,
         oauth_token: oauth_token,
         instance_url: ENV['SALESFORCE_INSTANCE_URL'],
-        log_level: :debug,
       )
     end
   end
