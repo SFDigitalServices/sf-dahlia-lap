@@ -16,7 +16,6 @@ module Force
     end
 
     def new_with_oauth_token(oauth_token)
-      Restforce.log = true
       Restforce.new(
         authentication_retries: 1,
         oauth_token: oauth_token,
