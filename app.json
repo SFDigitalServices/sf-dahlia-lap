@@ -37,10 +37,6 @@
     },
     "SECRET_KEY_BASE": {
       "required": true
-    },
-    "NODE_OPTIONS": {
-      "required": false,
-      "value": "--openssl-legacy-provider"
     }
   },
   "formation": {

@@ -121,7 +121,7 @@
     "lint:fix": "eslint --fix --ext .js,.jsx app/ spec/",
     "rails-server": "rails s",
     "webpack-hot": "bin/shakapacker-dev-server --hot",
-    "start": "NODE_OPTIONS=\"--openssl-legacy-provider\" npm-run-all -p -l webpack-hot rails-server",
+    "start": "npm-run-all -p -l webpack-hot rails-server",
     "print_release_info": "bash $PWD/print_release_info.sh",
     "create_release_branch": "bash $PWD/create_release_branch.sh",
     "deduplicate": "yarn yarn-deduplicate -s fewer yarn.lock && yarn install"
