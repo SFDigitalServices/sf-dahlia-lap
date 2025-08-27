@@ -1,5 +1,4 @@
 import { render, screen, fireEvent, within, act } from '@testing-library/react'
-import { useFlag as useFlagUnleash, useFlagsStatus } from '@unleash/proxy-client-react'
 import { cloneDeep } from 'lodash'
 import selectEvent from 'react-select-event'
 
@@ -194,11 +193,6 @@ describe('SupplementalApplicationPage', () => {
       reload: jest.fn(),
       hash: ''
     }
-
-    useFlagsStatus.mockImplementation(() => ({
-      flagsError: false,
-      flagsReady: true
-    }))
   })
 
   afterEach(() => {

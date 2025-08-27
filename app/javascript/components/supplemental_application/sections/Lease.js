@@ -20,7 +20,6 @@ import {
   getApplicationMembers,
   totalSetAsidesForPref
 } from 'components/supplemental_application/utils/supplementalApplicationUtils'
-import { UNIT_STATUS_AVAILABLE } from 'utils/consts'
 import { useAppContext } from 'utils/customHooks'
 import { CurrencyField, FieldError, Label, SelectField } from 'utils/form/final_form/Field'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
