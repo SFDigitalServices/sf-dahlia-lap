@@ -1,5 +1,4 @@
 import { render, screen, fireEvent, within, act } from '@testing-library/react'
-import { useFlag as useFlagUnleash, useFlagsStatus } from '@unleash/proxy-client-react'
 import { cloneDeep } from 'lodash'
 import selectEvent from 'react-select-event'
 
@@ -194,11 +193,6 @@ describe('SupplementalApplicationPage', () => {
       reload: jest.fn(),
       hash: ''
     }
-
-    useFlagsStatus.mockImplementation(() => ({
-      flagsError: false,
-      flagsReady: true
-    }))
   })
 
   afterEach(() => {
@@ -672,20 +666,6 @@ describe('SupplementalApplicationPage', () => {
 
       test('it decreases the number of accessibility units', () => {
         expect(screen.getByTestId('accessibility-available-count').textContent).toBe('0')
-      })
-    })
-
-    describe('partners.unitStatus feature toggle', () => {
-      test('shows available units based on leases when toggle is off', async () => {
-        useFlagUnleash.mockImplementation(() => false)
-        await getWrapper(APPLICATION_ID_WITH_LEASE_MATCHING_APPLICANT)
-        expect(screen.getByTestId('total-available-count').textContent).toBe('3')
-      })
-
-      test('shows available units based on unit status when toggle is on', async () => {
-        useFlagUnleash.mockImplementation(() => true)
-        await getWrapper(APPLICATION_ID_WITH_LEASE_MATCHING_APPLICANT)
-        expect(screen.getByTestId('total-available-count').textContent).toBe('2')
       })
     })
   })
