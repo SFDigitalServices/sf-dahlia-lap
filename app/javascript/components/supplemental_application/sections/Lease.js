@@ -26,7 +26,6 @@ import { CurrencyField, FieldError, Label, SelectField } from 'utils/form/final_
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import { areLeaseAndRentalAssistancesValid } from 'utils/form/formSectionValidations'
 import formUtils from 'utils/formUtils'
-import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import { addLayeredPreferenceFields } from 'utils/layeredPreferenceUtil'
 import { pluck } from 'utils/utils'
 
@@ -121,8 +120,6 @@ const LeaseActions = ({
 }
 
 const Lease = ({ form, values }) => {
-  const { unleashFlag: unitStatusFlagEnabled } = useFeatureFlag('partners.unitStatus', false)
-
   const [
     {
       supplementalApplicationData: { supplemental: state }
@@ -159,22 +156,12 @@ const Lease = ({ form, values }) => {
 
   /**
    * available units fit the following criteria
-   *  - if unitStatusFlagEnabled, check unit status is available or lease is for current application
-   *  - else
-   *    - if it doesn't have any leases
-   *    - if there are leases, they cannot be in draft or signed status
-   *    - if the unit has an application, it must match the current one
-   *
-   * todo: clean up feature flag code
+   *   if it doesn't have any leases
+   *   if there are leases, they cannot be in draft or signed status
+   *   if the unit has an application, it must match the current one
    */
   const unavailableStatuses = ['Draft', 'Signed']
   const availableUnits = state.units.filter((unit) => {
-    if (unitStatusFlagEnabled)
-      return (
-        (unit.status && unit.status === UNIT_STATUS_AVAILABLE) ||
-        (unit.leases && unit.leases.some((lease) => lease.application_id === state.application.id))
-      )
-
     return (
       !Array.isArray(unit.leases) ||
       !unit.leases.some((lease) => unavailableStatuses.includes(lease.lease_status)) ||
