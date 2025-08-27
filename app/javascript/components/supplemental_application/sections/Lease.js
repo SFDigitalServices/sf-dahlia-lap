@@ -20,6 +20,7 @@ import {
   getApplicationMembers,
   totalSetAsidesForPref
 } from 'components/supplemental_application/utils/supplementalApplicationUtils'
+import { UNIT_STATUS_AVAILABLE } from 'utils/consts'
 import { useAppContext } from 'utils/customHooks'
 import { CurrencyField, FieldError, Label, SelectField } from 'utils/form/final_form/Field'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
@@ -154,17 +155,13 @@ const Lease = ({ form, values }) => {
   ])
 
   /**
-   * available units fit the following criteria
-   *   if it doesn't have any leases
-   *   if there are leases, they cannot be in draft or signed status
-   *   if the unit has an application, it must match the current one
+   * check unit status is available or lease is for current application
+   *
    */
-  const unavailableStatuses = ['Draft', 'Signed']
   const availableUnits = state.units.filter((unit) => {
     return (
-      !Array.isArray(unit.leases) ||
-      !unit.leases.some((lease) => unavailableStatuses.includes(lease.lease_status)) ||
-      unit.leases.some((lease) => lease.application_id === state.application.id)
+      (unit.status && unit.status === UNIT_STATUS_AVAILABLE) ||
+      (unit.leases && unit.leases.some((lease) => lease.application_id === state.application.id))
     )
   })
 
