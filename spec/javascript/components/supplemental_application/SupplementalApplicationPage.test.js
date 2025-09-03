@@ -615,6 +615,14 @@ describe('SupplementalApplicationPage', () => {
         })
       })
 
+      test('it decreases the number of available units', () => {
+        expect(screen.getByTestId('total-available-count').textContent).toBe('1')
+      })
+
+      test('it does not impact the number of accessibility units', () => {
+        expect(screen.getByTestId('accessibility-available-count').textContent).toBe('1')
+      })
+
       test('it does not impact the number of priority set asides', () => {
         expect(screen.getByTestId('dthp-available-count').textContent).toBe('3')
         expect(screen.getByTestId('nrhp-available-count').textContent).toBe('4')
@@ -634,9 +642,30 @@ describe('SupplementalApplicationPage', () => {
     })
 
     describe('when unit with priority is selected', () => {
-      test('shows available units based on unit status', async () => {
+      beforeEach(async () => {
         await getWrapper(APPLICATION_ID_WITH_LEASE_MATCHING_APPLICANT)
-        expect(screen.getByTestId('total-available-count').textContent).toBe('3')
+
+        fireEvent.click(screen.getByRole('button', { name: /edit lease/i }))
+
+        selectEvent.openMenu(
+          within(
+            screen.getByRole('button', {
+              name: /assigned unit number/i
+            })
+          ).getByRole('combobox')
+        )
+
+        await act(async () => {
+          await fireEvent.click(screen.getByText(/unit with priority/i))
+        })
+      })
+
+      test('it decreases the number of accessibility units', () => {
+        expect(screen.getByTestId('accessibility-available-count').textContent).toBe('0')
+      })
+
+      test('shows available units based on unit status', async () => {
+        expect(screen.getByTestId('total-available-count').textContent).toBe('2')
       })
     })
   })
