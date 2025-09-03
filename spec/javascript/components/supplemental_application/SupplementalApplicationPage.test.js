@@ -126,7 +126,7 @@ jest.mock('apiService', () => {
               unit_number: 'unit with priority',
               priority_type: 'Hearing/Vision impairments',
               max_ami_for_qualifying_unit: 50,
-              status: ''
+              status: 'Available'
             })
           ]
     },
@@ -576,6 +576,13 @@ describe('SupplementalApplicationPage', () => {
         await getWrapper()
       })
 
+      test('it shows expected available unit counts', () => {
+        expect(screen.getByTestId('total-available-count').textContent).toBe('2')
+        expect(screen.getByTestId('accessibility-available-count').textContent).toBe('1')
+        expect(screen.getByTestId('dthp-available-count').textContent).toBe('3')
+        expect(screen.getByTestId('nrhp-available-count').textContent).toBe('4')
+      })
+
       test('it does not change the DTHP availability count when pref used is selected', () => {
         act(() => {
           fireEvent.change(
@@ -629,7 +636,7 @@ describe('SupplementalApplicationPage', () => {
     describe('when unit with priority is selected', () => {
       test('shows available units based on unit status', async () => {
         await getWrapper(APPLICATION_ID_WITH_LEASE_MATCHING_APPLICANT)
-        expect(screen.getByTestId('total-available-count').textContent).toBe('2')
+        expect(screen.getByTestId('total-available-count').textContent).toBe('3')
       })
     })
   })
