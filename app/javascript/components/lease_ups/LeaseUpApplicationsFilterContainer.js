@@ -9,12 +9,15 @@ import Button from 'components/atoms/Button'
 import Checkbox from 'components/atoms/Checkbox'
 import { LEASE_UP_APPLICATION_FILTERS } from 'components/lease_ups/applicationFiltersConsts'
 import LeaseUpApplicationsFilters from 'components/lease_ups/LeaseUpApplicationsFilters'
+import ButtonDropdown from 'components/molecules/ButtonDropdown'
 import Loading from 'components/molecules/Loading'
 import ShowHideFiltersButton from 'components/molecules/ShowHideFiltersButton'
-import StatusDropdown from 'components/molecules/StatusDropdown'
 import { useAppContext } from 'utils/customHooks'
 import SearchField from 'utils/form/final_form/SearchField'
 import formUtils from 'utils/formUtils'
+import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
+import { INVITE_APPLY_EMAIL_OPTIONS } from 'utils/inviteApplyEmail'
+import { LEASE_UP_STATUS_OPTIONS } from 'utils/statusUtils'
 
 const styles = {
   marginBottomZero: {
@@ -36,6 +39,7 @@ const getNumFiltersApplied = (form) => {
 }
 
 const LeaseUpApplicationsFilterContainer = ({
+  listingId,
   listingType,
   onSubmit,
   preferences = [],
@@ -43,9 +47,14 @@ const LeaseUpApplicationsFilterContainer = ({
   bulkCheckboxesState = [],
   onBulkLeaseUpStatusChange,
   onBulkLeaseUpCommentChange,
+  onRsvpSendEmailChange,
   onClearSelectedApplications = () => {},
   onSelectAllApplications = () => {}
 }) => {
+  const { unleashFlag: inviteApplyFlag, variant } = useFeatureFlag('partners.inviteToApply', false)
+  const enabledListingIds = variant.payload === undefined ? [] : variant.payload.value.split(',')
+  const isInviteApplyEnabled = inviteApplyFlag && enabledListingIds.includes(listingId)
+
   const [isShowingFilters, setIsShowingFilters] = useState(false)
   const [hasChangedFilters, setHasChangedFilters] = useState(false)
   const [, setSearchParams] = useSearchParams()
@@ -138,7 +147,7 @@ const LeaseUpApplicationsFilterContainer = ({
                 </div>
                 <div className='filter-group_action'>
                   <div className='padding-right--half d-inline-block'>
-                    <StatusDropdown
+                    <ButtonDropdown
                       classes={{ tertiary: numChecked === 0 }}
                       disabled={numChecked === 0}
                       onChange={onBulkLeaseUpStatusChange}
@@ -147,18 +156,36 @@ const LeaseUpApplicationsFilterContainer = ({
                       dataTestId={'bulk-status-dropdown'}
                       forceDisplayPlaceholderText
                       tertiary={numChecked === 0}
+                      options={LEASE_UP_STATUS_OPTIONS}
                     />
                   </div>
-                  <Button
-                    tertiary={numChecked === 0}
-                    disabled={numChecked === 0}
-                    onClick={onBulkLeaseUpCommentChange}
-                    type='button'
-                    minWidthPx='185px'
-                    text='Add Comment'
-                    textAlign='left'
-                    noBottomMargin
-                  />
+                  <div className='padding-right--half d-inline-block'>
+                    <Button
+                      tertiary={numChecked === 0}
+                      disabled={numChecked === 0}
+                      onClick={onBulkLeaseUpCommentChange}
+                      type='button'
+                      minWidthPx='185px'
+                      text='Add Comment'
+                      textAlign='left'
+                      noBottomMargin
+                    />
+                  </div>
+                  {isInviteApplyEnabled && (
+                    <div className='padding-right--half d-inline-block'>
+                      <ButtonDropdown
+                        classes={{ tertiary: numChecked === 0 }}
+                        disabled={numChecked === 0}
+                        onChange={onRsvpSendEmailChange}
+                        minWidthPx={'185px'}
+                        placeholder={'Send Email'}
+                        dataTestId={'bulk-email-dropdown'}
+                        forceDisplayPlaceholderText
+                        tertiary={numChecked === 0}
+                        options={INVITE_APPLY_EMAIL_OPTIONS}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
               <div className='filter-group'>
