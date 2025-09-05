@@ -158,22 +158,26 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                   </option>
                 </select>
               </div>
-              <button
-                class="tertiary margin-bottom-none"
-                disabled=""
-                style="padding-top: 0px; padding-bottom: 0px; min-width: 185px;"
-                type="button"
+              <div
+                class="padding-right--half d-inline-block"
               >
-                <div
-                  style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
+                <button
+                  class="tertiary margin-bottom-none"
+                  disabled=""
+                  style="padding-top: 0px; padding-bottom: 0px; min-width: 185px;"
+                  type="button"
                 >
-                  <span
-                    style="margin-top: 1rem; margin-bottom: 1rem; overflow: auto; flex-grow: 1; text-align: left;"
+                  <div
+                    style="display: flex; align-items: center; justify-content: space-between; width: 100%;"
                   >
-                    Add Comment
-                  </span>
-                </div>
-              </button>
+                    <span
+                      style="margin-top: 1rem; margin-bottom: 1rem; overflow: auto; flex-grow: 1; text-align: left;"
+                    >
+                      Add Comment
+                    </span>
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
           <div
