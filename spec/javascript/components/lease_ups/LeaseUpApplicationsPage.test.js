@@ -3,7 +3,7 @@
 import React from 'react'
 
 import { cleanup, within, screen, fireEvent, act, waitFor } from '@testing-library/react'
-import { useFlag as useFlagUnleash, useFlagsStatus } from '@unleash/proxy-client-react'
+import { useFlag as useFlagUnleash, useFlagsStatus, useVariant } from '@unleash/proxy-client-react'
 
 import { renderAppWithUrl } from '../../testUtils/wrapperUtil'
 
@@ -13,6 +13,11 @@ useFlagUnleash.mockImplementation(() => false)
 useFlagsStatus.mockImplementation(() => ({
   flagsError: false,
   flagsReady: true
+}))
+useVariant.mockImplementation(() => ({
+  payload: {
+    value: '123'
+  }
 }))
 
 const mockGetLeaseUpListing = jest.fn()
@@ -195,7 +200,6 @@ describe('LeaseUpApplicationsPage', () => {
   afterEach(() => {
     cleanup()
     jest.clearAllMocks()
-    jest.resetAllMocks()
   })
 
   test('should match the snapshot', async () => {
