@@ -135,7 +135,7 @@ describe('LeaseUpApplicationsPage status update', () => {
           cy.get(bulkActionCheckboxId(SECOND_ROW_LEASE_UP_APP_ID)).click()
 
           // Click on Add Comment
-          cy.get('.filter-group_action button:nth-child(2)').click()
+          cy.contains('button', 'Add Comment').click()
 
           cy.checkForStatusUpdateSuccess()
           cy.fillOutAndSubmitStatusModal(true)
