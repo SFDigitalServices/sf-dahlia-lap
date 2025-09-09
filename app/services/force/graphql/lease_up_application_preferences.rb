@@ -23,13 +23,11 @@ module Force
         # https://developer.salesforce.com/docs/platform/graphql/guide/paginate-use-upperbound.html
         after_clause = cursor.present? ? "after: \"#{cursor}\"" : 'upperBound: 10000'
         <<~GQL
-          query applications(
-            $where: #{@salesforce_object_name}_Filter = {#{where_clause_str}}
-          ) {
+          query applications {
             uiapi {
               query {
                 #{@salesforce_object_name}(
-                  where: $where,
+                  where: {#{where_clause_str}},
                   orderBy: #{build_order_clause},
                   first: #{@record_batch_size},
                   #{after_clause}
