@@ -2,7 +2,9 @@ import React, { useEffect } from 'react'
 
 import { capitalize, compact, map, cloneDeep, isEmpty } from 'lodash'
 
+import FormModal from 'components/organisms/FormModal'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
+import { useStateObject } from 'utils/customHooks'
 import { addLayeredValidation } from 'utils/layeredPreferenceUtil'
 
 import { withContext } from './context'
@@ -92,6 +94,32 @@ const LeaseUpTableContainer = ({
     statusModal
   }
 }) => {
+  const [rsvpModalState, setRsvpModalState] = useStateObject({
+    // modal hide/show states
+    uploadUrl: false,
+    setDeadline: false
+  })
+
+  const handleSetUpInvitationApply = () => {
+    // show setup invitation to apply modal
+    showRsvpModal('uploadUrl')
+  }
+
+  const handleCloseRsvpModal = () => {
+    const stateObj = {}
+    for (const key of Object.keys(rsvpModalState)) {
+      stateObj[key] = false
+    }
+    setRsvpModalState(stateObj)
+  }
+
+  const showRsvpModal = (key) => {
+    handleCloseRsvpModal()
+    const stateObj = {}
+    stateObj[key] = true
+    setRsvpModalState(stateObj)
+  }
+
   useEffect(() => {
     if (!preferences) return
 
@@ -103,6 +131,7 @@ const LeaseUpTableContainer = ({
   return (
     <>
       <LeaseUpApplicationsFilterContainer
+        listingId={listingId}
         listingType={listingType}
         preferences={preferences}
         onSubmit={onFilter}
@@ -112,6 +141,7 @@ const LeaseUpTableContainer = ({
         onSelectAllApplications={onSelectAllApplications}
         onBulkLeaseUpStatusChange={(val) => onLeaseUpStatusChange(val, null, false)}
         onBulkLeaseUpCommentChange={(val) => onLeaseUpStatusChange(null, null, true)}
+        onRsvpSendEmailChange={(val) => handleSetUpInvitationApply()}
       />
       {!loading && (
         <LeaseUpApplicationsTable
@@ -143,6 +173,21 @@ const LeaseUpTableContainer = ({
         title={statusModal.isCommentModal ? 'Add Comment' : 'Update Status'}
         isCommentModal={statusModal.isCommentModal}
       />
+      <FormModal
+        isOpen={rsvpModalState.uploadUrl}
+        onSubmit={() => showRsvpModal('setDeadline')}
+        handleClose={handleCloseRsvpModal}
+        primary='next'
+      >
+        {(values, changeFieldValue) => <div>upload url</div>}
+      </FormModal>
+      <FormModal
+        isOpen={rsvpModalState.setDeadline}
+        onSubmit={(values) => {}}
+        handleClose={handleCloseRsvpModal}
+      >
+        {(values, changeFieldValue) => <div>set deadline</div>}
+      </FormModal>
     </>
   )
 }

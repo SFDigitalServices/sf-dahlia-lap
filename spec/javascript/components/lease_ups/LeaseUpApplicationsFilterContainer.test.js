@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { render, screen, fireEvent } from '@testing-library/react'
+import { useFlag as useFlagUnleash, useFlagsStatus, useVariant } from '@unleash/proxy-client-react'
 import { act } from 'react-dom/test-utils'
 import { BrowserRouter } from 'react-router-dom'
 import selectEvent from 'react-select-event'
@@ -12,6 +13,18 @@ import * as customHooks from 'utils/customHooks'
 const mockSubmit = jest.fn()
 const mockOnClearSelectedApplications = jest.fn()
 const mockOnSelectAllApplications = jest.fn()
+
+jest.mock('@unleash/proxy-client-react')
+useFlagUnleash.mockImplementation(() => false)
+useFlagsStatus.mockImplementation(() => ({
+  flagsError: false,
+  flagsReady: true
+}))
+useVariant.mockImplementation(() => ({
+  payload: {
+    value: '123'
+  }
+}))
 
 const getNode = (bulkCheckboxesState = {}) => (
   <BrowserRouter>
