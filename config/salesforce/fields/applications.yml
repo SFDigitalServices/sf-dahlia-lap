@@ -25,7 +25,7 @@ applications:
     General_Lottery__c:
     General_Lottery_Rank__c:
     Processing_Status__c:
-        label: 'Lease Up Status'
+      label: 'Lease Up Status'
   show_preference_fields:
     Id:
     Name:
@@ -56,6 +56,7 @@ applications:
     Zip_Code__c:
     Post_Lottery_Validation__c:
     Total_Household_Rent__c:
+    Invite_To_Apply_Deadline_Date__c:
   show_flagged_records_fields:
     Flagged_Record_Set__c:
     Flagged_Record_Set__r.Id:
@@ -79,7 +80,7 @@ applications:
     Street__c:
     City__c:
     State__c:
-    Zip_Code__c :
+    Zip_Code__c:
   show_fields:
     Id:
     Name:
@@ -118,7 +119,7 @@ applications:
     Has_Military_Service__c:
     Reserved_Senior__c:
     Has_DevelopmentalDisability__c:
-        label: 'Has Developmental Disability'
+      label: 'Has Developmental Disability'
     Has_ADA_Priorities_Selected__c:
     Terms_Acknowledged__c:
     Applicant__r.Id:
@@ -185,6 +186,7 @@ applications:
     AMI_Chart_Type__c:
     AMI_Chart_Year__c:
     Supp_App_Signed_Date__c:
+    Invite_To_Apply_Deadline_Date__c:
   show_rental_fcfs_fields:
     Id:
     Name:

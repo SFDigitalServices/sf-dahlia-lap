@@ -136,6 +136,10 @@ const updatePreference = async (preference) =>
 const updateApplication = async (application) =>
   request.put(`/applications/${application.id}`, { application }, true)
 
+const updateListing = async (listing) => {
+  request.put(`/listings/${listing.id}`, { listing }, true)
+}
+
 const createRentalAssistance = async (rentalAssistance, applicationId) => {
   const postData = {
     rental_assistance: rentalAssistance,
@@ -239,5 +243,6 @@ export default {
   deleteLease,
   updateLease,
   fetchApplicationsForLotteryResults,
-  fetchLotteryResults
+  fetchLotteryResults,
+  updateListing
 }

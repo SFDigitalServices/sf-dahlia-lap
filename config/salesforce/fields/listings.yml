@@ -89,6 +89,7 @@ listings:
     Office_Hours__c:
     Tenure__c:
     Listing_Type__c:
+    File_Upload_URL__c:
   lease_up_listing_fields:
     Id:
     Name:
@@ -98,4 +99,3 @@ listings:
     Units_Available__c:
     Lease_Signed_Application__c:
     LastModifiedDate:
-

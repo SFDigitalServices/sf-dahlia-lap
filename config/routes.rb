@@ -46,6 +46,8 @@ Rails.application.routes.draw do
 
       resources :supplementals, only: %w[show]
 
+      resources :listings, only: %w[update]
+
       resources :applications, only: %w[index update] do
         resources :leases, only: %w[index create update destroy]
         resources :field_update_comments, only: %w[index create]
