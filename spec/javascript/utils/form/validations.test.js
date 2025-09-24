@@ -17,6 +17,18 @@ const mockObjectWithValues = (...values) => {
 }
 
 describe('validate', () => {
+  describe('isValidUrl', () => {
+    describe('passes validation', () => {
+      test('is valid url', () => {
+        expect(validate.isValidUrl('https://www.sf.gov')).toBe(true)
+      })
+    })
+    describe('fails validation', () => {
+      test('is invalid url', () => {
+        expect(validate.isValidUrl('foo')).toBe(false)
+      })
+    })
+  })
   describe('isOldEnough', () => {
     describe('passes validation if DOB', () => {
       test('is more than 18 years ago', () => {

@@ -104,6 +104,16 @@ const isPresent = (value) => {
   return Array.isArray(value) ? !isEmpty(compact(value)) : !!value
 }
 
+const isValidUrl = (value) => {
+  try {
+    // eslint-disable-next-line no-new
+    new URL(value)
+    return true
+  } catch (err) {
+    return false
+  }
+}
+
 validate.isValidEmail = decorateValidator(isValidEmail)
 validate.isOldEnough = decorateValidator(isOldEnough)
 validate.isDate = decorateValidator(isDate)
@@ -112,6 +122,7 @@ validate.isValidPercent = decorateValidator(isValidPercent)
 validate.isUnderMaxValue = (maxVal) => decorateValidator(isUnderMaxValue(maxVal))
 validate.isPresent = decorateValidator(isPresent)
 validate.isChecked = decorateValidator(isChecked)
+validate.isValidUrl = decorateValidator(isValidUrl)
 validate.list = (fn) => (list) => map(list, fn)
 validate.any =
   (...fns) =>
