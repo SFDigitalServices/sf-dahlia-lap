@@ -20,12 +20,12 @@ describe('validate', () => {
   describe('isValidUrl', () => {
     describe('passes validation', () => {
       test('is valid url', () => {
-        expect(validate.isValidUrl('https://www.sf.gov')).toBe(true)
+        expect(validate.isValidUrl(VALIDATION_MSG)('https://www.sf.gov')).toBeUndefined()
       })
     })
     describe('fails validation', () => {
       test('is invalid url', () => {
-        expect(validate.isValidUrl('foo')).toBe(false)
+        expect(validate.isValidUrl(VALIDATION_MSG)('foo')).toEqual(VALIDATION_MSG)
       })
     })
   })
