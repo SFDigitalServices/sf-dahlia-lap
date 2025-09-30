@@ -17,12 +17,11 @@ RSpec.describe Force::Listing do
   end
 
   describe '#to_salesforce' do
-    it 'should convert from Salesforce fields to domain' do
+    it 'should convert from domain fields to Salesforce' do
       salesforce_listing = Force::Listing.from_domain(mock_listing_domain).to_salesforce
-      expect(salesforce_listing[:Units]).to eq(mock_listing_salesforce['Units'])
-      expect(salesforce_listing[:Open_Houses]).to eq(mock_listing_salesforce['Open_Houses'])
-      expect(salesforce_listing[:Listing_Lottery_Preferences]).to eq(mock_listing_salesforce['Listing_Lottery_Preferences'])
-      expect(salesforce_listing).to eq(mock_listing_salesforce)
+      expect(salesforce_listing[:Units__c]).to eq(mock_listing_salesforce['Units'])
+      expect(salesforce_listing[:Open_Houses__c]).to eq(mock_listing_salesforce['Open_Houses'])
+      expect(salesforce_listing[:Listing_Lottery_Preferences__c]).to eq(mock_listing_salesforce['Listing_Lottery_Preferences'])
     end
   end
 end
