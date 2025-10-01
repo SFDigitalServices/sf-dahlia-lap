@@ -106,6 +106,24 @@ describe('validate', () => {
       })
     })
   })
+  describe('isFutureDate', () => {
+    describe('passes validation', () => {
+      test('if date is in future', () => {
+        expect(validate.isFutureDate(VALIDATION_MSG)(['3000', '02', '28'])).toBeUndefined()
+      })
+    })
+    describe('fails validation', () => {
+      test('if date is in past', () => {
+        expect(validate.isFutureDate(VALIDATION_MSG)(['1999', '02', '29'])).toEqual(VALIDATION_MSG)
+      })
+      test('if date is today', () => {
+        const today = moment()
+        expect(
+          validate.isFutureDate(VALIDATION_MSG)([today.year(), today.month(), today.day()])
+        ).toEqual(VALIDATION_MSG)
+      })
+    })
+  })
   describe('isValidPercent', () => {
     describe('passes validation', () => {
       test('when a null or empty string is passed', () => {

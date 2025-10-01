@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 
 import arrayMutators from 'final-form-arrays'
 import { capitalize, compact, map, cloneDeep, isEmpty } from 'lodash'
+import moment from 'moment'
 
 import apiService from 'apiService'
 import FormGrid from 'components/molecules/FormGrid'
@@ -252,9 +253,12 @@ const LeaseUpTableContainer = ({
           })
 
           applicationIds.forEach((appId) => {
+            const dateObj = moment(`${deadline.year}-${deadline.month}-${deadline.day}`).endOf(
+              'day'
+            )
             apiService.updateApplication({
               id: appId,
-              invite_to_apply_deadline_date: `${deadline.year}-${deadline.month}-${deadline.day}`
+              invite_to_apply_deadline_date: dateObj.utc().format()
             })
           })
         }}
@@ -269,11 +273,9 @@ const LeaseUpTableContainer = ({
           const errs = {}
           const dateInput = values[INVITE_APPLY_DEADLINE_KEY]
           if (dateInput) {
-            const validation = validate.isDate('Please enter a valid date')([
-              dateInput.year,
-              dateInput.month,
-              dateInput.day
-            ])
+            const validation = validate.isFutureDate(
+              'Enter a date like: MM DD YYYY.  It must be after today.'
+            )([dateInput.year, dateInput.month, dateInput.day])
             if (validation) {
               errs[INVITE_APPLY_DEADLINE_KEY] = {
                 all: validation,

@@ -49,6 +49,16 @@ const isDate = (date) => {
   }
 }
 
+const isFutureDate = (date) => {
+  // date is not today and not in the past
+  if (isDate(date)) {
+    const d = moment(date.join('-'), 'YYYY-M-D', true).endOf('day')
+    return d.isAfter(moment().endOf('day'))
+  } else {
+    return false
+  }
+}
+
 const isValidEmail = (email) => {
   const emailRegex = new RegExp(
     [
@@ -117,6 +127,7 @@ const isValidUrl = (value) => {
 validate.isValidEmail = decorateValidator(isValidEmail)
 validate.isOldEnough = decorateValidator(isOldEnough)
 validate.isDate = decorateValidator(isDate)
+validate.isFutureDate = decorateValidator(isFutureDate)
 validate.isValidCurrency = decorateValidator(isValidCurrency)
 validate.isValidPercent = decorateValidator(isValidPercent)
 validate.isUnderMaxValue = (maxVal) => decorateValidator(isUnderMaxValue(maxVal))
