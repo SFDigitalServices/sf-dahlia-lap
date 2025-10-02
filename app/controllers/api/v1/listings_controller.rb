@@ -11,7 +11,7 @@ module Api
         if response
           render json: true
         else
-          render :nothing => true, :status => :internal_server_error
+          render status: 500
         end
       end
 
