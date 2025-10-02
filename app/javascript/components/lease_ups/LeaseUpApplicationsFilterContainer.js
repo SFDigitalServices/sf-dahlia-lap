@@ -157,6 +157,7 @@ const LeaseUpApplicationsFilterContainer = ({
                       forceDisplayPlaceholderText
                       tertiary={numChecked === 0}
                       options={LEASE_UP_STATUS_OPTIONS}
+                      classNamePrefix={'status-dropdown'}
                     />
                   </div>
                   <div className='padding-right--half d-inline-block'>
@@ -183,6 +184,7 @@ const LeaseUpApplicationsFilterContainer = ({
                         forceDisplayPlaceholderText
                         tertiary={numChecked === 0}
                         options={INVITE_APPLY_EMAIL_OPTIONS}
+                        classNamePrefix={'rsvp-dropdown'}
                       />
                     </div>
                   )}

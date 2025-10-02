@@ -32,7 +32,8 @@ const ButtonDropdown = ({
   // always show the placeholder.
   forceDisplayPlaceholderText = false,
   dataTestId = null,
-  options = []
+  options = [],
+  classNamePrefix = 'status-dropdown'
 }) => {
   const classes = classNames(buttonClasses, 'button', 'dropdown-button', { expand })
 
@@ -68,7 +69,7 @@ const ButtonDropdown = ({
 
   return (
     <Dropdown
-      classNamePrefix='status-dropdown'
+      classNamePrefix={classNamePrefix}
       items={options}
       value={status}
       placeholder={placeholder}
