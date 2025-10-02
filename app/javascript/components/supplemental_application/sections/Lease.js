@@ -4,15 +4,14 @@ import classNames from 'classnames'
 import { capitalize, each, filter, map, isEmpty } from 'lodash'
 import { Field } from 'react-final-form'
 
+import Alerts from 'components/Alerts'
 import ContentSection from 'components/molecules/ContentSection'
 import FormGrid from 'components/molecules/FormGrid'
 import InlineModal from 'components/molecules/InlineModal'
 import ConfirmationModal from 'components/organisms/ConfirmationModal'
 import {
   leaseEditClicked,
-  leaseCanceled,
-  deleteLeaseClicked,
-  updateLease
+  leaseCanceled
 } from 'components/supplemental_application/actions/leaseActionCreators'
 import LEASE_STATES from 'components/supplemental_application/utils/leaseSectionStates'
 import {
@@ -20,6 +19,8 @@ import {
   getApplicationMembers,
   totalSetAsidesForPref
 } from 'components/supplemental_application/utils/supplementalApplicationUtils'
+import ACTIONS from 'context/actions'
+import { useLeaseUpMutations } from 'query/hooks/useLeaseUpMutations'
 import { UNIT_STATUS_AVAILABLE } from 'utils/consts'
 import { useAppContext } from 'utils/customHooks'
 import { CurrencyField, FieldError, Label, SelectField } from 'utils/form/final_form/Field'
@@ -129,6 +130,11 @@ const Lease = ({ form, values }) => {
 
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
 
+  const { createLeaseMutation, updateLeaseMutation, deleteLeaseMutation } = useLeaseUpMutations({
+    applicationId: state.application.id,
+    listingId: state.listing?.id
+  })
+
   const isEditingMode = state.leaseSectionState === LEASE_STATES.EDIT_LEASE
   const disabled = !isEditingMode
   const getVisited = (fieldName) => form.getFieldState(fieldName)?.visited
@@ -136,10 +142,24 @@ const Lease = ({ form, values }) => {
   const openDeleteLeaseConfirmation = () => setShowDeleteConfirmation(true)
   const closeDeleteLeaseConfirmation = () => setShowDeleteConfirmation(false)
 
-  const handleDeleteLeaseConfirmed = () => {
+  const handleDeleteLeaseConfirmed = async () => {
     setShowDeleteConfirmation(false)
-
-    deleteLeaseClicked(dispatch, state.application)
+    dispatch({ type: ACTIONS.SUPP_APP_LOAD_START, data: null })
+    try {
+      await deleteLeaseMutation.mutateAsync({
+        leaseId: state.application.lease?.id,
+        applicationId: state.application.id,
+        listingId: state.listing?.id
+      })
+      dispatch({ type: ACTIONS.LEASE_DELETED })
+      form.change('lease', {})
+      form.change('rental_assistances', [])
+    } catch (error) {
+      console.error(error)
+      Alerts.error()
+    } finally {
+      dispatch({ type: ACTIONS.SUPP_APP_LOAD_COMPLETE, data: null })
+    }
   }
 
   const confirmedPreferences = filter(
@@ -215,10 +235,38 @@ const Lease = ({ form, values }) => {
     form.change('rental_assistances', state.application.rental_assistances)
   }
 
-  const validateAndSaveLease = (form) => {
+  const validateAndSaveLease = async (form) => {
     if (areLeaseAndRentalAssistancesValid(form)) {
       const { application: prevApplication } = state
-      updateLease(dispatch, convertPercentAndCurrency(form.getState().values), prevApplication)
+      const payload = convertPercentAndCurrency(form.getState().values)
+      const isCreating = !doesApplicationHaveLease(prevApplication)
+
+      const mutation = isCreating ? createLeaseMutation : updateLeaseMutation
+      const mutationVariables = {
+        lease: payload.lease,
+        primaryApplicantContactId: payload?.applicant?.id ?? prevApplication?.applicant?.id,
+        applicationId: payload?.id ?? prevApplication?.id,
+        listingId: payload?.listing?.id ?? state.listing?.id
+      }
+
+      dispatch({ type: ACTIONS.SUPP_APP_LOAD_START, data: null })
+      try {
+        const leaseResponse = await mutation.mutateAsync(mutationVariables)
+        dispatch({
+          type: ACTIONS.LEASE_AND_ASSISTANCES_UPDATED,
+          data: {
+            lease: leaseResponse,
+            rentalAssistances: state.application.rental_assistances,
+            newLeaseSectionState: LEASE_STATES.SHOW_LEASE
+          }
+        })
+        form.change('lease', leaseResponse)
+      } catch (error) {
+        console.error(error)
+        Alerts.error()
+      } finally {
+        dispatch({ type: ACTIONS.SUPP_APP_LOAD_COMPLETE, data: null })
+      }
     } else {
       // submit to force errors to display
       form.submit()

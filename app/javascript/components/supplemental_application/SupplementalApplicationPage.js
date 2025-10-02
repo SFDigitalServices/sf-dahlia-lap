@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import arrayMutators from 'final-form-arrays'
 import { isEmpty } from 'lodash'
@@ -17,6 +17,8 @@ import {
 } from 'components/supplemental_application/actions/supplementalApplicationActionCreators'
 import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
 import SupplementalApplicationContainer from 'components/supplemental_application/SupplementalApplicationContainer'
+import ACTIONS from 'context/actions'
+import { useSupplementalPageData } from 'query/hooks/useSupplementalQueries'
 import { useAppContext, useAsyncOnMount } from 'utils/customHooks'
 import validate, { convertPercentAndCurrency } from 'utils/form/validations'
 
@@ -50,9 +52,33 @@ const SupplementalApplicationPage = () => {
     }
   })
 
-  useAsyncOnMount(() =>
-    loadSupplementalPageData(dispatch, applicationId, breadcrumbData?.listingId?.id)
-  )
+  const listingId = breadcrumbData?.listing?.id ?? breadcrumbData?.listingId?.id ?? null
+  const {
+    data: supplementalPageData,
+    isLoading: isSupplementalLoading,
+    error: supplementalError
+  } = useSupplementalPageData({ applicationId, listingId })
+
+  useEffect(() => {
+    if (isSupplementalLoading) {
+      dispatch({ type: ACTIONS.SUPP_APP_LOAD_START, data: null })
+      return
+    }
+    dispatch({ type: ACTIONS.SUPP_APP_LOAD_COMPLETE, data: null })
+  }, [isSupplementalLoading, dispatch])
+
+  useEffect(() => {
+    if (supplementalPageData) {
+      loadSupplementalPageData(dispatch, supplementalPageData)
+    }
+  }, [supplementalPageData, dispatch])
+
+  useEffect(() => {
+    if (supplementalError) {
+      console.error(supplementalError)
+      Alerts.error()
+    }
+  }, [supplementalError])
 
   const tabItems = [
     {
@@ -84,7 +110,9 @@ const SupplementalApplicationPage = () => {
   }
 
   const performingInitialLoadForTab =
-    selectedTabKey === SUPP_TAB_KEY ? !supplemental.application : loadingShortform
+    selectedTabKey === SUPP_TAB_KEY
+      ? isSupplementalLoading || !supplemental.application
+      : loadingShortform
 
   const renderShortform = () => {
     if (loadingShortform) {

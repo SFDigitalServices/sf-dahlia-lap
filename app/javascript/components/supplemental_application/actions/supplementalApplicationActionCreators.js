@@ -9,38 +9,29 @@ import {
   wrapAsync
 } from 'components/supplemental_application/actions/supplementalActionUtils'
 import { getInitialLeaseState } from 'components/supplemental_application/utils/leaseSectionStates'
-import {
-  getSupplementalPageData,
-  updateApplication
-} from 'components/supplemental_application/utils/supplementalRequestUtils'
+import { updateApplication } from 'components/supplemental_application/utils/supplementalRequestUtils'
 import ACTIONS from 'context/actions'
 
 const getListingAmiCharts = (units) =>
   uniqBy(units, (u) => [u.ami_chart_type, u.ami_chart_year].join())
 
-export const loadSupplementalPageData = async (dispatch, applicationId, listingId = null) =>
-  wrapAsync(
-    dispatch,
-    () => getSupplementalPageData(applicationId, listingId),
-    ({ application, statusHistory, fileBaseUrl, units, listing }) => ({
-      type: ACTIONS.SUPP_APP_INITIAL_LOAD_SUCCESS,
-      data: {
-        breadcrumbData: getSupplementalBreadcrumbData(application, listing),
-        pageData: {
-          application: setApplicationDefaults(application),
-          units,
-          fileBaseUrl,
-          // Only show lease section on load if there's a lease on the application.
-          leaseSectionState: getInitialLeaseState(application),
-          listing,
-          listingAmiCharts: getListingAmiCharts(units),
-          rentalAssistances: application.rental_assistances,
-          statusHistory
-        }
+export const loadSupplementalPageData = async (dispatch, data) =>
+  dispatch({
+    type: ACTIONS.SUPP_APP_INITIAL_LOAD_SUCCESS,
+    data: {
+      breadcrumbData: getSupplementalBreadcrumbData(data.application, data.listing),
+      pageData: {
+        application: setApplicationDefaults(data.application),
+        units: data.units,
+        fileBaseUrl: data.fileBaseUrl,
+        leaseSectionState: getInitialLeaseState(data.application),
+        listing: data.listing,
+        listingAmiCharts: getListingAmiCharts(data.units),
+        rentalAssistances: data.application.rental_assistances,
+        statusHistory: data.statusHistory
       }
-    }),
-    logErrorAndAlert
-  )
+    }
+  })
 
 export const updateSupplementalApplication = async (
   dispatch,

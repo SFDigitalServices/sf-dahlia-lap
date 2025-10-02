@@ -4,7 +4,6 @@ import { each, includes, last, cloneDeep, toLower } from 'lodash'
 import PropTypes from 'prop-types'
 import ReactTable from 'react-table'
 
-import apiService from 'apiService'
 import appPaths from 'utils/appPaths'
 import utils from 'utils/utils'
 
@@ -92,7 +91,9 @@ class SpreadsheetIndexTable extends React.Component {
         loading = { ...loading }
         loading[rowInfo.index] = false
         persistedData[rowInfo.index] = cloneDeep(editData[rowInfo.index])
-        await apiService.updateFlaggedApplication(persistedData[rowInfo.index])
+        if (this.props.onSave) {
+          await this.props.onSave(persistedData[rowInfo.index])
+        }
         // ^^ await means that the setState won't happen until the call is made
         this.setState({ expanded, loading, persistedData })
       } else {
@@ -179,7 +180,12 @@ class SpreadsheetIndexTable extends React.Component {
 
 SpreadsheetIndexTable.propTypes = {
   results: PropTypes.array,
-  fields: PropTypes.object
+  fields: PropTypes.object,
+  onSave: PropTypes.func
+}
+
+SpreadsheetIndexTable.defaultProps = {
+  onSave: null
 }
 
 export default SpreadsheetIndexTable

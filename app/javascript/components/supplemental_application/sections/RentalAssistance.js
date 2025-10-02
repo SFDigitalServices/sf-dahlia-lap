@@ -2,6 +2,7 @@ import React from 'react'
 
 import { isEmpty } from 'lodash'
 
+import Alerts from 'components/Alerts'
 import Button from 'components/atoms/Button'
 import TableWrapper from 'components/atoms/TableWrapper'
 import ExpandableTable, { ExpanderButton } from 'components/molecules/ExpandableTable'
@@ -9,15 +10,14 @@ import FormGrid from 'components/molecules/FormGrid'
 import InlineModal from 'components/molecules/InlineModal'
 import {
   cancelEditRentalAssistance,
-  createRentalAssistance,
-  deleteRentalAssistance,
-  editRentalAssistance,
-  updateRentalAssistance
+  editRentalAssistance
 } from 'components/supplemental_application/actions/rentalAssistanceActionCreators'
 import {
   convertIdsToIndices,
   isCreateAssistanceFormOpen
 } from 'components/supplemental_application/utils/rentalAssistanceUtils'
+import ACTIONS from 'context/actions'
+import { useLeaseUpMutations } from 'query/hooks/useLeaseUpMutations'
 import { useAppContext } from 'utils/customHooks'
 import {
   CurrencyField,
@@ -261,9 +261,34 @@ const RentalAssistance = ({
   loading,
   disabled
 }) => {
-  const [, dispatch] = useAppContext()
+  const [
+    {
+      supplementalApplicationData: { supplemental: state }
+    },
+    dispatch
+  ] = useAppContext()
+
+  const {
+    createRentalAssistanceMutation,
+    updateRentalAssistanceMutation,
+    deleteRentalAssistanceMutation
+  } = useLeaseUpMutations({ applicationId, listingId: state.listing?.id })
 
   const isEditingNewAssistance = isCreateAssistanceFormOpen(assistanceRowsOpened)
+
+  const withLoading = async (asyncFn) => {
+    dispatch({ type: ACTIONS.SUPP_APP_LOAD_START, data: null })
+    try {
+      const result = await asyncFn()
+      dispatch({ type: ACTIONS.SUPP_APP_LOAD_COMPLETE, data: null })
+      return result
+    } catch (error) {
+      console.error(error)
+      Alerts.error()
+      dispatch({ type: ACTIONS.SUPP_APP_LOAD_COMPLETE, data: null })
+      throw error
+    }
+  }
 
   const handleCancelEdit = (index) => {
     const isNewAssistance = index === rentalAssistances.length
@@ -276,12 +301,32 @@ const RentalAssistance = ({
     const entireForm = form.getState().values
     const rentalAssistance = convertCurrency(entireForm.rental_assistances[index])
 
-    return action === 'update'
-      ? updateRentalAssistance(dispatch, applicationId, {
-          ...rentalAssistance,
-          ...(rentalAssistance.type_of_assistance !== 'Other' && { other_assistance_name: null })
-        })
-      : createRentalAssistance(dispatch, applicationId, rentalAssistance)
+    const mutationFn = () =>
+      action === 'update'
+        ? updateRentalAssistanceMutation.mutateAsync({
+            rentalAssistance: {
+              ...rentalAssistance,
+              ...(rentalAssistance.type_of_assistance !== 'Other' && {
+                other_assistance_name: null
+              })
+            }
+          })
+        : createRentalAssistanceMutation.mutateAsync({ rentalAssistance })
+
+    await withLoading(mutationFn)
+    handleCancelEdit(index)
+  }
+
+  const handleDelete = async (rentalAssistance, index) => {
+    await withLoading(() =>
+      deleteRentalAssistanceMutation.mutateAsync({
+        rentalAssistanceId: rentalAssistance.id
+      })
+    )
+    cancelEditRentalAssistance(dispatch, rentalAssistance.id)
+    if (index === rentalAssistances.length) {
+      form.change(`rental_assistances.${index}`, {})
+    }
   }
 
   return (
@@ -293,7 +338,7 @@ const RentalAssistance = ({
           assistanceRowsOpened={assistanceRowsOpened}
           onEdit={(rentalAssistance) => editRentalAssistance(dispatch, rentalAssistance.id)}
           onCancelEdit={(_, index) => handleCancelEdit(index)}
-          onDelete={(rentalAssistance) => deleteRentalAssistance(dispatch, rentalAssistance.id)}
+          onDelete={(rentalAssistance, index) => handleDelete(rentalAssistance, index)}
           onSave={(assistance, index) => handleSave(index, 'update')}
           form={form}
           loading={loading}

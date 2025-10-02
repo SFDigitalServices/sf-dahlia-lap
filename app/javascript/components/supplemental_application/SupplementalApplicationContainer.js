@@ -13,14 +13,19 @@ import {
   closeSuppAppStatusModal,
   closeSuppAppStatusModalAlert,
   openSuppAppAddCommentModal,
-  openSuppAppUpdateStatusModal,
-  submitSuppAppStatusModal
+  openSuppAppUpdateStatusModal
 } from 'components/supplemental_application/actions/statusModalActionCreators'
+import {
+  getApplicationStateOverridesAfterUpdate,
+  shouldSaveLeaseOnApplicationSave
+} from 'components/supplemental_application/actions/supplementalActionUtils'
 import { hasLease } from 'components/supplemental_application/utils/leaseSectionStates'
 import {
   getApplicationMembers,
   getPrefProofCutoff
 } from 'components/supplemental_application/utils/supplementalApplicationUtils'
+import ACTIONS from 'context/actions'
+import { useSupplementalMutations } from 'query/hooks/useSupplementalMutations'
 import { useAppContext } from 'utils/customHooks'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import { touchAllFields, convertPercentAndCurrency } from 'utils/form/validations'
@@ -189,6 +194,11 @@ const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values,
     return failed
   }
 
+  const { updateStatusMutation } = useSupplementalMutations({
+    applicationId: state.application?.id,
+    listingId: state.listing?.id
+  })
+
   const handleAddCommentClicked = (form, touched) =>
     !checkForValidationErrors(form, touched)
       ? openSuppAppAddCommentModal(dispatch, state.statusHistory)
@@ -196,6 +206,49 @@ const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values,
 
   const onChangeStatus = (form, touched, value) =>
     !checkForValidationErrors(form, touched) ? openSuppAppUpdateStatusModal(dispatch, value) : null
+
+  const handleStatusSubmit = async (submittedValues) => {
+    const { application: prevApplication, leaseSectionState } = state
+    const formValues = convertPercentAndCurrency(form.getState().values)
+    const appWithUpdatedStatus = {
+      ...formValues,
+      processing_status: submittedValues.status
+    }
+
+    dispatch({ type: ACTIONS.SUPP_APP_LOAD_START, data: { statusModal: { loading: true } } })
+    try {
+      const result = await updateStatusMutation.mutateAsync({
+        application: appWithUpdatedStatus,
+        prevApplication,
+        status: submittedValues.status,
+        comment: submittedValues.comment,
+        substatus: submittedValues.substatus,
+        shouldSaveLease: shouldSaveLeaseOnApplicationSave(leaseSectionState),
+        applicationId: prevApplication?.id,
+        listingId: state.listing?.id
+      })
+
+      const { application, statusHistory } = result
+
+      dispatch({
+        type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
+        data: {
+          ...getApplicationStateOverridesAfterUpdate(leaseSectionState, application, {
+            statusHistory
+          }),
+          statusModal: { isOpen: false }
+        }
+      })
+    } catch (error) {
+      console.error(error)
+      dispatch({ type: ACTIONS.STATUS_MODAL_ERROR, data: null })
+    } finally {
+      dispatch({
+        type: ACTIONS.SUPP_APP_LOAD_COMPLETE,
+        data: { statusModal: { loading: false } }
+      })
+    }
+  }
 
   return (
     <>
@@ -251,16 +304,7 @@ const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values,
         loading={state.statusModal.loading}
         onAlertCloseClick={() => closeSuppAppStatusModalAlert(dispatch)}
         onClose={() => closeSuppAppStatusModal(dispatch)}
-        onSubmit={(submittedValues) => {
-          const { application: prevApplication, leaseSectionState } = state
-          return submitSuppAppStatusModal(
-            dispatch,
-            submittedValues,
-            convertPercentAndCurrency(form.getState().values),
-            prevApplication,
-            leaseSectionState
-          )
-        }}
+        onSubmit={handleStatusSubmit}
         showAlert={state.statusModal.showAlert}
         status={state.statusModal.status}
         submitButton={state.statusModal.isInAddCommentMode ? 'Save' : 'Update'}

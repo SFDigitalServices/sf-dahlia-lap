@@ -3,14 +3,12 @@ import { isEmpty, find, isEqual, reject } from 'lodash'
 import apiService from 'apiService'
 import Alerts from 'components/Alerts'
 import { isLeaseAlreadyCreated } from 'components/supplemental_application/utils/supplementalApplicationUtils'
+import { invalidateLeaseUpRelatedQueries } from 'query/hooks/useLeaseUpMutations'
+import { queryClient } from 'query/queryClient'
 import { convertCurrency } from 'utils/form/validations'
 import { performOrDefault, performInSequence } from 'utils/promiseUtils'
 import { isChanged, filterChanged } from 'utils/utils'
 
-/**
- * Combine lease, application, and rental assistances responses into a single
- * application object.
- */
 const transformApplicationResponses = (lease, application, rentalAssistances) => ({
   ...application,
   lease,
@@ -71,14 +69,6 @@ export const getSupplementalPageData = async (applicationId, listingId = null) =
   )
 }
 
-/**
- * Update any fields on the application that have been changed from
- * prevApplication. This action triggers multiple separate requests:
- * 1. An application update request
- * 2. A lease create or update request
- * 3. Multiple rental assistance create/update requests
- * 4. A rental assistance get request
- */
 export const updateApplication = async (application, prevApplication, alsoSaveLease) => {
   const changedFields = filterChanged(prevApplication, application)
   const isApplicationChanged = isChanged(prevApplication, application)
@@ -95,11 +85,19 @@ export const updateApplication = async (application, prevApplication, alsoSaveLe
     defaultLeaseResponse(prevApplication)
   )
 
-  return Promise.all([saveLease, updateApplicationIfChanged]).then(
-    ([{ lease, rentalAssistances }, responseApplication]) => {
-      return transformApplicationResponses(lease, responseApplication, rentalAssistances)
-    }
-  )
+  const [{ lease, rentalAssistances }, responseApplication] = await Promise.all([
+    saveLease,
+    updateApplicationIfChanged
+  ])
+
+  await invalidateLeaseUpRelatedQueries({
+    queryClient,
+    applicationId: responseApplication?.id ?? application?.id,
+    listingId:
+      responseApplication?.listing?.id ?? application?.listing?.id ?? prevApplication?.listing?.id
+  })
+
+  return transformApplicationResponses(lease, responseApplication, rentalAssistances)
 }
 
 export const createFieldUpdateComment = async (applicationId, status, comment, substatus) => {
@@ -126,7 +124,7 @@ export const updateApplicationAndAddComment = async (
 }
 
 export const saveLeaseAndAssistances = async (application, prevApplication) => {
-  return performInSequence(
+  const [lease, rentalAssistances] = await performInSequence(
     () =>
       createOrUpdateLease(
         application.lease,
@@ -135,22 +133,27 @@ export const saveLeaseAndAssistances = async (application, prevApplication) => {
         application.id
       ),
     () => updateUnsavedRentalAssistances(application, prevApplication)
-  ).then(([lease, rentalAssistances]) => ({
+  )
+
+  await invalidateLeaseUpRelatedQueries({
+    queryClient,
+    applicationId: application?.id,
+    listingId: application?.listing?.id ?? prevApplication?.listing?.id
+  })
+
+  return {
     lease,
     rentalAssistances
-  }))
+  }
 }
 
 const updateUnsavedRentalAssistances = async (application, prevApplication) => {
-  // remove any canceled or non filled out rental assistances. i.e. {}
   const rentalAssistances = reject(application.rental_assistances, isEmpty)
   const promises = []
 
   rentalAssistances.forEach((rentalAssistance) => {
-    // update rental assistances without id (new) and changed
     if (isEmpty(rentalAssistance.id)) {
       promises.push(apiService.createRentalAssistance(rentalAssistance, application.id))
-      // Only update changed rental assistances
     } else if (
       prevApplication &&
       prevApplication.rental_assistances &&
@@ -181,14 +184,14 @@ const createOrUpdateLease = async (lease, prevLease, primaryApplicantContactId, 
   return performOrDefault(isNewOrChangedLease, saveLeasePromise, lease)
 }
 
-/**
- * Delete a lease associated with an application.
- * Additionally, delete any rental assistances associated with that lease.
- *
- * @param {Number} application the application object (must contain a lease)
- */
-export const deleteLease = async (application) =>
-  apiService.deleteLease(application.id, application.lease.id)
+export const deleteLease = async (application) => {
+  await apiService.deleteLease(application.id, application.lease.id)
+  await invalidateLeaseUpRelatedQueries({
+    queryClient,
+    applicationId: application?.id,
+    listingId: application?.listing?.id
+  })
+}
 
 export const getAMIAction = async ({ chartType, chartYear }) => {
   const response = await apiService.getAMI({ chartType, chartYear })
@@ -209,7 +212,15 @@ export const updatePreference = async (preferenceIndex, formApplicationValues) =
 
   return Promise.all(updates).then((responses) => {
     const anyRequestsFailed = responses.some((r) => r === false)
-    return anyRequestsFailed ? Promise.reject(Error('Updating preferences failed.')) : true
+    if (anyRequestsFailed) {
+      return Promise.reject(Error('Updating preferences failed.'))
+    }
+
+    return invalidateLeaseUpRelatedQueries({
+      queryClient,
+      applicationId: formApplicationValues?.id,
+      listingId: formApplicationValues?.listing?.id
+    }).then(() => true)
   })
 }
 

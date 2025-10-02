@@ -2,16 +2,9 @@ import {
   openSuppAppAddCommentModal,
   closeSuppAppStatusModal,
   closeSuppAppStatusModalAlert,
-  openSuppAppUpdateStatusModal,
-  submitSuppAppStatusModal
+  openSuppAppUpdateStatusModal
 } from 'components/supplemental_application/actions/statusModalActionCreators'
-import LEASE_STATES from 'components/supplemental_application/utils/leaseSectionStates'
 import ACTIONS from 'context/actions'
-
-jest.mock(
-  'components/supplemental_application/utils/supplementalRequestUtils',
-  () => require('../mocks/mockSupplementalRequestUtils').default
-)
 
 const MOCK_DISPATCH = jest.fn()
 
@@ -132,46 +125,6 @@ describe('statusModalActionCreators', () => {
           }
         ])
       })
-    })
-  })
-
-  describe('submitSuppAppStatusModal', () => {
-    beforeEach(async () => {
-      await submitSuppAppStatusModal(
-        MOCK_DISPATCH,
-        {
-          status: 'testStatus',
-          substatus: 'testsubstatus',
-          comment: 'testComment'
-        },
-        {},
-        [],
-        LEASE_STATES.EDIT_LEASE
-      )
-      firedActions = getFiredActions(MOCK_DISPATCH)
-    })
-
-    test('sends the correct actions', () => {
-      expect(firedActions).toEqual([
-        { type: ACTIONS.SUPP_APP_LOAD_START, data: { statusModal: { loading: true } } },
-        {
-          type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
-          data: {
-            application: {
-              id: 'updatedApplicationId'
-            },
-            leaseSectionState: LEASE_STATES.SHOW_LEASE,
-            statusHistory: [],
-            statusModal: {
-              isOpen: false
-            },
-            confirmedPreferencesFailed: false,
-            preferenceRowsOpened: new Set(),
-            assistanceRowsOpened: new Set()
-          }
-        },
-        { type: ACTIONS.SUPP_APP_LOAD_COMPLETE, data: { statusModal: { loading: false } } }
-      ])
     })
   })
 })

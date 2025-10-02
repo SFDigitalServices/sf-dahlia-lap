@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useMemo } from 'react'
 
-import apiService from 'apiService'
 import TableLayout from 'components/layouts/TableLayout'
 import Loading from 'components/molecules/Loading'
+import { useLeaseUpListing, useLotteryApplications } from 'query/hooks/useLeaseUpQueries'
 import appPaths from 'utils/appPaths'
 
 import LotteryManager from './LotteryManager'
@@ -24,40 +24,47 @@ const getTabs = (listingId) => {
 }
 
 const LotteryResultsPdfGenerator = (props) => {
-  const [applications, setApplications] = useState()
-  const [listing, setListing] = useState()
+  const listingId = props.listing_id
+  const useLotteryApi = useMemo(
+    () => new URLSearchParams(window.location.search).has('withLotteryResultApi'),
+    []
+  )
 
-  const withLotteryResultApi = () =>
-    new URLSearchParams(window.location.search).has('withLotteryResultApi')
+  const {
+    data: listing,
+    isLoading: isListingLoading,
+    isError: isListingError
+  } = useLeaseUpListing(listingId)
 
-  useEffect(() => {
-    if (withLotteryResultApi()) {
-      apiService.fetchLotteryResults(props.listing_id).then((res) => {
-        setApplications(res.lotteryBuckets)
-      })
-    } else {
-      apiService.fetchApplicationsForLotteryResults(props.listing_id).then((res) => {
-        setApplications(res.records)
-      })
-    }
+  const {
+    data: applications,
+    isLoading: isApplicationsLoading,
+    isError: isApplicationsError
+  } = useLotteryApplications({ listingId, useLotteryApi })
 
-    apiService.getLeaseUpListing(props.listing_id).then((res) => setListing(res))
-  }, [props.listing_id])
+  const isLoading = isListingLoading || isApplicationsLoading
+  const hasError = isListingError || isApplicationsError
+
+  if (isLoading) {
+    return <Loading isLoading />
+  }
+
+  if (hasError || !listing) {
+    return (
+      <TableLayout pageHeader={getPageHeaderData(listing || {})} tabSection={getTabs(listingId)}>
+        <div className='usa-alert usa-alert--error'>Unable to load lottery results.</div>
+      </TableLayout>
+    )
+  }
 
   return (
-    <>
-      {listing ? (
-        <TableLayout pageHeader={getPageHeaderData(listing)} tabSection={getTabs(props.listing_id)}>
-          <LotteryManager
-            applications={applications}
-            listing={listing}
-            withLotteryResultApi={withLotteryResultApi()}
-          />
-        </TableLayout>
-      ) : (
-        <Loading isLoading />
-      )}
-    </>
+    <TableLayout pageHeader={getPageHeaderData(listing)} tabSection={getTabs(listingId)}>
+      <LotteryManager
+        applications={applications}
+        listing={listing}
+        withLotteryResultApi={useLotteryApi}
+      />
+    </TableLayout>
   )
 }
 

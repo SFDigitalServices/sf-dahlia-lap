@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import ErrorBoundary from 'components/atoms/ErrorBoundary'
 import Loading from 'components/molecules/Loading'
-import { useAsyncOnMount } from 'utils/customHooks'
-import { fetchAndMapFlaggedApplications } from 'utils/flaggedAppRequestUtils'
+import { useFlaggedApplications } from 'query/hooks/useFlaggedApplications'
 
 import IndexTable from '../../IndexTable'
 import TableLayout from '../../layouts/TableLayout'
@@ -54,26 +53,19 @@ const FlaggedApplicationsIndexTable = ({ flaggedRecords, fields }) => {
 }
 
 const FlaggedApplicationsIndexPage = ({ type }) => {
-  const [loading, setLoading] = useState(true)
-  const [title, setTitle] = useState(undefined)
-  const [flaggedRecords, setFlaggedRecords] = useState(undefined)
-  useAsyncOnMount(() => fetchAndMapFlaggedApplications(type), {
-    onSuccess: ({ title, flaggedRecords }) => {
-      setTitle(title)
-      setFlaggedRecords(flaggedRecords)
-    },
-    onFail: (error) => {
-      throw new Error(`Failed to get Flagged Applications: ${error}`)
-    },
-    onComplete: () => {
-      setLoading(false)
-    }
-  })
+  const { data, isLoading, isError } = useFlaggedApplications(type)
+
+  if (isError) {
+    throw new Error('Failed to get Flagged Applications')
+  }
 
   const tableFields = getTableFieldsForType(type)
+  const title = data?.title
+  const flaggedRecords = data?.flaggedRecords
+
   return (
     <ErrorBoundary>
-      <Loading isLoading={loading} renderChildrenWhileLoading={false} loaderViewHeight='100vh'>
+      <Loading isLoading={isLoading} renderChildrenWhileLoading={false} loaderViewHeight='100vh'>
         <TableLayout pageHeader={{ title }}>
           <FlaggedApplicationsIndexTable flaggedRecords={flaggedRecords} fields={tableFields} />
         </TableLayout>

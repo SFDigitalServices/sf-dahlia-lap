@@ -1,34 +1,33 @@
 /* global SALESFORCE_BASE_URL */
 
-import React from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react'
 
+import { useQueryClient } from '@tanstack/react-query'
 import { map, isEqual } from 'lodash'
 import moment from 'moment'
-import { useParams, useSearchParams, useLocation } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 
+import { createFieldUpdateComment } from 'apiService'
 import {
   applicationsPageLoadComplete,
   applicationsPageMounted,
   applicationsTableFiltersApplied
 } from 'components/lease_ups/actions/actionCreators'
 import { LEASE_UP_APPLICATION_FILTERS } from 'components/lease_ups/applicationFiltersConsts'
+import { invalidateLeaseUpRelatedQueries } from 'query/hooks/useLeaseUpMutations'
+import { useLeaseUpListing, useLeaseUpApplications } from 'query/hooks/useLeaseUpQueries'
 import appPaths from 'utils/appPaths'
-import {
-  useAsync,
-  useAsyncOnMount,
-  useStateObject,
-  useEffectOnMount,
-  useIsMountedRef,
-  useAppContext
-} from 'utils/customHooks'
-import { GRAPHQL_SERVER_PAGE_SIZE, EagerPagination } from 'utils/EagerPagination'
+import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from 'utils/consts'
+import { useStateObject, useEffectOnMount, useIsMountedRef, useAppContext } from 'utils/customHooks'
+import { MAX_SERVER_LIMIT } from 'utils/EagerPagination'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
 import Context from './context'
+import { buildLeaseUpAppFirstComeFirstServedModel } from './leaseUpAppFirstComeFirstServedModel'
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
-import { getApplicationsPagination, getListing } from './utils/leaseUpRequestUtils'
+import { buildLeaseUpAppPrefModel } from './leaseUpAppPrefModel'
+import { sanitizeAndFormatSearch } from './utils/leaseUpRequestUtils'
 import TableLayout from '../layouts/TableLayout'
-import { createFieldUpdateComment } from '../supplemental_application/utils/supplementalRequestUtils'
 
 const ROWS_PER_PAGE = 20
 
@@ -76,22 +75,36 @@ const getPreferences = (listing) => {
   return map(listing.listing_lottery_preferences, (pref) => pref.lottery_preference.name)
 }
 
+const transformFcfsRecords = (records) =>
+  map(records, buildLeaseUpAppFirstComeFirstServedModel).map((application, index) => ({
+    ...application,
+    index
+  }))
+
+const transformApplicationsResponse = (response) => {
+  if (!response) return { records: [], pages: 0 }
+
+  const { records = [], pages = 0, listing_type: listingType } = response
+  const transformedRecords =
+    listingType === LISTING_TYPE_FIRST_COME_FIRST_SERVED
+      ? transformFcfsRecords(records)
+      : map(records, buildLeaseUpAppPrefModel)
+
+  return { records: transformedRecords, pages }
+}
+
 const LeaseUpApplicationsPage = () => {
+  const queryClient = useQueryClient()
   const [{ breadcrumbData, applicationsListData }, dispatch] = useAppContext()
 
-  const [searchParams] = useSearchParams()
   const location = useLocation()
 
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
 
   const [state, setState] = useStateObject({
-    loading: false,
     applications: [],
-    pages: 0,
-    atMaxPages: false,
-    forceRefreshNextPageUpdate: false,
-    eagerPagination: new EagerPagination(ROWS_PER_PAGE, GRAPHQL_SERVER_PAGE_SIZE, true)
+    pages: 0
   })
 
   const [bulkCheckboxesState, setBulkCheckboxesState, overrideBulkCheckboxesState] = useStateObject(
@@ -112,96 +125,108 @@ const LeaseUpApplicationsPage = () => {
   const isMountedRef = useIsMountedRef()
 
   const [{ reportId, listingPreferences, listingType }, setListingState] = useStateObject({})
-  useAsyncOnMount(() => getListing(listingId), {
-    onSuccess: (listing) => {
-      setListingState({
-        reportId: listing.report_id,
-        listingPreferences: getPreferences(listing),
-        listingType: listing.listing_type
-      })
+  const urlFilters = useMemo(() => {
+    const params = new URLSearchParams(location.search)
+    const filters = {}
 
-      applicationsPageLoadComplete(dispatch, listing)
+    LEASE_UP_APPLICATION_FILTERS.forEach((filter) => {
+      const values = params.getAll(filter.fieldName)
+      if (values.length > 0) {
+        filters[filter.fieldName] = values
+      }
+    })
+
+    const textSearchFilters = params.get('search')
+    if (textSearchFilters) {
+      filters.search = textSearchFilters
     }
-  })
 
-  useAsync(
-    () => {
-      const urlFilters = {}
-      let { appliedFilters, page } = applicationsListData
-      LEASE_UP_APPLICATION_FILTERS.forEach((filter) => {
-        const values = searchParams.getAll(filter.fieldName)
-        if (values.length > 0) {
-          urlFilters[filter.fieldName] = values
-        }
-      })
+    return filters
+  }, [location.search])
 
-      const textSearchFilters = searchParams.get('search')
-      if (textSearchFilters) {
-        urlFilters.search = textSearchFilters
-      }
+  useEffect(() => {
+    if (!isEqual(applicationsListData.appliedFilters, urlFilters)) {
+      applicationsTableFiltersApplied(dispatch, urlFilters)
+    }
+  }, [urlFilters, applicationsListData.appliedFilters, dispatch])
 
-      if (!isEqual(appliedFilters, urlFilters)) {
-        appliedFilters = urlFilters
-        state.forceRefreshNextPageUpdate = true
-        applicationsTableFiltersApplied(dispatch, appliedFilters)
-      }
+  const queryFilters = useMemo(() => {
+    if (!urlFilters.search) {
+      return urlFilters
+    }
 
-      if (state.eagerPagination.isOverLimit(page)) {
-        setState({
-          applications: [],
-          atMaxPage: true,
-          loading: false
-        })
+    return {
+      ...urlFilters,
+      search: sanitizeAndFormatSearch(urlFilters.search)
+    }
+  }, [urlFilters])
 
-        // don't trigger any promise if we're over the limit.
-        return null
-      }
+  const isOverLimit = applicationsListData.page * ROWS_PER_PAGE >= MAX_SERVER_LIMIT
 
-      const fetcher = (p) => getApplicationsPagination(listingId, p, appliedFilters)
+  const { data: listingData, isLoading: isListingLoading } = useLeaseUpListing(listingId)
 
-      setState({ loading: true })
+  useEffect(() => {
+    if (!listingData) return
 
-      return state.eagerPagination.getPage(page, fetcher, state.forceRefreshNextPageUpdate)
-    },
+    setListingState({
+      reportId: listingData.report_id,
+      listingPreferences: getPreferences(listingData),
+      listingType: listingData.listing_type
+    })
+
+    applicationsPageLoadComplete(dispatch, listingData)
+  }, [listingData, setListingState, dispatch])
+
+  const {
+    data: applicationsResponse,
+    isLoading: isApplicationsLoading,
+    isFetching: isApplicationsFetching,
+    error: applicationsError
+  } = useLeaseUpApplications(
+    { listingId, page: applicationsListData.page, filters: queryFilters },
     {
-      onSuccess: ({ records, pages }) => {
-        setInitialCheckboxState(records)
-        setState({ forceRefreshNextPageUpdate: false, applications: records, pages })
-      },
-      onComplete: () => {
-        setState({ loading: false })
-      },
-      onFail: (e) => {
-        console.error(`An error was thrown while fetching applications`)
-        console.trace(e)
-      }
-    },
-    // Using location in the deps array allows us to run this effect:
-    // on mount, if the user changes the url manually, or if the user hits the back button
-    [location, applicationsListData.page, state.eagerPagination]
+      enabled: Boolean(listingId) && !isOverLimit,
+      select: transformApplicationsResponse
+    }
   )
 
+  const setInitialCheckboxState = useCallback(
+    (applications) => {
+      // get unique applications
+      const uniqAppIds = Array.from(new Set(applications.map((a) => a.application_id)))
+      const emptyCheckboxes = uniqAppIds.reduce((a, b) => {
+        a[b] = false
+        return a
+      }, {})
+
+      // set state to false for all of the initial applications
+      // and clear out any application entries from a previous page
+      overrideBulkCheckboxesState(emptyCheckboxes)
+    },
+    [overrideBulkCheckboxesState]
+  )
+
+  useEffect(() => {
+    if (!applicationsResponse) return
+
+    setInitialCheckboxState(applicationsResponse.records)
+    setState({ applications: applicationsResponse.records, pages: applicationsResponse.pages })
+  }, [applicationsResponse, setState, setInitialCheckboxState])
+
+  useEffect(() => {
+    if (!applicationsError) return
+
+    console.error('An error was thrown while fetching applications')
+    console.trace(applicationsError)
+  }, [applicationsError])
+
   useEffectOnMount(() => applicationsPageMounted(dispatch))
-
-  const setInitialCheckboxState = (applications) => {
-    // get unique applications
-    const uniqAppIds = Array.from(new Set(applications.map((a) => a.application_id)))
-    const emptyCheckboxes = uniqAppIds.reduce((a, b) => {
-      a[b] = false
-      return a
-    }, {})
-
-    // set state to false for all of the initial applications
-    // and clear out any application entries from a previous page.
-    overrideBulkCheckboxesState(emptyCheckboxes)
-  }
 
   const handleBulkCheckboxClick = (appId) => {
     setBulkCheckboxesState({ [appId]: !bulkCheckboxesState[appId] })
   }
 
   const handleOnFilter = (filters) => {
-    state.eagerPagination.reset()
     applicationsTableFiltersApplied(dispatch, filters)
   }
 
@@ -232,50 +257,53 @@ const LeaseUpApplicationsPage = () => {
         }))
     })
 
-    return Promise.all(statusUpdateRequests).then((values) => {
-      if (!isMountedRef.current) {
-        return
-      }
+    const values = await Promise.all(statusUpdateRequests)
 
-      const successfulIds = values.filter((v) => !v.error).map((v) => v.application)
-      const errorIds = values.filter((v) => v.error).map((v) => v.application)
-      const successfulData = {}
+    if (!isMountedRef.current) {
+      return values
+    }
 
-      successfulIds.forEach((applicationId) => {
-        successfulData[applicationId] = applicationsData[applicationId]
-        delete applicationsData[applicationId]
-      })
+    const successfulIds = values.filter((v) => !v.error).map((v) => v.application)
+    const errorIds = values.filter((v) => v.error).map((v) => v.application)
+    const successfulData = {}
 
-      updateApplicationState(successfulData)
-
-      const wasBulkUpdate = statusModalState.isBulkUpdate
-
-      if (errorIds.length !== 0) {
-        setStatusModalState({
-          applicationsData,
-          loading: false,
-          showAlert: true,
-          alertMsg: `We were unable to make the update for ${errorIds.length} out of ${values.length} applications, please try again.`,
-          onAlertCloseClick: () => setStatusModalState({ showAlert: false })
-        })
-      } else {
-        setStatusModalState({
-          applicationsData: {},
-          isOpen: false,
-          loading: false,
-          showAlert: false,
-          status: null
-        })
-      }
-
-      if (wasBulkUpdate) {
-        setBulkCheckboxValues(false, successfulIds)
-      }
-
-      // Force the next page update to refresh because changing the status on a preference row
-      // on page 1 could update a preference row attached to the same application on page 2.
-      setState({ forceRefreshNextPageUpdate: true })
+    successfulIds.forEach((applicationId) => {
+      successfulData[applicationId] = applicationsData[applicationId]
+      delete applicationsData[applicationId]
     })
+
+    updateApplicationState(successfulData)
+
+    const wasBulkUpdate = statusModalState.isBulkUpdate
+
+    if (errorIds.length !== 0) {
+      setStatusModalState({
+        applicationsData,
+        loading: false,
+        showAlert: true,
+        alertMsg: `We were unable to make the update for ${errorIds.length} out of ${values.length} applications, please try again.`,
+        onAlertCloseClick: () => setStatusModalState({ showAlert: false })
+      })
+    } else {
+      setStatusModalState({
+        applicationsData: {},
+        isOpen: false,
+        loading: false,
+        showAlert: false,
+        status: null
+      })
+    }
+
+    if (wasBulkUpdate) {
+      setBulkCheckboxValues(false, successfulIds)
+    }
+
+    await invalidateLeaseUpRelatedQueries({
+      queryClient,
+      listingId
+    })
+
+    return values
   }
 
   const handleCloseStatusModal = () => {
@@ -348,11 +376,11 @@ const LeaseUpApplicationsPage = () => {
 
   const context = {
     applications: state.applications,
-    atMaxPages: state.atMaxPages,
+    atMaxPages: isOverLimit,
     bulkCheckboxesState,
     listingId,
     listingType,
-    loading: state.loading,
+    loading: isListingLoading || isApplicationsLoading || isApplicationsFetching,
     onBulkCheckboxClick: handleBulkCheckboxClick,
     onCloseStatusModal: handleCloseStatusModal,
     onFilter: handleOnFilter,

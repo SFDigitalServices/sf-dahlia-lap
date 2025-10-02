@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import ErrorBoundary from 'components/atoms/ErrorBoundary'
 import Loading from 'components/molecules/Loading'
-import { useAsyncOnMount } from 'utils/customHooks'
-import { fetchAndMapFlaggedApplicationsByRecordSet } from 'utils/flaggedAppRequestUtils'
+import {
+  useFlaggedApplicationsByRecordSet,
+  useUpdateFlaggedApplication
+} from 'query/hooks/useFlaggedApplications'
 
 import TableLayout from '../../layouts/TableLayout'
 import SpreadsheetIndexTable from '../../SpreadsheetIndexTable'
@@ -44,28 +46,25 @@ const tableFields = {
 }
 
 const FlaggedApplicationsShowPage = ({ recordSetId }) => {
-  const [loading, setLoading] = useState(true)
-  const [flaggedRecords, setFlaggedRecords] = useState(undefined)
-  useAsyncOnMount(() => fetchAndMapFlaggedApplicationsByRecordSet(recordSetId), {
-    onSuccess: ({ flaggedRecords }) => {
-      setFlaggedRecords(flaggedRecords)
-    },
-    onFail: (error) => {
-      throw new Error(`Failed to get Flagged Applications by record set id: ${error}`)
-    },
-    onComplete: () => {
-      setLoading(false)
-    }
-  })
-  const pageHeader = {
-    title: 'Flagged Application Set'
+  const { data, isLoading, isError } = useFlaggedApplicationsByRecordSet(recordSetId)
+  const updateFlaggedApplication = useUpdateFlaggedApplication({ recordSetId })
+
+  if (isError) {
+    throw new Error('Failed to get Flagged Applications by record set id')
   }
+
+  const flaggedRecords = data?.flaggedRecords
+  const pageHeader = { title: 'Flagged Application Set' }
 
   return (
     <ErrorBoundary>
-      <Loading isLoading={loading} renderChildrenWhileLoading={false} loaderViewHeight='100vh'>
+      <Loading isLoading={isLoading} renderChildrenWhileLoading={false} loaderViewHeight='100vh'>
         <TableLayout pageHeader={pageHeader}>
-          <SpreadsheetIndexTable results={flaggedRecords} fields={tableFields} />
+          <SpreadsheetIndexTable
+            results={flaggedRecords}
+            fields={tableFields}
+            onSave={(payload) => updateFlaggedApplication.mutateAsync(payload)}
+          />
         </TableLayout>
       </Loading>
     </ErrorBoundary>

@@ -3,9 +3,6 @@ import {
   updateSupplementalApplication
 } from 'components/supplemental_application/actions/supplementalApplicationActionCreators'
 import LEASE_STATES from 'components/supplemental_application/utils/leaseSectionStates'
-// Lint complains that there's no default export in this file, but it's mocked by jest so it's fine
-// eslint-disable-next-line import/default
-import mockedRequestUtils from 'components/supplemental_application/utils/supplementalRequestUtils'
 import ACTIONS from 'context/actions'
 
 jest.mock(
@@ -18,79 +15,40 @@ const getFiredActions = (dispatchMock) => dispatchMock.mock.calls.map((call) => 
 
 describe('supplementalApplicationActionCreators', () => {
   describe('loadSupplementalPageData', () => {
-    const getExpectedData = (expectedApplication, expectedLeaseSectionState) => ({
-      breadcrumbData: {
-        listing: {
-          buildingAddress: undefined,
-          id: 'listingId',
-          name: undefined
-        },
-        application: {
-          applicantFullName: undefined,
-          id: 'updatedApplicationId',
-          number: undefined
-        }
-      },
-      pageData: {
-        application: expectedApplication,
-        fileBaseUrl: 'fileBaseUrl',
-        leaseSectionState: expectedLeaseSectionState,
-        listing: {
-          id: 'listingId'
-        },
-        statusHistory: [],
-        listingAmiCharts: [],
-        rentalAssistances: undefined,
-        units: []
-      }
+    beforeEach(() => {
+      MOCK_DISPATCH.mockClear()
     })
 
-    describe('with no lease', () => {
-      let firedActions = []
-      beforeEach(async () => {
-        await loadSupplementalPageData(MOCK_DISPATCH, 'applicationId')
-        firedActions = getFiredActions(MOCK_DISPATCH)
-      })
-
-      test('should fire the correct actions', () => {
-        expect(firedActions).toEqual([
-          { type: ACTIONS.SUPP_APP_LOAD_START, data: null },
-          {
-            type: ACTIONS.SUPP_APP_INITIAL_LOAD_SUCCESS,
-            data: getExpectedData({ id: 'updatedApplicationId' }, LEASE_STATES.NO_LEASE)
-          },
-          { type: ACTIONS.SUPP_APP_LOAD_COMPLETE, data: null }
-        ])
-      })
+    const buildBaseData = (application = { id: 'updatedApplicationId' }) => ({
+      application,
+      statusHistory: [],
+      fileBaseUrl: 'fileBaseUrl',
+      units: [],
+      listing: { id: 'listingId' }
     })
 
-    describe('when a lease is returned', () => {
-      let firedActions = []
-      beforeEach(async () => {
-        mockedRequestUtils.getSupplementalPageData.mockResolvedValueOnce({
-          application: { id: 'updatedApplicationId', lease: { id: 'leaseId' } },
-          statusHistory: [],
-          fileBaseUrl: 'fileBaseUrl',
-          units: [],
-          listing: { id: 'listingId' }
-        })
-        await loadSupplementalPageData(MOCK_DISPATCH, 'applicationId')
-        firedActions = getFiredActions(MOCK_DISPATCH)
-      })
+    test('dispatches initial load success without lease', () => {
+      loadSupplementalPageData(MOCK_DISPATCH, buildBaseData())
 
-      test('should fire the correct actions', () => {
-        expect(firedActions).toEqual([
-          { type: ACTIONS.SUPP_APP_LOAD_START, data: null },
-          {
-            type: ACTIONS.SUPP_APP_INITIAL_LOAD_SUCCESS,
-            data: getExpectedData(
-              { id: 'updatedApplicationId', lease: { id: 'leaseId' } },
-              LEASE_STATES.SHOW_LEASE
-            )
-          },
-          { type: ACTIONS.SUPP_APP_LOAD_COMPLETE, data: null }
-        ])
-      })
+      expect(MOCK_DISPATCH).toHaveBeenCalledTimes(1)
+      const [action] = getFiredActions(MOCK_DISPATCH)
+      expect(action.type).toBe(ACTIONS.SUPP_APP_INITIAL_LOAD_SUCCESS)
+      expect(action.data.pageData.application.id).toBe('updatedApplicationId')
+      expect(action.data.pageData.leaseSectionState).toBe(LEASE_STATES.NO_LEASE)
+      expect(action.data.pageData.statusHistory).toEqual([])
+      expect(action.data.pageData.units).toEqual([])
+    })
+
+    test('derives lease section state when lease is present', () => {
+      loadSupplementalPageData(
+        MOCK_DISPATCH,
+        buildBaseData({ id: 'updatedApplicationId', lease: { id: 'leaseId' } })
+      )
+
+      expect(MOCK_DISPATCH).toHaveBeenCalledTimes(1)
+      const [action] = getFiredActions(MOCK_DISPATCH)
+      expect(action.data.pageData.leaseSectionState).toBe(LEASE_STATES.SHOW_LEASE)
+      expect(action.data.pageData.application.lease).toEqual({ id: 'leaseId' })
     })
   })
 
