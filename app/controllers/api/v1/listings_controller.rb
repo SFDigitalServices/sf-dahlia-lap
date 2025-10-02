@@ -10,6 +10,8 @@ module Api
         response = rest_listing_service.update(listing_params.merge(id: params[:id]))
         if response
           render json: true
+        else
+          render :nothing => true, :status => :internal_server_error
         end
       end
 
@@ -18,7 +20,7 @@ module Api
       def listing_params
         params.require(:listing).permit(
           :id,
-          :file_upload_url
+          :file_upload_url,
         )
       end
 

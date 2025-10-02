@@ -39,7 +39,14 @@ exclude_patterns = [
   "**/target/**",
   "**/templates/**",
   "**/testdata/**",
-  "**/vendor/**", "lib/assets", "app/assets/stylesheets", "spec", "spec/javascript/fixtures", "cypress",
+  "**/vendor/**",
+  "lib/assets",
+  "app/assets/stylesheets",
+  "spec",
+  "spec/javascript/fixtures",
+  "spec/vcr/**",
+  "cypress",
+  ".vscode/**",
 ]
 
 test_patterns = [

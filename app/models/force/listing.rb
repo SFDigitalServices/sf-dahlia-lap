@@ -94,16 +94,16 @@ module Force
       end
     end
 
-    def map_list_to_salesforce(salesforce_fields, listSalesforceFieldName, forceClass)
-      if salesforce_fields[listSalesforceFieldName]
-        salesforce_fields[listSalesforceFieldName] =
-          forceClass.convert_list(salesforce_fields[listSalesforceFieldName], :from_domain, :to_salesforce)
+    def map_list_to_salesforce(salesforce_fields, list_salesforce_field_name, forceClass)
+      if salesforce_fields[list_salesforce_field_name]
+        salesforce_fields[list_salesforce_field_name] =
+          forceClass.convert_list(salesforce_fields[list_salesforce_field_name], :from_domain, :to_salesforce)
       end
     end
 
-    def map_to_salesforce_lookup(salesforce_fields, fieldName)
-      if salesforce_fields[fieldName]
-        salesforce_fields[fieldName] = { "Name": salesforce_fields[fieldName] }
+    def map_to_salesforce_lookup(salesforce_fields, fieldname)
+      if salesforce_fields[fieldname]
+        salesforce_fields[fieldname] = { "Name": salesforce_fields[fieldname] }
       end
     end
 
