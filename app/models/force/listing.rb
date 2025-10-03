@@ -88,21 +88,21 @@ module Force
 
     LISTING_TYPE_FIRST_COME_FIRST_SERVED = 'First Come, First Served'
 
-    def map_list_to_domain(domain_fields, listDomainFieldName, force_class)
-      if domain_fields[listDomainFieldName]
-        domain_fields[listDomainFieldName] = force_class.convert_list(domain_fields[listDomainFieldName], :from_salesforce, :to_domain)
-      end
+    def map_list_to_domain(domain_fields, list_domain_field_name, force_class)
+      return unless domain_fields[list_domain_field_name]
+
+      domain_fields[list_domain_field_name] = force_class.convert_list(domain_fields[list_domain_field_name], :from_salesforce, :to_domain)
     end
 
     def map_list_to_salesforce(salesforce_fields, list_salesforce_field_name, force_class)
-      if salesforce_fields[list_salesforce_field_name]
-        salesforce_fields[list_salesforce_field_name] =
-          force_class.convert_list(salesforce_fields[list_salesforce_field_name], :from_domain, :to_salesforce)
-      end
+      return unless salesforce_fields[list_salesforce_field_name]
+
+      salesforce_fields[list_salesforce_field_name] = force_class.convert_list(salesforce_fields[list_salesforce_field_name], :from_domain, :to_salesforce)
     end
 
     def map_to_salesforce_lookup(salesforce_fields, fieldname)
       return unless salesforce_fields[fieldname]
+
       salesforce_fields[fieldname] = { "Name": salesforce_fields[fieldname] }
     end
 

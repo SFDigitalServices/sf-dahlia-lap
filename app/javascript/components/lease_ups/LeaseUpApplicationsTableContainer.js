@@ -139,6 +139,54 @@ const LeaseUpTableContainer = ({
     setRsvpModalState(stateObj)
   }
 
+  const rsvpUploadUrlSubmit = (values) => {
+    setRsvpModalValues(values)
+    showRsvpModal('setDeadline')
+  }
+
+  const rsvpDeadlineSubmit = (values) => {
+    setRsvpModalValues(values)
+
+    const applicationIds = Object.entries(bulkCheckboxesState)
+      .filter(([_, checked]) => checked)
+      .map(([id, _]) => id)
+    const deadline = values[INVITE_APPLY_DEADLINE_KEY]
+    handleCloseRsvpModal()
+
+    apiService.updateListing({
+      id: listingId,
+      file_upload_url: rsvpModalValues[INVITE_APPLY_UPLOAD_KEY]
+    })
+
+    applicationIds.forEach((appId) => {
+      const dateObj = moment(`${deadline.year}-${deadline.month}-${deadline.day}`).endOf('day')
+      apiService.updateApplication({
+        id: appId,
+        invite_to_apply_deadline_date: dateObj.utc().format()
+      })
+    })
+  }
+
+  const rsvpValidateDeadline = (values) => {
+    const errs = {}
+    const dateInput = values[INVITE_APPLY_DEADLINE_KEY]
+    if (dateInput) {
+      const validation = validate.isFutureDate(
+        'Enter a date like: MM DD YYYY.  It must be after today.'
+      )([dateInput.year, dateInput.month, dateInput.day])
+      if (validation) {
+        errs[INVITE_APPLY_DEADLINE_KEY] = {
+          all: validation,
+          year: validation,
+          month: validation,
+          day: validation
+        }
+      }
+    }
+
+    return errs
+  }
+
   useEffect(() => {
     if (!preferences) return
 
@@ -196,10 +244,7 @@ const LeaseUpTableContainer = ({
         isOpen={rsvpModalState.uploadUrl}
         title='Edit document upload URL'
         subtitle='Enter the link applicants will use to upload their documents.'
-        onSubmit={(values) => {
-          setRsvpModalValues(values)
-          showRsvpModal('setDeadline')
-        }}
+        onSubmit={rsvpUploadUrlSubmit}
         handleClose={handleCloseRsvpModal}
         primary='next'
         secondary='cancel'
@@ -238,30 +283,7 @@ const LeaseUpTableContainer = ({
         isOpen={rsvpModalState.setDeadline}
         title='Set document upload deadline'
         subtitle='Enter date that will show as the deadline for applicants to upload their application documents.  You must provide 5 business days.'
-        onSubmit={(values) => {
-          setRsvpModalValues(values)
-
-          const applicationIds = Object.entries(bulkCheckboxesState)
-            .filter(([_, checked]) => checked)
-            .map(([id, _]) => id)
-          const deadline = values[INVITE_APPLY_DEADLINE_KEY]
-          handleCloseRsvpModal()
-
-          apiService.updateListing({
-            id: listingId,
-            file_upload_url: rsvpModalValues[INVITE_APPLY_UPLOAD_KEY]
-          })
-
-          applicationIds.forEach((appId) => {
-            const dateObj = moment(`${deadline.year}-${deadline.month}-${deadline.day}`).endOf(
-              'day'
-            )
-            apiService.updateApplication({
-              id: appId,
-              invite_to_apply_deadline_date: dateObj.utc().format()
-            })
-          })
-        }}
+        onSubmit={rsvpDeadlineSubmit}
         handleClose={handleCloseRsvpModal}
         primary='save'
         secondary='cancel'
@@ -269,25 +291,7 @@ const LeaseUpTableContainer = ({
         mutators={{
           ...arrayMutators
         }}
-        validateError={(values) => {
-          const errs = {}
-          const dateInput = values[INVITE_APPLY_DEADLINE_KEY]
-          if (dateInput) {
-            const validation = validate.isFutureDate(
-              'Enter a date like: MM DD YYYY.  It must be after today.'
-            )([dateInput.year, dateInput.month, dateInput.day])
-            if (validation) {
-              errs[INVITE_APPLY_DEADLINE_KEY] = {
-                all: validation,
-                year: validation,
-                month: validation,
-                day: validation
-              }
-            }
-          }
-
-          return errs
-        }}
+        validateError={rsvpValidateDeadline}
       >
         {(values, changeFieldValue, form) => (
           <div className={'form-group'}>
