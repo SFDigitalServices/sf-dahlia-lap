@@ -1,21 +1,12 @@
-import {
-  bulkActionCheckboxId,
-  statusMenuItemSelector,
-  nthRowStatusDropdownSelector,
-  usingFixtures
-} from '../../support/utils'
+import { bulkActionCheckboxId, statusMenuItemSelector, usingFixtures } from '../../support/utils'
 
-const firstRowStatusDropdown = '.rt-tr-group:first-child .rt-td .dropdown .dropdown-button'
-const secondRowSubstatus = '.rt-tr-group:nth-child(2) .rt-td:nth-child(9)'
-const unselectedStatusMenuItem = 'li[aria-selected="false"].dropdown-menu_item > a'
 const rsvpSendEmailDropdown = '.filter-row .rsvp-dropdown__control .dropdown-button'
 const SETUP_INVITE_TO_APPLY = 'set-up-invite-to-apply'
-const APPEALED = 'Appealed'
 const LEASE_UP_LISTING_ID = Cypress.env('LEASE_UP_LISTING_ID')
 const SECOND_ROW_LEASE_UP_APP_ID = Cypress.env('SECOND_ROW_LEASE_UP_APP_ID')
 const THIRD_ROW_LEASE_UP_APP_ID = Cypress.env('THIRD_ROW_LEASE_UP_APP_ID')
-const UPLOAD_URL_MODAL_TITLE = 'Edit document upload URL'
-const DEADLINE_MODAL_TITLE = 'Set document upload deadline'
+const UPLOAD_URL_MODAL_TITLE = 'Add document upload URL'
+const DEADLINE_MODAL_TITLE = 'Set document submission deadline'
 
 describe('LeaseUpApplicationsPage send email', () => {
   beforeEach(() => {
