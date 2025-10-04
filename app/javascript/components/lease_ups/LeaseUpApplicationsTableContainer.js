@@ -1,20 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 
-import arrayMutators from 'final-form-arrays'
 import { capitalize, compact, map, cloneDeep, isEmpty } from 'lodash'
-import moment from 'moment'
 
-import apiService from 'apiService'
-import FormGrid from 'components/molecules/FormGrid'
-import FormModal from 'components/organisms/FormModal'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
-import { useStateObject } from 'utils/customHooks'
-import { InputField, HelpText } from 'utils/form/final_form/Field'
-import { MultiDateField } from 'utils/form/final_form/MultiDateField'
-import validate from 'utils/form/validations'
 import { addLayeredValidation } from 'utils/layeredPreferenceUtil'
 
 import { withContext } from './context'
+import { InviteToApplyModals } from './InviteToApplyModals'
 import LeaseUpApplicationsFilterContainer from './LeaseUpApplicationsFilterContainer'
 import LeaseUpApplicationsTable from './LeaseUpApplicationsTable'
 import { getApplicationsPagination } from './utils/leaseUpRequestUtils'
@@ -101,91 +93,7 @@ const LeaseUpTableContainer = ({
     statusModal
   }
 }) => {
-  const INVITE_APPLY_UPLOAD_KEY = 'invite-to-apply-file-upload-url'
-  const INVITE_APPLY_DEADLINE_KEY = 'invite-to-apply-deadline'
-
-  const [rsvpModalState, setRsvpModalState] = useStateObject({
-    // modal hide/show states
-    uploadUrl: false,
-    setDeadline: false
-  })
-
-  const [rsvpModalValues, setRsvpModalValues] = useStateObject({
-    [INVITE_APPLY_UPLOAD_KEY]: '',
-    [INVITE_APPLY_DEADLINE_KEY]: {
-      month: '',
-      day: '',
-      year: ''
-    }
-  })
-
-  const handleSetUpInvitationApply = () => {
-    // show setup invitation to apply modal
-    showRsvpModal('uploadUrl')
-  }
-
-  const handleCloseRsvpModal = () => {
-    const stateObj = {}
-    for (const key of Object.keys(rsvpModalState)) {
-      stateObj[key] = false
-    }
-    setRsvpModalState(stateObj)
-  }
-
-  const showRsvpModal = (key) => {
-    handleCloseRsvpModal()
-    const stateObj = {}
-    stateObj[key] = true
-    setRsvpModalState(stateObj)
-  }
-
-  const rsvpUploadUrlSubmit = (values) => {
-    setRsvpModalValues(values)
-    showRsvpModal('setDeadline')
-  }
-
-  const rsvpDeadlineSubmit = (values) => {
-    setRsvpModalValues(values)
-
-    const applicationIds = Object.entries(bulkCheckboxesState)
-      .filter(([_, checked]) => checked)
-      .map(([id, _]) => id)
-    const deadline = values[INVITE_APPLY_DEADLINE_KEY]
-    handleCloseRsvpModal()
-
-    apiService.updateListing({
-      id: listingId,
-      file_upload_url: rsvpModalValues[INVITE_APPLY_UPLOAD_KEY]
-    })
-
-    applicationIds.forEach((appId) => {
-      const dateObj = moment(`${deadline.year}-${deadline.month}-${deadline.day}`).endOf('day')
-      apiService.updateApplication({
-        id: appId,
-        invite_to_apply_deadline_date: dateObj.utc().format()
-      })
-    })
-  }
-
-  const rsvpValidateDeadline = (values) => {
-    const errs = {}
-    const dateInput = values[INVITE_APPLY_DEADLINE_KEY]
-    if (dateInput) {
-      const validation = validate.isFutureDate(
-        'Enter a date like: MM DD YYYY.  It must be after today.'
-      )([dateInput.year, dateInput.month, dateInput.day])
-      if (validation) {
-        errs[INVITE_APPLY_DEADLINE_KEY] = {
-          all: validation,
-          year: validation,
-          month: validation,
-          day: validation
-        }
-      }
-    }
-
-    return errs
-  }
+  const inviteToApplyModalsRef = useRef(null)
 
   useEffect(() => {
     if (!preferences) return
@@ -208,7 +116,11 @@ const LeaseUpTableContainer = ({
         onSelectAllApplications={onSelectAllApplications}
         onBulkLeaseUpStatusChange={(val) => onLeaseUpStatusChange(val, null, false)}
         onBulkLeaseUpCommentChange={(val) => onLeaseUpStatusChange(null, null, true)}
-        onRsvpSendEmailChange={(val) => handleSetUpInvitationApply()}
+        onRsvpSendEmailChange={(val) => {
+          if (inviteToApplyModalsRef.current) {
+            inviteToApplyModalsRef.current.setUpInvitationToApply()
+          }
+        }}
       />
       {!loading && (
         <LeaseUpApplicationsTable
@@ -240,75 +152,11 @@ const LeaseUpTableContainer = ({
         title={statusModal.isCommentModal ? 'Add Comment' : 'Update Status'}
         isCommentModal={statusModal.isCommentModal}
       />
-      <FormModal
-        isOpen={rsvpModalState.uploadUrl}
-        title='Edit document upload URL'
-        subtitle='Enter the link applicants will use to upload their documents.'
-        onSubmit={rsvpUploadUrlSubmit}
-        handleClose={handleCloseRsvpModal}
-        primary='next'
-        secondary='cancel'
-        onSecondaryClick={handleCloseRsvpModal}
-      >
-        {(values, changeFieldValue) => (
-          <div className={'form-group'}>
-            <FormGrid.Row>
-              <FormGrid.Item width='100%'>
-                <InputField
-                  label={'upload'}
-                  blockNote={'Document upload URL (required)'}
-                  labelId='doc-upload-url-label'
-                  fieldName={INVITE_APPLY_UPLOAD_KEY}
-                  id={INVITE_APPLY_UPLOAD_KEY}
-                  cols='30'
-                  rows='10'
-                  ariaDescribedby='invite-to-apply-upload-url-label'
-                  maxLength='255'
-                  validation={validate.isValidUrl('Please enter a valid URL')}
-                />
-              </FormGrid.Item>
-            </FormGrid.Row>
-            <FormGrid.Row>
-              <FormGrid.Item width='100%'>
-                <HelpText
-                  id='invite-to-apply-file-upload-url-help'
-                  note='Example: https://www.dropbox.com/scl/fo/oi0q'
-                />
-              </FormGrid.Item>
-            </FormGrid.Row>
-          </div>
-        )}
-      </FormModal>
-      <FormModal
-        isOpen={rsvpModalState.setDeadline}
-        title='Set document upload deadline'
-        subtitle='Enter date that will show as the deadline for applicants to upload their application documents.  You must provide 5 business days.'
-        onSubmit={rsvpDeadlineSubmit}
-        handleClose={handleCloseRsvpModal}
-        primary='save'
-        secondary='cancel'
-        onSecondaryClick={handleCloseRsvpModal}
-        mutators={{
-          ...arrayMutators
-        }}
-        validateError={rsvpValidateDeadline}
-      >
-        {(values, changeFieldValue, form) => (
-          <div className={'form-group'}>
-            <FormGrid.Row>
-              <FormGrid.Item width='100%'>
-                <MultiDateField
-                  form={form}
-                  formName={INVITE_APPLY_DEADLINE_KEY}
-                  fieldName={INVITE_APPLY_DEADLINE_KEY}
-                  id={INVITE_APPLY_DEADLINE_KEY}
-                  blockNote='Example: July 27, 2025 is 07-27-2025'
-                />
-              </FormGrid.Item>
-            </FormGrid.Row>
-          </div>
-        )}
-      </FormModal>
+      <InviteToApplyModals
+        ref={inviteToApplyModalsRef}
+        bulkCheckboxesState={bulkCheckboxesState}
+        listingId={listingId}
+      />
     </>
   )
 }

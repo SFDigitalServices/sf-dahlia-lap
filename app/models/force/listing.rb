@@ -97,7 +97,9 @@ module Force
     def map_list_to_salesforce(salesforce_fields, list_salesforce_field_name, force_class)
       return unless salesforce_fields[list_salesforce_field_name]
 
-      salesforce_fields[list_salesforce_field_name] = force_class.convert_list(salesforce_fields[list_salesforce_field_name], :from_domain, :to_salesforce)
+      salesforce_fields[list_salesforce_field_name] = force_class.convert_list(
+        salesforce_fields[list_salesforce_field_name], :from_domain, :to_salesforce
+      )
     end
 
     def map_to_salesforce_lookup(salesforce_fields, fieldname)
