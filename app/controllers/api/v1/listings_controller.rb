@@ -4,7 +4,7 @@ module Api
   module V1
     # RESTful JSON API for listings actions
     class ListingsController < ApiController
-        before_action :authenticate_user!
+      before_action :authenticate_user!
 
       def update
         response = rest_listing_service.update(listing_params.merge(id: params[:id]))
