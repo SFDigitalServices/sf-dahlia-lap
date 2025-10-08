@@ -54,12 +54,12 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     setRsvpModalState(stateObj)
   }
 
-  const uploadUrlSubmit = (values) => {
+  const uploadUrlModalSubmit = (values) => {
     setRsvpModalValues(values)
     showRsvpModal('setDeadline')
   }
 
-  const deadlineSubmit = (values) => {
+  const setdeadlineModalSubmit = (values) => {
     setRsvpModalValues(values)
 
     const applicationIds = Object.entries(props.bulkCheckboxesState)
@@ -108,13 +108,13 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
         isOpen={rsvpModalState.uploadUrl}
         title='Add document upload URL'
         subtitle='Enter the link applicants will use to upload their documents.'
-        onSubmit={uploadUrlSubmit}
+        onSubmit={uploadUrlModalSubmit}
         handleClose={handleCloseRsvpModal}
         primary='next'
         secondary='cancel'
         onSecondaryClick={handleCloseRsvpModal}
       >
-        {(values, changeFieldValue) => (
+        {() => (
           <div className={'form-group'}>
             <FormGrid.Row>
               <FormGrid.Item width='100%'>
@@ -148,7 +148,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
         subtitle={
           'Enter date that will show as the deadline for applicants to upload their application documents.  If this is your first time contacting the applicant, you must give them at least 5 business days.'
         }
-        onSubmit={deadlineSubmit}
+        onSubmit={setdeadlineModalSubmit}
         handleClose={handleCloseRsvpModal}
         primary='save'
         secondary='cancel'
@@ -158,7 +158,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
         }}
         validateError={validateDeadline}
       >
-        {(values, changeFieldValue, form) => (
+        {(_values, _changeFieldValue, form) => (
           <div className={'form-group'}>
             <FormGrid.Row>
               <FormGrid.Item width='100%'>
