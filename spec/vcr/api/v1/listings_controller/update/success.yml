@@ -1,0 +1,117 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 09 Oct 2025 16:48:45 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Vary:
+      - Accept-Encoding
+      Set-Cookie:
+      - BrowserId=0hkUC6UvEfCRtj9tml2maQ; domain=.salesforce.com; path=/; expires=Fri,
+        09-Oct-2026 16:48:45 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 09-Oct-2026 16:48:45 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 09-Oct-2026 16:48:45
+        GMT; Max-Age=31536000; secure
+      X-Robots-Tag:
+      - none
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - 737976e766d363c5d91a4202f8a0cdca
+      X-Request-Id:
+      - 737976e766d363c5d91a4202f8a0cdca
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1760028525679","signature":"Y6npFsfcW7GtxAd5xTENzOCFZt55zkeJpxPYouTq4CE="}'
+  recorded_at: Thu, 09 Oct 2025 16:48:45 GMT
+- request:
+    method: patch
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W4U00000SWsXLUA1
+    body:
+      encoding: UTF-8
+      string: '{"File_Upload_URL__c":"http://sf.gov"}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Thu, 09 Oct 2025 16:48:46 GMT
+      Connection:
+      - keep-alive
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Content-Type-Options:
+      - nosniff
+      Content-Security-Policy:
+      - upgrade-insecure-requests
+      Sforce-Limit-Info:
+      - api-usage=13346/982000
+      Set-Cookie:
+      - BrowserId=0lhmTaUvEfCpNS2r3RsvOQ; domain=.salesforce.com; path=/; expires=Fri,
+        09-Oct-2026 16:48:45 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 09-Oct-2026 16:48:45 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 09-Oct-2026 16:48:45
+        GMT; Max-Age=31536000; secure
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - a5437ef6c38e94f714c5385a719960c9
+      X-Request-Id:
+      - a5437ef6c38e94f714c5385a719960c9
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Thu, 09 Oct 2025 16:48:46 GMT
+recorded_with: VCR 6.3.1
