@@ -137,7 +137,7 @@ const updateApplication = async (application) =>
   request.put(`/applications/${application.id}`, { application }, true)
 
 const updateListing = async (listing) => {
-  request.put(`/listings/${listing.id}`, { listing }, true)
+  return request.put(`/listings/${listing.id}`, { listing }, true)
 }
 
 const createRentalAssistance = async (rentalAssistance, applicationId) => {
