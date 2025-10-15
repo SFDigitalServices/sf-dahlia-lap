@@ -8,9 +8,9 @@ module Api
 
       def update
         response = rest_listing_service.update(listing_params.merge(id: params[:id]))
-        if response
-          render json: true
-        end
+
+        return unless response
+        render json: true
       end
 
       private
