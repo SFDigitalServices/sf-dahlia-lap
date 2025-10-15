@@ -10,8 +10,6 @@ module Api
         response = rest_listing_service.update(listing_params.merge(id: params[:id]))
         if response
           render json: true
-        else
-          render status: 500
         end
       end
 

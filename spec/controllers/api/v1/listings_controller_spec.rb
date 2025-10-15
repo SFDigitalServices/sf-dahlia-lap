@@ -11,7 +11,7 @@ RSpec.describe Api::V1::ListingsController, type: :controller do
       VCR.use_cassette('api/v1/listings_controller/update/success') do
         params = {
           id: lease_up_listing_id,
-          listing: { id: lease_up_listing_id, file_upload_url: 'http://sf.gov', }
+          listing: { id: lease_up_listing_id, file_upload_url: 'http://sf.gov' },
         }
         put :update, params: params
       end
@@ -24,7 +24,7 @@ RSpec.describe Api::V1::ListingsController, type: :controller do
       VCR.use_cassette('api/v1/listings_controller/update/failure') do
         params = {
           id: 'invalid_id',
-          listing: { id: 'invalid_id', file_upload_url: 'http://sf.gov', }
+          listing: { id: 'invalid_id', file_upload_url: 'http://sf.gov' },
         }
         put :update, params: params
       end
