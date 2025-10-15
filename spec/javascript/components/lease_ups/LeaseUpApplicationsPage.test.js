@@ -23,6 +23,8 @@ useVariant.mockImplementation(() => ({
 const mockGetLeaseUpListing = jest.fn()
 const mockFetchLeaseUpApplicationsPagination = jest.fn()
 const mockCreateFieldUpdateComment = jest.fn()
+const mockUpdateListing = jest.fn()
+const mockUpdateApplication = jest.fn()
 
 jest.mock('apiService', () => {
   return {
@@ -42,6 +44,14 @@ jest.mock('apiService', () => {
       }
 
       return Promise.resolve(mockApplications)
+    },
+    updateApplication: async (application) => {
+      mockUpdateApplication(application)
+      return Promise.resolve(true)
+    },
+    updateListing: async (listing) => {
+      mockUpdateListing(listing)
+      return Promise.resolve(true)
     }
   }
 })
@@ -743,6 +753,13 @@ describe('LeaseUpApplicationsPage', () => {
           expect(documentUrlFieldMonth).not.toHaveClass('error')
           expect(documentUrlFieldDay).not.toHaveClass('error')
           expect(documentUrlFieldYear).not.toHaveClass('error')
+
+          // save invite to apply input
+          act(() => {
+            fireEvent.click(screen.getByText('save'))
+          })
+          expect(mockUpdateApplication.mock.calls).toHaveLength(1)
+          expect(mockUpdateListing.mock.calls).toHaveLength(1)
         })
       })
     })
