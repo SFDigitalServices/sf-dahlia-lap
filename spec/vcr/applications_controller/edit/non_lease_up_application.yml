@@ -1,870 +1,1032 @@
 ---
 http_interactions:
-- request:
-    method: post
-    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
-    body:
-      encoding: US-ASCII
-      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 30 Apr 2024 22:32:11 GMT
-      Set-Cookie:
-      - BrowserId=fJmIVgdBEe-SV0UJGx-A8A; domain=.salesforce.com; path=/; expires=Wed,
-        30-Apr-2025 22:32:11 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:11 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:11
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Readonlymode:
-      - 'false'
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D8H0000004dNlUAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1714516331757","signature":"FNHsfIq+JdX7MJtD6BVExa+2jOc7yQFXiU17TbFY3zU="}'
-  recorded_at: Tue, 30 Apr 2024 22:32:11 GMT
-- request:
-    method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Applicant__c,%20Primary_Applicant__c,%20Alternate_Contact__c,%20Listing__c,%20Listing__r.Name,%20Listing__r.Id,%20Listing__r.Custom_Listing_Type__c,%20Status__c,%20Listing__r.Reserved_community_type__c,%20Total_Household_Size__c,%20Application_Submission_Type__c,%20Application_Submitted_Date__c,%20CreatedDate,%20CreatedBy.Name,%20Annual_Income__c,%20Confirmed_Household_Annual_Income__c,%20Household_Assets__c,%20HH_Total_Income_with_Assets_Annual__c,%20Imputed_Income_from_Assets__c,%20Monthly_Income__c,%20Housing_Voucher_or_Subsidy__c,%20Referral_Source__c,%20Application_Language__c,%20Lottery_Number_Manual__c,%20Lottery_Number__c,%20Total_Monthly_Rent__c,%20General_Lottery__c,%20General_Lottery_Rank__c,%20Answered_Community_Screening__c,%20Has_Military_Service__c,%20Reserved_Senior__c,%20Has_DevelopmentalDisability__c,%20Has_ADA_Priorities_Selected__c,%20Terms_Acknowledged__c,%20Applicant__r.Id,%20Applicant__r.First_Name__c,%20Applicant__r.Last_Name__c,%20Applicant__r.Middle_Name__c,%20Applicant__r.Name__c,%20Applicant__r.Date_of_Birth__c,%20Applicant__r.Phone_Type__c,%20Applicant__r.Phone__c,%20Applicant__r.Second_Phone_Type__c,%20Applicant__r.Second_Phone__c,%20Applicant__r.Email__c,%20Applicant__r.Primary_Language__c,%20Applicant__r.Residence_Address__c,%20Applicant__r.Street__c,%20Applicant__r.City__c,%20Applicant__r.State__c,%20Applicant__r.Zip_Code__c,%20Applicant__r.Mailing_Address__c,%20Applicant__r.Mailing_Street__c,%20Applicant__r.Mailing_City__c,%20Applicant__r.Mailing_State__c,%20Applicant__r.Mailing_Zip_Code__c,%20Applicant__r.Marital_Status__c,%20Applicant__r.Ethnicity__c,%20Applicant__r.Race__c,%20Applicant__r.Gender__c,%20Applicant__r.Gender_Other__c,%20Applicant__r.Sexual_Orientation__c,%20Applicant__r.Sexual_Orientation_Other__c,%20Alternate_Contact__r.Id,%20Alternate_Contact__r.First_Name__c,%20Alternate_Contact__r.Middle_Name__c,%20Alternate_Contact__r.Last_Name__c,%20Alternate_Contact__r.Phone_Type__c,%20Alternate_Contact__r.Phone__c,%20Alternate_Contact__r.Email__c,%20Alternate_Contact__r.Agency_Name__c,%20Alternate_Contact__r.Alternate_Contact_Type__c,%20Alternate_Contact__r.Alternate_Contact_Type_Other__c,%20Number_of_Dependents__c,%20Number_of_Seniors__c,%20Number_of_Minors__c,%20Alternate_Contact__r.Residence_Address__c,%20Alternate_Contact__r.Street__c,%20Alternate_Contact__r.City__c,%20Alternate_Contact__r.State__c,%20Alternate_Contact__r.Zip_Code__c,%20Alternate_Contact__r.Mailing_Address__c,%20Alternate_Contact__r.Mailing_Street__c,%20Alternate_Contact__r.Mailing_City__c,%20Alternate_Contact__r.Mailing_State__c,%20Alternate_Contact__r.Mailing_Zip_Code__c,%20Alternate_Contact__r.Marital_Status__c,%20Processing_Status__c,%20Is_First_Time_Homebuyer__c,%20Has_Completed_Homebuyer_Education__c,%20Has_Loan_Pre_approval__c,%20Lending_Agent__c,%20AMI_Percentage__c,%20AMI_Chart_Type__c,%20AMI_Chart_Year__c,%20Supp_App_Signed_Date__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id%20=%20%27a0o0P00000Fv20MQAR%27%0A%20%20%20%20%20%20%20%20%20%20AND%20Status__c%20!=%20%27Draft%27%0A%20%20%20%20%20%20%20%20%20%20LIMIT%201%0A%20%20%20%20%20%20%20%20
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Authorization:
-      - OAuth <<ACCESS_TOKEN>>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 30 Apr 2024 22:32:12 GMT
-      Set-Cookie:
-      - BrowserId=fRk_agdBEe-gJqe4J39vxA; domain=.salesforce.com; path=/; expires=Wed,
-        30-Apr-2025 22:32:12 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:12 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:12
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Sforce-Limit-Info:
-      - api-usage=7791/930000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Fv20MQAR"},"Id":"a0o0P00000Fv20MQAR","Name":"APP-00191015","Applicant__c":"a0n0P00000BEG2sQAH","Primary_Applicant__c":"0030P00002ETZfRQAX","Alternate_Contact__c":null,"Listing__c":"a0W0P00000F8YG4UAN","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000F8YG4UAN"},"Name":"TEST
-        Automated Listing (do not modify)","Id":"a0W0P00000F8YG4UAN","Reserved_community_type__c":null},"Status__c":"Submitted","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Electronic","Application_Submitted_Date__c":"2018-04-14","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/0050P000007QAY9QAO"},"Name":"DAHLIA
-        API"},"Annual_Income__c":25000.0,"Confirmed_Household_Annual_Income__c":null,"Household_Assets__c":null,"HH_Total_Income_with_Assets_Annual__c":null,"Imputed_Income_from_Assets__c":null,"Monthly_Income__c":null,"Housing_Voucher_or_Subsidy__c":"true","Referral_Source__c":"Newspaper;MOHCD
-        Website","Application_Language__c":"English","Lottery_Number_Manual__c":null,"Lottery_Number__c":"00191015","Total_Monthly_Rent__c":600.0,"General_Lottery__c":true,"General_Lottery_Rank__c":20.0,"Answered_Community_Screening__c":null,"Has_Military_Service__c":null,"Reserved_Senior__c":null,"Has_DevelopmentalDisability__c":null,"Has_ADA_Priorities_Selected__c":"None","Terms_Acknowledged__c":true,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000BEG2sQAH"},"Id":"a0n0P00000BEG2sQAH","First_Name__c":"Jacob","Last_Name__c":"Yang","Middle_Name__c":null,"Name__c":"Jacob
-        Yang","Date_of_Birth__c":"2000-01-01","Phone_Type__c":"Home","Phone__c":"169.580.2764","Second_Phone_Type__c":null,"Second_Phone__c":null,"Email__c":"valdezdustin@example.org","Primary_Language__c":null,"Residence_Address__c":"077
-        Richard Vista, South Robertview, Lo, 80916","Street__c":"077 Richard Vista","City__c":"South
-        Robertview","State__c":"Lo","Zip_Code__c":"80916","Mailing_Address__c":"864
-        Robertson Knolls, Marytown, Mi, 50815","Mailing_Street__c":"864 Robertson
-        Knolls","Mailing_City__c":"Marytown","Mailing_State__c":"Mi","Mailing_Zip_Code__c":"50815","Marital_Status__c":null,"Ethnicity__c":null,"Race__c":null,"Gender__c":"Not
-        Listed","Gender_Other__c":"Dothraki","Sexual_Orientation__c":"Not listed","Sexual_Orientation_Other__c":"Ziggy
-        Stardust"},"Alternate_Contact__r":null,"Number_of_Dependents__c":null,"Number_of_Seniors__c":null,"Number_of_Minors__c":null,"Processing_Status__c":null,"Is_First_Time_Homebuyer__c":false,"Has_Completed_Homebuyer_Education__c":false,"Has_Loan_Pre_approval__c":false,"Lending_Agent__c":null,"AMI_Percentage__c":null,"AMI_Chart_Type__c":null,"AMI_Chart_Year__c":null,"Supp_App_Signed_Date__c":null}]}'
-  recorded_at: Tue, 30 Apr 2024 22:32:12 GMT
-- request:
-    method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Listing__r.Id,%20Listing__r.Name,%20Listing__r.Status__c,%20Listing__r.Tenure__c,%20Listing__r.Lottery_Status__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id%20=%20%27a0o0P00000Fv20MQAR%27%0A%20%20%20%20%20%20%20%20
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Authorization:
-      - OAuth <<ACCESS_TOKEN>>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 30 Apr 2024 22:32:13 GMT
-      Set-Cookie:
-      - BrowserId=fY4h-AdBEe-aT4XW1dTiew; domain=.salesforce.com; path=/; expires=Wed,
-        30-Apr-2025 22:32:13 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:13 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:13
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Sforce-Limit-Info:
-      - api-usage=7791/930000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Fv20MQAR"},"Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000F8YG4UAN"},"Id":"a0W0P00000F8YG4UAN","Name":"TEST
-        Automated Listing (do not modify)","Status__c":"Active","Tenure__c":"Re-rental","Lottery_Status__c":"Not
-        Yet Run"}}]}'
-  recorded_at: Tue, 30 Apr 2024 22:32:13 GMT
-- request:
-    method: post
-    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
-    body:
-      encoding: US-ASCII
-      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 30 Apr 2024 22:32:13 GMT
-      Set-Cookie:
-      - BrowserId=fgCSRwdBEe-DlV9MgMWvWg; domain=.salesforce.com; path=/; expires=Wed,
-        30-Apr-2025 22:32:14 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:13 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:14
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Readonlymode:
-      - 'false'
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D8H0000004dNlUAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1714516334093","signature":"LsByh+ND20E/A4WQTDotbXk1kpCYBv7cq1SHz3aEGDk="}'
-  recorded_at: Tue, 30 Apr 2024 22:32:14 GMT
-- request:
-    method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Preference_Name__c,%20Person_who_claimed_Name__c,%20Type_of_proof__c,%20Veteran_Type_of_Proof__c,%20Opt_Out__c,%20Lottery_Status__c,%20Preference_Lottery_Rank__c,%20Listing_Preference_ID__c,%20Receives_Preference__c,%20Application_Member__c,%20Application_Member__r.First_Name__c,%20Application_Member__r.Last_Name__c,%20Application_Member__r.Date_of_Birth__c,%20Application_Member__r.Id,%20Individual_preference__c,%20Certificate_Number__c,%20Preference_Order__c,%20RecordType.DeveloperName,%20LW_Type_of_Proof__c,%20City__c,%20State__c,%20Street__c,%20Zip_Code__c,%20Post_Lottery_Validation__c,%20Total_Household_Rent__c,%20Custom_Preference_Type__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o0P00000Fv20MQAR%27%0A%20%20%20%20%20%20%20%20%20%20ORDER%20BY%20Preference_Order__c%20ASC%0A%20%20%20%20%20%20%20%20
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Authorization:
-      - OAuth <<ACCESS_TOKEN>>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 30 Apr 2024 22:32:14 GMT
-      Set-Cookie:
-      - BrowserId=fnu1vwdBEe-DlV9MgMWvWg; domain=.salesforce.com; path=/; expires=Wed,
-        30-Apr-2025 22:32:14 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:14 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:14
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Sforce-Limit-Info:
-      - api-usage=7791/930000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"totalSize":6,"done":true,"records":[{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000N1bbAQAR"},"Id":"a0w0P00000N1bbAQAR","Name":"AP-0000613829","Preference_Name__c":"Certificate
-        of Preference (COP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XKQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":1.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BHQA0"},"DeveloperName":"COP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0,"Custom_Preference_Type__c":"COP"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000N1bbBQAR"},"Id":"a0w0P00000N1bbBQAR","Name":"AP-0000613830","Preference_Name__c":"Rent
-        Burdened / Assisted Housing Preference","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":true,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XZQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":"Assisted
-        Housing","Certificate_Number__c":null,"Preference_Order__c":2.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BMQA0"},"DeveloperName":"RB_AHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0,"Custom_Preference_Type__c":"RB_AHP"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000N1bbCQAR"},"Id":"a0w0P00000N1bbCQAR","Name":"AP-0000613831","Preference_Name__c":"Displaced
-        Tenant Housing Preference (DTHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XPQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":3.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BJQA0"},"DeveloperName":"DTHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0,"Custom_Preference_Type__c":"DTHP"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000N1bbDQAR"},"Id":"a0w0P00000N1bbDQAR","Name":"AP-0000613832","Preference_Name__c":"Neighborhood
-        Resident Housing Preference (NRHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XUQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":4.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BLQA0"},"DeveloperName":"NRHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0,"Custom_Preference_Type__c":"NRHP"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000N1bbEQAR"},"Id":"a0w0P00000N1bbEQAR","Name":"AP-0000613833","Preference_Name__c":"Live
-        or Work in San Francisco Preference","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":true,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XeQAJ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":5.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"},"DeveloperName":"L_W"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0,"Custom_Preference_Type__c":"L_W"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000OWWYeQAP"},"Id":"a0w0P00000OWWYeQAP","Name":"AP-0000798994","Preference_Name__c":"Alice
-        Griffith Housing Development Resident","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001PsqDoQAJ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":6.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000NHVqQAO"},"DeveloperName":"AG"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":600.0,"Custom_Preference_Type__c":"AG"}]}'
-  recorded_at: Tue, 30 Apr 2024 22:32:14 GMT
-- request:
-    method: post
-    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
-    body:
-      encoding: US-ASCII
-      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 30 Apr 2024 22:32:16 GMT
-      Set-Cookie:
-      - BrowserId=f0e4WAdBEe-DlV9MgMWvWg; domain=.salesforce.com; path=/; expires=Wed,
-        30-Apr-2025 22:32:16 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:16 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:16
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Readonlymode:
-      - 'false'
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D8H0000004dNlUAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1714516336237","signature":"BTQ1D4vCvFDX+HgyAwSVBTWvYD9HPWn5KyF4gDMjZlo="}'
-  recorded_at: Tue, 30 Apr 2024 22:32:16 GMT
-- request:
-    method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Document_Type__c,%20Related_Application__c,%20Related_Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Attachment__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Related_Application__c%20=%20%27a0o0P00000Fv20MQAR%27%0A%20%20%20%20%20%20%20%20
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Authorization:
-      - OAuth <<ACCESS_TOKEN>>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 30 Apr 2024 22:32:16 GMT
-      Set-Cookie:
-      - BrowserId=f58AVgdBEe-SV0UJGx-A8A; domain=.salesforce.com; path=/; expires=Wed,
-        30-Apr-2025 22:32:16 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:16 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:16
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Sforce-Limit-Info:
-      - api-usage=7791/930000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"totalSize":0,"done":true,"records":[]}'
-  recorded_at: Tue, 30 Apr 2024 22:32:16 GMT
-- request:
-    method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name__c,%20First_Name__c,%20Last_Name__c,%20Middle_Name__c,%20Relationship_to_Applicant__c,%20Date_of_Birth__c,%20Street__c,%20City__c,%20State__c,%20Zip_Code__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Member__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o0P00000Fv20MQAR%27%0A%20%20%20%20%20%20%20%20%20%20AND%20Id%20!=%20%27a0n0P00000BEG2sQAH%27%0A%20%20%20%20%20%20%20%20%20%20AND%20Id%20!=%20%27%27%0A%20%20%20%20%20%20%20%20
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Authorization:
-      - OAuth <<ACCESS_TOKEN>>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 30 Apr 2024 22:32:17 GMT
-      Set-Cookie:
-      - BrowserId=gBTMNQdBEe-NnzGKm3-HQQ; domain=.salesforce.com; path=/; expires=Wed,
-        30-Apr-2025 22:32:17 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:17 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:17
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Sforce-Limit-Info:
-      - api-usage=7791/930000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"totalSize":0,"done":true,"records":[]}'
-  recorded_at: Tue, 30 Apr 2024 22:32:17 GMT
-- request:
-    method: post
-    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
-    body:
-      encoding: US-ASCII
-      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 30 Apr 2024 22:32:18 GMT
-      Set-Cookie:
-      - BrowserId=gKiA9AdBEe-DlV9MgMWvWg; domain=.salesforce.com; path=/; expires=Wed,
-        30-Apr-2025 22:32:18 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:18 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:18
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Readonlymode:
-      - 'false'
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D8H0000004dNlUAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1714516338540","signature":"BtjLJ0y0flWoU4kpaEVw94uT2cDAqO2CkJjrblb8ahA="}'
-  recorded_at: Tue, 30 Apr 2024 22:32:18 GMT
-- request:
-    method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Unit__c,%20Lease_Start_Date__c,%20Lease_Status__c,%20Monthly_Parking_Rent__c,%20BMR_Parking_Space_Assigned__c,%20Preference_Used__c,%20No_Preference_Used__c,%20Total_Monthly_Rent_without_Parking__c,%20Monthly_Tenant_Contribution__c,%20Parking_Spot_Number__c%20FROM%20Lease__c%20WHERE%20(Application__c%20=%20%27a0o0P00000Fv20MQAR%27)
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Authorization:
-      - OAuth <<ACCESS_TOKEN>>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 30 Apr 2024 22:32:19 GMT
-      Set-Cookie:
-      - BrowserId=gRiAvgdBEe-gJqe4J39vxA; domain=.salesforce.com; path=/; expires=Wed,
-        30-Apr-2025 22:32:19 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:19 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:19
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Sforce-Limit-Info:
-      - api-usage=7792/930000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"totalSize":0,"done":true,"records":[]}'
-  recorded_at: Tue, 30 Apr 2024 22:32:19 GMT
-- request:
-    method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Lease__c%20WHERE%20(Application__c%20=%20%27a0o0P00000Fv20MQAR%27)
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Authorization:
-      - OAuth <<ACCESS_TOKEN>>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 30 Apr 2024 22:32:20 GMT
-      Set-Cookie:
-      - BrowserId=gbnJ9gdBEe-DlV9MgMWvWg; domain=.salesforce.com; path=/; expires=Wed,
-        30-Apr-2025 22:32:20 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:20 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:20
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Sforce-Limit-Info:
-      - api-usage=7792/930000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"totalSize":0,"done":true,"records":[]}'
-  recorded_at: Tue, 30 Apr 2024 22:32:20 GMT
-- request:
-    method: post
-    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
-    body:
-      encoding: US-ASCII
-      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 30 Apr 2024 22:32:20 GMT
-      Set-Cookie:
-      - BrowserId=gi1MigdBEe-xiW0LcYrZRw; domain=.salesforce.com; path=/; expires=Wed,
-        30-Apr-2025 22:32:21 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:21 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:21
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Readonlymode:
-      - 'false'
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D8H0000004dNlUAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1714516341115","signature":"WCbBgBOTxCe9iGN9BWeklsFACFJI63+ecUg76SPOypg="}'
-  recorded_at: Tue, 30 Apr 2024 22:32:21 GMT
-- request:
-    method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Assistance_Amount__c,%20Id,%20Lease__c,%20Other_Assistance_Name__c,%20Household_Member__c,%20Recurring_Assistance__c,%20Type_of_Assistance__c%20FROM%20Rental_Assistance__c%20WHERE%20(Lease__r.Application__c%20=%20%27a0o0P00000Fv20MQAR%27)
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Authorization:
-      - OAuth <<ACCESS_TOKEN>>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 30 Apr 2024 22:32:21 GMT
-      Set-Cookie:
-      - BrowserId=gqWJbwdBEe-gJqe4J39vxA; domain=.salesforce.com; path=/; expires=Wed,
-        30-Apr-2025 22:32:21 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:21 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:21
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Sforce-Limit-Info:
-      - api-usage=7793/930000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"totalSize":0,"done":true,"records":[]}'
-  recorded_at: Tue, 30 Apr 2024 22:32:21 GMT
-- request:
-    method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Rental_Assistance__c%20WHERE%20(Lease__r.Application__c%20=%20%27a0o0P00000Fv20MQAR%27)
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Authorization:
-      - OAuth <<ACCESS_TOKEN>>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 30 Apr 2024 22:32:22 GMT
-      Set-Cookie:
-      - BrowserId=gxFrOwdBEe-k01eD-i4iVg; domain=.salesforce.com; path=/; expires=Wed,
-        30-Apr-2025 22:32:22 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:22 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:22
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Sforce-Limit-Info:
-      - api-usage=7791/930000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"totalSize":0,"done":true,"records":[]}'
-  recorded_at: Tue, 30 Apr 2024 22:32:22 GMT
-- request:
-    method: post
-    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
-    body:
-      encoding: US-ASCII
-      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 30 Apr 2024 22:32:23 GMT
-      Set-Cookie:
-      - BrowserId=g77pJgdBEe-xiW0LcYrZRw; domain=.salesforce.com; path=/; expires=Wed,
-        30-Apr-2025 22:32:23 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:23 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:23
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Readonlymode:
-      - 'false'
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D8H0000004dNlUAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1714516343719","signature":"Rqn4JNv4bUQJm94r6EL56Fo86zgKcLg/0uh2MCUBaVQ="}'
-  recorded_at: Tue, 30 Apr 2024 22:32:23 GMT
-- request:
-    method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20OwnerId,%20Owner.Name,%20Application_Due_Date__c,%20Name,%20Status__c,%20Building__c,%20Building__r.Name,%20Min_BR__c,%20Lottery_Winners__c,%20Max_BR__c,%20Lottery_Results__c,%20Min_Income__c,%20Account__c,%20Account__r.Name,%20Max_Income__c,%20Min_Occupancy__c,%20Max_Occupancy__c,%20Building_Name__c,%20Neighborhood__c,%20Building_Street_Address__c,%20Developer__c,%20Building_City__c,%20Building_URL__c,%20Building_State__c,%20Year_Built__c,%20Building_Zip_Code__c,%20Description__c,%20Lottery_Preferences__c,%20Accessibility__c,%20Fee__c,%20Amenities__c,%20Deposit_Min__c,%20Costs_Not_Included__c,%20Deposit_Max__c,%20Lottery_Date__c,%20Lottery_Results_Date__c,%20Lottery_Venue__c,%20Lottery_Summary__c,%20Lottery_Street_Address__c,%20Lottery_City__c,%20Lottery_URL__c,%20Reserved_community_type__c,%20Application_Phone__c,%20Application_Organization__c,%20Application_Street_Address__c,%20Application_City__c,%20Download_URL__c,%20Application_State__c,%20Application_Postal_Code__c,%20In_Lottery__c,%20Leasing_Agent_Name__c,%20Leasing_Agent_Title__c,%20Leasing_Agent_Email__c,%20Leasing_Agent_Phone__c,%20Legal_Disclaimers__c,%20Building_Selection_Criteria__c,%20Pet_Policy__c,%20Report_id__c,%20Required_Documents__c,%20Smoking_Policy__c,%20Eviction_History__c,%20Criminal_History__c,%20Credit_Rating__c,%20Lottery_Status__c,%20Office_Hours__c,%20Tenure__c,%20Listing_Type__c,%0A%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Date__c,%20Start_Time__c,%20End_Time__c,%20Venue__c,%20Street_Address__c,%20City__c%20FROM%20Information_Sessions__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Date__c,%20Start_Time__c,%20End_Time__c%20FROM%20Open_Houses__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Id,%20Total_Submitted_Apps__c,%20Order__c,%20Description__c,%20Available_Units__c,%20PDF_URL__c,%20Lottery_Preference__r.Id,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Lottery_Preference__r.Name%20FROM%20Listing_Lottery_Preferences__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Unit_Type__c,%20BMR_Rent_Monthly__c,%20BMR_Rental_Minimum_Monthly_Income_Needed__c,%20Status__c,%20Property_Type__c,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20AMI_chart_type__c,%20AMI_chart_year__c,%20Max_AMI_for_Qualifying_Unit__c,%20Reserved_Type__c%20FROM%20Units__r%20ORDER%20BY%20Unit_Type__c)%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20FROM%20Listing__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id=%27a0W0P00000F8YG4UAN%27%0A%20%20%20%20%20%20%20%20
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Authorization:
-      - OAuth <<ACCESS_TOKEN>>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 30 Apr 2024 22:32:24 GMT
-      Set-Cookie:
-      - BrowserId=hDwH6gdBEe-NnzGKm3-HQQ; domain=.salesforce.com; path=/; expires=Wed,
-        30-Apr-2025 22:32:24 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:24 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:24
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Sforce-Limit-Info:
-      - api-usage=7792/930000
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJ0b3RhbFNpemUiOjEsImRvbmUiOnRydWUsInJlY29yZHMiOlt7ImF0dHJpYnV0ZXMiOnsidHlwZSI6Ikxpc3RpbmdfX2MiLCJ1cmwiOiIvc2VydmljZXMvZGF0YS92PDxTQUxFU0ZPUkNFX0FQSV9WRVJTSU9OPj4vc29iamVjdHMvTGlzdGluZ19fYy9hMFcwUDAwMDAwRjhZRzRVQU4ifSwiSWQiOiJhMFcwUDAwMDAwRjhZRzRVQU4iLCJPd25lcklkIjoiMDA1MFAwMDAwMDdXQkJSUUE0IiwiT3duZXIiOnsiYXR0cmlidXRlcyI6eyJ0eXBlIjoiTmFtZSIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9Vc2VyLzAwNTBQMDAwMDA3V0JCUlFBNCJ9LCJOYW1lIjoiQW5kcmVhIEVnYW4ifSwiQXBwbGljYXRpb25fRHVlX0RhdGVfX2MiOiIyMDI1LTAxLTAxVDAxOjAwOjAwLjAwMCswMDAwIiwiTmFtZSI6IlRFU1QgQXV0b21hdGVkIExpc3RpbmcgKGRvIG5vdCBtb2RpZnkpIiwiU3RhdHVzX19jIjoiQWN0aXZlIiwiQnVpbGRpbmdfX2MiOiJhMGEwUDAwMDAwR2JKbWJRQUYiLCJCdWlsZGluZ19fciI6eyJhdHRyaWJ1dGVzIjp7InR5cGUiOiJCdWlsZGluZ19fYyIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9CdWlsZGluZ19fYy9hMGEwUDAwMDAwR2JKbWJRQUYifSwiTmFtZSI6IlBSLTAwNzgyOCJ9LCJNaW5fQlJfX2MiOm51bGwsIkxvdHRlcnlfV2lubmVyc19fYyI6MC4wLCJNYXhfQlJfX2MiOjEuMCwiTG90dGVyeV9SZXN1bHRzX19jIjpmYWxzZSwiTWluX0luY29tZV9fYyI6NTI1NS4wLCJBY2NvdW50X19jIjoiMDAxVTAwMDAwMVlVVkRqSUFQIiwiQWNjb3VudF9fciI6eyJhdHRyaWJ1dGVzIjp7InR5cGUiOiJBY2NvdW50IiwidXJsIjoiL3NlcnZpY2VzL2RhdGEvdjw8U0FMRVNGT1JDRV9BUElfVkVSU0lPTj4+L3NvYmplY3RzL0FjY291bnQvMDAxVTAwMDAwMVlVVkRqSUFQIn0sIk5hbWUiOiJDb29rIExMQyJ9LCJNYXhfSW5jb21lX19jIjpudWxsLCJNaW5fT2NjdXBhbmN5X19jIjoxLjAsIk1heF9PY2N1cGFuY3lfX2MiOm51bGwsIkJ1aWxkaW5nX05hbWVfX2MiOiJBdXRvbWF0ZWQgVGVzdCBCdWlsZGluZyIsIk5laWdoYm9yaG9vZF9fYyI6IkhheWVzIFZhbGxleSIsIkJ1aWxkaW5nX1N0cmVldF9BZGRyZXNzX19jIjpudWxsLCJEZXZlbG9wZXJfX2MiOiJTY290dC1HdXRpZXJyZXoiLCJCdWlsZGluZ19DaXR5X19jIjoiU2FuIEZyYW5jaXNjbyIsIkJ1aWxkaW5nX1VSTF9fYyI6Imh0dHBzOi8vc2Ztb2hjZC5vcmcvc2l0ZXMvZGVmYXVsdC9maWxlcy9Eb2N1bWVudHMvTU9IL0hvdXNpbmclMjBMaXN0aW5nJTIwUGhvdG9zL3Rlc3QtYXBvbG9naWVzLnBuZyIsIkJ1aWxkaW5nX1N0YXRlX19jIjoiQ0EiLCJZZWFyX0J1aWx0X19jIjoyMDA5LjAsIkJ1aWxkaW5nX1ppcF9Db2RlX19jIjpudWxsLCJEZXNjcmlwdGlvbl9fYyI6bnVsbCwiTG90dGVyeV9QcmVmZXJlbmNlc19fYyI6bnVsbCwiQWNjZXNzaWJpbGl0eV9fYyI6IkVsZXZhdG9yIHRvIGFsbCBmbG9vcnMiLCJGZWVfX2MiOm51bGwsIkFtZW5pdGllc19fYyI6IkxhdW5kcnkgcm9vbSwgdW5kZXJncm91bmQgcGFya2luZywgY291cnR5YXJkLCBiaWtlIHJvb20iLCJEZXBvc2l0X01pbl9fYyI6MjEwMi4wLCJDb3N0c19Ob3RfSW5jbHVkZWRfX2MiOiJUZW5hbnRzIHBheSBmb3IgZ2FzLCBlbGVjdHJpY2l0eS5cclxuXHJcbkZvciBwZXQgZmVlczogIENhdCBpcyBhbGxvd2VkIHdpdGggYSAkNTAwIHJlZnVuZGFibGUgZGVwb3NpdCwgJDI1MCBub24tcmVmdW5kYWJsZSBjbGVhbmluZyBmZWUgYW5kIGEgcGV0IGFkZGVuZHVtLiAgXHJcblxyXG5Eb2dzIGFyZSBub3QgYWxsb3dlZCBpbiB0aGUgYnVpbGRpbmcuICBcclxuXHJcbk9uZSBwYXJraW5nIHNwYWNlIHBlciB1bml0IGF2YWlsYWJsZSBmb3IgJDE3NSBhIG1vbnRoLiIsIkRlcG9zaXRfTWF4X19jIjoyMzU1LjAsIkxvdHRlcnlfRGF0ZV9fYyI6IjIwMjQtMDMtMjJUMTg6MDA6MDAuMDAwKzAwMDAiLCJMb3R0ZXJ5X1Jlc3VsdHNfRGF0ZV9fYyI6IjIwMjQtMDMtMjMiLCJMb3R0ZXJ5X1ZlbnVlX19jIjoiPHA+PHNwYW4gc3R5bGU9XCJmb250LXNpemU6IDEwcHQ7IGZvbnQtZmFtaWx5OiBBcmlhbDsgY29sb3I6IHJnYigwLCAwLCAwKTsgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XCI+VGhlIGxvdHRlcnkgd2lsbCBub3QgYmUgaW4gcGVyc29uLCBidXQgaW5zdGVhZCB3aWxsIGJlIGEgdmlydHVhbCBsb3R0ZXJ5Ljwvc3Bhbj48L3A+PHA+PHNwYW4gc3R5bGU9XCJmb250LXNpemU6IDEycHQ7IGNvbG9yOiByZ2IoMCwgMCwgMCk7IGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1wiPsKgPC9zcGFuPjwvcD48cD48c3BhbiBzdHlsZT1cImZvbnQtc2l6ZTogMTBwdDsgZm9udC1mYW1pbHk6IEFyaWFsOyBjb2xvcjogcmdiKDAsIDAsIDApOyBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcIj5Db21lIGJhY2sgdG8gdGhpcyBwYWdlIG9uIHRoZSBkYXkgb2YgdGhlIGxvdHRlcnkgZm9yIGEgbGluayB5b3UgY2FuIGNsaWNrIG9uIHRvIHdhdGNoIHRoZSBsb3R0ZXJ5IGxpdmUuPC9zcGFuPjwvcD48cD48YnI+PC9wPjxwPjxicj48L3A+IiwiTG90dGVyeV9TdW1tYXJ5X19jIjpudWxsLCJMb3R0ZXJ5X1N0cmVldF9BZGRyZXNzX19jIjpudWxsLCJMb3R0ZXJ5X0NpdHlfX2MiOm51bGwsIkxvdHRlcnlfVVJMX19jIjpudWxsLCJSZXNlcnZlZF9jb21tdW5pdHlfdHlwZV9fYyI6bnVsbCwiQXBwbGljYXRpb25fUGhvbmVfX2MiOiIoNDE1KSAyMjctMjI1NiIsIkFwcGxpY2F0aW9uX09yZ2FuaXphdGlvbl9fYyI6IjI4MCBGZWxsLUJNUiIsIkFwcGxpY2F0aW9uX1N0cmVldF9BZGRyZXNzX19jIjoiUC5PLiBCb3ggNDIwODQ3IiwiQXBwbGljYXRpb25fQ2l0eV9fYyI6IlNhbiBGcmFuY2lzY28iLCJEb3dubG9hZF9VUkxfX2MiOm51bGwsIkFwcGxpY2F0aW9uX1N0YXRlX19jIjoiQ0EiLCJBcHBsaWNhdGlvbl9Qb3N0YWxfQ29kZV9fYyI6Ijk0MTQyIiwiSW5fTG90dGVyeV9fYyI6MTIyMjguMCwiTGVhc2luZ19BZ2VudF9OYW1lX19jIjpudWxsLCJMZWFzaW5nX0FnZW50X1RpdGxlX19jIjpudWxsLCJMZWFzaW5nX0FnZW50X0VtYWlsX19jIjpudWxsLCJMZWFzaW5nX0FnZW50X1Bob25lX19jIjpudWxsLCJMZWdhbF9EaXNjbGFpbWVyc19fYyI6IjxzcGFuIHN0eWxlPVwiZm9udC1zaXplOiAxMHB0O1wiPjxzcGFuIHN0eWxlPVwiZm9udC1mYW1pbHk6IGFyaWFsLHNhbnMtc2VyaWY7XCI+QWxsIEJNUiByZW50ZXJzIG11c3QgcmV2aWV3IGFuZCBhY2tub3dsZWRnZSB0aGUgPC9zcGFuPjwvc3Bhbj48YSBocmVmPVwiaHR0cDovL3NmLW1vaC5vcmcvaW5kZXguYXNweD9wYWdlPTI5NVwiIHRhcmdldD1cIl9ibGFua1wiPjxzcGFuIHN0eWxlPVwiZm9udC1zaXplOiAxMHB0O1wiPjxzcGFuIHN0eWxlPVwiZm9udC1mYW1pbHk6IGFyaWFsLHNhbnMtc2VyaWY7XCI+PHNwYW4gc3R5bGU9XCJjb2xvcjogcmdiKDAsIDAsIDI1NSk7XCI+SW5jbHVzaW9uYXJ5IEFmZm9yZGFibGUgSG91c2luZyBQcm9ncmFtIE1vbml0b3JpbmcgYW5kIFByb2NlZHVyZXMgTWFudWFsIDIwMTM8L3NwYW4+PC9zcGFuPjwvc3Bhbj48L2E+PHNwYW4gc3R5bGU9XCJmb250LXNpemU6IDEwcHQ7XCI+PHNwYW4gc3R5bGU9XCJmb250LWZhbWlseTogYXJpYWwsc2Fucy1zZXJpZjtcIj4gdGhhdCBnb3Zlcm5zIHRoaXMgcHJvcGVydHkgdXBvbiB0aGUgc2lnbmluZyBvZiBhIGxlYXNlIGZvciBhIEJNUiB1bml0LiA8L3NwYW4+PC9zcGFuPjxicj7CoDxicj48c3BhbiBzdHlsZT1cImZvbnQtc2l6ZTogMTBwdDtcIj48c3BhbiBzdHlsZT1cImZvbnQtZmFtaWx5OiBhcmlhbCxzYW5zLXNlcmlmO1wiPkFwcGxpY2FudHMgc2hvdWxkIGJlIGluZm9ybWVkIHRoYXQgQk1SIHJlbnRhbCB1bml0cyBpbiBzb21lIGJ1aWxkaW5ncyBtYXkgY29udmVydCB0byBvd25lcnNoaXAgdW5pdHMgaW4gdGhlIGZ1dHVyZS7CoCBJbiB0aGUgY2FzZSBvZiBjb252ZXJzaW9uLCBCTVIgcmVudGVycyB3aWxsIGJlIGFmZm9yZGVkIGNlcnRhaW4gcmlnaHRzIGFzIGV4cGxhaW5lZCBpbiB0aGUgPC9zcGFuPjwvc3Bhbj48YSBocmVmPVwiaHR0cDovL3NmLW1vaC5vcmcvaW5kZXguYXNweD9wYWdlPTI5NVwiIHRhcmdldD1cIl9ibGFua1wiPjxzcGFuIHN0eWxlPVwiZm9udC1zaXplOiAxMHB0O1wiPjxzcGFuIHN0eWxlPVwiZm9udC1mYW1pbHk6IGFyaWFsLHNhbnMtc2VyaWY7XCI+PHNwYW4gc3R5bGU9XCJjb2xvcjogcmdiKDAsIDAsIDI1NSk7XCI+SW5jbHVzaW9uYXJ5IEFmZm9yZGFibGUgSG91c2luZyBQcm9ncmFtIE1vbml0b3JpbmcgYW5kIFByb2NlZHVyZXMgTWFudWFsIDIwMTM8L3NwYW4+PC9zcGFuPjwvc3Bhbj48L2E+PHNwYW4gc3R5bGU9XCJmb250LXNpemU6IDEwcHQ7XCI+PHNwYW4gc3R5bGU9XCJmb250LWZhbWlseTogYXJpYWwsc2Fucy1zZXJpZjtcIj4uIEFwcGxpY2FudHMgc2hvdWxkIGlucXVpcmUgd2l0aCB0aGUgYnVpbGRpbmcgY29udGFjdCBwZXJzb24gbGlzdGVkIGFib3ZlIHRvIGRldGVybWluZSBpZiB0aGUgYnVpbGRpbmcgaGFzIGEgbWluaW11bSBudW1iZXIgb2YgeWVhcnMgdGhhdCBpdCBtdXN0IHJlbWFpbiBhIHJlbnRhbCBidWlsZGluZy7CoCAoU29tZSBidWlsZGluZ3MgbWF5IGhhdmUgc3VjaCByZXN0cmljdGlvbnMgYmFzZWQgb24gZ292ZXJubWVudCBzb3VyY2VzIG9mIGZpbmFuY2luZyBmb3IgdGhlaXIgYnVpbGRpbmcuKSBNb3N0IGJ1aWxkaW5ncyBtYXkgaGF2ZSBubyByZXN0cmljdGlvbnMgb24gY29udmVyc2lvbiBhdCBhbGwuIDwvc3Bhbj48L3NwYW4+PGJyPsKgPGJyPjxzcGFuIHN0eWxlPVwiZm9udC1zaXplOiAxMHB0O1wiPjxzcGFuIHN0eWxlPVwiZm9udC1mYW1pbHk6IGFyaWFsLHNhbnMtc2VyaWY7XCI+SXQgaXMgYWxzbyBpbXBvcnRhbnQgdG8gbm90ZSB0aGF0IHVuaXRzIGdvdmVybmVkIGJ5IHRoZSBJbmNsdXNpb25hcnkgSG91c2luZyBQcm9ncmFtIGFyZSBOT1QgZ292ZXJuZWQgYnkgdGhlIFNhbiBGcmFuY2lzY28gUmVudCBPcmRpbmFuY2UgKGFsc28ga25vd24gYXMg4oCccmVudCBjb250cm9s4oCdKS4gQW1vbmcgb3RoZXIgcnVsZXMsIHJlbnRzIG1heSBpbmNyZWFzZSBiZXlvbmQgaW5jcmVhc2VzIGFsbG93ZWQgdW5kZXIg4oCccmVudCBjb250cm9sLuKAncKgIFBsZWFzZSBzZWUgdGhlIDwvc3Bhbj48L3NwYW4+PHNwYW4gc3R5bGU9XCJmb250LXNpemU6IDEycHQ7XCI+PHNwYW4gc3R5bGU9XCJmb250LWZhbWlseTogdGltZXMgbmV3IHJvbWFuLHNlcmlmO1wiPjxhIGhyZWY9XCJodHRwOi8vc2YtbW9oLm9yZy9pbmRleC5hc3B4P3BhZ2U9Mjk1XCIgdGFyZ2V0PVwiX2JsYW5rXCI+PHNwYW4gc3R5bGU9XCJmb250LXNpemU6IDEwcHQ7XCI+PHNwYW4gc3R5bGU9XCJmb250LWZhbWlseTogYXJpYWwsc2Fucy1zZXJpZjtcIj48c3BhbiBzdHlsZT1cImNvbG9yOiByZ2IoMCwgMCwgMjU1KTtcIj5JbmNsdXNpb25hcnkgQWZmb3JkYWJsZSBIb3VzaW5nIFByb2dyYW0gTW9uaXRvcmluZyBhbmQgUHJvY2VkdXJlcyBNYW51YWwgMjAxMzwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvYT48L3NwYW4+PC9zcGFuPjxzcGFuIHN0eWxlPVwiZm9udC1zaXplOiAxMHB0O1wiPjxzcGFuIHN0eWxlPVwiZm9udC1mYW1pbHk6IGFyaWFsLHNhbnMtc2VyaWY7XCI+IGZvciBtb3JlIGluZm9ybWF0aW9uLiA8L3NwYW4+PC9zcGFuPiIsIkJ1aWxkaW5nX1NlbGVjdGlvbl9Dcml0ZXJpYV9fYyI6Imh0dHBzOi8vdXMuYXdwLmF1dG90YXNrLm5ldC8xL2ZpbGVsaW5rLzExM2JkLTM3ZWQ0MWExLTUzYTdmMDE0NTktMiIsIlBldF9Qb2xpY3lfX2MiOiJEb2dzIGFyZSBub3QgYWxsb3dlZCBpbiB0aGUgYnVpbGRpbmcuIiwiUmVwb3J0X2lkX19jIjpudWxsLCJSZXF1aXJlZF9Eb2N1bWVudHNfX2MiOiJMb3R0ZXJ5IHdpbm5lcnMgd2lsbCBiZSByZXF1aXJlZCB0byBmaWxsIG91dCBhIGJ1aWxkaW5nIGFwcGxpY2F0aW9uIGFuZCBwcm92aWRlIGEgY29weSBvZiB5b3VyIGN1cnJlbnQgY3JlZGl0IHJlcG9ydCwgMyBtb3N0IHJlY2VudCBwYXlzdHVicywgY3VycmVudCB0YXggcmV0dXJucyBhbmQgVy0yLCBhbmQgMyBtb3N0IHJlY2VudCBiYW5rIHN0YXRlbWVudHMuIiwiU21va2luZ19Qb2xpY3lfX2MiOiJOb24tc21va2luZyBidWlsZGluZyIsIkV2aWN0aW9uX0hpc3RvcnlfX2MiOiJQcm92aWRlIG1pbmltdW0gb2YgNCB5ZWFycyByZW50YWwgaGlzdG9yeSB3aXRoIGF0IGxlYXN0IHR3byBwcmlvciByZW50YWxzIGluIHdoaWNoIHlvdSB3ZXJlIHJlc3BvbnNpYmxlIGZvciBwYXlpbmcgdGhlIHJlbnQuICBBcHBsaWNhbnRzIHdpdGhvdXQgcmVudGFsIGhpc3Rvcnkgd2lsbCBzdGlsbCBiZSBjb25zaWRlcmVkLiBObyBHdWFyYW50b3JzIHBlcm1pdHRlZC4gXHJcblxyXG5QcmV2aW91cyByZW50YWwgaGlzdG9yeSB3aWxsIGJlIHJldmlld2VkIGFuZCBtdXN0IGV4aGliaXQgbm8gZGVyb2dhdG9yeSByZWZlcmVuY2VzLiBcclxuXHJcbkxhbmRsb3JkIHJlZmVyZW5jZXMgd2lsbCBvbmx5IGNoZWNrIGZvciBldmljdGlvbnMsIHBheW1lbnQgaGlzdG9yeSwgYW5kIGRvY3VtZW50ZWQgbGVhc2UgdmlvbGF0aW9ucy4gTm8tZmF1bHQgZXZpY3Rpb25zIChFbGxpcyBBY3QsIE93bmVyIE1vdmUtaW4gZXZpY3Rpb25zKSB3aWxsIG5vdCBiZSBoZWxkIGFnYWluc3QgYSBob3VzZWhvbGQuIFxyXG5cclxuQWxsIGRlYnQgb3dlZCB0byBhbiBhcGFydG1lbnQgY29tbXVuaXR5IG11c3QgYmUgc2F0aXNmaWVkLiBcclxuXHJcbk1pdGlnYXRpbmcgY2lyY3Vtc3RhbmNlcyBtYXkgYmUgY29uc2lkZXJlZC4iLCJDcmltaW5hbF9IaXN0b3J5X19jIjpudWxsLCJDcmVkaXRfUmF0aW5nX19jIjoiUHJvdmlkZSBhIGNyZWRpdCByZXBvcnQgd2l0aCBzY29yZSBmcm9tIEVxdWlmYXgsIEV4cGVyaWFuLCBvciBUcmFuc1VuaW9uIGRhdGVkIHdpdGhpbiB0aGlydHkgKDMwKSBkYXlzIG9mIHRoZSBhcHBsaWNhdGlvbi4gXHJcblxyXG5BY2NvdW50cyB0aGF0IGFyZSBub3QgY3VycmVudCBvciB0aGF0IGFyZSBkZXJvZ2F0b3J5IHdpbGwgbmVnYXRpdmVseSBhZmZlY3QgdGhlIG92ZXJhbGwgc2NvcmluZywgd2hpY2ggY291bGQgcmVzdWx0IGluIHRoZSBkZW5pYWwgb2YgdGhlIGFwcGxpY2F0aW9uIG9yIGFuIGFkZGl0aW9uYWwgZGVwb3NpdCBtYXkgYmUgcmVxdWlyZWQuIFxyXG5cclxuQ29sbGVjdGlvbiBhY2NvdW50cyBleGNlZWRpbmcgYSBjb21iaW5lZCBhbW91bnQgb2YgJDEsMDAwLjAwIChleGNsdWRpbmcgc3R1ZGVudCBsb2FucyBhbmQgbWVkaWNhbCBkZWJ0KSB3aWxsIG5lZ2F0aXZlbHkgYWZmZWN0IHRoZSBvdmVyYWxsIHNjb3JpbmcsIHdoaWNoIGNvdWxkIHJlc3VsdCBpbiB0aGUgZGVuaWFsIG9mIHRoZSBhcHBsaWNhdGlvbiBvciBhbiBhZGRpdGlvbmFsIGRlcG9zaXQgbWF5IGJlIHJlcXVpcmVkLiBcclxuXHJcbkJhbmtydXB0Y3kgaWYgbm90IGNsZWFyZWQgd2lsbCBiZSBhbiBhdXRvbWF0aWMgZGVuaWFsIG9mIHRoZSByZW50YWwgYXBwbGljYXRpb24uIFxyXG5cclxuTm8gR3VhcmFudG9ycyBwZXJtaXR0ZWQuXHJcblxyXG5NaXRpZ2F0aW5nIGNpcmN1bXN0YW5jZXMgbWF5IGJlIGNvbnNpZGVyZWQuIiwiTG90dGVyeV9TdGF0dXNfX2MiOiJOb3QgWWV0IFJ1biIsIk9mZmljZV9Ib3Vyc19fYyI6bnVsbCwiVGVudXJlX19jIjoiUmUtcmVudGFsIiwiTGlzdGluZ19UeXBlX19jIjpudWxsLCJJbmZvcm1hdGlvbl9TZXNzaW9uc19fciI6eyJ0b3RhbFNpemUiOjEsImRvbmUiOnRydWUsInJlY29yZHMiOlt7ImF0dHJpYnV0ZXMiOnsidHlwZSI6IkluZm9ybWF0aW9uX1Nlc3Npb25fX2MiLCJ1cmwiOiIvc2VydmljZXMvZGF0YS92PDxTQUxFU0ZPUkNFX0FQSV9WRVJTSU9OPj4vc29iamVjdHMvSW5mb3JtYXRpb25fU2Vzc2lvbl9fYy9hMFY0VTAwMDAwQ2NNUnZVQU4ifSwiRGF0ZV9fYyI6IjIwMjEtMDctMjkiLCJTdGFydF9UaW1lX19jIjoiNTowMHBtIiwiRW5kX1RpbWVfX2MiOm51bGwsIlZlbnVlX19jIjoiPHA+dGVzdCBpbmZvIHNlc3Npb248L3A+IiwiU3RyZWV0X0FkZHJlc3NfX2MiOm51bGwsIkNpdHlfX2MiOm51bGx9XX0sIk9wZW5fSG91c2VzX19yIjp7InRvdGFsU2l6ZSI6MSwiZG9uZSI6dHJ1ZSwicmVjb3JkcyI6W3siYXR0cmlidXRlcyI6eyJ0eXBlIjoiT3Blbl9Ib3VzZXNfX2MiLCJ1cmwiOiIvc2VydmljZXMvZGF0YS92PDxTQUxFU0ZPUkNFX0FQSV9WRVJTSU9OPj4vc29iamVjdHMvT3Blbl9Ib3VzZXNfX2MvYTBZMFAwMDAwMEV5THZKVUFWIn0sIkRhdGVfX2MiOiIyMDE4LTAyLTIzIiwiU3RhcnRfVGltZV9fYyI6Ijk6MDBBTSIsIkVuZF9UaW1lX19jIjoiMTI6MDBQTSJ9XX0sIkxpc3RpbmdfTG90dGVyeV9QcmVmZXJlbmNlc19fciI6eyJ0b3RhbFNpemUiOjYsImRvbmUiOnRydWUsInJlY29yZHMiOlt7ImF0dHJpYnV0ZXMiOnsidHlwZSI6Ikxpc3RpbmdfTG90dGVyeV9QcmVmZXJlbmNlX19jIiwidXJsIjoiL3NlcnZpY2VzL2RhdGEvdjw8U0FMRVNGT1JDRV9BUElfVkVSU0lPTj4+L3NvYmplY3RzL0xpc3RpbmdfTG90dGVyeV9QcmVmZXJlbmNlX19jL2EwbDBQMDAwMDFMeDhYS1FBWiJ9LCJJZCI6ImEwbDBQMDAwMDFMeDhYS1FBWiIsIlRvdGFsX1N1Ym1pdHRlZF9BcHBzX19jIjoxMzE3LjAsIk9yZGVyX19jIjoxLjAsIkRlc2NyaXB0aW9uX19jIjoiRm9yIGhvdXNlaG9sZHMgaW4gd2hpY2ggYXQgbGVhc3Qgb25lIG1lbWJlciBob2xkcyBhIENlcnRpZmljYXRlIG9mIFByZWZlcmVuY2UgZnJvbSB0aGUgZm9ybWVyIFNhbiBGcmFuY2lzY28gUmVkZXZlbG9wbWVudCBBZ2VuY3kuIENPUCBob2xkZXJzIHdlcmUgZGlzcGxhY2VkIGJ5IEFnZW5jeSBhY3Rpb24gZ2VuZXJhbGx5IGR1cmluZyB0aGUgMTk2MHMgYW5kIDE5NzBzLiIsIkF2YWlsYWJsZV9Vbml0c19fYyI6MS4wLCJQREZfVVJMX19jIjpudWxsLCJMb3R0ZXJ5X1ByZWZlcmVuY2VfX3IiOnsiYXR0cmlidXRlcyI6eyJ0eXBlIjoiTG90dGVyeV9QcmVmZXJlbmNlX19jIiwidXJsIjoiL3NlcnZpY2VzL2RhdGEvdjw8U0FMRVNGT1JDRV9BUElfVkVSU0lPTj4+L3NvYmplY3RzL0xvdHRlcnlfUHJlZmVyZW5jZV9fYy9hMG0wUDAwMDAwd3dpM0lRQVEifSwiSWQiOiJhMG0wUDAwMDAwd3dpM0lRQVEiLCJOYW1lIjoiQ2VydGlmaWNhdGUgb2YgUHJlZmVyZW5jZSAoQ09QKSJ9fSx7ImF0dHJpYnV0ZXMiOnsidHlwZSI6Ikxpc3RpbmdfTG90dGVyeV9QcmVmZXJlbmNlX19jIiwidXJsIjoiL3NlcnZpY2VzL2RhdGEvdjw8U0FMRVNGT1JDRV9BUElfVkVSU0lPTj4+L3NvYmplY3RzL0xpc3RpbmdfTG90dGVyeV9QcmVmZXJlbmNlX19jL2EwbDBQMDAwMDFMeDhYUFFBWiJ9LCJJZCI6ImEwbDBQMDAwMDFMeDhYUFFBWiIsIlRvdGFsX1N1Ym1pdHRlZF9BcHBzX19jIjoxMzE2LjAsIk9yZGVyX19jIjozLjAsIkRlc2NyaXB0aW9uX19jIjoiRm9yIGhvdXNlaG9sZHMgaW4gd2hpY2ggYXQgbGVhc3Qgb25lIG1lbWJlciBob2xkcyBhIERpc3BsYWNlZCBUZW5hbnQgSG91c2luZyBQcmVmZXJlbmNlIENlcnRpZmljYXRlLiBEVEhQIENlcnRpZmljYXRlIGhvbGRlcnMgYXJlIHRlbmFudHMgd2hvIHdlcmUgZXZpY3RlZCB0aHJvdWdoIGVpdGhlciBhbiBFbGxpcyBBY3QgRXZpY3Rpb24gb3IgYW4gT3duZXIgTW92ZSBJbiBFdmljdGlvbiwgb3IgaGF2ZSBiZWVuIGRpc3BsYWNlZCBieSBhIGZpcmUuIE9uY2UgYWxsIHVuaXRzIHJlc2VydmVkIGZvciB0aGlzIHByZWZlcmVuY2UgYXJlIGZpbGxlZCwgcmVtYWluaW5nIERUSFAgaG9sZGVycyB3aWxsIHJlY2VpdmUgTGl2ZS9Xb3JrIHByZWZlcmVuY2UsIHJlZ2FyZGxlc3Mgb2YgdGhlaXIgY3VycmVudCByZXNpZGVuY2Ugb3Igd29yayBsb2NhdGlvbi4iLCJBdmFpbGFibGVfVW5pdHNfX2MiOjMuMCwiUERGX1VSTF9fYyI6bnVsbCwiTG90dGVyeV9QcmVmZXJlbmNlX19yIjp7ImF0dHJpYnV0ZXMiOnsidHlwZSI6IkxvdHRlcnlfUHJlZmVyZW5jZV9fYyIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9Mb3R0ZXJ5X1ByZWZlcmVuY2VfX2MvYTBtMFAwMDAwMHd3dzFtUUFBIn0sIklkIjoiYTBtMFAwMDAwMHd3dzFtUUFBIiwiTmFtZSI6IkRpc3BsYWNlZCBUZW5hbnQgSG91c2luZyBQcmVmZXJlbmNlIChEVEhQKSJ9fSx7ImF0dHJpYnV0ZXMiOnsidHlwZSI6Ikxpc3RpbmdfTG90dGVyeV9QcmVmZXJlbmNlX19jIiwidXJsIjoiL3NlcnZpY2VzL2RhdGEvdjw8U0FMRVNGT1JDRV9BUElfVkVSU0lPTj4+L3NvYmplY3RzL0xpc3RpbmdfTG90dGVyeV9QcmVmZXJlbmNlX19jL2EwbDBQMDAwMDFMeDhYVVFBWiJ9LCJJZCI6ImEwbDBQMDAwMDFMeDhYVVFBWiIsIlRvdGFsX1N1Ym1pdHRlZF9BcHBzX19jIjoxMzIyLjAsIk9yZGVyX19jIjo0LjAsIkRlc2NyaXB0aW9uX19jIjoiRm9yIGhvdXNlaG9sZHMgaW4gd2hpY2ggYXQgbGVhc3Qgb25lIG1lbWJlciBlaXRoZXIgbGl2ZXMgd2l0aGluIFN1cGVydmlzb3IgZGlzdHJpY3Qgb2YgdGhlIHByb2plY3QgW0Rpc3RyaWN0ICNdLCBvciB3aXRoaW4gYSBoYWxmLW1pbGUgb2YgdGhlIHByb2plY3QuICBSZXF1aXJlcyBzdWJtaXNzaW9uIG9mIHByb29mIG9mIGFkZHJlc3MuIiwiQXZhaWxhYmxlX1VuaXRzX19jIjo0LjAsIlBERl9VUkxfX2MiOm51bGwsIkxvdHRlcnlfUHJlZmVyZW5jZV9fciI6eyJhdHRyaWJ1dGVzIjp7InR5cGUiOiJMb3R0ZXJ5X1ByZWZlcmVuY2VfX2MiLCJ1cmwiOiIvc2VydmljZXMvZGF0YS92PDxTQUxFU0ZPUkNFX0FQSV9WRVJTSU9OPj4vc29iamVjdHMvTG90dGVyeV9QcmVmZXJlbmNlX19jL2EwbTBQMDAwMDB3d3cxclFBQSJ9LCJJZCI6ImEwbTBQMDAwMDB3d3cxclFBQSIsIk5hbWUiOiJOZWlnaGJvcmhvb2QgUmVzaWRlbnQgSG91c2luZyBQcmVmZXJlbmNlIChOUkhQKSJ9fSx7ImF0dHJpYnV0ZXMiOnsidHlwZSI6Ikxpc3RpbmdfTG90dGVyeV9QcmVmZXJlbmNlX19jIiwidXJsIjoiL3NlcnZpY2VzL2RhdGEvdjw8U0FMRVNGT1JDRV9BUElfVkVSU0lPTj4+L3NvYmplY3RzL0xpc3RpbmdfTG90dGVyeV9QcmVmZXJlbmNlX19jL2EwbDBQMDAwMDFMeDhYWlFBWiJ9LCJJZCI6ImEwbDBQMDAwMDFMeDhYWlFBWiIsIlRvdGFsX1N1Ym1pdHRlZF9BcHBzX19jIjozMzA2LjAsIk9yZGVyX19jIjoyLjAsIkRlc2NyaXB0aW9uX19jIjoiRm9yIGhvdXNlaG9sZHMgd2hvIGFyZSBjdXJyZW50bHkgcGF5aW5nIG1vcmUgdGhhbiA1MCUgb2YgaW5jb21lIGZvciBob3VzaW5nIGNvc3RzIG9yIGFyZSBsaXZpbmcgaW4gcHVibGljIGhvdXNpbmcgb3IgcHJvamVjdCBiYXNlZCBTZWN0aW9uIDggaG91c2luZyB3aXRoaW4gU2FuIEZyYW5jaXNjby4iLCJBdmFpbGFibGVfVW5pdHNfX2MiOjIuMCwiUERGX1VSTF9fYyI6bnVsbCwiTG90dGVyeV9QcmVmZXJlbmNlX19yIjp7ImF0dHJpYnV0ZXMiOnsidHlwZSI6IkxvdHRlcnlfUHJlZmVyZW5jZV9fYyIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9Mb3R0ZXJ5X1ByZWZlcmVuY2VfX2MvYTBtMFAwMDAwMHhUcUR0UUFLIn0sIklkIjoiYTBtMFAwMDAwMHhUcUR0UUFLIiwiTmFtZSI6IlJlbnQgQnVyZGVuZWQgLyBBc3Npc3RlZCBIb3VzaW5nIFByZWZlcmVuY2UifX0seyJhdHRyaWJ1dGVzIjp7InR5cGUiOiJMaXN0aW5nX0xvdHRlcnlfUHJlZmVyZW5jZV9fYyIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9MaXN0aW5nX0xvdHRlcnlfUHJlZmVyZW5jZV9fYy9hMGwwUDAwMDAxTHg4WGVRQUoifSwiSWQiOiJhMGwwUDAwMDAxTHg4WGVRQUoiLCJUb3RhbF9TdWJtaXR0ZWRfQXBwc19fYyI6MjAwNC4wLCJPcmRlcl9fYyI6NS4wLCJEZXNjcmlwdGlvbl9fYyI6IkZvciBob3VzZWhvbGRzIGluIHdoaWNoIGF0IGxlYXN0IG9uZSBtZW1iZXIgbGl2ZXMgb3Igd29ya3MgaW4gU2FuIEZyYW5jaXNjby4gIFJlcXVpcmVzIHN1Ym1pc3Npb24gb2YgcHJvb2YuICBQbGVhc2Ugbm90ZSBpbiBvcmRlciB0byBjbGFpbSBXb3JrIFByZWZlcmVuY2UsIHRoZSBhcHBsaWNhbnQgY3VycmVudGx5IHdvcmsgaW4gU2FuIEZyYW5jaXNjbyBhdCBsZWFzdCA3NSUgb2YgdGhlaXIgd29ya2luZyBob3Vycy4iLCJBdmFpbGFibGVfVW5pdHNfX2MiOjUuMCwiUERGX1VSTF9fYyI6bnVsbCwiTG90dGVyeV9QcmVmZXJlbmNlX19yIjp7ImF0dHJpYnV0ZXMiOnsidHlwZSI6IkxvdHRlcnlfUHJlZmVyZW5jZV9fYyIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9Mb3R0ZXJ5X1ByZWZlcmVuY2VfX2MvYTBtMFAwMDAwMHd3aTNOUUFRIn0sIklkIjoiYTBtMFAwMDAwMHd3aTNOUUFRIiwiTmFtZSI6IkxpdmUgb3IgV29yayBpbiBTYW4gRnJhbmNpc2NvIFByZWZlcmVuY2UifX0seyJhdHRyaWJ1dGVzIjp7InR5cGUiOiJMaXN0aW5nX0xvdHRlcnlfUHJlZmVyZW5jZV9fYyIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9MaXN0aW5nX0xvdHRlcnlfUHJlZmVyZW5jZV9fYy9hMGwwUDAwMDAxUHNxRG9RQUoifSwiSWQiOiJhMGwwUDAwMDAxUHNxRG9RQUoiLCJUb3RhbF9TdWJtaXR0ZWRfQXBwc19fYyI6MTMwMS4wLCJPcmRlcl9fYyI6Ni4wLCJEZXNjcmlwdGlvbl9fYyI6IkZvciBob3VzZWhvbGRzIGluIHdoaWNoIGF0IGxlYXN0IG9uZSBtZW1iZXIgd2FzIGEgcmVzaWRlbnQgb2YgdGhlIEFsaWNlIEdyaWZmaXRoIGhvdXNpbmcgZGV2ZWxvcG1lbnQuIFRoaXMgaW5jbHVkZXMgYmFzZWxpbmUgYW5kIGN1cnJlbnQgcmVzaWRlbnRzIHRoYXQgbGl2ZWQgaW4gdGhlIHRhcmdldGVkIHJlZGV2ZWxvcG1lbnQgc2l0ZSBvbiBvciBhZnRlciB0aGUgdGltZSBvZiBhcHBsaWNhdGlvbiBmb3IgQ2hvaWNlIE5laWdoYm9yaG9vZHMgb2YgT2N0b2JlciAyNiwgMjAxMC4iLCJBdmFpbGFibGVfVW5pdHNfX2MiOm51bGwsIlBERl9VUkxfX2MiOm51bGwsIkxvdHRlcnlfUHJlZmVyZW5jZV9fciI6eyJhdHRyaWJ1dGVzIjp7InR5cGUiOiJMb3R0ZXJ5X1ByZWZlcmVuY2VfX2MiLCJ1cmwiOiIvc2VydmljZXMvZGF0YS92PDxTQUxFU0ZPUkNFX0FQSV9WRVJTSU9OPj4vc29iamVjdHMvTG90dGVyeV9QcmVmZXJlbmNlX19jL2EwbTBQMDAwMDB5dXpPMFFBSSJ9LCJJZCI6ImEwbTBQMDAwMDB5dXpPMFFBSSIsIk5hbWUiOiJBbGljZSBHcmlmZml0aCBIb3VzaW5nIERldmVsb3BtZW50IFJlc2lkZW50In19XX0sIlVuaXRzX19yIjp7InRvdGFsU2l6ZSI6MSwiZG9uZSI6dHJ1ZSwicmVjb3JkcyI6W3siYXR0cmlidXRlcyI6eyJ0eXBlIjoiVW5pdF9fYyIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9Vbml0X19jL2EwYjhIMDAwMDAzUE1LS1FBNCJ9LCJVbml0X1R5cGVfX2MiOiIxIEJSIiwiQk1SX1JlbnRfTW9udGhseV9fYyI6MjEwMi4wLCJCTVJfUmVudGFsX01pbmltdW1fTW9udGhseV9JbmNvbWVfTmVlZGVkX19jIjo1MjU1LjAsIlN0YXR1c19fYyI6IkF2YWlsYWJsZSIsIlByb3BlcnR5X1R5cGVfX2MiOiJBcGFydG1lbnQiLCJBTUlfY2hhcnRfdHlwZV9fYyI6IkhVRCBVbmFkanVzdGVkIiwiQU1JX2NoYXJ0X3llYXJfX2MiOjIwMTYuMCwiTWF4X0FNSV9mb3JfUXVhbGlmeWluZ19Vbml0X19jIjoxMDAuMCwiUmVzZXJ2ZWRfVHlwZV9fYyI6bnVsbH1dfX1dfQ==
-  recorded_at: Tue, 30 Apr 2024 22:32:24 GMT
-- request:
-    method: post
-    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
-    body:
-      encoding: US-ASCII
-      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
-    headers:
-      User-Agent:
-      - Faraday v2.7.4
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 30 Apr 2024 22:32:25 GMT
-      Set-Cookie:
-      - BrowserId=hQjN7QdBEe-gJqe4J39vxA; domain=.salesforce.com; path=/; expires=Wed,
-        30-Apr-2025 22:32:25 GMT; Max-Age=31536000
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:25 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Apr-2025 22:32:25
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      X-Robots-Tag:
-      - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Readonlymode:
-      - 'false'
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept-Encoding
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00D8H0000004dNlUAI/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1714516345886","signature":"mUSZjSWGxXiJcTE/32MPTweeLKrrk3rfRDqZmdcJ1JE="}'
-  recorded_at: Tue, 30 Apr 2024 22:32:25 GMT
-recorded_with: VCR 6.1.0
+  - request:
+      method: post
+      uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+      body:
+        encoding: US-ASCII
+        string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+      headers:
+        User-Agent:
+          - Faraday v2.12.2
+        Content-Type:
+          - application/x-www-form-urlencoded
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - '*/*'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 30 Sep 2025 21:11:49 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Vary:
+          - Accept-Encoding
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        X-Content-Type-Options:
+          - nosniff
+        Cache-Control:
+          - no-cache,must-revalidate,max-age=0,no-store,private
+        X-Readonlymode:
+          - 'false'
+        Set-Cookie:
+          - BrowserId=FAyq3J5CEfC43i83qflMpA; domain=.salesforce.com; path=/; expires=Wed,
+            30-Sep-2026 21:11:48 GMT; Max-Age=31536000; secure; SameSite=None
+          - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:48 GMT; Max-Age=31536000;
+            secure
+          - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:48
+            GMT; Max-Age=31536000; secure
+        Expires:
+          - Thu, 01 Jan 1970 00:00:00 GMT
+        X-Robots-Tag:
+          - none
+        Server:
+          - sfdcedge
+        X-Sfdc-Request-Id:
+          - 3d7ba20262b4fe79fd516084d4dafaad
+        X-Request-Id:
+          - 3d7ba20262b4fe79fd516084d4dafaad
+      body:
+        encoding: ASCII-8BIT
+        string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1759266709094","signature":"AFx1GajP+EL3OnFQsDeFqpDpmQTFs3D1+4iOBP72Zi8="}'
+    recorded_at: Tue, 30 Sep 2025 21:11:49 GMT
+  - request:
+      method: get
+      uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Applicant__c,%20Primary_Applicant__c,%20Alternate_Contact__c,%20Listing__c,%20Listing__r.Name,%20Listing__r.Id,%20Listing__r.Custom_Listing_Type__c,%20Status__c,%20Listing__r.Reserved_community_type__c,%20Total_Household_Size__c,%20Application_Submission_Type__c,%20Application_Submitted_Date__c,%20CreatedDate,%20CreatedBy.Name,%20Annual_Income__c,%20Confirmed_Household_Annual_Income__c,%20Household_Assets__c,%20HH_Total_Income_with_Assets_Annual__c,%20Imputed_Income_from_Assets__c,%20Monthly_Income__c,%20Housing_Voucher_or_Subsidy__c,%20Referral_Source__c,%20Application_Language__c,%20Lottery_Number_Manual__c,%20Lottery_Number__c,%20Total_Monthly_Rent__c,%20General_Lottery__c,%20General_Lottery_Rank__c,%20Answered_Community_Screening__c,%20Has_Military_Service__c,%20Reserved_Senior__c,%20Has_DevelopmentalDisability__c,%20Has_ADA_Priorities_Selected__c,%20Terms_Acknowledged__c,%20Applicant__r.Id,%20Applicant__r.First_Name__c,%20Applicant__r.Last_Name__c,%20Applicant__r.Middle_Name__c,%20Applicant__r.Name__c,%20Applicant__r.Date_of_Birth__c,%20Applicant__r.Phone_Type__c,%20Applicant__r.Phone__c,%20Applicant__r.Second_Phone_Type__c,%20Applicant__r.Second_Phone__c,%20Applicant__r.Email__c,%20Applicant__r.Primary_Language__c,%20Applicant__r.Residence_Address__c,%20Applicant__r.Street__c,%20Applicant__r.City__c,%20Applicant__r.State__c,%20Applicant__r.Zip_Code__c,%20Applicant__r.Mailing_Address__c,%20Applicant__r.Mailing_Street__c,%20Applicant__r.Mailing_City__c,%20Applicant__r.Mailing_State__c,%20Applicant__r.Mailing_Zip_Code__c,%20Applicant__r.Marital_Status__c,%20Applicant__r.Ethnicity__c,%20Applicant__r.Race__c,%20Applicant__r.Gender__c,%20Applicant__r.Gender_Other__c,%20Applicant__r.Sexual_Orientation__c,%20Applicant__r.Sexual_Orientation_Other__c,%20Alternate_Contact__r.Id,%20Alternate_Contact__r.First_Name__c,%20Alternate_Contact__r.Middle_Name__c,%20Alternate_Contact__r.Last_Name__c,%20Alternate_Contact__r.Phone_Type__c,%20Alternate_Contact__r.Phone__c,%20Alternate_Contact__r.Email__c,%20Alternate_Contact__r.Agency_Name__c,%20Alternate_Contact__r.Alternate_Contact_Type__c,%20Alternate_Contact__r.Alternate_Contact_Type_Other__c,%20Number_of_Dependents__c,%20Number_of_Seniors__c,%20Number_of_Minors__c,%20Alternate_Contact__r.Residence_Address__c,%20Alternate_Contact__r.Street__c,%20Alternate_Contact__r.City__c,%20Alternate_Contact__r.State__c,%20Alternate_Contact__r.Zip_Code__c,%20Alternate_Contact__r.Mailing_Address__c,%20Alternate_Contact__r.Mailing_Street__c,%20Alternate_Contact__r.Mailing_City__c,%20Alternate_Contact__r.Mailing_State__c,%20Alternate_Contact__r.Mailing_Zip_Code__c,%20Alternate_Contact__r.Marital_Status__c,%20Processing_Status__c,%20Is_First_Time_Homebuyer__c,%20Has_Completed_Homebuyer_Education__c,%20Has_Loan_Pre_approval__c,%20Lending_Agent__c,%20AMI_Percentage__c,%20AMI_Chart_Type__c,%20AMI_Chart_Year__c,%20Supp_App_Signed_Date__c,%20Invite_To_Apply_Deadline_Date__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id%20=%20%27a0o0P00000Fv02dQAB%27%0A%20%20%20%20%20%20%20%20%20%20AND%20Status__c%20!=%20%27Draft%27%0A%20%20%20%20%20%20%20%20%20%20LIMIT%201%0A%20%20%20%20%20%20%20%20
+      body:
+        encoding: US-ASCII
+        string: ''
+      headers:
+        User-Agent:
+          - Faraday v2.12.2
+        Authorization:
+          - OAuth <<ACCESS_TOKEN>>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - '*/*'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 30 Sep 2025 21:11:49 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        X-Content-Type-Options:
+          - nosniff
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        Cache-Control:
+          - no-cache,must-revalidate,max-age=0,no-store,private
+        Sforce-Limit-Info:
+          - api-usage=9921/982000
+        Set-Cookie:
+          - BrowserId=FEdp9J5CEfClHCNtRKp6sA; domain=.salesforce.com; path=/; expires=Wed,
+            30-Sep-2026 21:11:49 GMT; Max-Age=31536000; secure; SameSite=None
+          - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:49 GMT; Max-Age=31536000;
+            secure
+          - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:49
+            GMT; Max-Age=31536000; secure
+        X-Robots-Tag:
+          - none
+        Vary:
+          - Accept-Encoding
+        Server:
+          - sfdcedge
+        X-Sfdc-Request-Id:
+          - 594ce2c010b9b9ed998c96585fbaa41a
+        X-Request-Id:
+          - 594ce2c010b9b9ed998c96585fbaa41a
+        X-Sfdc-Edge-Cache:
+          - MISS
+      body:
+        encoding: ASCII-8BIT
+        string:
+          '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Fv02dQAB"},"Id":"a0o0P00000Fv02dQAB","Name":"APP-00190718","Applicant__c":"a0n0P00000BEAUVQA5","Primary_Applicant__c":"003bb00000OvVOqAAN","Alternate_Contact__c":null,"Listing__c":"a0W0P00000F8YG4UAN","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000F8YG4UAN"},"Name":"TEST
+          Automated Listing (do not modify)","Id":"a0W0P00000F8YG4UAN","Custom_Listing_Type__c":null,"Reserved_community_type__c":null},"Status__c":"Submitted","Total_Household_Size__c":2.0,"Application_Submission_Type__c":"Electronic","Application_Submitted_Date__c":"2019-03-29","CreatedDate":"2018-04-13T19:50:51.000+0000","CreatedBy":{"attributes":{"type":"User","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/User/0050P000007QAY9QAO"},"Name":"DAHLIA
+          API"},"Annual_Income__c":null,"Confirmed_Household_Annual_Income__c":null,"Household_Assets__c":null,"HH_Total_Income_with_Assets_Annual__c":null,"Imputed_Income_from_Assets__c":null,"Monthly_Income__c":null,"Housing_Voucher_or_Subsidy__c":null,"Referral_Source__c":null,"Application_Language__c":"English","Lottery_Number_Manual__c":null,"Lottery_Number__c":"00190718","Total_Monthly_Rent__c":100.0,"General_Lottery__c":false,"General_Lottery_Rank__c":null,"Answered_Community_Screening__c":null,"Has_Military_Service__c":null,"Reserved_Senior__c":null,"Has_DevelopmentalDisability__c":null,"Has_ADA_Priorities_Selected__c":null,"Terms_Acknowledged__c":false,"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000BEAUVQA5"},"Id":"a0n0P00000BEAUVQA5","First_Name__c":"Vickie","Last_Name__c":"Mcconnell","Middle_Name__c":null,"Name__c":"Vickie
+          Mcconnell","Date_of_Birth__c":"2000-01-01","Phone_Type__c":"Home","Phone__c":"358.736.9441x895","Second_Phone_Type__c":null,"Second_Phone__c":null,"Email__c":"pblackburn9999@example.com","Primary_Language__c":null,"Residence_Address__c":"2749
+          Stephen Road Apt. 128, North Jennaton, Wy, 58433","Street__c":"2749 Stephen
+          Road Apt. 128","City__c":"North Jennaton","State__c":"Wy","Zip_Code__c":"58433","Mailing_Address__c":"701
+          House Station Suite 611, West Aprilside, Ma, 30226","Mailing_Street__c":"701
+          House Station Suite 611","Mailing_City__c":"West Aprilside","Mailing_State__c":"Ma","Mailing_Zip_Code__c":"30226","Marital_Status__c":null,"Ethnicity__c":"Not
+          Hispanic/Latino","Race__c":"Asian and White","Gender__c":"Genderqueer/Gender
+          Non-binary","Gender_Other__c":"otehr gender","Sexual_Orientation__c":"Gay/Lesbian/Same-Gender
+          Loving","Sexual_Orientation_Other__c":"other orientation"},"Alternate_Contact__r":null,"Number_of_Dependents__c":null,"Number_of_Seniors__c":null,"Number_of_Minors__c":null,"Processing_Status__c":null,"Is_First_Time_Homebuyer__c":false,"Has_Completed_Homebuyer_Education__c":false,"Has_Loan_Pre_approval__c":false,"Lending_Agent__c":null,"AMI_Percentage__c":null,"AMI_Chart_Type__c":null,"AMI_Chart_Year__c":null,"Supp_App_Signed_Date__c":null,"Invite_To_Apply_Deadline_Date__c":null}]}'
+    recorded_at: Tue, 30 Sep 2025 21:11:49 GMT
+  - request:
+      method: get
+      uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Listing__r.Id,%20Listing__r.Name,%20Listing__r.Status__c,%20Listing__r.Tenure__c,%20Listing__r.Lottery_Status__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id%20=%20%27a0o0P00000Fv02dQAB%27%0A%20%20%20%20%20%20%20%20
+      body:
+        encoding: US-ASCII
+        string: ''
+      headers:
+        User-Agent:
+          - Faraday v2.12.2
+        Authorization:
+          - OAuth <<ACCESS_TOKEN>>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - '*/*'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 30 Sep 2025 21:11:49 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        Set-Cookie:
+          - BrowserId=FIGMsJ5CEfCV7AGnLC-bMQ; domain=.salesforce.com; path=/; expires=Wed,
+            30-Sep-2026 21:11:49 GMT; Max-Age=31536000; secure; SameSite=None
+          - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:49 GMT; Max-Age=31536000;
+            secure
+          - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:49
+            GMT; Max-Age=31536000; secure
+        X-Content-Type-Options:
+          - nosniff
+        Cache-Control:
+          - no-cache,must-revalidate,max-age=0,no-store,private
+        Vary:
+          - Accept-Encoding
+        Sforce-Limit-Info:
+          - api-usage=9918/982000
+        X-Robots-Tag:
+          - none
+        Server:
+          - sfdcedge
+        X-Sfdc-Request-Id:
+          - ccbc9dd68338c0f0e1e6836d8cc92717
+        X-Request-Id:
+          - ccbc9dd68338c0f0e1e6836d8cc92717
+        X-Sfdc-Edge-Cache:
+          - MISS
+      body:
+        encoding: ASCII-8BIT
+        string:
+          '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Fv02dQAB"},"Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000F8YG4UAN"},"Id":"a0W0P00000F8YG4UAN","Name":"TEST
+          Automated Listing (do not modify)","Status__c":"Active","Tenure__c":"Re-rental","Lottery_Status__c":"Not
+          Yet Run"}}]}'
+    recorded_at: Tue, 30 Sep 2025 21:11:49 GMT
+  - request:
+      method: post
+      uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+      body:
+        encoding: US-ASCII
+        string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+      headers:
+        User-Agent:
+          - Faraday v2.12.2
+        Content-Type:
+          - application/x-www-form-urlencoded
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - '*/*'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 30 Sep 2025 21:11:50 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        X-Robots-Tag:
+          - none
+        Expires:
+          - Thu, 01 Jan 1970 00:00:00 GMT
+        X-Content-Type-Options:
+          - nosniff
+        Cache-Control:
+          - no-cache,must-revalidate,max-age=0,no-store,private
+        X-Readonlymode:
+          - 'false'
+        Set-Cookie:
+          - BrowserId=FLOZS55CEfC43i83qflMpA; domain=.salesforce.com; path=/; expires=Wed,
+            30-Sep-2026 21:11:50 GMT; Max-Age=31536000; secure; SameSite=None
+          - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:50 GMT; Max-Age=31536000;
+            secure
+          - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:50
+            GMT; Max-Age=31536000; secure
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        Vary:
+          - Accept-Encoding
+        Server:
+          - sfdcedge
+        X-Sfdc-Request-Id:
+          - df5a7fc9ca6e73674661bad38dcee55d
+        X-Request-Id:
+          - df5a7fc9ca6e73674661bad38dcee55d
+      body:
+        encoding: ASCII-8BIT
+        string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1759266710195","signature":"rmMbVNGP4jGSOzWRxcaZ5K7WvOEjXHCeTrnkUz3/UYM="}'
+    recorded_at: Tue, 30 Sep 2025 21:11:50 GMT
+  - request:
+      method: get
+      uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Preference_Name__c,%20Person_who_claimed_Name__c,%20Type_of_proof__c,%20Veteran_Type_of_Proof__c,%20Opt_Out__c,%20Lottery_Status__c,%20Preference_Lottery_Rank__c,%20Listing_Preference_ID__c,%20Receives_Preference__c,%20Application_Member__c,%20Application_Member__r.First_Name__c,%20Application_Member__r.Last_Name__c,%20Application_Member__r.Date_of_Birth__c,%20Application_Member__r.Id,%20Individual_preference__c,%20Certificate_Number__c,%20Preference_Order__c,%20RecordType.DeveloperName,%20LW_Type_of_Proof__c,%20City__c,%20State__c,%20Street__c,%20Zip_Code__c,%20Post_Lottery_Validation__c,%20Total_Household_Rent__c,%20Custom_Preference_Type__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o0P00000Fv02dQAB%27%0A%20%20%20%20%20%20%20%20%20%20ORDER%20BY%20Preference_Order__c%20ASC%0A%20%20%20%20%20%20%20%20
+      body:
+        encoding: US-ASCII
+        string: ''
+      headers:
+        User-Agent:
+          - Faraday v2.12.2
+        Authorization:
+          - OAuth <<ACCESS_TOKEN>>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - '*/*'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 30 Sep 2025 21:11:50 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Vary:
+          - Accept-Encoding
+        X-Content-Type-Options:
+          - nosniff
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        Cache-Control:
+          - no-cache,must-revalidate,max-age=0,no-store,private
+        X-Robots-Tag:
+          - none
+        Sforce-Limit-Info:
+          - api-usage=9918/982000
+        Set-Cookie:
+          - BrowserId=FO-Q4Z5CEfCcHRsmUza_Hw; domain=.salesforce.com; path=/; expires=Wed,
+            30-Sep-2026 21:11:50 GMT; Max-Age=31536000; secure; SameSite=None
+          - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:50 GMT; Max-Age=31536000;
+            secure
+          - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:50
+            GMT; Max-Age=31536000; secure
+        Server:
+          - sfdcedge
+        X-Sfdc-Request-Id:
+          - a5ecab405da1ddf584e56320a5547c7f
+        X-Request-Id:
+          - a5ecab405da1ddf584e56320a5547c7f
+        X-Sfdc-Edge-Cache:
+          - MISS
+      body:
+        encoding: ASCII-8BIT
+        string:
+          '{"totalSize":6,"done":true,"records":[{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PeTZ1QAN"},"Id":"a0w0P00000PeTZ1QAN","Name":"AP-0001215931","Preference_Name__c":"Certificate
+          of Preference (COP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XKQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":1.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BHQA0"},"DeveloperName":"COP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":100.0,"Custom_Preference_Type__c":"COP"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000N1axcQAB"},"Id":"a0w0P00000N1axcQAB","Name":"AP-0000612524","Preference_Name__c":"Rent
+          Burdened / Assisted Housing Preference","Person_who_claimed_Name__c":"Vickie
+          Mcconnell","Type_of_proof__c":"Lease and rent proof","Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":188.0,"Listing_Preference_ID__c":"a0l0P00001Lx8XZQAZ","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000BEAUVQA5","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000BEAUVQA5"},"First_Name__c":"Vickie","Last_Name__c":"Mcconnell","Date_of_Birth__c":"2000-01-01","Id":"a0n0P00000BEAUVQA5"},"Individual_preference__c":"Assisted
+          Housing","Certificate_Number__c":null,"Preference_Order__c":2.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BMQA0"},"DeveloperName":"RB_AHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Unconfirmed","Total_Household_Rent__c":100.0,"Custom_Preference_Type__c":"RB_AHP"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PeTZ2QAN"},"Id":"a0w0P00000PeTZ2QAN","Name":"AP-0001215932","Preference_Name__c":"Displaced
+          Tenant Housing Preference (DTHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XPQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":3.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BJQA0"},"DeveloperName":"DTHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":100.0,"Custom_Preference_Type__c":"DTHP"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PeTZ3QAN"},"Id":"a0w0P00000PeTZ3QAN","Name":"AP-0001215933","Preference_Name__c":"Neighborhood
+          Resident Housing Preference (NRHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XUQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":4.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BLQA0"},"DeveloperName":"NRHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":100.0,"Custom_Preference_Type__c":"NRHP"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PeTZ4QAN"},"Id":"a0w0P00000PeTZ4QAN","Name":"AP-0001215934","Preference_Name__c":"Live
+          or Work in San Francisco Preference","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XeQAJ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":5.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"},"DeveloperName":"L_W"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":100.0,"Custom_Preference_Type__c":"L_W"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PeTZ5QAN"},"Id":"a0w0P00000PeTZ5QAN","Name":"AP-0001215935","Preference_Name__c":"Alice
+          Griffith Housing Development Resident","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001PsqDoQAJ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":6.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000NHVqQAO"},"DeveloperName":"AG"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":100.0,"Custom_Preference_Type__c":"AG"}]}'
+    recorded_at: Tue, 30 Sep 2025 21:11:50 GMT
+  - request:
+      method: post
+      uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+      body:
+        encoding: US-ASCII
+        string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+      headers:
+        User-Agent:
+          - Faraday v2.12.2
+        Content-Type:
+          - application/x-www-form-urlencoded
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - '*/*'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 30 Sep 2025 21:11:51 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Set-Cookie:
+          - BrowserId=FUPMHp5CEfCOjK3u828ezQ; domain=.salesforce.com; path=/; expires=Wed,
+            30-Sep-2026 21:11:51 GMT; Max-Age=31536000; secure; SameSite=None
+          - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:51 GMT; Max-Age=31536000;
+            secure
+          - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:51
+            GMT; Max-Age=31536000; secure
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        Expires:
+          - Thu, 01 Jan 1970 00:00:00 GMT
+        X-Readonlymode:
+          - 'false'
+        X-Robots-Tag:
+          - none
+        Vary:
+          - Accept-Encoding
+        X-Content-Type-Options:
+          - nosniff
+        Cache-Control:
+          - no-cache,must-revalidate,max-age=0,no-store,private
+        Server:
+          - sfdcedge
+        X-Sfdc-Request-Id:
+          - 1fb201d737a82c6466437931f70464e2
+        X-Request-Id:
+          - 1fb201d737a82c6466437931f70464e2
+      body:
+        encoding: ASCII-8BIT
+        string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1759266711122","signature":"lkIyXmLATRmwfYbcXtalft9AA/6o9OTS3tj0iw/0LtY="}'
+    recorded_at: Tue, 30 Sep 2025 21:11:51 GMT
+  - request:
+      method: get
+      uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Document_Type__c,%20Related_Application__c,%20Related_Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Attachment__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Related_Application__c%20=%20%27a0o0P00000Fv02dQAB%27%0A%20%20%20%20%20%20%20%20
+      body:
+        encoding: US-ASCII
+        string: ''
+      headers:
+        User-Agent:
+          - Faraday v2.12.2
+        Authorization:
+          - OAuth <<ACCESS_TOKEN>>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - '*/*'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 30 Sep 2025 21:11:51 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        X-Content-Type-Options:
+          - nosniff
+        Vary:
+          - Accept-Encoding
+        X-Robots-Tag:
+          - none
+        Cache-Control:
+          - no-cache,must-revalidate,max-age=0,no-store,private
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        Set-Cookie:
+          - BrowserId=FXqTlJ5CEfCY9l1MgFnbVg; domain=.salesforce.com; path=/; expires=Wed,
+            30-Sep-2026 21:11:51 GMT; Max-Age=31536000; secure; SameSite=None
+          - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:51 GMT; Max-Age=31536000;
+            secure
+          - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:51
+            GMT; Max-Age=31536000; secure
+        Sforce-Limit-Info:
+          - api-usage=9919/982000
+        Server:
+          - sfdcedge
+        X-Sfdc-Request-Id:
+          - 76f6aab38bbdb9c32404063ccc48c024
+        X-Request-Id:
+          - 76f6aab38bbdb9c32404063ccc48c024
+        X-Sfdc-Edge-Cache:
+          - MISS
+      body:
+        encoding: ASCII-8BIT
+        string: '{"totalSize":0,"done":true,"records":[]}'
+    recorded_at: Tue, 30 Sep 2025 21:11:51 GMT
+  - request:
+      method: get
+      uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name__c,%20First_Name__c,%20Last_Name__c,%20Middle_Name__c,%20Relationship_to_Applicant__c,%20Date_of_Birth__c,%20Street__c,%20City__c,%20State__c,%20Zip_Code__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Member__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o0P00000Fv02dQAB%27%0A%20%20%20%20%20%20%20%20%20%20AND%20Id%20!=%20%27a0n0P00000BEAUVQA5%27%0A%20%20%20%20%20%20%20%20%20%20AND%20Id%20!=%20%27%27%0A%20%20%20%20%20%20%20%20
+      body:
+        encoding: US-ASCII
+        string: ''
+      headers:
+        User-Agent:
+          - Faraday v2.12.2
+        Authorization:
+          - OAuth <<ACCESS_TOKEN>>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - '*/*'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 30 Sep 2025 21:11:51 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Sforce-Limit-Info:
+          - api-usage=9919/982000
+        Set-Cookie:
+          - BrowserId=FadvOp5CEfCcHRsmUza_Hw; domain=.salesforce.com; path=/; expires=Wed,
+            30-Sep-2026 21:11:51 GMT; Max-Age=31536000; secure; SameSite=None
+          - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:51 GMT; Max-Age=31536000;
+            secure
+          - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:51
+            GMT; Max-Age=31536000; secure
+        Cache-Control:
+          - no-cache,must-revalidate,max-age=0,no-store,private
+        X-Content-Type-Options:
+          - nosniff
+        X-Robots-Tag:
+          - none
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        Vary:
+          - Accept-Encoding
+        Server:
+          - sfdcedge
+        X-Sfdc-Request-Id:
+          - 8bd7316f11e58031789059c82245b952
+        X-Request-Id:
+          - 8bd7316f11e58031789059c82245b952
+        X-Sfdc-Edge-Cache:
+          - MISS
+      body:
+        encoding: ASCII-8BIT
+        string:
+          '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000BEAUUQA5"},"Id":"a0n0P00000BEAUUQA5","Name__c":"Edgar
+          Mcconnell","First_Name__c":"Edgar","Last_Name__c":"Mcconnell","Middle_Name__c":null,"Relationship_to_Applicant__c":null,"Date_of_Birth__c":"2000-01-01","Street__c":null,"City__c":null,"State__c":null,"Zip_Code__c":null}]}'
+    recorded_at: Tue, 30 Sep 2025 21:11:51 GMT
+  - request:
+      method: post
+      uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+      body:
+        encoding: US-ASCII
+        string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+      headers:
+        User-Agent:
+          - Faraday v2.12.2
+        Content-Type:
+          - application/x-www-form-urlencoded
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - '*/*'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 30 Sep 2025 21:11:52 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Vary:
+          - Accept-Encoding
+        Set-Cookie:
+          - BrowserId=FdP9cJ5CEfC4lX8-rAYW5A; domain=.salesforce.com; path=/; expires=Wed,
+            30-Sep-2026 21:11:51 GMT; Max-Age=31536000; secure; SameSite=None
+          - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:51 GMT; Max-Age=31536000;
+            secure
+          - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:51
+            GMT; Max-Age=31536000; secure
+        X-Robots-Tag:
+          - none
+        Expires:
+          - Thu, 01 Jan 1970 00:00:00 GMT
+        X-Readonlymode:
+          - 'false'
+        X-Content-Type-Options:
+          - nosniff
+        Cache-Control:
+          - no-cache,must-revalidate,max-age=0,no-store,private
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        Server:
+          - sfdcedge
+        X-Sfdc-Request-Id:
+          - 21c847bee3e8672ef063f8edc060f957
+        X-Request-Id:
+          - 21c847bee3e8672ef063f8edc060f957
+      body:
+        encoding: ASCII-8BIT
+        string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1759266712104","signature":"1qApaKgWBTeSZDaiU0J5vugrZYPNOczyOWr1OfaQ6U8="}'
+    recorded_at: Tue, 30 Sep 2025 21:11:52 GMT
+  - request:
+      method: get
+      uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Unit__c,%20Lease_Start_Date__c,%20Lease_Status__c,%20Monthly_Parking_Rent__c,%20BMR_Parking_Space_Assigned__c,%20Preference_Used__c,%20No_Preference_Used__c,%20Total_Monthly_Rent_without_Parking__c,%20Monthly_Tenant_Contribution__c,%20Parking_Spot_Number__c%20FROM%20Lease__c%20WHERE%20(Application__c%20=%20%27a0o0P00000Fv02dQAB%27)
+      body:
+        encoding: US-ASCII
+        string: ''
+      headers:
+        User-Agent:
+          - Faraday v2.12.2
+        Authorization:
+          - OAuth <<ACCESS_TOKEN>>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - '*/*'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 30 Sep 2025 21:11:52 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        X-Content-Type-Options:
+          - nosniff
+        Set-Cookie:
+          - BrowserId=Fh1i7p5CEfCO1atmXVYxaw; domain=.salesforce.com; path=/; expires=Wed,
+            30-Sep-2026 21:11:52 GMT; Max-Age=31536000; secure; SameSite=None
+          - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:52 GMT; Max-Age=31536000;
+            secure
+          - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:52
+            GMT; Max-Age=31536000; secure
+        Cache-Control:
+          - no-cache,must-revalidate,max-age=0,no-store,private
+        Sforce-Limit-Info:
+          - api-usage=9918/982000
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        Vary:
+          - Accept-Encoding
+        X-Robots-Tag:
+          - none
+        Server:
+          - sfdcedge
+        X-Sfdc-Request-Id:
+          - 9842c841f19f609c2492aa43e8bf29b5
+        X-Request-Id:
+          - 9842c841f19f609c2492aa43e8bf29b5
+        X-Sfdc-Edge-Cache:
+          - MISS
+      body:
+        encoding: ASCII-8BIT
+        string: '{"totalSize":0,"done":true,"records":[]}'
+    recorded_at: Tue, 30 Sep 2025 21:11:52 GMT
+  - request:
+      method: get
+      uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Lease__c%20WHERE%20(Application__c%20=%20%27a0o0P00000Fv02dQAB%27)
+      body:
+        encoding: US-ASCII
+        string: ''
+      headers:
+        User-Agent:
+          - Faraday v2.12.2
+        Authorization:
+          - OAuth <<ACCESS_TOKEN>>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - '*/*'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 30 Sep 2025 21:11:52 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Vary:
+          - Accept-Encoding
+        Set-Cookie:
+          - BrowserId=FlWKD55CEfCV6FGwylhXdQ; domain=.salesforce.com; path=/; expires=Wed,
+            30-Sep-2026 21:11:52 GMT; Max-Age=31536000; secure; SameSite=None
+          - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:52 GMT; Max-Age=31536000;
+            secure
+          - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:52
+            GMT; Max-Age=31536000; secure
+        X-Content-Type-Options:
+          - nosniff
+        X-Robots-Tag:
+          - none
+        Sforce-Limit-Info:
+          - api-usage=9918/982000
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        Cache-Control:
+          - no-cache,must-revalidate,max-age=0,no-store,private
+        Server:
+          - sfdcedge
+        X-Sfdc-Request-Id:
+          - 1b6e2eb3bfbdd389a6d6b52dd2b46d8e
+        X-Request-Id:
+          - 1b6e2eb3bfbdd389a6d6b52dd2b46d8e
+        X-Sfdc-Edge-Cache:
+          - MISS
+      body:
+        encoding: ASCII-8BIT
+        string: '{"totalSize":0,"done":true,"records":[]}'
+    recorded_at: Tue, 30 Sep 2025 21:11:52 GMT
+  - request:
+      method: post
+      uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+      body:
+        encoding: US-ASCII
+        string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+      headers:
+        User-Agent:
+          - Faraday v2.12.2
+        Content-Type:
+          - application/x-www-form-urlencoded
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - '*/*'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 30 Sep 2025 21:11:53 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        Expires:
+          - Thu, 01 Jan 1970 00:00:00 GMT
+        X-Content-Type-Options:
+          - nosniff
+        Set-Cookie:
+          - BrowserId=FoQ7GJ5CEfCO1atmXVYxaw; domain=.salesforce.com; path=/; expires=Wed,
+            30-Sep-2026 21:11:53 GMT; Max-Age=31536000; secure; SameSite=None
+          - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:53 GMT; Max-Age=31536000;
+            secure
+          - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:53
+            GMT; Max-Age=31536000; secure
+        X-Readonlymode:
+          - 'false'
+        X-Robots-Tag:
+          - none
+        Cache-Control:
+          - no-cache,must-revalidate,max-age=0,no-store,private
+        Vary:
+          - Accept-Encoding
+        Server:
+          - sfdcedge
+        X-Sfdc-Request-Id:
+          - b07d94af415ea6fdf9ae98bed8abb200
+        X-Request-Id:
+          - b07d94af415ea6fdf9ae98bed8abb200
+      body:
+        encoding: ASCII-8BIT
+        string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1759266713255","signature":"0gmcShwu+He9kwvFIxMCTXZB1C5rLgqn3xrq7ckn3xQ="}'
+    recorded_at: Tue, 30 Sep 2025 21:11:53 GMT
+  - request:
+      method: get
+      uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Assistance_Amount__c,%20Id,%20Lease__c,%20Other_Assistance_Name__c,%20Household_Member__c,%20Recurring_Assistance__c,%20Type_of_Assistance__c%20FROM%20Rental_Assistance__c%20WHERE%20(Lease__r.Application__c%20=%20%27a0o0P00000Fv02dQAB%27)
+      body:
+        encoding: US-ASCII
+        string: ''
+      headers:
+        User-Agent:
+          - Faraday v2.12.2
+        Authorization:
+          - OAuth <<ACCESS_TOKEN>>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - '*/*'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 30 Sep 2025 21:11:53 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Cache-Control:
+          - no-cache,must-revalidate,max-age=0,no-store,private
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        Set-Cookie:
+          - BrowserId=FsIuHp5CEfC43i83qflMpA; domain=.salesforce.com; path=/; expires=Wed,
+            30-Sep-2026 21:11:53 GMT; Max-Age=31536000; secure; SameSite=None
+          - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:53 GMT; Max-Age=31536000;
+            secure
+          - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:53
+            GMT; Max-Age=31536000; secure
+        X-Robots-Tag:
+          - none
+        Vary:
+          - Accept-Encoding
+        Sforce-Limit-Info:
+          - api-usage=9918/982000
+        X-Content-Type-Options:
+          - nosniff
+        Server:
+          - sfdcedge
+        X-Sfdc-Request-Id:
+          - 30232fd5d4558c908f3b432efba2f1e9
+        X-Request-Id:
+          - 30232fd5d4558c908f3b432efba2f1e9
+        X-Sfdc-Edge-Cache:
+          - MISS
+      body:
+        encoding: ASCII-8BIT
+        string: '{"totalSize":0,"done":true,"records":[]}'
+    recorded_at: Tue, 30 Sep 2025 21:11:53 GMT
+  - request:
+      method: get
+      uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Rental_Assistance__c%20WHERE%20(Lease__r.Application__c%20=%20%27a0o0P00000Fv02dQAB%27)
+      body:
+        encoding: US-ASCII
+        string: ''
+      headers:
+        User-Agent:
+          - Faraday v2.12.2
+        Authorization:
+          - OAuth <<ACCESS_TOKEN>>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - '*/*'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 30 Sep 2025 21:11:53 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Sforce-Limit-Info:
+          - api-usage=9920/982000
+        X-Content-Type-Options:
+          - nosniff
+        Cache-Control:
+          - no-cache,must-revalidate,max-age=0,no-store,private
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        Vary:
+          - Accept-Encoding
+        X-Robots-Tag:
+          - none
+        Set-Cookie:
+          - BrowserId=FvNQ855CEfCY9l1MgFnbVg; domain=.salesforce.com; path=/; expires=Wed,
+            30-Sep-2026 21:11:53 GMT; Max-Age=31536000; secure; SameSite=None
+          - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:53 GMT; Max-Age=31536000;
+            secure
+          - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:53
+            GMT; Max-Age=31536000; secure
+        Server:
+          - sfdcedge
+        X-Sfdc-Request-Id:
+          - 440249dfb128e1d853752280f14c6bfb
+        X-Request-Id:
+          - 440249dfb128e1d853752280f14c6bfb
+        X-Sfdc-Edge-Cache:
+          - MISS
+      body:
+        encoding: ASCII-8BIT
+        string: '{"totalSize":0,"done":true,"records":[]}'
+    recorded_at: Tue, 30 Sep 2025 21:11:53 GMT
+  - request:
+      method: post
+      uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+      body:
+        encoding: US-ASCII
+        string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+      headers:
+        User-Agent:
+          - Faraday v2.12.2
+        Content-Type:
+          - application/x-www-form-urlencoded
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - '*/*'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 30 Sep 2025 21:11:54 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Vary:
+          - Accept-Encoding
+        Expires:
+          - Thu, 01 Jan 1970 00:00:00 GMT
+        X-Robots-Tag:
+          - none
+        Set-Cookie:
+          - BrowserId=Fx-4Kp5CEfCKvUEBEsduyQ; domain=.salesforce.com; path=/; expires=Wed,
+            30-Sep-2026 21:11:54 GMT; Max-Age=31536000; secure; SameSite=None
+          - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:54 GMT; Max-Age=31536000;
+            secure
+          - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:54
+            GMT; Max-Age=31536000; secure
+        Cache-Control:
+          - no-cache,must-revalidate,max-age=0,no-store,private
+        X-Readonlymode:
+          - 'false'
+        X-Content-Type-Options:
+          - nosniff
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        Server:
+          - sfdcedge
+        X-Sfdc-Request-Id:
+          - b81c4005d59678e5c51ed88c12db1b2d
+        X-Request-Id:
+          - b81c4005d59678e5c51ed88c12db1b2d
+      body:
+        encoding: ASCII-8BIT
+        string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1759266714295","signature":"/5g29gJdLZVaB3XfPARq8IHto/u96lU4ZbK7Eg1BYAg="}'
+    recorded_at: Tue, 30 Sep 2025 21:11:54 GMT
+  - request:
+      method: get
+      uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20OwnerId,%20Owner.Name,%20Application_Due_Date__c,%20Name,%20Status__c,%20Building__c,%20Building__r.Name,%20Min_BR__c,%20Lottery_Winners__c,%20Max_BR__c,%20Lottery_Results__c,%20Min_Income__c,%20Account__c,%20Account__r.Name,%20Max_Income__c,%20Min_Occupancy__c,%20Max_Occupancy__c,%20Building_Name__c,%20Neighborhood__c,%20Building_Street_Address__c,%20Developer__c,%20Building_City__c,%20Building_URL__c,%20Building_State__c,%20Year_Built__c,%20Building_Zip_Code__c,%20Description__c,%20Lottery_Preferences__c,%20Accessibility__c,%20Fee__c,%20Amenities__c,%20Deposit_Min__c,%20Costs_Not_Included__c,%20Deposit_Max__c,%20Lottery_Date__c,%20Lottery_Results_Date__c,%20Lottery_Venue__c,%20Lottery_Summary__c,%20Lottery_Street_Address__c,%20Lottery_City__c,%20Lottery_URL__c,%20Reserved_community_type__c,%20Application_Phone__c,%20Application_Organization__c,%20Application_Street_Address__c,%20Application_City__c,%20Download_URL__c,%20Application_State__c,%20Application_Postal_Code__c,%20In_Lottery__c,%20Leasing_Agent_Name__c,%20Leasing_Agent_Title__c,%20Leasing_Agent_Email__c,%20Leasing_Agent_Phone__c,%20Legal_Disclaimers__c,%20Building_Selection_Criteria__c,%20Pet_Policy__c,%20Report_id__c,%20Required_Documents__c,%20Smoking_Policy__c,%20Eviction_History__c,%20Criminal_History__c,%20Credit_Rating__c,%20Lottery_Status__c,%20Office_Hours__c,%20Tenure__c,%20Listing_Type__c,%20File_Upload_URL__c,%0A%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Date__c,%20Start_Time__c,%20End_Time__c,%20Venue__c,%20Street_Address__c,%20City__c%20FROM%20Information_Sessions__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Date__c,%20Start_Time__c,%20End_Time__c%20FROM%20Open_Houses__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Id,%20Total_Submitted_Apps__c,%20Order__c,%20Description__c,%20Available_Units__c,%20PDF_URL__c,%20Lottery_Preference__r.Id,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Lottery_Preference__r.Name%20FROM%20Listing_Lottery_Preferences__r),%0A%20%20%20%20%20%20%20%20%20%20(SELECT%20Unit_Type__c,%20BMR_Rent_Monthly__c,%20BMR_Rental_Minimum_Monthly_Income_Needed__c,%20Status__c,%20Property_Type__c,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20AMI_chart_type__c,%20AMI_chart_year__c,%20Max_AMI_for_Qualifying_Unit__c,%20Reserved_Type__c%20FROM%20Units__r%20ORDER%20BY%20Unit_Type__c)%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20FROM%20Listing__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id=%27a0W0P00000F8YG4UAN%27%0A%20%20%20%20%20%20%20%20
+      body:
+        encoding: US-ASCII
+        string: ''
+      headers:
+        User-Agent:
+          - Faraday v2.12.2
+        Authorization:
+          - OAuth <<ACCESS_TOKEN>>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - '*/*'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 30 Sep 2025 21:11:54 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Cache-Control:
+          - no-cache,must-revalidate,max-age=0,no-store,private
+        Set-Cookie:
+          - BrowserId=F2Psap5CEfCcHRsmUza_Hw; domain=.salesforce.com; path=/; expires=Wed,
+            30-Sep-2026 21:11:54 GMT; Max-Age=31536000; secure; SameSite=None
+          - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:54 GMT; Max-Age=31536000;
+            secure
+          - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:54
+            GMT; Max-Age=31536000; secure
+        Sforce-Limit-Info:
+          - api-usage=9920/982000
+        X-Content-Type-Options:
+          - nosniff
+        Vary:
+          - Accept-Encoding
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        X-Robots-Tag:
+          - none
+        Server:
+          - sfdcedge
+        X-Sfdc-Request-Id:
+          - d62e50f1c1bc3bd0e4c414581da4bb55
+        X-Request-Id:
+          - d62e50f1c1bc3bd0e4c414581da4bb55
+        X-Sfdc-Edge-Cache:
+          - MISS
+      body:
+        encoding: ASCII-8BIT
+        string: !binary |-
+          eyJ0b3RhbFNpemUiOjEsImRvbmUiOnRydWUsInJlY29yZHMiOlt7ImF0dHJpYnV0ZXMiOnsidHlwZSI6Ikxpc3RpbmdfX2MiLCJ1cmwiOiIvc2VydmljZXMvZGF0YS92PDxTQUxFU0ZPUkNFX0FQSV9WRVJTSU9OPj4vc29iamVjdHMvTGlzdGluZ19fYy9hMFcwUDAwMDAwRjhZRzRVQU4ifSwiSWQiOiJhMFcwUDAwMDAwRjhZRzRVQU4iLCJPd25lcklkIjoiMDA1MFAwMDAwMDdXQkJSUUE0IiwiT3duZXIiOnsiYXR0cmlidXRlcyI6eyJ0eXBlIjoiTmFtZSIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9Vc2VyLzAwNTBQMDAwMDA3V0JCUlFBNCJ9LCJOYW1lIjoiQW5kcmVhIEVnYW4ifSwiQXBwbGljYXRpb25fRHVlX0RhdGVfX2MiOiIyMTAxLTAxLTAxVDAxOjAwOjAwLjAwMCswMDAwIiwiTmFtZSI6IlRFU1QgQXV0b21hdGVkIExpc3RpbmcgKGRvIG5vdCBtb2RpZnkpIiwiU3RhdHVzX19jIjoiQWN0aXZlIiwiQnVpbGRpbmdfX2MiOiJhMGEwUDAwMDAwR2JKbWJRQUYiLCJCdWlsZGluZ19fciI6eyJhdHRyaWJ1dGVzIjp7InR5cGUiOiJCdWlsZGluZ19fYyIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9CdWlsZGluZ19fYy9hMGEwUDAwMDAwR2JKbWJRQUYifSwiTmFtZSI6IlBSLTAwNzgyOCJ9LCJNaW5fQlJfX2MiOm51bGwsIkxvdHRlcnlfV2lubmVyc19fYyI6MC4wLCJNYXhfQlJfX2MiOjEuMCwiTG90dGVyeV9SZXN1bHRzX19jIjpmYWxzZSwiTWluX0luY29tZV9fYyI6NTI1NS4wLCJBY2NvdW50X19jIjoiMDAxVTAwMDAwMVlVVkRqSUFQIiwiQWNjb3VudF9fciI6eyJhdHRyaWJ1dGVzIjp7InR5cGUiOiJBY2NvdW50IiwidXJsIjoiL3NlcnZpY2VzL2RhdGEvdjw8U0FMRVNGT1JDRV9BUElfVkVSU0lPTj4+L3NvYmplY3RzL0FjY291bnQvMDAxVTAwMDAwMVlVVkRqSUFQIn0sIk5hbWUiOiJCdXRsZXIsIE1pbGVzIGFuZCBWYXNxdWV6In0sIk1heF9JbmNvbWVfX2MiOm51bGwsIk1pbl9PY2N1cGFuY3lfX2MiOjEuMCwiTWF4X09jY3VwYW5jeV9fYyI6bnVsbCwiQnVpbGRpbmdfTmFtZV9fYyI6IkF1dG9tYXRlZCBUZXN0IEJ1aWxkaW5nIiwiTmVpZ2hib3Job29kX19jIjoiSGF5ZXMgVmFsbGV5IiwiQnVpbGRpbmdfU3RyZWV0X0FkZHJlc3NfX2MiOm51bGwsIkRldmVsb3Blcl9fYyI6IldlYnN0ZXIgUExDIiwiQnVpbGRpbmdfQ2l0eV9fYyI6IlNhbiBGcmFuY2lzY28iLCJCdWlsZGluZ19VUkxfX2MiOiJodHRwczovL3NmbW9oY2Qub3JnL3NpdGVzL2RlZmF1bHQvZmlsZXMvRG9jdW1lbnRzL01PSC9Ib3VzaW5nJTIwTGlzdGluZyUyMFBob3Rvcy90ZXN0LWFwb2xvZ2llcy5wbmciLCJCdWlsZGluZ19TdGF0ZV9fYyI6IkNBIiwiWWVhcl9CdWlsdF9fYyI6MjAwOS4wLCJCdWlsZGluZ19aaXBfQ29kZV9fYyI6bnVsbCwiRGVzY3JpcHRpb25fX2MiOm51bGwsIkxvdHRlcnlfUHJlZmVyZW5jZXNfX2MiOm51bGwsIkFjY2Vzc2liaWxpdHlfX2MiOiJFbGV2YXRvciB0byBhbGwgZmxvb3JzIiwiRmVlX19jIjpudWxsLCJBbWVuaXRpZXNfX2MiOiJMYXVuZHJ5IHJvb20sIHVuZGVyZ3JvdW5kIHBhcmtpbmcsIGNvdXJ0eWFyZCwgYmlrZSByb29tIiwiRGVwb3NpdF9NaW5fX2MiOjIxMDIuMCwiQ29zdHNfTm90X0luY2x1ZGVkX19jIjoiVGVuYW50cyBwYXkgZm9yIGdhcywgZWxlY3RyaWNpdHkuXHJcblxyXG5Gb3IgcGV0IGZlZXM6ICBDYXQgaXMgYWxsb3dlZCB3aXRoIGEgJDUwMCByZWZ1bmRhYmxlIGRlcG9zaXQsICQyNTAgbm9uLXJlZnVuZGFibGUgY2xlYW5pbmcgZmVlIGFuZCBhIHBldCBhZGRlbmR1bS4gIFxyXG5cclxuRG9ncyBhcmUgbm90IGFsbG93ZWQgaW4gdGhlIGJ1aWxkaW5nLiAgXHJcblxyXG5PbmUgcGFya2luZyBzcGFjZSBwZXIgdW5pdCBhdmFpbGFibGUgZm9yICQxNzUgYSBtb250aC4iLCJEZXBvc2l0X01heF9fYyI6MjM1NS4wLCJMb3R0ZXJ5X0RhdGVfX2MiOiIyMDI0LTAzLTIyVDE4OjAwOjAwLjAwMCswMDAwIiwiTG90dGVyeV9SZXN1bHRzX0RhdGVfX2MiOiIyMDI0LTAzLTIzIiwiTG90dGVyeV9WZW51ZV9fYyI6IjxwPjxzcGFuIHN0eWxlPVwiZm9udC1zaXplOiAxMHB0OyBmb250LWZhbWlseTogQXJpYWw7IGNvbG9yOiByZ2IoMCwgMCwgMCk7IGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1wiPlRoZSBsb3R0ZXJ5IHdpbGwgbm90IGJlIGluIHBlcnNvbiwgYnV0IGluc3RlYWQgd2lsbCBiZSBhIHZpcnR1YWwgbG90dGVyeS48L3NwYW4+PC9wPjxwPjxzcGFuIHN0eWxlPVwiZm9udC1zaXplOiAxMnB0OyBjb2xvcjogcmdiKDAsIDAsIDApOyBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcIj7CoDwvc3Bhbj48L3A+PHA+PHNwYW4gc3R5bGU9XCJmb250LXNpemU6IDEwcHQ7IGZvbnQtZmFtaWx5OiBBcmlhbDsgY29sb3I6IHJnYigwLCAwLCAwKTsgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XCI+Q29tZSBiYWNrIHRvIHRoaXMgcGFnZSBvbiB0aGUgZGF5IG9mIHRoZSBsb3R0ZXJ5IGZvciBhIGxpbmsgeW91IGNhbiBjbGljayBvbiB0byB3YXRjaCB0aGUgbG90dGVyeSBsaXZlLjwvc3Bhbj48L3A+PHA+PGJyPjwvcD48cD48YnI+PC9wPiIsIkxvdHRlcnlfU3VtbWFyeV9fYyI6bnVsbCwiTG90dGVyeV9TdHJlZXRfQWRkcmVzc19fYyI6bnVsbCwiTG90dGVyeV9DaXR5X19jIjpudWxsLCJMb3R0ZXJ5X1VSTF9fYyI6bnVsbCwiUmVzZXJ2ZWRfY29tbXVuaXR5X3R5cGVfX2MiOm51bGwsIkFwcGxpY2F0aW9uX1Bob25lX19jIjoiKDQxNSkgMjI3LTIyNTYiLCJBcHBsaWNhdGlvbl9Pcmdhbml6YXRpb25fX2MiOiIyODAgRmVsbC1CTVIiLCJBcHBsaWNhdGlvbl9TdHJlZXRfQWRkcmVzc19fYyI6IlAuTy4gQm94IDQyMDg0NyIsIkFwcGxpY2F0aW9uX0NpdHlfX2MiOiJTYW4gRnJhbmNpc2NvIiwiRG93bmxvYWRfVVJMX19jIjpudWxsLCJBcHBsaWNhdGlvbl9TdGF0ZV9fYyI6IkNBIiwiQXBwbGljYXRpb25fUG9zdGFsX0NvZGVfX2MiOiI5NDE0MiIsIkluX0xvdHRlcnlfX2MiOjIzNzIuMCwiTGVhc2luZ19BZ2VudF9OYW1lX19jIjoiRG9ubmEgTHluY2giLCJMZWFzaW5nX0FnZW50X1RpdGxlX19jIjpudWxsLCJMZWFzaW5nX0FnZW50X0VtYWlsX19jIjoid2NhbWFjaG82MjM4QGV4YW1wbGUuY29tIiwiTGVhc2luZ19BZ2VudF9QaG9uZV9fYyI6IjU1NS01NTUtNTU1NSIsIkxlZ2FsX0Rpc2NsYWltZXJzX19jIjoiPHNwYW4gc3R5bGU9XCJmb250LXNpemU6IDEwcHQ7XCI+PHNwYW4gc3R5bGU9XCJmb250LWZhbWlseTogYXJpYWwsc2Fucy1zZXJpZjtcIj5BbGwgQk1SIHJlbnRlcnMgbXVzdCByZXZpZXcgYW5kIGFja25vd2xlZGdlIHRoZSA8L3NwYW4+PC9zcGFuPjxhIGhyZWY9XCJodHRwczovL3NmbW9oY2Qub3JnL3NpdGVzL2RlZmF1bHQvZmlsZXMvRG9jdW1lbnRzL01PSC9JbmNsdXNpb25hcnklMjBNYW51YWxzLzY5ODMtSW5jbHVzaW9uYXJ5JTIwUHJvY2VkdXJlcyUyME1hbnVhbCUyMDA1MTAxMy5wZGZcIiB0YXJnZXQ9XCJfYmxhbmtcIj48c3BhbiBzdHlsZT1cImZvbnQtc2l6ZTogMTBwdDtcIj48c3BhbiBzdHlsZT1cImZvbnQtZmFtaWx5OiBhcmlhbCxzYW5zLXNlcmlmO1wiPjxzcGFuIHN0eWxlPVwiY29sb3I6IHJnYigwLCAwLCAyNTUpO1wiPkluY2x1c2lvbmFyeSBBZmZvcmRhYmxlIEhvdXNpbmcgUHJvZ3JhbSBNb25pdG9yaW5nIGFuZCBQcm9jZWR1cmVzIE1hbnVhbCAyMDEzPC9zcGFuPjwvc3Bhbj48L3NwYW4+PC9hPjxzcGFuIHN0eWxlPVwiZm9udC1zaXplOiAxMHB0O1wiPjxzcGFuIHN0eWxlPVwiZm9udC1mYW1pbHk6IGFyaWFsLHNhbnMtc2VyaWY7XCI+IHRoYXQgZ292ZXJucyB0aGlzIHByb3BlcnR5IHVwb24gdGhlIHNpZ25pbmcgb2YgYSBsZWFzZSBmb3IgYSBCTVIgdW5pdC4gPC9zcGFuPjwvc3Bhbj48YnI+wqA8YnI+PHNwYW4gc3R5bGU9XCJmb250LXNpemU6IDEwcHQ7XCI+PHNwYW4gc3R5bGU9XCJmb250LWZhbWlseTogYXJpYWwsc2Fucy1zZXJpZjtcIj5BcHBsaWNhbnRzIHNob3VsZCBiZSBpbmZvcm1lZCB0aGF0IEJNUiByZW50YWwgdW5pdHMgaW4gc29tZSBidWlsZGluZ3MgbWF5IGNvbnZlcnQgdG8gb3duZXJzaGlwIHVuaXRzIGluIHRoZSBmdXR1cmUuwqAgSW4gdGhlIGNhc2Ugb2YgY29udmVyc2lvbiwgQk1SIHJlbnRlcnMgd2lsbCBiZSBhZmZvcmRlZCBjZXJ0YWluIHJpZ2h0cyBhcyBleHBsYWluZWQgaW4gdGhlIDwvc3Bhbj48L3NwYW4+PGEgaHJlZj1cImh0dHBzOi8vc2Ztb2hjZC5vcmcvc2l0ZXMvZGVmYXVsdC9maWxlcy9Eb2N1bWVudHMvTU9IL0luY2x1c2lvbmFyeSUyME1hbnVhbHMvNjk4My1JbmNsdXNpb25hcnklMjBQcm9jZWR1cmVzJTIwTWFudWFsJTIwMDUxMDEzLnBkZlwiIHRhcmdldD1cIl9ibGFua1wiPjxzcGFuIHN0eWxlPVwiZm9udC1zaXplOiAxMHB0O1wiPjxzcGFuIHN0eWxlPVwiZm9udC1mYW1pbHk6IGFyaWFsLHNhbnMtc2VyaWY7XCI+PHNwYW4gc3R5bGU9XCJjb2xvcjogcmdiKDAsIDAsIDI1NSk7XCI+SW5jbHVzaW9uYXJ5IEFmZm9yZGFibGUgSG91c2luZyBQcm9ncmFtIE1vbml0b3JpbmcgYW5kIFByb2NlZHVyZXMgTWFudWFsIDIwMTM8L3NwYW4+PC9zcGFuPjwvc3Bhbj48L2E+PHNwYW4gc3R5bGU9XCJmb250LXNpemU6IDEwcHQ7XCI+PHNwYW4gc3R5bGU9XCJmb250LWZhbWlseTogYXJpYWwsc2Fucy1zZXJpZjtcIj4uIEFwcGxpY2FudHMgc2hvdWxkIGlucXVpcmUgd2l0aCB0aGUgYnVpbGRpbmcgY29udGFjdCBwZXJzb24gbGlzdGVkIGFib3ZlIHRvIGRldGVybWluZSBpZiB0aGUgYnVpbGRpbmcgaGFzIGEgbWluaW11bSBudW1iZXIgb2YgeWVhcnMgdGhhdCBpdCBtdXN0IHJlbWFpbiBhIHJlbnRhbCBidWlsZGluZy7CoCAoU29tZSBidWlsZGluZ3MgbWF5IGhhdmUgc3VjaCByZXN0cmljdGlvbnMgYmFzZWQgb24gZ292ZXJubWVudCBzb3VyY2VzIG9mIGZpbmFuY2luZyBmb3IgdGhlaXIgYnVpbGRpbmcuKSBNb3N0IGJ1aWxkaW5ncyBtYXkgaGF2ZSBubyByZXN0cmljdGlvbnMgb24gY29udmVyc2lvbiBhdCBhbGwuIDwvc3Bhbj48L3NwYW4+PGJyPsKgPGJyPjxzcGFuIHN0eWxlPVwiZm9udC1zaXplOiAxMHB0O1wiPjxzcGFuIHN0eWxlPVwiZm9udC1mYW1pbHk6IGFyaWFsLHNhbnMtc2VyaWY7XCI+SXQgaXMgYWxzbyBpbXBvcnRhbnQgdG8gbm90ZSB0aGF0IHVuaXRzIGdvdmVybmVkIGJ5IHRoZSBJbmNsdXNpb25hcnkgSG91c2luZyBQcm9ncmFtIGFyZSBOT1QgZ292ZXJuZWQgYnkgdGhlIFNhbiBGcmFuY2lzY28gUmVudCBPcmRpbmFuY2UgKGFsc28ga25vd24gYXMgJnF1b3Q7cmVudCBjb250cm9sJnF1b3Q7KS4gQW1vbmcgb3RoZXIgcnVsZXMsIHJlbnRzIG1heSBpbmNyZWFzZSBiZXlvbmQgaW5jcmVhc2VzIGFsbG93ZWQgdW5kZXIgJnF1b3Q7cmVudCBjb250cm9sLiZxdW90OyAgUGxlYXNlIHNlZSB0aGUgPC9zcGFuPjwvc3Bhbj48c3BhbiBzdHlsZT1cImZvbnQtc2l6ZTogMTJwdDtcIj48c3BhbiBzdHlsZT1cImZvbnQtZmFtaWx5OiB0aW1lcyBuZXcgcm9tYW4sc2VyaWY7XCI+PGEgaHJlZj1cImh0dHBzOi8vc2Ztb2hjZC5vcmcvc2l0ZXMvZGVmYXVsdC9maWxlcy9Eb2N1bWVudHMvTU9IL0luY2x1c2lvbmFyeSUyME1hbnVhbHMvNjk4My1JbmNsdXNpb25hcnklMjBQcm9jZWR1cmVzJTIwTWFudWFsJTIwMDUxMDEzLnBkZlwiIHRhcmdldD1cIl9ibGFua1wiPjxzcGFuIHN0eWxlPVwiZm9udC1zaXplOiAxMHB0O1wiPjxzcGFuIHN0eWxlPVwiZm9udC1mYW1pbHk6IGFyaWFsLHNhbnMtc2VyaWY7XCI+PHNwYW4gc3R5bGU9XCJjb2xvcjogcmdiKDAsIDAsIDI1NSk7XCI+SW5jbHVzaW9uYXJ5IEFmZm9yZGFibGUgSG91c2luZyBQcm9ncmFtIE1vbml0b3JpbmcgYW5kIFByb2NlZHVyZXMgTWFudWFsIDIwMTM8L3NwYW4+PC9zcGFuPjwvc3Bhbj48L2E+PC9zcGFuPjwvc3Bhbj48c3BhbiBzdHlsZT1cImZvbnQtc2l6ZTogMTBwdDtcIj48c3BhbiBzdHlsZT1cImZvbnQtZmFtaWx5OiBhcmlhbCxzYW5zLXNlcmlmO1wiPiBmb3IgbW9yZSBpbmZvcm1hdGlvbi4gPC9zcGFuPjwvc3Bhbj4iLCJCdWlsZGluZ19TZWxlY3Rpb25fQ3JpdGVyaWFfX2MiOiJodHRwczovL3VzLmF3cC5hdXRvdGFzay5uZXQvMS9maWxlbGluay8xMTNiZC0zN2VkNDFhMS01M2E3ZjAxNDU5LTIiLCJQZXRfUG9saWN5X19jIjoiRG9ncyBhcmUgdW5mb3J0dW5hdGVseSBub3QgYWxsb3dlZCBpbiB0aGUgYnVpbGRpbmcuIiwiUmVwb3J0X2lkX19jIjpudWxsLCJSZXF1aXJlZF9Eb2N1bWVudHNfX2MiOiJMb3R0ZXJ5IHdpbm5lcnMgd2lsbCBiZSByZXF1aXJlZCB0byBmaWxsIG91dCBhIGJ1aWxkaW5nIGFwcGxpY2F0aW9uIGFuZCBwcm92aWRlIGEgY29weSBvZiB5b3VyIGN1cnJlbnQgY3JlZGl0IHJlcG9ydCwgMyBtb3N0IHJlY2VudCBwYXlzdHVicywgY3VycmVudCB0YXggcmV0dXJucyBhbmQgVy0yLCBhbmQgMyBtb3N0IHJlY2VudCBiYW5rIHN0YXRlbWVudHMuIiwiU21va2luZ19Qb2xpY3lfX2MiOiJOb24tc21va2luZyBidWlsZGluZyIsIkV2aWN0aW9uX0hpc3RvcnlfX2MiOiJQcm92aWRlIG1pbmltdW0gb2YgNCB5ZWFycyByZW50YWwgaGlzdG9yeSB3aXRoIGF0IGxlYXN0IHR3byBwcmlvciByZW50YWxzIGluIHdoaWNoIHlvdSB3ZXJlIHJlc3BvbnNpYmxlIGZvciBwYXlpbmcgdGhlIHJlbnQuICBBcHBsaWNhbnRzIHdpdGhvdXQgcmVudGFsIGhpc3Rvcnkgd2lsbCBzdGlsbCBiZSBjb25zaWRlcmVkLiBObyBHdWFyYW50b3JzIHBlcm1pdHRlZC4gXHJcblxyXG5QcmV2aW91cyByZW50YWwgaGlzdG9yeSB3aWxsIGJlIHJldmlld2VkIGFuZCBtdXN0IGV4aGliaXQgbm8gZGVyb2dhdG9yeSByZWZlcmVuY2VzLiBcclxuXHJcbkxhbmRsb3JkIHJlZmVyZW5jZXMgd2lsbCBvbmx5IGNoZWNrIGZvciBldmljdGlvbnMsIHBheW1lbnQgaGlzdG9yeSwgYW5kIGRvY3VtZW50ZWQgbGVhc2UgdmlvbGF0aW9ucy4gTm8tZmF1bHQgZXZpY3Rpb25zIChFbGxpcyBBY3QsIE93bmVyIE1vdmUtaW4gZXZpY3Rpb25zKSB3aWxsIG5vdCBiZSBoZWxkIGFnYWluc3QgYSBob3VzZWhvbGQuIFxyXG5cclxuQWxsIGRlYnQgb3dlZCB0byBhbiBhcGFydG1lbnQgY29tbXVuaXR5IG11c3QgYmUgc2F0aXNmaWVkLiBcclxuXHJcbk1pdGlnYXRpbmcgY2lyY3Vtc3RhbmNlcyBtYXkgYmUgY29uc2lkZXJlZC4iLCJDcmltaW5hbF9IaXN0b3J5X19jIjpudWxsLCJDcmVkaXRfUmF0aW5nX19jIjoiUHJvdmlkZSBhIGNyZWRpdCByZXBvcnQgd2l0aCBzY29yZSBmcm9tIEVxdWlmYXgsIEV4cGVyaWFuLCBvciBUcmFuc1VuaW9uIGRhdGVkIHdpdGhpbiB0aGlydHkgKDMwKSBkYXlzIG9mIHRoZSBhcHBsaWNhdGlvbi4gXHJcblxyXG5BY2NvdW50cyB0aGF0IGFyZSBub3QgY3VycmVudCBvciB0aGF0IGFyZSBkZXJvZ2F0b3J5IHdpbGwgbmVnYXRpdmVseSBhZmZlY3QgdGhlIG92ZXJhbGwgc2NvcmluZywgd2hpY2ggY291bGQgcmVzdWx0IGluIHRoZSBkZW5pYWwgb2YgdGhlIGFwcGxpY2F0aW9uIG9yIGFuIGFkZGl0aW9uYWwgZGVwb3NpdCBtYXkgYmUgcmVxdWlyZWQuIFxyXG5cclxuQ29sbGVjdGlvbiBhY2NvdW50cyBleGNlZWRpbmcgYSBjb21iaW5lZCBhbW91bnQgb2YgJDEsMDAwLjAwIChleGNsdWRpbmcgc3R1ZGVudCBsb2FucyBhbmQgbWVkaWNhbCBkZWJ0KSB3aWxsIG5lZ2F0aXZlbHkgYWZmZWN0IHRoZSBvdmVyYWxsIHNjb3JpbmcsIHdoaWNoIGNvdWxkIHJlc3VsdCBpbiB0aGUgZGVuaWFsIG9mIHRoZSBhcHBsaWNhdGlvbiBvciBhbiBhZGRpdGlvbmFsIGRlcG9zaXQgbWF5IGJlIHJlcXVpcmVkLiBcclxuXHJcbkJhbmtydXB0Y3kgaWYgbm90IGNsZWFyZWQgd2lsbCBiZSBhbiBhdXRvbWF0aWMgZGVuaWFsIG9mIHRoZSByZW50YWwgYXBwbGljYXRpb24uIFxyXG5cclxuTm8gR3VhcmFudG9ycyBwZXJtaXR0ZWQuXHJcblxyXG5NaXRpZ2F0aW5nIGNpcmN1bXN0YW5jZXMgbWF5IGJlIGNvbnNpZGVyZWQuIiwiTG90dGVyeV9TdGF0dXNfX2MiOiJOb3QgWWV0IFJ1biIsIk9mZmljZV9Ib3Vyc19fYyI6Ik0tRiwgOS04IiwiVGVudXJlX19jIjoiUmUtcmVudGFsIiwiTGlzdGluZ19UeXBlX19jIjoiSW52YWxpZCBvciBUZXN0IExpc3RpbmciLCJGaWxlX1VwbG9hZF9VUkxfX2MiOm51bGwsIkluZm9ybWF0aW9uX1Nlc3Npb25zX19yIjp7InRvdGFsU2l6ZSI6MSwiZG9uZSI6dHJ1ZSwicmVjb3JkcyI6W3siYXR0cmlidXRlcyI6eyJ0eXBlIjoiSW5mb3JtYXRpb25fU2Vzc2lvbl9fYyIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9JbmZvcm1hdGlvbl9TZXNzaW9uX19jL2EwVjRVMDAwMDBDY01SdlVBTiJ9LCJEYXRlX19jIjoiMjAyMS0wNy0yOSIsIlN0YXJ0X1RpbWVfX2MiOiI1OjAwcG0iLCJFbmRfVGltZV9fYyI6bnVsbCwiVmVudWVfX2MiOiI8cD50ZXN0IGluZm8gc2Vzc2lvbjwvcD4iLCJTdHJlZXRfQWRkcmVzc19fYyI6bnVsbCwiQ2l0eV9fYyI6bnVsbH1dfSwiT3Blbl9Ib3VzZXNfX3IiOnsidG90YWxTaXplIjoxLCJkb25lIjp0cnVlLCJyZWNvcmRzIjpbeyJhdHRyaWJ1dGVzIjp7InR5cGUiOiJPcGVuX0hvdXNlc19fYyIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9PcGVuX0hvdXNlc19fYy9hMFkwUDAwMDAwRXlMdkpVQVYifSwiRGF0ZV9fYyI6IjIwMTgtMDItMjMiLCJTdGFydF9UaW1lX19jIjoiOTowMEFNIiwiRW5kX1RpbWVfX2MiOiIxMjowMFBNIn1dfSwiTGlzdGluZ19Mb3R0ZXJ5X1ByZWZlcmVuY2VzX19yIjp7InRvdGFsU2l6ZSI6NiwiZG9uZSI6dHJ1ZSwicmVjb3JkcyI6W3siYXR0cmlidXRlcyI6eyJ0eXBlIjoiTGlzdGluZ19Mb3R0ZXJ5X1ByZWZlcmVuY2VfX2MiLCJ1cmwiOiIvc2VydmljZXMvZGF0YS92PDxTQUxFU0ZPUkNFX0FQSV9WRVJTSU9OPj4vc29iamVjdHMvTGlzdGluZ19Mb3R0ZXJ5X1ByZWZlcmVuY2VfX2MvYTBsMFAwMDAwMUx4OFhLUUFaIn0sIklkIjoiYTBsMFAwMDAwMUx4OFhLUUFaIiwiVG90YWxfU3VibWl0dGVkX0FwcHNfX2MiOjE1NS4wLCJPcmRlcl9fYyI6MS4wLCJEZXNjcmlwdGlvbl9fYyI6IkZvciBob3VzZWhvbGRzIGluIHdoaWNoIGF0IGxlYXN0IG9uZSBtZW1iZXIgaG9sZHMgYSBDZXJ0aWZpY2F0ZSBvZiBQcmVmZXJlbmNlIGZyb20gdGhlIGZvcm1lciBTYW4gRnJhbmNpc2NvIFJlZGV2ZWxvcG1lbnQgQWdlbmN5LiBDT1AgaG9sZGVycyB3ZXJlIGRpc3BsYWNlZCBieSBBZ2VuY3kgYWN0aW9uIGdlbmVyYWxseSBkdXJpbmcgdGhlIDE5NjBzIGFuZCAxOTcwcy4iLCJBdmFpbGFibGVfVW5pdHNfX2MiOjEuMCwiUERGX1VSTF9fYyI6bnVsbCwiTG90dGVyeV9QcmVmZXJlbmNlX19yIjp7ImF0dHJpYnV0ZXMiOnsidHlwZSI6IkxvdHRlcnlfUHJlZmVyZW5jZV9fYyIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9Mb3R0ZXJ5X1ByZWZlcmVuY2VfX2MvYTBtMFAwMDAwMHd3aTNJUUFRIn0sIklkIjoiYTBtMFAwMDAwMHd3aTNJUUFRIiwiTmFtZSI6IkNlcnRpZmljYXRlIG9mIFByZWZlcmVuY2UgKENPUCkifX0seyJhdHRyaWJ1dGVzIjp7InR5cGUiOiJMaXN0aW5nX0xvdHRlcnlfUHJlZmVyZW5jZV9fYyIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9MaXN0aW5nX0xvdHRlcnlfUHJlZmVyZW5jZV9fYy9hMGwwUDAwMDAxTHg4WFBRQVoifSwiSWQiOiJhMGwwUDAwMDAxTHg4WFBRQVoiLCJUb3RhbF9TdWJtaXR0ZWRfQXBwc19fYyI6MTU0LjAsIk9yZGVyX19jIjozLjAsIkRlc2NyaXB0aW9uX19jIjoiRm9yIGhvdXNlaG9sZHMgaW4gd2hpY2ggYXQgbGVhc3Qgb25lIG1lbWJlciBob2xkcyBhIERpc3BsYWNlZCBUZW5hbnQgSG91c2luZyBQcmVmZXJlbmNlIENlcnRpZmljYXRlLiBEVEhQIENlcnRpZmljYXRlIGhvbGRlcnMgYXJlIHRlbmFudHMgd2hvIHdlcmUgZXZpY3RlZCB0aHJvdWdoIGVpdGhlciBhbiBFbGxpcyBBY3QgRXZpY3Rpb24gb3IgYW4gT3duZXIgTW92ZSBJbiBFdmljdGlvbiwgb3IgaGF2ZSBiZWVuIGRpc3BsYWNlZCBieSBhIGZpcmUuIE9uY2UgYWxsIHVuaXRzIHJlc2VydmVkIGZvciB0aGlzIHByZWZlcmVuY2UgYXJlIGZpbGxlZCwgcmVtYWluaW5nIERUSFAgaG9sZGVycyB3aWxsIHJlY2VpdmUgTGl2ZS9Xb3JrIHByZWZlcmVuY2UsIHJlZ2FyZGxlc3Mgb2YgdGhlaXIgY3VycmVudCByZXNpZGVuY2Ugb3Igd29yayBsb2NhdGlvbi4iLCJBdmFpbGFibGVfVW5pdHNfX2MiOjMuMCwiUERGX1VSTF9fYyI6bnVsbCwiTG90dGVyeV9QcmVmZXJlbmNlX19yIjp7ImF0dHJpYnV0ZXMiOnsidHlwZSI6IkxvdHRlcnlfUHJlZmVyZW5jZV9fYyIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9Mb3R0ZXJ5X1ByZWZlcmVuY2VfX2MvYTBtMFAwMDAwMHd3dzFtUUFBIn0sIklkIjoiYTBtMFAwMDAwMHd3dzFtUUFBIiwiTmFtZSI6IkRpc3BsYWNlZCBUZW5hbnQgSG91c2luZyBQcmVmZXJlbmNlIChEVEhQKSJ9fSx7ImF0dHJpYnV0ZXMiOnsidHlwZSI6Ikxpc3RpbmdfTG90dGVyeV9QcmVmZXJlbmNlX19jIiwidXJsIjoiL3NlcnZpY2VzL2RhdGEvdjw8U0FMRVNGT1JDRV9BUElfVkVSU0lPTj4+L3NvYmplY3RzL0xpc3RpbmdfTG90dGVyeV9QcmVmZXJlbmNlX19jL2EwbDBQMDAwMDFMeDhYVVFBWiJ9LCJJZCI6ImEwbDBQMDAwMDFMeDhYVVFBWiIsIlRvdGFsX1N1Ym1pdHRlZF9BcHBzX19jIjoxNTIuMCwiT3JkZXJfX2MiOjQuMCwiRGVzY3JpcHRpb25fX2MiOiJGb3IgaG91c2Vob2xkcyBpbiB3aGljaCBhdCBsZWFzdCBvbmUgbWVtYmVyIGVpdGhlciBsaXZlcyB3aXRoaW4gU3VwZXJ2aXNvciBkaXN0cmljdCBvZiB0aGUgcHJvamVjdCBbRGlzdHJpY3QgNl0sIG9yIHdpdGhpbiBhIGhhbGYtbWlsZSBvZiB0aGUgcHJvamVjdC4gIFJlcXVpcmVzIHN1Ym1pc3Npb24gb2YgcHJvb2Ygb2YgYWRkcmVzcy4iLCJBdmFpbGFibGVfVW5pdHNfX2MiOjQuMCwiUERGX1VSTF9fYyI6bnVsbCwiTG90dGVyeV9QcmVmZXJlbmNlX19yIjp7ImF0dHJpYnV0ZXMiOnsidHlwZSI6IkxvdHRlcnlfUHJlZmVyZW5jZV9fYyIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9Mb3R0ZXJ5X1ByZWZlcmVuY2VfX2MvYTBtMFAwMDAwMHd3dzFyUUFBIn0sIklkIjoiYTBtMFAwMDAwMHd3dzFyUUFBIiwiTmFtZSI6Ik5laWdoYm9yaG9vZCBSZXNpZGVudCBIb3VzaW5nIFByZWZlcmVuY2UgKE5SSFApIn19LHsiYXR0cmlidXRlcyI6eyJ0eXBlIjoiTGlzdGluZ19Mb3R0ZXJ5X1ByZWZlcmVuY2VfX2MiLCJ1cmwiOiIvc2VydmljZXMvZGF0YS92PDxTQUxFU0ZPUkNFX0FQSV9WRVJTSU9OPj4vc29iamVjdHMvTGlzdGluZ19Mb3R0ZXJ5X1ByZWZlcmVuY2VfX2MvYTBsMFAwMDAwMUx4OFhaUUFaIn0sIklkIjoiYTBsMFAwMDAwMUx4OFhaUUFaIiwiVG90YWxfU3VibWl0dGVkX0FwcHNfX2MiOjgwNC4wLCJPcmRlcl9fYyI6Mi4wLCJEZXNjcmlwdGlvbl9fYyI6IkZvciBob3VzZWhvbGRzIHdobyBhcmUgY3VycmVudGx5IHBheWluZyBtb3JlIHRoYW4gNTAlIG9mIGluY29tZSBmb3IgaG91c2luZyBjb3N0cyBvciBhcmUgbGl2aW5nIGluIHB1YmxpYyBob3VzaW5nIG9yIHByb2plY3QgYmFzZWQgU2VjdGlvbiA4IGhvdXNpbmcgd2l0aGluIFNhbiBGcmFuY2lzY28uIiwiQXZhaWxhYmxlX1VuaXRzX19jIjoyLjAsIlBERl9VUkxfX2MiOm51bGwsIkxvdHRlcnlfUHJlZmVyZW5jZV9fciI6eyJhdHRyaWJ1dGVzIjp7InR5cGUiOiJMb3R0ZXJ5X1ByZWZlcmVuY2VfX2MiLCJ1cmwiOiIvc2VydmljZXMvZGF0YS92PDxTQUxFU0ZPUkNFX0FQSV9WRVJTSU9OPj4vc29iamVjdHMvTG90dGVyeV9QcmVmZXJlbmNlX19jL2EwbTBQMDAwMDB4VHFEdFFBSyJ9LCJJZCI6ImEwbTBQMDAwMDB4VHFEdFFBSyIsIk5hbWUiOiJSZW50IEJ1cmRlbmVkIC8gQXNzaXN0ZWQgSG91c2luZyBQcmVmZXJlbmNlIn19LHsiYXR0cmlidXRlcyI6eyJ0eXBlIjoiTGlzdGluZ19Mb3R0ZXJ5X1ByZWZlcmVuY2VfX2MiLCJ1cmwiOiIvc2VydmljZXMvZGF0YS92PDxTQUxFU0ZPUkNFX0FQSV9WRVJTSU9OPj4vc29iamVjdHMvTGlzdGluZ19Mb3R0ZXJ5X1ByZWZlcmVuY2VfX2MvYTBsMFAwMDAwMUx4OFhlUUFKIn0sIklkIjoiYTBsMFAwMDAwMUx4OFhlUUFKIiwiVG90YWxfU3VibWl0dGVkX0FwcHNfX2MiOjM0MS4wLCJPcmRlcl9fYyI6NS4wLCJEZXNjcmlwdGlvbl9fYyI6IkZvciBob3VzZWhvbGRzIGluIHdoaWNoIGF0IGxlYXN0IG9uZSBtZW1iZXIgbGl2ZXMgb3Igd29ya3MgaW4gU2FuIEZyYW5jaXNjby4gIFJlcXVpcmVzIHN1Ym1pc3Npb24gb2YgcHJvb2YuICBQbGVhc2Ugbm90ZSBpbiBvcmRlciB0byBjbGFpbSBXb3JrIFByZWZlcmVuY2UsIHRoZSBhcHBsaWNhbnQgY3VycmVudGx5IHdvcmsgaW4gU2FuIEZyYW5jaXNjbyBhdCBsZWFzdCA3NSUgb2YgdGhlaXIgd29ya2luZyBob3Vycy4iLCJBdmFpbGFibGVfVW5pdHNfX2MiOjUuMCwiUERGX1VSTF9fYyI6bnVsbCwiTG90dGVyeV9QcmVmZXJlbmNlX19yIjp7ImF0dHJpYnV0ZXMiOnsidHlwZSI6IkxvdHRlcnlfUHJlZmVyZW5jZV9fYyIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9Mb3R0ZXJ5X1ByZWZlcmVuY2VfX2MvYTBtMFAwMDAwMHd3aTNOUUFRIn0sIklkIjoiYTBtMFAwMDAwMHd3aTNOUUFRIiwiTmFtZSI6IkxpdmUgb3IgV29yayBpbiBTYW4gRnJhbmNpc2NvIFByZWZlcmVuY2UifX0seyJhdHRyaWJ1dGVzIjp7InR5cGUiOiJMaXN0aW5nX0xvdHRlcnlfUHJlZmVyZW5jZV9fYyIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9MaXN0aW5nX0xvdHRlcnlfUHJlZmVyZW5jZV9fYy9hMGwwUDAwMDAxUHNxRG9RQUoifSwiSWQiOiJhMGwwUDAwMDAxUHNxRG9RQUoiLCJUb3RhbF9TdWJtaXR0ZWRfQXBwc19fYyI6MTUzLjAsIk9yZGVyX19jIjo2LjAsIkRlc2NyaXB0aW9uX19jIjoiRm9yIGhvdXNlaG9sZHMgaW4gd2hpY2ggYXQgbGVhc3Qgb25lIG1lbWJlciB3YXMgYSByZXNpZGVudCBvZiB0aGUgQWxpY2UgR3JpZmZpdGggaG91c2luZyBkZXZlbG9wbWVudC4gVGhpcyBpbmNsdWRlcyBiYXNlbGluZSBhbmQgY3VycmVudCByZXNpZGVudHMgdGhhdCBsaXZlZCBpbiB0aGUgdGFyZ2V0ZWQgcmVkZXZlbG9wbWVudCBzaXRlIG9uIG9yIGFmdGVyIHRoZSB0aW1lIG9mIGFwcGxpY2F0aW9uIGZvciBDaG9pY2UgTmVpZ2hib3Job29kcyBvZiBPY3RvYmVyIDI2LCAyMDEwLiIsIkF2YWlsYWJsZV9Vbml0c19fYyI6bnVsbCwiUERGX1VSTF9fYyI6bnVsbCwiTG90dGVyeV9QcmVmZXJlbmNlX19yIjp7ImF0dHJpYnV0ZXMiOnsidHlwZSI6IkxvdHRlcnlfUHJlZmVyZW5jZV9fYyIsInVybCI6Ii9zZXJ2aWNlcy9kYXRhL3Y8PFNBTEVTRk9SQ0VfQVBJX1ZFUlNJT04+Pi9zb2JqZWN0cy9Mb3R0ZXJ5X1ByZWZlcmVuY2VfX2MvYTBtMFAwMDAwMHl1ek8wUUFJIn0sIklkIjoiYTBtMFAwMDAwMHl1ek8wUUFJIiwiTmFtZSI6IkFsaWNlIEdyaWZmaXRoIEhvdXNpbmcgRGV2ZWxvcG1lbnQgUmVzaWRlbnQifX1dfSwiVW5pdHNfX3IiOnsidG90YWxTaXplIjoxLCJkb25lIjp0cnVlLCJyZWNvcmRzIjpbeyJhdHRyaWJ1dGVzIjp7InR5cGUiOiJVbml0X19jIiwidXJsIjoiL3NlcnZpY2VzL2RhdGEvdjw8U0FMRVNGT1JDRV9BUElfVkVSU0lPTj4+L3NvYmplY3RzL1VuaXRfX2MvYTBiMFAwMDAwMUZiM3lOUUFSIn0sIlVuaXRfVHlwZV9fYyI6IjEgQlIiLCJCTVJfUmVudF9Nb250aGx5X19jIjoyMTAyLjAsIkJNUl9SZW50YWxfTWluaW11bV9Nb250aGx5X0luY29tZV9OZWVkZWRfX2MiOjUyNTUuMCwiU3RhdHVzX19jIjoiQXZhaWxhYmxlIiwiUHJvcGVydHlfVHlwZV9fYyI6bnVsbCwiQU1JX2NoYXJ0X3R5cGVfX2MiOiJIVUQgVW5hZGp1c3RlZCIsIkFNSV9jaGFydF95ZWFyX19jIjoyMDE2LjAsIk1heF9BTUlfZm9yX1F1YWxpZnlpbmdfVW5pdF9fYyI6MTAwLjAsIlJlc2VydmVkX1R5cGVfX2MiOm51bGx9XX19XX0=
+    recorded_at: Tue, 30 Sep 2025 21:11:54 GMT
+  - request:
+      method: post
+      uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+      body:
+        encoding: US-ASCII
+        string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+      headers:
+        User-Agent:
+          - Faraday v2.12.2
+        Content-Type:
+          - application/x-www-form-urlencoded
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - '*/*'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 30 Sep 2025 21:11:55 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        X-Content-Type-Options:
+          - nosniff
+        X-Readonlymode:
+          - 'false'
+        Cache-Control:
+          - no-cache,must-revalidate,max-age=0,no-store,private
+        Vary:
+          - Accept-Encoding
+        Set-Cookie:
+          - BrowserId=F8QOfp5CEfCUGedNRWjfkg; domain=.salesforce.com; path=/; expires=Wed,
+            30-Sep-2026 21:11:55 GMT; Max-Age=31536000; secure; SameSite=None
+          - CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:55 GMT; Max-Age=31536000;
+            secure
+          - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 30-Sep-2026 21:11:55
+            GMT; Max-Age=31536000; secure
+        Expires:
+          - Thu, 01 Jan 1970 00:00:00 GMT
+        X-Robots-Tag:
+          - none
+        Strict-Transport-Security:
+          - max-age=63072000; includeSubDomains
+        Server:
+          - sfdcedge
+        X-Sfdc-Request-Id:
+          - 46bd0bc44f4ef6098a6fcaaf22194ac1
+        X-Request-Id:
+          - 46bd0bc44f4ef6098a6fcaaf22194ac1
+      body:
+        encoding: ASCII-8BIT
+        string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1759266715313","signature":"NqOsrB1sxbssPDc4BE6hkB83VJpAX0tTxa7FXcjgSww="}'
+    recorded_at: Tue, 30 Sep 2025 21:11:55 GMT
+recorded_with: VCR 6.3.1

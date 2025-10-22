@@ -17,6 +17,18 @@ const mockObjectWithValues = (...values) => {
 }
 
 describe('validate', () => {
+  describe('isValidUrl', () => {
+    describe('passes validation', () => {
+      test('is valid url', () => {
+        expect(validate.isValidUrl(VALIDATION_MSG)('https://www.sf.gov')).toBeUndefined()
+      })
+    })
+    describe('fails validation', () => {
+      test('is invalid url', () => {
+        expect(validate.isValidUrl(VALIDATION_MSG)('foo')).toEqual(VALIDATION_MSG)
+      })
+    })
+  })
   describe('isOldEnough', () => {
     describe('passes validation if DOB', () => {
       test('is more than 18 years ago', () => {
@@ -91,6 +103,24 @@ describe('validate', () => {
       })
       test('if date has non-numerical characters in it', () => {
         expect(validate.isDate(VALIDATION_MSG)(['2010', '01z', '12'])).toEqual(VALIDATION_MSG)
+      })
+    })
+  })
+  describe('isFutureDate', () => {
+    describe('passes validation', () => {
+      test('if date is in future', () => {
+        expect(validate.isFutureDate(VALIDATION_MSG)(['3000', '02', '28'])).toBeUndefined()
+      })
+    })
+    describe('fails validation', () => {
+      test('if date is in past', () => {
+        expect(validate.isFutureDate(VALIDATION_MSG)(['1999', '02', '29'])).toEqual(VALIDATION_MSG)
+      })
+      test('if date is today', () => {
+        const today = moment()
+        expect(
+          validate.isFutureDate(VALIDATION_MSG)([today.year(), today.month(), today.day()])
+        ).toEqual(VALIDATION_MSG)
       })
     })
   })

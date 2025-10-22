@@ -83,20 +83,29 @@ module Force
       { domain: 'units', salesforce: 'Units' },
       { domain: 'listing_type', salesforce: 'Listing_Type' },
       { domain: 'custom_listing_type', salesforce: 'Custom_Listing_Type' },
+      { domain: 'file_upload_url', salesforce: 'File_Upload_URL' },
     ].freeze
 
     LISTING_TYPE_FIRST_COME_FIRST_SERVED = 'First Come, First Served'
 
-    def map_list_to_domain(domain_fields, listDomainFieldName, forceClass)
-      if domain_fields[listDomainFieldName]
-        domain_fields[listDomainFieldName] = forceClass.convert_list(domain_fields[listDomainFieldName], :from_salesforce, :to_domain)
-      end
+    def map_list_to_domain(domain_fields, list_domain_field_name, force_class)
+      return unless domain_fields[list_domain_field_name]
+
+      domain_fields[list_domain_field_name] = force_class.convert_list(domain_fields[list_domain_field_name], :from_salesforce, :to_domain)
     end
 
-    def map_list_to_salesforce(salesforce_fields, listSalesforceFieldName, forceClass)
-      if salesforce_fields[listSalesforceFieldName]
-        salesforce_fields[listSalesforceFieldName] = forceClass.convert_list(salesforce_fields[listSalesforceFieldName], :from_domain, :to_salesforce)
-      end
+    def map_list_to_salesforce(salesforce_fields, list_salesforce_field_name, force_class)
+      return unless salesforce_fields[list_salesforce_field_name]
+
+      salesforce_fields[list_salesforce_field_name] = force_class.convert_list(
+        salesforce_fields[list_salesforce_field_name], :from_domain, :to_salesforce
+      )
+    end
+
+    def map_to_salesforce_lookup(salesforce_fields, fieldname)
+      return unless salesforce_fields[fieldname]
+
+      salesforce_fields[fieldname] = { "Name": salesforce_fields[fieldname] }
     end
 
     def to_domain
@@ -123,9 +132,9 @@ module Force
       salesforce_fields = super
       return if salesforce_fields.blank?
 
-      salesforce_fields.Owner = { "Name": salesforce_fields.Owner }
-      salesforce_fields.Account = { "Name": salesforce_fields.Account }
-      salesforce_fields.Building = { "Name": salesforce_fields.Building }
+      map_to_salesforce_lookup(salesforce_fields, :Owner)
+      map_to_salesforce_lookup(salesforce_fields, :Account)
+      map_to_salesforce_lookup(salesforce_fields, :Building)
 
       # TODO: These sub-object mappings are so common there should be a way to specify them in
       # FIELD_NAME_MAPPINGS hash so this happens automatically
@@ -134,7 +143,7 @@ module Force
       map_list_to_salesforce(salesforce_fields, :Listing_Lottery_Preferences, Force::LotteryPreference)
       map_list_to_salesforce(salesforce_fields, :Units, Force::Unit)
 
-      salesforce_fields
+      add_salesforce_suffix(salesforce_fields)
     end
   end
 end

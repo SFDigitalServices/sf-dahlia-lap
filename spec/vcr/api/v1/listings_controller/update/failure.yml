@@ -1,0 +1,120 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 09 Oct 2025 16:58:40 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Set-Cookie:
+      - BrowserId=NKCBdKUxEfC7dpEVSdza2Q; domain=.salesforce.com; path=/; expires=Fri,
+        09-Oct-2026 16:58:40 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 09-Oct-2026 16:58:40 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 09-Oct-2026 16:58:40
+        GMT; Max-Age=31536000; secure
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Robots-Tag:
+      - none
+      X-Content-Type-Options:
+      - nosniff
+      X-Readonlymode:
+      - 'false'
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - 45ebd5130b926d46116276564418cfe2
+      X-Request-Id:
+      - 45ebd5130b926d46116276564418cfe2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1760029120477","signature":"PIUWEKAvxg7OD7M1P44KnK++EloQFIXoyfrRVdb7Ln4="}'
+  recorded_at: Thu, 09 Oct 2025 16:58:40 GMT
+- request:
+    method: patch
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/invalid_id
+    body:
+      encoding: UTF-8
+      string: '{"File_Upload_URL__c":"http://sf.gov"}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Thu, 09 Oct 2025 16:58:40 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - BrowserId=NOgRy6UxEfCpZIPs6qREgQ; domain=.salesforce.com; path=/; expires=Fri,
+        09-Oct-2026 16:58:40 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 09-Oct-2026 16:58:40 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 09-Oct-2026 16:58:40
+        GMT; Max-Age=31536000; secure
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Sforce-Limit-Info:
+      - api-usage=13383/982000
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - 0c59dd337173a43aeca44f5601a1571b
+      X-Request-Id:
+      - 0c59dd337173a43aeca44f5601a1571b
+    body:
+      encoding: UTF-8
+      string: '[{"errorCode":"NOT_FOUND","message":"Provided external ID field does
+        not exist or is not accessible: invalid_id"}]'
+  recorded_at: Thu, 09 Oct 2025 16:58:40 GMT
+recorded_with: VCR 6.3.1

@@ -178,6 +178,21 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                   </div>
                 </button>
               </div>
+              <div
+                class="padding-right--half d-inline-block"
+              >
+                <select
+                  class="dropdown"
+                  data-disabled="true"
+                  data-testid="select"
+                >
+                  <option
+                    value="Set up Invitation to Apply"
+                  >
+                    Set up Invitation to Apply
+                  </option>
+                </select>
+              </div>
             </div>
           </div>
           <div

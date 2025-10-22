@@ -443,4 +443,23 @@ describe('apiService', () => {
       expect(mockFetchLeaseUpApplications.mock.calls[0][0]).toBe(`/lease-ups/applications`)
     })
   })
+
+  describe('updateListing', () => {
+    beforeAll(() => {
+      request.put = mockPutRequest
+    })
+    test('should send a put request with expected format', async () => {
+      const listingId = 'listing_id'
+      const listing = {
+        id: listingId,
+        file_upload_url: 'https://sf.gov'
+      }
+      const expectedData = { listing }
+
+      const result = await apiService.updateListing(listing)
+      expect(result).toBe(true)
+      expect(mockPutRequest.mock.calls).toHaveLength(1)
+      expect(mockPutRequest.mock.calls[0]).toEqual([`/listings/${listingId}`, expectedData, true])
+    })
+  })
 })

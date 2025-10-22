@@ -3,30 +3,30 @@
   "name": "APP-00243697",
   "applicant": {
     "id": "a0n0P00000D3qIZQAZ",
-    "first_name": "Allen",
-    "last_name": "Thomas",
+    "first_name": "Automated Test Lease Up Application",
+    "last_name": "(do not modify)",
     "middle_name": null,
-    "name": "Allen Thomas",
+    "name": "Automated Test Lease Up Application (do not modify)",
     "date_of_birth": {
-      "year": "2000",
+      "year": "1989",
       "month": "01",
-      "day": "01"
+      "day": "05"
     },
     "phone_type": null,
     "phone": null,
     "second_phone_type": null,
     "second_phone": null,
-    "email": "kbrooks@example.org",
-    "residence_address": "8362 Jerry Springs, West Jaimefurt, Lo, 89489",
-    "street": "8362 Jerry Springs",
-    "city": "West Jaimefurt",
-    "state": "Lo",
-    "zip_code": "89489",
-    "mailing_address": "430 Jennifer Mount Apt. 959, Port Heather, Mi, 88289",
-    "mailing_street": "430 Jennifer Mount Apt. 959",
-    "mailing_city": "Port Heather",
-    "mailing_state": "Mi",
-    "mailing_zip_code": "88289",
+    "email": "tessiel@email.com",
+    "residence_address": "123 Test St, Testville, CA, 00000",
+    "street": "123 Test St",
+    "city": "Testville",
+    "state": "CA",
+    "zip_code": "00000",
+    "mailing_address": "123 Test St, Testville, CA, 00000",
+    "mailing_street": "123 Test St",
+    "mailing_city": "Testville",
+    "mailing_state": "CA",
+    "mailing_zip_code": "00000",
     "marital_status": "Single",
     "ethnicity": null,
     "race": null,
@@ -35,14 +35,15 @@
     "sexual_orientation": null,
     "sexual_orientation_other": null
   },
-  "primary_applicant_contact": "0030P00002HAKDJQA5",
+  "primary_applicant_contact": "003bb00000Ouj2DAAR",
   "alternate_contact": null,
   "listing": {
     "name": "TEST Partners Listing (do not modify) - Yellow Acres",
     "id": "a0W0P00000GbyuQUAR",
     "reserved_community_type": null,
     "is_sale": false,
-    "is_rental": true
+    "is_rental": true,
+    "custom_listing_type": null
   },
   "status": "Submitted",
   "total_household_size": 1.0,
@@ -51,11 +52,12 @@
   "createdby": {
     "name": "DAHLIA API"
   },
+  "createddate": "2018-08-02T17:21:51.000+0000",
   "annual_income": 5000.0,
-  "confirmed_household_annual_income": 516.54,
-  "household_assets": 123.92,
-  "hh_total_income_with_assets_annual": 870.27,
-  "imputed_income_from_assets": 775.53,
+  "confirmed_household_annual_income": 299.96,
+  "household_assets": 944.84,
+  "hh_total_income_with_assets_annual": 411.19,
+  "imputed_income_from_assets": 197.75,
   "monthly_income": 416.67,
   "housing_voucher_or_subsidy": "true",
   "referral_source": null,
@@ -69,21 +71,18 @@
   "has_military_service": "No",
   "reserved_senior": "No",
   "has_developmental_disability": "No",
-  "has_ada_priorities_selected": {
-    "vision_impairments": true,
-    "mobility_impairments": true
-  },
+  "has_ada_priorities_selected": null,
   "terms_acknowledged": true,
   "number_of_dependents": 1.0,
   "number_of_seniors": null,
   "number_of_minors": null,
-  "processing_status": "Withdrawn",
+  "processing_status": "Processing",
   "is_first_time_homebuyer": false,
   "has_completed_homebuyer_education": false,
   "has_loan_preapproval": false,
   "lending_agent": null,
   "ami_percentage": 5.55,
-  "ami_chart_type": "HUD Unadjusted",
+  "ami_chart_type": "HCD Unadjusted",
   "ami_chart_year": "2018",
   "supp_app_signed_date": null,
   "demographics": {
@@ -95,6 +94,7 @@
     "sexual_orientation_other": null
   },
   "listing_id": "a0W0P00000GbyuQUAR",
+  "invite_to_apply_deadline_date": null,
   "preferences": [
     {
       "id": "a0w0P00000OUJc0QAH",
@@ -152,7 +152,7 @@
       "id": "a0w0P00000OUJc2QAH",
       "name": "AP-0000826198",
       "preference_name": "Rent Burdened / Assisted Housing Preference",
-      "person_who_claimed_name": "Allen Thomas",
+      "person_who_claimed_name": "Automated Test Lease Up Application (do not modify)",
       "type_of_proof": "Lease and rent proof",
       "veteran_type_of_proof": null,
       "opt_out": false,
@@ -161,15 +161,15 @@
       "listing_preference_id": "a0l0P00001Q1w0mQAB",
       "receives_preference": true,
       "application_member": {
-        "first_name": "Allen",
-        "last_name": "Thomas",
+        "first_name": "Automated Test Lease Up Application",
+        "last_name": "(do not modify)",
         "date_of_birth": {
-          "year": "2000",
+          "year": "1989",
           "month": "01",
-          "day": "01"
+          "day": "05"
         },
         "id": "a0n0P00000D3qIZQAZ",
-        "name": "Allen Thomas",
+        "name": "Automated Test Lease Up Application (do not modify)",
         "residence_address": "",
         "mailing_address": ""
       },
@@ -191,7 +191,7 @@
       "id": "a0w0P00000OUJc3QAH",
       "name": "AP-0000826199",
       "preference_name": "Live or Work in San Francisco Preference",
-      "person_who_claimed_name": "Allen Thomas",
+      "person_who_claimed_name": "Automated Test Lease Up Application (do not modify)",
       "type_of_proof": "Telephone bill",
       "veteran_type_of_proof": null,
       "opt_out": false,
@@ -200,15 +200,15 @@
       "listing_preference_id": "a0l0P00001Q1w1BQAR",
       "receives_preference": true,
       "application_member": {
-        "first_name": "Allen",
-        "last_name": "Thomas",
+        "first_name": "Automated Test Lease Up Application",
+        "last_name": "(do not modify)",
         "date_of_birth": {
-          "year": "2000",
+          "year": "1989",
           "month": "01",
-          "day": "01"
+          "day": "05"
         },
         "id": "a0n0P00000D3qIZQAZ",
-        "name": "Allen Thomas",
+        "name": "Automated Test Lease Up Application (do not modify)",
         "residence_address": "",
         "mailing_address": ""
       },
@@ -307,8 +307,8 @@
   ],
   "proof_files": [
     {
-      "id": "0688H000002FehHQAS",
-      "document_type": "Copy of Lease",
+      "id": null,
+      "document_type": null,
       "related_application": "a0o0P00000GZazOQAT",
       "related_application_preference": null,
       "file_type": "File"

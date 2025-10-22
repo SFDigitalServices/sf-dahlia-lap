@@ -35,7 +35,7 @@ RSpec.describe ApplicationsController, type: :controller do
       end
 
       expect(response).to have_http_status(:found)
-      expect(response).to redirect_to('http://test.host/applications/a0o0P00000Fv20MQAR')
+      expect(response).to redirect_to('http://test.host/applications/a0o0P00000Fv02dQAB')
     end
     it 'should redirect on paper application and lottery completed' do
       VCR.use_cassette('applications_controller/edit/paper_app_lottery_complete_application') do

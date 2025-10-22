@@ -9,20 +9,22 @@ import { renderAppWithUrl } from '../../testUtils/wrapperUtil'
 
 jest.mock('@unleash/proxy-client-react')
 
-useFlagUnleash.mockImplementation(() => false)
+useFlagUnleash.mockImplementation(() => true)
 useFlagsStatus.mockImplementation(() => ({
   flagsError: false,
   flagsReady: true
 }))
 useVariant.mockImplementation(() => ({
   payload: {
-    value: '123'
+    value: 'listingId'
   }
 }))
 
 const mockGetLeaseUpListing = jest.fn()
 const mockFetchLeaseUpApplicationsPagination = jest.fn()
 const mockCreateFieldUpdateComment = jest.fn()
+const mockUpdateListing = jest.fn()
+const mockUpdateApplication = jest.fn()
 
 jest.mock('apiService', () => {
   return {
@@ -42,6 +44,14 @@ jest.mock('apiService', () => {
       }
 
       return Promise.resolve(mockApplications)
+    },
+    updateApplication: async (application) => {
+      mockUpdateApplication(application)
+      return Promise.resolve(true)
+    },
+    updateListing: async (listing) => {
+      mockUpdateListing(listing)
+      return Promise.resolve(true)
     }
   }
 })
@@ -317,6 +327,14 @@ describe('LeaseUpApplicationsPage', () => {
         .queryAllByRole('checkbox')
         .filter((checkbox) => checkbox.id.includes('bulk-action-checkbox-'))
 
+    let leaseUpApplicationsFilterContainer
+
+    beforeEach(() => {
+      leaseUpApplicationsFilterContainer = screen.getByTestId(
+        'lease-up-applications-filter-container'
+      )
+    })
+
     describe('initial load state without boxes checked', () => {
       test('the bulk input box is unchecked and not indeterminate', () => {
         const checkbox = getBulkEditCheckbox()
@@ -331,13 +349,9 @@ describe('LeaseUpApplicationsPage', () => {
       })
 
       test('the bulk status button is disabled', () => {
-        const leaseUpApplicationsFilterContainer = screen.getByTestId(
-          'lease-up-applications-filter-container'
-        )
-        expect(within(leaseUpApplicationsFilterContainer).getByRole('combobox')).toHaveAttribute(
-          'data-disabled',
-          'true'
-        )
+        expect(
+          within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[0]
+        ).toHaveAttribute('data-disabled', 'true')
       })
     })
 
@@ -368,6 +382,10 @@ describe('LeaseUpApplicationsPage', () => {
         expect(screen.getAllByRole('combobox')[0]).toBeEnabled()
       })
 
+      test('the invite to apply email is enabled', () => {
+        expect(screen.getAllByRole('combobox')[1]).toBeEnabled()
+      })
+
       describe('when all row checkboxes with unique IDs are clicked individually', () => {
         beforeEach(() => {
           const ids = [1002, 1003, 1004, 1005]
@@ -387,14 +405,9 @@ describe('LeaseUpApplicationsPage', () => {
 
           expect(getBulkEditCheckbox(rtlWrapper)).not.toHaveClass('indeterminate')
           // Since we are now mocking react-select, this is no longer true in the tests.
-
-          const leaseUpApplicationsFilterContainer = screen.getByTestId(
-            'lease-up-applications-filter-container'
-          )
-          expect(within(leaseUpApplicationsFilterContainer).getByRole('combobox')).toHaveAttribute(
-            'data-disabled',
-            'false'
-          )
+          expect(
+            within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[0]
+          ).toHaveAttribute('data-disabled', 'false')
         })
       })
     })
@@ -429,24 +442,20 @@ describe('LeaseUpApplicationsPage', () => {
       test('the bulk status button is enabled', () => {
         // Since we are mocking react-select, we have to check this mock attribute
         // The first combobox is the bulk status button
-        const leaseUpApplicationsFilterContainer = screen.getByTestId(
-          'lease-up-applications-filter-container'
-        )
-        expect(within(leaseUpApplicationsFilterContainer).getByRole('combobox')).toHaveAttribute(
-          'data-disabled',
-          'false'
-        )
+        expect(
+          within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[0]
+        ).toHaveAttribute('data-disabled', 'false')
       })
 
       describe('when the set status button value changes', () => {
         beforeEach(() => {
-          const leaseUpApplicationsFilterContainer = screen.getByTestId(
-            'lease-up-applications-filter-container'
-          )
           act(() => {
-            fireEvent.change(within(leaseUpApplicationsFilterContainer).getByRole('combobox'), {
-              target: { value: 'Appealed' }
-            })
+            fireEvent.change(
+              within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[0],
+              {
+                target: { value: 'Appealed' }
+              }
+            )
           })
         })
 
@@ -520,13 +529,9 @@ describe('LeaseUpApplicationsPage', () => {
       })
 
       test('the bulk status button is enabled', () => {
-        const leaseUpApplicationsFilterContainer = screen.getByTestId(
-          'lease-up-applications-filter-container'
-        )
-        expect(within(leaseUpApplicationsFilterContainer).getByRole('combobox')).toHaveAttribute(
-          'data-disabled',
-          'false'
-        )
+        expect(
+          within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[0]
+        ).toHaveAttribute('data-disabled', 'false')
       })
 
       describe('when the top-level checkbox is clicked again', () => {
@@ -544,13 +549,9 @@ describe('LeaseUpApplicationsPage', () => {
             expect(checkbox).not.toBeChecked()
           })
 
-          const leaseUpApplicationsFilterContainer = screen.getByTestId(
-            'lease-up-applications-filter-container'
-          )
-          expect(within(leaseUpApplicationsFilterContainer).getByRole('combobox')).toHaveAttribute(
-            'data-disabled',
-            'true'
-          )
+          expect(
+            within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[0]
+          ).toHaveAttribute('data-disabled', 'true')
         })
       })
 
@@ -580,13 +581,9 @@ describe('LeaseUpApplicationsPage', () => {
         })
 
         test('the bulk status button is enabled', () => {
-          const leaseUpApplicationsFilterContainer = screen.getByTestId(
-            'lease-up-applications-filter-container'
-          )
-          expect(within(leaseUpApplicationsFilterContainer).getByRole('combobox')).toHaveAttribute(
-            'data-disabled',
-            'false'
-          )
+          expect(
+            within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[0]
+          ).toHaveAttribute('data-disabled', 'false')
         })
 
         describe('when the first checkbox is clicked again', () => {
@@ -602,11 +599,8 @@ describe('LeaseUpApplicationsPage', () => {
             getRowBulkCheckboxInputs().forEach((checkbox) => {
               expect(checkbox).toBeChecked()
             })
-            const leaseUpApplicationsFilterContainer = screen.getByTestId(
-              'lease-up-applications-filter-container'
-            )
             expect(
-              within(leaseUpApplicationsFilterContainer).getByRole('combobox')
+              within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[0]
             ).toHaveAttribute('data-disabled', 'false')
           })
         })
@@ -626,11 +620,8 @@ describe('LeaseUpApplicationsPage', () => {
               expect(checkbox).not.toBeChecked()
             })
 
-            const leaseUpApplicationsFilterContainer = screen.getByTestId(
-              'lease-up-applications-filter-container'
-            )
             expect(
-              within(leaseUpApplicationsFilterContainer).getByRole('combobox')
+              within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[0]
             ).toHaveAttribute('data-disabled', 'true')
           })
         })
@@ -662,6 +653,113 @@ describe('LeaseUpApplicationsPage', () => {
           getRowBulkCheckboxInputs().forEach((checkbox, idx) => {
             expect(checkbox).not.toBeChecked()
           })
+        })
+      })
+    })
+
+    describe('when using invite to apply', () => {
+      beforeEach(() => {
+        useFlagUnleash.mockImplementation(() => true)
+        useVariant.mockImplementation(() => ({
+          payload: {
+            value: 'listingId'
+          }
+        }))
+        act(() => {
+          fireEvent.click(getRowBulkCheckboxInputs()[0])
+        })
+      })
+
+      describe('when setting up invite to apply', () => {
+        beforeEach(() => {
+          act(() => {
+            fireEvent.change(
+              within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
+              {
+                target: { value: 'Set up Invitation to Apply' }
+              }
+            )
+          })
+        })
+
+        test('the document upload url should open', () => {
+          expect(screen.getByText('Add document upload URL')).toBeInTheDocument()
+        })
+
+        test('the modal should close', () => {
+          act(() => {
+            fireEvent.click(screen.getByText('Close'))
+          })
+          expect(screen.queryByText('Add document upload URL')).not.toBeInTheDocument()
+        })
+
+        test('field input validation', () => {
+          // invalid document upload url
+          const documentUrlField = screen.getByLabelText('Document upload URL')
+          act(() => {
+            fireEvent.change(documentUrlField, {
+              target: { value: 'hello world!' }
+            })
+            fireEvent.blur(documentUrlField)
+          })
+          expect(screen.getByText('Please enter a valid URL')).toBeInTheDocument()
+
+          // valid document upload url
+          act(() => {
+            fireEvent.change(documentUrlField, {
+              target: { value: 'https://sf.gov' }
+            })
+            fireEvent.blur(documentUrlField)
+          })
+          expect(screen.queryByText('Please enter a valid URL')).not.toBeInTheDocument()
+
+          // open document submission deadline
+          act(() => {
+            fireEvent.click(screen.getByText('next'))
+          })
+          expect(screen.getByText('Set document submission deadline')).toBeInTheDocument()
+
+          // invalid submission deadline date
+          const documentUrlFieldMonth = screen.getByPlaceholderText('MM')
+          const documentUrlFieldDay = screen.getByPlaceholderText('DD')
+          const documentUrlFieldYear = screen.getByPlaceholderText('YYYY')
+          act(() => {
+            fireEvent.change(documentUrlFieldMonth, {
+              target: { value: '1' }
+            })
+            fireEvent.change(documentUrlFieldDay, {
+              target: { value: '1' }
+            })
+            fireEvent.change(documentUrlFieldYear, {
+              target: { value: '2000' }
+            })
+            fireEvent.blur(documentUrlFieldMonth)
+            fireEvent.blur(documentUrlFieldDay)
+            fireEvent.blur(documentUrlFieldYear)
+          })
+          expect(documentUrlFieldMonth).toHaveClass('error')
+          expect(documentUrlFieldDay).toHaveClass('error')
+          expect(documentUrlFieldYear).toHaveClass('error')
+
+          // valid submission deadline date
+          act(() => {
+            fireEvent.change(documentUrlFieldYear, {
+              target: { value: '3000' }
+            })
+            fireEvent.blur(documentUrlFieldMonth)
+            fireEvent.blur(documentUrlFieldDay)
+            fireEvent.blur(documentUrlFieldYear)
+          })
+          expect(documentUrlFieldMonth).not.toHaveClass('error')
+          expect(documentUrlFieldDay).not.toHaveClass('error')
+          expect(documentUrlFieldYear).not.toHaveClass('error')
+
+          // save invite to apply input
+          act(() => {
+            fireEvent.click(screen.getByText('save'))
+          })
+          expect(mockUpdateApplication.mock.calls).toHaveLength(1)
+          expect(mockUpdateListing.mock.calls).toHaveLength(1)
         })
       })
     })
