@@ -100,7 +100,7 @@ gem "slim-rails", "~> 3.1"
 
 gem "hashie"
 
-gem "shakapacker", "7.2.1"
+gem "shakapacker", "8.4.0"
 
 gem "react_on_rails", "13.4.0"
 
