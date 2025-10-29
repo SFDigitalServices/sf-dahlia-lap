@@ -109,3 +109,5 @@ gem "pg", "~> 1.4.6"
 gem 'scout_apm'
 
 gem 'oj'
+
+gem "http", "~> 5.3"
