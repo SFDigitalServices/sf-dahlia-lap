@@ -27,6 +27,17 @@ module Force
         query_scope.query
       end
 
+      def application_contacts(opts = { page: 0 })
+        query_scope = builder.from(:Application__c)
+               .select(query_fields(:show_contacts))
+               .where("Status__c != '#{DRAFT}' AND Application_Submitted_Date__c != NULL")
+               .paginate(opts)
+               .transform_results { |results| massage(results) }
+        query_scope.order_by('CreatedDate DESC')
+        query_scope.where_in('Id', opts[:ids]) if opts[:ids].present?
+        query_scope.query
+      end
+
       def application(id, opts = { include_lease: true, include_rental_assistances: true })
         application = Force::Application.from_salesforce(query_first(%(
           SELECT #{query_fields(:show)}

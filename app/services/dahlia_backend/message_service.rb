@@ -1,0 +1,142 @@
+# frozen_string_literal: true
+
+module DahliaBackend
+  # Service for sending messages through the DAHLIA API
+    class MessageService
+
+        class << self
+            # Sends Invite to Apply to application contacts
+            #
+            # @param [Hash] Listing Object
+            # @param [Hash] Response from the ApplicationService.application_contacts
+            def send_invite_to_apply(params, application_contacts)
+
+                new.send_invite_to_apply(params, application_contacts)
+            end
+
+        end
+
+        attr_reader :client
+
+        def initialize(client = nil)
+            @client = client || DahliaBackend::ApiClient.new
+        end
+
+        # Instance method implementation for Invite to Apply
+        # @param [Hash] Listing Object
+        # @param [Hash] Response from the ApplicationService.application_contacts
+        # @return [Object, nil] Response from the message service or nil if service is disabled/error occurs
+        def send_invite_to_apply(params, application_contacts)
+            return unless valid_params?(params[:listing], application_contacts)
+
+            fields = prepare_submission_fields(params, application_contacts)
+            return if fields.nil?
+
+            send_message('/messages/invite-to-apply', fields)
+        rescue StandardError => e
+            log_error('Error sending Invite to Apply', e)
+            nil
+        end
+
+        private
+
+        def prepare_submission_fields(params, application_contacts)
+            contacts = prepare_contacts(params[:ids], application_contacts)
+            return unless contacts.length > 0
+
+            listing = params[:listing]
+            {
+                "isTestEmail": params[:is_test],
+                "listingId": listing[:id],
+                "listingName": listing[:name],
+                "listingAddress": listing[:building_street_address],
+                "listingNeighborhood": listing[:neighborhood],
+                "units": listing[:units].map { |element| element.transform_keys { |key| key.to_s.camelize(:lower).to_sym } },
+                "applicants": contacts,
+                "deadlineDate": format_date(params[:invite_to_apply_deadline]),
+                "lotteryDate": format_date(listing[:lottery_date])
+            }
+        end
+
+        def prepare_contacts(application_ids, application_contacts)
+            contacts = []
+            application_ids.each do |app_id|
+                application_contacts[:records].each do |record|
+                    if record[:Id] == app_id
+                        contact = {
+                            "applicationNumber": app_id,
+                            "primaryContact": {
+                                "email": determine_email(record[:Applicant]),
+                                "firstName": record[:Applicant][:First_Name],
+                                "lastName": record[:Applicant][:Last_Name]
+                            }
+                        }
+                        if record[:Alternate_Contact].present?
+                            contact[:alternateContact] = {
+                                "email": determine_email(record[:Alternate_Contact]),
+                                "firstName": record[:Alternate_Contact][:First_Name],
+                                "lastName": record[:Alternate_Contact][:Last_Name]
+                            }
+                        end
+                        contacts << contact
+                        break
+                    end
+                end
+            end
+            contacts
+        end
+
+        def determine_email(contact)
+            return ENV['TEST_EMAIL'] if ENV['TEST_EMAIL'].present?
+            contact[:Email]
+        end
+
+        # Sends a message through the API client
+        # @param [String] endpoint API endpoint
+        # @param [Hash] fields Message fields
+        # @return [Object, nil] Response from API or nil if sending fails
+        def send_message(endpoint, fields)
+            log_info("Sending message to #{endpoint}: #{fields}")
+            response = client.post(endpoint, fields)
+
+            if response
+                log_info("Successfully sent message to: #{fields[:email]}")
+                response
+            else
+                log_error("Failed to send message to #{endpoint}: #{fields.to_json}", nil)
+                nil
+            end
+        end
+
+        def valid_params?(listing, application_contacts)
+            return false unless listing && application_contacts
+            return false unless listing[:id].present?
+            return false unless application_contacts[:records].length > 0
+            return false unless application_contacts[:records][0][:Applicant][:Email].present?
+
+            true
+        end
+
+        def format_date(date)
+            return '' unless date.present?
+
+            Time.zone.parse(date).strftime('%B %e, %Y')
+        rescue StandardError => e
+            log_warn("Error parsing date: #{e.message}")
+            date.to_s
+        end
+
+        def log_info(message)
+            Rails.logger.info("[DahliaBackend::MessageService:log_info] #{message}")
+        end
+
+        def log_warn(message)
+            Rails.logger.warn("[DahliaBackend::MessageService:log_warn] #{message}")
+        end
+
+        def log_error(message, error)
+            error_details = error ? ": #{error.class} #{error.message}" : ''
+            Rails.logger.error("[DahliaBackend::MessageService:log_error] #{message}#{error_details}")
+        end
+    end
+end

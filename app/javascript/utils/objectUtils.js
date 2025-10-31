@@ -54,3 +54,28 @@ export const listMapper = (field, fieldsMapper) => (source) => {
 
 export const omitEmpty = (source, fields) =>
   omitBy(source, (value, key) => includes(fields, key) && isEmpty(value))
+
+export const snakeToCamelCase = (str) => {
+  return str.replace(/([-_][a-z])/gi, ($1) => {
+    return $1.toUpperCase().replace('-', '').replace('_', '')
+  })
+}
+
+export const convertObjectKeysSnakeCaseToCamelCase = (obj) => {
+  if (typeof obj !== 'object' || obj === null) {
+    return obj
+  }
+
+  if (Array.isArray(obj)) {
+    return obj.map(convertObjectKeysSnakeCaseToCamelCase)
+  }
+
+  const newObj = {}
+  for (const key in obj) {
+    if (Object.hasOwnProperty.call(obj, key)) {
+      const camelKey = snakeToCamelCase(key)
+      newObj[camelKey] = convertObjectKeysSnakeCaseToCamelCase(obj[key])
+    }
+  }
+  return newObj
+}

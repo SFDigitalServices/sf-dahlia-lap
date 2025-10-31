@@ -18,7 +18,8 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
   const [rsvpModalState, setRsvpModalState] = useStateObject({
     // modal hide/show states
     uploadUrl: false,
-    setDeadline: false
+    setDeadline: false,
+    review: false
   })
 
   const [rsvpModalValues, setRsvpModalValues] = useStateObject({
@@ -47,11 +48,11 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     setRsvpModalState(stateObj)
   }
 
-  const showRsvpModal = (key) => {
+  const showRsvpModal = (key, callback) => {
     handleCloseRsvpModal()
     const stateObj = {}
     stateObj[key] = true
-    setRsvpModalState(stateObj)
+    setRsvpModalState(stateObj, callback)
   }
 
   const uploadUrlModalSubmit = (values) => {
@@ -59,14 +60,19 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     showRsvpModal('setDeadline')
   }
 
+  const getSelectedApplicationIds = () => {
+    return Object.entries(props.bulkCheckboxesState)
+      .filter(([_, checked]) => checked)
+      .map(([id, _]) => id)
+  }
+
   const setdeadlineModalSubmit = (values) => {
     setRsvpModalValues(values)
 
-    const applicationIds = Object.entries(props.bulkCheckboxesState)
-      .filter(([_, checked]) => checked)
-      .map(([id, _]) => id)
+    const applicationIds = getSelectedApplicationIds()
     const deadline = values[INVITE_APPLY_DEADLINE_KEY]
-    handleCloseRsvpModal()
+
+    showRsvpModal('review')
 
     apiService.updateListing({
       id: props.listingId,
@@ -85,10 +91,13 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
   const validateDeadline = (values) => {
     const errs = {}
     const dateInput = values[INVITE_APPLY_DEADLINE_KEY]
+    const errMsg = 'Enter a date like: MM DD YYYY.  It must be after today.'
     if (dateInput) {
-      const validation = validate.isFutureDate(
-        'Enter a date like: MM DD YYYY.  It must be after today.'
-      )([dateInput.year, dateInput.month, dateInput.day])
+      const validation = validate.isFutureDate(errMsg)([
+        dateInput.year,
+        dateInput.month,
+        dateInput.day
+      ])
       if (validation) {
         errs[INVITE_APPLY_DEADLINE_KEY] = {
           all: validation,
@@ -97,9 +106,44 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
           day: validation
         }
       }
+    } else {
+      errs[INVITE_APPLY_DEADLINE_KEY] = {
+        all: errMsg,
+        year: errMsg,
+        month: errMsg,
+        day: errMsg
+      }
     }
 
     return errs
+  }
+
+  const sendInviteToApply = () => {
+    const appIds = getSelectedApplicationIds()
+    const deadline = rsvpModalValues[INVITE_APPLY_DEADLINE_KEY]
+
+    handleCloseRsvpModal()
+    props.setPageState({ loading: true })
+
+    apiService
+      .sendInviteToApply(
+        props.listing,
+        appIds,
+        rsvpModalValues[INVITE_APPLY_UPLOAD_KEY],
+        `${deadline.year}-${deadline.month}-${deadline.day}`
+      )
+      .then((res) => {
+        props.setPageState({ loading: false })
+      })
+  }
+
+  const formatDeadline = () => {
+    const deadline = rsvpModalValues[INVITE_APPLY_DEADLINE_KEY]
+    const dateObj = moment(
+      `${deadline.year}-${deadline.month}-${deadline.day}`,
+      'YYYY-MM-DD'
+    ).endOf('day')
+    return dateObj.format('MMMM D, YYYY A') + ' Pacific Time'
   }
 
   return (
@@ -113,6 +157,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
         primary='next'
         secondary='cancel'
         onSecondaryClick={handleCloseRsvpModal}
+        initialValues={rsvpModalValues}
       >
         {() => (
           <div className={'form-group'}>
@@ -157,6 +202,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
           ...arrayMutators
         }}
         validateError={validateDeadline}
+        initialValues={rsvpModalValues}
       >
         {(_values, _changeFieldValue, form) => (
           <div className={'form-group'}>
@@ -179,6 +225,58 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
                 />
               </FormGrid.Item>
             </FormGrid.Row>
+          </div>
+        )}
+      </FormModal>
+      <FormModal
+        isOpen={rsvpModalState.review}
+        title='Review and send'
+        primary='send now'
+        secondary='cancel'
+        onSubmit={sendInviteToApply}
+        handleClose={handleCloseRsvpModal}
+        onSecondaryClick={handleCloseRsvpModal}
+      >
+        {(_values, _changeFieldValue, _form) => (
+          <div className={'form-group'}>
+            <p>
+              When you’re ready, send an email to the applicants you selected. If you want,&nbsp;
+              <a>send yourself an example email</a> to preview what applicants will see.
+            </p>
+            <p>
+              <label className='form-label'>You are sending</label>
+              Invitation to Apply
+            </p>
+            <p>
+              <label className='form-label'>
+                Document upload URL&nbsp;
+                <a
+                  onClick={() => {
+                    showRsvpModal('uploadUrl')
+                  }}
+                >
+                  Edit
+                </a>
+              </label>
+              {rsvpModalValues[INVITE_APPLY_UPLOAD_KEY]}
+            </p>
+            <p>
+              <label className='form-label'>
+                Deadline&nbsp;
+                <a
+                  onClick={() => {
+                    showRsvpModal('setDeadline')
+                  }}
+                >
+                  Edit
+                </a>
+              </label>
+              {formatDeadline()}
+            </p>
+            <p>
+              <label className='form-label'>Send to</label>
+              {getSelectedApplicationIds().length} applicants and alternate contacts, if provided
+            </p>
           </div>
         )}
       </FormModal>

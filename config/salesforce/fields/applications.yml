@@ -201,6 +201,17 @@ applications:
     Applicant__r.Phone__c:
     General_Lottery_Rank__c:
     Total_Household_Size__c:
+  show_contacts_fields:
+    Id:
+    Application_Language__c:
+    Applicant__r.Id:
+    Applicant__r.First_Name__c:
+    Applicant__r.Last_Name__c:
+    Applicant__r.Email__c:
+    Alternate_Contact__r.Id:
+    Alternate_Contact__r.First_Name__c:
+    Alternate_Contact__r.Last_Name__c:
+    Alternate_Contact__r.Email__c:
 
 flagged_record_sets:
   pending_review_fields:
