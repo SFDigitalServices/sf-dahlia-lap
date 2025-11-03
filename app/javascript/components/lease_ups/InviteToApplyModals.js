@@ -133,7 +133,10 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
         `${deadline.year}-${deadline.month}-${deadline.day}`
       )
       .then((res) => {
-        props.setPageState({ loading: false })
+        props.setPageState({
+          loading: false,
+          showPageInfo: true
+        })
       })
   }
 
