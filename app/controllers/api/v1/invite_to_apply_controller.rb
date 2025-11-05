@@ -12,6 +12,7 @@ module Api
         contacts = soql_application_service.application_contacts(params)
 
         response = DahliaBackend::MessageService.send_invite_to_apply(
+            current_user,
             params,
             contacts
         )

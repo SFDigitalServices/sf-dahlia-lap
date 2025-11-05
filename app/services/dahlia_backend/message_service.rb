@@ -5,13 +5,8 @@ module DahliaBackend
     class MessageService
 
         class << self
-            # Sends Invite to Apply to application contacts
-            #
-            # @param [Hash] Listing Object
-            # @param [Hash] Response from the ApplicationService.application_contacts
-            def send_invite_to_apply(params, application_contacts)
-
-                new.send_invite_to_apply(params, application_contacts)
+            def send_invite_to_apply(current_user, params, application_contacts)
+                new.send_invite_to_apply(current_user, params, application_contacts)
             end
 
         end
@@ -22,11 +17,8 @@ module DahliaBackend
             @client = client || DahliaBackend::ApiClient.new
         end
 
-        # Instance method implementation for Invite to Apply
-        # @param [Hash] Listing Object
-        # @param [Hash] Response from the ApplicationService.application_contacts
-        # @return [Object, nil] Response from the message service or nil if service is disabled/error occurs
-        def send_invite_to_apply(params, application_contacts)
+        def send_invite_to_apply(current_user, params, application_contacts)
+            @current_user = current_user
             return unless valid_params?(params[:listing], application_contacts)
 
             fields = prepare_submission_fields(params, application_contacts)
@@ -51,7 +43,7 @@ module DahliaBackend
                 "listingName": listing[:name],
                 "listingAddress": listing[:building_street_address],
                 "listingNeighborhood": listing[:neighborhood],
-                "units": listing[:units].map { |element| element.transform_keys { |key| key.to_s.camelize(:lower).to_sym } },
+                "units": prepare_units(listing[:id]),
                 "applicants": contacts,
                 "deadlineDate": format_date(params[:invite_to_apply_deadline]),
                 "lotteryDate": format_date(listing[:lottery_date])
@@ -86,6 +78,21 @@ module DahliaBackend
             contacts
         end
 
+        def prepare_units(listing_id)
+            listing_details = rest_listing_service.get_details(listing_id)
+            summary = listing_details[0][:unitSummaries][:general].present? ? listing_details[0][:unitSummaries][:general] : listing_details[0][:unitSummaries][:reserved]
+            units = []
+            summary.each do |summary|
+                units << {
+                    unitType: summary[:unitType],
+                    minRent: summary[:minMonthlyRent],
+                    maxRent: summary[:maxMonthlyRent],
+                    availableUnits: summary[:availability]
+                }
+            end
+            units
+        end
+
         def determine_email(contact)
             return ENV['TEST_EMAIL'] if ENV['TEST_EMAIL'].present?
             contact[:Email]
@@ -115,6 +122,10 @@ module DahliaBackend
             return false unless application_contacts[:records][0][:Applicant][:Email].present?
 
             true
+        end
+
+        def rest_listing_service
+            Force::Rest::ListingService.new(@current_user)
         end
 
         def format_date(date)
