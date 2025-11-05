@@ -47,7 +47,7 @@ module Force
     end
 
     def where_in(field, list)
-      quoted_list = list.map {|item| "'#{item}'"}
+      quoted_list = list.map { |item| "'#{item}'" }
 
       where("#{field} IN (#{quoted_list.join(',')})")
       self

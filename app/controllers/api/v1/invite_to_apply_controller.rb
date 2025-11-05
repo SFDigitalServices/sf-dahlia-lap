@@ -12,21 +12,21 @@ module Api
         contacts = soql_application_service.application_contacts(params)
 
         response = DahliaBackend::MessageService.send_invite_to_apply(
-            current_user,
-            params,
-            contacts
+          current_user,
+          params,
+          contacts
         )
 
         return if response.nil?
+
         render json: response
       end
 
-        private
+      private
 
-        def soql_application_service
-            Force::Soql::ApplicationService.new(current_user)
-        end
-
+      def soql_application_service
+        Force::Soql::ApplicationService.new(current_user)
+      end
     end
   end
 end
