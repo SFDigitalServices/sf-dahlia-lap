@@ -32,7 +32,7 @@ module DahliaBackend
 
     def prepare_submission_fields(params, application_contacts)
       contacts = prepare_contacts(params[:ids], application_contacts)
-      return unless contacts.length > 0
+      return if contacts.empty?
 
       listing = params[:listing]
       {
@@ -44,7 +44,7 @@ module DahliaBackend
         "units": prepare_units(listing[:id]),
         "applicants": contacts,
         "deadlineDate": format_date(params[:invite_to_apply_deadline]),
-        "lotteryDate": format_date(listing[:lottery_date])
+        "lotteryDate": format_date(listing[:lottery_date]),
       }
     end
 
@@ -52,25 +52,25 @@ module DahliaBackend
       contacts = []
       application_ids.each do |app_id|
         application_contacts[:records].each do |record|
-          if record[:Id] == app_id
-            contact = {
-              "applicationNumber": app_id,
-              "primaryContact": {
-                "email": determine_email(record[:Applicant]),
-                "firstName": record[:Applicant][:First_Name],
-                "lastName": record[:Applicant][:Last_Name]
-              }
+          next unless record[:Id] == app_id
+
+          contact = {
+            "applicationNumber": app_id,
+            "primaryContact": {
+              "email": determine_email(record[:Applicant]),
+              "firstName": record[:Applicant][:First_Name],
+              "lastName": record[:Applicant][:Last_Name],
+            },
+          }
+          if record[:Alternate_Contact].present?
+            contact[:alternateContact] = {
+              "email": determine_email(record[:Alternate_Contact]),
+              "firstName": record[:Alternate_Contact][:First_Name],
+              "lastName": record[:Alternate_Contact][:Last_Name],
             }
-            if record[:Alternate_Contact].present?
-              contact[:alternateContact] = {
-                "email": determine_email(record[:Alternate_Contact]),
-                "firstName": record[:Alternate_Contact][:First_Name],
-                "lastName": record[:Alternate_Contact][:Last_Name]
-              }
-            end
-            contacts << contact
-            break
           end
+          contacts << contact
+          break
         end
       end
       contacts
@@ -78,14 +78,17 @@ module DahliaBackend
 
     def prepare_units(listing_id)
       listing_details = rest_listing_service.get_details(listing_id)
-      summary = listing_details[0][:unitSummaries][:general].present? ? listing_details[0][:unitSummaries][:general] : listing_details[0][:unitSummaries][:reserved]
+      all_summaries = listing_details[0][:unitSummaries]
+      return [] if all_summaries.nil?
+
+      unit_summaries = all_summaries[:general].present? ? all_summaries[:general] : all_summaries[:reserved]
       units = []
-      summary.each do |summary|
+      unit_summaries.each do |summary|
         units << {
           unitType: summary[:unitType],
           minRent: summary[:minMonthlyRent],
           maxRent: summary[:maxMonthlyRent],
-          availableUnits: summary[:availability]
+          availableUnits: summary[:availability],
         }
       end
       units
@@ -117,7 +120,7 @@ module DahliaBackend
     def valid_params?(listing, application_contacts)
       return false unless listing && application_contacts
       return false unless listing[:id].present?
-      return false unless application_contacts[:records].length > 0
+      return false if application_contacts[:records].empty?
       return false unless application_contacts[:records][0][:Applicant][:Email].present?
 
       true

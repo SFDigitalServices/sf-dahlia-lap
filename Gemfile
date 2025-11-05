@@ -110,4 +110,4 @@ gem 'scout_apm'
 
 gem 'oj'
 
-gem "http", "~> 5.3"
+gem 'http', '~> 5.3'

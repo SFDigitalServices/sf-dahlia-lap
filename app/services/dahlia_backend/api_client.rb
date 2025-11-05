@@ -3,6 +3,7 @@
 require 'http'
 
 module DahliaBackend
+  # Service for interfacing with DAHLIA backend
   class ApiClient
     def api_url
       @api_url ||= begin

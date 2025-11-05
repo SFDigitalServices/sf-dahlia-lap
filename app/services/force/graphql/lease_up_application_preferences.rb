@@ -98,7 +98,6 @@ module Force
         GQL
         filters = build_applications_filters(opts)
         search = build_applications_search(opts)
-        application_ids = build_application_ids(opts)
         where_clause_ary = [
           "{Listing_ID__c: {eq: \"#{truncated_listing_id(opts[:listing_id])}\"}}",
           default,
@@ -120,21 +119,6 @@ module Force
             Preference_Lottery_Rank__c: {order: ASC},
             Application__r: {General_Lottery_Rank__c: {order: ASC}}
           }
-        GQL
-      end
-
-      def build_application_ids(opts)
-        # Give a comma-separted list of applications ids,
-        # returns results that have matching ids
-        return nil unless opts[:application_ids].present?
-
-        ids = opts[:application_ids].split(',')
-        <<~GQL
-          {Application__r: {
-            Id: {
-              in: #{ids}
-            }
-          }}
         GQL
       end
 

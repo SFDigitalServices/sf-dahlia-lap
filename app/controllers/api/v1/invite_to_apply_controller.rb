@@ -14,7 +14,7 @@ module Api
         response = DahliaBackend::MessageService.send_invite_to_apply(
           current_user,
           params,
-          contacts
+          contacts,
         )
 
         return if response.nil?
