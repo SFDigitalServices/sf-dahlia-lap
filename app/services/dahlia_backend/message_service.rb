@@ -17,7 +17,9 @@ module DahliaBackend
 
     def send_invite_to_apply(current_user, params, application_contacts)
       @current_user = current_user
-      return unless valid_params?(params[:listing], application_contacts)
+      if !valid_params?(params[:listing], application_contacts)
+        raise 'Invalid parameters in send_invite_to_apply'
+      end
 
       fields = prepare_submission_fields(params, application_contacts)
       return if fields.nil?
@@ -32,7 +34,7 @@ module DahliaBackend
 
     def prepare_submission_fields(params, application_contacts)
       contacts = prepare_contacts(params[:ids], application_contacts)
-      return if contacts.empty?
+      raise 'No contacts found' if contacts.empty?
 
       listing = params[:listing]
       {
@@ -119,7 +121,10 @@ module DahliaBackend
 
     def valid_params?(listing, application_contacts)
       return false unless listing && application_contacts
-      return false unless listing[:id].present?
+      return false unless listing[:id].present? &&
+                          listing[:name].present? && listing[:neighborhood].present? &&
+                          listing[:building_street_address].present? &&
+                          listing[:lottery_date].present?
       return false if application_contacts[:records].empty?
       return false unless application_contacts[:records][0][:Applicant][:Email].present?
 

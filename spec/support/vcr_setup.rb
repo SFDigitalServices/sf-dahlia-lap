@@ -28,6 +28,9 @@ VCR.configure do |config|
     SALESFORCE_CLIENT_SECRET
     SALESFORCE_CLIENT_ID
     EASYPOST_API_KEY
+    DAHLIA_API_URL
+    DAHLIA_API_KEY
+    TEST_EMAIL
   ].each do |val|
     config.filter_sensitive_data("<<#{val}>>") do
       ENV[val]
