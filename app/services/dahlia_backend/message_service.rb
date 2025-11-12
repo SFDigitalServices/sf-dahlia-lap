@@ -17,9 +17,7 @@ module DahliaBackend
 
     def send_invite_to_apply(current_user, params, application_contacts)
       @current_user = current_user
-      if !valid_params?(params[:listing], application_contacts)
-        raise 'Invalid parameters in send_invite_to_apply'
-      end
+      raise 'Invalid parameters in send_invite_to_apply' if !valid_params?(params[:listing], application_contacts)
 
       fields = prepare_submission_fields(params, application_contacts)
       return if fields.nil?
@@ -53,29 +51,35 @@ module DahliaBackend
     def prepare_contacts(application_ids, application_contacts)
       contacts = []
       application_ids.each do |app_id|
-        application_contacts[:records].each do |record|
-          next unless record[:Id] == app_id
+        record = find_application_contacts(app_id, application_contacts)
+        next if record.nil?
 
-          contact = {
-            "applicationNumber": app_id,
-            "primaryContact": {
-              "email": determine_email(record[:Applicant]),
-              "firstName": record[:Applicant][:First_Name],
-              "lastName": record[:Applicant][:Last_Name],
-            },
-          }
-          if record[:Alternate_Contact].present?
-            contact[:alternateContact] = {
-              "email": determine_email(record[:Alternate_Contact]),
-              "firstName": record[:Alternate_Contact][:First_Name],
-              "lastName": record[:Alternate_Contact][:Last_Name],
-            }
-          end
-          contacts << contact
-          break
+        contact = {
+        "applicationNumber": app_id,
+        "primaryContact": {
+            "email": determine_email(record[:Applicant]),
+            "firstName": record[:Applicant][:First_Name],
+            "lastName": record[:Applicant][:Last_Name],
+        },
+        }
+        if record[:Alternate_Contact].present?
+        contact[:alternateContact] = {
+            "email": determine_email(record[:Alternate_Contact]),
+            "firstName": record[:Alternate_Contact][:First_Name],
+            "lastName": record[:Alternate_Contact][:Last_Name],
+        }
         end
+        contacts << contact
       end
       contacts
+    end
+
+    def find_application_contacts(application_id, application_contacts)
+        application_contacts[:records].each do |record|
+            return record if record[:Id] == application_id
+        end
+
+        nil
     end
 
     def prepare_units(listing_id)

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 RSpec.describe DahliaBackend::MessageService do
@@ -10,7 +11,7 @@ RSpec.describe DahliaBackend::MessageService do
       name: 'test listing',
       neighborhood: 'Castro/Upper Market',
       building_street_address: '1 South Van Ness Ave',
-      file_upload_url: 'https://sf.gov'
+      file_upload_url: 'https://sf.gov',
     }
   end
   let(:listing_details) do
@@ -18,15 +19,15 @@ RSpec.describe DahliaBackend::MessageService do
       unit_summaries: {
         reserved: nil,
         general: [{
-          unitType: "Studio",
+          unitType: 'Studio',
           minMonthlyRent: 1375.0,
           maxMonthlyRent: 2224.0,
-          availability: 16.0
+          availability: 16.0,
         }, {
-          unitType: "1 BR",
+          unitType: '1 BR',
           minMonthlyRent: 1553.0,
           maxMonthlyRent: 2736.0,
-          availability: 26.0
+          availability: 26.0,
         }]
       }
     }]
@@ -38,7 +39,7 @@ RSpec.describe DahliaBackend::MessageService do
     {
       ids: [listing_id],
       listing: listing,
-      invite_to_apply_deadline: '2024-07-01'
+      invite_to_apply_deadline: '2024-07-01',
     }
   end
   let(:contacts) do
@@ -109,7 +110,8 @@ RSpec.describe DahliaBackend::MessageService do
 
       it 'handles exceptions when fetching listing' do
         allow(listing_service).to receive(:get_details).and_raise(StandardError.new('API error'))
-        expect(Rails.logger).to receive(:error).with('[DahliaBackend::MessageService:log_error] Error sending Invite to Apply: StandardError API error')
+        expect(Rails.logger).to receive(:error).with(
+            '[DahliaBackend::MessageService:log_error] Error sending Invite to Apply: StandardError API error')
         expect(subject.send_invite_to_apply(user, invite_to_apply_params, contacts)).to be_nil
       end
     end
@@ -130,7 +132,8 @@ RSpec.describe DahliaBackend::MessageService do
 
       it 'rescues and logs StandardError' do
         allow(client).to receive(:post).and_raise(StandardError.new('fail'))
-        expect(Rails.logger).to receive(:error).with('[DahliaBackend::MessageService:log_error] Error sending Invite to Apply: StandardError fail')
+        expect(Rails.logger).to receive(:error).with(
+            '[DahliaBackend::MessageService:log_error] Error sending Invite to Apply: StandardError fail')
         expect(subject.send_invite_to_apply(user, invite_to_apply_params, contacts)).to be_nil
       end
     end
