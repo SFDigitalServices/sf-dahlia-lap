@@ -112,7 +112,7 @@ RSpec.describe DahliaBackend::MessageService do
       it 'handles exceptions when fetching listing' do
         allow(listing_service).to receive(:get_details).and_raise(StandardError.new('API error'))
         expect(Rails.logger).to receive(:error).with(
-          '[DahliaBackend::MessageService:log_error] Error sending Invite to Apply: StandardError API error'
+          '[DahliaBackend::MessageService:log_error] Error sending Invite to Apply: StandardError API error',
         )
         expect(subject.send_invite_to_apply(user, invite_to_apply_params, contacts)).to be_nil
       end
