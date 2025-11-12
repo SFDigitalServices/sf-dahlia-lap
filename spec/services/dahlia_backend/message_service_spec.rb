@@ -29,8 +29,8 @@ RSpec.describe DahliaBackend::MessageService do
           minMonthlyRent: 1553.0,
           maxMonthlyRent: 2736.0,
           availability: 26.0,
-        }]
-      }
+        }],
+      },
     }]
   end
   let(:user) do
@@ -56,8 +56,8 @@ RSpec.describe DahliaBackend::MessageService do
           First_Name: 'Jane',
           Last_Name: 'Doe',
           Email: 'test@example.com',
-        }
-      }]
+        },
+      }],
     }
   end
   let(:listing_service) { instance_double(Force::Rest::ListingService) }
@@ -135,7 +135,7 @@ RSpec.describe DahliaBackend::MessageService do
       it 'rescues and logs StandardError' do
         allow(client).to receive(:post).and_raise(StandardError.new('fail'))
         expect(Rails.logger).to receive(:error).with(
-          '[DahliaBackend::MessageService:log_error] Error sending Invite to Apply: StandardError fail'
+          '[DahliaBackend::MessageService:log_error] Error sending Invite to Apply: StandardError fail',
         )
         expect(subject.send_invite_to_apply(user, invite_to_apply_params, contacts)).to be_nil
       end
