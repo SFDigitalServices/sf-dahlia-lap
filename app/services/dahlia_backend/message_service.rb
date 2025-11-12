@@ -55,19 +55,19 @@ module DahliaBackend
         next if record.nil?
 
         contact = {
-        "applicationNumber": app_id,
-        "primaryContact": {
+          "applicationNumber": app_id,
+          "primaryContact": {
             "email": determine_email(record[:Applicant]),
             "firstName": record[:Applicant][:First_Name],
             "lastName": record[:Applicant][:Last_Name],
-        },
+          },
         }
         if record[:Alternate_Contact].present?
-        contact[:alternateContact] = {
+          contact[:alternateContact] = {
             "email": determine_email(record[:Alternate_Contact]),
             "firstName": record[:Alternate_Contact][:First_Name],
             "lastName": record[:Alternate_Contact][:Last_Name],
-        }
+          }
         end
         contacts << contact
       end
@@ -75,11 +75,11 @@ module DahliaBackend
     end
 
     def find_application_contacts(application_id, application_contacts)
-        application_contacts[:records].each do |record|
-            return record if record[:Id] == application_id
-        end
+      application_contacts[:records].each do |record|
+        return record if record[:Id] == application_id
+      end
 
-        nil
+      nil
     end
 
     def prepare_units(listing_id)
