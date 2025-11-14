@@ -21,6 +21,21 @@ module Api::V1
         applications[:pages] = lease_up_application_preferences.page_count
         applications[:total_size] = lease_up_application_preferences.total_count
         applications[:records] = Force::Preference.convert_list(applications[:records], :from_salesforce, :to_domain)
+
+        # Add latest field update comment data to records
+        field_update_comments_service = Force::FieldUpdateCommentService.new(current_user)
+        application_ids = applications[:records].map { |record| record[:application][:id] }
+        comments = filter_to_latest_comments(
+          field_update_comments_service.bulk_status_history_by_applications(application_ids)
+        )
+
+        for comment in comments do
+          application_id = comment[:application]
+          record = applications[:records].find { |record| record[:application][:id] == application_id }
+          record[:application][:field_update_comment] = comment
+          record[:application][:sub_status] = comment[:substatus].present? ? comment[:substatus] : adorn_comment_icons(comment[:comment])
+        end
+
       end
 
       # providing the listing type so we know how to handle the response
@@ -52,6 +67,33 @@ module Api::V1
     def listing_type
       listing_id = lease_up_apps_params[:listing_id]
       Force::Soql::ListingService.new(current_user).listing(listing_id).listing_type
+    end
+
+    def filter_to_latest_comments(comments)
+      # returns only the latest comment for each application
+      latest_comments = {}
+      comments.each do |comment|
+        application_id = comment[:application]
+        if !latest_comments.has_key?(application_id)
+          latest_comments[application_id] = comment
+        else
+          if Date.parse(comment[:date]) > Date.parse(latest_comments[application_id][:date])
+            latest_comments[application_id] = comment
+          end
+        end
+      end
+      latest_comments.values
+    end
+
+    def adorn_comment_icons(comment)
+      case comment
+      when /Invite to apply/
+        '✉️ ' + comment
+      when /Check for docs: showed interest/
+        '📁 ' + comment
+      else
+        comment
+      end
     end
   end
 end
