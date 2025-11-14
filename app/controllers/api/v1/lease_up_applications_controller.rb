@@ -26,12 +26,12 @@ module Api::V1
         field_update_comments_service = Force::FieldUpdateCommentService.new(current_user)
         application_ids = applications[:records].map { |record| record[:application][:id] }
         comments = filter_to_latest_comments(
-          field_update_comments_service.bulk_status_history_by_applications(application_ids)
+          field_update_comments_service.bulk_status_history_by_applications(application_ids),
         )
 
-        for comment in comments do
+        comments.each do |comment|
           application_id = comment[:application]
-          record = applications[:records].find { |record| record[:application][:id] == application_id }
+          record = applications[:records].find { |rec| rec[:application][:id] == application_id }
           record[:application][:field_update_comment] = comment
           record[:application][:sub_status] = comment[:substatus].present? ? comment[:substatus] : adorn_comment_icons(comment[:comment])
         end
@@ -74,12 +74,10 @@ module Api::V1
       latest_comments = {}
       comments.each do |comment|
         application_id = comment[:application]
-        if !latest_comments.has_key?(application_id)
+        if !latest_comments.key?(application_id)
           latest_comments[application_id] = comment
-        else
-          if Date.parse(comment[:date]) > Date.parse(latest_comments[application_id][:date])
-            latest_comments[application_id] = comment
-          end
+        elsif Date.parse(comment[:date]) > Date.parse(latest_comments[application_id][:date])
+          latest_comments[application_id] = comment
         end
       end
       latest_comments.values
@@ -88,9 +86,9 @@ module Api::V1
     def adorn_comment_icons(comment)
       case comment
       when /Invite to apply/
-        '✉️ ' + comment
+        "✉️ #{comment}"
       when /Check for docs: showed interest/
-        '📁 ' + comment
+        "📁 #{comment}"
       else
         comment
       end
