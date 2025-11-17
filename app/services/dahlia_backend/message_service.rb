@@ -18,6 +18,7 @@ module DahliaBackend
     def send_invite_to_apply(current_user, params, application_contacts)
       @current_user = current_user
       raise 'Invalid parameters in send_invite_to_apply' unless valid_params?(params[:listing], application_contacts)
+
       fields = prepare_submission_fields(params, application_contacts)
       return if fields.nil?
 
