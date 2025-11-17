@@ -45,6 +45,12 @@ module DahliaBackend
         "applicants": contacts,
         "deadlineDate": params[:invite_to_apply_deadline],
         "lotteryDate": listing[:lottery_date],
+        "leasingAgent": {
+          "name": listing[:leasing_agent_name],
+          "email": listing[:leasing_agent_email],
+          "phone": listing[:leasing_agent_phone],
+          "officeHours": listing[:office_hours],
+        }
       }
     end
 

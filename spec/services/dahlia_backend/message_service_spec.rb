@@ -14,6 +14,10 @@ RSpec.describe DahliaBackend::MessageService do
       neighborhood: 'Castro/Upper Market',
       building_street_address: '1 South Van Ness Ave',
       file_upload_url: 'https://sf.gov',
+      office_hours: 'Monday - Friday, 9am - 5pm',
+      leasing_agent_name: 'Leasing Agent',
+      leasing_agent_email: 'leasing@example.com',
+      leasing_agent_phone: '555-555-5555',
     }
   end
   let(:listing_details) do
