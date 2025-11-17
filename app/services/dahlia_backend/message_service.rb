@@ -31,7 +31,7 @@ module DahliaBackend
     private
 
     def prepare_submission_fields(params, application_contacts)
-      contacts = prepare_contacts(params[:ids], application_contacts)
+      contacts = prepare_contacts(params[:applicationIds], application_contacts)
       raise 'No contacts found' if contacts.empty?
 
       listing = params[:listing]

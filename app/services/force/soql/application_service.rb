@@ -34,7 +34,7 @@ module Force
                              .paginate(opts)
                              .transform_results { |results| massage(results) }
         query_scope.order_by('CreatedDate DESC')
-        query_scope.where_in('Id', opts[:ids]) if opts[:ids].present?
+        query_scope.where_in('Id', opts[:applicationIds]) if opts[:applicationIds].present?
         query_scope.query
       end
 

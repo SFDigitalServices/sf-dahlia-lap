@@ -220,7 +220,7 @@ const sendInviteToApply = async (listing, appIds, uploadUrl, deadline) => {
   return request.post(
     `/invite-to-apply`,
     {
-      ids: appIds,
+      applicationIds: appIds,
       listing,
       invite_to_apply_deadline: deadline
     },

@@ -7,7 +7,7 @@ module Api
       before_action :authenticate_user!
 
       def email
-        return head 500 unless params[:ids].present?
+        return head 500 unless params[:applicationIds].present?
 
         contacts = soql_application_service.application_contacts(params)
 
