@@ -50,7 +50,7 @@ module DahliaBackend
           "email": listing[:leasing_agent_email],
           "phone": listing[:leasing_agent_phone],
           "officeHours": listing[:office_hours],
-        }
+        },
       }
     end
 
