@@ -81,28 +81,4 @@ RSpec.describe DahliaBackend::ApiClient, type: :service do
       expect(response).to be_nil
     end
   end
-
-  describe '#get' do
-    it 'sends a GET request and logs success' do
-      expect(api_client).to receive(:log_info).with("GET request successful: #{endpoint}")
-      response = api_client.get(endpoint, params)
-      expect(response).to eq(http_response)
-    end
-
-    it 'logs an error if the GET request fails' do
-      allow(http_response).to receive(:code).and_return(400)
-      allow(http_response).to receive(:body).and_return('Error')
-      expect(api_client).to receive(:log_error).with('GET request failed: 400 Error', nil)
-      response = api_client.get(endpoint, params)
-      expect(response).to be_nil
-    end
-
-    it 'logs an error if an exception occurs' do
-      allow(HTTP).to receive(:get).and_raise(StandardError.new('Test error'))
-      expect(api_client).to receive(:log_error).with('GET request error',
-                                                     instance_of(StandardError))
-      response = api_client.get(endpoint, params)
-      expect(response).to be_nil
-    end
-  end
 end

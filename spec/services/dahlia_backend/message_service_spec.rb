@@ -5,6 +5,7 @@ require 'rails_helper'
 RSpec.describe DahliaBackend::MessageService do
   let(:client) { instance_double(DahliaBackend::ApiClient) }
   let(:listing_id) { 'listing-123' }
+  let(:application_id) { 'application-123' }
   let(:listing) do
     {
       id: listing_id,
@@ -38,7 +39,7 @@ RSpec.describe DahliaBackend::MessageService do
   end
   let(:invite_to_apply_params) do
     {
-      ids: [listing_id],
+      applicationIds: [application_id],
       listing: listing,
       invite_to_apply_deadline: '2024-07-01',
     }
@@ -46,7 +47,8 @@ RSpec.describe DahliaBackend::MessageService do
   let(:contacts) do
     {
       records: [{
-        Id: listing_id,
+        Id: application_id,
+        applicationLanguage: 'English',
         Applicant: {
           First_Name: 'John',
           Last_Name: 'Doe',
@@ -92,9 +94,9 @@ RSpec.describe DahliaBackend::MessageService do
     subject { described_class.new(client) }
 
     context 'with invalid params' do
-      it 'returns nil if ids are missing' do
+      it 'returns nil if applicationIds are missing' do
         params_copy = invite_to_apply_params.dup
-        params_copy.delete :ids
+        params_copy.delete :applicationIds
         expect(subject.send_invite_to_apply(user, params_copy, contacts)).to be_nil
       end
 

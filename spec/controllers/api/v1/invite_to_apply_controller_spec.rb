@@ -18,8 +18,9 @@ RSpec.describe Api::V1::InviteToApplyController, type: :controller do
       VCR.use_cassette('api/v1/invite_to_apply_controller/email/success') do
         listing[:id] = lease_up_listing_id
         params = {
-          ids: [lease_up_application_id],
+          applicationIds: [lease_up_application_id],
           listing: listing,
+          invite_to_apply_deadline: '2050-01-01',
         }
         post :email, params: params
       end
@@ -39,7 +40,7 @@ RSpec.describe Api::V1::InviteToApplyController, type: :controller do
       VCR.use_cassette('api/v1/invite_to_apply_controller/email/failure_zero_contacts') do
         listing[:id] = 'a0W0P00000GbyuXXXX' # invalid id causes contacts query to return 0 records
         post :email, params: {
-          ids: ['a0W0P00000GbyuXXXX'],
+          applicationIds: ['a0W0P00000GbyuXXXX'],
           listing: listing,
         }
       end
