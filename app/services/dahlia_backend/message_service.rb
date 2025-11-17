@@ -43,8 +43,8 @@ module DahliaBackend
         "listingNeighborhood": listing[:neighborhood],
         "units": prepare_units(listing[:id]),
         "applicants": contacts,
-        "deadlineDate": format_date(params[:invite_to_apply_deadline]),
-        "lotteryDate": format_date(listing[:lottery_date]),
+        "deadlineDate": params[:invite_to_apply_deadline],
+        "lotteryDate": listing[:lottery_date],
       }
     end
 
@@ -138,15 +138,6 @@ module DahliaBackend
 
     def rest_listing_service
       Force::Rest::ListingService.new(@current_user)
-    end
-
-    def format_date(date)
-      return '' unless date.present?
-
-      Time.zone.parse(date).strftime('%B %e, %Y')
-    rescue StandardError => e
-      log_warn("Error parsing date: #{e.message}")
-      date.to_s
     end
 
     def log_info(message)
