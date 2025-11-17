@@ -56,6 +56,7 @@ module DahliaBackend
 
         contact = {
           "applicationNumber": app_id,
+          "applicationLanguage": record[:Application_Language],
           "primaryContact": {
             "email": determine_email(record[:Applicant]),
             "firstName": record[:Applicant][:First_Name],
