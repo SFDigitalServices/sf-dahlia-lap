@@ -11267,47 +11267,6 @@ button.dropdown-select {
   .alert-box.inset .close {
     right: 1rem; }
 
-.info-alert {
-  line-height: 1.375;
-  margin-top: 3rem;
-  padding-right: 2.5rem; }
-  .info-alert.no-icon .info-body {
-    padding-left: 0; }
-  .info-alert.no-close {
-    padding-right: 1rem; }
-    .info-alert.no-close .close {
-      display: none; }
-  .info-alert-inner {
-    overflow: hidden;
-    height: 100%;
-    background-color: #f9f9f9;
-    border: 0.125rem solid #efefef;
-  }
-  .info-alert-inner .close {
-    float: right;
-    top: 1.4rem;
-    line-height: .9rem;
-    font-size: 2rem;
-    color: #222;
-    padding-right: 1.125rem }
-    .info-alert-inner .close.text {
-      color: inherit;
-      font-size: 0.75rem;
-      opacity: 1;
-      text-decoration: underline;
-      text-transform: capitalize;
-      margin-top: -.5rem; }
-
-.info-alert-icon {
-  position: relative;
-  width: 25%;
-  top: 1.4rem;
-  left: 1rem; }
-
-.info-alert-body {
-  width: 70%;
-  padding-left: 3rem;}
-
 .attachment {
   background-color: #f6f6f6;
   padding: .5rem;
