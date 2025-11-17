@@ -43,21 +43,6 @@ module DahliaBackend
       nil
     end
 
-    def get(endpoint, params = {})
-      response = http_client.get("#{api_url}#{endpoint}", params: params)
-
-      if response.code >= 400
-        log_error("GET request failed: #{response.code} #{response.body}", nil)
-        nil
-      else
-        log_info("GET request successful: #{endpoint}")
-        response
-      end
-    rescue StandardError => e
-      log_error('GET request error', e)
-      nil
-    end
-
     def log_info(message)
       Rails.logger.info("[DahliaBackend::ApiClient:log_info] #{message}")
     end
