@@ -1,0 +1,32 @@
+# frozen_string_literal: true
+
+module Api
+  module V1
+    # RESTful JSON API for the Invite to Apply
+    class InviteToApplyController < ApiController
+      before_action :authenticate_user!
+
+      def email
+        return head 500 unless params[:applicationIds].present?
+
+        contacts = soql_application_service.application_contacts(params)
+
+        response = DahliaBackend::MessageService.send_invite_to_apply(
+          current_user,
+          params,
+          contacts,
+        )
+
+        return head 500 if response.nil?
+
+        render json: true
+      end
+
+      private
+
+      def soql_application_service
+        Force::Soql::ApplicationService.new(current_user)
+      end
+    end
+  end
+end

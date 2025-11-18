@@ -49,6 +49,22 @@ Necessary configs are defined in [.vscode/settings.json](.vscode/settings.json).
 - Run `npm start` in your pattern lib directory
 - In a separate tab, change to the partners directory and run `grunt`
 
+## Icons
+
+The icons are from sf-dahlia-pattern-library](https://github.com/SFDigitalServices/sf-dahlia-pattern-library).
+Instructions for how to add icons is documented there. It is copied/pasted below for convenience.
+
+We use icons from icomoon.io. To add new icons:
+
+1. Go to https://icomoon.io/app/
+1. Click "import icons" and upload the current [selections.json](https://github.com/SFDigitalServices/sf-dahlia-pattern-library/blob/main/public/toolkit/icons/icomoon/selection.json)
+1. Select any new icons you want to add
+1. Click "Generate SVG and more" on the bottom bar, then click download using the default settings
+1. Replace the current [icomoon folder](https://github.com/SFDigitalServices/sf-dahlia-pattern-library/tree/main/public/toolkit/icons/icomoon) with the unzipped folder you just downloaded
+1. Copy and paste the new symbols from [demo.html](https://github.com/SFDigitalServices/sf-dahlia-pattern-library/blob/main/public/toolkit/icons/icomoon/demo.html) into [\_icons.html](https://github.com/SFDigitalServices/sf-dahlia-pattern-library/blob/main/components/_icons.html)
+
+To use the new icons in Partners, replace the [layouts/\_icons.html](https://github.com/SFDigitalServices/sf-dahlia-lap/blob/main/app/views/layouts/_icons.html) file with the content of [\_icons.html](https://github.com/SFDigitalServices/sf-dahlia-pattern-library/blob/main/components/_icons.html)
+
 ## Linting
 
 To lint Ruby code run: `rubocop`
@@ -162,7 +178,6 @@ RTL encourages you to interact with your components in the same way a user would
 1. Interact with your components like a user: Use RTL's fireEvent (or userEvent) functions to simulate user interactions like clicking buttons, typing into inputs, and submitting forms. Avoid interacting with your components in ways a user couldn't, like by setting props or state directly.
 
 2. Query by specific accessible roles and labels: Use RTL's getByRole, getByLabelText, and other similar functions to select elements in your tests. These functions select elements based on their accessible roles and labels, which is how users find and interact with elements. Avoid selecting elements by their tag name, class name, or other implementation details.
-
    - When trying to query for something, try to be as specific as possible. A button, for example can be queried with `screen.getByRole('button)`, but you could also be more specific and say `screen.getByRole('button, {name: 'click me'})`
    - `getBy*` and `queryBy*` operate slightly differently, the former will throw an error is nothing is found, while the latter will simply return undefined if no elements are found. If you are querying for something that you know isn't there, then use `expect(screen.queryBy*(element)).not.toBeInTheDocument()`
    - `[get|query]AllBy*` and `[get|query]By*` are also different, with the former returning an array and the other returning only one (and throwing an error if it finds otherwise).
