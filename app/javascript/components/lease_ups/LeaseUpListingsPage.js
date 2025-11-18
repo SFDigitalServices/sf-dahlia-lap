@@ -1,7 +1,4 @@
 import React, { useState } from 'react'
-
-import { useNavigate } from 'react-router-dom'
-
 import ErrorBoundary from 'components/atoms/ErrorBoundary'
 import { listingsPageMounted, listingRowClicked } from 'components/lease_ups/actions/actionCreators'
 import Loading from 'components/molecules/Loading'
@@ -16,7 +13,6 @@ import TableLayout from '../layouts/TableLayout'
 const LeaseUpListingsPage = () => {
   const [loading, setLoading] = useState(true)
   const [listings, setListings] = useState(true)
-  const navigate = useNavigate()
 
   const [, dispatch] = useAppContext()
 
@@ -39,8 +35,7 @@ const LeaseUpListingsPage = () => {
 
   const onCellClick = ({ original: listing }) => {
     listingRowClicked(dispatch, listing)
-
-    navigate(appPaths.toLeaseUpApplications(listing.id))
+    window.location.assign(appPaths.toLeaseUpApplications(listing.id))
   }
 
   return (

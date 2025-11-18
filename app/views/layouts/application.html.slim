@@ -30,9 +30,25 @@ html
     / include toolkit.css and other CSS overrides
     == stylesheet_link_tag "application", :media => 'all'
     == csrf_meta_tags
+
+  ruby:
+    lease_up_page = request.path.match?('/lease-ups/listings/')
+    lease_up_listing_id = File.basename(request.path)
+    invite_to_apply_pilot_listings = ENV['INVITE_TO_APPLY_PILOT_LISTINGS']&.split(',')
+    show_invite_to_apply_feedback_banner = ENV['BANNER_INVITE_TO_APPLY_FEEDBACK'] &&
+      lease_up_page && (
+        !invite_to_apply_pilot_listings || invite_to_apply_pilot_listings.include?(lease_up_listing_id)
+      )
+
   body
     .site-container
-      header
+      - if ENV['BANNER_ALERT']
+        section
+          == render 'layouts/banner_alert'
+      - if show_invite_to_apply_feedback_banner
+        section
+          == render 'layouts/banner_invite_to_apply_feedback'
+      section
         == render 'layouts/navigation'
       section#root
         == render 'layouts/messages'
