@@ -90,7 +90,9 @@ const LeaseUpTableContainer = ({
     pages,
     preferences,
     rowsPerPage,
-    statusModal
+    statusModal,
+    listing,
+    setPageState
   }
 }) => {
   const inviteToApplyModalsRef = useRef(null)
@@ -156,6 +158,8 @@ const LeaseUpTableContainer = ({
         ref={inviteToApplyModalsRef}
         bulkCheckboxesState={bulkCheckboxesState}
         listingId={listingId}
+        listing={listing}
+        setPageState={setPageState}
       />
     </>
   )

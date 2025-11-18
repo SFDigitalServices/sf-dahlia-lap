@@ -216,6 +216,18 @@ export const createLease = async (leaseToCreate, primaryApplicantContact, applic
 export const deleteLease = async (applicationId, leaseId) =>
   request.destroy(`/applications/${applicationId}/leases/${leaseId}`, null, true)
 
+const sendInviteToApply = async (listing, appIds, uploadUrl, deadline) => {
+  return request.post(
+    `/invite-to-apply`,
+    {
+      applicationIds: appIds,
+      listing,
+      invite_to_apply_deadline: deadline
+    },
+    true
+  )
+}
+
 export default {
   updateApplication,
   fetchFlaggedApplications,
@@ -244,5 +256,6 @@ export default {
   updateLease,
   fetchApplicationsForLotteryResults,
   fetchLotteryResults,
-  updateListing
+  updateListing,
+  sendInviteToApply
 }
