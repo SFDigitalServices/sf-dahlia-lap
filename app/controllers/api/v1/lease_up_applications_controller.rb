@@ -3,6 +3,8 @@
 module Api::V1
   # Lease Up Applications controller for access via the API
   class LeaseUpApplicationsController < ApiController
+    include StringUtils
+
     def index
       applications = {}
       if listing_type == Force::Listing::LISTING_TYPE_FIRST_COME_FIRST_SERVED
@@ -33,7 +35,8 @@ module Api::V1
           application_id = comment[:application]
           record = applications[:records].find { |rec| rec[:application][:id] == application_id }
           record[:application][:field_update_comment] = comment
-          record[:application][:sub_status] = comment[:substatus].present? ? comment[:substatus] : adorn_comment_icons(comment[:comment])
+          record[:application][:sub_status] =
+            comment[:substatus].present? ? comment[:substatus] : StringUtils.adorn_comment_icons(comment[:comment])
         end
 
       end
@@ -81,17 +84,6 @@ module Api::V1
         end
       end
       latest_comments.values
-    end
-
-    def adorn_comment_icons(comment)
-      case comment
-      when /Invite to apply/
-        "✉️ #{comment}"
-      when /Check for docs: showed interest/
-        "📁 #{comment}"
-      else
-        comment
-      end
     end
   end
 end

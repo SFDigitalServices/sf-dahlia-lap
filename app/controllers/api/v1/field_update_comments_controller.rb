@@ -6,9 +6,15 @@ class Api::V1::FieldUpdateCommentsController < ApiController
 
   def index
     application_id = params[:application_id]
+    status_history = service.status_history_by_application(application_id)
+
+    status_history_with_icons = status_history.map do |status|
+      status[:comment] = StringUtils.adorn_comment_icons(status[:comment])
+      status
+    end
 
     render json: {
-      data: service.status_history_by_application(application_id),
+      data: status_history_with_icons,
     }
   end
 
