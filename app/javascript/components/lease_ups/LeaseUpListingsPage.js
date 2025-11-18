@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 import ErrorBoundary from 'components/atoms/ErrorBoundary'
 import { listingsPageMounted, listingRowClicked } from 'components/lease_ups/actions/actionCreators'
 import Loading from 'components/molecules/Loading'
