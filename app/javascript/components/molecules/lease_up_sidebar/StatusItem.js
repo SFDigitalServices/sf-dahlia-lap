@@ -21,9 +21,11 @@ const StatusItem = ({ statusItem }) => {
 
   return (
     <div className='status-item' data-testid='status-item'>
-      <div className='status-item-header'>
-        <StatusPill status={status} />
-      </div>
+      {status && (
+        <div className='status-item-header'>
+          <StatusPill status={status} />
+        </div>
+      )}
       {substatusLabel && <div className='item-substatus-text'>{substatusLabel}</div>}
       <div className='status-item-text'>{comment}</div>
       <div className='status-item-footer'>
