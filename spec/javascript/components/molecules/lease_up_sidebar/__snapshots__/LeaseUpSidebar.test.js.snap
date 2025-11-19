@@ -127,7 +127,7 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
           <div
             class="status-item-date"
           >
-            Aug 25, 2020
+            Aug 25, 2020 8:00 pm
           </div>
         </div>
       </div>
@@ -163,7 +163,7 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
           <div
             class="status-item-date"
           >
-            Aug 25, 2020
+            Aug 25, 2020 8:00 pm
           </div>
         </div>
       </div>
@@ -199,7 +199,7 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
           <div
             class="status-item-date"
           >
-            Aug 25, 2020
+            Aug 25, 2020 8:00 pm
           </div>
         </div>
       </div>
@@ -235,7 +235,7 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
           <div
             class="status-item-date"
           >
-            Aug 25, 2020
+            Aug 25, 2020 8:00 pm
           </div>
         </div>
       </div>

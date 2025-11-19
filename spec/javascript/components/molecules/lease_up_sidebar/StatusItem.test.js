@@ -56,6 +56,6 @@ describe('StatusItem', () => {
 
   test('should format timestamps as expected', () => {
     render(<StatusItem statusItem={mockStatusItem({ status: 'Lease Signed', substatus: null })} />)
-    expect(screen.getByText('Aug 25, 2020')).toBeInTheDocument()
+    expect(screen.getByText('Aug 25, 2020 8:00 pm')).toBeInTheDocument()
   })
 })

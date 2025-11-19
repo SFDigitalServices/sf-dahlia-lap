@@ -64,7 +64,7 @@ exports[`StatusHistoryPopover when there are fewer than 4 status items does not 
             <div
               class="status-item-date"
             >
-              Aug 25, 2020
+              Aug 25, 2020 8:00 pm
             </div>
           </div>
         </div>
@@ -100,7 +100,7 @@ exports[`StatusHistoryPopover when there are fewer than 4 status items does not 
             <div
               class="status-item-date"
             >
-              Aug 25, 2020
+              Aug 25, 2020 8:00 pm
             </div>
           </div>
         </div>
@@ -174,7 +174,7 @@ exports[`StatusHistoryPopover when there are fewer than 4 status items it matche
             <div
               class="status-item-date"
             >
-              Aug 25, 2020
+              Aug 25, 2020 8:00 pm
             </div>
           </div>
         </div>
@@ -210,7 +210,7 @@ exports[`StatusHistoryPopover when there are fewer than 4 status items it matche
             <div
               class="status-item-date"
             >
-              Aug 25, 2020
+              Aug 25, 2020 8:00 pm
             </div>
           </div>
         </div>
@@ -285,7 +285,7 @@ exports[`StatusHistoryPopover when there are more than 4 status items sets a fix
             <div
               class="status-item-date"
             >
-              Aug 25, 2020
+              Aug 25, 2020 8:00 pm
             </div>
           </div>
         </div>
@@ -321,7 +321,7 @@ exports[`StatusHistoryPopover when there are more than 4 status items sets a fix
             <div
               class="status-item-date"
             >
-              Aug 25, 2020
+              Aug 25, 2020 8:00 pm
             </div>
           </div>
         </div>
@@ -357,7 +357,7 @@ exports[`StatusHistoryPopover when there are more than 4 status items sets a fix
             <div
               class="status-item-date"
             >
-              Aug 25, 2020
+              Aug 25, 2020 8:00 pm
             </div>
           </div>
         </div>
@@ -393,7 +393,7 @@ exports[`StatusHistoryPopover when there are more than 4 status items sets a fix
             <div
               class="status-item-date"
             >
-              Aug 25, 2020
+              Aug 25, 2020 8:00 pm
             </div>
           </div>
         </div>

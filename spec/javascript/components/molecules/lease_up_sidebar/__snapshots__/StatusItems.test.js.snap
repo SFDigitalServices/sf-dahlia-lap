@@ -38,7 +38,7 @@ exports[`StatusItems should limit the height of the list if provided 1`] = `
         <div
           class="status-item-date"
         >
-          Aug 25, 2020
+          Aug 25, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -74,7 +74,7 @@ exports[`StatusItems should limit the height of the list if provided 1`] = `
         <div
           class="status-item-date"
         >
-          Aug 24, 2020
+          Aug 24, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -110,7 +110,7 @@ exports[`StatusItems should limit the height of the list if provided 1`] = `
         <div
           class="status-item-date"
         >
-          Aug 23, 2020
+          Aug 23, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -144,7 +144,7 @@ exports[`StatusItems should limit the height of the list if provided 1`] = `
         <div
           class="status-item-date"
         >
-          Aug 22, 2020
+          Aug 22, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -189,7 +189,7 @@ exports[`StatusItems should not set a height if height is not provided 1`] = `
         <div
           class="status-item-date"
         >
-          Aug 25, 2020
+          Aug 25, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -225,7 +225,7 @@ exports[`StatusItems should not set a height if height is not provided 1`] = `
         <div
           class="status-item-date"
         >
-          Aug 24, 2020
+          Aug 24, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -261,7 +261,7 @@ exports[`StatusItems should not set a height if height is not provided 1`] = `
         <div
           class="status-item-date"
         >
-          Aug 23, 2020
+          Aug 23, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -295,7 +295,7 @@ exports[`StatusItems should not set a height if height is not provided 1`] = `
         <div
           class="status-item-date"
         >
-          Aug 22, 2020
+          Aug 22, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -340,7 +340,7 @@ exports[`StatusItems snapshot tests should render a single status item correctly
         <div
           class="status-item-date"
         >
-          Aug 25, 2020
+          Aug 25, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -393,7 +393,7 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         <div
           class="status-item-date"
         >
-          Aug 25, 2020
+          Aug 25, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -429,7 +429,7 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         <div
           class="status-item-date"
         >
-          Aug 24, 2020
+          Aug 24, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -465,7 +465,7 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         <div
           class="status-item-date"
         >
-          Aug 23, 2020
+          Aug 23, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -499,7 +499,7 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         <div
           class="status-item-date"
         >
-          Aug 22, 2020
+          Aug 22, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -530,7 +530,7 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         <div
           class="status-item-date"
         >
-          Aug 21, 2020
+          Aug 21, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -559,7 +559,7 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         <div
           class="status-item-date"
         >
-          Aug 20, 2020
+          Aug 20, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -612,7 +612,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         <div
           class="status-item-date"
         >
-          Aug 25, 2020
+          Aug 25, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -657,7 +657,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         <div
           class="status-item-date"
         >
-          Aug 25, 2020
+          Aug 25, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -693,7 +693,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         <div
           class="status-item-date"
         >
-          Aug 24, 2020
+          Aug 24, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -729,7 +729,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         <div
           class="status-item-date"
         >
-          Aug 23, 2020
+          Aug 23, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -763,7 +763,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         <div
           class="status-item-date"
         >
-          Aug 22, 2020
+          Aug 22, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -794,7 +794,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         <div
           class="status-item-date"
         >
-          Aug 21, 2020
+          Aug 21, 2020 8:00 pm
         </div>
       </div>
     </div>
@@ -823,7 +823,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         <div
           class="status-item-date"
         >
-          Aug 20, 2020
+          Aug 20, 2020 8:00 pm
         </div>
       </div>
     </div>

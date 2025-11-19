@@ -10,8 +10,8 @@ import { mockManyStatusItems, mockStatusItem, mockStatusItems } from '../../../m
 const getScreen = (items, limit = undefined, height = null) =>
   render(<StatusItems statusItems={items} limit={limit} height={height} />)
 
-const TIMESTAMP_AUGUST_25_2020 = 1598338800
-const TIMESTAMP_AUGUST_26_2020 = 1598400000
+const TIMESTAMP_AUGUST_25_2020 = 1756130400
+const TIMESTAMP_AUGUST_26_2020 = 1756191600
 
 describe('StatusItems', () => {
   describe('snapshot tests', () => {
@@ -140,12 +140,12 @@ describe('StatusItems', () => {
       const secondStatusItem = statusItems[1]
       expect(
         within(firstStatusItem).getByText(
-          moment.unix(TIMESTAMP_AUGUST_25_2020).format('MMM D, YYYY')
+          moment.unix(TIMESTAMP_AUGUST_25_2020).format('MMM D, YYYY h:mm a')
         )
       ).toBeInTheDocument()
       expect(
         within(secondStatusItem).getByText(
-          moment.unix(TIMESTAMP_AUGUST_26_2020).format('MMM D, YYYY')
+          moment.unix(TIMESTAMP_AUGUST_26_2020).format('MMM D, YYYY h:mm a')
         )
       ).toBeInTheDocument()
     })
@@ -164,12 +164,12 @@ describe('StatusItems', () => {
       const secondStatusItem = statusItems[1]
       expect(
         within(firstStatusItem).getByText(
-          moment.unix(TIMESTAMP_AUGUST_26_2020).format('MMM D, YYYY')
+          moment.unix(TIMESTAMP_AUGUST_26_2020).format('MMM D, YYYY h:mm a')
         )
       ).toBeInTheDocument()
       expect(
         within(secondStatusItem).getByText(
-          moment.unix(TIMESTAMP_AUGUST_25_2020).format('MMM D, YYYY')
+          moment.unix(TIMESTAMP_AUGUST_25_2020).format('MMM D, YYYY h:mm a')
         )
       ).toBeInTheDocument()
     })
