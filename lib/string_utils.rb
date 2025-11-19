@@ -3,7 +3,6 @@
 # Add icons to string
 module StringUtils
   def self.adorn_with_icons(string)
-    p string
     case string
     when /Invited to Apply/
       "✉️ #{string}"
