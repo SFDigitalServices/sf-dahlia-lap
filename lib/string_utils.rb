@@ -6,7 +6,7 @@ module StringUtils
     case string
     when /Invited to Apply/
       "✉️ #{string}"
-    when /Check for docs: showed interest/
+    when /Check for docs: Showed interest/
       "📁 #{string}"
     else
       string
