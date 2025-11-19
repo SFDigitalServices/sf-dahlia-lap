@@ -9,7 +9,7 @@ class Api::V1::FieldUpdateCommentsController < ApiController
     status_history = service.status_history_by_application(application_id)
 
     status_history_with_icons = status_history.map do |status|
-      status[:comment] = StringUtils.adorn_comment_icons(status[:comment])
+      status[:comment] = StringUtils.adorn_with_icons(status[:comment])
       status
     end
 

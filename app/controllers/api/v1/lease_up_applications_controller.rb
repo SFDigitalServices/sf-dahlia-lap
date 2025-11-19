@@ -36,7 +36,7 @@ module Api::V1
           record = applications[:records].find { |rec| rec[:application][:id] == application_id }
           record[:application][:field_update_comment] = comment
           record[:application][:sub_status] =
-            comment[:substatus].present? ? comment[:substatus] : StringUtils.adorn_comment_icons(comment[:comment])
+            comment[:substatus].present? ? StringUtils.adorn_with_icons(comment[:substatus]) : comment[:comment]
         end
 
       end

@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-# Add icons to comments
+# Add icons to string
 module StringUtils
-  def self.adorn_comment_icons(comment)
-    case comment
+  def self.adorn_with_icons(string)
+    case string
     when /Invite to apply/
-      "✉️ #{comment}"
+      "✉️ #{string}"
     when /Check for docs: showed interest/
-      "📁 #{comment}"
+      "📁 #{string}"
     else
-      comment
+      string
     end
   end
 end
