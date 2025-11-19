@@ -8,7 +8,7 @@ import { getSubStatusLabel } from '../../../utils/statusUtils'
 import StatusPill from '../../atoms/StatusPill'
 
 const StatusDate = ({ timestamp }) => (
-  <div className='status-item-date'>{moment.unix(timestamp).format('MMM D, YYYY')}</div>
+  <div className='status-item-date'>{moment.unix(timestamp).format('MMM D, YYYY h:mm a')}</div>
 )
 const StatusCreatedBy = ({ createdBy }) => <div className='status-item-created-by'>{createdBy}</div>
 
