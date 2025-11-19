@@ -91,7 +91,8 @@ const LeaseUpApplicationsPage = () => {
     pages: 0,
     atMaxPages: false,
     forceRefreshNextPageUpdate: false,
-    eagerPagination: new EagerPagination(ROWS_PER_PAGE, GRAPHQL_SERVER_PAGE_SIZE, true)
+    eagerPagination: new EagerPagination(ROWS_PER_PAGE, GRAPHQL_SERVER_PAGE_SIZE, true),
+    showPageInfo: false
   })
 
   const [bulkCheckboxesState, setBulkCheckboxesState, overrideBulkCheckboxesState] = useStateObject(
@@ -111,13 +112,16 @@ const LeaseUpApplicationsPage = () => {
 
   const isMountedRef = useIsMountedRef()
 
-  const [{ reportId, listingPreferences, listingType }, setListingState] = useStateObject({})
+  const [{ reportId, listingPreferences, listingType, listing }, setListingState] = useStateObject(
+    {}
+  )
   useAsyncOnMount(() => getListing(listingId), {
     onSuccess: (listing) => {
       setListingState({
         reportId: listing.report_id,
         listingPreferences: getPreferences(listing),
-        listingType: listing.listing_type
+        listingType: listing.listing_type,
+        listing
       })
 
       applicationsPageLoadComplete(dispatch, listing)
@@ -364,12 +368,25 @@ const LeaseUpApplicationsPage = () => {
     preferences: listingPreferences,
     rowsPerPage: ROWS_PER_PAGE,
     statusModal: statusModalState,
+    listing,
+    setPageState: setState,
     hasFilters: Object.keys(applicationsListData.appliedFilters).length > 0
+  }
+
+  const closePageAlert = () => {
+    setState({ showPageInfo: false })
   }
 
   return (
     <Context.Provider value={context}>
-      <TableLayout pageHeader={getPageHeaderData(breadcrumbData.listing, reportId)}>
+      <TableLayout
+        pageHeader={getPageHeaderData(breadcrumbData.listing, reportId)}
+        info={{
+          message: "We're sending your messages.  Refresh the page to see updates.",
+          show: state.showPageInfo,
+          onCloseClick: closePageAlert
+        }}
+      >
         <LeaseUpApplicationsTableContainer />
       </TableLayout>
     </Context.Provider>
