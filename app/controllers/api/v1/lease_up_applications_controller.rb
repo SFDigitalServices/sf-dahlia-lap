@@ -3,7 +3,6 @@
 module Api::V1
   # Lease Up Applications controller for access via the API
   class LeaseUpApplicationsController < ApiController
-
     def index
       applications = {}
       if listing_type == Force::Listing::LISTING_TYPE_FIRST_COME_FIRST_SERVED
