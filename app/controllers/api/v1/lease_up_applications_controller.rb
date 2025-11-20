@@ -3,7 +3,6 @@
 module Api::V1
   # Lease Up Applications controller for access via the API
   class LeaseUpApplicationsController < ApiController
-    include StringUtils
 
     def index
       applications = {}
