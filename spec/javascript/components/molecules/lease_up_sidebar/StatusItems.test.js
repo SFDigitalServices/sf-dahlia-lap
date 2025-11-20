@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { render, within, screen } from '@testing-library/react'
-import moment from 'moment'
+import moment from 'moment-timezone'
 
 import StatusItems from 'components/molecules/lease_up_sidebar/StatusItems'
 
@@ -140,12 +140,18 @@ describe('StatusItems', () => {
       const secondStatusItem = statusItems[1]
       expect(
         within(firstStatusItem).getByText(
-          moment.unix(TIMESTAMP_AUGUST_25_2020).format('MMM D, YYYY h:mm a')
+          moment
+            .unix(TIMESTAMP_AUGUST_25_2020)
+            .tz('America/Los_Angeles')
+            .format('MMM D, YYYY h:mm A z')
         )
       ).toBeInTheDocument()
       expect(
         within(secondStatusItem).getByText(
-          moment.unix(TIMESTAMP_AUGUST_26_2020).format('MMM D, YYYY h:mm a')
+          moment
+            .unix(TIMESTAMP_AUGUST_26_2020)
+            .tz('America/Los_Angeles')
+            .format('MMM D, YYYY h:mm A z')
         )
       ).toBeInTheDocument()
     })
@@ -164,12 +170,18 @@ describe('StatusItems', () => {
       const secondStatusItem = statusItems[1]
       expect(
         within(firstStatusItem).getByText(
-          moment.unix(TIMESTAMP_AUGUST_26_2020).format('MMM D, YYYY h:mm a')
+          moment
+            .unix(TIMESTAMP_AUGUST_26_2020)
+            .tz('America/Los_Angeles')
+            .format('MMM D, YYYY h:mm A z')
         )
       ).toBeInTheDocument()
       expect(
         within(secondStatusItem).getByText(
-          moment.unix(TIMESTAMP_AUGUST_25_2020).format('MMM D, YYYY h:mm a')
+          moment
+            .unix(TIMESTAMP_AUGUST_25_2020)
+            .tz('America/Los_Angeles')
+            .format('MMM D, YYYY h:mm A z')
         )
       ).toBeInTheDocument()
     })

@@ -25,6 +25,11 @@ exports[`StatusItems should limit the height of the list if provided 1`] = `
         Approval letter sent
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Approval letter sent
+      </div>
+      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -38,7 +43,7 @@ exports[`StatusItems should limit the height of the list if provided 1`] = `
         <div
           class="status-item-date"
         >
-          Aug 25, 2020 8:00 pm
+          Aug 25, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -61,6 +66,11 @@ exports[`StatusItems should limit the height of the list if provided 1`] = `
         Unit selected
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Unit selected
+      </div>
+      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -74,7 +84,7 @@ exports[`StatusItems should limit the height of the list if provided 1`] = `
         <div
           class="status-item-date"
         >
-          Aug 24, 2020 8:00 pm
+          Aug 24, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -97,6 +107,11 @@ exports[`StatusItems should limit the height of the list if provided 1`] = `
         Waiting for subsidy inspection
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Waiting for subsidy inspection
+      </div>
+      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -110,7 +125,7 @@ exports[`StatusItems should limit the height of the list if provided 1`] = `
         <div
           class="status-item-date"
         >
-          Aug 23, 2020 8:00 pm
+          Aug 23, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -133,6 +148,11 @@ exports[`StatusItems should limit the height of the list if provided 1`] = `
         Written confirmation sent
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Written confirmation sent
+      </div>
+      <div
         class="status-item-text"
       />
       <div
@@ -144,7 +164,7 @@ exports[`StatusItems should limit the height of the list if provided 1`] = `
         <div
           class="status-item-date"
         >
-          Aug 22, 2020 8:00 pm
+          Aug 22, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -176,6 +196,11 @@ exports[`StatusItems should not set a height if height is not provided 1`] = `
         Approval letter sent
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Approval letter sent
+      </div>
+      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -189,7 +214,7 @@ exports[`StatusItems should not set a height if height is not provided 1`] = `
         <div
           class="status-item-date"
         >
-          Aug 25, 2020 8:00 pm
+          Aug 25, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -212,6 +237,11 @@ exports[`StatusItems should not set a height if height is not provided 1`] = `
         Unit selected
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Unit selected
+      </div>
+      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -225,7 +255,7 @@ exports[`StatusItems should not set a height if height is not provided 1`] = `
         <div
           class="status-item-date"
         >
-          Aug 24, 2020 8:00 pm
+          Aug 24, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -248,6 +278,11 @@ exports[`StatusItems should not set a height if height is not provided 1`] = `
         Waiting for subsidy inspection
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Waiting for subsidy inspection
+      </div>
+      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -261,7 +296,7 @@ exports[`StatusItems should not set a height if height is not provided 1`] = `
         <div
           class="status-item-date"
         >
-          Aug 23, 2020 8:00 pm
+          Aug 23, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -284,6 +319,11 @@ exports[`StatusItems should not set a height if height is not provided 1`] = `
         Written confirmation sent
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Written confirmation sent
+      </div>
+      <div
         class="status-item-text"
       />
       <div
@@ -295,7 +335,7 @@ exports[`StatusItems should not set a height if height is not provided 1`] = `
         <div
           class="status-item-date"
         >
-          Aug 22, 2020 8:00 pm
+          Aug 22, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -327,6 +367,11 @@ exports[`StatusItems snapshot tests should render a single status item correctly
         Approval letter sent
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Approval letter sent
+      </div>
+      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -340,7 +385,7 @@ exports[`StatusItems snapshot tests should render a single status item correctly
         <div
           class="status-item-date"
         >
-          Aug 25, 2020 8:00 pm
+          Aug 25, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -380,6 +425,11 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         Approval letter sent
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Approval letter sent
+      </div>
+      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -393,7 +443,7 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         <div
           class="status-item-date"
         >
-          Aug 25, 2020 8:00 pm
+          Aug 25, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -416,6 +466,11 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         Unit selected
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Unit selected
+      </div>
+      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -429,7 +484,7 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         <div
           class="status-item-date"
         >
-          Aug 24, 2020 8:00 pm
+          Aug 24, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -452,6 +507,11 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         Waiting for subsidy inspection
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Waiting for subsidy inspection
+      </div>
+      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -465,7 +525,7 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         <div
           class="status-item-date"
         >
-          Aug 23, 2020 8:00 pm
+          Aug 23, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -488,6 +548,11 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         Written confirmation sent
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Written confirmation sent
+      </div>
+      <div
         class="status-item-text"
       />
       <div
@@ -499,7 +564,7 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         <div
           class="status-item-date"
         >
-          Aug 22, 2020 8:00 pm
+          Aug 22, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -530,7 +595,7 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         <div
           class="status-item-date"
         >
-          Aug 21, 2020 8:00 pm
+          Aug 21, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -559,7 +624,7 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         <div
           class="status-item-date"
         >
-          Aug 20, 2020 8:00 pm
+          Aug 20, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -599,6 +664,11 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         Approval letter sent
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Approval letter sent
+      </div>
+      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -612,7 +682,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         <div
           class="status-item-date"
         >
-          Aug 25, 2020 8:00 pm
+          Aug 25, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -644,6 +714,11 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         Approval letter sent
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Approval letter sent
+      </div>
+      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -657,7 +732,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         <div
           class="status-item-date"
         >
-          Aug 25, 2020 8:00 pm
+          Aug 25, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -680,6 +755,11 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         Unit selected
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Unit selected
+      </div>
+      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -693,7 +773,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         <div
           class="status-item-date"
         >
-          Aug 24, 2020 8:00 pm
+          Aug 24, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -716,6 +796,11 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         Waiting for subsidy inspection
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Waiting for subsidy inspection
+      </div>
+      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -729,7 +814,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         <div
           class="status-item-date"
         >
-          Aug 23, 2020 8:00 pm
+          Aug 23, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -752,6 +837,11 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         Written confirmation sent
       </div>
       <div
+        class="item-substatus-text"
+      >
+        Written confirmation sent
+      </div>
+      <div
         class="status-item-text"
       />
       <div
@@ -763,7 +853,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         <div
           class="status-item-date"
         >
-          Aug 22, 2020 8:00 pm
+          Aug 22, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -794,7 +884,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         <div
           class="status-item-date"
         >
-          Aug 21, 2020 8:00 pm
+          Aug 21, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
@@ -823,7 +913,7 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         <div
           class="status-item-date"
         >
-          Aug 20, 2020 8:00 pm
+          Aug 20, 2020 1:00 PM PDT
         </div>
       </div>
     </div>
