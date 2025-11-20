@@ -216,13 +216,15 @@ export const createLease = async (leaseToCreate, primaryApplicantContact, applic
 export const deleteLease = async (applicationId, leaseId) =>
   request.destroy(`/applications/${applicationId}/leases/${leaseId}`, null, true)
 
-const sendInviteToApply = async (listing, appIds, uploadUrl, deadline) => {
+const sendInviteToApply = async (listing, appIds, deadline, testEmail = null) => {
   return request.post(
     `/invite-to-apply`,
     {
       applicationIds: appIds,
       listing,
-      invite_to_apply_deadline: deadline
+      invite_to_apply_deadline: deadline,
+      isTest: testEmail !== null,
+      testEmail
     },
     true
   )

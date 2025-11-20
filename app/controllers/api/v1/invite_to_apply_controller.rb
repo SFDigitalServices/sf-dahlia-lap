@@ -9,7 +9,24 @@ module Api
       def email
         return head 500 unless params[:applicationIds].present?
 
-        contacts = soql_application_service.application_contacts(params)
+        if params[:isTest] == true
+          # for test email, use first selected application, substitute
+          # the applicant and leasing agent emails with test email
+          contacts = {
+            "records": [{
+              "Id": params[:applicationIds][0],
+              "Application_Language": "English",
+              "Applicant": {
+                "Email": params[:testEmail],
+                "First_Name": "FirstName",
+                "Last_Name": "LastName",
+              },
+            }]
+          }
+          params[:listing][:leasing_agent_email] = params[:testEmail]
+        else
+          contacts = soql_application_service.application_contacts(params)
+        end
 
         response = DahliaBackend::MessageService.send_invite_to_apply(
           current_user,
