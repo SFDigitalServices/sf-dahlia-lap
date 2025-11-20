@@ -1,6 +1,6 @@
 import React from 'react'
 
-import moment from 'moment'
+import moment from 'moment-timezone'
 import PropTypes from 'prop-types'
 
 import StatusItemShape from '../../../utils/shapes/StatusItemShape'
@@ -8,7 +8,9 @@ import { getSubStatusLabel } from '../../../utils/statusUtils'
 import StatusPill from '../../atoms/StatusPill'
 
 const StatusDate = ({ timestamp }) => (
-  <div className='status-item-date'>{moment.unix(timestamp).format('MMM D, YYYY h:mm A')}</div>
+  <div className='status-item-date'>
+    {moment.unix(timestamp).tz('America/Los_Angeles').format('MMM D, YYYY h:mm A z')}
+  </div>
 )
 const StatusCreatedBy = ({ createdBy }) => <div className='status-item-created-by'>{createdBy}</div>
 
