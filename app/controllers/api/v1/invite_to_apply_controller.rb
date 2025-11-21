@@ -13,15 +13,15 @@ module Api
           # for test email, use first selected application, substitute
           # the applicant and leasing agent emails with test email
           contacts = {
-            "records": [{
-              "Id": params[:applicationIds][0],
-              "Application_Language": "English",
-              "Applicant": {
-                "Email": params[:testEmail],
-                "First_Name": "FirstName",
-                "Last_Name": "LastName",
+            'records': [{
+              'Id': params[:applicationIds][0],
+              'Application_Language': 'English',
+              'Applicant': {
+                'Email': params[:testEmail],
+                'First_Name': 'FirstName',
+                'Last_Name': 'LastName',
               },
-            }]
+            }],
           }
           params[:listing][:leasing_agent_email] = params[:testEmail]
         else
