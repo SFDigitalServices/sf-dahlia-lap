@@ -114,6 +114,11 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
           Approval letter sent
         </div>
         <div
+          class="item-substatus-text"
+        >
+          Approval letter sent
+        </div>
+        <div
           class="status-item-text"
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -127,7 +132,7 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
           <div
             class="status-item-date"
           >
-            Aug 25, 2020
+            Aug 25, 2020 1:00 PM PDT
           </div>
         </div>
       </div>
@@ -150,6 +155,11 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
           Approval letter sent
         </div>
         <div
+          class="item-substatus-text"
+        >
+          Approval letter sent
+        </div>
+        <div
           class="status-item-text"
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -163,7 +173,7 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
           <div
             class="status-item-date"
           >
-            Aug 25, 2020
+            Aug 25, 2020 1:00 PM PDT
           </div>
         </div>
       </div>
@@ -186,6 +196,11 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
           Approval letter sent
         </div>
         <div
+          class="item-substatus-text"
+        >
+          Approval letter sent
+        </div>
+        <div
           class="status-item-text"
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -199,7 +214,7 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
           <div
             class="status-item-date"
           >
-            Aug 25, 2020
+            Aug 25, 2020 1:00 PM PDT
           </div>
         </div>
       </div>
@@ -222,6 +237,11 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
           Approval letter sent
         </div>
         <div
+          class="item-substatus-text"
+        >
+          Approval letter sent
+        </div>
+        <div
           class="status-item-text"
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -235,7 +255,7 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
           <div
             class="status-item-date"
           >
-            Aug 25, 2020
+            Aug 25, 2020 1:00 PM PDT
           </div>
         </div>
       </div>

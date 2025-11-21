@@ -31,5 +31,19 @@ module Force
 
       Force::FieldUpdateComment.convert_list(result, :from_salesforce, :to_domain)
     end
+
+    def bulk_status_history_by_applications(application_ids)
+      quoted_ids = application_ids.map { |item| "'#{item}'" }
+      result = parsed_index_query(
+        %(
+          SELECT Application__c, Processing_Comment__c, Processing_Date_Updated__c, Sub_Status__c
+          FROM Field_Update_Comment__c
+          WHERE Application__c in (#{quoted_ids.join(',')})
+          ORDER BY Application__c, Processing_Date_Updated__c DESC
+        ),
+      )
+
+      Force::FieldUpdateComment.convert_list(result, :from_salesforce, :to_domain)
+    end
   end
 end

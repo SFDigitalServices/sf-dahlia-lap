@@ -18,6 +18,7 @@ module SfDahliaLap
 
     # TODO: remove this once we are on Rails 7, only needed as we incrementally upgrade
     config.autoloader = :zeitwerk
+    config.autoload_paths << "#{root}/lib"
 
     # Change the format of the cache entry to 7.0 after deploying the 7.0 upgrade
     config.active_support.cache_format_version = 7.0

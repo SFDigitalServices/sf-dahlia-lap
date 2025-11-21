@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { render, within, screen } from '@testing-library/react'
-import moment from 'moment'
+import moment from 'moment-timezone'
 
 import StatusItems from 'components/molecules/lease_up_sidebar/StatusItems'
 
@@ -10,8 +10,8 @@ import { mockManyStatusItems, mockStatusItem, mockStatusItems } from '../../../m
 const getScreen = (items, limit = undefined, height = null) =>
   render(<StatusItems statusItems={items} limit={limit} height={height} />)
 
-const TIMESTAMP_AUGUST_25_2020 = 1598338800
-const TIMESTAMP_AUGUST_26_2020 = 1598400000
+const TIMESTAMP_AUGUST_25_2020 = 1756130400
+const TIMESTAMP_AUGUST_26_2020 = 1756191600
 
 describe('StatusItems', () => {
   describe('snapshot tests', () => {
@@ -140,12 +140,18 @@ describe('StatusItems', () => {
       const secondStatusItem = statusItems[1]
       expect(
         within(firstStatusItem).getByText(
-          moment.unix(TIMESTAMP_AUGUST_25_2020).format('MMM D, YYYY')
+          moment
+            .unix(TIMESTAMP_AUGUST_25_2020)
+            .tz('America/Los_Angeles')
+            .format('MMM D, YYYY h:mm A z')
         )
       ).toBeInTheDocument()
       expect(
         within(secondStatusItem).getByText(
-          moment.unix(TIMESTAMP_AUGUST_26_2020).format('MMM D, YYYY')
+          moment
+            .unix(TIMESTAMP_AUGUST_26_2020)
+            .tz('America/Los_Angeles')
+            .format('MMM D, YYYY h:mm A z')
         )
       ).toBeInTheDocument()
     })
@@ -164,12 +170,18 @@ describe('StatusItems', () => {
       const secondStatusItem = statusItems[1]
       expect(
         within(firstStatusItem).getByText(
-          moment.unix(TIMESTAMP_AUGUST_26_2020).format('MMM D, YYYY')
+          moment
+            .unix(TIMESTAMP_AUGUST_26_2020)
+            .tz('America/Los_Angeles')
+            .format('MMM D, YYYY h:mm A z')
         )
       ).toBeInTheDocument()
       expect(
         within(secondStatusItem).getByText(
-          moment.unix(TIMESTAMP_AUGUST_25_2020).format('MMM D, YYYY')
+          moment
+            .unix(TIMESTAMP_AUGUST_25_2020)
+            .tz('America/Los_Angeles')
+            .format('MMM D, YYYY h:mm A z')
         )
       ).toBeInTheDocument()
     })
