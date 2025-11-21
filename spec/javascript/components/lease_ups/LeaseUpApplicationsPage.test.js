@@ -25,6 +25,7 @@ const mockFetchLeaseUpApplicationsPagination = jest.fn()
 const mockCreateFieldUpdateComment = jest.fn()
 const mockUpdateListing = jest.fn()
 const mockUpdateApplication = jest.fn()
+const mockSendInviteToApply = jest.fn()
 
 jest.mock('apiService', () => {
   return {
@@ -51,6 +52,10 @@ jest.mock('apiService', () => {
     },
     updateListing: async (listing) => {
       mockUpdateListing(listing)
+      return Promise.resolve(true)
+    },
+    sendInviteToApply: async (listing, appIds, deadline, exampleEmail) => {
+      mockSendInviteToApply(listing, appIds, deadline, exampleEmail)
       return Promise.resolve(true)
     }
   }
@@ -693,7 +698,7 @@ describe('LeaseUpApplicationsPage', () => {
           expect(screen.queryByText('Add document upload URL')).not.toBeInTheDocument()
         })
 
-        test('field input validation', () => {
+        test('the flow', () => {
           // invalid document upload url
           const documentUrlField = screen.getByLabelText('Document upload URL')
           act(() => {
@@ -760,6 +765,47 @@ describe('LeaseUpApplicationsPage', () => {
           })
           expect(mockUpdateApplication.mock.calls).toHaveLength(1)
           expect(mockUpdateListing.mock.calls).toHaveLength(1)
+          expect(screen.getByText('Review and send')).toBeInTheDocument()
+
+          // open send example modal
+          act(() => {
+            fireEvent.click(screen.getByText('send yourself an example email'))
+          })
+          expect(screen.getByText('See an example')).toBeInTheDocument()
+
+          // invalid email
+          const emailField = screen.getByLabelText('Email address')
+          act(() => {
+            fireEvent.change(emailField, {
+              target: { value: 'hello world!' }
+            })
+            fireEvent.blur(emailField)
+          })
+          expect(screen.getByText('Enter email address like: example@web.com')).toBeInTheDocument()
+
+          // valid email
+          act(() => {
+            fireEvent.change(emailField, {
+              target: { value: 'test@test.com' }
+            })
+            fireEvent.blur(emailField)
+          })
+          expect(
+            screen.queryByText('Enter email address like: example@web.com')
+          ).not.toBeInTheDocument()
+
+          // send example email
+          act(() => {
+            fireEvent.click(screen.getByText('send example email'))
+          })
+          expect(mockSendInviteToApply.mock.calls).toHaveLength(1)
+
+          // close send example modal
+          act(() => {
+            fireEvent.click(screen.getByText('cancel'))
+          })
+          expect(screen.queryByText('See an example')).not.toBeInTheDocument()
+          expect(screen.getByText('Review and send')).toBeInTheDocument()
         })
       })
     })

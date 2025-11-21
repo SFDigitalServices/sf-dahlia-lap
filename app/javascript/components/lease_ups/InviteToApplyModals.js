@@ -306,7 +306,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       <FormModal
         isOpen={rsvpModalState.example}
         onSubmit={sendInviteToApply}
-        handleClose={handleCloseRsvpModal}
+        handleClose={() => setExampleSuccessAlertState({ show: false })}
         primary='send example email'
         secondary='cancel'
         onSecondaryClick={() => {
