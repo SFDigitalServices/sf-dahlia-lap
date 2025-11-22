@@ -806,6 +806,12 @@ describe('LeaseUpApplicationsPage', () => {
           })
           expect(screen.queryByText('See an example')).not.toBeInTheDocument()
           expect(screen.getByText('Review and send')).toBeInTheDocument()
+
+          // send email
+          act(() => {
+            fireEvent.click(screen.getByText('send now'))
+          })
+          expect(mockSendInviteToApply.mock.calls).toHaveLength(2)
         })
       })
     })
