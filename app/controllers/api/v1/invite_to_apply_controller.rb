@@ -9,7 +9,7 @@ module Api
       def email
         return head 500 unless params[:applicationIds].present?
 
-        if params[:isTest] == true || params[:isTest] == 'true'
+        if params[:isTest].to_s == 'true'
           # for test email, use first selected application, substitute
           # the applicant and leasing agent emails with test email
           contacts = {
