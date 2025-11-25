@@ -57,6 +57,11 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     setRsvpModalState(stateObj)
   }
 
+  const closeExampleModal = () => {
+    showRsvpModal('review')
+    setExampleSuccessAlertState({ show: false, email: '' })
+  }
+
   const showRsvpModal = (key, callback) => {
     handleCloseRsvpModal()
     const stateObj = {}
@@ -306,12 +311,10 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       <FormModal
         isOpen={rsvpModalState.example}
         onSubmit={sendInviteToApply}
-        handleClose={() => setExampleSuccessAlertState({ show: false })}
+        handleClose={closeExampleModal}
         primary='send example email'
         secondary='cancel'
-        onSecondaryClick={() => {
-          showRsvpModal('review')
-        }}
+        onSecondaryClick={closeExampleModal}
       >
         {() => (
           <div className={'form-group'}>
