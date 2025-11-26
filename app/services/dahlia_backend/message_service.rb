@@ -138,7 +138,6 @@ module DahliaBackend
                           listing[:building_street_address].present? &&
                           listing[:lottery_date].present?
       return false if application_contacts[:records].empty?
-      return false unless application_contacts[:records][0][:Applicant][:Email].present?
 
       true
     end
