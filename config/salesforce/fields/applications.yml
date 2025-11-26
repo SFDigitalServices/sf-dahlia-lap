@@ -203,6 +203,7 @@ applications:
     Total_Household_Size__c:
   show_contacts_fields:
     Id:
+    Lottery_Number__c:
     Application_Language__c:
     Applicant__r.Id:
     Applicant__r.First_Name__c:
