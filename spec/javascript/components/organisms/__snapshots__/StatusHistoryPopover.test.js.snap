@@ -51,11 +51,6 @@ exports[`StatusHistoryPopover when there are fewer than 4 status items does not 
             Approval letter sent
           </div>
           <div
-            class="item-substatus-text"
-          >
-            Approval letter sent
-          </div>
-          <div
             class="status-item-text"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -85,11 +80,6 @@ exports[`StatusHistoryPopover when there are fewer than 4 status items does not 
             >
               Approved
             </div>
-          </div>
-          <div
-            class="item-substatus-text"
-          >
-            Approval letter sent
           </div>
           <div
             class="item-substatus-text"
@@ -171,11 +161,6 @@ exports[`StatusHistoryPopover when there are fewer than 4 status items it matche
             Approval letter sent
           </div>
           <div
-            class="item-substatus-text"
-          >
-            Approval letter sent
-          </div>
-          <div
             class="status-item-text"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -205,11 +190,6 @@ exports[`StatusHistoryPopover when there are fewer than 4 status items it matche
             >
               Approved
             </div>
-          </div>
-          <div
-            class="item-substatus-text"
-          >
-            Approval letter sent
           </div>
           <div
             class="item-substatus-text"
@@ -292,6 +272,37 @@ exports[`StatusHistoryPopover when there are more than 4 status items sets a fix
             Approval letter sent
           </div>
           <div
+            class="status-item-text"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+          </div>
+          <div
+            class="status-item-footer"
+          >
+            <div
+              class="status-item-created-by"
+            />
+            <div
+              class="status-item-date"
+            >
+              Aug 25, 2020 1:00 PM PDT
+            </div>
+          </div>
+        </div>
+        <div
+          class="status-item"
+          data-testid="status-item"
+        >
+          <div
+            class="status-item-header"
+          >
+            <div
+              class="status-pill is-approved"
+            >
+              Approved
+            </div>
+          </div>
+          <div
             class="item-substatus-text"
           >
             Approval letter sent
@@ -333,11 +344,6 @@ exports[`StatusHistoryPopover when there are more than 4 status items sets a fix
             Approval letter sent
           </div>
           <div
-            class="item-substatus-text"
-          >
-            Approval letter sent
-          </div>
-          <div
             class="status-item-text"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -367,52 +373,6 @@ exports[`StatusHistoryPopover when there are more than 4 status items sets a fix
             >
               Approved
             </div>
-          </div>
-          <div
-            class="item-substatus-text"
-          >
-            Approval letter sent
-          </div>
-          <div
-            class="item-substatus-text"
-          >
-            Approval letter sent
-          </div>
-          <div
-            class="status-item-text"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-          </div>
-          <div
-            class="status-item-footer"
-          >
-            <div
-              class="status-item-created-by"
-            />
-            <div
-              class="status-item-date"
-            >
-              Aug 25, 2020 1:00 PM PDT
-            </div>
-          </div>
-        </div>
-        <div
-          class="status-item"
-          data-testid="status-item"
-        >
-          <div
-            class="status-item-header"
-          >
-            <div
-              class="status-pill is-approved"
-            >
-              Approved
-            </div>
-          </div>
-          <div
-            class="item-substatus-text"
-          >
-            Approval letter sent
           </div>
           <div
             class="item-substatus-text"

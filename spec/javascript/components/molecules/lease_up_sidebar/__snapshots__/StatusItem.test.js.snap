@@ -21,11 +21,6 @@ exports[`StatusItem should render an approved status with substatus and comments
       Approval letter sent
     </div>
     <div
-      class="item-substatus-text"
-    >
-      Approval letter sent
-    </div>
-    <div
       class="status-item-text"
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -94,11 +89,6 @@ exports[`StatusItem should render properly when no comment provided 1`] = `
       >
         Approved
       </div>
-    </div>
-    <div
-      class="item-substatus-text"
-    >
-      Approval letter sent
     </div>
     <div
       class="item-substatus-text"
