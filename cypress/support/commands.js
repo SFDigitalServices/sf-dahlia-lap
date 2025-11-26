@@ -162,10 +162,7 @@ Cypress.Commands.add('fillOutAndSubmitStatusModal', (isCommentModal = false) => 
 })
 
 Cypress.Commands.add('selectSubstatusIfRequired', (selectedStatus) => {
-  if (
-    selectedStatus.toLowerCase() !== 'processing' &&
-    selectedStatus.toLowerCase() !== 'lease signed'
-  ) {
+  if (selectedStatus.toLowerCase() !== 'lease signed') {
     // If status has a subStatus value wait for that dropdown to be available and select one
     cy.get('.form-modal_form_wrapper .substatus-dropdown__control').click()
 
