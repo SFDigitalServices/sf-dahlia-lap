@@ -26,6 +26,11 @@ export const LEASE_UP_STATUS_OPTIONS = [
 ]
 
 export const LEASE_UP_SUBSTATUS_OPTIONS = {
+  Processing: [
+    { value: 'Invited to Apply', label: '📧 Invited to Apply' },
+    { value: 'Check for docs: Showed interest', label: '📂 Check for docs: Showed interest' },
+    { value: 'Reviewing application', label: 'Reviewing application' }
+  ],
   Withdrawn: [
     { value: 'Written withdrawal', label: 'Written withdrawal' },
     { value: 'Verbal withdrawal', label: 'Verbal withdrawal', commentRequired: true },
@@ -48,6 +53,10 @@ export const LEASE_UP_SUBSTATUS_OPTIONS = {
   ],
   Waitlisted: [
     { value: 'Written confirmation sent', label: 'Written confirmation sent' },
+    {
+      value: 'Asked to be contacted about future vacancies',
+      label: 'Asked to be contacted about future vacancies'
+    },
     { value: 'None of the above', label: 'None of the above' }
   ],
   Disqualified: [
@@ -102,7 +111,7 @@ export const getStatusPillLabel = (status) => {
 
 export const getSubStatusLabel = (status, subStatus) => {
   const subStatusOption = find(LEASE_UP_SUBSTATUS_OPTIONS[status] || [], { value: subStatus })
-  return subStatusOption ? subStatusOption.label : ''
+  return subStatusOption ? subStatusOption.label : subStatus
 }
 
 export const statusRequiresComments = (status, substatus) => {
