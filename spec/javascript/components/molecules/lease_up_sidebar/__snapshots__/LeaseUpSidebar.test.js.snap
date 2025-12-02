@@ -114,6 +114,37 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
           Approval letter sent
         </div>
         <div
+          class="status-item-text"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
+        </div>
+        <div
+          class="status-item-footer"
+        >
+          <div
+            class="status-item-created-by"
+          />
+          <div
+            class="status-item-date"
+          >
+            Aug 25, 2020 1:00 PM PDT
+          </div>
+        </div>
+      </div>
+      <div
+        class="status-item"
+        data-testid="status-item"
+      >
+        <div
+          class="status-item-header"
+        >
+          <div
+            class="status-pill is-approved"
+          >
+            Approved
+          </div>
+        </div>
+        <div
           class="item-substatus-text"
         >
           Approval letter sent
@@ -155,11 +186,6 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
           Approval letter sent
         </div>
         <div
-          class="item-substatus-text"
-        >
-          Approval letter sent
-        </div>
-        <div
           class="status-item-text"
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -189,52 +215,6 @@ exports[`LeaseUpSidebar snapshot tests should match snapshot with 5 status items
           >
             Approved
           </div>
-        </div>
-        <div
-          class="item-substatus-text"
-        >
-          Approval letter sent
-        </div>
-        <div
-          class="item-substatus-text"
-        >
-          Approval letter sent
-        </div>
-        <div
-          class="status-item-text"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
-        </div>
-        <div
-          class="status-item-footer"
-        >
-          <div
-            class="status-item-created-by"
-          />
-          <div
-            class="status-item-date"
-          >
-            Aug 25, 2020 1:00 PM PDT
-          </div>
-        </div>
-      </div>
-      <div
-        class="status-item"
-        data-testid="status-item"
-      >
-        <div
-          class="status-item-header"
-        >
-          <div
-            class="status-pill is-approved"
-          >
-            Approved
-          </div>
-        </div>
-        <div
-          class="item-substatus-text"
-        >
-          Approval letter sent
         </div>
         <div
           class="item-substatus-text"

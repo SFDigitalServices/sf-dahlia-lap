@@ -25,11 +25,6 @@ exports[`StatusItems should limit the height of the list if provided 1`] = `
         Approval letter sent
       </div>
       <div
-        class="item-substatus-text"
-      >
-        Approval letter sent
-      </div>
-      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -59,11 +54,6 @@ exports[`StatusItems should limit the height of the list if provided 1`] = `
         >
           Approved
         </div>
-      </div>
-      <div
-        class="item-substatus-text"
-      >
-        Unit selected
       </div>
       <div
         class="item-substatus-text"
@@ -107,11 +97,6 @@ exports[`StatusItems should limit the height of the list if provided 1`] = `
         Waiting for subsidy inspection
       </div>
       <div
-        class="item-substatus-text"
-      >
-        Waiting for subsidy inspection
-      </div>
-      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -141,11 +126,6 @@ exports[`StatusItems should limit the height of the list if provided 1`] = `
         >
           Waitlisted
         </div>
-      </div>
-      <div
-        class="item-substatus-text"
-      >
-        Written confirmation sent
       </div>
       <div
         class="item-substatus-text"
@@ -196,11 +176,6 @@ exports[`StatusItems should not set a height if height is not provided 1`] = `
         Approval letter sent
       </div>
       <div
-        class="item-substatus-text"
-      >
-        Approval letter sent
-      </div>
-      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -230,11 +205,6 @@ exports[`StatusItems should not set a height if height is not provided 1`] = `
         >
           Approved
         </div>
-      </div>
-      <div
-        class="item-substatus-text"
-      >
-        Unit selected
       </div>
       <div
         class="item-substatus-text"
@@ -278,11 +248,6 @@ exports[`StatusItems should not set a height if height is not provided 1`] = `
         Waiting for subsidy inspection
       </div>
       <div
-        class="item-substatus-text"
-      >
-        Waiting for subsidy inspection
-      </div>
-      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -312,11 +277,6 @@ exports[`StatusItems should not set a height if height is not provided 1`] = `
         >
           Waitlisted
         </div>
-      </div>
-      <div
-        class="item-substatus-text"
-      >
-        Written confirmation sent
       </div>
       <div
         class="item-substatus-text"
@@ -360,11 +320,6 @@ exports[`StatusItems snapshot tests should render a single status item correctly
         >
           Approved
         </div>
-      </div>
-      <div
-        class="item-substatus-text"
-      >
-        Approval letter sent
       </div>
       <div
         class="item-substatus-text"
@@ -425,11 +380,6 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         Approval letter sent
       </div>
       <div
-        class="item-substatus-text"
-      >
-        Approval letter sent
-      </div>
-      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -459,11 +409,6 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         >
           Approved
         </div>
-      </div>
-      <div
-        class="item-substatus-text"
-      >
-        Unit selected
       </div>
       <div
         class="item-substatus-text"
@@ -507,11 +452,6 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         Waiting for subsidy inspection
       </div>
       <div
-        class="item-substatus-text"
-      >
-        Waiting for subsidy inspection
-      </div>
-      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -541,11 +481,6 @@ exports[`StatusItems snapshot tests should render multiple status items correctl
         >
           Waitlisted
         </div>
-      </div>
-      <div
-        class="item-substatus-text"
-      >
-        Written confirmation sent
       </div>
       <div
         class="item-substatus-text"
@@ -664,11 +599,6 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         Approval letter sent
       </div>
       <div
-        class="item-substatus-text"
-      >
-        Approval letter sent
-      </div>
-      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -714,11 +644,6 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         Approval letter sent
       </div>
       <div
-        class="item-substatus-text"
-      >
-        Approval letter sent
-      </div>
-      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -748,11 +673,6 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         >
           Approved
         </div>
-      </div>
-      <div
-        class="item-substatus-text"
-      >
-        Unit selected
       </div>
       <div
         class="item-substatus-text"
@@ -796,11 +716,6 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         Waiting for subsidy inspection
       </div>
       <div
-        class="item-substatus-text"
-      >
-        Waiting for subsidy inspection
-      </div>
-      <div
         class="status-item-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum condimentum lorem consectetur eleifend.
@@ -830,11 +745,6 @@ exports[`StatusItems snapshot tests should render multiple status items with lim
         >
           Waitlisted
         </div>
-      </div>
-      <div
-        class="item-substatus-text"
-      >
-        Written confirmation sent
       </div>
       <div
         class="item-substatus-text"

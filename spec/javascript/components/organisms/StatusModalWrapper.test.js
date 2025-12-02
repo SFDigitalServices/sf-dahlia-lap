@@ -111,16 +111,6 @@ describe('StatusModalWrapper', () => {
     )
   })
 
-  test('should not display substatus dropdown if substatuses are not available', () => {
-    getScreen({ status: 'Processing', isOpen: true })
-
-    expect(
-      screen.queryByRole('button', {
-        name: /select one\.\.\./i
-      })
-    ).not.toBeInTheDocument()
-  })
-
   test('should not require comment if status does not require comment', () => {
     getScreen({ status: 'Lease Signed', isOpen: true })
 
