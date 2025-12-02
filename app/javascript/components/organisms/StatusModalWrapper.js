@@ -9,6 +9,7 @@ import StatusDropdown from 'components/molecules/StatusDropdown'
 import SubstatusDropdown from 'components/molecules/SubstatusDropdown'
 import { TextAreaField, Label, FieldError } from 'utils/form/final_form/Field'
 import validate from 'utils/form/validations'
+import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import {
   statusRequiresComments,
   LEASE_UP_STATUS_VALUES,
@@ -40,6 +41,13 @@ const StatusModalWrapper = ({
   subStatus = null,
   title = null
 }) => {
+  // hide Invte to Apply Processing substatuses behind feature flag
+  const { unleashFlag: inviteApplyFlag } = useFeatureFlag('partners.inviteToApply', false)
+  const substatusOptions = structuredClone(LEASE_UP_SUBSTATUS_OPTIONS)
+  if (!inviteApplyFlag && substatusOptions.Processing) {
+    delete substatusOptions.Processing
+  }
+
   return (
     <FormModal
       title={title}
@@ -64,7 +72,7 @@ const StatusModalWrapper = ({
       }}
       validateError={(values) => {
         const errors = {}
-        if (values.status && LEASE_UP_SUBSTATUS_OPTIONS[values.status] && !values.subStatus) {
+        if (values.status && substatusOptions[values.status] && !values.subStatus) {
           errors.subStatus = 'Please provide status details.'
         }
         if (
@@ -106,7 +114,7 @@ const StatusModalWrapper = ({
                   />
                 </FormGrid.Item>
               </FormGrid.Row>
-              {values.status && LEASE_UP_SUBSTATUS_OPTIONS[values.status] && (
+              {values.status && substatusOptions[values.status] && (
                 <FormGrid.Row paddingBottom>
                   <FormGrid.Item width='100%'>
                     <Field
