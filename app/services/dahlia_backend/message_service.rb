@@ -39,7 +39,7 @@ module DahliaBackend
         "isTestEmail": params[:is_test] ? true : false,
         "listingId": listing[:id],
         "listingName": listing[:name],
-        "buildingName": listing[:building_name],
+        "buildingName": listing[:building_name_for_process],
         "buildingAddress": listing[:building_street_address],
         "buildingCity": listing[:building_city],
         "buildingState": listing[:building_state],

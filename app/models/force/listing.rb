@@ -22,6 +22,7 @@ module Force
       { domain: 'min_occupancy', salesforce: 'Min_Occupancy' },
       { domain: 'max_occupancy', salesforce: 'Max_Occupancy' },
       { domain: 'building_name', salesforce: 'Building_Name' },
+      { domain: 'building_name_for_process', salesforce: 'Building_Name_for_Process' },
       { domain: 'neighborhood', salesforce: 'Neighborhood' },
       { domain: 'building_street_address', salesforce: 'Building_Street_Address' },
       { domain: 'developer', salesforce: 'Developer' },
