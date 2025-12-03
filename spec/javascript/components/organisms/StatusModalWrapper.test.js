@@ -1,23 +1,10 @@
 import React from 'react'
 
 import { render, screen, fireEvent, within } from '@testing-library/react'
-import { useFlag as useFlagUnleash, useFlagsStatus, useVariant } from '@unleash/proxy-client-react'
 import selectEvent from 'react-select-event'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 import { LEASE_UP_SUBSTATUS_OPTIONS } from 'utils/statusUtils'
-
-jest.mock('@unleash/proxy-client-react')
-useFlagUnleash.mockImplementation(() => true)
-useFlagsStatus.mockImplementation(() => ({
-  flagsError: false,
-  flagsReady: true
-}))
-useVariant.mockImplementation(() => ({
-  payload: {
-    value: 'listingId'
-  }
-}))
 
 // We need to import statusUtils with require so we can use jest.spyOn
 const statusUtils = require('utils/statusUtils')
