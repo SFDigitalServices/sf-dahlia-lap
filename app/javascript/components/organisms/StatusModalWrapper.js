@@ -43,7 +43,7 @@ const StatusModalWrapper = ({
 }) => {
   // hide Invte to Apply Processing substatuses behind feature flag
   const { unleashFlag: inviteApplyFlag } = useFeatureFlag('partners.inviteToApply', false)
-  const substatusOptions = structuredClone(LEASE_UP_SUBSTATUS_OPTIONS)
+  const substatusOptions = JSON.parse(JSON.stringify(LEASE_UP_SUBSTATUS_OPTIONS))
   if (!inviteApplyFlag && substatusOptions.Processing) {
     delete substatusOptions.Processing
   }
