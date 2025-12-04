@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { map, isEqual } from 'lodash'
+import { find, map, isEqual } from 'lodash'
 import moment from 'moment'
 import { useParams, useSearchParams, useLocation } from 'react-router-dom'
 
@@ -22,6 +22,7 @@ import {
   useAppContext
 } from 'utils/customHooks'
 import { GRAPHQL_SERVER_PAGE_SIZE, EagerPagination } from 'utils/EagerPagination'
+import { getSubStatusLabel, LEASE_UP_SUBSTATUS_OPTIONS } from 'utils/statusUtils'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
 import Context from './context'
@@ -212,10 +213,17 @@ const LeaseUpApplicationsPage = () => {
   const handleStatusModalSubmit = async (submittedValues) => {
     setStatusModalState({ loading: true })
     const { applicationsData } = statusModalState
-    const { status, subStatus } = submittedValues
+    let { status, subStatus } = submittedValues
 
     Object.keys(applicationsData).forEach((appId) => {
       applicationsData[appId].comment = submittedValues.comment?.trim()
+
+      // substatus might be a comment
+      // make sure it's valid or an empty string
+      if (!find(LEASE_UP_SUBSTATUS_OPTIONS[status] || [], { value: subStatus })) {
+        subStatus = ''
+      }
+
       if (status) {
         applicationsData[appId].status = status
         applicationsData[appId].subStatus = subStatus
@@ -330,7 +338,8 @@ const LeaseUpApplicationsPage = () => {
         ...(updatedApp && {
           lease_up_status: updatedApp.status,
           status_last_updated: moment().format(SALESFORCE_DATE_FORMAT),
-          sub_status: updatedApp.subStatus
+          sub_status: updatedApp.subStatus,
+          sub_status_label: getSubStatusLabel(updatedApp.status, updatedApp.subStatus)
         })
       }
     })
