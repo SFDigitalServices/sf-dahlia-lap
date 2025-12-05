@@ -21,6 +21,7 @@ module Api
                 'First_Name': 'FirstName',
                 'Last_Name': 'LastName',
               },
+              'Lottery_Number': '12345',
             }],
           }
         else
