@@ -222,6 +222,9 @@ const LeaseUpApplicationsPage = () => {
       // make sure it's valid or an empty string
       if (!find(LEASE_UP_SUBSTATUS_OPTIONS[status] || [], { value: subStatus })) {
         subStatus = ''
+        // status might not be set. agent just wants to add a comment.
+        // so make sure invalid substatus is cleared out.
+        applicationsData[appId].subStatus = subStatus
       }
 
       if (status) {
@@ -339,7 +342,8 @@ const LeaseUpApplicationsPage = () => {
           lease_up_status: updatedApp.status,
           status_last_updated: moment().format(SALESFORCE_DATE_FORMAT),
           sub_status: updatedApp.subStatus,
-          sub_status_label: getSubStatusLabel(updatedApp.status, updatedApp.subStatus)
+          sub_status_label:
+            getSubStatusLabel(updatedApp.status, updatedApp.subStatus) || updatedApp.comment
         })
       }
     })
