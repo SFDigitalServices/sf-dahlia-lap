@@ -39,7 +39,11 @@ module DahliaBackend
         "isTestEmail": params[:isTest] ? true : false,
         "listingId": listing[:id],
         "listingName": listing[:name],
-        "listingAddress": listing[:building_street_address],
+        "buildingName": listing[:building_name_for_process],
+        "buildingAddress": listing[:building_street_address],
+        "buildingCity": listing[:building_city],
+        "buildingState": listing[:building_state],
+        "buildingZip": listing[:building_zip_code],
         "listingNeighborhood": listing[:neighborhood],
         "units": prepare_units(listing[:id]),
         "applicants": contacts,
@@ -63,6 +67,7 @@ module DahliaBackend
         contact = {
           "applicationNumber": app_id,
           "applicationLanguage": record[:Application_Language],
+          "lotteryNumber": record[:Lottery_Number],
           "primaryContact": {
             "email": determine_email(record[:Applicant][:Email]),
             "firstName": record[:Applicant][:First_Name],
@@ -137,7 +142,6 @@ module DahliaBackend
                           listing[:building_street_address].present? &&
                           listing[:lottery_date].present?
       return false if application_contacts[:records].empty?
-      return false unless application_contacts[:records][0][:Applicant][:Email].present?
 
       true
     end

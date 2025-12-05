@@ -29,7 +29,6 @@ const StatusItem = ({ statusItem }) => {
         </div>
       )}
       {substatusLabel && <div className='item-substatus-text'>{substatusLabel}</div>}
-      {substatus && <div className='item-substatus-text'>{substatus}</div>}
       <div className='status-item-text'>{comment}</div>
       <div className='status-item-footer'>
         <StatusCreatedBy createdBy={created_by} />

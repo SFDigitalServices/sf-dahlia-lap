@@ -27,6 +27,8 @@ listings:
     Building__c:
     Building__r.Name:
       label: 'Building'
+    Building_Name_for_Process__c:
+      label: 'Building Name for Process'
     Min_BR__c:
     Lottery_Winners__c:
     Max_BR__c:

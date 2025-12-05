@@ -8,13 +8,8 @@ class Api::V1::FieldUpdateCommentsController < ApiController
     application_id = params[:application_id]
     status_history = service.status_history_by_application(application_id)
 
-    status_history_with_icons = status_history.map do |status|
-      status[:substatus] = StringUtils.adorn_with_icons(status[:substatus])
-      status
-    end
-
     render json: {
-      data: status_history_with_icons,
+      data: status_history,
     }
   end
 
