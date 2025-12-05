@@ -39,12 +39,15 @@ const StatusModalWrapper = ({
   status = null,
   submitButton,
   subStatus = null,
-  title = null
+  title = null,
+  listingId = null
 }) => {
   // hide Invte to Apply Processing substatuses behind feature flag
-  const { unleashFlag: inviteApplyFlag } = useFeatureFlag('partners.inviteToApply', false)
+  const { unleashFlag: inviteApplyFlag, variant } = useFeatureFlag('partners.inviteToApply', false)
+  const enabledListingIds = variant.payload === undefined ? [] : variant.payload.value.split(',')
+  const isInviteApplyEnabled = inviteApplyFlag && enabledListingIds.includes(listingId)
   const substatusOptions = JSON.parse(JSON.stringify(LEASE_UP_SUBSTATUS_OPTIONS))
-  if (!inviteApplyFlag && substatusOptions.Processing) {
+  if (!isInviteApplyEnabled && substatusOptions.Processing) {
     delete substatusOptions.Processing
   }
 
