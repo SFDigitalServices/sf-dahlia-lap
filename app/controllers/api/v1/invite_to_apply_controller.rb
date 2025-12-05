@@ -11,7 +11,7 @@ module Api
 
         if params[:isTest].to_s == 'true'
           # for test email, use first selected application, substitute
-          # the applicant and leasing agent emails with test email
+          # the applicant email with test email
           contacts = {
             'records': [{
               'Id': params[:applicationIds][0],
@@ -23,7 +23,6 @@ module Api
               },
             }],
           }
-          params[:listing][:leasing_agent_email] = params[:testEmail]
         else
           contacts = soql_application_service.application_contacts(params)
         end
