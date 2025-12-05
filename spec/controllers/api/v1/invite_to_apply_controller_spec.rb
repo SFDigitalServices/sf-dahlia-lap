@@ -16,6 +16,7 @@ RSpec.describe Api::V1::InviteToApplyController, type: :controller do
       leasing_agent_email: 'leasing_agent@emailtest2468.com',
       leasing_agent_phone: '415-867-5309',
       office_hours: 'M-F 9am-5pm',
+      building_name_for_process: 'building name',
     }
 
     it 'should return status 200 if email is sent to dahlia backend successfully' do
