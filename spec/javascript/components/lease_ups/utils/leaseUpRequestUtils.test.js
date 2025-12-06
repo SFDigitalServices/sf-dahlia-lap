@@ -104,6 +104,7 @@ describe('leaseUpActions', () => {
         status_last_updated: '2020-05-28T21:23:06.000+0000',
         total_household_size: 1,
         sub_status: 'Approval letter sent',
+        sub_status_label: 'Approval letter sent',
         custom_preference_type: 'L_W',
         lottery_status: undefined
       }

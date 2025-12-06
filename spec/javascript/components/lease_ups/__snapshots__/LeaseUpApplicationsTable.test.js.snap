@@ -296,10 +296,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="No response after two or more attempts"
-              >
-                No response after two or more attempts
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -516,10 +513,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="Written withdrawal"
-              >
-                Written withdrawal
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -736,10 +730,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="No response after two or more attempts"
-              >
-                No response after two or more attempts
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -956,10 +947,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="No response after two or more attempts"
-              >
-                No response after two or more attempts
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -1176,10 +1164,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="No response after two or more attempts"
-              >
-                No response after two or more attempts
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -1396,10 +1381,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="Written withdrawal"
-              >
-                Written withdrawal
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -1616,10 +1598,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="No response after two or more attempts"
-              >
-                No response after two or more attempts
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -1836,10 +1815,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="No response after two or more attempts"
-              >
-                No response after two or more attempts
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -2056,10 +2032,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="No response after two or more attempts"
-              >
-                No response after two or more attempts
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -2276,10 +2249,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="Written withdrawal"
-              >
-                Written withdrawal
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -2496,10 +2466,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="No response after two or more attempts"
-              >
-                No response after two or more attempts
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -2716,10 +2683,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="No response after two or more attempts"
-              >
-                No response after two or more attempts
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -2936,10 +2900,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="No response after two or more attempts"
-              >
-                No response after two or more attempts
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -3156,10 +3117,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="No response after two or more attempts"
-              >
-                No response after two or more attempts
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -3376,10 +3334,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="No response after two or more attempts"
-              >
-                No response after two or more attempts
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -3596,10 +3551,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="No response after two or more attempts"
-              >
-                No response after two or more attempts
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -3816,10 +3768,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="Over income"
-              >
-                Over income
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -4036,10 +3985,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="Missing documents"
-              >
-                Missing documents
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -4256,10 +4202,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="No response after two or more attempts"
-              >
-                No response after two or more attempts
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"
@@ -4476,10 +4419,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
             >
               <div
                 style="width: 100%; text-overflow: ellipsis; overflow: hidden;"
-                title="Verbal withdrawal"
-              >
-                Verbal withdrawal
-              </div>
+              />
             </div>
             <div
               class="rt-td td-status td-fixed-right"

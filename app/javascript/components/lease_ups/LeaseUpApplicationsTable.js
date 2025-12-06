@@ -162,7 +162,7 @@ const LeaseUpApplicationsTable = ({
     },
     {
       Header: 'Latest Substatus',
-      accessor: 'sub_status',
+      accessor: 'sub_status_label',
       className: 'td-offset-right',
       headerClassName: 'td-offset-right',
 
