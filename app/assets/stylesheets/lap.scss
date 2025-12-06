@@ -147,3 +147,14 @@ ul.bullet-list {
 .info-alert-body {
   width: 70%;
   padding-left: 3rem;}
+
+.success-alert {
+  padding-left: 0;
+  padding-right: 0;
+}
+.success-alert .info-alert-inner {
+  background-color: #B4E5BE
+}
+.success-alert .info-alert-inner .info-alert-body {
+  width: 90%;
+}

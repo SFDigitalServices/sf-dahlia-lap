@@ -5,6 +5,7 @@ import moment from 'moment'
 
 import apiService from 'apiService'
 import FormGrid from 'components/molecules/FormGrid'
+import InfoAlert from 'components/molecules/InfoAlert'
 import FormModal from 'components/organisms/FormModal'
 import { useStateObject } from 'utils/customHooks'
 import { InputField, HelpText } from 'utils/form/final_form/Field'
@@ -14,12 +15,19 @@ import validate from 'utils/form/validations'
 export const InviteToApplyModals = forwardRef((props, ref) => {
   const INVITE_APPLY_UPLOAD_KEY = 'invite-to-apply-file-upload-url'
   const INVITE_APPLY_DEADLINE_KEY = 'invite-to-apply-deadline'
+  const INVITE_APPLY_EXAMPLE_EMAIL = 'invite-to-apply-example-email'
 
   const [rsvpModalState, setRsvpModalState] = useStateObject({
     // modal hide/show states
     uploadUrl: false,
     setDeadline: false,
-    review: false
+    review: false,
+    example: false
+  })
+
+  const [exampleSuccessAlertState, setExampleSuccessAlertState] = useStateObject({
+    show: false,
+    email: ''
   })
 
   const [rsvpModalValues, setRsvpModalValues] = useStateObject({
@@ -34,6 +42,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
   const handleSetUpInvitationApply = () => {
     // show setup invitation to apply modal
     showRsvpModal('uploadUrl')
+    setExampleSuccessAlertState({ show: false, email: '' })
   }
   // expose handleSetupInvitationApply to parent
   useImperativeHandle(ref, () => ({
@@ -46,6 +55,11 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       stateObj[key] = false
     }
     setRsvpModalState(stateObj)
+  }
+
+  const closeExampleModal = () => {
+    showRsvpModal('review')
+    setExampleSuccessAlertState({ show: false, email: '' })
   }
 
   const showRsvpModal = (key, callback) => {
@@ -118,25 +132,35 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     return errs
   }
 
-  const sendInviteToApply = () => {
+  const sendInviteToApply = (values) => {
     const appIds = getSelectedApplicationIds()
     const deadline = rsvpModalValues[INVITE_APPLY_DEADLINE_KEY]
+    const exampleEmail = values[INVITE_APPLY_EXAMPLE_EMAIL]
 
-    handleCloseRsvpModal()
-    props.setPageState({ loading: true })
+    if (!exampleEmail) {
+      handleCloseRsvpModal()
+      props.setPageState({ loading: true })
+    }
 
     apiService
       .sendInviteToApply(
         props.listing,
         appIds,
-        rsvpModalValues[INVITE_APPLY_UPLOAD_KEY],
-        `${deadline.year}-${deadline.month}-${deadline.day}`
+        `${deadline.year}-${deadline.month}-${deadline.day}`,
+        exampleEmail || null
       )
       .then((res) => {
-        props.setPageState({
-          loading: false,
-          showPageInfo: true
-        })
+        if (exampleEmail) {
+          setExampleSuccessAlertState({
+            show: true,
+            email: exampleEmail
+          })
+        } else {
+          props.setPageState({
+            loading: false,
+            showPageInfo: true
+          })
+        }
       })
   }
 
@@ -244,7 +268,8 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
           <div className={'form-group'}>
             <p>
               When you’re ready, send an email to the applicants you selected. If you want,&nbsp;
-              <a>send yourself an example email</a> to preview what applicants will see.
+              <a onClick={() => showRsvpModal('example')}>send yourself an example email</a> to
+              preview what applicants will see.
             </p>
             <p>
               <label className='form-label'>You are sending</label>
@@ -280,6 +305,58 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
               <label className='form-label'>Send to</label>
               {getSelectedApplicationIds().length} applicants and alternate contacts, if provided
             </p>
+          </div>
+        )}
+      </FormModal>
+      <FormModal
+        isOpen={rsvpModalState.example}
+        onSubmit={sendInviteToApply}
+        handleClose={closeExampleModal}
+        primary='send example email'
+        secondary='cancel'
+        onSecondaryClick={closeExampleModal}
+      >
+        {() => (
+          <div className={'form-group'}>
+            {exampleSuccessAlertState.show && (
+              <InfoAlert
+                icon='i-check'
+                message={'Example email sent to ' + exampleSuccessAlertState.email}
+                show={exampleSuccessAlertState.show}
+                onCloseClick={() => setExampleSuccessAlertState({ show: false })}
+                classes={['success-alert']}
+              />
+            )}
+            <header className='modal-inner margin-top'>
+              <h1 className='modal-title t-gamma no-margin'>See an example</h1>
+            </header>
+            <section className='modal-inner'>
+              Send yourself an example email to see what applicants will see when they get an
+              Invitation to Apply.
+            </section>
+            <FormGrid.Row>
+              <FormGrid.Item width='100%'>
+                <InputField
+                  label={'Email address'}
+                  labelId='example-email-label'
+                  fieldName={INVITE_APPLY_EXAMPLE_EMAIL}
+                  id={INVITE_APPLY_EXAMPLE_EMAIL}
+                  cols='30'
+                  rows='10'
+                  ariaDescribedby='invite-to-apply-example-label'
+                  maxLength='255'
+                  validation={validate.isValidEmail('Enter email address like: example@web.com')}
+                />
+              </FormGrid.Item>
+            </FormGrid.Row>
+            <FormGrid.Row>
+              <FormGrid.Item width='100%'>
+                <HelpText
+                  id='invite-to-apply-file-example-help'
+                  note='Enter your own email address, or send it to a colleague'
+                />
+              </FormGrid.Item>
+            </FormGrid.Row>
           </div>
         )}
       </FormModal>
