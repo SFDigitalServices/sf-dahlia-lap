@@ -53,10 +53,10 @@ export const LEASE_UP_SUBSTATUS_OPTIONS = {
   ],
   Waitlisted: [
     { value: 'Written confirmation sent', label: 'Written confirmation sent' },
-    {
-      value: 'Asked to be contacted about future vacancies',
-      label: 'Asked to be contacted about future vacancies'
-    },
+    // {
+    //   value: 'Asked to be contacted about future vacancies',
+    //   label: 'Asked to be contacted about future vacancies'
+    // },
     { value: 'None of the above', label: 'None of the above' }
   ],
   Disqualified: [

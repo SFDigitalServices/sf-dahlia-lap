@@ -170,7 +170,14 @@ const Sidebar = ({
   )
 }
 
-const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values, visited }) => {
+const SupplementalApplicationContainer = ({
+  handleSubmit,
+  form,
+  touched,
+  values,
+  visited,
+  listingId
+}) => {
   const [failed, setFailed] = useState(false)
   const [
     {
@@ -266,6 +273,7 @@ const SupplementalApplicationContainer = ({ handleSubmit, form, touched, values,
         submitButton={state.statusModal.isInAddCommentMode ? 'Save' : 'Update'}
         subStatus={state.statusModal.substatus}
         title={state.statusModal.isInAddCommentMode ? 'Add New Comment' : 'Update Status'}
+        listingId={listingId}
       />
     </>
   )
