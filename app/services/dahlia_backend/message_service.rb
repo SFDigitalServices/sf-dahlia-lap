@@ -36,10 +36,14 @@ module DahliaBackend
 
       listing = params[:listing]
       {
-        "isTestEmail": params[:is_test] ? true : false,
+        "isTestEmail": params[:isTest] ? true : false,
         "listingId": listing[:id],
         "listingName": listing[:name],
-        "listingAddress": listing[:building_street_address],
+        "buildingName": listing[:building_name_for_process],
+        "buildingAddress": listing[:building_street_address],
+        "buildingCity": listing[:building_city],
+        "buildingState": listing[:building_state],
+        "buildingZip": listing[:building_zip_code],
         "listingNeighborhood": listing[:neighborhood],
         "units": prepare_units(listing[:id]),
         "applicants": contacts,
@@ -47,7 +51,7 @@ module DahliaBackend
         "lotteryDate": listing[:lottery_date],
         "leasingAgent": {
           "name": listing[:leasing_agent_name],
-          "email": listing[:leasing_agent_email],
+          "email": determine_email(listing[:leasing_agent_email]),
           "phone": listing[:leasing_agent_phone],
           "officeHours": listing[:office_hours],
         },
@@ -65,14 +69,14 @@ module DahliaBackend
           "applicationLanguage": record[:Application_Language],
           "lotteryNumber": record[:Lottery_Number],
           "primaryContact": {
-            "email": determine_email(record[:Applicant]),
+            "email": determine_email(record[:Applicant][:Email]),
             "firstName": record[:Applicant][:First_Name],
             "lastName": record[:Applicant][:Last_Name],
           },
         }
-        if record[:Alternate_Contact].present?
+        if record[:Alternate_Contact].present? and record[:Alternate_Contact][:Email].present?
           contact[:alternateContact] = {
-            "email": determine_email(record[:Alternate_Contact]),
+            "email": determine_email(record[:Alternate_Contact][:Email]),
             "firstName": record[:Alternate_Contact][:First_Name],
             "lastName": record[:Alternate_Contact][:Last_Name],
           }
@@ -108,10 +112,10 @@ module DahliaBackend
       units
     end
 
-    def determine_email(contact)
+    def determine_email(default_email)
       return ENV['TEST_EMAIL'] if ENV['TEST_EMAIL'].present?
 
-      contact[:Email]
+      default_email
     end
 
     # Sends a message through the API client

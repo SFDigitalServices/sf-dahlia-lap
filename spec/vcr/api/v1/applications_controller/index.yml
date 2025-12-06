@@ -8,7 +8,7 @@ http_interactions:
       string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
     headers:
       User-Agent:
-      - Faraday v2.7.4
+      - Faraday v2.12.2
       Content-Type:
       - application/x-www-form-urlencoded
       Accept-Encoding:
@@ -21,44 +21,44 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 15 Apr 2025 00:06:56 GMT
+      - Tue, 02 Dec 2025 23:38:28 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      Vary:
-      - Accept-Encoding
-      X-Readonlymode:
-      - 'false'
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
       X-Robots-Tag:
       - none
-      Set-Cookie:
-      - BrowserId=iw0aIhmNEfCcRU2uppuNnw; domain=.salesforce.com; path=/; expires=Wed,
-        15-Apr-2026 00:06:56 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 15-Apr-2026 00:06:56 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 15-Apr-2026 00:06:56
-        GMT; Max-Age=31536000; secure
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
       X-Content-Type-Options:
       - nosniff
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Set-Cookie:
+      - BrowserId=AJcMi8_YEfC01FfvOkAzbw; domain=.salesforce.com; path=/; expires=Wed,
+        02-Dec-2026 23:38:27 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Wed, 02-Dec-2026 23:38:27 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 02-Dec-2026 23:38:27
+        GMT; Max-Age=31536000; secure
+      X-Readonlymode:
+      - 'false'
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - d7aa669dd7a9609f09eb37acb0257454
+      - 71b21b83beaea8ef93394e716c8097c0
       X-Request-Id:
-      - d7aa669dd7a9609f09eb37acb0257454
+      - 71b21b83beaea8ef93394e716c8097c0
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1744675616356","signature":"F1TIeUzw54j9AfWO+5GT7n0K1pyj4IztjDum1jpLEjk="}'
-  recorded_at: Tue, 15 Apr 2025 00:06:56 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1764718708073","signature":"Br7/a0REbWv2ZbuMADjK1xxN9EtbmnVTcWW3p6+Pi8M="}'
+  recorded_at: Tue, 02 Dec 2025 23:38:28 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Name,%20Listing__r.Name,%20Listing__r.Lottery_Date__c,%20Applicant__r.First_Name__c,%20Applicant__r.Last_Name__c,%20Applicant__r.Email__c,%20Applicant__r.Phone__c,%20Applicant__r.Residence_Address__c,%20Applicant__r.Mailing_Address__c,%20Application_Submitted_Date__c,%20Total_Household_Size__c,%20Application_Submission_Type__c,%20General_Lottery__c,%20General_Lottery_Rank__c,%20Processing_Status__c%20FROM%20Application__c%20WHERE%20(Status__c%20!=%20%27Draft%27%20AND%20Application_Submitted_Date__c%20!=%20NULL)%20AND%20(Listing__r.Id%20=%20%27a0W0P00000GbyuQUAR%27)%20ORDER%20BY%20CreatedDate%20DESC%20LIMIT%20100%20OFFSET%200
@@ -67,7 +67,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.7.4
+      - Faraday v2.12.2
       Authorization:
       - OAuth <<ACCESS_TOKEN>>
       Accept-Encoding:
@@ -80,38 +80,38 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 15 Apr 2025 00:06:56 GMT
+      - Tue, 02 Dec 2025 23:38:28 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      Vary:
-      - Accept-Encoding
-      Sforce-Limit-Info:
-      - api-usage=38336/982000
       X-Robots-Tag:
       - none
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Set-Cookie:
-      - BrowserId=iz_CkhmNEfC_O1fy26Y7aQ; domain=.salesforce.com; path=/; expires=Wed,
-        15-Apr-2026 00:06:56 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 15-Apr-2026 00:06:56 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 15-Apr-2026 00:06:56
-        GMT; Max-Age=31536000; secure
+      Sforce-Limit-Info:
+      - api-usage=10210/982000
+      Vary:
+      - Accept-Encoding
       X-Content-Type-Options:
       - nosniff
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Set-Cookie:
+      - BrowserId=APWA0M_YEfC9_7HtCqLO4w; domain=.salesforce.com; path=/; expires=Wed,
+        02-Dec-2026 23:38:28 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Wed, 02-Dec-2026 23:38:28 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 02-Dec-2026 23:38:28
+        GMT; Max-Age=31536000; secure
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 2d34561ed61950b80b714650853472bf
+      - 1dbede098c6cff02d47ae73b35ad72be
       X-Request-Id:
-      - 2d34561ed61950b80b714650853472bf
+      - 1dbede098c6cff02d47ae73b35ad72be
       X-Sfdc-Edge-Cache:
       - MISS
     body:
@@ -135,7 +135,7 @@ http_interactions:
         Signed"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWgcQAF"},"Id":"a0o0P00000IvWgcQAF","Name":"APP-00304154","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Name":"TEST
         Partners Listing (do not modify) - Yellow Acres","Lottery_Date__c":"2018-06-01T22:30:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XF7QAN"},"First_Name__c":"Becky","Last_Name__c":"Keller","Email__c":"mikayla87259@example.com","Phone__c":"702.050.5378","Residence_Address__c":"796
         Jeanette Turnpike Suite 880, Monicahaven, Wy, 51896","Mailing_Address__c":"504
-        Wiley Street Apt. 208, Mariechester, Ma, 14457"},"Application_Submitted_Date__c":"2018-11-27","Total_Household_Size__c":3.0,"Application_Submission_Type__c":"Paper","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Processing_Status__c":"Processing"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWgXQAV"},"Id":"a0o0P00000IvWgXQAV","Name":"APP-00304153","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Name":"TEST
+        Wiley Street Apt. 208, Mariechester, Ma, 14457"},"Application_Submitted_Date__c":"2018-11-27","Total_Household_Size__c":3.0,"Application_Submission_Type__c":"Paper","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Processing_Status__c":"Withdrawn"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvWgXQAV"},"Id":"a0o0P00000IvWgXQAV","Name":"APP-00304153","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Name":"TEST
         Partners Listing (do not modify) - Yellow Acres","Lottery_Date__c":"2018-06-01T22:30:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1XF0QAN"},"First_Name__c":"Vincent","Last_Name__c":"Johns","Email__c":"pamelawilliamson3931@example.net","Phone__c":"620-936-2480x4918","Residence_Address__c":"33834
         Travis View Suite 473, Monicahaven, Wy, 82712","Mailing_Address__c":"00880
         Terry Island Suite 352, Mariechester, Ma, 62381"},"Application_Submitted_Date__c":"2018-12-12","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Paper","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Processing_Status__c":"Appealed"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000IvMoaQAF"},"Id":"a0o0P00000IvMoaQAF","Name":"APP-00302547","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Name":"TEST
@@ -143,7 +143,7 @@ http_interactions:
         Barron Trace, Monicahaven, Wy, 15337","Mailing_Address__c":null},"Application_Submitted_Date__c":"2019-11-13","Total_Household_Size__c":3.0,"Application_Submission_Type__c":"Paper","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Processing_Status__c":"Withdrawn"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Iv7H4QAJ"},"Id":"a0o0P00000Iv7H4QAJ","Name":"APP-00299776","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Name":"TEST
         Partners Listing (do not modify) - Yellow Acres","Lottery_Date__c":"2018-06-01T22:30:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1HWHQA3"},"First_Name__c":"Jillian","Last_Name__c":"Cherry","Email__c":"hjames9392@example.net","Phone__c":"+1-773-007-2112","Residence_Address__c":"278
         Ponce Square, Monicahaven, Wy, 82712","Mailing_Address__c":"4781 Edward Track
-        Suite 558, Mariechester, Ma, 62381"},"Application_Submitted_Date__c":"2018-11-20","Total_Household_Size__c":3.0,"Application_Submission_Type__c":"Paper","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Processing_Status__c":"Appealed"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000ItlpiQAB"},"Id":"a0o0P00000ItlpiQAB","Name":"APP-00271364","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Name":"TEST
+        Suite 558, Mariechester, Ma, 62381"},"Application_Submitted_Date__c":"2019-03-12","Total_Household_Size__c":3.0,"Application_Submission_Type__c":"Electronic","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Processing_Status__c":"Appealed"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000ItlpiQAB"},"Id":"a0o0P00000ItlpiQAB","Name":"APP-00271364","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Name":"TEST
         Partners Listing (do not modify) - Yellow Acres","Lottery_Date__c":"2018-06-01T22:30:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0m5PQAR"},"First_Name__c":"Malik","Last_Name__c":"Hinton","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Application_Submitted_Date__c":"2018-09-26","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Paper","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Processing_Status__c":"Processing"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000ItlpdQAB"},"Id":"a0o0P00000ItlpdQAB","Name":"APP-00271363","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Name":"TEST
         Partners Listing (do not modify) - Yellow Acres","Lottery_Date__c":"2018-06-01T22:30:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0m55QAB"},"First_Name__c":"Malik","Last_Name__c":"Hinton","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Application_Submitted_Date__c":"2018-09-26","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Paper","General_Lottery__c":true,"General_Lottery_Rank__c":9.0,"Processing_Status__c":"Appealed"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000ItllyQAB"},"Id":"a0o0P00000ItllyQAB","Name":"APP-00271350","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Name":"TEST
         Partners Listing (do not modify) - Yellow Acres","Lottery_Date__c":"2018-06-01T22:30:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D0m2LQAR"},"First_Name__c":"Malik","Last_Name__c":"Hinton","Email__c":null,"Phone__c":null,"Residence_Address__c":null,"Mailing_Address__c":null},"Application_Submitted_Date__c":"2018-09-26","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Paper","General_Lottery__c":true,"General_Lottery_Rank__c":12.0,"Processing_Status__c":null},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000ItlltQAB"},"Id":"a0o0P00000ItlltQAB","Name":"APP-00271349","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Name":"TEST
@@ -158,9 +158,10 @@ http_interactions:
         Partners Listing (do not modify) - Yellow Acres","Lottery_Date__c":"2018-06-01T22:30:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qJPQAZ"},"First_Name__c":"Brendan","Last_Name__c":"Ellis","Email__c":null,"Phone__c":"108.939.6269x26334","Residence_Address__c":"6020
         Dudley Estates Apt. 225, North Jennaton, Wy, 44983","Mailing_Address__c":"855
         Megan Knolls, West Aprilside, Ma, 71878"},"Application_Submitted_Date__c":"2018-12-13","Total_Household_Size__c":2.0,"Application_Submission_Type__c":"Electronic","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Processing_Status__c":"Appealed"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZazOQAT"},"Id":"a0o0P00000GZazOQAT","Name":"APP-00243697","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Name":"TEST
-        Partners Listing (do not modify) - Yellow Acres","Lottery_Date__c":"2018-06-01T22:30:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qIZQAZ"},"First_Name__c":"Toni","Last_Name__c":"Potts","Email__c":"hectormcgee9306@example.com","Phone__c":null,"Residence_Address__c":"6149
-        Bennett Groves Suite 248, Moodymouth, Wy, 19940","Mailing_Address__c":"58186
-        Alexander Freeway Apt. 681, Lake Anna, Ma, 52326"},"Application_Submitted_Date__c":"2020-10-13","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Paper","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Processing_Status__c":"Processing"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZaz9QAD"},"Id":"a0o0P00000GZaz9QAD","Name":"APP-00243694","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Name":"TEST
+        Partners Listing (do not modify) - Yellow Acres","Lottery_Date__c":"2018-06-01T22:30:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qIZQAZ"},"First_Name__c":"Automated
+        Test Lease Up Application","Last_Name__c":"(do not modify)","Email__c":"tessiel@email.com","Phone__c":null,"Residence_Address__c":"123
+        Test St, Testville, CA, 00000","Mailing_Address__c":"123 Test St, Testville,
+        CA, 00000"},"Application_Submitted_Date__c":"2020-10-13","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Paper","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Processing_Status__c":"Processing"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZaz9QAD"},"Id":"a0o0P00000GZaz9QAD","Name":"APP-00243694","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Name":"TEST
         Partners Listing (do not modify) - Yellow Acres","Lottery_Date__c":"2018-06-01T22:30:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qHXQAZ"},"First_Name__c":"Jackie","Last_Name__c":"Campbell","Email__c":null,"Phone__c":"+1-739-565-4546x80163","Residence_Address__c":"26000
         Shari Prairie, North Jennaton, Wy, 75109","Mailing_Address__c":"19355 Sophia
         Park, West Aprilside, Ma, 71343"},"Application_Submitted_Date__c":"2019-11-07","Total_Household_Size__c":1.0,"Application_Submission_Type__c":"Electronic","General_Lottery__c":false,"General_Lottery_Rank__c":null,"Processing_Status__c":"Processing"},{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000GZayuQAD"},"Id":"a0o0P00000GZayuQAD","Name":"APP-00243691","Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Name":"TEST
@@ -170,7 +171,7 @@ http_interactions:
         Partners Listing (do not modify) - Yellow Acres","Lottery_Date__c":"2018-06-01T22:30:00.000+0000"},"Applicant__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D3qFpQAJ"},"First_Name__c":"Kenneth","Last_Name__c":"Rodgers","Email__c":"gloria986382@example.org","Phone__c":"+1-844-514-2112x88644","Residence_Address__c":"45439
         Robin Islands Apt. 931, North Jennaton, Wy, 87403","Mailing_Address__c":"65637
         Christy Fall, West Aprilside, Ma, 25676"},"Application_Submitted_Date__c":"2018-11-30","Total_Household_Size__c":3.0,"Application_Submission_Type__c":"Paper","General_Lottery__c":true,"General_Lottery_Rank__c":3.0,"Processing_Status__c":"Processing"}]}'
-  recorded_at: Tue, 15 Apr 2025 00:06:56 GMT
+  recorded_at: Tue, 02 Dec 2025 23:38:28 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Application__c%20WHERE%20(Status__c%20!=%20%27Draft%27%20AND%20Application_Submitted_Date__c%20!=%20NULL)%20AND%20(Listing__r.Id%20=%20%27a0W0P00000GbyuQUAR%27)
@@ -179,7 +180,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v2.7.4
+      - Faraday v2.12.2
       Authorization:
       - OAuth <<ACCESS_TOKEN>>
       Accept-Encoding:
@@ -192,7 +193,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 15 Apr 2025 00:06:57 GMT
+      - Tue, 02 Dec 2025 23:38:29 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -201,33 +202,33 @@ http_interactions:
       - keep-alive
       X-Robots-Tag:
       - none
-      Set-Cookie:
-      - BrowserId=i4CcXRmNEfCciVXSjq_BOw; domain=.salesforce.com; path=/; expires=Wed,
-        15-Apr-2026 00:06:57 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Wed, 15-Apr-2026 00:06:57 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 15-Apr-2026 00:06:57
-        GMT; Max-Age=31536000; secure
-      Vary:
-      - Accept-Encoding
-      Sforce-Limit-Info:
-      - api-usage=38334/982000
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=AUIaM8_YEfCNM69lXzq8iA; domain=.salesforce.com; path=/; expires=Wed,
+        02-Dec-2026 23:38:28 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Wed, 02-Dec-2026 23:38:28 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Wed, 02-Dec-2026 23:38:28
+        GMT; Max-Age=31536000; secure
+      Sforce-Limit-Info:
+      - api-usage=10209/982000
       X-Content-Type-Options:
       - nosniff
+      Vary:
+      - Accept-Encoding
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - b79243d479cc2c8cf9b7a53ea17df56d
+      - 64eb961ece0c8c01329a84ca0490300d
       X-Request-Id:
-      - b79243d479cc2c8cf9b7a53ea17df56d
+      - 64eb961ece0c8c01329a84ca0490300d
       X-Sfdc-Edge-Cache:
       - MISS
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":27,"done":true,"records":[]}'
-  recorded_at: Tue, 15 Apr 2025 00:06:57 GMT
-recorded_with: VCR 6.1.0
+  recorded_at: Tue, 02 Dec 2025 23:38:29 GMT
+recorded_with: VCR 6.3.1
