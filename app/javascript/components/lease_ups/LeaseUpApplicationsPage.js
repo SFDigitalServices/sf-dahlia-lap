@@ -397,7 +397,8 @@ const LeaseUpApplicationsPage = () => {
         info={{
           message: "We're sending your messages.  Refresh the page to see updates.",
           show: state.showPageInfo,
-          onCloseClick: closePageAlert
+          onCloseClick: closePageAlert,
+          icon: 'i-hour-glass'
         }}
       >
         <LeaseUpApplicationsTableContainer />
