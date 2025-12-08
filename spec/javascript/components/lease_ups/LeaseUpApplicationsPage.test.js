@@ -767,51 +767,51 @@ describe('LeaseUpApplicationsPage', () => {
           expect(mockUpdateListing.mock.calls).toHaveLength(1)
           expect(screen.getByText('Review and send')).toBeInTheDocument()
 
-          // // open send example modal
-          // act(() => {
-          //   fireEvent.click(screen.getByText('send yourself an example email'))
-          // })
-          // expect(screen.getByText('See an example')).toBeInTheDocument()
+          // open send example modal
+          act(() => {
+            fireEvent.click(screen.getByText('send yourself an example email'))
+          })
+          expect(screen.getByText('See an example')).toBeInTheDocument()
 
-          // // invalid email
-          // const emailField = screen.getByLabelText('Email address')
-          // act(() => {
-          //   fireEvent.change(emailField, {
-          //     target: { value: 'hello world!' }
-          //   })
-          //   fireEvent.blur(emailField)
-          // })
-          // expect(screen.getByText('Enter email address like: example@web.com')).toBeInTheDocument()
+          // invalid email
+          const emailField = screen.getByLabelText('Email address')
+          act(() => {
+            fireEvent.change(emailField, {
+              target: { value: 'hello world!' }
+            })
+            fireEvent.blur(emailField)
+          })
+          expect(screen.getByText('Enter email address like: example@web.com')).toBeInTheDocument()
 
-          // // valid email
-          // act(() => {
-          //   fireEvent.change(emailField, {
-          //     target: { value: 'test@test.com' }
-          //   })
-          //   fireEvent.blur(emailField)
-          // })
-          // expect(
-          //   screen.queryByText('Enter email address like: example@web.com')
-          // ).not.toBeInTheDocument()
+          // valid email
+          act(() => {
+            fireEvent.change(emailField, {
+              target: { value: 'test@test.com' }
+            })
+            fireEvent.blur(emailField)
+          })
+          expect(
+            screen.queryByText('Enter email address like: example@web.com')
+          ).not.toBeInTheDocument()
 
-          // // send example email
-          // act(() => {
-          //   fireEvent.click(screen.getByText('send example email'))
-          // })
-          // expect(mockSendInviteToApply.mock.calls).toHaveLength(1)
+          // send example email
+          act(() => {
+            fireEvent.click(screen.getByText('send example email'))
+          })
+          expect(mockSendInviteToApply.mock.calls).toHaveLength(1)
 
-          // // close send example modal
-          // act(() => {
-          //   fireEvent.click(screen.getByText('cancel'))
-          // })
-          // expect(screen.queryByText('See an example')).not.toBeInTheDocument()
-          // expect(screen.getByText('Review and send')).toBeInTheDocument()
+          // close send example modal
+          act(() => {
+            fireEvent.click(screen.getByText('cancel'))
+          })
+          expect(screen.queryByText('See an example')).not.toBeInTheDocument()
+          expect(screen.getByText('Review and send')).toBeInTheDocument()
 
-          // // send email
-          // act(() => {
-          //   fireEvent.click(screen.getByText('send now'))
-          // })
-          // expect(mockSendInviteToApply.mock.calls).toHaveLength(2)
+          // send email
+          act(() => {
+            fireEvent.click(screen.getByText('send now'))
+          })
+          expect(mockSendInviteToApply.mock.calls).toHaveLength(2)
         })
       })
     })
