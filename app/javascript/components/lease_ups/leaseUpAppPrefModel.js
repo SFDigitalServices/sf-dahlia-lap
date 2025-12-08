@@ -1,7 +1,8 @@
+import { getSubStatusLabel } from '../../utils/statusUtils'
+
 export const buildLeaseUpAppPrefModel = (applicationPreference) => {
   const application = applicationPreference.application
   const applicant = application.applicant
-
   return {
     application_preference_id: applicationPreference.id,
     application_id: application.id,
@@ -15,6 +16,7 @@ export const buildLeaseUpAppPrefModel = (applicationPreference) => {
     has_ada_priorities_selected: application.has_ada_priorities_selected,
     lease_up_status: application.processing_status,
     sub_status: application.sub_status,
+    sub_status_label: getSubStatusLabel(application.processing_status, application.sub_status),
     status_last_updated: application.status_last_updated,
     preference_order: applicationPreference.preference_order,
     preference_name: applicationPreference.preference_name,
