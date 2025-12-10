@@ -313,8 +313,6 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
         onSubmit={sendInviteToApply}
         handleClose={closeExampleModal}
         primary='send example email'
-        secondary='cancel'
-        onSecondaryClick={closeExampleModal}
       >
         {() => (
           <div className={'form-group'}>
