@@ -213,18 +213,19 @@ const LeaseUpApplicationsPage = () => {
   const handleStatusModalSubmit = async (submittedValues) => {
     setStatusModalState({ loading: true })
     const { applicationsData } = statusModalState
-    let { status, subStatus } = submittedValues
+    const { status, subStatus } = submittedValues
 
     Object.keys(applicationsData).forEach((appId) => {
       applicationsData[appId].comment = submittedValues.comment?.trim()
 
-      // substatus might be a comment
-      // make sure it's valid or an empty string
-      if (!find(LEASE_UP_SUBSTATUS_OPTIONS[status] || [], { value: subStatus })) {
-        subStatus = ''
-        // status might not be set. agent just wants to add a comment.
-        // so make sure invalid substatus is cleared out.
-        applicationsData[appId].subStatus = subStatus
+      // previous substatus might be a comment
+      // clear it out if so
+      if (
+        !find(LEASE_UP_SUBSTATUS_OPTIONS[applicationsData[appId].status] || [], {
+          value: applicationsData[appId].subStatus
+        })
+      ) {
+        applicationsData[appId].subStatus = ''
       }
 
       if (status) {
