@@ -153,6 +153,7 @@ const LeaseUpTableContainer = ({
         submitButton={statusModal.isCommentModal ? 'Submit' : 'Update'}
         title={statusModal.isCommentModal ? 'Add Comment' : 'Update Status'}
         isCommentModal={statusModal.isCommentModal}
+        listingId={listingId}
       />
       <InviteToApplyModals
         ref={inviteToApplyModalsRef}

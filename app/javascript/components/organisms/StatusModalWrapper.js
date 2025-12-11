@@ -9,6 +9,7 @@ import StatusDropdown from 'components/molecules/StatusDropdown'
 import SubstatusDropdown from 'components/molecules/SubstatusDropdown'
 import { TextAreaField, Label, FieldError } from 'utils/form/final_form/Field'
 import validate from 'utils/form/validations'
+import { IsInviteToApplyEnabledForListing } from 'utils/inviteApplyEmail'
 import {
   statusRequiresComments,
   LEASE_UP_STATUS_VALUES,
@@ -38,8 +39,15 @@ const StatusModalWrapper = ({
   status = null,
   submitButton,
   subStatus = null,
-  title = null
+  title = null,
+  listingId = null
 }) => {
+  const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listingId)
+  const substatusOptions = JSON.parse(JSON.stringify(LEASE_UP_SUBSTATUS_OPTIONS))
+  if (!isInviteApplyEnabled && substatusOptions.Processing) {
+    delete substatusOptions.Processing
+  }
+
   return (
     <FormModal
       title={title}
@@ -64,7 +72,7 @@ const StatusModalWrapper = ({
       }}
       validateError={(values) => {
         const errors = {}
-        if (values.status && LEASE_UP_SUBSTATUS_OPTIONS[values.status] && !values.subStatus) {
+        if (values.status && substatusOptions[values.status] && !values.subStatus) {
           errors.subStatus = 'Please provide status details.'
         }
         if (
@@ -106,7 +114,7 @@ const StatusModalWrapper = ({
                   />
                 </FormGrid.Item>
               </FormGrid.Row>
-              {values.status && LEASE_UP_SUBSTATUS_OPTIONS[values.status] && (
+              {values.status && substatusOptions[values.status] && (
                 <FormGrid.Row paddingBottom>
                   <FormGrid.Item width='100%'>
                     <Field
