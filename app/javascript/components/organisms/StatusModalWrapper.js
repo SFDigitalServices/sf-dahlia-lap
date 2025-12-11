@@ -9,7 +9,7 @@ import StatusDropdown from 'components/molecules/StatusDropdown'
 import SubstatusDropdown from 'components/molecules/SubstatusDropdown'
 import { TextAreaField, Label, FieldError } from 'utils/form/final_form/Field'
 import validate from 'utils/form/validations'
-import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
+import { IsInviteToApplyEnabledForListing } from 'utils/inviteApplyEmail'
 import {
   statusRequiresComments,
   LEASE_UP_STATUS_VALUES,
@@ -42,10 +42,7 @@ const StatusModalWrapper = ({
   title = null,
   listingId = null
 }) => {
-  // hide Invte to Apply Processing substatuses behind feature flag
-  const { unleashFlag: inviteApplyFlag, variant } = useFeatureFlag('partners.inviteToApply', false)
-  const enabledListingIds = variant.payload === undefined ? [] : variant.payload.value.split(',')
-  const isInviteApplyEnabled = inviteApplyFlag && enabledListingIds.includes(listingId)
+  const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listingId)
   const substatusOptions = JSON.parse(JSON.stringify(LEASE_UP_SUBSTATUS_OPTIONS))
   if (!isInviteApplyEnabled && substatusOptions.Processing) {
     delete substatusOptions.Processing

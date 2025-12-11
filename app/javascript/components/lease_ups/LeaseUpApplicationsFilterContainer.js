@@ -15,8 +15,10 @@ import ShowHideFiltersButton from 'components/molecules/ShowHideFiltersButton'
 import { useAppContext } from 'utils/customHooks'
 import SearchField from 'utils/form/final_form/SearchField'
 import formUtils from 'utils/formUtils'
-import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
-import { INVITE_APPLY_EMAIL_OPTIONS } from 'utils/inviteApplyEmail'
+import {
+  INVITE_APPLY_EMAIL_OPTIONS,
+  IsInviteToApplyEnabledForListing
+} from 'utils/inviteApplyEmail'
 import { LEASE_UP_STATUS_OPTIONS } from 'utils/statusUtils'
 
 const styles = {
@@ -51,9 +53,7 @@ const LeaseUpApplicationsFilterContainer = ({
   onClearSelectedApplications = () => {},
   onSelectAllApplications = () => {}
 }) => {
-  const { unleashFlag: inviteApplyFlag, variant } = useFeatureFlag('partners.inviteToApply', false)
-  const enabledListingIds = variant.payload === undefined ? [] : variant.payload.value.split(',')
-  const isInviteApplyEnabled = inviteApplyFlag && enabledListingIds.includes(listingId)
+  const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listingId)
 
   const [isShowingFilters, setIsShowingFilters] = useState(false)
   const [hasChangedFilters, setHasChangedFilters] = useState(false)
