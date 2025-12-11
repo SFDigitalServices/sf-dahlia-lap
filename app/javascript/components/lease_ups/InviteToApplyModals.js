@@ -310,9 +310,9 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       </FormModal>
       <FormModal
         isOpen={rsvpModalState.example}
-        onSubmit={sendInviteToApply}
+        onSubmit={exampleSuccessAlertState.show ? closeExampleModal : sendInviteToApply}
         handleClose={closeExampleModal}
-        primary='send example email'
+        primary={exampleSuccessAlertState.show ? 'done' : 'send example email'}
       >
         {() => (
           <div className={'form-group'}>
