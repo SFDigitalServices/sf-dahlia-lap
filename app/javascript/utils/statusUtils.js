@@ -53,6 +53,8 @@ export const LEASE_UP_SUBSTATUS_OPTIONS = {
   ],
   Waitlisted: [
     { value: 'Written confirmation sent', label: 'Written confirmation sent' },
+    // TODO: commented out because there wasn't an easy way to hide
+    //        one option behind a feature flag.  This needs to be uncommented to re-enable
     // {
     //   value: 'Asked to be contacted about future vacancies',
     //   label: 'Asked to be contacted about future vacancies'
