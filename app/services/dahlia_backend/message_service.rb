@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'date'
+
 module DahliaBackend
   # Service for sending messages through the DAHLIA API
   class MessageService
@@ -35,6 +37,8 @@ module DahliaBackend
       raise 'No contacts found' if contacts.empty?
 
       listing = params[:listing]
+      lottery_date = DateTime.parse(listing[:lottery_date])
+      deadline_date = DateTime.parse(params[:invite_to_apply_deadline])
       {
         "isTestEmail": params[:isTest] ? true : false,
         "listingId": listing[:id],
@@ -47,8 +51,8 @@ module DahliaBackend
         "listingNeighborhood": listing[:neighborhood],
         "units": prepare_units(listing[:id]),
         "applicants": contacts,
-        "deadlineDate": params[:invite_to_apply_deadline],
-        "lotteryDate": listing[:lottery_date],
+        "deadlineDate": deadline_date.strftime('%Y-%m-%d'),
+        "lotteryDate": lottery_date.strftime('%Y-%m-%d'),
         "leasingAgent": {
           "name": listing[:leasing_agent_name],
           "email": determine_email(listing[:leasing_agent_email]),

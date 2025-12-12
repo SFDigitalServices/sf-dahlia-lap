@@ -268,8 +268,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
           <div className={'form-group'}>
             <p>
               When you’re ready, send an email to the applicants you selected. If you want,&nbsp;
-              <a onClick={() => showRsvpModal('example')}>send yourself an example email</a> to
-              preview what applicants will see.
+              <a>send yourself an example email</a> to preview what applicants will see.
             </p>
             <p>
               <label className='form-label'>You are sending</label>
