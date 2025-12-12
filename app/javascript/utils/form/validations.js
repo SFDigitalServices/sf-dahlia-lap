@@ -70,7 +70,7 @@ const isValidEmail = (email) => {
   if (email) {
     return emailRegex.test(email)
   }
-  return true
+  return false
 }
 
 const isEmptyString = (value) => isNil(value) || value.length === 0
