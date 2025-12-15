@@ -343,7 +343,9 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
                   rows='10'
                   ariaDescribedby='invite-to-apply-example-label'
                   maxLength='255'
-                  validation={validate.isValidEmail('Enter email address like: example@web.com')}
+                  validation={validate.isValidEmailStrict(
+                    'Enter email address like: example@web.com'
+                  )}
                 />
               </FormGrid.Item>
             </FormGrid.Row>
