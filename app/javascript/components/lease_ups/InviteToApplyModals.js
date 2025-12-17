@@ -268,7 +268,8 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
           <div className={'form-group'}>
             <p>
               When you’re ready, send an email to the applicants you selected. If you want,&nbsp;
-              <a>send yourself an example email</a> to preview what applicants will see.
+              <a onClick={() => showRsvpModal('example')}>send yourself an example email</a> to
+              preview what applicants will see.
             </p>
             <p>
               <label className='form-label'>You are sending</label>
@@ -309,11 +310,9 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       </FormModal>
       <FormModal
         isOpen={rsvpModalState.example}
-        onSubmit={sendInviteToApply}
+        onSubmit={exampleSuccessAlertState.show ? closeExampleModal : sendInviteToApply}
         handleClose={closeExampleModal}
-        primary='send example email'
-        secondary='cancel'
-        onSecondaryClick={closeExampleModal}
+        primary={exampleSuccessAlertState.show ? 'done' : 'send example email'}
       >
         {() => (
           <div className={'form-group'}>
@@ -344,7 +343,9 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
                   rows='10'
                   ariaDescribedby='invite-to-apply-example-label'
                   maxLength='255'
-                  validation={validate.isValidEmail('Enter email address like: example@web.com')}
+                  validation={validate.isValidEmailStrict(
+                    'Enter email address like: example@web.com'
+                  )}
                 />
               </FormGrid.Item>
             </FormGrid.Row>

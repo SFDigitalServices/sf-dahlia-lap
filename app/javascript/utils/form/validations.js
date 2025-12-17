@@ -75,6 +75,11 @@ const isValidEmail = (email) => {
 
 const isEmptyString = (value) => isNil(value) || value.length === 0
 
+const isValidEmailStrict = (email) => {
+  // does not allow for empty string
+  return isEmptyString(email) ? false : isValidEmail(email)
+}
+
 export const isValidCurrency = (value) => {
   if (isEmptyString(value)) {
     return true
@@ -125,6 +130,7 @@ const isValidUrl = (value) => {
 }
 
 validate.isValidEmail = decorateValidator(isValidEmail)
+validate.isValidEmailStrict = decorateValidator(isValidEmailStrict)
 validate.isOldEnough = decorateValidator(isOldEnough)
 validate.isDate = decorateValidator(isDate)
 validate.isFutureDate = decorateValidator(isFutureDate)
