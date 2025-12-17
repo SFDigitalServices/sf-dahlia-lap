@@ -33,6 +33,8 @@ module Force
     end
 
     def bulk_status_history_by_applications(application_ids)
+      return [] if application_ids.empty?
+
       quoted_ids = application_ids.map { |item| "'#{item}'" }
       result = parsed_index_query(
         %(
