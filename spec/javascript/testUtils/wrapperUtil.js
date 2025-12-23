@@ -1,11 +1,29 @@
 import React from 'react'
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { render } from '@testing-library/react'
 import { Form } from 'react-final-form'
 import { MemoryRouter as Router } from 'react-router-dom'
 
 import Provider from 'context/Provider'
 import LeaseUpRoutes from 'routes/LeaseUpRoutes'
+
+/**
+ * Create a test QueryClient with settings optimized for testing
+ */
+const createTestQueryClient = () =>
+  new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false,
+        gcTime: 0,
+        staleTime: 0
+      },
+      mutations: {
+        retry: false
+      }
+    }
+  })
 
 const formNode = (application, formToChildrenFunc) => (
   <Form
@@ -28,12 +46,14 @@ const formNode = (application, formToChildrenFunc) => (
 export const withForm = (application, formToChildrenFunc) =>
   render(formNode(application, formToChildrenFunc))
 
-export const leaseUpAppWithUrl = (url) => (
-  <Provider>
-    <Router initialEntries={[url]}>
-      <LeaseUpRoutes />
-    </Router>
-  </Provider>
+export const leaseUpAppWithUrl = (url, queryClient = createTestQueryClient()) => (
+  <QueryClientProvider client={queryClient}>
+    <Provider>
+      <Router initialEntries={[url]}>
+        <LeaseUpRoutes />
+      </Router>
+    </Provider>
+  </QueryClientProvider>
 )
 
 export const renderAppWithUrl = (url) => render(leaseUpAppWithUrl(url))

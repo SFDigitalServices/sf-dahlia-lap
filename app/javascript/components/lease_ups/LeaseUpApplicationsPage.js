@@ -1,6 +1,6 @@
 /* global SALESFORCE_BASE_URL */
 
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import { find, map, isEqual } from 'lodash'
 import moment from 'moment'
@@ -12,22 +12,14 @@ import {
   applicationsTableFiltersApplied
 } from 'components/lease_ups/actions/actionCreators'
 import { LEASE_UP_APPLICATION_FILTERS } from 'components/lease_ups/applicationFiltersConsts'
+import { useLeaseUpListing, useLeaseUpApplications } from 'query/hooks'
 import appPaths from 'utils/appPaths'
-import {
-  useAsync,
-  useAsyncOnMount,
-  useStateObject,
-  useEffectOnMount,
-  useIsMountedRef,
-  useAppContext
-} from 'utils/customHooks'
-import { GRAPHQL_SERVER_PAGE_SIZE, EagerPagination } from 'utils/EagerPagination'
+import { useStateObject, useEffectOnMount, useIsMountedRef, useAppContext } from 'utils/customHooks'
 import { getSubStatusLabel, LEASE_UP_SUBSTATUS_OPTIONS } from 'utils/statusUtils'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
 import Context from './context'
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
-import { getApplicationsPagination, getListing } from './utils/leaseUpRequestUtils'
 import TableLayout from '../layouts/TableLayout'
 import { createFieldUpdateComment } from '../supplemental_application/utils/supplementalRequestUtils'
 
@@ -72,11 +64,6 @@ const getPageHeaderData = (listing, reportId) => {
   }
 }
 
-const getPreferences = (listing) => {
-  if (!listing?.listing_lottery_preferences) return []
-  return map(listing.listing_lottery_preferences, (pref) => pref.lottery_preference.name)
-}
-
 const LeaseUpApplicationsPage = () => {
   const [{ breadcrumbData, applicationsListData }, dispatch] = useAppContext()
 
@@ -86,14 +73,13 @@ const LeaseUpApplicationsPage = () => {
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
 
-  const [state, setState] = useStateObject({
-    loading: false,
-    applications: [],
-    pages: 0,
-    atMaxPages: false,
-    forceRefreshNextPageUpdate: false,
-    eagerPagination: new EagerPagination(ROWS_PER_PAGE, GRAPHQL_SERVER_PAGE_SIZE, true),
-    showPageInfo: false
+  // Track previous displayRecords to detect changes for checkbox initialization
+  const prevDisplayRecordsRef = useRef([])
+
+  const [pageState, setPageState] = useStateObject({
+    showPageInfo: false,
+    // Local applications state for optimistic updates
+    localApplications: null
   })
 
   const [bulkCheckboxesState, setBulkCheckboxesState, overrideBulkCheckboxesState] = useStateObject(
@@ -113,78 +99,70 @@ const LeaseUpApplicationsPage = () => {
 
   const isMountedRef = useIsMountedRef()
 
-  const [{ reportId, listingPreferences, listingType, listing }, setListingState] = useStateObject(
-    {}
-  )
-  useAsyncOnMount(() => getListing(listingId), {
-    onSuccess: (listing) => {
-      setListingState({
-        reportId: listing.report_id,
-        listingPreferences: getPreferences(listing),
-        listingType: listing.listing_type,
-        listing
-      })
+  // Fetch listing data using TanStack Query
+  const {
+    data: listing,
+    isLoading: isListingLoading,
+    isFetching: isListingFetching
+  } = useLeaseUpListing(listingId)
 
+  // Derive listing-related state from query data
+  const reportId = listing?.report_id
+  const listingPreferences = listing?.listing_lottery_preferences
+    ? map(listing.listing_lottery_preferences, (pref) => pref.lottery_preference.name)
+    : []
+  const listingType = listing?.listing_type
+
+  // Update breadcrumb state when listing data loads
+  useEffect(() => {
+    if (listing) {
       applicationsPageLoadComplete(dispatch, listing)
     }
-  })
+  }, [listing, dispatch])
 
-  useAsync(
-    () => {
-      const urlFilters = {}
-      let { appliedFilters, page } = applicationsListData
-      LEASE_UP_APPLICATION_FILTERS.forEach((filter) => {
-        const values = searchParams.getAll(filter.fieldName)
-        if (values.length > 0) {
-          urlFilters[filter.fieldName] = values
-        }
-      })
+  // Sync URL filters with context state
+  useEffect(() => {
+    const urlFilters = {}
+    const { appliedFilters } = applicationsListData
 
-      const textSearchFilters = searchParams.get('search')
-      if (textSearchFilters) {
-        urlFilters.search = textSearchFilters
+    LEASE_UP_APPLICATION_FILTERS.forEach((filter) => {
+      const values = searchParams.getAll(filter.fieldName)
+      if (values.length > 0) {
+        urlFilters[filter.fieldName] = values
       }
+    })
 
-      if (!isEqual(appliedFilters, urlFilters)) {
-        appliedFilters = urlFilters
-        state.forceRefreshNextPageUpdate = true
-        applicationsTableFiltersApplied(dispatch, appliedFilters)
-      }
+    const textSearchFilters = searchParams.get('search')
+    if (textSearchFilters) {
+      urlFilters.search = textSearchFilters
+    }
 
-      if (state.eagerPagination.isOverLimit(page)) {
-        setState({
-          applications: [],
-          atMaxPage: true,
-          loading: false
-        })
+    if (!isEqual(appliedFilters, urlFilters)) {
+      applicationsTableFiltersApplied(dispatch, urlFilters)
+    }
+  }, [location, searchParams, dispatch, applicationsListData])
 
-        // don't trigger any promise if we're over the limit.
-        return null
-      }
+  // Fetch applications using TanStack Query
+  const {
+    displayRecords,
+    totalPages,
+    isLoading: isApplicationsLoading,
+    isFetching: isApplicationsFetching,
+    isError: isApplicationsError
+  } = useLeaseUpApplications(listingId, applicationsListData.page, applicationsListData.appliedFilters)
 
-      const fetcher = (p) => getApplicationsPagination(listingId, p, appliedFilters)
+  // Use local applications state for optimistic updates, fall back to query data
+  const applications = pageState.localApplications ?? displayRecords
 
-      setState({ loading: true })
-
-      return state.eagerPagination.getPage(page, fetcher, state.forceRefreshNextPageUpdate)
-    },
-    {
-      onSuccess: ({ records, pages }) => {
-        setInitialCheckboxState(records)
-        setState({ forceRefreshNextPageUpdate: false, applications: records, pages })
-      },
-      onComplete: () => {
-        setState({ loading: false })
-      },
-      onFail: (e) => {
-        console.error(`An error was thrown while fetching applications`)
-        console.trace(e)
-      }
-    },
-    // Using location in the deps array allows us to run this effect:
-    // on mount, if the user changes the url manually, or if the user hits the back button
-    [location, applicationsListData.page, state.eagerPagination]
-  )
+  // Initialize checkbox state when displayRecords change
+  useEffect(() => {
+    if (displayRecords && displayRecords !== prevDisplayRecordsRef.current) {
+      prevDisplayRecordsRef.current = displayRecords
+      setInitialCheckboxState(displayRecords)
+      // Clear local applications state when new data arrives from server
+      setPageState({ localApplications: null })
+    }
+  }, [displayRecords])
 
   useEffectOnMount(() => applicationsPageMounted(dispatch))
 
@@ -206,7 +184,6 @@ const LeaseUpApplicationsPage = () => {
   }
 
   const handleOnFilter = (filters) => {
-    state.eagerPagination.reset()
     applicationsTableFiltersApplied(dispatch, filters)
   }
 
@@ -287,10 +264,6 @@ const LeaseUpApplicationsPage = () => {
       if (wasBulkUpdate) {
         setBulkCheckboxValues(false, successfulIds)
       }
-
-      // Force the next page update to refresh because changing the status on a preference row
-      // on page 1 could update a preference row attached to the same application on page 2.
-      setState({ forceRefreshNextPageUpdate: true })
     })
   }
 
@@ -301,6 +274,7 @@ const LeaseUpApplicationsPage = () => {
       applicationsData: {}
     })
   }
+
   const handleLeaseUpStatusChange = (value, applicationId, isCommentModal) => {
     const isBulkUpdate = !applicationId
     const appsToUpdate = isBulkUpdate
@@ -309,7 +283,7 @@ const LeaseUpApplicationsPage = () => {
           .map(([id, _]) => id)
       : [applicationId]
 
-    const applicationsData = state.applications
+    const applicationsDataObj = applications
       .filter(
         (application, position, self) =>
           appsToUpdate.includes(application.application_id) &&
@@ -329,13 +303,13 @@ const LeaseUpApplicationsPage = () => {
       isCommentModal,
       isOpen: true,
       status: value,
-      applicationsData
+      applicationsData: applicationsDataObj
     })
   }
 
-  // Updated the visible status, substatus, and status last updated for one or many applications
+  // Update the visible status, substatus, and status last updated for one or many applications
   const updateApplicationState = (applicationsData) => {
-    const updatedApplications = state.applications.map((app) => {
+    const updatedApplications = applications.map((app) => {
       const updatedApp = applicationsData[app.application_id]
       return {
         ...app,
@@ -348,8 +322,8 @@ const LeaseUpApplicationsPage = () => {
         })
       }
     })
-    setState({
-      applications: updatedApplications
+    setPageState({
+      localApplications: updatedApplications
     })
   }
 
@@ -364,13 +338,20 @@ const LeaseUpApplicationsPage = () => {
   const handleClearSelectedApplications = () => setBulkCheckboxValues(false)
   const handleSelectAllApplications = () => setBulkCheckboxValues(true)
 
+  // Combined loading state: show loading on initial load only
+  const loading = isListingLoading || isApplicationsLoading
+
+  // Background fetching indicator (for subtle refresh indicator)
+  const isFetching = isListingFetching || isApplicationsFetching
+
   const context = {
-    applications: state.applications,
-    atMaxPages: state.atMaxPages,
+    applications,
+    atMaxPages: false, // TanStack Query handles pagination limits
     bulkCheckboxesState,
     listingId,
     listingType,
-    loading: state.loading,
+    loading,
+    isFetching,
     onBulkCheckboxClick: handleBulkCheckboxClick,
     onCloseStatusModal: handleCloseStatusModal,
     onFilter: handleOnFilter,
@@ -378,17 +359,17 @@ const LeaseUpApplicationsPage = () => {
     onSubmitStatusModal: handleStatusModalSubmit,
     onClearSelectedApplications: handleClearSelectedApplications,
     onSelectAllApplications: handleSelectAllApplications,
-    pages: state.pages,
+    pages: totalPages,
     preferences: listingPreferences,
     rowsPerPage: ROWS_PER_PAGE,
     statusModal: statusModalState,
     listing,
-    setPageState: setState,
+    setPageState,
     hasFilters: Object.keys(applicationsListData.appliedFilters).length > 0
   }
 
   const closePageAlert = () => {
-    setState({ showPageInfo: false })
+    setPageState({ showPageInfo: false })
   }
 
   return (
@@ -397,7 +378,7 @@ const LeaseUpApplicationsPage = () => {
         pageHeader={getPageHeaderData(breadcrumbData.listing, reportId)}
         info={{
           message: "We're sending your messages.  Refresh the page to see updates.",
-          show: state.showPageInfo,
+          show: pageState.showPageInfo,
           onCloseClick: closePageAlert,
           icon: 'i-hour-glass'
         }}
