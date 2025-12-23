@@ -443,7 +443,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
             role="rowgroup"
           >
             <div
-              class="rt-tr rt-tr-status -odd"
+              class="rt-tr rt-tr-status tertiary -odd"
               role="row"
               tabindex="0"
             >
@@ -624,7 +624,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
             role="rowgroup"
           >
             <div
-              class="rt-tr rt-tr-status -even"
+              class="rt-tr rt-tr-status tertiary -even"
               role="row"
               tabindex="0"
             >
@@ -805,7 +805,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
             role="rowgroup"
           >
             <div
-              class="rt-tr rt-tr-status -odd"
+              class="rt-tr rt-tr-status tertiary -odd"
               role="row"
               tabindex="0"
             >
@@ -986,7 +986,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
             role="rowgroup"
           >
             <div
-              class="rt-tr rt-tr-status -even"
+              class="rt-tr rt-tr-status tertiary -even"
               role="row"
               tabindex="0"
             >
@@ -1167,7 +1167,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
             role="rowgroup"
           >
             <div
-              class="rt-tr rt-tr-status -odd"
+              class="rt-tr rt-tr-status tertiary -odd"
               role="row"
               tabindex="0"
             >
@@ -1348,7 +1348,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
             role="rowgroup"
           >
             <div
-              class="rt-tr rt-tr-status -even"
+              class="rt-tr rt-tr-status tertiary -even"
               role="row"
               tabindex="0"
             >
@@ -2963,7 +2963,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
               <span
                 class="-totalPages"
               >
-                1
+                10
               </span>
             </span>
           </div>
@@ -2972,7 +2972,6 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
           >
             <button
               class="-btn"
-              disabled=""
               type="button"
             >
               Next
