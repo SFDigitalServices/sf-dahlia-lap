@@ -170,7 +170,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       `${deadline.year}-${deadline.month}-${deadline.day}`,
       'YYYY-MM-DD'
     ).endOf('day')
-    return dateObj.format('MMMM D, YYYY A') + ' Pacific Time'
+    return dateObj.format('MMMM D, YYYY') + ', 11:59 PM Pacific Time'
   }
 
   return (
