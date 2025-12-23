@@ -299,7 +299,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
                   Edit
                 </a>
               </label>
-              {formatDeadline()}
+              {formatDeadline()}, 11:59 PM Pacific Time
             </p>
             <p>
               <label className='form-label'>Send to</label>
