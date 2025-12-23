@@ -170,7 +170,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       `${deadline.year}-${deadline.month}-${deadline.day}`,
       'YYYY-MM-DD'
     ).endOf('day')
-    return dateObj.format('MMMM D, YYYY A') + ' Pacific Time'
+    return dateObj.format('MMMM D, YYYY') + ', 11:59 PM Pacific Time'
   }
 
   return (
@@ -299,7 +299,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
                   Edit
                 </a>
               </label>
-              {formatDeadline()}, 11:59 PM Pacific Time
+              {formatDeadline()}
             </p>
             <p>
               <label className='form-label'>Send to</label>
