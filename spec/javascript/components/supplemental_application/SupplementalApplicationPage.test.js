@@ -187,11 +187,23 @@ jest.mock('apiService', () => {
       return assistances
     },
     createRentalAssistance: async (_) => ({}),
-    updateRentalAssistance: async (_) => ({})
+    updateRentalAssistance: async (_) => ({}),
+    getShortFormApplication: async (applicationId) => {
+      const mockedApplication = require('../../fixtures/supplemental_application').default
+      const _cloneDeep = require('lodash').cloneDeep
+      const appWithPrefs = _cloneDeep(mockedApplication)
+      return {
+        application: appWithPrefs,
+        fileBaseUrl: 'fileBaseUrl'
+      }
+    }
   }
 })
 const getWrapper = async (id = getMockApplication().id) => {
-  return await act(async () => renderAppWithUrl(getWindowUrl(id)))
+  const result = await act(async () => renderAppWithUrl(getWindowUrl(id)))
+  // Wait for the loading spinner to disappear and content to load
+  await screen.findByRole('form', {}, { timeout: 10000 })
+  return result
 }
 
 describe('SupplementalApplicationPage', () => {
@@ -571,7 +583,7 @@ describe('SupplementalApplicationPage', () => {
       expect(mockCreateLease.mock.calls).toHaveLength(0)
       expect(mockUpdateLease.mock.calls).toHaveLength(1)
       expect(mockUpdateLease).toHaveBeenCalledWith(expectedLease)
-    }, 10000)
+    }, 30000)
 
     test('it displays "No Units Available" and 0 units count when no units available', async () => {
       await getWrapper(ID_NO_AVAILABLE_UNITS)

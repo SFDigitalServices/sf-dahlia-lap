@@ -1,11 +1,11 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import moment from 'moment'
 
 import { createFieldUpdateComment } from '../../components/supplemental_application/utils/supplementalRequestUtils'
-import {
-  invalidateApplicationsForListing,
-  invalidateStatusHistory
-} from '../invalidation'
+import { invalidateApplicationsForListing, invalidateStatusHistory } from '../invalidation'
 import { queryKeys } from '../queryKeys'
+
+const SALESFORCE_DATE_FORMAT = 'YYYY-MM-DD'
 
 /**
  * Mutation hook for updating a single application's status with optimistic updates.
@@ -20,7 +20,7 @@ export function useUpdateApplicationStatus(listingId) {
     mutationFn: ({ applicationId, status, comment, substatus }) =>
       createFieldUpdateComment(applicationId, status, comment, substatus),
 
-    onMutate: async ({ applicationId, status, substatus }) => {
+    onMutate: async ({ applicationId, status, substatus, comment }) => {
       // Cancel in-flight queries for this listing to prevent race conditions
       await queryClient.cancelQueries({
         queryKey: queryKeys.leaseUpApplications.list(listingId)
@@ -40,7 +40,13 @@ export function useUpdateApplicationStatus(listingId) {
             ...old,
             records: old.records.map((app) =>
               app.application_id === applicationId
-                ? { ...app, lease_up_status: status, sub_status: substatus }
+                ? {
+                    ...app,
+                    lease_up_status: status,
+                    sub_status: substatus,
+                    sub_status_label: substatus || comment || null,
+                    status_last_updated: moment().format(SALESFORCE_DATE_FORMAT)
+                  }
                 : app
             )
           }
@@ -51,7 +57,7 @@ export function useUpdateApplicationStatus(listingId) {
       return { previousData }
     },
 
-    onError: (err, variables, context) => {
+    onError: (_err, _variables, context) => {
       // Rollback cache to previous state on error
       if (context?.previousData) {
         context.previousData.forEach(([queryKey, data]) => {
@@ -60,7 +66,7 @@ export function useUpdateApplicationStatus(listingId) {
       }
     },
 
-    onSettled: (data, error, { applicationId }) => {
+    onSettled: (_data, _error, { applicationId }) => {
       // Invalidate queries to ensure data consistency after mutation
       invalidateApplicationsForListing(queryClient, listingId)
       invalidateStatusHistory(queryClient, applicationId)

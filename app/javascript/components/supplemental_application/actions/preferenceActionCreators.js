@@ -3,13 +3,20 @@ import ACTIONS from 'context/actions'
 
 /**
  * Returns a promise that resolves to true if the save was successful, false otherwise.
+ * @param {Function} dispatch - Redux dispatch function
+ * @param {number} preferenceIndexToUpdate - Index of the preference to update
+ * @param {number} preferenceIndexToClose - Index of the preference row to close
+ * @param {Object} formApplicationValues - The form application values
+ * @param {Object} options - Optional configuration
+ * @param {Function} options.onSuccess - Callback to run after successful update (e.g., cache invalidation)
  */
 
 export const updateSavedPreference = async (
   dispatch,
   preferenceIndexToUpdate,
   preferenceIndexToClose,
-  formApplicationValues
+  formApplicationValues,
+  options = {}
 ) => {
   dispatch({ type: ACTIONS.SUPP_APP_LOAD_START })
 
@@ -24,6 +31,11 @@ export const updateSavedPreference = async (
       })
 
       preferenceSaveSuccess(dispatch, preferenceIndexToClose)
+
+      // Call onSuccess callback if provided (for cache invalidation)
+      if (options.onSuccess) {
+        options.onSuccess()
+      }
 
       return true
     })

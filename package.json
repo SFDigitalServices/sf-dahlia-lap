@@ -2,7 +2,7 @@
   "name": "sf-dahlia-lap",
   "private": true,
   "engines": {
-    "node": "22.12.x",
+    "node": ">=22.12.x",
     "yarn": "1.x.x"
   },
   "packageManager": "yarn@1.22.22",
@@ -123,7 +123,7 @@
     "lint": "eslint --ext .js,.jsx app/ spec/",
     "lint:fix": "eslint --fix --ext .js,.jsx app/ spec/",
     "rails-server": "rails s",
-    "webpack-hot": "bin/shakapacker-dev-server --hot",
+    "webpack-hot": "ruby bin/shakapacker-dev-server --hot",
     "start": "npm-run-all -p -l webpack-hot rails-server",
     "print_release_info": "bash $PWD/print_release_info.sh",
     "create_release_branch": "bash $PWD/create_release_branch.sh",
