@@ -3,7 +3,6 @@
 import React, { useEffect, useRef } from 'react'
 
 import { find, map, isEqual } from 'lodash'
-import moment from 'moment'
 import { useParams, useSearchParams, useLocation } from 'react-router-dom'
 
 import {
@@ -12,16 +11,19 @@ import {
   applicationsTableFiltersApplied
 } from 'components/lease_ups/actions/actionCreators'
 import { LEASE_UP_APPLICATION_FILTERS } from 'components/lease_ups/applicationFiltersConsts'
-import { useLeaseUpListing, useLeaseUpApplications } from 'query/hooks'
+import {
+  useLeaseUpListing,
+  useLeaseUpApplications,
+  useUpdateApplicationStatus,
+  useBulkUpdateApplicationStatus
+} from 'query/hooks'
 import appPaths from 'utils/appPaths'
-import { useStateObject, useEffectOnMount, useIsMountedRef, useAppContext } from 'utils/customHooks'
-import { getSubStatusLabel, LEASE_UP_SUBSTATUS_OPTIONS } from 'utils/statusUtils'
-import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
+import { useStateObject, useEffectOnMount, useAppContext } from 'utils/customHooks'
+import { LEASE_UP_SUBSTATUS_OPTIONS } from 'utils/statusUtils'
 
 import Context from './context'
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
 import TableLayout from '../layouts/TableLayout'
-import { createFieldUpdateComment } from '../supplemental_application/utils/supplementalRequestUtils'
 
 const ROWS_PER_PAGE = 20
 
@@ -73,9 +75,6 @@ const LeaseUpApplicationsPage = () => {
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
 
-  // Track previous displayRecords to detect changes for checkbox initialization
-  const prevDisplayRecordsRef = useRef([])
-
   const [pageState, setPageState] = useStateObject({
     showPageInfo: false,
     // Local applications state for optimistic updates
@@ -97,7 +96,11 @@ const LeaseUpApplicationsPage = () => {
     applicationsData: null
   })
 
-  const isMountedRef = useIsMountedRef()
+  const isSingleUpdateRef = useRef(false)
+
+  // Mutation hooks for status updates
+  const updateStatusMutation = useUpdateApplicationStatus(listingId)
+  const bulkUpdateStatusMutation = useBulkUpdateApplicationStatus(listingId)
 
   // Fetch listing data using TanStack Query
   const {
@@ -147,21 +150,43 @@ const LeaseUpApplicationsPage = () => {
     displayRecords,
     totalPages,
     isLoading: isApplicationsLoading,
-    isFetching: isApplicationsFetching,
-    isError: isApplicationsError
-  } = useLeaseUpApplications(listingId, applicationsListData.page, applicationsListData.appliedFilters)
+    isFetching: isApplicationsFetching
+  } = useLeaseUpApplications(
+    listingId,
+    applicationsListData.page,
+    applicationsListData.appliedFilters
+  )
 
   // Use local applications state for optimistic updates, fall back to query data
   const applications = pageState.localApplications ?? displayRecords
 
-  // Initialize checkbox state when displayRecords change
+  // Track previous page and filters to detect navigation changes
+  const prevPageRef = useRef(applicationsListData.page)
+  const prevFiltersRef = useRef(applicationsListData.appliedFilters)
+
+  // Initialize checkbox state only when page or filters change (not on data updates)
   useEffect(() => {
-    if (displayRecords && displayRecords !== prevDisplayRecordsRef.current) {
-      prevDisplayRecordsRef.current = displayRecords
+    const pageChanged = prevPageRef.current !== applicationsListData.page
+    const filtersChanged = !isEqual(prevFiltersRef.current, applicationsListData.appliedFilters)
+
+    if (displayRecords && (pageChanged || filtersChanged)) {
+      prevPageRef.current = applicationsListData.page
+      prevFiltersRef.current = applicationsListData.appliedFilters
       setInitialCheckboxState(displayRecords)
-      // Clear local applications state when new data arrives from server
-      setPageState({ localApplications: null })
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [displayRecords, applicationsListData.page, applicationsListData.appliedFilters])
+
+  // Initialize checkboxes on first load
+  useEffect(() => {
+    if (
+      displayRecords &&
+      displayRecords.length > 0 &&
+      Object.keys(bulkCheckboxesState).length === 0
+    ) {
+      setInitialCheckboxState(displayRecords)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [displayRecords])
 
   useEffectOnMount(() => applicationsPageMounted(dispatch))
@@ -191,9 +216,15 @@ const LeaseUpApplicationsPage = () => {
     setStatusModalState({ loading: true })
     const { applicationsData } = statusModalState
     const { status, subStatus } = submittedValues
+    const isBulkUpdate = statusModalState.isBulkUpdate
 
+    // Prepare the applications data with submitted values
+    const updatedApplicationsData = {}
     Object.keys(applicationsData).forEach((appId) => {
-      applicationsData[appId].comment = submittedValues.comment?.trim()
+      updatedApplicationsData[appId] = {
+        ...applicationsData[appId],
+        comment: submittedValues.comment?.trim()
+      }
 
       // previous substatus might be a comment
       // clear it out if so
@@ -202,69 +233,98 @@ const LeaseUpApplicationsPage = () => {
           value: applicationsData[appId].subStatus
         })
       ) {
-        applicationsData[appId].subStatus = ''
+        updatedApplicationsData[appId].subStatus = ''
       }
 
       if (status) {
-        applicationsData[appId].status = status
-        applicationsData[appId].subStatus = subStatus
+        updatedApplicationsData[appId].status = status
+        updatedApplicationsData[appId].subStatus = subStatus
       }
     })
 
-    createStatusUpdates(applicationsData)
-  }
+    // Track if this is a single update for checkbox handling
+    isSingleUpdateRef.current = !isBulkUpdate
 
-  const createStatusUpdates = async (applicationsData) => {
-    const statusUpdateRequests = Object.keys(applicationsData).map((applicationId) => {
-      const { status, comment, subStatus } = applicationsData[applicationId]
-      return createFieldUpdateComment(applicationId, status, comment, subStatus)
-        .then((_) => ({ application: applicationId }))
-        .catch((e) => ({
-          error: true,
-          application: applicationId
-        }))
-    })
+    if (isBulkUpdate) {
+      // Use bulk mutation for multiple applications
+      bulkUpdateStatusMutation.mutate(
+        { applicationsData: updatedApplicationsData },
+        {
+          onSuccess: () => {
+            setStatusModalState({
+              applicationsData: {},
+              isOpen: false,
+              loading: false,
+              showAlert: false,
+              status: null
+            })
+            // Clear checkboxes for successfully updated applications
+            setBulkCheckboxValues(false, Object.keys(updatedApplicationsData))
+          },
+          onError: (error) => {
+            // Handle partial failures
+            const successfulIds = error.successes?.map((s) => s.applicationId) || []
+            const failedCount =
+              error.failures?.length || Object.keys(updatedApplicationsData).length
+            const totalCount = Object.keys(updatedApplicationsData).length
 
-    return Promise.all(statusUpdateRequests).then((values) => {
-      if (!isMountedRef.current) {
-        return
-      }
+            // Remove successful applications from the modal data
+            const remainingData = {}
+            Object.keys(updatedApplicationsData).forEach((appId) => {
+              if (!successfulIds.includes(appId)) {
+                remainingData[appId] = updatedApplicationsData[appId]
+              }
+            })
 
-      const successfulIds = values.filter((v) => !v.error).map((v) => v.application)
-      const errorIds = values.filter((v) => v.error).map((v) => v.application)
-      const successfulData = {}
+            setStatusModalState({
+              applicationsData: remainingData,
+              loading: false,
+              showAlert: true,
+              alertMsg: `We were unable to make the update for ${failedCount} out of ${totalCount} applications, please try again.`,
+              onAlertCloseClick: () => setStatusModalState({ showAlert: false })
+            })
 
-      successfulIds.forEach((applicationId) => {
-        successfulData[applicationId] = applicationsData[applicationId]
-        delete applicationsData[applicationId]
-      })
+            // Clear checkboxes for successfully updated applications
+            if (successfulIds.length > 0) {
+              setBulkCheckboxValues(false, successfulIds)
+            }
+          }
+        }
+      )
+    } else {
+      // Use single mutation for one application
+      const applicationId = Object.keys(updatedApplicationsData)[0]
+      const appData = updatedApplicationsData[applicationId]
 
-      updateApplicationState(successfulData)
-
-      const wasBulkUpdate = statusModalState.isBulkUpdate
-
-      if (errorIds.length !== 0) {
-        setStatusModalState({
-          applicationsData,
-          loading: false,
-          showAlert: true,
-          alertMsg: `We were unable to make the update for ${errorIds.length} out of ${values.length} applications, please try again.`,
-          onAlertCloseClick: () => setStatusModalState({ showAlert: false })
-        })
-      } else {
-        setStatusModalState({
-          applicationsData: {},
-          isOpen: false,
-          loading: false,
-          showAlert: false,
-          status: null
-        })
-      }
-
-      if (wasBulkUpdate) {
-        setBulkCheckboxValues(false, successfulIds)
-      }
-    })
+      updateStatusMutation.mutate(
+        {
+          applicationId,
+          status: appData.status,
+          comment: appData.comment,
+          substatus: appData.subStatus
+        },
+        {
+          onSuccess: () => {
+            setStatusModalState({
+              applicationsData: {},
+              isOpen: false,
+              loading: false,
+              showAlert: false,
+              status: null
+            })
+          },
+          onError: () => {
+            setStatusModalState({
+              applicationsData: updatedApplicationsData,
+              loading: false,
+              showAlert: true,
+              alertMsg: 'We were unable to make the update, please try again.',
+              onAlertCloseClick: () => setStatusModalState({ showAlert: false })
+            })
+          }
+        }
+      )
+    }
   }
 
   const handleCloseStatusModal = () => {
@@ -304,26 +364,6 @@ const LeaseUpApplicationsPage = () => {
       isOpen: true,
       status: value,
       applicationsData: applicationsDataObj
-    })
-  }
-
-  // Update the visible status, substatus, and status last updated for one or many applications
-  const updateApplicationState = (applicationsData) => {
-    const updatedApplications = applications.map((app) => {
-      const updatedApp = applicationsData[app.application_id]
-      return {
-        ...app,
-        ...(updatedApp && {
-          lease_up_status: updatedApp.status,
-          status_last_updated: moment().format(SALESFORCE_DATE_FORMAT),
-          sub_status: updatedApp.subStatus,
-          sub_status_label:
-            getSubStatusLabel(updatedApp.status, updatedApp.subStatus) || updatedApp.comment
-        })
-      }
-    })
-    setPageState({
-      localApplications: updatedApplications
     })
   }
 

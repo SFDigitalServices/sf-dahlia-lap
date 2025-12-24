@@ -24,6 +24,12 @@ export const queryKeys = {
     detail: (applicationId) => ['supplementalApplications', 'detail', applicationId]
   },
 
+  // Short Form Applications
+  shortFormApplications: {
+    all: ['shortFormApplications'],
+    detail: (applicationId) => ['shortFormApplications', 'detail', applicationId]
+  },
+
   // Status History
   statusHistory: {
     all: ['statusHistory'],

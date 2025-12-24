@@ -144,6 +144,7 @@ GEM
     ffi (1.17.1-arm-linux-gnu)
     ffi (1.17.1-arm-linux-musl)
     ffi (1.17.1-arm64-darwin)
+    ffi (1.17.1-x64-mingw-ucrt)
     ffi (1.17.1-x86-linux-gnu)
     ffi (1.17.1-x86-linux-musl)
     ffi (1.17.1-x86_64-darwin)
@@ -229,6 +230,8 @@ GEM
     nokogiri (1.18.9-arm-linux-musl)
       racc (~> 1.4)
     nokogiri (1.18.9-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.18.9-x64-mingw-ucrt)
       racc (~> 1.4)
     nokogiri (1.18.9-x86_64-darwin)
       racc (~> 1.4)
@@ -464,6 +467,7 @@ GEM
     sqlite3 (2.5.0-arm-linux-gnu)
     sqlite3 (2.5.0-arm-linux-musl)
     sqlite3 (2.5.0-arm64-darwin)
+    sqlite3 (2.5.0-x64-mingw-ucrt)
     sqlite3 (2.5.0-x86-linux-gnu)
     sqlite3 (2.5.0-x86-linux-musl)
     sqlite3 (2.5.0-x86_64-darwin)
@@ -477,6 +481,8 @@ GEM
     timeout (0.4.3)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2025.3)
+      tzinfo (>= 1.0.0)
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
@@ -512,6 +518,7 @@ PLATFORMS
   arm-linux-musl
   arm64-darwin
   ruby
+  x64-mingw-ucrt
   x86-linux-gnu
   x86-linux-musl
   x86_64-darwin
@@ -566,6 +573,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (>= 2.1)
   terser
+  tzinfo-data
   vcr
   web-console (>= 3.3.0)
   webmock
