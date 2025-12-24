@@ -40,12 +40,23 @@ export const openSuppAppUpdateStatusModal = (dispatch, newStatus) =>
     }
   })
 
+/**
+ * Submit the status modal to update application status and add a comment.
+ * @param {Function} dispatch - Redux dispatch function
+ * @param {Object} submittedValues - The submitted form values (status, subStatus, comment)
+ * @param {Object} formApplication - The form application data
+ * @param {Object} prevApplication - The previous application data
+ * @param {string} leaseSectionState - The current lease section state
+ * @param {Object} options - Optional configuration
+ * @param {Function} options.onSuccess - Callback to run after successful update (e.g., cache invalidation)
+ */
 export const submitSuppAppStatusModal = (
   dispatch,
   submittedValues,
   formApplication,
   prevApplication,
-  leaseSectionState
+  leaseSectionState,
+  options = {}
 ) => {
   const { status, subStatus, comment } = submittedValues
   const appWithNewStatus = { ...formApplication, processing_status: status }
@@ -61,15 +72,21 @@ export const submitSuppAppStatusModal = (
         shouldSaveLeaseOnApplicationSave(leaseSectionState)
       )
     },
-    ({ application, statusHistory }) => ({
-      type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
-      data: {
-        ...getApplicationStateOverridesAfterUpdate(leaseSectionState, application, {
-          statusHistory
-        }),
-        statusModal: { isOpen: false }
+    ({ application, statusHistory }) => {
+      // Call onSuccess callback if provided (for cache invalidation)
+      if (options.onSuccess) {
+        options.onSuccess()
       }
-    }),
+      return {
+        type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
+        data: {
+          ...getApplicationStateOverridesAfterUpdate(leaseSectionState, application, {
+            statusHistory
+          }),
+          statusModal: { isOpen: false }
+        }
+      }
+    },
     (_) => ({ type: ACTIONS.STATUS_MODAL_ERROR }),
     true
   )

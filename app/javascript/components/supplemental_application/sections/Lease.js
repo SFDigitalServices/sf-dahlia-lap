@@ -119,7 +119,7 @@ const LeaseActions = ({
   )
 }
 
-const Lease = ({ form, values }) => {
+const Lease = ({ form, values, onLeaseChange, onRentalAssistanceChange }) => {
   const [
     {
       supplementalApplicationData: { supplemental: state }
@@ -139,7 +139,7 @@ const Lease = ({ form, values }) => {
   const handleDeleteLeaseConfirmed = () => {
     setShowDeleteConfirmation(false)
 
-    deleteLeaseClicked(dispatch, state.application)
+    deleteLeaseClicked(dispatch, state.application, { onSuccess: onLeaseChange })
   }
 
   const confirmedPreferences = filter(
@@ -218,7 +218,9 @@ const Lease = ({ form, values }) => {
   const validateAndSaveLease = (form) => {
     if (areLeaseAndRentalAssistancesValid(form)) {
       const { application: prevApplication } = state
-      updateLease(dispatch, convertPercentAndCurrency(form.getState().values), prevApplication)
+      updateLease(dispatch, convertPercentAndCurrency(form.getState().values), prevApplication, {
+        onSuccess: onLeaseChange
+      })
     } else {
       // submit to force errors to display
       form.submit()
@@ -329,6 +331,7 @@ const Lease = ({ form, values }) => {
           form={form}
           loading={state.loading}
           rentalAssistances={state.application.rental_assistances || []}
+          onRentalAssistanceChange={onRentalAssistanceChange}
         />
         <FormGrid.Row>
           <FormGrid.Item>

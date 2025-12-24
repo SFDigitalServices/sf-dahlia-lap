@@ -259,7 +259,8 @@ const RentalAssistance = ({
   applicationId,
   assistanceRowsOpened,
   loading,
-  disabled
+  disabled,
+  onRentalAssistanceChange
 }) => {
   const [, dispatch] = useAppContext()
 
@@ -277,11 +278,24 @@ const RentalAssistance = ({
     const rentalAssistance = convertCurrency(entireForm.rental_assistances[index])
 
     return action === 'update'
-      ? updateRentalAssistance(dispatch, applicationId, {
-          ...rentalAssistance,
-          ...(rentalAssistance.type_of_assistance !== 'Other' && { other_assistance_name: null })
+      ? updateRentalAssistance(
+          dispatch,
+          applicationId,
+          {
+            ...rentalAssistance,
+            ...(rentalAssistance.type_of_assistance !== 'Other' && { other_assistance_name: null })
+          },
+          { onSuccess: onRentalAssistanceChange }
+        )
+      : createRentalAssistance(dispatch, applicationId, rentalAssistance, {
+          onSuccess: onRentalAssistanceChange
         })
-      : createRentalAssistance(dispatch, applicationId, rentalAssistance)
+  }
+
+  const handleDelete = (rentalAssistance) => {
+    deleteRentalAssistance(dispatch, rentalAssistance.id, {
+      onSuccess: onRentalAssistanceChange
+    })
   }
 
   return (
@@ -293,7 +307,7 @@ const RentalAssistance = ({
           assistanceRowsOpened={assistanceRowsOpened}
           onEdit={(rentalAssistance) => editRentalAssistance(dispatch, rentalAssistance.id)}
           onCancelEdit={(_, index) => handleCancelEdit(index)}
-          onDelete={(rentalAssistance) => deleteRentalAssistance(dispatch, rentalAssistance.id)}
+          onDelete={(rentalAssistance) => handleDelete(rentalAssistance)}
           onSave={(assistance, index) => handleSave(index, 'update')}
           form={form}
           loading={loading}
