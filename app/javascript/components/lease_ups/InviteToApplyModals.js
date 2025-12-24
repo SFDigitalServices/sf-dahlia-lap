@@ -132,6 +132,13 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     return errs
   }
 
+  const checkedAppsWithoutEmail = () => {
+    const selectedIds = getSelectedApplicationIds()
+    return props.applications.filter(
+      (app) => !app.email && selectedIds.includes(app.application_id)
+    ).length
+  }
+
   const sendInviteToApply = (values) => {
     const appIds = getSelectedApplicationIds()
     const deadline = rsvpModalValues[INVITE_APPLY_DEADLINE_KEY]
@@ -305,6 +312,19 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
               <label className='form-label'>Send to</label>
               {getSelectedApplicationIds().length} applicants and alternate contacts, if provided
             </p>
+            <InfoAlert
+              message={
+                <span>
+                  <strong>
+                    {`${checkedAppsWithoutEmail()} applicants you selected do not have an email address. `}
+                  </strong>
+                  After sending, we will show who you still need to contact on the applicant list.
+                </span>
+              }
+              icon='i-info'
+              closeType='none'
+              classes={['success-alert']}
+            />
           </div>
         )}
       </FormModal>
