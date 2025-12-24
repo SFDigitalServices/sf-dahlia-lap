@@ -312,11 +312,19 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
               <label className='form-label'>Send to</label>
               {getSelectedApplicationIds().length} applicants and alternate contacts, if provided
             </p>
-            <p>
-              {checkedAppsWithoutEmail()} applicant{checkedAppsWithoutEmail() !== 1 && 's'} you
-              selected do not have an email address. After sending, we will show who you still need
-              to contact on the applicant list.
-            </p>
+            <InfoAlert
+              message={
+                <span>
+                  <strong>
+                    {`${checkedAppsWithoutEmail()} applicants you selected do not have an email address. `}
+                  </strong>
+                  After sending, we will show who you still need to contact on the applicant list.
+                </span>
+              }
+              icon='i-info'
+              closeType='none'
+              classes={['success-alert']}
+            />
           </div>
         )}
       </FormModal>
