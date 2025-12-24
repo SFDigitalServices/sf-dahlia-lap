@@ -42,11 +42,21 @@ export const loadSupplementalPageData = async (dispatch, applicationId, listingI
     logErrorAndAlert
   )
 
+/**
+ * Update a supplemental application.
+ * @param {Function} dispatch - Redux dispatch function
+ * @param {string} leaseSectionState - The current lease section state
+ * @param {Object} formApplication - The form application data
+ * @param {Object} prevApplication - The previous application data
+ * @param {Object} options - Optional configuration
+ * @param {Function} options.onSuccess - Callback to run after successful update (e.g., cache invalidation)
+ */
 export const updateSupplementalApplication = async (
   dispatch,
   leaseSectionState,
   formApplication,
-  prevApplication
+  prevApplication,
+  options = {}
 ) =>
   wrapAsync(
     dispatch,
@@ -56,9 +66,15 @@ export const updateSupplementalApplication = async (
         prevApplication,
         shouldSaveLeaseOnApplicationSave(leaseSectionState)
       ),
-    (responseApplication) => ({
-      type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
-      data: getApplicationStateOverridesAfterUpdate(leaseSectionState, responseApplication)
-    }),
+    (responseApplication) => {
+      // Call onSuccess callback if provided (for cache invalidation)
+      if (options.onSuccess) {
+        options.onSuccess()
+      }
+      return {
+        type: ACTIONS.SUPP_APP_LOAD_SUCCESS,
+        data: getApplicationStateOverridesAfterUpdate(leaseSectionState, responseApplication)
+      }
+    },
     logErrorAndAlert
   )
