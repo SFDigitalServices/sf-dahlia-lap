@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 
 import { capitalize, compact, map, cloneDeep, isEmpty } from 'lodash'
 
+import RefreshIndicator from 'components/atoms/RefreshIndicator'
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
 import { addLayeredValidation } from 'utils/layeredPreferenceUtil'
 
@@ -80,6 +81,7 @@ const LeaseUpTableContainer = ({
     listingId,
     listingType,
     loading,
+    isFetching,
     onBulkCheckboxClick,
     onCloseStatusModal,
     onFilter,
@@ -107,6 +109,11 @@ const LeaseUpTableContainer = ({
 
   return (
     <>
+      {isFetching && !loading && (
+        <div className='text-right padding-bottom--half'>
+          <RefreshIndicator />
+        </div>
+      )}
       <LeaseUpApplicationsFilterContainer
         listingId={listingId}
         listingType={listingType}
