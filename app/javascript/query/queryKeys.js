@@ -34,5 +34,11 @@ export const queryKeys = {
   statusHistory: {
     all: ['statusHistory'],
     byApplication: (applicationId) => ['statusHistory', applicationId]
+  },
+
+  // Units (cached by listing since units are the same for all applications in a listing)
+  units: {
+    all: ['units'],
+    byListing: (listingId) => ['units', 'byListing', listingId]
   }
 }

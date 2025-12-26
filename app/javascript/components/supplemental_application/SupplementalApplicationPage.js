@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom'
 import Alerts from 'components/Alerts'
 import { applicationPageLoadComplete } from 'components/applications/actions/applicationActionCreators'
 import ApplicationDetails from 'components/applications/application_details/ApplicationDetails'
+import RefreshIndicator from 'components/atoms/RefreshIndicator'
 import CardLayout from 'components/layouts/CardLayout'
 import { getSupplementalBreadcrumbData } from 'components/lease_ups/actions/breadcrumbActionHelpers'
 import Loading from 'components/molecules/Loading'
@@ -189,8 +190,8 @@ const SupplementalApplicationPage = () => {
     >
       {/* Subtle background refetch indicator */}
       {isBackgroundRefetching && (
-        <div className='text-right padding-right--2x' style={{ opacity: 0.6 }}>
-          <span className='t-tiny c-steel'>Refreshing...</span>
+        <div className='text-right padding-right--2x padding-bottom--half'>
+          <RefreshIndicator />
         </div>
       )}
       <Loading
