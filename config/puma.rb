@@ -32,7 +32,8 @@ environment ENV.fetch('RAILS_ENV') { 'development' }
 # Our prod box has 1gb of ram, and each worker uses at least 300mb of memory, so be
 # careful not to set this value > 3 or so.
 
-workers ENV.fetch("PUMA_WORKERS") { 2 }
+# Puma workers are not supported on Windows. Default to single-process unless overridden.
+workers ENV.fetch('PUMA_WORKERS') { 0 }
 
 # Use the `preload_app!` method when specifying a `workers` number.
 # This directive tells Puma to first boot the application and load code

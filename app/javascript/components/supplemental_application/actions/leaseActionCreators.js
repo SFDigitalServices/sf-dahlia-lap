@@ -20,23 +20,50 @@ export const leaseEditClicked = (dispatch) =>
 export const leaseCanceled = (dispatch, application) =>
   dispatch({ type: ACTIONS.LEASE_SECTION_STATE_CHANGED, data: getInitialLeaseState(application) })
 
-export const updateLease = (dispatch, formApplication, prevApplication) =>
+/**
+ * Update lease and rental assistances for an application.
+ * @param {Function} dispatch - Redux dispatch function
+ * @param {Object} formApplication - The form application data
+ * @param {Object} prevApplication - The previous application data
+ * @param {Object} options - Optional configuration
+ * @param {Function} options.onSuccess - Callback to run after successful update (e.g., cache invalidation)
+ */
+export const updateLease = (dispatch, formApplication, prevApplication, options = {}) =>
   wrapAsync(
     dispatch,
     () => saveLeaseAndAssistances(formApplication, prevApplication).catch(logErrorAndAlert),
-    ({ lease, rentalAssistances }) => ({
-      type: ACTIONS.LEASE_AND_ASSISTANCES_UPDATED,
-      data: {
-        lease,
-        rentalAssistances,
-        newLeaseSectionState: LEASE_STATES.SHOW_LEASE
+    ({ lease, rentalAssistances }) => {
+      // Call onSuccess callback if provided (for cache invalidation)
+      if (options.onSuccess) {
+        options.onSuccess()
       }
-    })
+      return {
+        type: ACTIONS.LEASE_AND_ASSISTANCES_UPDATED,
+        data: {
+          lease,
+          rentalAssistances,
+          newLeaseSectionState: LEASE_STATES.SHOW_LEASE
+        }
+      }
+    }
   )
 
-export const deleteLeaseClicked = (dispatch, prevApplication) =>
+/**
+ * Delete a lease for an application.
+ * @param {Function} dispatch - Redux dispatch function
+ * @param {Object} prevApplication - The previous application data
+ * @param {Object} options - Optional configuration
+ * @param {Function} options.onSuccess - Callback to run after successful delete (e.g., cache invalidation)
+ */
+export const deleteLeaseClicked = (dispatch, prevApplication, options = {}) =>
   wrapAsync(
     dispatch,
     () => deleteLease(prevApplication).catch(logErrorAndAlert),
-    () => ({ type: ACTIONS.LEASE_DELETED })
+    () => {
+      // Call onSuccess callback if provided (for cache invalidation)
+      if (options.onSuccess) {
+        options.onSuccess()
+      }
+      return { type: ACTIONS.LEASE_DELETED }
+    }
   )

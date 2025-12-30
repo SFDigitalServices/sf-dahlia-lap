@@ -1,9 +1,8 @@
 /* global SALESFORCE_BASE_URL */
 
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import { find, map, isEqual } from 'lodash'
-import moment from 'moment'
 import { useParams, useSearchParams, useLocation } from 'react-router-dom'
 
 import {
@@ -12,24 +11,19 @@ import {
   applicationsTableFiltersApplied
 } from 'components/lease_ups/actions/actionCreators'
 import { LEASE_UP_APPLICATION_FILTERS } from 'components/lease_ups/applicationFiltersConsts'
-import appPaths from 'utils/appPaths'
 import {
-  useAsync,
-  useAsyncOnMount,
-  useStateObject,
-  useEffectOnMount,
-  useIsMountedRef,
-  useAppContext
-} from 'utils/customHooks'
-import { GRAPHQL_SERVER_PAGE_SIZE, EagerPagination } from 'utils/EagerPagination'
-import { getSubStatusLabel, LEASE_UP_SUBSTATUS_OPTIONS } from 'utils/statusUtils'
-import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
+  useLeaseUpListing,
+  useLeaseUpApplications,
+  useUpdateApplicationStatus,
+  useBulkUpdateApplicationStatus
+} from 'query/hooks'
+import appPaths from 'utils/appPaths'
+import { useStateObject, useEffectOnMount, useAppContext } from 'utils/customHooks'
+import { LEASE_UP_SUBSTATUS_OPTIONS } from 'utils/statusUtils'
 
 import Context from './context'
 import LeaseUpApplicationsTableContainer from './LeaseUpApplicationsTableContainer'
-import { getApplicationsPagination, getListing } from './utils/leaseUpRequestUtils'
 import TableLayout from '../layouts/TableLayout'
-import { createFieldUpdateComment } from '../supplemental_application/utils/supplementalRequestUtils'
 
 const ROWS_PER_PAGE = 20
 
@@ -72,11 +66,6 @@ const getPageHeaderData = (listing, reportId) => {
   }
 }
 
-const getPreferences = (listing) => {
-  if (!listing?.listing_lottery_preferences) return []
-  return map(listing.listing_lottery_preferences, (pref) => pref.lottery_preference.name)
-}
-
 const LeaseUpApplicationsPage = () => {
   const [{ breadcrumbData, applicationsListData }, dispatch] = useAppContext()
 
@@ -86,14 +75,10 @@ const LeaseUpApplicationsPage = () => {
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
 
-  const [state, setState] = useStateObject({
-    loading: false,
-    applications: [],
-    pages: 0,
-    atMaxPages: false,
-    forceRefreshNextPageUpdate: false,
-    eagerPagination: new EagerPagination(ROWS_PER_PAGE, GRAPHQL_SERVER_PAGE_SIZE, true),
-    showPageInfo: false
+  const [pageState, setPageState] = useStateObject({
+    showPageInfo: false,
+    // Local applications state for optimistic updates
+    localApplications: null
   })
 
   const [bulkCheckboxesState, setBulkCheckboxesState, overrideBulkCheckboxesState] = useStateObject(
@@ -111,80 +96,98 @@ const LeaseUpApplicationsPage = () => {
     applicationsData: null
   })
 
-  const isMountedRef = useIsMountedRef()
+  const isSingleUpdateRef = useRef(false)
 
-  const [{ reportId, listingPreferences, listingType, listing }, setListingState] = useStateObject(
-    {}
-  )
-  useAsyncOnMount(() => getListing(listingId), {
-    onSuccess: (listing) => {
-      setListingState({
-        reportId: listing.report_id,
-        listingPreferences: getPreferences(listing),
-        listingType: listing.listing_type,
-        listing
-      })
+  // Mutation hooks for status updates
+  const updateStatusMutation = useUpdateApplicationStatus(listingId)
+  const bulkUpdateStatusMutation = useBulkUpdateApplicationStatus(listingId)
 
+  // Fetch listing data using TanStack Query
+  const {
+    data: listing,
+    isLoading: isListingLoading,
+    isFetching: isListingFetching
+  } = useLeaseUpListing(listingId)
+
+  // Derive listing-related state from query data
+  const reportId = listing?.report_id
+  const listingPreferences = listing?.listing_lottery_preferences
+    ? map(listing.listing_lottery_preferences, (pref) => pref.lottery_preference.name)
+    : []
+  const listingType = listing?.listing_type
+
+  // Update breadcrumb state when listing data loads
+  useEffect(() => {
+    if (listing) {
       applicationsPageLoadComplete(dispatch, listing)
     }
-  })
+  }, [listing, dispatch])
 
-  useAsync(
-    () => {
-      const urlFilters = {}
-      let { appliedFilters, page } = applicationsListData
-      LEASE_UP_APPLICATION_FILTERS.forEach((filter) => {
-        const values = searchParams.getAll(filter.fieldName)
-        if (values.length > 0) {
-          urlFilters[filter.fieldName] = values
-        }
-      })
+  // Sync URL filters with context state
+  useEffect(() => {
+    const urlFilters = {}
+    const { appliedFilters } = applicationsListData
 
-      const textSearchFilters = searchParams.get('search')
-      if (textSearchFilters) {
-        urlFilters.search = textSearchFilters
+    LEASE_UP_APPLICATION_FILTERS.forEach((filter) => {
+      const values = searchParams.getAll(filter.fieldName)
+      if (values.length > 0) {
+        urlFilters[filter.fieldName] = values
       }
+    })
 
-      if (!isEqual(appliedFilters, urlFilters)) {
-        appliedFilters = urlFilters
-        state.forceRefreshNextPageUpdate = true
-        applicationsTableFiltersApplied(dispatch, appliedFilters)
-      }
+    const textSearchFilters = searchParams.get('search')
+    if (textSearchFilters) {
+      urlFilters.search = textSearchFilters
+    }
 
-      if (state.eagerPagination.isOverLimit(page)) {
-        setState({
-          applications: [],
-          atMaxPage: true,
-          loading: false
-        })
+    if (!isEqual(appliedFilters, urlFilters)) {
+      applicationsTableFiltersApplied(dispatch, urlFilters)
+    }
+  }, [location, searchParams, dispatch, applicationsListData])
 
-        // don't trigger any promise if we're over the limit.
-        return null
-      }
-
-      const fetcher = (p) => getApplicationsPagination(listingId, p, appliedFilters)
-
-      setState({ loading: true })
-
-      return state.eagerPagination.getPage(page, fetcher, state.forceRefreshNextPageUpdate)
-    },
-    {
-      onSuccess: ({ records, pages }) => {
-        setInitialCheckboxState(records)
-        setState({ forceRefreshNextPageUpdate: false, applications: records, pages })
-      },
-      onComplete: () => {
-        setState({ loading: false })
-      },
-      onFail: (e) => {
-        console.error(`An error was thrown while fetching applications`)
-        console.trace(e)
-      }
-    },
-    // Using location in the deps array allows us to run this effect:
-    // on mount, if the user changes the url manually, or if the user hits the back button
-    [location, applicationsListData.page, state.eagerPagination]
+  // Fetch applications using TanStack Query
+  const {
+    displayRecords,
+    totalPages,
+    isLoading: isApplicationsLoading,
+    isFetching: isApplicationsFetching
+  } = useLeaseUpApplications(
+    listingId,
+    applicationsListData.page,
+    applicationsListData.appliedFilters
   )
+
+  // Use local applications state for optimistic updates, fall back to query data
+  const applications = pageState.localApplications ?? displayRecords
+
+  // Track previous page and filters to detect navigation changes
+  const prevPageRef = useRef(applicationsListData.page)
+  const prevFiltersRef = useRef(applicationsListData.appliedFilters)
+
+  // Initialize checkbox state only when page or filters change (not on data updates)
+  useEffect(() => {
+    const pageChanged = prevPageRef.current !== applicationsListData.page
+    const filtersChanged = !isEqual(prevFiltersRef.current, applicationsListData.appliedFilters)
+
+    if (displayRecords && (pageChanged || filtersChanged)) {
+      prevPageRef.current = applicationsListData.page
+      prevFiltersRef.current = applicationsListData.appliedFilters
+      setInitialCheckboxState(displayRecords)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [displayRecords, applicationsListData.page, applicationsListData.appliedFilters])
+
+  // Initialize checkboxes on first load
+  useEffect(() => {
+    if (
+      displayRecords &&
+      displayRecords.length > 0 &&
+      Object.keys(bulkCheckboxesState).length === 0
+    ) {
+      setInitialCheckboxState(displayRecords)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [displayRecords])
 
   useEffectOnMount(() => applicationsPageMounted(dispatch))
 
@@ -206,7 +209,6 @@ const LeaseUpApplicationsPage = () => {
   }
 
   const handleOnFilter = (filters) => {
-    state.eagerPagination.reset()
     applicationsTableFiltersApplied(dispatch, filters)
   }
 
@@ -214,9 +216,15 @@ const LeaseUpApplicationsPage = () => {
     setStatusModalState({ loading: true })
     const { applicationsData } = statusModalState
     const { status, subStatus } = submittedValues
+    const isBulkUpdate = statusModalState.isBulkUpdate
 
+    // Prepare the applications data with submitted values
+    const updatedApplicationsData = {}
     Object.keys(applicationsData).forEach((appId) => {
-      applicationsData[appId].comment = submittedValues.comment?.trim()
+      updatedApplicationsData[appId] = {
+        ...applicationsData[appId],
+        comment: submittedValues.comment?.trim()
+      }
 
       // previous substatus might be a comment
       // clear it out if so
@@ -225,73 +233,98 @@ const LeaseUpApplicationsPage = () => {
           value: applicationsData[appId].subStatus
         })
       ) {
-        applicationsData[appId].subStatus = ''
+        updatedApplicationsData[appId].subStatus = ''
       }
 
       if (status) {
-        applicationsData[appId].status = status
-        applicationsData[appId].subStatus = subStatus
+        updatedApplicationsData[appId].status = status
+        updatedApplicationsData[appId].subStatus = subStatus
       }
     })
 
-    createStatusUpdates(applicationsData)
-  }
+    // Track if this is a single update for checkbox handling
+    isSingleUpdateRef.current = !isBulkUpdate
 
-  const createStatusUpdates = async (applicationsData) => {
-    const statusUpdateRequests = Object.keys(applicationsData).map((applicationId) => {
-      const { status, comment, subStatus } = applicationsData[applicationId]
-      return createFieldUpdateComment(applicationId, status, comment, subStatus)
-        .then((_) => ({ application: applicationId }))
-        .catch((e) => ({
-          error: true,
-          application: applicationId
-        }))
-    })
+    if (isBulkUpdate) {
+      // Use bulk mutation for multiple applications
+      bulkUpdateStatusMutation.mutate(
+        { applicationsData: updatedApplicationsData },
+        {
+          onSuccess: () => {
+            setStatusModalState({
+              applicationsData: {},
+              isOpen: false,
+              loading: false,
+              showAlert: false,
+              status: null
+            })
+            // Clear checkboxes for successfully updated applications
+            setBulkCheckboxValues(false, Object.keys(updatedApplicationsData))
+          },
+          onError: (error) => {
+            // Handle partial failures
+            const successfulIds = error.successes?.map((s) => s.applicationId) || []
+            const failedCount =
+              error.failures?.length || Object.keys(updatedApplicationsData).length
+            const totalCount = Object.keys(updatedApplicationsData).length
 
-    return Promise.all(statusUpdateRequests).then((values) => {
-      if (!isMountedRef.current) {
-        return
-      }
+            // Remove successful applications from the modal data
+            const remainingData = {}
+            Object.keys(updatedApplicationsData).forEach((appId) => {
+              if (!successfulIds.includes(appId)) {
+                remainingData[appId] = updatedApplicationsData[appId]
+              }
+            })
 
-      const successfulIds = values.filter((v) => !v.error).map((v) => v.application)
-      const errorIds = values.filter((v) => v.error).map((v) => v.application)
-      const successfulData = {}
+            setStatusModalState({
+              applicationsData: remainingData,
+              loading: false,
+              showAlert: true,
+              alertMsg: `We were unable to make the update for ${failedCount} out of ${totalCount} applications, please try again.`,
+              onAlertCloseClick: () => setStatusModalState({ showAlert: false })
+            })
 
-      successfulIds.forEach((applicationId) => {
-        successfulData[applicationId] = applicationsData[applicationId]
-        delete applicationsData[applicationId]
-      })
+            // Clear checkboxes for successfully updated applications
+            if (successfulIds.length > 0) {
+              setBulkCheckboxValues(false, successfulIds)
+            }
+          }
+        }
+      )
+    } else {
+      // Use single mutation for one application
+      const applicationId = Object.keys(updatedApplicationsData)[0]
+      const appData = updatedApplicationsData[applicationId]
 
-      updateApplicationState(successfulData)
-
-      const wasBulkUpdate = statusModalState.isBulkUpdate
-
-      if (errorIds.length !== 0) {
-        setStatusModalState({
-          applicationsData,
-          loading: false,
-          showAlert: true,
-          alertMsg: `We were unable to make the update for ${errorIds.length} out of ${values.length} applications, please try again.`,
-          onAlertCloseClick: () => setStatusModalState({ showAlert: false })
-        })
-      } else {
-        setStatusModalState({
-          applicationsData: {},
-          isOpen: false,
-          loading: false,
-          showAlert: false,
-          status: null
-        })
-      }
-
-      if (wasBulkUpdate) {
-        setBulkCheckboxValues(false, successfulIds)
-      }
-
-      // Force the next page update to refresh because changing the status on a preference row
-      // on page 1 could update a preference row attached to the same application on page 2.
-      setState({ forceRefreshNextPageUpdate: true })
-    })
+      updateStatusMutation.mutate(
+        {
+          applicationId,
+          status: appData.status,
+          comment: appData.comment,
+          substatus: appData.subStatus
+        },
+        {
+          onSuccess: () => {
+            setStatusModalState({
+              applicationsData: {},
+              isOpen: false,
+              loading: false,
+              showAlert: false,
+              status: null
+            })
+          },
+          onError: () => {
+            setStatusModalState({
+              applicationsData: updatedApplicationsData,
+              loading: false,
+              showAlert: true,
+              alertMsg: 'We were unable to make the update, please try again.',
+              onAlertCloseClick: () => setStatusModalState({ showAlert: false })
+            })
+          }
+        }
+      )
+    }
   }
 
   const handleCloseStatusModal = () => {
@@ -301,6 +334,7 @@ const LeaseUpApplicationsPage = () => {
       applicationsData: {}
     })
   }
+
   const handleLeaseUpStatusChange = (value, applicationId, isCommentModal) => {
     const isBulkUpdate = !applicationId
     const appsToUpdate = isBulkUpdate
@@ -309,7 +343,7 @@ const LeaseUpApplicationsPage = () => {
           .map(([id, _]) => id)
       : [applicationId]
 
-    const applicationsData = state.applications
+    const applicationsDataObj = applications
       .filter(
         (application, position, self) =>
           appsToUpdate.includes(application.application_id) &&
@@ -329,27 +363,7 @@ const LeaseUpApplicationsPage = () => {
       isCommentModal,
       isOpen: true,
       status: value,
-      applicationsData
-    })
-  }
-
-  // Updated the visible status, substatus, and status last updated for one or many applications
-  const updateApplicationState = (applicationsData) => {
-    const updatedApplications = state.applications.map((app) => {
-      const updatedApp = applicationsData[app.application_id]
-      return {
-        ...app,
-        ...(updatedApp && {
-          lease_up_status: updatedApp.status,
-          status_last_updated: moment().format(SALESFORCE_DATE_FORMAT),
-          sub_status: updatedApp.subStatus,
-          sub_status_label:
-            getSubStatusLabel(updatedApp.status, updatedApp.subStatus) || updatedApp.comment
-        })
-      }
-    })
-    setState({
-      applications: updatedApplications
+      applicationsData: applicationsDataObj
     })
   }
 
@@ -364,13 +378,20 @@ const LeaseUpApplicationsPage = () => {
   const handleClearSelectedApplications = () => setBulkCheckboxValues(false)
   const handleSelectAllApplications = () => setBulkCheckboxValues(true)
 
+  // Combined loading state: show loading on initial load only
+  const loading = isListingLoading || isApplicationsLoading
+
+  // Background fetching indicator (for subtle refresh indicator)
+  const isFetching = isListingFetching || isApplicationsFetching
+
   const context = {
-    applications: state.applications,
-    atMaxPages: state.atMaxPages,
+    applications,
+    atMaxPages: false, // TanStack Query handles pagination limits
     bulkCheckboxesState,
     listingId,
     listingType,
-    loading: state.loading,
+    loading,
+    isFetching,
     onBulkCheckboxClick: handleBulkCheckboxClick,
     onCloseStatusModal: handleCloseStatusModal,
     onFilter: handleOnFilter,
@@ -378,17 +399,17 @@ const LeaseUpApplicationsPage = () => {
     onSubmitStatusModal: handleStatusModalSubmit,
     onClearSelectedApplications: handleClearSelectedApplications,
     onSelectAllApplications: handleSelectAllApplications,
-    pages: state.pages,
+    pages: totalPages,
     preferences: listingPreferences,
     rowsPerPage: ROWS_PER_PAGE,
     statusModal: statusModalState,
     listing,
-    setPageState: setState,
+    setPageState,
     hasFilters: Object.keys(applicationsListData.appliedFilters).length > 0
   }
 
   const closePageAlert = () => {
-    setState({ showPageInfo: false })
+    setPageState({ showPageInfo: false })
   }
 
   return (
@@ -397,7 +418,7 @@ const LeaseUpApplicationsPage = () => {
         pageHeader={getPageHeaderData(breadcrumbData.listing, reportId)}
         info={{
           message: "We're sending your messages.  Refresh the page to see updates.",
-          show: state.showPageInfo,
+          show: pageState.showPageInfo,
           onCloseClick: closePageAlert,
           icon: 'i-hour-glass'
         }}

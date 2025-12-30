@@ -21,6 +21,7 @@ import {
   getApplicationMembers,
   getPrefProofCutoff
 } from 'components/supplemental_application/utils/supplementalApplicationUtils'
+import { useSupplementalCacheInvalidation } from 'query/hooks'
 import { useAppContext } from 'utils/customHooks'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import { touchAllFields, convertPercentAndCurrency } from 'utils/form/validations'
@@ -125,7 +126,14 @@ const Income = ({ listingAmiCharts, visited, form }) => (
   </ContentSection>
 )
 
-const LeaseSection = ({ form, values, onCreateLeaseClick, showLeaseSection }) => (
+const LeaseSection = ({
+  form,
+  values,
+  onCreateLeaseClick,
+  showLeaseSection,
+  onLeaseChange,
+  onRentalAssistanceChange
+}) => (
   <ContentSection
     title='Lease'
     description={
@@ -134,7 +142,12 @@ const LeaseSection = ({ form, values, onCreateLeaseClick, showLeaseSection }) =>
     }
   >
     {showLeaseSection ? (
-      <Lease form={form} values={values} />
+      <Lease
+        form={form}
+        values={values}
+        onLeaseChange={onLeaseChange}
+        onRentalAssistanceChange={onRentalAssistanceChange}
+      />
     ) : (
       <Button id='create-lease' text='Create Lease' small onClick={onCreateLeaseClick} />
     )}
@@ -186,6 +199,15 @@ const SupplementalApplicationContainer = ({
     dispatch
   ] = useAppContext()
 
+  // Get cache invalidation functions
+  const applicationId = state.application?.id
+  const {
+    invalidateOnLeaseChange,
+    invalidateOnRentalAssistanceChange,
+    invalidateOnPreferenceUpdate,
+    invalidateOnApplicationUpdate
+  } = useSupplementalCacheInvalidation(applicationId, listingId)
+
   const checkForValidationErrors = (form, touched) => {
     touchAllFields(form, touched)
     const failed = form.getState().invalid
@@ -225,7 +247,8 @@ const SupplementalApplicationContainer = ({
                   dispatch,
                   preferenceIndexToUpdate,
                   preferenceIndexToClose,
-                  formApplicationValues
+                  formApplicationValues,
+                  { onSuccess: invalidateOnPreferenceUpdate }
                 )
               }
               onDismissError={() => preferenceAlertCloseClicked(dispatch)}
@@ -239,6 +262,8 @@ const SupplementalApplicationContainer = ({
               values={values}
               showLeaseSection={hasLease(state.leaseSectionState)}
               onCreateLeaseClick={() => leaseCreated(dispatch)}
+              onLeaseChange={invalidateOnLeaseChange}
+              onRentalAssistanceChange={invalidateOnRentalAssistanceChange}
             />
           </AsymColumnLayout.MainContent>
           <AsymColumnLayout.Sidebar>
@@ -265,7 +290,8 @@ const SupplementalApplicationContainer = ({
             submittedValues,
             convertPercentAndCurrency(form.getState().values),
             prevApplication,
-            leaseSectionState
+            leaseSectionState,
+            { onSuccess: invalidateOnApplicationUpdate }
           )
         }}
         showAlert={state.statusModal.showAlert}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import arrayMutators from 'final-form-arrays'
 import { isEmpty } from 'lodash'
@@ -8,22 +8,36 @@ import { useParams } from 'react-router-dom'
 import Alerts from 'components/Alerts'
 import { applicationPageLoadComplete } from 'components/applications/actions/applicationActionCreators'
 import ApplicationDetails from 'components/applications/application_details/ApplicationDetails'
+import RefreshIndicator from 'components/atoms/RefreshIndicator'
 import CardLayout from 'components/layouts/CardLayout'
-import { getShortFormApplication } from 'components/lease_ups/utils/shortFormRequestUtils'
+import { getSupplementalBreadcrumbData } from 'components/lease_ups/actions/breadcrumbActionHelpers'
 import Loading from 'components/molecules/Loading'
-import {
-  loadSupplementalPageData,
-  updateSupplementalApplication
-} from 'components/supplemental_application/actions/supplementalApplicationActionCreators'
+import { updateSupplementalApplication } from 'components/supplemental_application/actions/supplementalApplicationActionCreators'
 import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
 import SupplementalApplicationContainer from 'components/supplemental_application/SupplementalApplicationContainer'
-import { useAppContext, useAsyncOnMount } from 'utils/customHooks'
+import ACTIONS from 'context/actions'
+import { useShortFormApplication, useSupplementalPageData } from 'query/hooks'
+import { useAppContext } from 'utils/customHooks'
 import validate, { convertPercentAndCurrency } from 'utils/form/validations'
 
 import labelMapperFields from '../applications/application_details/applicationDetailsFieldsDesc'
 
 const SUPP_TAB_KEY = 'supplemental_tab'
 const SHORTFORM_TAB_KEY = 'shortform_tab'
+
+/**
+ * Error message component with retry option
+ */
+const ErrorMessage = ({ message, onRetry }) => (
+  <div className='padding-top--2x text-center'>
+    <p className='c-alert'>{message}</p>
+    {onRetry && (
+      <button type='button' className='button primary small' onClick={onRetry}>
+        Retry
+      </button>
+    )}
+  </div>
+)
 
 /**
  * Supplemental application page with both supplemental and shortform tabs
@@ -39,20 +53,49 @@ const SupplementalApplicationPage = () => {
     dispatch
   ] = useAppContext()
 
-  const [loadingShortform, setLoadingShortform] = useState(true)
+  // Fetch shortform application data using TanStack Query
+  const {
+    application: shortformApplication,
+    fileBaseUrl: shortformFileBaseUrl,
+    isLoading: isShortformLoading,
+    isFetching: isShortformFetching,
+    isError: isShortformError,
+    refetch: refetchShortform
+  } = useShortFormApplication(applicationId)
 
-  useAsyncOnMount(() => getShortFormApplication(applicationId), {
-    onSuccess: ({ application, fileBaseUrl }) => {
-      applicationPageLoadComplete(dispatch, application, fileBaseUrl)
-    },
-    onComplete: () => {
-      setLoadingShortform(false)
+  // Fetch supplemental page data using TanStack Query
+  const {
+    pageData: supplementalPageData,
+    application: supplementalApplication,
+    listing: supplementalListing,
+    isLoading: isSupplementalLoading,
+    isFetching: isSupplementalFetching,
+    isError: isSupplementalError,
+    refetch: refetchSupplemental
+  } = useSupplementalPageData(applicationId, breadcrumbData?.listing?.id)
+
+  // Update context when shortform data loads
+  useEffect(() => {
+    if (shortformApplication && shortformFileBaseUrl !== undefined) {
+      applicationPageLoadComplete(dispatch, shortformApplication, shortformFileBaseUrl)
     }
-  })
+  }, [shortformApplication, shortformFileBaseUrl, dispatch])
 
-  useAsyncOnMount(() =>
-    loadSupplementalPageData(dispatch, applicationId, breadcrumbData?.listingId?.id)
-  )
+  // Update context when supplemental data loads
+  useEffect(() => {
+    if (supplementalPageData && supplementalApplication && supplementalListing) {
+      dispatch({
+        type: ACTIONS.SUPP_APP_INITIAL_LOAD_SUCCESS,
+        data: {
+          breadcrumbData: getSupplementalBreadcrumbData(
+            supplementalApplication,
+            supplementalListing
+          ),
+          pageData: supplementalPageData
+        }
+      })
+    }
+  }, [supplementalPageData, supplementalApplication, supplementalListing, dispatch])
 
   const tabItems = [
     {
@@ -83,13 +126,36 @@ const SupplementalApplicationPage = () => {
     })
   }
 
+  // Determine loading state for each tab
+  // Use isLoading for initial load (no cached data), not isFetching (background refetch)
+  // For the supplemental tab, also check if context has the application
+  // (since we dispatch to context and the form uses context data)
   const performingInitialLoadForTab =
-    selectedTabKey === SUPP_TAB_KEY ? !supplemental.application : loadingShortform
+    selectedTabKey === SUPP_TAB_KEY
+      ? isSupplementalLoading || !supplemental.application
+      : isShortformLoading
+
+  // Background refetch indicator - show when fetching but not initial load
+  const isBackgroundRefetching =
+    selectedTabKey === SUPP_TAB_KEY
+      ? isSupplementalFetching && !isSupplementalLoading && supplemental.application
+      : isShortformFetching && !isShortformLoading && shortform.application
 
   const renderShortform = () => {
-    if (loadingShortform) {
+    if (isShortformLoading) {
       return null
-    } else if (!shortform.application && !loadingShortform) {
+    }
+
+    if (isShortformError) {
+      return (
+        <ErrorMessage
+          message='An error occurred while loading the shortform application.'
+          onRetry={refetchShortform}
+        />
+      )
+    }
+
+    if (!shortform.application && !isShortformLoading) {
       return 'The requested shortform snapshot could not be found.'
     }
 
@@ -102,11 +168,32 @@ const SupplementalApplicationPage = () => {
     )
   }
 
+  // Render error state for supplemental tab
+  if (selectedTabKey === SUPP_TAB_KEY && isSupplementalError && !supplemental.application) {
+    return (
+      <CardLayout
+        pageHeader={getPageHeaderData(breadcrumbData.application, breadcrumbData.listing)}
+        tabSection={{ items: tabItems }}
+      >
+        <ErrorMessage
+          message='An error occurred while loading the application. Please try again.'
+          onRetry={refetchSupplemental}
+        />
+      </CardLayout>
+    )
+  }
+
   return (
     <CardLayout
       pageHeader={getPageHeaderData(breadcrumbData.application, breadcrumbData.listing)}
       tabSection={{ items: tabItems }}
     >
+      {/* Subtle background refetch indicator */}
+      {isBackgroundRefetching && (
+        <div className='text-right padding-right--2x padding-bottom--half'>
+          <RefreshIndicator />
+        </div>
+      )}
       <Loading
         isLoading={performingInitialLoadForTab}
         renderChildrenWhileLoading={false}
