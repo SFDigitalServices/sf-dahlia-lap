@@ -2404,7 +2404,7 @@ exports[`ListingsPage should render succesfully long list 1`] = `
                   role="gridcell"
                   style="flex: 100 0 auto; width: 100px;"
                 >
-                  08/23/2018
+                  08/24/2018
                 </div>
                 <div
                   class="rt-td"
@@ -2674,7 +2674,7 @@ exports[`ListingsPage should render succesfully long list 1`] = `
                   role="gridcell"
                   style="flex: 100 0 auto; width: 100px;"
                 >
-                  07/19/2018
+                  07/20/2018
                 </div>
                 <div
                   class="rt-td"
@@ -2868,7 +2868,7 @@ exports[`ListingsPage should render succesfully long list 1`] = `
                   role="gridcell"
                   style="flex: 100 0 auto; width: 100px;"
                 >
-                  08/17/2018
+                  08/18/2018
                 </div>
                 <div
                   class="rt-td"
@@ -3064,7 +3064,7 @@ exports[`ListingsPage should render succesfully long list 1`] = `
                   role="gridcell"
                   style="flex: 100 0 auto; width: 100px;"
                 >
-                  06/18/2018
+                  06/19/2018
                 </div>
                 <div
                   class="rt-td"
@@ -3198,7 +3198,7 @@ exports[`ListingsPage should render succesfully long list 1`] = `
                   role="gridcell"
                   style="flex: 100 0 auto; width: 100px;"
                 >
-                  03/22/2017
+                  03/23/2017
                 </div>
                 <div
                   class="rt-td"
