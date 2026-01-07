@@ -4,6 +4,7 @@ import arrayMutators from 'final-form-arrays'
 import moment from 'moment'
 
 import apiService from 'apiService'
+import Alerts from 'components/Alerts'
 import FormGrid from 'components/molecules/FormGrid'
 import InfoAlert from 'components/molecules/InfoAlert'
 import FormModal from 'components/organisms/FormModal'
@@ -168,6 +169,10 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
             showPageInfo: true
           })
         }
+      })
+      .catch(() => {
+        props.setPageState({ loading: false })
+        Alerts.error()
       })
   }
 
