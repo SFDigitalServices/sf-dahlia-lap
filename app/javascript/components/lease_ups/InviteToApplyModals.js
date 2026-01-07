@@ -323,7 +323,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
               }
               icon='i-info'
               closeType='none'
-              classes={['success-alert']}
+              classes={['primary-alert']}
             />
           </div>
         )}

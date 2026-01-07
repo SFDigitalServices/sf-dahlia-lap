@@ -158,3 +158,12 @@ ul.bullet-list {
 .success-alert .info-alert-inner .info-alert-body {
   width: 90%;
 }
+
+.primary-alert .info-alert-inner {
+  border: 2px solid #DAEEFF;
+  background-color: #F5F8F9;  
+  border-radius: 4px;
+  .info-alert-body {
+    width: 90%;
+  }
+}
