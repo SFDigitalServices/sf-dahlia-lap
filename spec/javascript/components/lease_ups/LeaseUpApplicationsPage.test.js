@@ -722,6 +722,7 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(screen.getByText('next'))
           })
+          expect(mockUpdateListing.mock.calls).toHaveLength(1)
           expect(screen.getByText('Set document submission deadline')).toBeInTheDocument()
 
           // invalid submission deadline date
@@ -764,7 +765,6 @@ describe('LeaseUpApplicationsPage', () => {
             fireEvent.click(screen.getByText('save'))
           })
           expect(mockUpdateApplication.mock.calls).toHaveLength(1)
-          expect(mockUpdateListing.mock.calls).toHaveLength(1)
           expect(screen.getByText('Review and send')).toBeInTheDocument()
 
           // open send example modal
@@ -811,11 +811,25 @@ describe('LeaseUpApplicationsPage', () => {
           expect(screen.queryByText('See an example')).not.toBeInTheDocument()
           expect(screen.getByText('Review and send')).toBeInTheDocument()
 
-          // // send email
+          // send email
           act(() => {
             fireEvent.click(screen.getByText('send now'))
           })
           expect(mockSendInviteToApply.mock.calls).toHaveLength(2)
+
+          // deadline and upload urls should be skipped since
+          // they've previously been set
+          act(() => {
+            fireEvent.change(
+              within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
+              {
+                target: { value: 'Set up Invitation to Apply' }
+              }
+            )
+          })
+          expect(screen.queryByText('Please enter a valid URL')).not.toBeInTheDocument()
+          expect(screen.queryByText('Set document submission deadline')).not.toBeInTheDocument()
+          expect(screen.getByText('Review and send')).toBeInTheDocument()
         })
       })
     })
