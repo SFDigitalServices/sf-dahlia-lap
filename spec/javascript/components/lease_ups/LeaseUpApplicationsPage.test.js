@@ -56,6 +56,9 @@ jest.mock('apiService', () => {
     },
     sendInviteToApply: async (listing, appIds, deadline, exampleEmail) => {
       mockSendInviteToApply(listing, appIds, deadline, exampleEmail)
+      if (exampleEmail.includes('FAIL')) {
+        return Promise.reject(new Error('rejected promise'))
+      }
       return Promise.resolve(true)
     }
   }
@@ -830,6 +833,41 @@ describe('LeaseUpApplicationsPage', () => {
           expect(screen.queryByText('Please enter a valid URL')).not.toBeInTheDocument()
           expect(screen.queryByText('Set document submission deadline')).not.toBeInTheDocument()
           expect(screen.getByText('Review and send')).toBeInTheDocument()
+        })
+
+        test('should alert when api call to send invite to apply fails', async () => {
+          const alertSpy = jest.spyOn(window, 'alert').mockImplementation(() => {})
+
+          act(() => {
+            fireEvent.change(screen.getByLabelText('Document upload URL'), {
+              target: { value: 'https://sf.gov' }
+            })
+            fireEvent.click(screen.getByText('next'))
+          })
+          act(() => {
+            fireEvent.change(screen.getByPlaceholderText('MM'), {
+              target: { value: '1' }
+            })
+            fireEvent.change(screen.getByPlaceholderText('DD'), {
+              target: { value: '1' }
+            })
+            fireEvent.change(screen.getByPlaceholderText('YYYY'), {
+              target: { value: '3000' }
+            })
+            fireEvent.click(screen.getByText('save'))
+          })
+          act(() => {
+            fireEvent.click(screen.getByText('send yourself an example email'))
+          })
+          act(() => {
+            fireEvent.change(screen.getByLabelText('Email address'), {
+              target: { value: 'FAIL@test.com' }
+            })
+            fireEvent.click(screen.getByText('send example email'))
+          })
+          await waitFor(() => {
+            expect(alertSpy).toHaveBeenCalledTimes(1)
+          })
         })
       })
     })
