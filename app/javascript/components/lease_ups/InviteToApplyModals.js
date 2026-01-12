@@ -69,15 +69,15 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     setRsvpModalState(stateObj, callback)
   }
 
-  const uploadUrlModalSubmit = (values) => {
-    setRsvpModalValues(values)
+  const uploadUrlModalSubmit = (submittedValues) => {
+    setRsvpModalValues(submittedValues)
     showNextModal({
       ...rsvpModalValues,
-      ...values
+      ...submittedValues
     })
     apiService.updateListing({
       id: props.listingId,
-      file_upload_url: values[INVITE_APPLY_UPLOAD_KEY]
+      file_upload_url: submittedValues[INVITE_APPLY_UPLOAD_KEY]
     })
   }
 
@@ -99,15 +99,15 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       .map(([id, _]) => id)
   }
 
-  const setdeadlineModalSubmit = (values) => {
-    setRsvpModalValues(values)
+  const setdeadlineModalSubmit = (submittedValues) => {
+    setRsvpModalValues(submittedValues)
 
     const applicationIds = getSelectedApplicationIds()
-    const deadline = values[INVITE_APPLY_DEADLINE_KEY]
+    const deadline = submittedValues[INVITE_APPLY_DEADLINE_KEY]
 
     showNextModal({
       ...rsvpModalValues,
-      ...values
+      ...submittedValues
     })
 
     applicationIds.forEach((appId) => {
@@ -119,9 +119,9 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     })
   }
 
-  const validateDeadline = (values) => {
+  const validateDeadline = (submittedValues) => {
     const errs = {}
-    const dateInput = values[INVITE_APPLY_DEADLINE_KEY]
+    const dateInput = submittedValues[INVITE_APPLY_DEADLINE_KEY]
     const errMsg = 'Enter a date like: MM DD YYYY.  It must be after today.'
     if (dateInput) {
       const validation = validate.isFutureDate(errMsg)([
@@ -149,10 +149,10 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     return errs
   }
 
-  const sendInviteToApply = (values) => {
+  const sendInviteToApply = (submittedValues) => {
     const appIds = getSelectedApplicationIds()
     const deadline = rsvpModalValues[INVITE_APPLY_DEADLINE_KEY]
-    const exampleEmail = values[INVITE_APPLY_EXAMPLE_EMAIL]
+    const exampleEmail = submittedValues[INVITE_APPLY_EXAMPLE_EMAIL]
 
     if (!exampleEmail) {
       handleCloseRsvpModal()
