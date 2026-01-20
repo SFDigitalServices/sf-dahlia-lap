@@ -29,12 +29,10 @@ const InfoAlert = ({ icon, message, onCloseClick, closeType, classes = [] }) => 
   })
   const combinedClasses = classNames(defaultClasses)
 
-  const closeLink = getCloseLink(closeType, onCloseClick)
-
   return (
     <div className={combinedClasses}>
       <div data-info className='info-alert-inner'>
-        {closeLink}
+        {closeType !== 'none' && getCloseLink(closeType, onCloseClick)}
         <span className='info-alert-icon ui-icon ui-medium'>
           <svg>
             <use xlinkHref={`#${icon}`} />
