@@ -1,4 +1,5 @@
 import { bulkActionCheckboxId, statusMenuItemSelector, usingFixtures } from '../../support/utils'
+import { UNLEASH_URL } from '../../support/consts'
 
 const rsvpSendEmailDropdown = '.filter-row .rsvp-dropdown__control .dropdown-button'
 const SETUP_INVITE_TO_APPLY = 'set-up-invite-to-apply'
@@ -39,6 +40,19 @@ describe('LeaseUpApplicationsPage send email', () => {
       statusCode: 200,
       body: 'true'
     }).as('inviteApplyDeadlinePut')
+
+    // always enable invite-to-apply feature flag for the test listing
+    cy.intercept(
+      'GET',
+      `${UNLEASH_URL}**`,
+      (request) => {
+        request.continue((response) => {
+          response.body.toggles.find(
+            (toggle) => toggle.name === 'partners.inviteToApply'
+          ).variant.payload.value = LEASE_UP_LISTING_ID
+        })
+      }
+    ).as('inviteToApplyFeatureFlag')
   })
 
   it('should set document upload url and deadline for an Invite to Apply email', () => {
