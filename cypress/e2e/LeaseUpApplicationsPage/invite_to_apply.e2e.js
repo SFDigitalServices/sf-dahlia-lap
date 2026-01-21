@@ -1,6 +1,5 @@
 import { bulkActionCheckboxId, statusMenuItemSelector, usingFixtures } from '../../support/utils'
-import { UNLEASH_URL } from '../../support/consts'
-
+import { interceptInviteToApplyFlag } from '../../support/utils'
 const rsvpSendEmailDropdown = '.filter-row .rsvp-dropdown__control .dropdown-button'
 const SETUP_INVITE_TO_APPLY = 'set-up-invite-to-apply'
 const LEASE_UP_LISTING_ID = Cypress.env('LEASE_UP_LISTING_ID')
@@ -41,18 +40,7 @@ describe('LeaseUpApplicationsPage send email', () => {
       body: 'true'
     }).as('inviteApplyDeadlinePut')
 
-    // always enable invite-to-apply feature flag for the test listing
-    cy.intercept(
-      'GET',
-      `${UNLEASH_URL}**`,
-      (request) => {
-        request.continue((response) => {
-          response.body.toggles.find(
-            (toggle) => toggle.name === 'partners.inviteToApply'
-          ).variant.payload.value = LEASE_UP_LISTING_ID
-        })
-      }
-    ).as('inviteToApplyFeatureFlag')
+    interceptInviteToApplyFlag(LEASE_UP_LISTING_ID)
   })
 
   it('should set document upload url and deadline for an Invite to Apply email', () => {

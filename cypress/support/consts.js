@@ -21,5 +21,3 @@ export const HOUSEHOLD_MEMBER_DOB_DAY = '12'
 export const HOUSEHOLD_MEMBER_DOB_YEAR = '1980'
 
 export const DECLINE_TO_STATE = 'Decline to state'
-
-export const UNLEASH_URL = 'https://dahlia-feature-service-fbc319c3f542.herokuapp.com/'
