@@ -22,7 +22,8 @@ import {
   useAppContext
 } from 'utils/customHooks'
 import { GRAPHQL_SERVER_PAGE_SIZE, EagerPagination } from 'utils/EagerPagination'
-import { getSubStatusLabel, LEASE_UP_SUBSTATUS_OPTIONS } from 'utils/statusUtils'
+import { getLeaseUpSubstatusOptions } from 'utils/inviteApplyEmail'
+import { getSubStatusLabel } from 'utils/statusUtils'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
 import Context from './context'
@@ -221,7 +222,7 @@ const LeaseUpApplicationsPage = () => {
       // previous substatus might be a comment
       // clear it out if so
       if (
-        !find(LEASE_UP_SUBSTATUS_OPTIONS[applicationsData[appId].status] || [], {
+        !find(getLeaseUpSubstatusOptions(listingId)[applicationsData[appId].status] || [], {
           value: applicationsData[appId].subStatus
         })
       ) {

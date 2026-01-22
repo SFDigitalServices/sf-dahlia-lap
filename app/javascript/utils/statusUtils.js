@@ -185,37 +185,37 @@ export const LEASE_UP_SUBSTATUSES = {
   ]
 }
 
-export const LEASE_UP_STATUS_VALUES = LEASE_UP_STATUS_OPTIONS.map((option) => option.value)
-export const LEASE_UP_SUBSTATUS_VALUES = map(LEASE_UP_SUBSTATUS_OPTIONS, (substatusList) =>
+export const LEASE_UP_STATUS_VALUES = LEASE_UP_STATUSES.map((option) => option.value)
+export const LEASE_UP_SUBSTATUS_VALUES = map(LEASE_UP_SUBSTATUSES, (substatusList) =>
   map(substatusList, 'value')
 ).flat()
 
 export const getLeaseUpStatusClass = (status) => {
-  const statusOption = find(LEASE_UP_STATUS_OPTIONS, { value: status })
+  const statusOption = find(LEASE_UP_STATUSES, { value: status })
   return statusOption ? statusOption.statusClassName : 'tertiary'
 }
 
 export const getStatusPillClass = (status) => {
-  const statusOption = find(LEASE_UP_STATUS_OPTIONS, { value: status })
+  const statusOption = find(LEASE_UP_STATUSES, { value: status })
   return statusOption ? statusOption.statusClassName : 'is-no-status'
 }
 
 export const getStatusPillLabel = (status) => {
-  const statusOption = find(LEASE_UP_STATUS_OPTIONS, { value: status })
+  const statusOption = find(LEASE_UP_STATUSES, { value: status })
   return statusOption ? statusOption.label : null
 }
 
 export const getSubStatusLabel = (status, subStatus) => {
-  const subStatusOption = find(LEASE_UP_SUBSTATUS_OPTIONS[status] || [], { value: subStatus })
+  const subStatusOption = find(LEASE_UP_SUBSTATUSES[status] || [], { value: subStatus })
   return subStatusOption ? subStatusOption.label : subStatus
 }
 
 export const statusRequiresComments = (status, substatus) => {
-  const statusOption = find(LEASE_UP_STATUS_OPTIONS, { value: status })
+  const statusOption = find(LEASE_UP_STATUSES, { value: status })
   if (statusOption && statusOption.commentRequired) {
     return true
   } else if (substatus) {
-    const subStatusOption = find(LEASE_UP_SUBSTATUS_OPTIONS[status], { value: substatus })
+    const subStatusOption = find(LEASE_UP_SUBSTATUSES[status], { value: substatus })
     return subStatusOption && subStatusOption.commentRequired
   }
   return false
@@ -226,7 +226,7 @@ export const validateStatusForm = (values) => {
     return true
   } else if (values.status && !statusRequiresComments(values.status, values.subStatus)) {
     return true
-  } else if (values.status && !LEASE_UP_SUBSTATUS_OPTIONS[values.status]) {
+  } else if (values.status && !LEASE_UP_SUBSTATUSES[values.status]) {
     return true
   }
   return null

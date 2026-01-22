@@ -16,10 +16,10 @@ import { useAppContext } from 'utils/customHooks'
 import SearchField from 'utils/form/final_form/SearchField'
 import formUtils from 'utils/formUtils'
 import {
+  getLeaseUpStatusOptions,
   INVITE_APPLY_EMAIL_OPTIONS,
   IsInviteToApplyEnabledForListing
 } from 'utils/inviteApplyEmail'
-import { LEASE_UP_STATUS_OPTIONS } from 'utils/statusUtils'
 
 const styles = {
   marginBottomZero: {
@@ -156,7 +156,7 @@ const LeaseUpApplicationsFilterContainer = ({
                       dataTestId={'bulk-status-dropdown'}
                       forceDisplayPlaceholderText
                       tertiary={numChecked === 0}
-                      options={LEASE_UP_STATUS_OPTIONS}
+                      options={getLeaseUpStatusOptions(listingId)}
                       classNamePrefix={'status-dropdown'}
                     />
                   </div>
