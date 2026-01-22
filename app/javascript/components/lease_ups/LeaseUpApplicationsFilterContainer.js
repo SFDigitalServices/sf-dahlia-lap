@@ -34,7 +34,8 @@ const styles = {
 }
 
 const getNumFiltersApplied = (form, listingId) => {
-  return getLeaseUpApplicationFilters(listingId).filter((f) => {
+  const statusOptions = getLeaseUpStatusOptions(listingId)
+  return getLeaseUpApplicationFilters(listingId, statusOptions).filter((f) => {
     const value = form.getState().values[f.fieldName]
     return !(!value || value.length === 0)
   }).length

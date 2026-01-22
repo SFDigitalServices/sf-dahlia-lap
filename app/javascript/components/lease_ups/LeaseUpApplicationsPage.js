@@ -22,7 +22,7 @@ import {
   useAppContext
 } from 'utils/customHooks'
 import { GRAPHQL_SERVER_PAGE_SIZE, EagerPagination } from 'utils/EagerPagination'
-import { getLeaseUpSubstatusOptions } from 'utils/inviteApplyEmail'
+import { getLeaseUpStatusOptions, getLeaseUpSubstatusOptions } from 'utils/inviteApplyEmail'
 import { getSubStatusLabel } from 'utils/statusUtils'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
@@ -130,11 +130,13 @@ const LeaseUpApplicationsPage = () => {
     }
   })
 
+  const statusOptions = getLeaseUpStatusOptions(listingId)
+
   useAsync(
     () => {
       const urlFilters = {}
       let { appliedFilters, page } = applicationsListData
-      getLeaseUpApplicationFilters(listingId).forEach((filter) => {
+      getLeaseUpApplicationFilters(listingId, statusOptions).forEach((filter) => {
         const values = searchParams.getAll(filter.fieldName)
         if (values.length > 0) {
           urlFilters[filter.fieldName] = values
