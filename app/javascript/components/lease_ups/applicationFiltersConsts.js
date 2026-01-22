@@ -1,9 +1,11 @@
 import { clone } from 'lodash'
 
 import formUtils from 'utils/formUtils'
-import { LEASE_UP_ACCESSIBILITY_OPTIONS, LEASE_UP_STATUS_OPTIONS } from 'utils/statusUtils'
+import { getLeaseUpStatusOptions } from 'utils/inviteApplyEmail'
+import { LEASE_UP_ACCESSIBILITY_OPTIONS } from 'utils/statusUtils'
 
 export const getLeaseUpApplicationFilters = (listingId, includePreferences = true) => {
+  const statusOptions = getLeaseUpStatusOptions(listingId)
   const filters = [
     {
       label: 'Household Members',
@@ -19,7 +21,7 @@ export const getLeaseUpApplicationFilters = (listingId, includePreferences = tru
     {
       label: 'Application Status',
       getOptions: () =>
-        formUtils.toOptions([formUtils.toOption('No Status'), ...clone(LEASE_UP_STATUS_OPTIONS)]),
+        formUtils.toOptions([formUtils.toOption('No Status'), ...clone(statusOptions)]),
       fieldName: 'status',
       placeholder: 'Status'
     }
