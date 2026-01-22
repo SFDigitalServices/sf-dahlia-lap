@@ -7,7 +7,7 @@ import { useSearchParams } from 'react-router-dom'
 
 import Button from 'components/atoms/Button'
 import Checkbox from 'components/atoms/Checkbox'
-import { LEASE_UP_APPLICATION_FILTERS } from 'components/lease_ups/applicationFiltersConsts'
+import { getLeaseUpApplicationFilters } from 'components/lease_ups/applicationFiltersConsts'
 import LeaseUpApplicationsFilters from 'components/lease_ups/LeaseUpApplicationsFilters'
 import ButtonDropdown from 'components/molecules/ButtonDropdown'
 import Loading from 'components/molecules/Loading'
@@ -33,8 +33,8 @@ const styles = {
   }
 }
 
-const getNumFiltersApplied = (form) => {
-  return LEASE_UP_APPLICATION_FILTERS.filter((f) => {
+const getNumFiltersApplied = (form, listingId) => {
+  return getLeaseUpApplicationFilters(listingId).filter((f) => {
     const value = form.getState().values[f.fieldName]
     return !(!value || value.length === 0)
   }).length

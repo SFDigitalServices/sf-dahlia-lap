@@ -11,7 +11,7 @@ import {
   applicationsPageMounted,
   applicationsTableFiltersApplied
 } from 'components/lease_ups/actions/actionCreators'
-import { LEASE_UP_APPLICATION_FILTERS } from 'components/lease_ups/applicationFiltersConsts'
+import { getLeaseUpApplicationFilters } from 'components/lease_ups/applicationFiltersConsts'
 import appPaths from 'utils/appPaths'
 import {
   useAsync,
@@ -134,7 +134,7 @@ const LeaseUpApplicationsPage = () => {
     () => {
       const urlFilters = {}
       let { appliedFilters, page } = applicationsListData
-      LEASE_UP_APPLICATION_FILTERS.forEach((filter) => {
+      getLeaseUpApplicationFilters(listingId).forEach((filter) => {
         const values = searchParams.getAll(filter.fieldName)
         if (values.length > 0) {
           urlFilters[filter.fieldName] = values
