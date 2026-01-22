@@ -17,10 +17,10 @@ const cellContainerStyle = {
   width: '100%'
 }
 
-const StatusCell = ({ applicationId, status = null, onChange = (_) => {} }) => {
+const StatusCell = ({ applicationId, status = null, onChange = (_) => {}, listingId }) => {
   return (
     <div style={cellContainerStyle}>
-      <StatusDropdown status={status} size='tiny' onChange={onChange} />
+      <StatusDropdown status={status} size='tiny' onChange={onChange} listingId={listingId} />
       <StatusHistoryPopover applicationId={applicationId} customButtonClasses='margin-left' />
     </div>
   )
@@ -29,7 +29,8 @@ const StatusCell = ({ applicationId, status = null, onChange = (_) => {} }) => {
 StatusCell.propTypes = {
   applicationId: PropTypes.string.isRequired,
   status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  listingId: PropTypes.string.isRequired
 }
 
 export default StatusCell

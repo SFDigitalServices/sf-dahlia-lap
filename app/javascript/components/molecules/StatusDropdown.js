@@ -7,7 +7,8 @@ import { components } from 'react-select'
 import Button from 'components/atoms/Button'
 import StyledIcon from 'components/atoms/StyledIcon'
 import Dropdown from 'components/molecules/Dropdown'
-import { LEASE_UP_STATUS_OPTIONS, LEASE_UP_STATUS_VALUES } from 'utils/statusUtils'
+import { getLeaseUpStatusOptions } from 'utils/inviteApplyEmail'
+// import { LEASE_UP_STATUS_VALUES } from 'utils/statusUtils'
 
 export const renderStatusOption = ({ value, label, statusClassName }, { selectValue }) => {
   const isSelected = selectValue[0]?.value === value
@@ -22,6 +23,7 @@ const StatusDropdown = ({
   buttonClasses = [],
   status,
   onChange,
+  listingId,
   overrideValue = false,
   disabled = false,
   placeholder = 'Status',
@@ -34,6 +36,8 @@ const StatusDropdown = ({
   forceDisplayPlaceholderText = false,
   dataTestId = null
 }) => {
+  const statusOptions = getLeaseUpStatusOptions(listingId)
+
   const classes = classNames(buttonClasses, 'button', 'dropdown-button', { expand })
 
   const renderStatusToggle = ({ children, getValue, ...props }) => {
@@ -69,7 +73,7 @@ const StatusDropdown = ({
   return (
     <Dropdown
       classNamePrefix='status-dropdown'
-      items={LEASE_UP_STATUS_OPTIONS}
+      items={statusOptions}
       value={status}
       placeholder={placeholder}
       onChange={(val) => onChange(val)}
@@ -89,8 +93,10 @@ StatusDropdown.propTypes = {
   minWidthPx: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['tiny', 'small']),
-  status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
-  tertiary: PropTypes.bool
+  status: PropTypes.string,
+  // status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
+  tertiary: PropTypes.bool,
+  listingId: PropTypes.string
 }
 
 export default StatusDropdown

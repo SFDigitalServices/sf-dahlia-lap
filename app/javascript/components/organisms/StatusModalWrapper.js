@@ -9,11 +9,10 @@ import StatusDropdown from 'components/molecules/StatusDropdown'
 import SubstatusDropdown from 'components/molecules/SubstatusDropdown'
 import { TextAreaField, Label, FieldError } from 'utils/form/final_form/Field'
 import validate from 'utils/form/validations'
-import { IsInviteToApplyEnabledForListing } from 'utils/inviteApplyEmail'
+import { getLeaseUpSubstatusOptions } from 'utils/inviteApplyEmail'
 import {
   statusRequiresComments,
   LEASE_UP_STATUS_VALUES,
-  LEASE_UP_SUBSTATUS_OPTIONS,
   LEASE_UP_SUBSTATUS_VALUES,
   validateStatusForm
 } from 'utils/statusUtils'
@@ -42,11 +41,7 @@ const StatusModalWrapper = ({
   title = null,
   listingId = null
 }) => {
-  const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listingId)
-  const substatusOptions = JSON.parse(JSON.stringify(LEASE_UP_SUBSTATUS_OPTIONS))
-  if (!isInviteApplyEnabled && substatusOptions.Processing) {
-    delete substatusOptions.Processing
-  }
+  const substatusOptions = getLeaseUpSubstatusOptions(listingId)
 
   return (
     <FormModal
