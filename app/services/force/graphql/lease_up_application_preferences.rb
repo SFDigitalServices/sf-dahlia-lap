@@ -64,6 +64,7 @@ module Force
                           Last_Name__c {value}
                           Residence_Address__c {value}
                           Mailing_Address__c {value}
+                          Email__c {value}
                         }
                       }
                     }
