@@ -51,7 +51,7 @@ const LeaseUpApplicationsTable = ({
   atMaxPages,
   bulkCheckboxesState,
   onBulkCheckboxClick,
-  listingId
+  statusOptions
 }) => {
   const [
     {
@@ -182,7 +182,7 @@ const LeaseUpApplicationsTable = ({
         const { application_id: applicationId } = cell.original
         return (
           <StatusCell
-            listingId={listingId}
+            statusOptions={statusOptions}
             applicationId={applicationId}
             status={cell.value}
             onChange={(val) => onLeaseUpStatusChange(val, applicationId, false)}

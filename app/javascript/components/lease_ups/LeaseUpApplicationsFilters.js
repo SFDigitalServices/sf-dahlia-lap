@@ -7,7 +7,6 @@ import { COLORS } from 'components/atoms/colors'
 import { getLeaseUpApplicationFilters } from 'components/lease_ups/applicationFiltersConsts'
 import FormGrid from 'components/molecules/FormGrid'
 import MultiSelectField from 'utils/form/final_form/MultiSelectField'
-import { getLeaseUpStatusOptions } from 'utils/inviteApplyEmail'
 
 import { LISTING_TYPE_FIRST_COME_FIRST_SERVED } from '../../utils/consts'
 
@@ -27,7 +26,8 @@ const LeaseUpApplicationsFilters = ({
   preferences = [],
   hasChangedFilters,
   onFilterChange = () => {},
-  onClearFilters = () => {}
+  onClearFilters = () => {},
+  statusOptions
 }) => {
   const renderFilter = (filter) => (
     <FormGrid.Item width='25%' key={filter.fieldName}>
@@ -43,8 +43,6 @@ const LeaseUpApplicationsFilters = ({
 
   // only include preferences filter if the Listing Type is not first come first served
   const includePreferencesFilter = listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED
-  const statusOptions = getLeaseUpStatusOptions(listingId)
-
   const filters = includePreferencesFilter
     ? getLeaseUpApplicationFilters(listingId, statusOptions)
     : getLeaseUpApplicationFilters(listingId, statusOptions, false)

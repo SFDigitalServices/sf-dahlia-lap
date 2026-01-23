@@ -7,7 +7,6 @@ import { components } from 'react-select'
 import Button from 'components/atoms/Button'
 import StyledIcon from 'components/atoms/StyledIcon'
 import Dropdown from 'components/molecules/Dropdown'
-import { getLeaseUpStatusOptions } from 'utils/inviteApplyEmail'
 import { LEASE_UP_STATUS_VALUES } from 'utils/statusUtils'
 
 export const renderStatusOption = ({ value, label, statusClassName }, { selectValue }) => {
@@ -23,7 +22,6 @@ const StatusDropdown = ({
   buttonClasses = [],
   status,
   onChange,
-  listingId,
   overrideValue = false,
   disabled = false,
   placeholder = 'Status',
@@ -34,10 +32,9 @@ const StatusDropdown = ({
   // when true, never display the current status in the dropdown toggle,
   // always show the placeholder.
   forceDisplayPlaceholderText = false,
-  dataTestId = null
+  dataTestId = null,
+  statusOptions
 }) => {
-  const statusOptions = getLeaseUpStatusOptions(listingId)
-
   const classes = classNames(buttonClasses, 'button', 'dropdown-button', { expand })
 
   const renderStatusToggle = ({ children, getValue, ...props }) => {
@@ -95,7 +92,7 @@ StatusDropdown.propTypes = {
   size: PropTypes.oneOf(['tiny', 'small']),
   status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
   tertiary: PropTypes.bool,
-  listingId: PropTypes.string
+  statusOptions: PropTypes.array
 }
 
 export default StatusDropdown

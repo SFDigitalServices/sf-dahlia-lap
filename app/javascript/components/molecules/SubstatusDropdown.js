@@ -4,7 +4,6 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import { components } from 'react-select'
 
-import { getLeaseUpSubstatusOptions } from 'utils/inviteApplyEmail'
 import { LEASE_UP_STATUS_VALUES, LEASE_UP_SUBSTATUS_VALUES } from 'utils/statusUtils'
 
 import Icon from '../atoms/Icon'
@@ -27,7 +26,7 @@ const SubstatusDropdown = ({
   placeholder,
   expand,
   hasError,
-  listingId
+  substatusOptions
 }) => {
   const buttonClasses = [
     'button',
@@ -57,7 +56,7 @@ const SubstatusDropdown = ({
   return (
     <Dropdown
       classNamePrefix='substatus-dropdown'
-      items={getLeaseUpSubstatusOptions(listingId)[status] || []}
+      items={substatusOptions[status] || []}
       value={subStatus}
       placeholder={placeholder}
       onChange={(val) => onChange(val, 'subStatus')}
@@ -76,7 +75,7 @@ SubstatusDropdown.propTypes = {
   placeholder: PropTypes.string,
   status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
   subStatus: PropTypes.oneOf(LEASE_UP_SUBSTATUS_VALUES),
-  listingId: PropTypes.string
+  substatusOptions: PropTypes.object
 }
 
 SubstatusDropdown.defaultProps = {
@@ -86,7 +85,7 @@ SubstatusDropdown.defaultProps = {
   placeholder: 'Select one...',
   status: null,
   subStatus: null,
-  listingId: null
+  substatusOptions: {}
 }
 
 export default SubstatusDropdown

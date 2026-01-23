@@ -9,7 +9,6 @@ import StatusDropdown from 'components/molecules/StatusDropdown'
 import SubstatusDropdown from 'components/molecules/SubstatusDropdown'
 import { TextAreaField, Label, FieldError } from 'utils/form/final_form/Field'
 import validate from 'utils/form/validations'
-import { getLeaseUpSubstatusOptions } from 'utils/inviteApplyEmail'
 import {
   statusRequiresComments,
   validateStatusForm,
@@ -39,10 +38,9 @@ const StatusModalWrapper = ({
   submitButton,
   subStatus = null,
   title = null,
-  listingId = null
+  substatusOptions = null,
+  statusOptions = null
 }) => {
-  const substatusOptions = getLeaseUpSubstatusOptions(listingId)
-
   return (
     <FormModal
       title={title}
@@ -101,6 +99,7 @@ const StatusModalWrapper = ({
                             }}
                             expand
                             size='small'
+                            statusOptions={statusOptions}
                           />
                           <FieldError meta={meta} />
                         </div>
@@ -125,7 +124,7 @@ const StatusModalWrapper = ({
                               onChange={onChange}
                               hasError={hasError}
                               expand
-                              listingId={listingId}
+                              substatusOptions={substatusOptions}
                             />
                             <FieldError meta={meta} />
                           </div>
@@ -176,5 +175,6 @@ StatusModalWrapper.propTypes = {
   submitButton: PropTypes.node,
   subStatus: PropTypes.oneOf(LEASE_UP_SUBSTATUS_VALUES),
   title: PropTypes.string,
-  listingId: PropTypes.string
+  substatusOptions: PropTypes.object,
+  statusOptions: PropTypes.array
 }

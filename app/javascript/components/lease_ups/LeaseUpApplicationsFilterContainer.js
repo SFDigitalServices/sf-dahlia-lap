@@ -16,7 +16,6 @@ import { useAppContext } from 'utils/customHooks'
 import SearchField from 'utils/form/final_form/SearchField'
 import formUtils from 'utils/formUtils'
 import {
-  getLeaseUpStatusOptions,
   INVITE_APPLY_EMAIL_OPTIONS,
   IsInviteToApplyEnabledForListing
 } from 'utils/inviteApplyEmail'
@@ -33,9 +32,8 @@ const styles = {
   }
 }
 
-const getNumFiltersApplied = (form, listingId) => {
-  const statusOptions = getLeaseUpStatusOptions(listingId)
-  return getLeaseUpApplicationFilters(listingId, statusOptions).filter((f) => {
+const getNumFiltersApplied = (form, statusOptions) => {
+  return getLeaseUpApplicationFilters(statusOptions).filter((f) => {
     const value = form.getState().values[f.fieldName]
     return !(!value || value.length === 0)
   }).length
@@ -52,7 +50,8 @@ const LeaseUpApplicationsFilterContainer = ({
   onBulkLeaseUpCommentChange,
   onRsvpSendEmailChange,
   onClearSelectedApplications = () => {},
-  onSelectAllApplications = () => {}
+  onSelectAllApplications = () => {},
+  statusOptions = []
 }) => {
   const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listingId)
 
@@ -100,7 +99,7 @@ const LeaseUpApplicationsFilterContainer = ({
   }
 
   const handleClearFilters = (form) => {
-    LEASE_UP_APPLICATION_FILTERS.forEach((f) => {
+    getLeaseUpApplicationFilters(statusOptions).forEach((f) => {
       const isChanged = !!form.getState().values[f.fieldName]
       if (isChanged) {
         form.change(f.fieldName, null)
@@ -157,7 +156,7 @@ const LeaseUpApplicationsFilterContainer = ({
                       dataTestId={'bulk-status-dropdown'}
                       forceDisplayPlaceholderText
                       tertiary={numChecked === 0}
-                      options={getLeaseUpStatusOptions(listingId)}
+                      options={statusOptions}
                       classNamePrefix={'status-dropdown'}
                     />
                   </div>
@@ -229,6 +228,7 @@ const LeaseUpApplicationsFilterContainer = ({
                 hasChangedFilters={hasChangedFilters}
                 onFilterChange={handleFilterChange}
                 onClearFilters={() => handleClearFilters(form)}
+                statusOptions={statusOptions}
               />
             )}
           </form>
@@ -246,7 +246,8 @@ LeaseUpApplicationsFilterContainer.propTypes = {
   onSelectAllApplications: PropTypes.func,
   preferences: PropTypes.array,
   loading: PropTypes.bool,
-  bulkActionApplications: PropTypes.object
+  bulkActionApplications: PropTypes.object,
+  statusOptions: PropTypes.array
 }
 
 export default LeaseUpApplicationsFilterContainer

@@ -131,6 +131,7 @@ const LeaseUpApplicationsPage = () => {
   })
 
   const statusOptions = getLeaseUpStatusOptions(listingId)
+  const substatusOptions = getLeaseUpSubstatusOptions(listingId)
 
   useAsync(
     () => {
@@ -224,7 +225,7 @@ const LeaseUpApplicationsPage = () => {
       // previous substatus might be a comment
       // clear it out if so
       if (
-        !find(getLeaseUpSubstatusOptions(listingId)[applicationsData[appId].status] || [], {
+        !find(substatusOptions[applicationsData[appId].status] || [], {
           value: applicationsData[appId].subStatus
         })
       ) {
@@ -387,7 +388,9 @@ const LeaseUpApplicationsPage = () => {
     statusModal: statusModalState,
     listing,
     setPageState: setState,
-    hasFilters: Object.keys(applicationsListData.appliedFilters).length > 0
+    hasFilters: Object.keys(applicationsListData.appliedFilters).length > 0,
+    statusOptions,
+    substatusOptions
   }
 
   const closePageAlert = () => {
