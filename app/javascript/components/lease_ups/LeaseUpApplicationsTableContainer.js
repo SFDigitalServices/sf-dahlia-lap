@@ -165,6 +165,7 @@ const LeaseUpTableContainer = ({
         listingId={listingId}
         listing={listing}
         setPageState={setPageState}
+        applications={applications}
       />
     </>
   )
