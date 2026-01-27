@@ -8,7 +8,7 @@ export const generateRandomString = (length) => {
 export const generateRandomCurrency = () => {
   // Round to the nearest hundredth, then convert back to float.
   const val = Number.parseFloat((Math.random() * 1000).toFixed(2))
-  // TODO: We could improve this by adding commas to the currency string too.
+  // TODO We could improve this by adding commas to the currency string too.
   return { currency: `$${val}`, float: val }
 }
 
@@ -29,18 +29,4 @@ export const selectedOptionSelector = (fieldSelector) => {
 
 export const usingFixtures = () => {
   return Cypress.env('salesforceInstanceUrl') === 'https://sfhousing.my.salesforce.com'
-}
-
-export const interceptInviteToApplyFlag = (listingId) => {
-  cy.intercept(
-    'GET',
-    'https://dahlia-feature-service-fbc319c3f542.herokuapp.com/api/frontend**',
-    (request) => {
-      request.continue((response) => {
-        response.body.toggles.find(
-          (toggle) => toggle.name === 'partners.inviteToApply'
-        ).variant.payload.value = listingId
-      })
-    }
-  ).as('inviteToApplyFeatureFlag')
 }

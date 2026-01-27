@@ -2,8 +2,7 @@ import {
   bulkActionCheckboxId,
   statusMenuItemSelector,
   nthRowStatusDropdownSelector,
-  usingFixtures,
-  interceptInviteToApplyFlag
+  usingFixtures
 } from '../../support/utils'
 
 const firstRowStatusDropdown = '.rt-tr-group:first-child .rt-td .dropdown .dropdown-button'
@@ -17,11 +16,6 @@ const SECOND_ROW_LEASE_UP_APP_ID = Cypress.env('SECOND_ROW_LEASE_UP_APP_ID')
 const THIRD_ROW_LEASE_UP_APP_ID = Cypress.env('THIRD_ROW_LEASE_UP_APP_ID')
 
 describe('LeaseUpApplicationsPage status update', () => {
-  beforeEach(() => {
-    // there wasn't an easy way to hide invite-to-apply substatuses behind a feature flag,
-    //   so we treat the listing as invite-to-apply to be able to test all substatuses
-    interceptInviteToApplyFlag(LEASE_UP_LISTING_ID)
-  })
   describe('using the individual row status dropdown', () => {
     beforeEach(() => {
       if (usingFixtures()) {
