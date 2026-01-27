@@ -29,6 +29,7 @@ export const buildLeaseUpAppPrefModel = (applicationPreference) => {
     post_lottery_validation: applicationPreference.post_lottery_validation,
     lottery_status: applicationPreference.lottery_status,
     total_household_size: application.total_household_size,
-    layered_preference_validation: applicationPreference.layered_preference_validation
+    layered_preference_validation: applicationPreference.layered_preference_validation,
+    upload_url: application.upload_url
   }
 }

@@ -82,6 +82,7 @@ module Force
       { custom_api: '', domain: 'status_last_updated', salesforce: 'Processing_Date_Updated' },
       { custom_api: 'suppAppSignedDate', domain: 'supp_app_signed_date', salesforce: 'Supp_App_Signed_Date', type: 'date' },
       { custom_api: 'inviteToApplyDeadlineDate', domain: 'invite_to_apply_deadline_date', salesforce: 'Invite_To_Apply_Deadline_Date', type: 'date' },
+      { custom_api: 'uploadUrl', domain: 'upload_url', salesforce: 'Upload_URL' },
     ].freeze
 
     def to_domain
