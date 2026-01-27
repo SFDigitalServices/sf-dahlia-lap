@@ -41,9 +41,8 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
   })
 
   const handleSetUpInvitationApply = () => {
-    // show setup invitation to apply modal
-    showRsvpModal('uploadUrl')
     setExampleSuccessAlertState({ show: false, email: '' })
+    showNextModal(rsvpModalValues)
   }
   // expose handleSetupInvitationApply to parent
   useImperativeHandle(ref, () => ({
@@ -70,9 +69,28 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     setRsvpModalState(stateObj, callback)
   }
 
-  const uploadUrlModalSubmit = (values) => {
-    setRsvpModalValues(values)
-    showRsvpModal('setDeadline')
+  const uploadUrlModalSubmit = (submittedValues) => {
+    setRsvpModalValues(submittedValues)
+    showNextModal({
+      ...rsvpModalValues,
+      ...submittedValues
+    })
+    apiService.updateListing({
+      id: props.listingId,
+      file_upload_url: submittedValues[INVITE_APPLY_UPLOAD_KEY]
+    })
+  }
+
+  const showNextModal = (latestModalState) => {
+    // determine which modals to show based on whether
+    // certain variables have been set
+    if (!latestModalState[INVITE_APPLY_UPLOAD_KEY]) {
+      showRsvpModal('uploadUrl')
+    } else if (Object.keys(validateDeadline(latestModalState)).length !== 0) {
+      showRsvpModal('setDeadline')
+    } else {
+      showRsvpModal('review')
+    }
   }
 
   const getSelectedApplicationIds = () => {
@@ -81,17 +99,15 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       .map(([id, _]) => id)
   }
 
-  const setdeadlineModalSubmit = (values) => {
-    setRsvpModalValues(values)
+  const setdeadlineModalSubmit = (submittedValues) => {
+    setRsvpModalValues(submittedValues)
 
     const applicationIds = getSelectedApplicationIds()
-    const deadline = values[INVITE_APPLY_DEADLINE_KEY]
+    const deadline = submittedValues[INVITE_APPLY_DEADLINE_KEY]
 
-    showRsvpModal('review')
-
-    apiService.updateListing({
-      id: props.listingId,
-      file_upload_url: rsvpModalValues[INVITE_APPLY_UPLOAD_KEY]
+    showNextModal({
+      ...rsvpModalValues,
+      ...submittedValues
     })
 
     applicationIds.forEach((appId) => {
@@ -103,9 +119,9 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     })
   }
 
-  const validateDeadline = (values) => {
+  const validateDeadline = (submittedValues) => {
     const errs = {}
-    const dateInput = values[INVITE_APPLY_DEADLINE_KEY]
+    const dateInput = submittedValues[INVITE_APPLY_DEADLINE_KEY]
     const errMsg = 'Enter a date like: MM DD YYYY.  It must be after today.'
     if (dateInput) {
       const validation = validate.isFutureDate(errMsg)([
@@ -140,10 +156,10 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     ).length
   }
 
-  const sendInviteToApply = (values) => {
+  const sendInviteToApply = (submittedValues) => {
     const appIds = getSelectedApplicationIds()
     const deadline = rsvpModalValues[INVITE_APPLY_DEADLINE_KEY]
-    const exampleEmail = values[INVITE_APPLY_EXAMPLE_EMAIL]
+    const exampleEmail = submittedValues[INVITE_APPLY_EXAMPLE_EMAIL]
 
     if (!exampleEmail) {
       handleCloseRsvpModal()
