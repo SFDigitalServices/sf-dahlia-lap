@@ -1,5 +1,3 @@
-import { clone } from 'lodash'
-
 import formUtils from 'utils/formUtils'
 import { LEASE_UP_ACCESSIBILITY_OPTIONS } from 'utils/statusUtils'
 
@@ -12,14 +10,13 @@ export const getLeaseUpApplicationFilters = (statusOptions, includePreferences =
     },
     {
       label: 'Accessibility Requests',
-      getOptions: () => [...clone(LEASE_UP_ACCESSIBILITY_OPTIONS)],
+      getOptions: () => [...LEASE_UP_ACCESSIBILITY_OPTIONS],
       fieldName: 'accessibility',
       placeholder: 'Accessibility Requests'
     },
     {
       label: 'Application Status',
-      getOptions: () =>
-        formUtils.toOptions([formUtils.toOption('No Status'), ...clone(statusOptions)]),
+      getOptions: () => formUtils.toOptions([formUtils.toOption('No Status'), ...statusOptions]),
       fieldName: 'status',
       placeholder: 'Status'
     }

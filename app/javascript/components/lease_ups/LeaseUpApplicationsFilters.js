@@ -44,8 +44,8 @@ const LeaseUpApplicationsFilters = ({
   // only include preferences filter if the Listing Type is not first come first served
   const includePreferencesFilter = listingType !== LISTING_TYPE_FIRST_COME_FIRST_SERVED
   const filters = includePreferencesFilter
-    ? getLeaseUpApplicationFilters(listingId, statusOptions)
-    : getLeaseUpApplicationFilters(listingId, statusOptions, false)
+    ? getLeaseUpApplicationFilters(statusOptions)
+    : getLeaseUpApplicationFilters(statusOptions, false)
 
   return (
     <div className='padding-top--2x padding-left padding-right' style={styles.whiteSmokeBackground}>
