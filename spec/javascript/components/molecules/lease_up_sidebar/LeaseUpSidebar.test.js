@@ -3,11 +3,19 @@ import React from 'react'
 import { render, screen, within } from '@testing-library/react'
 
 import LeaseUpSidebar from 'components/molecules/lease_up_sidebar/LeaseUpSidebar'
+import { LEASE_UP_STATUS_OPTIONS } from 'utils/statusUtils'
 
 import { mockStatusItem, mockStatusItems, mockManyStatusItems } from '../../../mocks/statusItemMock'
 
 const getScreen = (items, isLoading = false) =>
-  render(<LeaseUpSidebar statusItems={items} isLoading={isLoading} onChangeStatus={jest.fn()} />)
+  render(
+    <LeaseUpSidebar
+      statusItems={items}
+      isLoading={isLoading}
+      onChangeStatus={jest.fn()}
+      statusOptions={LEASE_UP_STATUS_OPTIONS}
+    />
+  )
 
 jest.mock('react-select', () => (props) => {
   const handleChange = (event) => {
