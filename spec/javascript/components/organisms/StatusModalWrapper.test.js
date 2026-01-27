@@ -5,7 +5,7 @@ import { useFlag as useFlagUnleash, useFlagsStatus, useVariant } from '@unleash/
 import selectEvent from 'react-select-event'
 
 import StatusModalWrapper from 'components/organisms/StatusModalWrapper'
-import { LEASE_UP_SUBSTATUS_OPTIONS } from 'utils/statusUtils'
+import { LEASE_UP_SUBSTATUS_OPTIONS, LEASE_UP_STATUS_OPTIONS } from 'utils/statusUtils'
 
 jest.mock('@unleash/proxy-client-react')
 useFlagUnleash.mockImplementation(() => true)
@@ -33,6 +33,8 @@ const getScreen = (propOverrides = {}) =>
       onAlertCloseClick={ON_ALERT_CLOSE_CLICK}
       loading={false}
       submitButton='Update'
+      statusOptions={LEASE_UP_STATUS_OPTIONS}
+      substatusOptions={LEASE_UP_SUBSTATUS_OPTIONS}
       {...propOverrides}
     />
   )

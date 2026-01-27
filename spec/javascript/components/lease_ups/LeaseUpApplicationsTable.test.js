@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 import LeaseUpApplicationsTable from 'components/lease_ups/LeaseUpApplicationsTable'
 import Provider from 'context/Provider'
 import * as customHooks from 'utils/customHooks'
+import { LEASE_UP_STATUS_OPTIONS } from 'utils/statusUtils'
 
 import {
   mockBulkCheckboxesState,
@@ -50,6 +51,7 @@ describe('LeaseUpApplicationsTable', () => {
             atMaxPages={false}
             bulkCheckboxesState={mockBulkCheckboxesState}
             onBulkCheckboxClick={jest.fn()}
+            statusOptions={LEASE_UP_STATUS_OPTIONS}
           />
         </Provider>
       </BrowserRouter>
