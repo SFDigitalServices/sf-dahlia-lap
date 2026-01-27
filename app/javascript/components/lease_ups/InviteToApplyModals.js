@@ -114,7 +114,10 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       const dateObj = moment(`${deadline.year}-${deadline.month}-${deadline.day}`).endOf('day')
       apiService.updateApplication({
         id: appId,
-        invite_to_apply_deadline_date: dateObj.utc().format()
+        invite_to_apply_deadline_date: dateObj.utc().format(),
+        // TODO: remove after Upload_URL field gets utilized, but *before* deploying to prod!
+        upload_url:
+          'THIS IS A TEST UPLOAD URL THAT IS NOT REALLY A URL IT IS JUST A STRING FOR TEST PURPOSES'
       })
     })
   }
