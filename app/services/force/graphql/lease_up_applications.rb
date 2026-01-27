@@ -43,6 +43,7 @@ module Force
                       Sub_Status__c {value}
                       Processing_Status__c {value}
                       Processing_Date_Updated__c {value}
+                      Upload_URL__c {value}
                       Applicant__r {
                         First_Name__c {value}
                         Last_Name__c {value}
