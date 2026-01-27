@@ -150,8 +150,8 @@ export const LEASE_UP_SUBSTATUSES = {
   Waitlisted: [
     { value: 'Written confirmation sent', label: 'Written confirmation sent' },
     {
-      value: 'Contact about future vacancies',
-      label: 'Contact about future vacancies'
+      value: 'Asked to be contacted about future vacancies',
+      label: 'Asked to be contacted about future vacancies'
     },
     { value: 'None of the above', label: 'None of the above' }
   ],
