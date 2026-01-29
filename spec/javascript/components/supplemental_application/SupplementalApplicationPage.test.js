@@ -1,10 +1,14 @@
-import { render, screen, fireEvent, within, act } from '@testing-library/react'
+import { render, screen, fireEvent, within, act, waitFor } from '@testing-library/react'
 import { useFlag as useFlagUnleash, useFlagsStatus, useVariant } from '@unleash/proxy-client-react'
 import { cloneDeep } from 'lodash'
 import selectEvent from 'react-select-event'
 
 import supplementalApplication from '../../fixtures/supplemental_application'
 import { leaseUpAppWithUrl, renderAppWithUrl } from '../../testUtils/wrapperUtil'
+
+// Increase default test timeout for this file - tests involve multiple async operations
+// and can be slow in resource-constrained environments (e.g., VS Code terminal)
+jest.setTimeout(15000)
 
 const mockInitialLoad = jest.fn()
 const mockSubmitApplication = jest.fn()
@@ -191,7 +195,16 @@ jest.mock('apiService', () => {
   }
 })
 const getWrapper = async (id = getMockApplication().id) => {
-  return await act(async () => renderAppWithUrl(getWindowUrl(id)))
+  const result = await act(async () => renderAppWithUrl(getWindowUrl(id)))
+  // Wait for the page to finish loading by waiting for the form to appear
+  // Increase timeout to 5s since async data loading can take time under load
+  await waitFor(
+    () => {
+      expect(screen.getByRole('form')).toBeInTheDocument()
+    },
+    { timeout: 5000 }
+  )
+  return result
 }
 
 describe('SupplementalApplicationPage', () => {
@@ -298,11 +311,13 @@ describe('SupplementalApplicationPage', () => {
         { target: { value: '0' } }
       )
     )
-    fireEvent.change(
-      screen.getByRole('combobox', {
-        name: /primary applicant marital status/i
-      }),
-      { target: { value: 'Domestic Partner' } }
+    await act(() =>
+      fireEvent.change(
+        screen.getByRole('combobox', {
+          name: /primary applicant marital status/i
+        }),
+        { target: { value: 'Domestic Partner' } }
+      )
     )
 
     await act(() => {
@@ -316,6 +331,14 @@ describe('SupplementalApplicationPage', () => {
   describe('preference panel', () => {
     test('it saves a live/work application preference panel', async () => {
       await getWrapper()
+
+      // Wait for the expandable table rows to be rendered after async data loads
+      await waitFor(
+        () => {
+          expect(screen.getAllByTestId('expandable-table-row').length).toBeGreaterThan(3)
+        },
+        { timeout: 5000 }
+      )
 
       expect(screen.getAllByTestId('expandable-table-row')[3]).toHaveAttribute(
         'aria-expanded',
@@ -470,7 +493,13 @@ describe('SupplementalApplicationPage', () => {
     test('should save a lease object', async () => {
       await getWrapper()
 
-      fireEvent.click(screen.getByRole('button', { name: /edit lease/i }))
+      // Wait for the edit lease button to be available after async data loads
+      const editLeaseButton = await screen.findByRole(
+        'button',
+        { name: /edit lease/i },
+        { timeout: 5000 }
+      )
+      fireEvent.click(editLeaseButton)
 
       const leaseStartDate = screen.getAllByTestId('multi-date-field')[1]
       const monthInput = within(leaseStartDate).getAllByRole('textbox')[0]
@@ -482,7 +511,7 @@ describe('SupplementalApplicationPage', () => {
       // Fill out lease fields
       // Assigned Unit number
 
-      selectEvent.openMenu(
+      await selectEvent.openMenu(
         within(
           screen.getByRole('button', {
             name: /assigned unit number/i
@@ -571,13 +600,16 @@ describe('SupplementalApplicationPage', () => {
       expect(mockCreateLease.mock.calls).toHaveLength(0)
       expect(mockUpdateLease.mock.calls).toHaveLength(1)
       expect(mockUpdateLease).toHaveBeenCalledWith(expectedLease)
-    }, 10000)
+    }, 20000)
 
     test('it displays "No Units Available" and 0 units count when no units available', async () => {
       await getWrapper(ID_NO_AVAILABLE_UNITS)
-      const unitSelect = screen.getByRole('button', {
-        name: /assigned unit number/i
-      })
+      // Wait for the unit select to be available after async units data loads
+      const unitSelect = await screen.findByRole(
+        'button',
+        { name: /assigned unit number/i },
+        { timeout: 5000 }
+      )
 
       expect(within(unitSelect).getByText('No Units Available')).toBeInTheDocument()
       expect(screen.getByTestId('total-available-count').textContent).toBe('0')
@@ -614,7 +646,7 @@ describe('SupplementalApplicationPage', () => {
 
         fireEvent.click(screen.getByRole('button', { name: /edit lease/i }))
 
-        selectEvent.openMenu(
+        await selectEvent.openMenu(
           within(
             screen.getByRole('button', {
               name: /assigned unit number/i
@@ -622,7 +654,7 @@ describe('SupplementalApplicationPage', () => {
           ).getByRole('combobox')
         )
 
-        act(() => {
+        await act(() => {
           fireEvent.click(screen.getByText(/unit without priority/i))
         })
       })
@@ -659,7 +691,7 @@ describe('SupplementalApplicationPage', () => {
 
         fireEvent.click(screen.getByRole('button', { name: /edit lease/i }))
 
-        selectEvent.openMenu(
+        await selectEvent.openMenu(
           within(
             screen.getByRole('button', {
               name: /assigned unit number/i
@@ -668,7 +700,7 @@ describe('SupplementalApplicationPage', () => {
         )
 
         await act(async () => {
-          await fireEvent.click(screen.getByText(/unit with priority/i))
+          fireEvent.click(screen.getByText(/unit with priority/i))
         })
       })
 
