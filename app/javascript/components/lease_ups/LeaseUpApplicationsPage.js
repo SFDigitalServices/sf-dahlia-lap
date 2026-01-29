@@ -11,7 +11,7 @@ import {
   applicationsPageMounted,
   applicationsTableFiltersApplied
 } from 'components/lease_ups/actions/actionCreators'
-import { LEASE_UP_APPLICATION_FILTERS } from 'components/lease_ups/applicationFiltersConsts'
+import { getLeaseUpApplicationFilters } from 'components/lease_ups/applicationFiltersConsts'
 import appPaths from 'utils/appPaths'
 import {
   useAsync,
@@ -22,7 +22,8 @@ import {
   useAppContext
 } from 'utils/customHooks'
 import { GRAPHQL_SERVER_PAGE_SIZE, EagerPagination } from 'utils/EagerPagination'
-import { getSubStatusLabel, LEASE_UP_SUBSTATUS_OPTIONS } from 'utils/statusUtils'
+import { getLeaseUpStatusOptions, getLeaseUpSubstatusOptions } from 'utils/inviteApplyEmail'
+import { getSubStatusLabel } from 'utils/statusUtils'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
 import Context from './context'
@@ -129,11 +130,14 @@ const LeaseUpApplicationsPage = () => {
     }
   })
 
+  const statusOptions = getLeaseUpStatusOptions(listingId)
+  const substatusOptions = getLeaseUpSubstatusOptions(listingId)
+
   useAsync(
     () => {
       const urlFilters = {}
       let { appliedFilters, page } = applicationsListData
-      LEASE_UP_APPLICATION_FILTERS.forEach((filter) => {
+      getLeaseUpApplicationFilters(statusOptions).forEach((filter) => {
         const values = searchParams.getAll(filter.fieldName)
         if (values.length > 0) {
           urlFilters[filter.fieldName] = values
@@ -221,7 +225,7 @@ const LeaseUpApplicationsPage = () => {
       // previous substatus might be a comment
       // clear it out if so
       if (
-        !find(LEASE_UP_SUBSTATUS_OPTIONS[applicationsData[appId].status] || [], {
+        !find(substatusOptions[applicationsData[appId].status] || [], {
           value: applicationsData[appId].subStatus
         })
       ) {
@@ -384,7 +388,9 @@ const LeaseUpApplicationsPage = () => {
     statusModal: statusModalState,
     listing,
     setPageState: setState,
-    hasFilters: Object.keys(applicationsListData.appliedFilters).length > 0
+    hasFilters: Object.keys(applicationsListData.appliedFilters).length > 0,
+    statusOptions,
+    substatusOptions
   }
 
   const closePageAlert = () => {

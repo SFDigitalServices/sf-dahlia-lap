@@ -9,13 +9,11 @@ import StatusDropdown from 'components/molecules/StatusDropdown'
 import SubstatusDropdown from 'components/molecules/SubstatusDropdown'
 import { TextAreaField, Label, FieldError } from 'utils/form/final_form/Field'
 import validate from 'utils/form/validations'
-import { IsInviteToApplyEnabledForListing } from 'utils/inviteApplyEmail'
 import {
   statusRequiresComments,
+  validateStatusForm,
   LEASE_UP_STATUS_VALUES,
-  LEASE_UP_SUBSTATUS_OPTIONS,
-  LEASE_UP_SUBSTATUS_VALUES,
-  validateStatusForm
+  LEASE_UP_SUBSTATUS_VALUES
 } from 'utils/statusUtils'
 
 import FormModal from './FormModal'
@@ -40,14 +38,9 @@ const StatusModalWrapper = ({
   submitButton,
   subStatus = null,
   title = null,
-  listingId = null
+  substatusOptions = null,
+  statusOptions = null
 }) => {
-  const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listingId)
-  const substatusOptions = JSON.parse(JSON.stringify(LEASE_UP_SUBSTATUS_OPTIONS))
-  if (!isInviteApplyEnabled && substatusOptions.Processing) {
-    delete substatusOptions.Processing
-  }
-
   return (
     <FormModal
       title={title}
@@ -106,6 +99,7 @@ const StatusModalWrapper = ({
                             }}
                             expand
                             size='small'
+                            statusOptions={statusOptions}
                           />
                           <FieldError meta={meta} />
                         </div>
@@ -130,6 +124,7 @@ const StatusModalWrapper = ({
                               onChange={onChange}
                               hasError={hasError}
                               expand
+                              substatusOptions={substatusOptions}
                             />
                             <FieldError meta={meta} />
                           </div>
@@ -179,5 +174,7 @@ StatusModalWrapper.propTypes = {
   status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
   submitButton: PropTypes.node,
   subStatus: PropTypes.oneOf(LEASE_UP_SUBSTATUS_VALUES),
-  title: PropTypes.string
+  title: PropTypes.string,
+  substatusOptions: PropTypes.object,
+  statusOptions: PropTypes.array
 }
