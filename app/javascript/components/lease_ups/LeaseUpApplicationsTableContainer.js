@@ -48,6 +48,11 @@ export const getAccessibilityKeys = (application) => {
 export const buildRowData = (application) => {
   const rowData = cloneDeep(application)
 
+  // TODO: remove after Upload_URL field gets utilized, but *before* deploying to prod!
+  if (application.upload_url) {
+    console.log('application has Upload_URL: ', application)
+  }
+
   // get keys and remove empty values
   if (application.has_ada_priorities_selected) {
     rowData.accessibility = getAccessibilityKeys(application)

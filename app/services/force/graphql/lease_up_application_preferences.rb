@@ -55,6 +55,7 @@ module Force
                         General_Lottery_Rank__c {value}
                         Has_ADA_Priorities_Selected__c {value}
                         Invite_To_Apply_Deadline_Date__c {value}
+                        Upload_URL__c {value}
                         Total_Household_Size__c {value}
                         Sub_Status__c {value}
                         Processing_Status__c {value}
