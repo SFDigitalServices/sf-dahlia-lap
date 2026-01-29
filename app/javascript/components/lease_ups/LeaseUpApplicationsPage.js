@@ -137,7 +137,7 @@ const LeaseUpApplicationsPage = () => {
     () => {
       const urlFilters = {}
       let { appliedFilters, page } = applicationsListData
-      getLeaseUpApplicationFilters(listingId, statusOptions).forEach((filter) => {
+      getLeaseUpApplicationFilters(statusOptions).forEach((filter) => {
         const values = searchParams.getAll(filter.fieldName)
         if (values.length > 0) {
           urlFilters[filter.fieldName] = values
