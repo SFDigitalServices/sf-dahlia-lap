@@ -13,14 +13,18 @@ import { InputField, HelpText } from 'utils/form/final_form/Field'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import validate from 'utils/form/validations'
 
+import InviteToApplyUploadUrlTable from './InviteToApplyUploadUrlTable'
+
 export const InviteToApplyModals = forwardRef((props, ref) => {
   const INVITE_APPLY_UPLOAD_KEY = 'invite-to-apply-file-upload-url'
+  const INVITE_APPLY_PER_APP_UPLOAD_KEY = 'invite-to-apply-per-app-upload-url'
   const INVITE_APPLY_DEADLINE_KEY = 'invite-to-apply-deadline'
   const INVITE_APPLY_EXAMPLE_EMAIL = 'invite-to-apply-example-email'
 
   const [rsvpModalState, setRsvpModalState] = useStateObject({
     // modal hide/show states
     uploadUrl: false,
+    urlPerApp: false,
     setDeadline: false,
     review: false,
     example: false
@@ -84,8 +88,16 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
   const showNextModal = (latestModalState) => {
     // determine which modals to show based on whether
     // certain variables have been set
-    if (!latestModalState[INVITE_APPLY_UPLOAD_KEY]) {
+    if (
+      !latestModalState[INVITE_APPLY_UPLOAD_KEY] &&
+      localStorage.getItem('urlPerAppMode') === 'false'
+    ) {
       showRsvpModal('uploadUrl')
+    } else if (
+      !latestModalState[INVITE_APPLY_PER_APP_UPLOAD_KEY] &&
+      localStorage.getItem('urlPerAppMode') === 'true'
+    ) {
+      showRsvpModal('urlPerApp')
     } else if (Object.keys(validateDeadline(latestModalState)).length !== 0) {
       showRsvpModal('setDeadline')
     } else {
@@ -93,10 +105,20 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     }
   }
 
+  const toggleUrlPerApplcation = () => {
+    localStorage.setItem('urlPerAppMode', !JSON.parse(localStorage.getItem('urlPerAppMode')))
+    showNextModal(rsvpModalValues)
+  }
+
   const getSelectedApplicationIds = () => {
     return Object.entries(props.bulkCheckboxesState)
       .filter(([_, checked]) => checked)
       .map(([id, _]) => id)
+  }
+
+  const getSelectedApplicationData = () => {
+    const selectedIds = getSelectedApplicationIds()
+    return props.applications.filter((app) => selectedIds.includes(app.application_id))
   }
 
   const setdeadlineModalSubmit = (submittedValues) => {
@@ -143,6 +165,32 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
         year: errMsg,
         month: errMsg,
         day: errMsg
+      }
+    }
+
+    return errs
+  }
+
+  const validateUniqueUrls = (submittedValues) => {
+    const errs = {}
+    const dupes = new Set()
+    const uniques = new Set()
+    const values = Object.values(submittedValues)
+
+    values.forEach((val) => {
+      if (uniques.has(val)) {
+        dupes.add(val)
+      } else {
+        uniques.add(val)
+      }
+    })
+
+    if (dupes.size > 0) {
+      for (const key in submittedValues) {
+        if (dupes.has(submittedValues[key])) {
+          errs[key] =
+            'Duplicate URL found.  Make sure you have the correct link for this applicant.'
+        }
       }
     }
 
@@ -239,7 +287,42 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
                 />
               </FormGrid.Item>
             </FormGrid.Row>
+            <p>
+              <a
+                onClick={() => {
+                  toggleUrlPerApplcation()
+                }}
+              >
+                Or, add a unique URL for each application
+              </a>
+            </p>
           </div>
+        )}
+      </FormModal>
+      <FormModal
+        isOpen={rsvpModalState.urlPerApp}
+        title='Add a document upload URL for each applicant'
+        subtitle='Enter the unique link each applicant will use to upload their documents.'
+        onSubmit={() => {}}
+        handleClose={handleCloseRsvpModal}
+        primary='next'
+        secondary='cancel'
+        onSecondaryClick={handleCloseRsvpModal}
+        validateError={validateUniqueUrls}
+      >
+        {(_values, _changeFieldValue, form) => (
+          <>
+            <p>
+              <a
+                onClick={() => {
+                  toggleUrlPerApplcation()
+                }}
+              >
+                Or, use a single URL for all applicants
+              </a>
+            </p>
+            <InviteToApplyUploadUrlTable getSelectedData={getSelectedApplicationData} />
+          </>
         )}
       </FormModal>
       <FormModal
