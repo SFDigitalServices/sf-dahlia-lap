@@ -4,11 +4,11 @@ import { cloneDeep } from 'lodash'
 import selectEvent from 'react-select-event'
 
 import supplementalApplication from '../../fixtures/supplemental_application'
+import { leaseUpAppWithUrl, renderAppWithUrl } from '../../testUtils/wrapperUtil'
 
 // Increase default test timeout for this file - tests involve multiple async operations
 // and can be slow in resource-constrained environments (e.g., VS Code terminal)
 jest.setTimeout(15000)
-import { leaseUpAppWithUrl, renderAppWithUrl } from '../../testUtils/wrapperUtil'
 
 const mockInitialLoad = jest.fn()
 const mockSubmitApplication = jest.fn()
@@ -494,7 +494,11 @@ describe('SupplementalApplicationPage', () => {
       await getWrapper()
 
       // Wait for the edit lease button to be available after async data loads
-      const editLeaseButton = await screen.findByRole('button', { name: /edit lease/i }, { timeout: 5000 })
+      const editLeaseButton = await screen.findByRole(
+        'button',
+        { name: /edit lease/i },
+        { timeout: 5000 }
+      )
       fireEvent.click(editLeaseButton)
 
       const leaseStartDate = screen.getAllByTestId('multi-date-field')[1]
