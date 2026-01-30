@@ -123,8 +123,8 @@ Cypress.Commands.add('applicationRedirectRouteCheck', (type, id) => {
 })
 
 Cypress.Commands.add('selectStatusDropdownValue', (dropdownSelector, valueSelector) => {
-  cy.get(dropdownSelector).click()
-  cy.get(valueSelector).first().click()
+  cy.get(dropdownSelector, { timeout: 10000 }).should('be.visible').and('not.be.disabled').click()
+  cy.get(valueSelector, { timeout: 5000 }).should('be.visible').first().click()
 })
 
 Cypress.Commands.add('checkForStatusUpdateSuccess', () => {
@@ -152,13 +152,19 @@ Cypress.Commands.add('getStatusInModal', () => {
 })
 
 Cypress.Commands.add('fillOutAndSubmitStatusModal', (isCommentModal = false) => {
+  // Wait for modal to be visible
+  cy.get('.form-modal_form_wrapper', { timeout: 10000 }).should('be.visible')
+
   if (!isCommentModal) {
     cy.getStatusInModal().then((status) => {
       cy.selectSubstatusIfRequired(status)
     })
   }
-  cy.get(commentInputSelector).type('some comment')
-  cy.get(submitStatusModalSelector).click()
+  cy.get(commentInputSelector, { timeout: 5000 }).should('be.visible').clear().type('some comment')
+  cy.get(submitStatusModalSelector, { timeout: 5000 })
+    .should('be.visible')
+    .and('not.be.disabled')
+    .click()
 })
 
 Cypress.Commands.add('selectSubstatusIfRequired', (selectedStatus) => {

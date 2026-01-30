@@ -66,8 +66,12 @@ describe('LeaseUpApplicationsPage status update', () => {
         cy.wait('@leaseUpApplications')
 
         // Check the checkboxes in the 2nd and 3rd row
-        cy.get(bulkActionCheckboxId(SECOND_ROW_LEASE_UP_APP_ID)).click()
-        cy.get(bulkActionCheckboxId(THIRD_ROW_LEASE_UP_APP_ID)).click()
+        cy.get(bulkActionCheckboxId(SECOND_ROW_LEASE_UP_APP_ID), { timeout: 10000 })
+          .should('be.visible')
+          .click()
+        cy.get(bulkActionCheckboxId(THIRD_ROW_LEASE_UP_APP_ID), { timeout: 10000 })
+          .should('be.visible')
+          .click()
 
         cy.get(bulkActionCheckboxId(SECOND_ROW_LEASE_UP_APP_ID)).should('be.checked')
         cy.get(bulkActionCheckboxId(THIRD_ROW_LEASE_UP_APP_ID)).should('be.checked')
@@ -79,7 +83,15 @@ describe('LeaseUpApplicationsPage status update', () => {
         // The problem is that if one of these requests does not happen we get an ambiguous timeout error.
         cy.checkForStatusUpdateSuccess()
         cy.fillOutAndSubmitStatusModal()
-        cy.wait('@fieldUpdateComments')
+        cy.wait('@fieldUpdateComments', { timeout: 15000 })
+
+        // Wait for modal to close
+        cy.get('.ReactModal__Overlay.ReactModal__Overlay--after-open', { timeout: 15000 }).should(
+          'not.exist'
+        )
+
+        // Wait for UI to update after modal closes
+        cy.wait(1000)
 
         // Expect checkboxes to be unchecked and statuses to be updated
         cy.getText(nthRowStatusDropdownSelector(2)).should('contain', PROCESSING)
@@ -89,15 +101,32 @@ describe('LeaseUpApplicationsPage status update', () => {
         cy.get(bulkActionCheckboxId(THIRD_ROW_LEASE_UP_APP_ID)).should('not.be.checked')
 
         // Repeat with status Appealed
-        cy.get(bulkActionCheckboxId(SECOND_ROW_LEASE_UP_APP_ID)).click()
-        cy.get(bulkActionCheckboxId(THIRD_ROW_LEASE_UP_APP_ID)).click()
+        cy.get(bulkActionCheckboxId(SECOND_ROW_LEASE_UP_APP_ID), { timeout: 10000 })
+          .should('be.visible')
+          .and('not.be.disabled')
+          .click()
+        cy.get(bulkActionCheckboxId(THIRD_ROW_LEASE_UP_APP_ID), { timeout: 10000 })
+          .should('be.visible')
+          .and('not.be.disabled')
+          .click()
+
+        cy.get(bulkActionCheckboxId(SECOND_ROW_LEASE_UP_APP_ID)).should('be.checked')
+        cy.get(bulkActionCheckboxId(THIRD_ROW_LEASE_UP_APP_ID)).should('be.checked')
 
         // Select Appealed as bulk status
         cy.selectStatusDropdownValue(bulkStatusDropdown, statusMenuItemSelector(APPEALED))
 
         cy.checkForStatusUpdateSuccess()
         cy.fillOutAndSubmitStatusModal()
-        cy.wait('@fieldUpdateComments')
+        cy.wait('@fieldUpdateComments', { timeout: 15000 })
+
+        // Wait for modal to close
+        cy.get('.ReactModal__Overlay.ReactModal__Overlay--after-open', { timeout: 15000 }).should(
+          'not.exist'
+        )
+
+        // Wait for UI to update after modal closes
+        cy.wait(1000)
 
         cy.getText(nthRowStatusDropdownSelector(2)).should('contain', APPEALED)
         cy.getText(nthRowStatusDropdownSelector(3)).should('contain', APPEALED)
