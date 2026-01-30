@@ -66,12 +66,13 @@ describe('LeaseUpApplicationsPage status update', () => {
         cy.wait('@leaseUpApplications')
 
         // Check the checkboxes in the 2nd and 3rd row
+        // Note: checkboxes have opacity: 0, so we need to use force: true
         cy.get(bulkActionCheckboxId(SECOND_ROW_LEASE_UP_APP_ID), { timeout: 10000 })
-          .should('be.visible')
-          .click()
+          .should('exist')
+          .click({ force: true })
         cy.get(bulkActionCheckboxId(THIRD_ROW_LEASE_UP_APP_ID), { timeout: 10000 })
-          .should('be.visible')
-          .click()
+          .should('exist')
+          .click({ force: true })
 
         cy.get(bulkActionCheckboxId(SECOND_ROW_LEASE_UP_APP_ID)).should('be.checked')
         cy.get(bulkActionCheckboxId(THIRD_ROW_LEASE_UP_APP_ID)).should('be.checked')
@@ -102,13 +103,13 @@ describe('LeaseUpApplicationsPage status update', () => {
 
         // Repeat with status Appealed
         cy.get(bulkActionCheckboxId(SECOND_ROW_LEASE_UP_APP_ID), { timeout: 10000 })
-          .should('be.visible')
+          .should('exist')
           .and('not.be.disabled')
-          .click()
+          .click({ force: true })
         cy.get(bulkActionCheckboxId(THIRD_ROW_LEASE_UP_APP_ID), { timeout: 10000 })
-          .should('be.visible')
+          .should('exist')
           .and('not.be.disabled')
-          .click()
+          .click({ force: true })
 
         cy.get(bulkActionCheckboxId(SECOND_ROW_LEASE_UP_APP_ID)).should('be.checked')
         cy.get(bulkActionCheckboxId(THIRD_ROW_LEASE_UP_APP_ID)).should('be.checked')
