@@ -123,8 +123,8 @@ Cypress.Commands.add('applicationRedirectRouteCheck', (type, id) => {
 })
 
 Cypress.Commands.add('selectStatusDropdownValue', (dropdownSelector, valueSelector) => {
-  cy.get(dropdownSelector).click()
-  cy.get(valueSelector).first().click()
+  cy.get(dropdownSelector, { timeout: 10000 }).should('be.visible').and('not.be.disabled').click()
+  cy.get(valueSelector, { timeout: 5000 }).should('be.visible').first().click()
 })
 
 Cypress.Commands.add('checkForStatusUpdateSuccess', () => {
@@ -152,25 +152,36 @@ Cypress.Commands.add('getStatusInModal', () => {
 })
 
 Cypress.Commands.add('fillOutAndSubmitStatusModal', (isCommentModal = false) => {
+  // Wait for modal to be visible
+  cy.get('.form-modal_form_wrapper', { timeout: 10000 }).should('be.visible')
+
   if (!isCommentModal) {
     cy.getStatusInModal().then((status) => {
       cy.selectSubstatusIfRequired(status)
     })
   }
-  cy.get(commentInputSelector).type('some comment')
-  cy.get(submitStatusModalSelector).click()
+  cy.get(commentInputSelector, { timeout: 5000 }).should('be.visible').clear().type('some comment')
+  cy.get(submitStatusModalSelector, { timeout: 5000 })
+    .should('be.visible')
+    .and('not.be.disabled')
+    .click()
 })
 
 Cypress.Commands.add('selectSubstatusIfRequired', (selectedStatus) => {
   if (selectedStatus.toLowerCase() !== 'lease signed') {
     // If status has a subStatus value wait for that dropdown to be available and select one
-    cy.get('.form-modal_form_wrapper .substatus-dropdown__control').click()
+    cy.get('.form-modal_form_wrapper .substatus-dropdown__control', { timeout: 5000 })
+      .should('be.visible')
+      .click()
 
-    cy.get('.form-modal_form_wrapper .substatus-dropdown__control button')
+    cy.get('.form-modal_form_wrapper .substatus-dropdown__control button', { timeout: 5000 })
       .invoke('text')
       .should('contain', 'Select one...')
 
-    cy.get('.form-modal_form_wrapper .substatus-dropdown__menu li a').first().click()
+    cy.get('.form-modal_form_wrapper .substatus-dropdown__menu li a', { timeout: 5000 })
+      .should('be.visible')
+      .first()
+      .click()
 
     let selectedSubStatus
     cy.getStatusInModal().then((status) => {
@@ -204,38 +215,57 @@ Cypress.Commands.add('testStatusModalUpdate', () => {
   const unselectedStatusSelector = '.form-modal_form_wrapper ' + unselectedStatusMenuItem
   let newSelectedStatus
 
+  // Ensure modal is fully visible and ready
+  cy.get('.form-modal_form_wrapper', { timeout: 10000 }).should('be.visible')
+
   // Select a status different from the current one in the status modal
-  cy.get('.form-modal_form_wrapper .dropdown').first().click()
+  cy.get('.form-modal_form_wrapper .dropdown', { timeout: 5000 })
+    .first()
+    .should('be.visible')
+    .click()
+
+  // Wait for dropdown menu to appear
+  cy.get(unselectedStatusSelector, { timeout: 5000 }).should('be.visible')
+
   cy.get(unselectedStatusSelector)
     .first()
     .invoke('text')
     .then((text) => {
-      newSelectedStatus = text
+      newSelectedStatus = text.trim()
       cy.get(unselectedStatusSelector).first().click()
       cy.selectSubstatusIfRequired(newSelectedStatus)
     })
 
   // Enter a comment into the status modal comment field
-  cy.get(commentInputSelector).type(COMMENT)
+  cy.get(commentInputSelector, { timeout: 5000 }).should('be.visible').clear().type(COMMENT)
 
   // Submit the status modal form
-  cy.get(submitStatusModalSelector).click()
+  cy.get(submitStatusModalSelector, { timeout: 5000 }).should('be.visible').and('not.be.disabled').click()
 
   // Verify that no form-field errors are present on save
   cy.get('span.error').should('not.exist')
 
-  // wait for modal overlay to be hidden after submit
-  cy.get('.ReactModal__Overlay.ReactModal__Overlay--after-open').should('not.exist')
+  // Wait for modal overlay to be hidden after submit with increased timeout
+  cy.get('.ReactModal__Overlay.ReactModal__Overlay--after-open', { timeout: 30000 }).should('not.exist')
+
+  // Wait a bit for the UI to update after modal closes
+  cy.wait(500)
 
   // The latest status in the status history should be the status that was just selected and saved
-  cy.getText('.status-items .status-item:first-child .status-pill').then((latestStatus) => {
-    cy.wrap(latestStatus).should('equal', newSelectedStatus)
-  })
+  cy.get('.status-items .status-item:first-child .status-pill', { timeout: 10000 })
+    .should('be.visible')
+    .invoke('text')
+    .then((latestStatus) => {
+      cy.wrap(latestStatus.trim()).should('equal', newSelectedStatus)
+    })
 
   // The latest comment in the status history should be the comment that was just entered and saved
-  cy.getText('.status-items .status-item:first-child .status-item-text').then((latestComment) => {
-    cy.wrap(latestComment).should('equal', COMMENT)
-  })
+  cy.get('.status-items .status-item:first-child .status-item-text', { timeout: 5000 })
+    .should('be.visible')
+    .invoke('text')
+    .then((latestComment) => {
+      cy.wrap(latestComment.trim()).should('equal', COMMENT)
+    })
 })
 
 //
