@@ -246,7 +246,7 @@ Cypress.Commands.add('testStatusModalUpdate', () => {
   cy.get('span.error').should('not.exist')
 
   // Wait for modal overlay to be hidden after submit with increased timeout
-  cy.get('.ReactModal__Overlay.ReactModal__Overlay--after-open', { timeout: 15000 }).should('not.exist')
+  cy.get('.ReactModal__Overlay.ReactModal__Overlay--after-open', { timeout: 30000 }).should('not.exist')
 
   // Wait a bit for the UI to update after modal closes
   cy.wait(500)

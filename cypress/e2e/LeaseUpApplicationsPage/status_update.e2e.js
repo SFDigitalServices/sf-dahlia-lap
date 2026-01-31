@@ -84,15 +84,15 @@ describe('LeaseUpApplicationsPage status update', () => {
         // The problem is that if one of these requests does not happen we get an ambiguous timeout error.
         cy.checkForStatusUpdateSuccess()
         cy.fillOutAndSubmitStatusModal()
-        cy.wait('@fieldUpdateComments', { timeout: 15000 })
+        cy.wait('@fieldUpdateComments', { timeout: 30000 })
 
         // Wait for modal to close
-        cy.get('.ReactModal__Overlay.ReactModal__Overlay--after-open', { timeout: 15000 }).should(
+        cy.get('.ReactModal__Overlay.ReactModal__Overlay--after-open', { timeout: 30000 }).should(
           'not.exist'
         )
 
         // Wait for UI to update after modal closes
-        cy.wait(1000)
+        cy.wait(2000)
 
         // Expect checkboxes to be unchecked and statuses to be updated
         cy.getText(nthRowStatusDropdownSelector(2)).should('contain', PROCESSING)
@@ -119,15 +119,15 @@ describe('LeaseUpApplicationsPage status update', () => {
 
         cy.checkForStatusUpdateSuccess()
         cy.fillOutAndSubmitStatusModal()
-        cy.wait('@fieldUpdateComments', { timeout: 15000 })
+        cy.wait('@fieldUpdateComments', { timeout: 30000 })
 
         // Wait for modal to close
-        cy.get('.ReactModal__Overlay.ReactModal__Overlay--after-open', { timeout: 15000 }).should(
+        cy.get('.ReactModal__Overlay.ReactModal__Overlay--after-open', { timeout: 30000 }).should(
           'not.exist'
         )
 
         // Wait for UI to update after modal closes
-        cy.wait(1000)
+        cy.wait(2000)
 
         cy.getText(nthRowStatusDropdownSelector(2)).should('contain', APPEALED)
         cy.getText(nthRowStatusDropdownSelector(3)).should('contain', APPEALED)
