@@ -1,11 +1,15 @@
+import { interceptInviteToApplyFlag } from '../../support/utils'
+
 const mobilitySelector = 'input#form-has_ada_priorities_selected\\.mobility_impairments'
 const shortFormTabSelector = '.tabs li:nth-child(2)'
 const supplementalTabSelector = '.tabs li:nth-child(1)'
 const LEASE_UP_LISTING_APPLICATION_ID = Cypress.env('LEASE_UP_LISTING_APPLICATION_ID')
+const LEASE_UP_LISTING_ID = Cypress.env('LEASE_UP_LISTING_ID')
 
 describe('SupplementalApplicationPage clicking on the short form tab', () => {
   beforeEach(() => {
     cy.setupIntercepts()
+    interceptInviteToApplyFlag(LEASE_UP_LISTING_ID)
   })
   it('should not erase updates made on the supp app tab', () => {
     let originalCheckboxValue
@@ -16,6 +20,7 @@ describe('SupplementalApplicationPage clicking on the short form tab', () => {
 
     // Load the supp app
     cy.visit(`/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
+    cy.wait('@inviteToApplyFeatureFlag')
     cy.wait('@shortForm')
     cy.wait('@fieldUpdateComments')
     cy.wait('@leases')
