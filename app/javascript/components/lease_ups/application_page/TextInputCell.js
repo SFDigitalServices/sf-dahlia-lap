@@ -9,6 +9,7 @@ const TextInputCell = ({ id, validation = () => {} }) => {
     <InputField
       fieldName={id}
       id={id}
+      label={true}
       cols='30'
       rows='10'
       ariaDescribedby={id + '-label'}
