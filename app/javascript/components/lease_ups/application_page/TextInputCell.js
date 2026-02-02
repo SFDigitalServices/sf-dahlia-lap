@@ -4,15 +4,14 @@ import { PropTypes } from 'prop-types'
 
 import { InputField } from 'utils/form/final_form/Field'
 
-const TextInputCell = ({ applicationId, validation = () => {} }) => {
-  const uniqueId = `bulk-rsvp-text-input-${applicationId}`
+const TextInputCell = ({ id, validation = () => {} }) => {
   return (
     <InputField
-      fieldName={uniqueId}
-      id={uniqueId}
+      fieldName={id}
+      id={id}
       cols='30'
       rows='10'
-      ariaDescribedby='invite-to-apply-upload-url-label'
+      ariaDescribedby={id + '-label'}
       maxLength='255'
       validation={validation}
     />

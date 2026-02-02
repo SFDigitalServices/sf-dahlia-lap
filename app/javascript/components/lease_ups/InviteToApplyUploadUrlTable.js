@@ -1,22 +1,20 @@
 import React from 'react'
 
-import { map } from 'lodash'
-
 import PreferenceRankCell from 'components/lease_ups/application_page/PreferenceRankCell'
 import validate from 'utils/form/validations'
 
 import TextInputCell from './application_page/TextInputCell'
 import { getCellWidth, textCell } from './LeaseUpApplicationsTable'
-import { buildRowData } from './LeaseUpApplicationsTableContainer'
 
-const InviteToApplyUploadUrlTable = ({ getSelectedData }) => {
-  const enhancedDataSet = map(getSelectedData(), buildRowData)
+export const UPLOAD_URL_INPUT_PREFIX = 'bulk-rsvp-text-input-'
+
+const InviteToApplyUploadUrlTable = ({ selectedData }) => {
   const columns = [
     {
       Header: 'Rank',
       accessor: 'rankOrder',
       headerClassName: 'non-resizable',
-      width: getCellWidth(60),
+      width: getCellWidth(83),
       // only show the preference validation if the listing type has preferences
       // first come first served listings do not have preferences
       Cell: (cell) => <PreferenceRankCell preferenceRank={cell.original.preference_rank} />
@@ -25,7 +23,7 @@ const InviteToApplyUploadUrlTable = ({ getSelectedData }) => {
       Header: 'Application',
       accessor: 'application_number',
       headerClassName: 'non-resizable',
-      width: getCellWidth(125),
+      width: getCellWidth(130),
       Cell: textCell
     },
     {
@@ -39,11 +37,11 @@ const InviteToApplyUploadUrlTable = ({ getSelectedData }) => {
       Header: 'Document upload URL',
       accessor: 'upload_url',
       headerClassName: 'non-resizable',
-      minWidth: getCellWidth(200),
+      minWidth: getCellWidth(401),
       Cell: (cell) => {
         return (
           <TextInputCell
-            applicationId={cell.original.application_id}
+            id={UPLOAD_URL_INPUT_PREFIX + cell.original.application_id}
             validation={validate.isValidUrl(
               'Not a valid web address.  Make sure it starts with https:// or http:// and has no spaces.'
             )}
@@ -87,7 +85,7 @@ const InviteToApplyUploadUrlTable = ({ getSelectedData }) => {
           maxHeight: '300px'
         }}
       >
-        {enhancedDataSet.map((row, rowIdx) => (
+        {selectedData.map((row, rowIdx) => (
           <tr
             className={rowIdx % 2 === 0 ? '-even' : '-odd'}
             key={rowIdx}

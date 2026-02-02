@@ -24,20 +24,42 @@ const styleTypes = {
       transform: 'translate(-50%,-50%)',
       width: '600px'
     }
+  },
+  large: {
+    overlay: {
+      backgroundColor: 'rgba(0,0,0,0.3)'
+    },
+    content: {
+      opacity: '1',
+      border: '0',
+      borderRadius: '4px',
+      bottom: 'auto',
+      minHeight: '10rem',
+      left: '50%',
+      top: '50%',
+      padding: '0px',
+      position: 'fixed',
+      right: 'auto',
+      overflow: 'visible',
+      transform: 'translate(-50%,-50%)',
+      width: '909px'
+    }
   }
 }
 
-const Modal = ({ children, isOpen, handleClose, styleType }) => (
-  <ReactModal
-    isOpen={isOpen}
-    style={styleTypes[styleType || 'small']}
-    onRequestClose={handleClose}
-    shouldCloseOnOverlayClick
-    ariaHideApp={process.env.NODE_ENV !== 'test'}
-  >
-    {children}
-  </ReactModal>
-)
+const Modal = ({ children, isOpen, handleClose, styleType }) => {
+  return (
+    <ReactModal
+      isOpen={isOpen}
+      style={styleTypes[styleType || 'small']}
+      onRequestClose={handleClose}
+      shouldCloseOnOverlayClick
+      ariaHideApp={process.env.NODE_ENV !== 'test'}
+    >
+      {children}
+    </ReactModal>
+  )
+}
 
 Modal.Body = ({ children, handleClose, hidden }) => (
   <div aria-labelledby='modalTitle' aria-hidden={hidden} role='dialog'>

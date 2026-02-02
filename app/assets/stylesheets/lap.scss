@@ -162,9 +162,18 @@ ul.bullet-list {
 
 .primary-alert .info-alert-inner {
   border: 2px solid #DAEEFF;
-  background-color: #F5F8F9;  
+  background-color: #F5F8F9;
   border-radius: 4px;
   .info-alert-body {
     width: 90%;
   }
+}
+
+.i2a-selected-apps-table thead, tbody {
+  display: block
+}
+
+.i2a-selected-apps-table tbody {
+  height: 300;
+  overflow-y: auto;
 }
