@@ -1,6 +1,8 @@
 import { usingFixtures } from '../../support/utils'
+import { interceptInviteToApplyFlag } from '../../support/utils'
 
 const LEASE_UP_LISTING_APPLICATION_ID = Cypress.env('LEASE_UP_LISTING_APPLICATION_ID')
+const LEASE_UP_LISTING_ID = Cypress.env('LEASE_UP_LISTING_ID')
 const unselectedStatusMenuItem = 'li[aria-selected="false"].dropdown-menu_item > a'
 
 describe('SupplementalApplicationPage statuses', () => {
@@ -32,6 +34,9 @@ describe('SupplementalApplicationPage statuses', () => {
       cy.intercept('api/v1/supplementals/units?listing_id=**').as('units')
       cy.intercept('api/v1/lease-ups/listings/**').as('leaseUpListing')
     }
+    // there wasn't an easy way to hide invite-to-apply substatuses behind a feature flag,
+    //   so we treat the listing as invite-to-apply to be able to test all substatuses
+    interceptInviteToApplyFlag(LEASE_UP_LISTING_ID)
   })
   it('should allow status updates via the Add a Comment button in the status history section', () => {
     cy.visit('http://localhost:3000/')
