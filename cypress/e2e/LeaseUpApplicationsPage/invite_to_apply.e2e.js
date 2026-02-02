@@ -20,6 +20,7 @@ describe('LeaseUpApplicationsPage send email', () => {
     cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
     cy.wait('@leaseUpListing')
     cy.wait('@leaseUpApplications')
+    cy.get('.rt-table').should('be.visible')
   }
 
   beforeEach(() => {
