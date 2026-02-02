@@ -8193,44 +8193,6 @@ button,
         background-color: #999;
         border-color: #999;
         color: #fff; }
-    button.is-outreached,
-    .button.is-outreached {
-    background-color: #daeeff;
-    border-color: #daeeff;
-    color: #222; }
-    button.is-outreached svg use,
-    .button.is-outreached svg use {
-      fill: #222; }
-    button.is-outreached:focus,
-    .button.is-outreached:focus {
-      background-color: #daeeff;
-      color: #222; }
-    button.is-outreached:hover,
-    .button.is-outreached:hover {
-      background-color: #c2e4f8;
-      color: #222; }
-    button.is-outreached:hover svg use,
-    .button.is-outreached:hover svg use {
-        fill: #222; }
-    button.is-outreached:active,
-    .button.is-outreached:active {
-      background-color: #aad1ed; }
-    button.is-outreached.disabled, button.is-outreached[disabled],
-    .button.is-outreached.disabled,
-    .button.is-outreached[disabled] {
-      background-color: #daeeff;
-      border-color: #daeeff;
-      color: #222; }
-      button.is-outreached.disabled:hover, button.is-outreached.disabled:active, button.is-outreached.disabled:focus, button.is-outreached[disabled]:hover, button.is-outreached[disabled]:active, button.is-outreached[disabled]:focus,
-      .button.is-outreached.disabled:hover,
-      .button.is-outreached.disabled:active,
-      .button.is-outreached.disabled:focus,
-      .button.is-outreached[disabled]:hover,
-      .button.is-outreached[disabled]:active,
-      .button.is-outreached[disabled]:focus {
-        background-color: #daeeff;
-        border-color: #daeeff;
-        color: #222; }
   button.is-approved,
   .button.is-approved {
     background-color: #0067be;
@@ -9603,10 +9565,6 @@ table, .ReactTable {
     background-color: #999;
     border: 2px solid #999;
     color: #fff; }
-  .status-pill.is-outreached {
-        background-color: #daeeff;
-    border: 2px solid #daeeff;
-    color: #000; }
   .status-pill.is-approved {
     background-color: #0067be;
     border: 2px solid #0067be;
@@ -10585,9 +10543,6 @@ table, .ReactTable {
     padding-left: 1.125rem; }
   .dropdown-menu_item.is-processing a {
     box-shadow: inset 5px 0px 0px 0px #999 !important;
-    padding-left: 1.125rem; }
-  .dropdown-menu_item.is-outreached a {
-    box-shadow: inset 5px 0px 0px 0px #daeeff !important;
     padding-left: 1.125rem; }
   .dropdown-menu_item.is-withdrawn a {
     box-shadow: inset 5px 0px 0px 0px #fdb81e !important;
@@ -13251,8 +13206,6 @@ a.toggle-nav-link {
       box-shadow: inset 3px 0 0 0 #0067be !important; }
     .ReactTable .rt-tr-status.is-processing .rt-td:first-of-type {
       box-shadow: inset 3px 0 0 0 #999 !important; }
-    .ReactTable .rt-tr-status.is-outreached .rt-td:first-of-type {
-      box-shadow: inset 3px 0 0 0 #daeeff !important; }
     .ReactTable .rt-tr-status.is-withdrawn .rt-td:first-of-type {
       box-shadow: inset 3px 0 0 0 #fdb81e !important; }
     .ReactTable .rt-tr-status.is-disqualified .rt-td:first-of-type {
@@ -13668,8 +13621,6 @@ button.save-button {
     box-shadow: inset 3px 0 0 0 #0067be !important; }
   .status-update.is-processing {
     box-shadow: inset 3px 0 0 0 #999 !important; }
-  .status-update.is-outreached {
-    box-shadow: inset 3px 0 0 0 #daeeff !important; }
   .status-update.is-withdrawn {
     box-shadow: inset 3px 0 0 0 #fdb81e !important; }
   .status-update.is-disqualified {
