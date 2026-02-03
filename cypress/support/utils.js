@@ -40,6 +40,7 @@ export const interceptInviteToApplyFlag = (listingId) => {
           name: 'partners.inviteToApply',
           enabled: true,
           variant: {
+            name: 'enabled_listing',
             payload: {
               value: listingId
             }
@@ -47,7 +48,11 @@ export const interceptInviteToApplyFlag = (listingId) => {
         },
         {
           name: 'temp.partners.inviteToApply.statuses',
-          enabled: true
+          enabled: true,
+          variant: {
+            name: 'enabled_listing',
+            enabled: true
+          }
         }
       ]
     }
