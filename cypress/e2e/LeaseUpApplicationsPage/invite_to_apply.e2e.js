@@ -23,8 +23,6 @@ describe('LeaseUpApplicationsPage send email', () => {
   }
 
   beforeEach(() => {
-    interceptInviteToApplyFlag(LEASE_UP_LISTING_ID)
-
     if (usingFixtures()) {
       cy.intercept('api/v1/lease-ups/listings/**', { fixture: 'leaseUpListing.json' }).as(
         'leaseUpListing'
@@ -32,13 +30,9 @@ describe('LeaseUpApplicationsPage send email', () => {
       cy.intercept(`api/v1/lease-ups/applications?listing_id=${LEASE_UP_LISTING_ID}**`, {
         fixture: 'leaseUpApplications.json'
       }).as('leaseUpApplications')
-      cy.intercept('api/v1/applications/**/field_update_comments', {
-        fixture: 'fieldUpdateComments.json'
-      }).as('fieldUpdateComments')
     } else {
       cy.intercept('api/v1/lease-ups/listings/**').as('leaseUpListing')
       cy.intercept('api/v1/lease-ups/applications?listing_id=**').as('leaseUpApplications')
-      cy.intercept('api/v1/applications/**/field_update_comments').as('fieldUpdateComments')
     }
 
     cy.intercept('PUT', 'api/v1/listings/**', {
@@ -49,6 +43,8 @@ describe('LeaseUpApplicationsPage send email', () => {
       statusCode: 200,
       body: 'true'
     }).as('inviteApplyDeadlinePut')
+
+    interceptInviteToApplyFlag(LEASE_UP_LISTING_ID)
   })
 
   it('should set document upload url and deadline for an Invite to Apply email', () => {

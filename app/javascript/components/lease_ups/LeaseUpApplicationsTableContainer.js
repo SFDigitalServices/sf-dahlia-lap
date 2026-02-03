@@ -110,6 +110,7 @@ const LeaseUpTableContainer = ({
   return (
     <>
       <LeaseUpApplicationsFilterContainer
+        listingId={listingId}
         statusOptions={statusOptions}
         listingType={listingType}
         preferences={preferences}
