@@ -9321,6 +9321,11 @@ raw-body@2.5.2:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
+re2js@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/re2js/-/re2js-1.2.1.tgz#31d1653f8e776516c2505f990690d116a1036fbc"
+  integrity sha512-pMQCWm/GsGambkqCl0l02SZUUd5yQ4u8D72K90TJWHMALuYg8BWCdcfXdXIvEQYGEM8K9QrxYAFtVgeQ+LZKFw==
+
 react-base16-styling@^0.9.1:
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/react-base16-styling/-/react-base16-styling-0.9.1.tgz#4906b4c0a51636f2dca2cea8b682175aa8bd0c92"

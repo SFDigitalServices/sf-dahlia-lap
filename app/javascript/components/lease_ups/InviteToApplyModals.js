@@ -3,6 +3,7 @@ import React, { forwardRef, useImperativeHandle } from 'react'
 import arrayMutators from 'final-form-arrays'
 import { map } from 'lodash'
 import moment from 'moment'
+import { RE2JS } from 're2js'
 
 import apiService from 'apiService'
 import Alerts from 'components/Alerts'
@@ -109,7 +110,9 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
 
     // save to salesforce behind the scene
     for (const key in submittedValues) {
-      const appId = key.replace(new RegExp('^' + UPLOAD_URL_INPUT_PREFIX), '')
+      const appId = RE2JS.compile('^' + UPLOAD_URL_INPUT_PREFIX)
+        .matcher(key)
+        .replace('')
 
       apiService.updateApplication({
         id: appId,
