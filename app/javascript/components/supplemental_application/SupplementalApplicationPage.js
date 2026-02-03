@@ -84,6 +84,10 @@ const SupplementalApplicationPage = () => {
     })
   }
 
+  const listingId = shortform?.application?.listing_id
+  const statusOptions = getLeaseUpStatusOptions(listingId)
+  const substatusOptions = getLeaseUpSubstatusOptions(listingId)
+
   const performingInitialLoadForTab =
     selectedTabKey === SUPP_TAB_KEY ? !supplemental.application : loadingShortform
 
@@ -124,9 +128,9 @@ const SupplementalApplicationPage = () => {
                 touched={touched}
                 values={values}
                 visited={visited}
-                listingId={shortform?.application?.listing_id}
-                statusOptions={getLeaseUpStatusOptions(shortform?.application?.listing_id)}
-                substatusOptions={getLeaseUpSubstatusOptions(shortform?.application?.listing_id)}
+                listingId={listingId}
+                statusOptions={statusOptions}
+                substatusOptions={substatusOptions}
               />
             ) : (
               renderShortform()
