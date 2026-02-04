@@ -124,11 +124,11 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
   const showNextModal = (latestModalState) => {
     // determine which modals to show based on whether
     // certain variables have been set
-    if (!rsvpModalValues[INVITE_APPLY_UPLOAD_KEY] && !isUrlPerAppMode()) {
+    if (!latestModalState[INVITE_APPLY_UPLOAD_KEY] && !isUrlPerAppMode()) {
       showRsvpModal('uploadUrl')
     } else if (isUrlPerAppMode() && latestModalState.current !== 'urlPerApp') {
       showRsvpModal('urlPerApp')
-    } else if (Object.keys(validateDeadline(rsvpModalValues)).length !== 0) {
+    } else if (Object.keys(validateDeadline(latestModalState)).length !== 0) {
       showRsvpModal('setDeadline')
     } else {
       showRsvpModal('review')
