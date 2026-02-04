@@ -14,11 +14,22 @@ useFlagsStatus.mockImplementation(() => ({
   flagsError: false,
   flagsReady: true
 }))
-useVariant.mockImplementation(() => ({
-  payload: {
-    value: 'listingId'
+useVariant.mockImplementation((flagName) => {
+  switch (flagName) {
+    case 'partners.inviteToApply':
+      return {
+        payload: {
+          value: 'listingId'
+        }
+      }
+    case 'temp.partners.oneUrlPerApp':
+      return {
+        payload: {
+          value: '{\n  "enabled_listings": [\n    "listingId"\n  ]\n}'
+        }
+      }
   }
-}))
+})
 
 const mockGetLeaseUpListing = jest.fn()
 const mockFetchLeaseUpApplicationsPagination = jest.fn()
@@ -667,12 +678,6 @@ describe('LeaseUpApplicationsPage', () => {
 
     describe('when using invite to apply', () => {
       beforeEach(() => {
-        useFlagUnleash.mockImplementation(() => true)
-        useVariant.mockImplementation(() => ({
-          payload: {
-            value: 'listingId'
-          }
-        }))
         act(() => {
           fireEvent.click(getRowBulkCheckboxInputs()[0])
         })

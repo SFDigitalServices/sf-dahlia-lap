@@ -53,11 +53,18 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
 
   const handleSetUpInvitationApply = () => {
     setExampleSuccessAlertState({ show: false, email: '' })
-    setRsvpModalValues({ [INVITE_APPLY_PER_APP_UPLOAD_KEY]: getDefaultUploadUrls() })
+    const defaultUploadUrls = getDefaultUploadUrls()
+    setRsvpModalValues({ [INVITE_APPLY_PER_APP_UPLOAD_KEY]: defaultUploadUrls })
     if (!isOneUrlPerAppEnabled) {
       localStorage.setItem('urlPerAppMode', false)
     }
-    showNextModal(rsvpModalState)
+    showNextModal(
+      {
+        ...rsvpModalValues,
+        [INVITE_APPLY_PER_APP_UPLOAD_KEY]: defaultUploadUrls
+      },
+      rsvpModalState
+    )
   }
   // expose handleSetupInvitationApply to parent
   useImperativeHandle(ref, () => ({
@@ -91,10 +98,13 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
 
   const uploadUrlModalSubmit = (submittedValues) => {
     setRsvpModalValues(submittedValues)
-    showNextModal({
-      ...rsvpModalValues,
-      ...submittedValues
-    })
+    showNextModal(
+      {
+        ...rsvpModalValues,
+        ...submittedValues
+      },
+      rsvpModalState
+    )
     apiService.updateListing({
       id: props.listingId,
       file_upload_url: submittedValues[INVITE_APPLY_UPLOAD_KEY]
@@ -106,7 +116,13 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     setRsvpModalValues({ [INVITE_APPLY_PER_APP_UPLOAD_KEY]: submittedValues })
 
     // show the next modal
-    showNextModal(rsvpModalState)
+    showNextModal(
+      {
+        ...rsvpModalValues,
+        ...submittedValues
+      },
+      rsvpModalState
+    )
 
     // save to salesforce behind the scene
     for (const key in submittedValues) {
@@ -121,14 +137,14 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     }
   }
 
-  const showNextModal = (latestModalState) => {
+  const showNextModal = (latestModalValues, latestModalState) => {
     // determine which modals to show based on whether
     // certain variables have been set
-    if (!latestModalState[INVITE_APPLY_UPLOAD_KEY] && !isUrlPerAppMode()) {
+    if (!latestModalValues[INVITE_APPLY_UPLOAD_KEY] && !isUrlPerAppMode()) {
       showRsvpModal('uploadUrl')
     } else if (isUrlPerAppMode() && latestModalState.current !== 'urlPerApp') {
       showRsvpModal('urlPerApp')
-    } else if (Object.keys(validateDeadline(latestModalState)).length !== 0) {
+    } else if (Object.keys(validateDeadline(latestModalValues)).length !== 0) {
       showRsvpModal('setDeadline')
     } else {
       showRsvpModal('review')
