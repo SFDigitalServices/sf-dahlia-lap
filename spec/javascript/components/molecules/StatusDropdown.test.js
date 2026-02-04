@@ -9,7 +9,13 @@ import { LEASE_UP_STATUS_OPTIONS } from 'utils/statusUtils'
 const ON_CHANGE = jest.fn()
 
 const getScreen = (propOverrides = {}) =>
-  render(<StatusDropdown onChange={ON_CHANGE} {...propOverrides} />)
+  render(
+    <StatusDropdown
+      onChange={ON_CHANGE}
+      {...propOverrides}
+      statusOptions={LEASE_UP_STATUS_OPTIONS}
+    />
+  )
 
 describe('StatusDropdown', () => {
   test('it renders a select', () => {

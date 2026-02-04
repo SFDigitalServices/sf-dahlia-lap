@@ -15,7 +15,8 @@ const LeaseUpSidebar = ({
   statusItems,
   onSaveClicked,
   onChangeStatus,
-  onAddCommentClicked
+  onAddCommentClicked,
+  statusOptions
 }) => {
   const currentStatus = getMostRecentStatus(statusItems)
 
@@ -37,6 +38,7 @@ const LeaseUpSidebar = ({
       status={currentStatus}
       onChangeStatus={onChangeStatus}
       onAddCommentClicked={onAddCommentClicked}
+      statusOptions={statusOptions}
     />
   )
 
@@ -60,7 +62,8 @@ LeaseUpSidebar.propTypes = {
   statusItems: PropTypes.arrayOf(PropTypes.shape(StatusItemShape)),
   onSaveClicked: PropTypes.func,
   onChangeStatus: PropTypes.func,
-  onAddCommentClicked: PropTypes.func
+  onAddCommentClicked: PropTypes.func,
+  statusOptions: PropTypes.array
 }
 
 LeaseUpSidebar.defaultProps = {
@@ -68,7 +71,8 @@ LeaseUpSidebar.defaultProps = {
   statusItems: [],
   onSaveClicked: null,
   onChangeStatus: null,
-  onAddCommentClicked: null
+  onAddCommentClicked: null,
+  statusOptions: []
 }
 
 export default LeaseUpSidebar

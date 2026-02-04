@@ -168,3 +168,57 @@ ul.bullet-list {
     width: 90%;
   }
 }
+
+button.is-outreached,
+.button.is-outreached {
+  background-color: #daeeff;
+  border-color: #daeeff;
+  color: #222; }
+button.is-outreached svg use,
+.button.is-outreached svg use {
+  fill: #222; }
+button.is-outreached:focus,
+.button.is-outreached:focus {
+  background-color: #daeeff;
+  color: #222; }
+button.is-outreached:hover,
+.button.is-outreached:hover {
+  background-color: #c2e4f8;
+  color: #222; }
+button.is-outreached:hover svg use,
+.button.is-outreached:hover svg use {
+  fill: #222; }
+button.is-outreached:active,
+.button.is-outreached:active {
+  background-color: #aad1ed; }
+button.is-outreached.disabled, button.is-outreached[disabled],
+.button.is-outreached.disabled,
+.button.is-outreached[disabled] {
+  background-color: #daeeff;
+  border-color: #daeeff;
+  color: #222; }
+button.is-outreached.disabled:hover, button.is-outreached.disabled:active, button.is-outreached.disabled:focus, button.is-outreached[disabled]:hover, button.is-outreached[disabled]:active, button.is-outreached[disabled]:focus,
+.button.is-outreached.disabled:hover,
+.button.is-outreached.disabled:active,
+.button.is-outreached.disabled:focus,
+.button.is-outreached[disabled]:hover,
+.button.is-outreached[disabled]:active,
+.button.is-outreached[disabled]:focus {
+  background-color: #daeeff;
+  border-color: #daeeff;
+  color: #222; }
+
+.status-pill.is-outreached {
+  background-color: #daeeff;
+  border: 2px solid #daeeff;
+  color: #000; }
+
+.dropdown-menu_item.is-outreached a {
+  box-shadow: inset 5px 0px 0px 0px #daeeff !important;
+  padding-left: 1.125rem; }
+
+.ReactTable .rt-tr-status.is-outreached .rt-td:first-of-type {
+  box-shadow: inset 3px 0 0 0 #daeeff !important; }
+
+.status-update.is-outreached {
+  box-shadow: inset 3px 0 0 0 #daeeff !important; }

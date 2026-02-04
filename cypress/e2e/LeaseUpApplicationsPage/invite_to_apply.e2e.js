@@ -1,5 +1,9 @@
-import { bulkActionCheckboxId, statusMenuItemSelector, usingFixtures } from '../../support/utils'
-import { interceptInviteToApplyFlag } from '../../support/utils'
+import {
+  bulkActionCheckboxId,
+  statusMenuItemSelector,
+  usingFixtures,
+  interceptInviteToApplyFlag
+} from '../../support/utils'
 const rsvpSendEmailDropdown = '.filter-row .rsvp-dropdown__control .dropdown-button'
 const SETUP_INVITE_TO_APPLY = 'set-up-invite-to-apply'
 const LEASE_UP_LISTING_ID = Cypress.env('LEASE_UP_LISTING_ID')
