@@ -680,6 +680,7 @@ describe('LeaseUpApplicationsPage', () => {
       beforeEach(() => {
         act(() => {
           fireEvent.click(getRowBulkCheckboxInputs()[0])
+          fireEvent.click(getRowBulkCheckboxInputs()[1])
         })
       })
 
@@ -772,7 +773,7 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(screen.getByText('save'))
           })
-          expect(mockUpdateApplication.mock.calls).toHaveLength(1)
+          expect(mockUpdateApplication.mock.calls).toHaveLength(2)
           expect(screen.getByText('Review and send')).toBeInTheDocument()
 
           // open send example modal
@@ -838,6 +839,80 @@ describe('LeaseUpApplicationsPage', () => {
           expect(screen.queryByText('Please enter a valid URL')).not.toBeInTheDocument()
           expect(screen.queryByText('Set document submission deadline')).not.toBeInTheDocument()
           expect(screen.getByText('Review and send')).toBeInTheDocument()
+        })
+
+        test('one url per application', async () => {
+          expect(screen.queryByText('Add document upload URL')).toBeInTheDocument()
+          act(() => {
+            fireEvent.click(screen.getByText('Or, add a unique URL for each application'))
+          })
+          expect(
+            screen.queryByText('Add a document upload URL for each applicant')
+          ).toBeInTheDocument()
+
+          // this returns 3 text inputs
+          // the first is search input, the remaining two are upload urls for the selected applications
+          const textInputs = screen.getAllByRole('textbox')
+
+          // invalid url
+          act(() => {
+            fireEvent.change(textInputs[1], {
+              target: { value: 'hello world!' }
+            })
+            fireEvent.blur(textInputs[1])
+          })
+          expect(textInputs[1]).toHaveClass('error')
+
+          // valid url
+          act(() => {
+            fireEvent.change(textInputs[1], {
+              target: { value: 'http://www.sf.gov' }
+            })
+            fireEvent.blur(textInputs[1])
+          })
+          expect(textInputs[1]).not.toHaveClass('error')
+
+          // duplicate urls
+          act(() => {
+            fireEvent.change(textInputs[2], {
+              target: { value: 'http://www.sf.gov' }
+            })
+            fireEvent.blur(textInputs[2])
+          })
+          expect(textInputs[1]).toHaveClass('error')
+          expect(textInputs[2]).toHaveClass('error')
+
+          // unique urls
+          act(() => {
+            fireEvent.change(textInputs[2], {
+              target: { value: 'http://www.sf2.gov' }
+            })
+            fireEvent.blur(textInputs[2])
+          })
+          expect(textInputs[1]).not.toHaveClass('error')
+          expect(textInputs[2]).not.toHaveClass('error')
+
+          // save upload urls
+          act(() => {
+            fireEvent.click(screen.getByText('next'))
+          })
+          expect(mockUpdateApplication.mock.calls).toHaveLength(2)
+
+          // switch back to single url for all applicants
+          act(() => {
+            fireEvent.click(screen.getByText('Close'))
+            fireEvent.change(
+              within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
+              {
+                target: { value: 'Set up Invitation to Apply' }
+              }
+            )
+            fireEvent.click(screen.getByText('Or, use a single URL for all applicants'))
+          })
+          expect(
+            screen.queryByText('Add a document upload URL for each applicant')
+          ).not.toBeInTheDocument()
+          expect(screen.queryByText('Add document upload URL')).toBeInTheDocument()
         })
 
         test('should alert when api call to send invite to apply fails', async () => {
