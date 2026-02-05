@@ -88,6 +88,7 @@ jest.mock('utils/inviteApplyEmail', () => {
     ],
     IsInviteToApplyEnabledForListing: () => true,
     IsStatusesEnabled: () => true,
+    IsOneUrlPerAppEnabledForListing: () => true,
     getLeaseUpSubstatusOptions: () => LEASE_UP_SUBSTATUS_OPTIONS,
     getLeaseUpStatusOptions: () => LEASE_UP_STATUS_OPTIONS
   }
