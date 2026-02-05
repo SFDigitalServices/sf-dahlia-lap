@@ -32,15 +32,29 @@ export const usingFixtures = () => {
 }
 
 export const interceptInviteToApplyFlag = (listingId) => {
-  cy.intercept(
-    'GET',
-    'https://dahlia-feature-service-fbc319c3f542.herokuapp.com/api/frontend**',
-    (request) => {
-      request.continue((response) => {
-        response.body.toggles.find(
-          (toggle) => toggle.name === 'partners.inviteToApply'
-        ).variant.payload.value = listingId
-      })
+  cy.intercept('GET', 'https://dahlia-feature-service-fbc319c3f542.herokuapp.com/api/frontend**', {
+    statusCode: 200,
+    body: {
+      toggles: [
+        {
+          name: 'partners.inviteToApply',
+          enabled: true,
+          variant: {
+            name: 'enabled_listing',
+            payload: {
+              value: listingId
+            }
+          }
+        },
+        {
+          name: 'temp.partners.inviteToApply.statuses',
+          enabled: true,
+          variant: {
+            name: 'enabled_listing',
+            enabled: true
+          }
+        }
+      ]
     }
-  ).as('inviteToApplyFeatureFlag')
+  }).as('inviteToApplyFeatureFlag')
 }

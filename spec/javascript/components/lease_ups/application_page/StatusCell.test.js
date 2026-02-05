@@ -4,6 +4,7 @@ import { fireEvent, render, screen, act } from '@testing-library/react'
 import selectEvent from 'react-select-event'
 
 import StatusCell from 'components/lease_ups/application_page/StatusCell'
+import { LEASE_UP_STATUS_OPTIONS } from 'utils/statusUtils'
 
 const mockOnChange = jest.fn()
 
@@ -11,7 +12,12 @@ describe('StatusCell', () => {
   let rtlWrapper
   beforeEach(() => {
     rtlWrapper = render(
-      <StatusCell applicationId='applicationId1' status='Waitlisted' onChange={mockOnChange} />
+      <StatusCell
+        applicationId='applicationId1'
+        status='Waitlisted'
+        onChange={mockOnChange}
+        statusOptions={LEASE_UP_STATUS_OPTIONS}
+      />
     )
   })
 

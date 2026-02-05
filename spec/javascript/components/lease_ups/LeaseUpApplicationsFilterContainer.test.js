@@ -9,6 +9,7 @@ import selectEvent from 'react-select-event'
 import LeaseUpApplicationsFilterContainer from 'components/lease_ups/LeaseUpApplicationsFilterContainer'
 import Provider from 'context/Provider'
 import * as customHooks from 'utils/customHooks'
+import { LEASE_UP_STATUS_OPTIONS } from 'utils/statusUtils'
 
 const mockSubmit = jest.fn()
 const mockOnClearSelectedApplications = jest.fn()
@@ -37,6 +38,7 @@ const getNode = (bulkCheckboxesState = {}) => (
         onBulkLeaseUpStatusChange={() => {}}
         onBulkLeaseUpCommentChange={() => {}}
         preferences={['pref option 1', 'pref option 2']}
+        statusOptions={LEASE_UP_STATUS_OPTIONS}
       />
     </Provider>
   </BrowserRouter>

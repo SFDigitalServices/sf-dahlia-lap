@@ -4,11 +4,7 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import { components } from 'react-select'
 
-import {
-  LEASE_UP_STATUS_VALUES,
-  LEASE_UP_SUBSTATUS_OPTIONS,
-  LEASE_UP_SUBSTATUS_VALUES
-} from 'utils/statusUtils'
+import { LEASE_UP_STATUS_VALUES, LEASE_UP_SUBSTATUS_VALUES } from 'utils/statusUtils'
 
 import Icon from '../atoms/Icon'
 import Dropdown from '../molecules/Dropdown'
@@ -29,7 +25,8 @@ const SubstatusDropdown = ({
   disabled,
   placeholder,
   expand,
-  hasError
+  hasError,
+  substatusOptions
 }) => {
   const buttonClasses = [
     'button',
@@ -59,7 +56,7 @@ const SubstatusDropdown = ({
   return (
     <Dropdown
       classNamePrefix='substatus-dropdown'
-      items={LEASE_UP_SUBSTATUS_OPTIONS[status] || []}
+      items={substatusOptions[status] || []}
       value={subStatus}
       placeholder={placeholder}
       onChange={(val) => onChange(val, 'subStatus')}
@@ -77,7 +74,8 @@ SubstatusDropdown.propTypes = {
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
-  subStatus: PropTypes.oneOf(LEASE_UP_SUBSTATUS_VALUES)
+  subStatus: PropTypes.oneOf(LEASE_UP_SUBSTATUS_VALUES),
+  substatusOptions: PropTypes.object
 }
 
 SubstatusDropdown.defaultProps = {
@@ -86,7 +84,8 @@ SubstatusDropdown.defaultProps = {
   hasError: false,
   placeholder: 'Select one...',
   status: null,
-  subStatus: null
+  subStatus: null,
+  substatusOptions: {}
 }
 
 export default SubstatusDropdown

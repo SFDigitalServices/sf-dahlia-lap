@@ -19,6 +19,7 @@ import { getPageHeaderData } from 'components/supplemental_application/leaseUpAp
 import SupplementalApplicationContainer from 'components/supplemental_application/SupplementalApplicationContainer'
 import { useAppContext, useAsyncOnMount } from 'utils/customHooks'
 import validate, { convertPercentAndCurrency } from 'utils/form/validations'
+import { getLeaseUpStatusOptions, getLeaseUpSubstatusOptions } from 'utils/inviteApplyEmail'
 
 import labelMapperFields from '../applications/application_details/applicationDetailsFieldsDesc'
 
@@ -83,6 +84,10 @@ const SupplementalApplicationPage = () => {
     })
   }
 
+  const listingId = shortform?.application?.listing_id
+  const statusOptions = getLeaseUpStatusOptions(listingId)
+  const substatusOptions = getLeaseUpSubstatusOptions(listingId)
+
   const performingInitialLoadForTab =
     selectedTabKey === SUPP_TAB_KEY ? !supplemental.application : loadingShortform
 
@@ -123,7 +128,9 @@ const SupplementalApplicationPage = () => {
                 touched={touched}
                 values={values}
                 visited={visited}
-                listingId={shortform?.application?.listing_id}
+                listingId={listingId}
+                statusOptions={statusOptions}
+                substatusOptions={substatusOptions}
               />
             ) : (
               renderShortform()

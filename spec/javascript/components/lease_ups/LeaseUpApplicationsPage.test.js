@@ -75,6 +75,24 @@ jest.mock('apiService', () => {
   }
 })
 
+jest.mock('utils/inviteApplyEmail', () => {
+  const { LEASE_UP_SUBSTATUS_OPTIONS, LEASE_UP_STATUS_OPTIONS } = require('utils/statusUtils')
+
+  return {
+    INVITE_APPLY_EMAIL_OPTIONS: [
+      {
+        value: 'Set up Invitation to Apply',
+        label: 'Set up Invitation to Apply',
+        statusClassName: 'is-set-up-invite-to-apply'
+      }
+    ],
+    IsInviteToApplyEnabledForListing: () => true,
+    IsStatusesEnabled: () => true,
+    getLeaseUpSubstatusOptions: () => LEASE_UP_SUBSTATUS_OPTIONS,
+    getLeaseUpStatusOptions: () => LEASE_UP_STATUS_OPTIONS
+  }
+})
+
 jest.mock('react-select', () => (props) => {
   const handleChange = (event) => {
     const option = props.options.find((option) => option.value === event.currentTarget.value)
