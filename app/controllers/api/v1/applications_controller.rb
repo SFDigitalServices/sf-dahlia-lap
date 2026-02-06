@@ -29,6 +29,7 @@ module Api
           :id,
           :total_monthly_rent,
           :invite_to_apply_deadline_date,
+          :upload_url,
         )
       end
 

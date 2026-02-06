@@ -59,6 +59,7 @@ export const buildRowData = (application) => {
   const prefNum = parseFloat(application.preference_order)
   const rankNum = parseFloat(application.preference_lottery_rank)
   rowData.rankOrder = prefNum + rankNum * 0.0001
+  rowData.fullName = [application.first_name, application.last_name].join(' ')
   return rowData
 }
 

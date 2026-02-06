@@ -20,6 +20,16 @@ export const IsInviteToApplyEnabledForListing = (listingId) => {
   return inviteApplyFlag && enabledListingIds.includes(listingId)
 }
 
+export const IsOneUrlPerAppEnabledForListing = (listingId) => {
+  const { unleashFlag: oneUrlPerAppFlag, variant } = useFeatureFlag(
+    'temp.partners.oneUrlPerApp',
+    false
+  )
+  const enabledListingIds =
+    variant.payload === undefined ? [] : JSON.parse(variant.payload.value).enabled_listings
+  return oneUrlPerAppFlag && enabledListingIds.includes(listingId)
+}
+
 export const IsStatusesEnabled = () => {
   const { unleashFlag: statusesFlag } = useFeatureFlag(
     'temp.partners.inviteToApply.statuses',
