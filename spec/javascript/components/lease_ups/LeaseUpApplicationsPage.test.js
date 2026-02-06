@@ -684,10 +684,14 @@ describe('LeaseUpApplicationsPage', () => {
         })
       })
 
-      test('with temp.partners.oneUrlPerApp flag off', () => {
+      test('with temp.partners.oneUrlPerApp flag off', async () => {
         mockOneUrlPerAppFlag = false
 
+        rtlWrapper = await getWrapper()
+
         act(() => {
+          fireEvent.click(getRowBulkCheckboxInputs()[0])
+          fireEvent.click(getRowBulkCheckboxInputs()[1])
           fireEvent.change(within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1], {
             target: { value: 'Set up Invitation to Apply' }
           })
