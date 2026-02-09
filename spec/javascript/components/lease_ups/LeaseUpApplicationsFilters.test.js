@@ -5,6 +5,7 @@ import { Form } from 'react-final-form'
 import selectEvent from 'react-select-event'
 
 import LeaseUpApplicationsFilters from 'components/lease_ups/LeaseUpApplicationsFilters'
+import { LEASE_UP_STATUS_OPTIONS } from 'utils/statusUtils'
 
 const mockOnFilterChange = jest.fn()
 const mockOnClearFilters = jest.fn()
@@ -20,6 +21,7 @@ const getScreen = ({ preferences = [], hasChangedFilters = false } = {}) =>
             hasChangedFilters={hasChangedFilters}
             onFilterChange={mockOnFilterChange}
             onClearFilters={mockOnClearFilters}
+            statusOptions={LEASE_UP_STATUS_OPTIONS}
           />
         </form>
       )}

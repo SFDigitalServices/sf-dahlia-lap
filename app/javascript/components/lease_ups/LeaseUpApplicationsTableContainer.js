@@ -59,6 +59,7 @@ export const buildRowData = (application) => {
   const prefNum = parseFloat(application.preference_order)
   const rankNum = parseFloat(application.preference_lottery_rank)
   rowData.rankOrder = prefNum + rankNum * 0.0001
+  rowData.fullName = [application.first_name, application.last_name].join(' ')
   return rowData
 }
 
@@ -92,7 +93,9 @@ const LeaseUpTableContainer = ({
     rowsPerPage,
     statusModal,
     listing,
-    setPageState
+    setPageState,
+    statusOptions,
+    substatusOptions
   }
 }) => {
   const inviteToApplyModalsRef = useRef(null)
@@ -109,6 +112,7 @@ const LeaseUpTableContainer = ({
     <>
       <LeaseUpApplicationsFilterContainer
         listingId={listingId}
+        statusOptions={statusOptions}
         listingType={listingType}
         preferences={preferences}
         onSubmit={onFilter}
@@ -127,7 +131,7 @@ const LeaseUpTableContainer = ({
       {!loading && (
         <LeaseUpApplicationsTable
           dataSet={map(applications, buildRowData)}
-          listingId={listingId}
+          statusOptions={statusOptions}
           listingType={listingType}
           onLeaseUpStatusChange={onLeaseUpStatusChange}
           pages={pages}
@@ -154,6 +158,8 @@ const LeaseUpTableContainer = ({
         title={statusModal.isCommentModal ? 'Add Comment' : 'Update Status'}
         isCommentModal={statusModal.isCommentModal}
         listingId={listingId}
+        substatusOptions={substatusOptions}
+        statusOptions={statusOptions}
       />
       <InviteToApplyModals
         ref={inviteToApplyModalsRef}
@@ -161,6 +167,7 @@ const LeaseUpTableContainer = ({
         listingId={listingId}
         listing={listing}
         setPageState={setPageState}
+        applications={applications}
       />
     </>
   )

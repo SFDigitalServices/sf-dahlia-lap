@@ -10,7 +10,13 @@ const ON_CHANGE = jest.fn()
 const APPEALED_SUBSTATUS = LEASE_UP_SUBSTATUS_OPTIONS.Appealed[0].value
 
 const getScreen = (propOverrides = {}) =>
-  render(<SubstatusDropdown onChange={ON_CHANGE} {...propOverrides} />)
+  render(
+    <SubstatusDropdown
+      onChange={ON_CHANGE}
+      {...propOverrides}
+      substatusOptions={LEASE_UP_SUBSTATUS_OPTIONS}
+    />
+  )
 
 describe('SubstatusDropdown', () => {
   test('it renders a select', () => {

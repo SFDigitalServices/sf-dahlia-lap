@@ -1,4 +1,10 @@
-import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
+import { useFeatureFlag } from './hooks/useFeatureFlag'
+import {
+  LEASE_UP_SUBSTATUS_OPTIONS,
+  LEASE_UP_SUBSTATUSES,
+  LEASE_UP_STATUS_OPTIONS,
+  LEASE_UP_STATUSES
+} from './statusUtils'
 
 export const INVITE_APPLY_EMAIL_OPTIONS = [
   {
@@ -12,4 +18,45 @@ export const IsInviteToApplyEnabledForListing = (listingId) => {
   const { unleashFlag: inviteApplyFlag, variant } = useFeatureFlag('partners.inviteToApply', false)
   const enabledListingIds = variant.payload === undefined ? [] : variant.payload.value.split(',')
   return inviteApplyFlag && enabledListingIds.includes(listingId)
+}
+
+export const IsOneUrlPerAppEnabledForListing = (listingId) => {
+  const { unleashFlag: oneUrlPerAppFlag, variant } = useFeatureFlag(
+    'temp.partners.oneUrlPerApp',
+    false
+  )
+  const enabledListingIds =
+    variant.payload === undefined ? [] : JSON.parse(variant.payload.value).enabled_listings
+  return oneUrlPerAppFlag && enabledListingIds.includes(listingId)
+}
+
+export const IsStatusesEnabled = () => {
+  const { unleashFlag: statusesFlag } = useFeatureFlag(
+    'temp.partners.inviteToApply.statuses',
+    false
+  )
+  return statusesFlag
+}
+
+export const getLeaseUpSubstatusOptions = (listingId) => {
+  const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listingId)
+  const isStatusesEnabled = IsStatusesEnabled()
+  if (isInviteApplyEnabled && isStatusesEnabled) {
+    return LEASE_UP_SUBSTATUSES
+  } else if (!isStatusesEnabled) {
+    return LEASE_UP_SUBSTATUS_OPTIONS
+  } else {
+    const substatusOptions = JSON.parse(JSON.stringify(LEASE_UP_SUBSTATUS_OPTIONS))
+    delete substatusOptions.Processing
+    return substatusOptions
+  }
+}
+
+export const getLeaseUpStatusOptions = (listingId) => {
+  const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listingId)
+  const isStatusesEnabled = IsStatusesEnabled()
+  if (isInviteApplyEnabled && isStatusesEnabled) {
+    return LEASE_UP_STATUSES
+  }
+  return LEASE_UP_STATUS_OPTIONS
 }

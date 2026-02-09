@@ -7,7 +7,7 @@ import { useSearchParams } from 'react-router-dom'
 
 import Button from 'components/atoms/Button'
 import Checkbox from 'components/atoms/Checkbox'
-import { LEASE_UP_APPLICATION_FILTERS } from 'components/lease_ups/applicationFiltersConsts'
+import { getLeaseUpApplicationFilters } from 'components/lease_ups/applicationFiltersConsts'
 import LeaseUpApplicationsFilters from 'components/lease_ups/LeaseUpApplicationsFilters'
 import ButtonDropdown from 'components/molecules/ButtonDropdown'
 import Loading from 'components/molecules/Loading'
@@ -19,7 +19,6 @@ import {
   INVITE_APPLY_EMAIL_OPTIONS,
   IsInviteToApplyEnabledForListing
 } from 'utils/inviteApplyEmail'
-import { LEASE_UP_STATUS_OPTIONS } from 'utils/statusUtils'
 
 const styles = {
   marginBottomZero: {
@@ -33,8 +32,8 @@ const styles = {
   }
 }
 
-const getNumFiltersApplied = (form) => {
-  return LEASE_UP_APPLICATION_FILTERS.filter((f) => {
+const getNumFiltersApplied = (form, statusOptions) => {
+  return getLeaseUpApplicationFilters(statusOptions).filter((f) => {
     const value = form.getState().values[f.fieldName]
     return !(!value || value.length === 0)
   }).length
@@ -51,7 +50,8 @@ const LeaseUpApplicationsFilterContainer = ({
   onBulkLeaseUpCommentChange,
   onRsvpSendEmailChange,
   onClearSelectedApplications = () => {},
-  onSelectAllApplications = () => {}
+  onSelectAllApplications = () => {},
+  statusOptions = []
 }) => {
   const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listingId)
 
@@ -99,7 +99,7 @@ const LeaseUpApplicationsFilterContainer = ({
   }
 
   const handleClearFilters = (form) => {
-    LEASE_UP_APPLICATION_FILTERS.forEach((f) => {
+    getLeaseUpApplicationFilters(statusOptions).forEach((f) => {
       const isChanged = !!form.getState().values[f.fieldName]
       if (isChanged) {
         form.change(f.fieldName, null)
@@ -156,7 +156,7 @@ const LeaseUpApplicationsFilterContainer = ({
                       dataTestId={'bulk-status-dropdown'}
                       forceDisplayPlaceholderText
                       tertiary={numChecked === 0}
-                      options={LEASE_UP_STATUS_OPTIONS}
+                      options={statusOptions}
                       classNamePrefix={'status-dropdown'}
                     />
                   </div>
@@ -228,6 +228,7 @@ const LeaseUpApplicationsFilterContainer = ({
                 hasChangedFilters={hasChangedFilters}
                 onFilterChange={handleFilterChange}
                 onClearFilters={() => handleClearFilters(form)}
+                statusOptions={statusOptions}
               />
             )}
           </form>
@@ -245,7 +246,8 @@ LeaseUpApplicationsFilterContainer.propTypes = {
   onSelectAllApplications: PropTypes.func,
   preferences: PropTypes.array,
   loading: PropTypes.bool,
-  bulkActionApplications: PropTypes.object
+  bulkActionApplications: PropTypes.object,
+  statusOptions: PropTypes.array
 }
 
 export default LeaseUpApplicationsFilterContainer
