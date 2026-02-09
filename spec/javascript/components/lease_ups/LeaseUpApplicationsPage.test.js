@@ -3,22 +3,10 @@
 import React from 'react'
 
 import { cleanup, within, screen, fireEvent, act, waitFor } from '@testing-library/react'
-import { useFlag as useFlagUnleash, useFlagsStatus, useVariant } from '@unleash/proxy-client-react'
 
 import { renderAppWithUrl } from '../../testUtils/wrapperUtil'
 
 jest.mock('@unleash/proxy-client-react')
-
-useFlagUnleash.mockImplementation(() => true)
-useFlagsStatus.mockImplementation(() => ({
-  flagsError: false,
-  flagsReady: true
-}))
-useVariant.mockImplementation(() => ({
-  payload: {
-    value: 'listingId'
-  }
-}))
 
 const mockGetLeaseUpListing = jest.fn()
 const mockFetchLeaseUpApplicationsPagination = jest.fn()
@@ -64,6 +52,7 @@ jest.mock('apiService', () => {
   }
 })
 
+let mockOneUrlPerAppFlag = true
 jest.mock('utils/inviteApplyEmail', () => {
   const { LEASE_UP_SUBSTATUS_OPTIONS, LEASE_UP_STATUS_OPTIONS } = require('utils/statusUtils')
 
@@ -77,6 +66,7 @@ jest.mock('utils/inviteApplyEmail', () => {
     ],
     IsInviteToApplyEnabledForListing: () => true,
     IsStatusesEnabled: () => true,
+    IsOneUrlPerAppEnabledForListing: () => mockOneUrlPerAppFlag,
     getLeaseUpSubstatusOptions: () => LEASE_UP_SUBSTATUS_OPTIONS,
     getLeaseUpStatusOptions: () => LEASE_UP_STATUS_OPTIONS
   }
@@ -145,7 +135,8 @@ const buildMockApplicationWithPreference = ({
   applicationId,
   prefOrder = 1,
   prefRank = 1,
-  customPreferenceType
+  customPreferenceType,
+  uploadUrl
 }) => ({
   id: prefId,
   processing_status: 'processing',
@@ -168,7 +159,8 @@ const buildMockApplicationWithPreference = ({
       last_name: `some last name ${prefId}`,
       phone: 'some phone',
       email: `some email ${prefId}`
-    }
+    },
+    upload_url: uploadUrl
   }
 })
 
@@ -185,7 +177,8 @@ const mockApplications = [
     applicationId: '1001',
     prefOrder: '1',
     prefRank: '2',
-    customPreferenceType: 'V-COP'
+    customPreferenceType: 'V-COP',
+    uploadUrl: 'http://test.com'
   }),
   buildMockApplicationWithPreference({
     prefId: '2',
@@ -685,15 +678,29 @@ describe('LeaseUpApplicationsPage', () => {
 
     describe('when using invite to apply', () => {
       beforeEach(() => {
-        useFlagUnleash.mockImplementation(() => true)
-        useVariant.mockImplementation(() => ({
-          payload: {
-            value: 'listingId'
-          }
-        }))
         act(() => {
           fireEvent.click(getRowBulkCheckboxInputs()[0])
+          fireEvent.click(getRowBulkCheckboxInputs()[1])
         })
+      })
+
+      test('with temp.partners.oneUrlPerApp flag off', async () => {
+        mockOneUrlPerAppFlag = false
+
+        rtlWrapper = await getWrapper()
+
+        act(() => {
+          fireEvent.click(getRowBulkCheckboxInputs()[0])
+          fireEvent.click(getRowBulkCheckboxInputs()[1])
+          fireEvent.change(within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1], {
+            target: { value: 'Set up Invitation to Apply' }
+          })
+        })
+        expect(
+          screen.queryByText('Add a document upload URL for each applicant')
+        ).not.toBeInTheDocument()
+
+        mockOneUrlPerAppFlag = true
       })
 
       describe('when setting up invite to apply', () => {
@@ -785,7 +792,7 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(screen.getByText('save'))
           })
-          expect(mockUpdateApplication.mock.calls).toHaveLength(1)
+          expect(mockUpdateApplication.mock.calls).toHaveLength(2)
           expect(screen.getByText('Review and send')).toBeInTheDocument()
 
           // open send example modal
@@ -851,6 +858,103 @@ describe('LeaseUpApplicationsPage', () => {
           expect(screen.queryByText('Please enter a valid URL')).not.toBeInTheDocument()
           expect(screen.queryByText('Set document submission deadline')).not.toBeInTheDocument()
           expect(screen.getByText('Review and send')).toBeInTheDocument()
+        })
+
+        test('one url per application', async () => {
+          expect(screen.queryByText('Add document upload URL')).toBeInTheDocument()
+          act(() => {
+            fireEvent.click(screen.getByText('Or, add a unique URL for each application'))
+          })
+          expect(
+            screen.queryByText('Add a document upload URL for each applicant')
+          ).toBeInTheDocument()
+
+          // this returns 3 text inputs
+          // the first is search input, the remaining two are upload urls for the selected applications
+          const textInputs = screen.getAllByRole('textbox')
+
+          // check upload_url from salesforce is prepopulated
+          expect(textInputs[1].value).toBe('http://test.com')
+
+          // invalid url
+          act(() => {
+            fireEvent.change(textInputs[1], {
+              target: { value: 'hello world!' }
+            })
+            fireEvent.blur(textInputs[1])
+          })
+          expect(textInputs[1]).toHaveClass('error')
+
+          // valid url
+          act(() => {
+            fireEvent.change(textInputs[1], {
+              target: { value: 'http://www.sf.gov' }
+            })
+            fireEvent.blur(textInputs[1])
+          })
+          expect(textInputs[1]).not.toHaveClass('error')
+
+          // duplicate urls
+          act(() => {
+            fireEvent.change(textInputs[2], {
+              target: { value: 'http://www.sf.gov' }
+            })
+            fireEvent.blur(textInputs[2])
+          })
+          expect(textInputs[1]).toHaveClass('error')
+          expect(textInputs[2]).toHaveClass('error')
+
+          // unique urls
+          act(() => {
+            fireEvent.change(textInputs[2], {
+              target: { value: 'http://www.sf2.gov' }
+            })
+            fireEvent.blur(textInputs[2])
+          })
+          expect(textInputs[1]).not.toHaveClass('error')
+          expect(textInputs[2]).not.toHaveClass('error')
+
+          // save upload urls
+          act(() => {
+            fireEvent.click(screen.getByText('next'))
+          })
+          expect(mockUpdateApplication.mock.calls).toHaveLength(2)
+
+          // fill out upload deadline
+          act(() => {
+            fireEvent.change(screen.getByPlaceholderText('MM'), {
+              target: { value: '1' }
+            })
+            fireEvent.change(screen.getByPlaceholderText('DD'), {
+              target: { value: '1' }
+            })
+            fireEvent.change(screen.getByPlaceholderText('YYYY'), {
+              target: { value: '3000' }
+            })
+            fireEvent.click(screen.getByText('save'))
+          })
+
+          expect(screen.queryByText('Multiple URLs')).toBeInTheDocument()
+          act(() => {
+            // go back to upload url modal from review modal
+            fireEvent.click(screen.getAllByText('Edit')[0])
+
+            // switch back to single url for all applicants
+            fireEvent.click(screen.getByText('Close'))
+            fireEvent.change(
+              within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
+              {
+                target: { value: 'Set up Invitation to Apply' }
+              }
+            )
+          })
+          expect(
+            screen.queryByText('Add a document upload URL for each applicant')
+          ).toBeInTheDocument()
+          act(() => {
+            fireEvent.click(screen.getByText('Or, use a single URL for all applicants'))
+          })
+          expect(screen.queryByText('Add document upload URL')).toBeInTheDocument()
         })
 
         test('should alert when api call to send invite to apply fails', async () => {
