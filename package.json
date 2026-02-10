@@ -110,7 +110,7 @@
     "react-test-renderer": "^18.2.0",
     "sinon": "^17.0.1",
     "standard": "^17.1.0",
-    "webpack": "^5.94.0",
+    "webpack": "^5.104.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.2.1",
     "yarn-deduplicate": "^6.0.2"
