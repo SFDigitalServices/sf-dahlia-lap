@@ -495,15 +495,17 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
               <InfoAlert
                 message={
                   <span>
-                    <strong>
-                      {`${checkedAppsWithoutEmail()} applicants you selected do not have an email address. `}
+                    <strong className='semi-bold'>
+                      {checkedAppsWithoutEmail() === 1
+                        ? `1 applicant you selected does not have an email address.`
+                        : `${checkedAppsWithoutEmail()} applicants you selected do not have an email address. `}
                     </strong>
                     After sending, we will show who you still need to contact on the applicant list.
                   </span>
                 }
                 icon='i-info'
                 closeType='none'
-                classes={['primary-alert']}
+                classes={['primary-alert', 'i2a-review']}
               />
             )}
           </div>
