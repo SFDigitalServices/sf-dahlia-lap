@@ -102,7 +102,7 @@ gem "hashie"
 
 gem "shakapacker", "9.5.0"
 
-gem "react_on_rails", "13.4.0"
+gem "react_on_rails", "16.2.0"
 
 gem "pg", "~> 1.4.6"
 
