@@ -41,11 +41,14 @@ export const IsStatusesEnabled = () => {
 export const getLeaseUpSubstatusOptions = (listingId) => {
   const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listingId)
   const isStatusesEnabled = IsStatusesEnabled()
+  // I2A enabled and new statuses enabled
   if (isInviteApplyEnabled && isStatusesEnabled) {
     return LEASE_UP_SUBSTATUSES
-  } else if (!isStatusesEnabled) {
+    // I2A enabled and new statuses not enabled
+  } else if (isInviteApplyEnabled && !isStatusesEnabled) {
     return LEASE_UP_SUBSTATUS_OPTIONS
   } else {
+    // I2A not enabled and new statuses not enabled
     const substatusOptions = JSON.parse(JSON.stringify(LEASE_UP_SUBSTATUS_OPTIONS))
     delete substatusOptions.Processing
     return substatusOptions
