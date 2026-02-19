@@ -85,6 +85,7 @@ module Force
       { domain: 'listing_type', salesforce: 'Listing_Type' },
       { domain: 'custom_listing_type', salesforce: 'Custom_Listing_Type' },
       { domain: 'file_upload_url', salesforce: 'File_Upload_URL' },
+      { domain: 'program_type', salesforce: 'Program_Type' },
     ].freeze
 
     LISTING_TYPE_FIRST_COME_FIRST_SERVED = 'First Come, First Served'

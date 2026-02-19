@@ -92,6 +92,7 @@ listings:
     Tenure__c:
     Listing_Type__c:
     File_Upload_URL__c:
+    Program_Type__c:
   lease_up_listing_fields:
     Id:
     Name:
