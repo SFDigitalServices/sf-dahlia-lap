@@ -117,6 +117,8 @@ const LeaseUpApplicationsPage = () => {
   const [{ reportId, listingPreferences, listingType, listing }, setListingState] = useStateObject(
     {}
   )
+  const [{ statusOptions, substatusOptions }, setStatusOptions] = useStateObject({})
+
   useAsyncOnMount(() => getListing(listingId), {
     onSuccess: (listing) => {
       setListingState({
@@ -126,12 +128,14 @@ const LeaseUpApplicationsPage = () => {
         listing
       })
 
+      setStatusOptions({
+        statusOptions: getLeaseUpStatusOptions(listing),
+        substatusOptions: getLeaseUpSubstatusOptions(listing)
+      })
+
       applicationsPageLoadComplete(dispatch, listing)
     }
   })
-
-  const statusOptions = getLeaseUpStatusOptions(listingId)
-  const substatusOptions = getLeaseUpSubstatusOptions(listingId)
 
   useAsync(
     () => {

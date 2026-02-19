@@ -14,10 +14,9 @@ export const INVITE_APPLY_EMAIL_OPTIONS = [
   }
 ]
 
-export const IsInviteToApplyEnabledForListing = (listingId) => {
-  const { unleashFlag: inviteApplyFlag, variant } = useFeatureFlag('partners.inviteToApply', false)
-  const enabledListingIds = variant.payload === undefined ? [] : variant.payload.value.split(',')
-  return inviteApplyFlag && enabledListingIds.includes(listingId)
+export const IsInviteToApplyEnabledForListing = (listing) => {
+  const { unleashFlag: inviteApplyFlag } = useFeatureFlag('partners.inviteToApply', false)
+  return inviteApplyFlag && listing && listing.program_type === 'IH-RENTAL'
 }
 
 export const IsOneUrlPerAppEnabledForListing = (listingId) => {
@@ -38,8 +37,8 @@ export const IsStatusesEnabled = () => {
   return statusesFlag
 }
 
-export const getLeaseUpSubstatusOptions = (listingId) => {
-  const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listingId)
+export const getLeaseUpSubstatusOptions = (listing) => {
+  const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listing)
   const isStatusesEnabled = IsStatusesEnabled()
   // I2A enabled and new statuses enabled
   if (isInviteApplyEnabled && isStatusesEnabled) {
@@ -55,8 +54,8 @@ export const getLeaseUpSubstatusOptions = (listingId) => {
   }
 }
 
-export const getLeaseUpStatusOptions = (listingId) => {
-  const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listingId)
+export const getLeaseUpStatusOptions = (listing) => {
+  const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listing)
   const isStatusesEnabled = IsStatusesEnabled()
   if (isInviteApplyEnabled && isStatusesEnabled) {
     return LEASE_UP_STATUSES

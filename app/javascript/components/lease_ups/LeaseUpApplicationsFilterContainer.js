@@ -40,7 +40,7 @@ const getNumFiltersApplied = (form, statusOptions) => {
 }
 
 const LeaseUpApplicationsFilterContainer = ({
-  listingId,
+  listing,
   listingType,
   onSubmit,
   preferences = [],
@@ -53,7 +53,7 @@ const LeaseUpApplicationsFilterContainer = ({
   onSelectAllApplications = () => {},
   statusOptions = []
 }) => {
-  const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listingId)
+  const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listing)
 
   const [isShowingFilters, setIsShowingFilters] = useState(false)
   const [hasChangedFilters, setHasChangedFilters] = useState(false)
