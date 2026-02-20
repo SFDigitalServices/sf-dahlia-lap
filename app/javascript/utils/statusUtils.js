@@ -28,15 +28,15 @@ export const LEASE_UP_STATUS_OPTIONS = [
 
 export const LEASE_UP_STATUSES = [
   {
-    value: 'Processing',
-    label: 'Processing',
-    statusClassName: 'is-processing',
-    commentRequired: true
-  },
-  {
     value: 'Outreach',
     label: 'Outreach',
     statusClassName: 'is-outreached',
+    commentRequired: true
+  },
+  {
+    value: 'Processing',
+    label: 'Processing',
+    statusClassName: 'is-processing',
     commentRequired: true
   },
   { value: 'Withdrawn', label: 'Withdrawn', statusClassName: 'is-withdrawn' },
