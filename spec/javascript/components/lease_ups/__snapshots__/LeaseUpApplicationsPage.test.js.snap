@@ -127,6 +127,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     Processing
                   </option>
                   <option
+                    value="Outreach"
+                  >
+                    Outreach
+                  </option>
+                  <option
                     value="Withdrawn"
                   >
                     Withdrawn
@@ -573,6 +578,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                       Processing
                     </option>
                     <option
+                      value="Outreach"
+                    >
+                      Outreach
+                    </option>
+                    <option
                       value="Withdrawn"
                     >
                       Withdrawn
@@ -752,6 +762,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                       value="Processing"
                     >
                       Processing
+                    </option>
+                    <option
+                      value="Outreach"
+                    >
+                      Outreach
                     </option>
                     <option
                       value="Withdrawn"
@@ -935,6 +950,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                       Processing
                     </option>
                     <option
+                      value="Outreach"
+                    >
+                      Outreach
+                    </option>
+                    <option
                       value="Withdrawn"
                     >
                       Withdrawn
@@ -1114,6 +1134,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                       value="Processing"
                     >
                       Processing
+                    </option>
+                    <option
+                      value="Outreach"
+                    >
+                      Outreach
                     </option>
                     <option
                       value="Withdrawn"
@@ -1297,6 +1322,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                       Processing
                     </option>
                     <option
+                      value="Outreach"
+                    >
+                      Outreach
+                    </option>
+                    <option
                       value="Withdrawn"
                     >
                       Withdrawn
@@ -1476,6 +1506,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                       value="Processing"
                     >
                       Processing
+                    </option>
+                    <option
+                      value="Outreach"
+                    >
+                      Outreach
                     </option>
                     <option
                       value="Withdrawn"
