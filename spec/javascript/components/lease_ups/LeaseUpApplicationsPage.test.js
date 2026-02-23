@@ -249,7 +249,7 @@ describe('LeaseUpApplicationsPage', () => {
   test('should render accessibility requests when present', async () => {
     expect(
       screen.getByRole('row', {
-        name: /cop 2 application name 1001 some first name 1 some last name 1 vision 04\/26\/2018 processing/i
+        name: /v-cop 2 application name 1001 some first name 1 some last name 1 vision 04\/26\/2018 outreach/i
       })
     ).toBeInTheDocument()
   })
@@ -265,7 +265,7 @@ describe('LeaseUpApplicationsPage', () => {
 
   test('status modal can be opened and closed', () => {
     const firstRow = screen.getByRole('row', {
-      name: /cop 2 application name 1001 some first name 1 some last name 1 vision 04\/26\/2018 processing/i
+      name: /v-cop 2 application name 1001 some first name 1 some last name 1 vision 04\/26\/2018 outreach/i
     })
     expect(within(firstRow).getByRole('button')).toBeInTheDocument()
 
@@ -294,7 +294,7 @@ describe('LeaseUpApplicationsPage', () => {
   test('updates substatus and last updated date on status change', async () => {
     // Get the status last updated date before we change it, to verify that it changed.
     const firstRow = screen.getByRole('row', {
-      name: /cop 2 application name 1001 some first name 1 some last name 1 vision 04\/26\/2018 processing/i
+      name: /v-cop 2 application name 1001 some first name 1 some last name 1 vision 04\/26\/2018 outreach/i
     })
 
     // Change status to Appealed and open up the modal

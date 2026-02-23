@@ -122,14 +122,14 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                   data-testid="select"
                 >
                   <option
-                    value="Processing"
-                  >
-                    Processing
-                  </option>
-                  <option
                     value="Outreach"
                   >
                     Outreach
+                  </option>
+                  <option
+                    value="Processing"
+                  >
+                    Processing
                   </option>
                   <option
                     value="Withdrawn"
@@ -573,14 +573,14 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     data-testid="select"
                   >
                     <option
-                      value="Processing"
-                    >
-                      Processing
-                    </option>
-                    <option
                       value="Outreach"
                     >
                       Outreach
+                    </option>
+                    <option
+                      value="Processing"
+                    >
+                      Processing
                     </option>
                     <option
                       value="Withdrawn"
@@ -759,14 +759,14 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     data-testid="select"
                   >
                     <option
-                      value="Processing"
-                    >
-                      Processing
-                    </option>
-                    <option
                       value="Outreach"
                     >
                       Outreach
+                    </option>
+                    <option
+                      value="Processing"
+                    >
+                      Processing
                     </option>
                     <option
                       value="Withdrawn"
@@ -945,14 +945,14 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     data-testid="select"
                   >
                     <option
-                      value="Processing"
-                    >
-                      Processing
-                    </option>
-                    <option
                       value="Outreach"
                     >
                       Outreach
+                    </option>
+                    <option
+                      value="Processing"
+                    >
+                      Processing
                     </option>
                     <option
                       value="Withdrawn"
@@ -1131,14 +1131,14 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     data-testid="select"
                   >
                     <option
-                      value="Processing"
-                    >
-                      Processing
-                    </option>
-                    <option
                       value="Outreach"
                     >
                       Outreach
+                    </option>
+                    <option
+                      value="Processing"
+                    >
+                      Processing
                     </option>
                     <option
                       value="Withdrawn"
@@ -1317,14 +1317,14 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     data-testid="select"
                   >
                     <option
-                      value="Processing"
-                    >
-                      Processing
-                    </option>
-                    <option
                       value="Outreach"
                     >
                       Outreach
+                    </option>
+                    <option
+                      value="Processing"
+                    >
+                      Processing
                     </option>
                     <option
                       value="Withdrawn"
@@ -1503,14 +1503,14 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     data-testid="select"
                   >
                     <option
-                      value="Processing"
-                    >
-                      Processing
-                    </option>
-                    <option
                       value="Outreach"
                     >
                       Outreach
+                    </option>
+                    <option
+                      value="Processing"
+                    >
+                      Processing
                     </option>
                     <option
                       value="Withdrawn"
