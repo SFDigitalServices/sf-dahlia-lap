@@ -15,10 +15,7 @@ import ShowHideFiltersButton from 'components/molecules/ShowHideFiltersButton'
 import { useAppContext } from 'utils/customHooks'
 import SearchField from 'utils/form/final_form/SearchField'
 import formUtils from 'utils/formUtils'
-import {
-  INVITE_APPLY_EMAIL_OPTIONS,
-  IsInviteToApplyEnabledForListing
-} from 'utils/inviteApplyEmail'
+import { INVITE_APPLY_EMAIL_OPTIONS } from 'utils/inviteApplyEmail'
 
 const styles = {
   marginBottomZero: {
@@ -40,7 +37,6 @@ const getNumFiltersApplied = (form, statusOptions) => {
 }
 
 const LeaseUpApplicationsFilterContainer = ({
-  listing,
   listingType,
   onSubmit,
   preferences = [],
@@ -51,10 +47,9 @@ const LeaseUpApplicationsFilterContainer = ({
   onRsvpSendEmailChange,
   onClearSelectedApplications = () => {},
   onSelectAllApplications = () => {},
-  statusOptions = []
+  statusOptions = [],
+  isInviteApplyEnabled
 }) => {
-  const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listing)
-
   const [isShowingFilters, setIsShowingFilters] = useState(false)
   const [hasChangedFilters, setHasChangedFilters] = useState(false)
   const [, setSearchParams] = useSearchParams()

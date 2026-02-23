@@ -95,7 +95,8 @@ const LeaseUpTableContainer = ({
     listing,
     setPageState,
     statusOptions,
-    substatusOptions
+    substatusOptions,
+    isInviteApplyEnabled
   }
 }) => {
   const inviteToApplyModalsRef = useRef(null)
@@ -111,7 +112,6 @@ const LeaseUpTableContainer = ({
   return (
     <>
       <LeaseUpApplicationsFilterContainer
-        listing={listing}
         statusOptions={statusOptions}
         listingType={listingType}
         preferences={preferences}
@@ -127,6 +127,7 @@ const LeaseUpTableContainer = ({
             inviteToApplyModalsRef.current.setUpInvitationToApply()
           }
         }}
+        isInviteApplyEnabled={isInviteApplyEnabled}
       />
       {!loading && (
         <LeaseUpApplicationsTable
