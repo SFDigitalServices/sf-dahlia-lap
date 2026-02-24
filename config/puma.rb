@@ -32,7 +32,10 @@ environment ENV.fetch('RAILS_ENV') { 'development' }
 # Our prod box has 1gb of ram, and each worker uses at least 300mb of memory, so be
 # careful not to set this value > 3 or so.
 
-workers ENV.fetch("PUMA_WORKERS") { 2 }
+# Only use workers on platforms that support forking (not Windows)
+unless Gem.win_platform?
+  workers ENV.fetch("PUMA_WORKERS") { 2 }
+end
 
 # Use the `preload_app!` method when specifying a `workers` number.
 # This directive tells Puma to first boot the application and load code
@@ -40,25 +43,29 @@ workers ENV.fetch("PUMA_WORKERS") { 2 }
 # process behavior so workers use less memory. If you use this option
 # you need to make sure to reconnect any threads in the `on_worker_boot`
 # block.
-preload_app!
 
-# If you are preloading your application and using Active Record, it's
-# recommended that you close any connections to the database before workers
-# are forked to prevent connection leakage.
+# Only preload and setup worker hooks on platforms that support forking
+unless Gem.win_platform?
+  preload_app!
 
-before_fork do
-  ActiveRecord::Base.connection_pool.disconnect! if defined?(ActiveRecord)
-end
+  # If you are preloading your application and using Active Record, it's
+  # recommended that you close any connections to the database before workers
+  # are forked to prevent connection leakage.
 
-# The code in the `on_worker_boot` will be called if you are using
-# clustered mode by specifying a number of `workers`. After each worker
-# process is booted, this block will be run. If you are using the `preload_app!`
-# option, you will want to use this block to reconnect to any threads
-# or connections that may have been created at application boot, as Ruby
-# cannot share connections between processes.
+  before_fork do
+    ActiveRecord::Base.connection_pool.disconnect! if defined?(ActiveRecord)
+  end
 
-on_worker_boot do
-  ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
+  # The code in the `on_worker_boot` will be called if you are using
+  # clustered mode by specifying a number of `workers`. After each worker
+  # process is booted, this block will be run. If you are using the `preload_app!`
+  # option, you will want to use this block to reconnect to any threads
+  # or connections that may have been created at application boot, as Ruby
+  # cannot share connections between processes.
+
+  on_worker_boot do
+    ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
+  end
 end
 
 

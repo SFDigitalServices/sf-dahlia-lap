@@ -1,4 +1,4 @@
-const { devServer, inliningCss } = require('shakapacker')
+const { inliningCss } = require('shakapacker')
 
 const webpackConfig = require('./envSpecific')
 
@@ -9,11 +9,7 @@ const developmentEnvOnly = (clientWebpackConfig) => {
     // Thus, this plugin is not applied.
     const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
     clientWebpackConfig.plugins.push(
-      new ReactRefreshWebpackPlugin({
-        overlay: {
-          sockPort: devServer.port
-        }
-      })
+      new ReactRefreshWebpackPlugin()
     )
   }
 }
