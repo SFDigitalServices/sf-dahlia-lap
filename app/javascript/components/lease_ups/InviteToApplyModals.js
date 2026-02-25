@@ -105,10 +105,6 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       },
       rsvpModalState
     )
-    apiService.updateListing({
-      id: props.listingId,
-      file_upload_url: submittedValues[INVITE_APPLY_UPLOAD_KEY]
-    })
   }
 
   const oneUploadPerAppSubmit = (submittedValues) => {
@@ -123,18 +119,6 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       },
       rsvpModalState
     )
-
-    // save to salesforce behind the scene
-    for (const key in submittedValues) {
-      const appId = RE2JS.compile('^' + UPLOAD_URL_INPUT_PREFIX)
-        .matcher(key)
-        .replace('')
-
-      apiService.updateApplication({
-        id: appId,
-        upload_url: submittedValues[key]
-      })
-    }
   }
 
   const showNextModal = (latestModalValues, latestModalState) => {
@@ -195,19 +179,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
 
   const setdeadlineModalSubmit = (submittedValues) => {
     setRsvpModalValues(submittedValues)
-
-    const applicationIds = getSelectedApplicationIds()
-    const deadline = submittedValues[INVITE_APPLY_DEADLINE_KEY]
-
     showRsvpModal('review')
-
-    applicationIds.forEach((appId) => {
-      const dateObj = moment(`${deadline.year}-${deadline.month}-${deadline.day}`).endOf('day')
-      apiService.updateApplication({
-        id: appId,
-        invite_to_apply_deadline_date: dateObj.utc().format()
-      })
-    })
   }
 
   const validateDeadline = (submittedValues) => {
@@ -276,6 +248,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
   const sendInviteToApply = (submittedValues) => {
     const appIds = getSelectedApplicationIds()
     const deadline = rsvpModalValues[INVITE_APPLY_DEADLINE_KEY]
+    const dateObj = moment(`${deadline.year}-${deadline.month}-${deadline.day}`).endOf('day')
     const exampleEmail = submittedValues[INVITE_APPLY_EXAMPLE_EMAIL]
 
     if (!exampleEmail) {
@@ -283,30 +256,69 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       props.setPageState({ loading: true })
     }
 
-    apiService
-      .sendInviteToApply(
-        props.listing,
-        appIds,
-        `${deadline.year}-${deadline.month}-${deadline.day}`,
-        exampleEmail || null
-      )
-      .then((res) => {
-        if (exampleEmail) {
-          setExampleSuccessAlertState({
-            show: true,
-            email: exampleEmail
+    // save upload url and deadline to salesforce
+    // depending if 1 url per app, iterate over array of app ids or object with appIdEmbed:url name/value pairs
+    let counter = 0
+    let appIterator, size
+    if (isUrlPerAppMode()) {
+      appIterator = rsvpModalValues[INVITE_APPLY_PER_APP_UPLOAD_KEY]
+      size = Object.keys(appIterator).length
+    } else {
+      appIterator = appIds
+      size = appIds.length
+    }
+    for (const key in appIterator) {
+      let appId, url
+      if (isUrlPerAppMode()) {
+        appId = RE2JS.compile('^' + UPLOAD_URL_INPUT_PREFIX)
+          .matcher(key)
+          .replace('')
+        url = appIterator[key]
+      } else {
+        appId = appIterator[key]
+        url = rsvpModalValues[INVITE_APPLY_UPLOAD_KEY]
+      }
+
+      try {
+        apiService
+          .updateApplication({
+            id: appId,
+            upload_url: url,
+            invite_to_apply_deadline_date: dateObj.utc().format()
           })
-        } else {
-          props.setPageState({
-            loading: false,
-            showPageInfo: true
+          .then(() => {
+            counter++
+            // make backend api call to send i2a after last application saved to salesforce
+            if (counter === size) {
+              apiService
+                .sendInviteToApply(
+                  props.listing,
+                  appIds,
+                  `${deadline.year}-${deadline.month}-${deadline.day}`,
+                  exampleEmail || null
+                )
+                .then((res) => {
+                  if (exampleEmail) {
+                    setExampleSuccessAlertState({
+                      show: true,
+                      email: exampleEmail
+                    })
+                  } else {
+                    props.setPageState({
+                      loading: false,
+                      showPageInfo: true
+                    })
+                  }
+                })
+            }
           })
-        }
-      })
-      .catch(() => {
+      } catch (error) {
+        console.log(error)
         props.setPageState({ loading: false })
         Alerts.error()
-      })
+        break
+      }
+    }
   }
 
   const formatDeadline = () => {
