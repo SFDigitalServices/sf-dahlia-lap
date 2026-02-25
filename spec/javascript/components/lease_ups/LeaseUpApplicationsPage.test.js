@@ -934,14 +934,23 @@ describe('LeaseUpApplicationsPage', () => {
             })
             fireEvent.click(screen.getByText('save'))
           })
-
           expect(screen.queryByText('Multiple URLs')).toBeInTheDocument()
-          act(() => {
-            // go back to upload url modal from review modal
-            fireEvent.click(screen.getAllByText('Edit')[0])
 
-            // switch back to single url for all applicants
+          // go back to upload url modal from review modal
+          // verify that 1 Url per app is sticky
+          act(() => {
+            fireEvent.click(screen.getAllByText('Edit')[0])
+          })
+          expect(
+            screen.queryByText('Add a document upload URL for each applicant')
+          ).toBeInTheDocument()
+
+          // close and reopen i2a
+          // verify that 1 Url per app is sticky
+          act(() => {
             fireEvent.click(screen.getByText('Close'))
+          })
+          act(() => {
             fireEvent.change(
               within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
               {
@@ -952,7 +961,29 @@ describe('LeaseUpApplicationsPage', () => {
           expect(
             screen.queryByText('Add a document upload URL for each applicant')
           ).toBeInTheDocument()
+
+          // send invite to apply with 1 url per app setting
           act(() => {
+            fireEvent.click(screen.getByText('next'))
+          })
+          act(() => {
+            // deadline modal should be skipped since it was previously entered
+            fireEvent.click(screen.getByText('send now'))
+          })
+          await waitFor(() => {
+            // two apps were selected
+            expect(mockUpdateApplication.mock.calls).toHaveLength(2)
+            expect(mockSendInviteToApply.mock.calls).toHaveLength(1)
+          })
+
+          act(() => {
+            fireEvent.change(
+              within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
+              {
+                target: { value: 'Set up Invitation to Apply' }
+              }
+            )
+            // switch back to single url for all applicants
             fireEvent.click(screen.getByText('Or, use a single URL for all applicants'))
           })
           expect(screen.queryByText('Add document upload URL')).toBeInTheDocument()
