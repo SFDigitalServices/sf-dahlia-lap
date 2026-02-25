@@ -19,7 +19,12 @@ import { getPageHeaderData } from 'components/supplemental_application/leaseUpAp
 import SupplementalApplicationContainer from 'components/supplemental_application/SupplementalApplicationContainer'
 import { useAppContext, useAsyncOnMount } from 'utils/customHooks'
 import validate, { convertPercentAndCurrency } from 'utils/form/validations'
-import { getLeaseUpStatusOptions, getLeaseUpSubstatusOptions } from 'utils/inviteApplyEmail'
+import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
+import {
+  getLeaseUpStatusOptions,
+  getLeaseUpSubstatusOptions,
+  IsInviteToApplyEnabledForListing
+} from 'utils/inviteApplyEmail'
 
 import labelMapperFields from '../applications/application_details/applicationDetailsFieldsDesc'
 
@@ -30,6 +35,7 @@ const SHORTFORM_TAB_KEY = 'shortform_tab'
  * Supplemental application page with both supplemental and shortform tabs
  */
 const SupplementalApplicationPage = () => {
+  const { unleashFlag: inviteApplyFlag } = useFeatureFlag('partners.inviteToApply', false)
   const { applicationId } = useParams()
   const [selectedTabKey, setSelectedTabKey] = useState(SUPP_TAB_KEY)
   const [
@@ -85,8 +91,13 @@ const SupplementalApplicationPage = () => {
   }
 
   const listingId = shortform?.application?.listing_id
-  const statusOptions = getLeaseUpStatusOptions(listingId)
-  const substatusOptions = getLeaseUpSubstatusOptions(listingId)
+
+  const statusOptions = getLeaseUpStatusOptions(
+    IsInviteToApplyEnabledForListing(breadcrumbData.listing, inviteApplyFlag)
+  )
+  const substatusOptions = getLeaseUpSubstatusOptions(
+    IsInviteToApplyEnabledForListing(breadcrumbData.listing, inviteApplyFlag)
+  )
 
   const performingInitialLoadForTab =
     selectedTabKey === SUPP_TAB_KEY ? !supplemental.application : loadingShortform
