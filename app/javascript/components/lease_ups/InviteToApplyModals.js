@@ -245,7 +245,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     ).length
   }
 
-  const sendInviteToApply = (submittedValues) => {
+  const sendInviteToApply = async (submittedValues) => {
     const appIds = getSelectedApplicationIds()
     const deadline = rsvpModalValues[INVITE_APPLY_DEADLINE_KEY]
     const dateObj = moment(`${deadline.year}-${deadline.month}-${deadline.day}`).endOf('day')
@@ -280,17 +280,17 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       }
 
       try {
-        apiService
+        await apiService
           .updateApplication({
             id: appId,
             upload_url: url,
             invite_to_apply_deadline_date: dateObj.utc().format()
           })
-          .then(() => {
+          .then(async () => {
             counter++
             // make backend api call to send i2a after last application saved to salesforce
             if (counter === size) {
-              apiService
+              await apiService
                 .sendInviteToApply(
                   props.listing,
                   appIds,

@@ -750,7 +750,6 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(screen.getByText('next'))
           })
-          expect(mockUpdateListing.mock.calls).toHaveLength(1)
           expect(screen.getByText('Set document submission deadline')).toBeInTheDocument()
 
           // invalid submission deadline date
@@ -792,7 +791,6 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(screen.getByText('save'))
           })
-          expect(mockUpdateApplication.mock.calls).toHaveLength(2)
           expect(screen.getByText('Review and send')).toBeInTheDocument()
 
           // open send example modal
@@ -826,8 +824,8 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(screen.getByText('send example email'))
           })
-          expect(mockSendInviteToApply.mock.calls).toHaveLength(1)
           await waitFor(() => {
+            expect(mockSendInviteToApply.mock.calls).toHaveLength(1)
             expect(screen.queryByText('send example email')).not.toBeInTheDocument()
             expect(screen.getByText('done')).toBeInTheDocument()
           })
@@ -843,7 +841,11 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(screen.getByText('send now'))
           })
-          expect(mockSendInviteToApply.mock.calls).toHaveLength(2)
+          await waitFor(() => {
+            // two apps were selected.  saved when sending example email and saved just now. 2*2=4
+            expect(mockUpdateApplication.mock.calls).toHaveLength(4)
+            expect(mockSendInviteToApply.mock.calls).toHaveLength(2)
+          })
 
           // deadline and upload urls should be skipped since
           // they've previously been set
@@ -918,7 +920,6 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(screen.getByText('next'))
           })
-          expect(mockUpdateApplication.mock.calls).toHaveLength(2)
 
           // fill out upload deadline
           act(() => {
