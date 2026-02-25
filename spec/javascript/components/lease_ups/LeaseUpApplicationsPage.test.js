@@ -44,7 +44,7 @@ jest.mock('apiService', () => {
     },
     sendInviteToApply: async (listing, appIds, deadline, exampleEmail) => {
       mockSendInviteToApply(listing, appIds, deadline, exampleEmail)
-      if (exampleEmail.includes('FAIL')) {
+      if (exampleEmail && exampleEmail.includes('FAIL')) {
         return Promise.reject(new Error('rejected promise'))
       }
       return Promise.resolve(true)
