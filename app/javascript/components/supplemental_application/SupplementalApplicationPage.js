@@ -23,7 +23,8 @@ import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import {
   getLeaseUpStatusOptions,
   getLeaseUpSubstatusOptions,
-  IsInviteToApplyEnabledForListing
+  IsInviteToApplyEnabledForListing,
+  I2A_FEATURE_FLAG
 } from 'utils/inviteApplyEmail'
 
 import labelMapperFields from '../applications/application_details/applicationDetailsFieldsDesc'
@@ -35,7 +36,7 @@ const SHORTFORM_TAB_KEY = 'shortform_tab'
  * Supplemental application page with both supplemental and shortform tabs
  */
 const SupplementalApplicationPage = () => {
-  const { unleashFlag: inviteApplyFlag } = useFeatureFlag('partners.inviteToApply', false)
+  const { unleashFlag: inviteApplyFlag } = useFeatureFlag(I2A_FEATURE_FLAG, false)
   const { applicationId } = useParams()
   const [selectedTabKey, setSelectedTabKey] = useState(SUPP_TAB_KEY)
   const [

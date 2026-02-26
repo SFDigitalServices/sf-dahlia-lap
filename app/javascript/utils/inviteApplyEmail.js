@@ -1,10 +1,13 @@
-import { useFeatureFlag } from './hooks/useFeatureFlag'
 import {
   LEASE_UP_SUBSTATUS_OPTIONS,
   LEASE_UP_SUBSTATUSES,
   LEASE_UP_STATUS_OPTIONS,
   LEASE_UP_STATUSES
 } from './statusUtils'
+
+const INCLUSIONARY_RENTAL = 'IH-RENTAL'
+
+export const I2A_FEATURE_FLAG = 'partners.inviteToApply'
 
 export const INVITE_APPLY_EMAIL_OPTIONS = [
   {
@@ -15,17 +18,7 @@ export const INVITE_APPLY_EMAIL_OPTIONS = [
 ]
 
 export const IsInviteToApplyEnabledForListing = (listing, i2aFlag) => {
-  return i2aFlag && listing && listing.program_type === 'IH-RENTAL'
-}
-
-export const IsOneUrlPerAppEnabledForListing = (listingId) => {
-  const { unleashFlag: oneUrlPerAppFlag, variant } = useFeatureFlag(
-    'temp.partners.oneUrlPerApp',
-    false
-  )
-  const enabledListingIds =
-    variant.payload === undefined ? [] : JSON.parse(variant.payload.value).enabled_listings
-  return oneUrlPerAppFlag && enabledListingIds.includes(listingId)
+  return i2aFlag && listing && listing.program_type === INCLUSIONARY_RENTAL
 }
 
 export const getLeaseUpSubstatusOptions = (isInviteApplyEnabled) => {

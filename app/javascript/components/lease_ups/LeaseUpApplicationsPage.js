@@ -26,7 +26,8 @@ import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import {
   getLeaseUpStatusOptions,
   getLeaseUpSubstatusOptions,
-  IsInviteToApplyEnabledForListing
+  IsInviteToApplyEnabledForListing,
+  I2A_FEATURE_FLAG
 } from 'utils/inviteApplyEmail'
 import { getSubStatusLabel } from 'utils/statusUtils'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
@@ -92,7 +93,7 @@ const LeaseUpApplicationsPage = () => {
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
 
-  const { unleashFlag: inviteApplyFlag } = useFeatureFlag('partners.inviteToApply', false)
+  const { unleashFlag: inviteApplyFlag } = useFeatureFlag(I2A_FEATURE_FLAG, false)
 
   const [state, setState] = useStateObject({
     loading: false,
