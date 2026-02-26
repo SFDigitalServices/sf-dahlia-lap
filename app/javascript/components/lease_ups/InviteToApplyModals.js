@@ -14,7 +14,6 @@ import { useStateObject } from 'utils/customHooks'
 import { InputField, HelpText } from 'utils/form/final_form/Field'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import validate from 'utils/form/validations'
-import { IsOneUrlPerAppEnabledForListing } from 'utils/inviteApplyEmail'
 
 import InviteToApplyUploadUrlTable, { UPLOAD_URL_INPUT_PREFIX } from './InviteToApplyUploadUrlTable'
 import { buildRowData } from './LeaseUpApplicationsTableContainer'
@@ -24,7 +23,6 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
   const INVITE_APPLY_PER_APP_UPLOAD_KEY = 'invite-to-apply-per-app-upload-url'
   const INVITE_APPLY_DEADLINE_KEY = 'invite-to-apply-deadline'
   const INVITE_APPLY_EXAMPLE_EMAIL = 'invite-to-apply-example-email'
-  const isOneUrlPerAppEnabled = IsOneUrlPerAppEnabledForListing(props.listingId)
 
   const [rsvpModalState, setRsvpModalState] = useStateObject({
     // modal hide/show states
@@ -55,9 +53,6 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     setExampleSuccessAlertState({ show: false, email: '' })
     const defaultUploadUrls = getDefaultUploadUrls()
     setRsvpModalValues({ [INVITE_APPLY_PER_APP_UPLOAD_KEY]: defaultUploadUrls })
-    if (!isOneUrlPerAppEnabled) {
-      localStorage.setItem('urlPerAppMode', false)
-    }
     showNextModal(
       {
         ...rsvpModalValues,
@@ -356,19 +351,15 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
                 />
               </FormGrid.Item>
             </FormGrid.Row>
-            {isOneUrlPerAppEnabled ? (
-              <p>
-                <a
-                  onClick={() => {
-                    setUrlPerApplcation(true)
-                  }}
-                >
-                  Or, add a unique URL for each application
-                </a>
-              </p>
-            ) : (
-              ''
-            )}
+            <p>
+              <a
+                onClick={() => {
+                  setUrlPerApplcation(true)
+                }}
+              >
+                Or, add a unique URL for each application
+              </a>
+            </p>
           </div>
         )}
       </FormModal>

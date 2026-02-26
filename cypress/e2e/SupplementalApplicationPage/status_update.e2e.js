@@ -1,5 +1,4 @@
-import { usingFixtures } from '../../support/utils'
-import { interceptInviteToApplyFlag } from '../../support/utils'
+import { usingFixtures, interceptInviteToApplyFlag } from '../../support/utils'
 
 const LEASE_UP_LISTING_APPLICATION_ID = Cypress.env('LEASE_UP_LISTING_APPLICATION_ID')
 const LEASE_UP_LISTING_ID = Cypress.env('LEASE_UP_LISTING_ID')
@@ -68,6 +67,7 @@ describe('SupplementalApplicationPage statuses', () => {
     cy.visit('http://localhost:3000/')
     cy.login()
     cy.visit(`/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
+    cy.wait('@inviteToApplyFeatureFlag')
     cy.wait('@shortForm')
     cy.wait('@fieldUpdateCommentsGet')
     cy.wait('@leases')

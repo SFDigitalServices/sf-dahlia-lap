@@ -52,25 +52,9 @@ jest.mock('apiService', () => {
   }
 })
 
-let mockOneUrlPerAppFlag = true
-jest.mock('utils/inviteApplyEmail', () => {
-  const { LEASE_UP_SUBSTATUS_OPTIONS, LEASE_UP_STATUS_OPTIONS } = require('utils/statusUtils')
-
-  return {
-    INVITE_APPLY_EMAIL_OPTIONS: [
-      {
-        value: 'Set up Invitation to Apply',
-        label: 'Set up Invitation to Apply',
-        statusClassName: 'is-set-up-invite-to-apply'
-      }
-    ],
-    IsInviteToApplyEnabledForListing: () => true,
-    IsStatusesEnabled: () => true,
-    IsOneUrlPerAppEnabledForListing: () => mockOneUrlPerAppFlag,
-    getLeaseUpSubstatusOptions: () => LEASE_UP_SUBSTATUS_OPTIONS,
-    getLeaseUpStatusOptions: () => LEASE_UP_STATUS_OPTIONS
-  }
-})
+jest.mock('utils/hooks/useFeatureFlag', () => ({
+  useFeatureFlag: () => ({ flagsReady: true, unleashFlag: true, variant: null })
+}))
 
 jest.mock('react-select', () => (props) => {
   const handleChange = (event) => {
@@ -168,7 +152,8 @@ const mockListing = {
   id: 'listingId',
   name: 'listingName',
   building_street_address: 'buildingAddress',
-  report_id: 'REPORT_ID'
+  report_id: 'REPORT_ID',
+  program_type: 'IH-RENTAL'
 }
 
 const mockApplications = [
@@ -264,7 +249,7 @@ describe('LeaseUpApplicationsPage', () => {
   test('should render accessibility requests when present', async () => {
     expect(
       screen.getByRole('row', {
-        name: /cop 2 application name 1001 some first name 1 some last name 1 vision 04\/26\/2018 processing/i
+        name: /v-cop 2 application name 1001 some first name 1 some last name 1 vision 04\/26\/2018 outreach/i
       })
     ).toBeInTheDocument()
   })
@@ -280,7 +265,7 @@ describe('LeaseUpApplicationsPage', () => {
 
   test('status modal can be opened and closed', () => {
     const firstRow = screen.getByRole('row', {
-      name: /cop 2 application name 1001 some first name 1 some last name 1 vision 04\/26\/2018 processing/i
+      name: /v-cop 2 application name 1001 some first name 1 some last name 1 vision 04\/26\/2018 outreach/i
     })
     expect(within(firstRow).getByRole('button')).toBeInTheDocument()
 
@@ -309,7 +294,7 @@ describe('LeaseUpApplicationsPage', () => {
   test('updates substatus and last updated date on status change', async () => {
     // Get the status last updated date before we change it, to verify that it changed.
     const firstRow = screen.getByRole('row', {
-      name: /cop 2 application name 1001 some first name 1 some last name 1 vision 04\/26\/2018 processing/i
+      name: /v-cop 2 application name 1001 some first name 1 some last name 1 vision 04\/26\/2018 outreach/i
     })
 
     // Change status to Appealed and open up the modal
@@ -682,25 +667,6 @@ describe('LeaseUpApplicationsPage', () => {
           fireEvent.click(getRowBulkCheckboxInputs()[0])
           fireEvent.click(getRowBulkCheckboxInputs()[1])
         })
-      })
-
-      test('with temp.partners.oneUrlPerApp flag off', async () => {
-        mockOneUrlPerAppFlag = false
-
-        rtlWrapper = await getWrapper()
-
-        act(() => {
-          fireEvent.click(getRowBulkCheckboxInputs()[0])
-          fireEvent.click(getRowBulkCheckboxInputs()[1])
-          fireEvent.change(within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1], {
-            target: { value: 'Set up Invitation to Apply' }
-          })
-        })
-        expect(
-          screen.queryByText('Add a document upload URL for each applicant')
-        ).not.toBeInTheDocument()
-
-        mockOneUrlPerAppFlag = true
       })
 
       describe('when setting up invite to apply', () => {
