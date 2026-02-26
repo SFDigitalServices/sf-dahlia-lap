@@ -251,6 +251,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     const dateObj = moment(`${deadline.year}-${deadline.month}-${deadline.day}`).endOf('day')
     const exampleEmail = submittedValues[INVITE_APPLY_EXAMPLE_EMAIL]
 
+    // show spinner
     if (!exampleEmail) {
       handleCloseRsvpModal()
       props.setPageState({ loading: true })
@@ -299,11 +300,13 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
                 )
                 .then((res) => {
                   if (exampleEmail) {
+                    // show example email sent feedback
                     setExampleSuccessAlertState({
                       show: true,
                       email: exampleEmail
                     })
                   } else {
+                    // hide spinner, show sending email feedback
                     props.setPageState({
                       loading: false,
                       showPageInfo: true
