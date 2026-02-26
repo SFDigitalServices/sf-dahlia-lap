@@ -44,7 +44,7 @@ jest.mock('apiService', () => {
     },
     sendInviteToApply: async (listing, appIds, deadline, exampleEmail) => {
       mockSendInviteToApply(listing, appIds, deadline, exampleEmail)
-      if (exampleEmail.includes('FAIL')) {
+      if (exampleEmail && exampleEmail.includes('FAIL')) {
         return Promise.reject(new Error('rejected promise'))
       }
       return Promise.resolve(true)
@@ -716,7 +716,6 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(screen.getByText('next'))
           })
-          expect(mockUpdateListing.mock.calls).toHaveLength(1)
           expect(screen.getByText('Set document submission deadline')).toBeInTheDocument()
 
           // invalid submission deadline date
@@ -758,7 +757,6 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(screen.getByText('save'))
           })
-          expect(mockUpdateApplication.mock.calls).toHaveLength(2)
           expect(screen.getByText('Review and send')).toBeInTheDocument()
 
           // open send example modal
@@ -792,8 +790,8 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(screen.getByText('send example email'))
           })
-          expect(mockSendInviteToApply.mock.calls).toHaveLength(1)
           await waitFor(() => {
+            expect(mockSendInviteToApply.mock.calls).toHaveLength(1)
             expect(screen.queryByText('send example email')).not.toBeInTheDocument()
             expect(screen.getByText('done')).toBeInTheDocument()
           })
@@ -809,7 +807,11 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(screen.getByText('send now'))
           })
-          expect(mockSendInviteToApply.mock.calls).toHaveLength(2)
+          await waitFor(() => {
+            // two apps were selected.  saved when sending example email and saved just now. 2*2=4
+            expect(mockUpdateApplication.mock.calls).toHaveLength(4)
+            expect(mockSendInviteToApply.mock.calls).toHaveLength(2)
+          })
 
           // deadline and upload urls should be skipped since
           // they've previously been set
@@ -884,7 +886,6 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(screen.getByText('next'))
           })
-          expect(mockUpdateApplication.mock.calls).toHaveLength(2)
 
           // fill out upload deadline
           act(() => {
@@ -899,14 +900,23 @@ describe('LeaseUpApplicationsPage', () => {
             })
             fireEvent.click(screen.getByText('save'))
           })
-
           expect(screen.queryByText('Multiple URLs')).toBeInTheDocument()
-          act(() => {
-            // go back to upload url modal from review modal
-            fireEvent.click(screen.getAllByText('Edit')[0])
 
-            // switch back to single url for all applicants
+          // go back to upload url modal from review modal
+          // verify that 1 Url per app is sticky
+          act(() => {
+            fireEvent.click(screen.getAllByText('Edit')[0])
+          })
+          expect(
+            screen.queryByText('Add a document upload URL for each applicant')
+          ).toBeInTheDocument()
+
+          // close and reopen i2a
+          // verify that 1 Url per app is sticky
+          act(() => {
             fireEvent.click(screen.getByText('Close'))
+          })
+          act(() => {
             fireEvent.change(
               within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
               {
@@ -917,7 +927,29 @@ describe('LeaseUpApplicationsPage', () => {
           expect(
             screen.queryByText('Add a document upload URL for each applicant')
           ).toBeInTheDocument()
+
+          // send invite to apply with 1 url per app setting
           act(() => {
+            fireEvent.click(screen.getByText('next'))
+          })
+          act(() => {
+            // deadline modal should be skipped since it was previously entered
+            fireEvent.click(screen.getByText('send now'))
+          })
+          await waitFor(() => {
+            // two apps were selected
+            expect(mockUpdateApplication.mock.calls).toHaveLength(2)
+            expect(mockSendInviteToApply.mock.calls).toHaveLength(1)
+          })
+
+          act(() => {
+            fireEvent.change(
+              within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
+              {
+                target: { value: 'Set up Invitation to Apply' }
+              }
+            )
+            // switch back to single url for all applicants
             fireEvent.click(screen.getByText('Or, use a single URL for all applicants'))
           })
           expect(screen.queryByText('Add document upload URL')).toBeInTheDocument()
