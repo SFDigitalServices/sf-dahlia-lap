@@ -1,6 +1,6 @@
 /* global SALESFORCE_BASE_URL */
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { find, map, isEqual } from 'lodash'
 import moment from 'moment'
@@ -22,7 +22,13 @@ import {
   useAppContext
 } from 'utils/customHooks'
 import { GRAPHQL_SERVER_PAGE_SIZE, EagerPagination } from 'utils/EagerPagination'
-import { getLeaseUpStatusOptions, getLeaseUpSubstatusOptions } from 'utils/inviteApplyEmail'
+import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
+import {
+  getLeaseUpStatusOptions,
+  getLeaseUpSubstatusOptions,
+  IsInviteToApplyEnabledForListing,
+  I2A_FEATURE_FLAG
+} from 'utils/inviteApplyEmail'
 import { getSubStatusLabel } from 'utils/statusUtils'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
@@ -87,6 +93,8 @@ const LeaseUpApplicationsPage = () => {
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
 
+  const { unleashFlag: inviteApplyFlag } = useFeatureFlag(I2A_FEATURE_FLAG, false)
+
   const [state, setState] = useStateObject({
     loading: false,
     applications: [],
@@ -117,6 +125,10 @@ const LeaseUpApplicationsPage = () => {
   const [{ reportId, listingPreferences, listingType, listing }, setListingState] = useStateObject(
     {}
   )
+  const [i2aListingEnabled, setInviteListingEnabled] = useState(false)
+  const statusOptions = getLeaseUpStatusOptions(i2aListingEnabled)
+  const substatusOptions = getLeaseUpSubstatusOptions(i2aListingEnabled)
+
   useAsyncOnMount(() => getListing(listingId), {
     onSuccess: (listing) => {
       setListingState({
@@ -130,8 +142,12 @@ const LeaseUpApplicationsPage = () => {
     }
   })
 
-  const statusOptions = getLeaseUpStatusOptions(listingId)
-  const substatusOptions = getLeaseUpSubstatusOptions(listingId)
+  useEffect(() => {
+    const isEnabled = IsInviteToApplyEnabledForListing(listing, inviteApplyFlag)
+    setInviteListingEnabled(isEnabled)
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [listing, inviteApplyFlag])
 
   useAsync(
     () => {
@@ -390,7 +406,8 @@ const LeaseUpApplicationsPage = () => {
     setPageState: setState,
     hasFilters: Object.keys(applicationsListData.appliedFilters).length > 0,
     statusOptions,
-    substatusOptions
+    substatusOptions,
+    isInviteApplyEnabled: i2aListingEnabled
   }
 
   const closePageAlert = () => {

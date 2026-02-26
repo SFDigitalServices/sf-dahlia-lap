@@ -1,10 +1,13 @@
-import { useFeatureFlag } from './hooks/useFeatureFlag'
 import {
   LEASE_UP_SUBSTATUS_OPTIONS,
   LEASE_UP_SUBSTATUSES,
   LEASE_UP_STATUS_OPTIONS,
   LEASE_UP_STATUSES
 } from './statusUtils'
+
+const INCLUSIONARY_RENTAL = 'IH-RENTAL'
+
+export const I2A_FEATURE_FLAG = 'partners.inviteToApply'
 
 export const INVITE_APPLY_EMAIL_OPTIONS = [
   {
@@ -14,52 +17,22 @@ export const INVITE_APPLY_EMAIL_OPTIONS = [
   }
 ]
 
-export const IsInviteToApplyEnabledForListing = (listingId) => {
-  const { unleashFlag: inviteApplyFlag, variant } = useFeatureFlag('partners.inviteToApply', false)
-  const enabledListingIds = variant.payload === undefined ? [] : variant.payload.value.split(',')
-  return inviteApplyFlag && enabledListingIds.includes(listingId)
+export const IsInviteToApplyEnabledForListing = (listing, i2aFlag) => {
+  return i2aFlag && listing && listing.program_type === INCLUSIONARY_RENTAL
 }
 
-export const IsOneUrlPerAppEnabledForListing = (listingId) => {
-  const { unleashFlag: oneUrlPerAppFlag, variant } = useFeatureFlag(
-    'temp.partners.oneUrlPerApp',
-    false
-  )
-  const enabledListingIds =
-    variant.payload === undefined ? [] : JSON.parse(variant.payload.value).enabled_listings
-  return oneUrlPerAppFlag && enabledListingIds.includes(listingId)
-}
-
-export const IsStatusesEnabled = () => {
-  const { unleashFlag: statusesFlag } = useFeatureFlag(
-    'temp.partners.inviteToApply.statuses',
-    false
-  )
-  return statusesFlag
-}
-
-export const getLeaseUpSubstatusOptions = (listingId) => {
-  const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listingId)
-  const isStatusesEnabled = IsStatusesEnabled()
-  // I2A enabled and new statuses enabled
-  if (isInviteApplyEnabled && isStatusesEnabled) {
+export const getLeaseUpSubstatusOptions = (isInviteApplyEnabled) => {
+  // I2A enabled
+  if (isInviteApplyEnabled) {
     return LEASE_UP_SUBSTATUSES
-    // I2A enabled and new statuses not enabled
-  } else if (isInviteApplyEnabled && !isStatusesEnabled) {
-    return LEASE_UP_SUBSTATUS_OPTIONS
   } else {
-    // I2A not enabled and new statuses not enabled
+    // I2A not enabled
     const substatusOptions = JSON.parse(JSON.stringify(LEASE_UP_SUBSTATUS_OPTIONS))
     delete substatusOptions.Processing
     return substatusOptions
   }
 }
 
-export const getLeaseUpStatusOptions = (listingId) => {
-  const isInviteApplyEnabled = IsInviteToApplyEnabledForListing(listingId)
-  const isStatusesEnabled = IsStatusesEnabled()
-  if (isInviteApplyEnabled && isStatusesEnabled) {
-    return LEASE_UP_STATUSES
-  }
-  return LEASE_UP_STATUS_OPTIONS
+export const getLeaseUpStatusOptions = (isInviteApplyEnabled) => {
+  return isInviteApplyEnabled ? LEASE_UP_STATUSES : LEASE_UP_STATUS_OPTIONS
 }
