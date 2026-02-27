@@ -32,11 +32,12 @@ class ApplicationController < ActionController::Base
   def load_listing_on_lease_up_page
     @listing = nil
     @show_invite_to_apply_feedback_banner = false
-    _lease_up_page = request.path.match?('/lease-ups/listings/')
-    if _lease_up_page
-      @listing = soql_listing_service.listing(params[:lease_up_id])
-      @show_invite_to_apply_feedback_banner = @listing.program_type == INCLUSIONARY_RENTAL && ENV['BANNER_INVITE_TO_APPLY_FEEDBACK']
-    end
+    lease_up_page = request.path.match?('/lease-ups/listings/')
+
+    return if not lease_up_page
+
+    @listing = soql_listing_service.listing(params[:lease_up_id])
+    @show_invite_to_apply_feedback_banner = @listing.program_type == INCLUSIONARY_RENTAL && ENV['BANNER_INVITE_TO_APPLY_FEEDBACK'] == 'true'
   end
 
   def soql_listing_service
