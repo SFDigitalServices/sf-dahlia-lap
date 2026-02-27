@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
     @show_invite_to_apply_feedback_banner = false
     lease_up_page = request.path.match?('/lease-ups/listings/')
 
-    return if not lease_up_page
+    return unless lease_up_page
 
     @listing = soql_listing_service.listing(params[:lease_up_id])
     @show_invite_to_apply_feedback_banner = @listing.program_type == INCLUSIONARY_RENTAL && ENV['BANNER_INVITE_TO_APPLY_FEEDBACK'] == 'true'
