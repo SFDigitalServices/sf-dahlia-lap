@@ -28,15 +28,15 @@ export const LEASE_UP_STATUS_OPTIONS = [
 
 export const LEASE_UP_STATUSES = [
   {
-    value: 'Processing',
-    label: 'Processing',
-    statusClassName: 'is-processing',
-    commentRequired: true
-  },
-  {
     value: 'Outreach',
     label: 'Outreach',
     statusClassName: 'is-outreached',
+    commentRequired: true
+  },
+  {
+    value: 'Processing',
+    label: 'Processing',
+    statusClassName: 'is-processing',
     commentRequired: true
   },
   { value: 'Withdrawn', label: 'Withdrawn', statusClassName: 'is-withdrawn' },
@@ -150,8 +150,8 @@ export const LEASE_UP_SUBSTATUSES = {
   Waitlisted: [
     { value: 'Written confirmation sent', label: 'Written confirmation sent' },
     {
-      value: 'Asked to be contacted about future vacancies',
-      label: 'Asked to be contacted about future vacancies'
+      value: 'Contact about future vacancies',
+      label: 'Contact about future vacancies'
     },
     { value: 'None of the above', label: 'None of the above' }
   ],

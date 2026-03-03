@@ -122,6 +122,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                   data-testid="select"
                 >
                   <option
+                    value="Outreach"
+                  >
+                    Outreach
+                  </option>
+                  <option
                     value="Processing"
                   >
                     Processing
@@ -568,6 +573,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     data-testid="select"
                   >
                     <option
+                      value="Outreach"
+                    >
+                      Outreach
+                    </option>
+                    <option
                       value="Processing"
                     >
                       Processing
@@ -748,6 +758,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     data-disabled="false"
                     data-testid="select"
                   >
+                    <option
+                      value="Outreach"
+                    >
+                      Outreach
+                    </option>
                     <option
                       value="Processing"
                     >
@@ -930,6 +945,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     data-testid="select"
                   >
                     <option
+                      value="Outreach"
+                    >
+                      Outreach
+                    </option>
+                    <option
                       value="Processing"
                     >
                       Processing
@@ -1110,6 +1130,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     data-disabled="false"
                     data-testid="select"
                   >
+                    <option
+                      value="Outreach"
+                    >
+                      Outreach
+                    </option>
                     <option
                       value="Processing"
                     >
@@ -1292,6 +1317,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     data-testid="select"
                   >
                     <option
+                      value="Outreach"
+                    >
+                      Outreach
+                    </option>
+                    <option
                       value="Processing"
                     >
                       Processing
@@ -1472,6 +1502,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                     data-disabled="false"
                     data-testid="select"
                   >
+                    <option
+                      value="Outreach"
+                    >
+                      Outreach
+                    </option>
                     <option
                       value="Processing"
                     >

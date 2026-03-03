@@ -1,7 +1,8 @@
 export const formatListingStateData = (listing) => ({
   id: listing?.id,
   name: listing?.name,
-  buildingAddress: listing?.building_street_address
+  buildingAddress: listing?.building_street_address,
+  program_type: listing?.program_type
 })
 
 export const formatApplicationStateData = (id, number, applicantFullName) => ({

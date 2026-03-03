@@ -1,3 +1,5 @@
+import { getSubStatusLabel } from '../../utils/statusUtils'
+
 export const buildLeaseUpAppFirstComeFirstServedModel = (application) => {
   const applicant = application.applicant
 
@@ -15,6 +17,7 @@ export const buildLeaseUpAppFirstComeFirstServedModel = (application) => {
     has_ada_priorities_selected: application.has_ada_priorities_selected,
     total_household_size: application.total_household_size,
     sub_status: application.sub_status,
+    sub_status_label: getSubStatusLabel(application.processing_status, application.sub_status),
     // preference order doesn't matter for fcfs listings and all applications are 'General'
     preference_lottery_rank: application.general_lottery_rank,
     preference_order: 1,

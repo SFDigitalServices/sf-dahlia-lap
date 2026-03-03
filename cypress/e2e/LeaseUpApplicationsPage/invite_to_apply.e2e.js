@@ -42,44 +42,9 @@ describe('LeaseUpApplicationsPage send email', () => {
     cy.intercept('PUT', 'api/v1/applications/**', {
       statusCode: 200,
       body: 'true'
-    }).as('inviteApplyDeadlinePut')
+    }).as('inviteApplyApplicationsPut')
 
     interceptInviteToApplyFlag(LEASE_UP_LISTING_ID)
-  })
-
-  it('should set document upload url and deadline for an Invite to Apply email', () => {
-    visitLeaseUpListing()
-
-    // Check the checkboxes in the 2nd and 3rd row
-    cy.get(bulkActionCheckboxId(SECOND_ROW_LEASE_UP_APP_ID)).click()
-    cy.get(bulkActionCheckboxId(THIRD_ROW_LEASE_UP_APP_ID)).click()
-
-    cy.get(bulkActionCheckboxId(SECOND_ROW_LEASE_UP_APP_ID)).should('be.checked')
-    cy.get(bulkActionCheckboxId(THIRD_ROW_LEASE_UP_APP_ID)).should('be.checked')
-
-    // Select Set up Invite to Apply option
-    cy.selectStatusDropdownValue(
-      rsvpSendEmailDropdown,
-      statusMenuItemSelector(SETUP_INVITE_TO_APPLY)
-    )
-
-    cy.contains(UPLOAD_URL_MODAL_TITLE).should('be.visible')
-
-    cy.get('#invite-to-apply-file-upload-url').type('https://www.sfgov.org')
-    cy.contains('button', 'next').click()
-
-    cy.contains(DEADLINE_MODAL_TITLE).should('be.visible')
-
-    cy.get('#invite-to-apply-deadline_month').type('01')
-    cy.get('#invite-to-apply-deadline_day').type('01')
-    cy.get('#invite-to-apply-deadline_year').type('3000')
-    cy.contains('button', 'save').click()
-
-    cy.wait('@inviteApplyUploadUrlPut')
-    // one request for each select application
-    cy.wait('@inviteApplyDeadlinePut').wait('@inviteApplyDeadlinePut')
-
-    cy.contains(DEADLINE_MODAL_TITLE).should('not.exist')
   })
 
   it('should send an invite to apply email', () => {
@@ -100,12 +65,11 @@ describe('LeaseUpApplicationsPage send email', () => {
     cy.get('#invite-to-apply-deadline_day').type('01')
     cy.get('#invite-to-apply-deadline_year').type('3000')
     cy.contains('button', 'save').click()
-    cy.wait('@inviteApplyUploadUrlPut')
-    cy.wait('@inviteApplyDeadlinePut')
 
     cy.contains(REVIEW_MODAL_TITLE).should('be.visible')
     cy.contains('button', 'send now').click()
 
+    cy.wait('@inviteApplyApplicationsPut')
     cy.wait('@inviteToApplyPost')
     cy.contains("We're sending your messages").should('be.visible')
   })
@@ -131,12 +95,11 @@ describe('LeaseUpApplicationsPage send email', () => {
     cy.get('#invite-to-apply-deadline_day').type('01')
     cy.get('#invite-to-apply-deadline_year').type('3000')
     cy.contains('button', 'save').click()
-    cy.wait('@inviteApplyUploadUrlPut')
-    cy.wait('@inviteApplyDeadlinePut')
 
     cy.contains(REVIEW_MODAL_TITLE).should('be.visible')
     cy.contains('button', 'send now').click()
 
+    cy.wait('@inviteApplyApplicationsPut')
     cy.wait('@inviteToApplyErrorPost')
     cy.get('@alertShown').should(
       'have.been.calledWith',

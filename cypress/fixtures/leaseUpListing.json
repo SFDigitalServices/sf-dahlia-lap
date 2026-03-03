@@ -276,6 +276,7 @@
 			}
 		],
 		"is_sale": false,
-		"is_rental": true
+		"is_rental": true,
+		"program_type": "IH-RENTAL"
 	}
 }
