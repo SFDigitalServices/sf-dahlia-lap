@@ -112,7 +112,7 @@ ul.bullet-list {
   margin-top: 3rem;
   padding-left: 3rem;
   padding-right: 3rem; }
-  .info-alert.no-icon .info-body {
+  .info-alert.no-icon .info-body, .info-alert.i2a-review {
     padding-left: 0; }
   .info-alert.no-close {
     padding-right: 1rem; }
@@ -231,3 +231,6 @@ button.is-outreached.disabled:hover, button.is-outreached.disabled:active, butto
 
 .status-update.is-outreached {
   box-shadow: inset 3px 0 0 0 #daeeff !important; }
+
+.semi-bold {
+  font-weight: 600; }
