@@ -13,8 +13,6 @@ class ApplicationController < ActionController::Base
 
   rescue_from Force::RecordNotFound, with: :not_found
 
-  INCLUSIONARY_RENTAL = 'IH-RENTAL'
-
   def not_found
     render '404', status: 404
   end
@@ -37,7 +35,9 @@ class ApplicationController < ActionController::Base
     return unless lease_up_page
 
     @listing = soql_listing_service.listing(params[:lease_up_id])
-    @show_invite_to_apply_feedback_banner = @listing.program_type == INCLUSIONARY_RENTAL && ENV['BANNER_INVITE_TO_APPLY_FEEDBACK'] == 'true'
+    @show_invite_to_apply_feedback_banner = @listing.program_type == Force::Listing::PROGRAM_TYPE_INCLUSIONARY_RENTAL &&
+                                            @listing.listing_type != Force::Listing::LISTING_TYPE_FIRST_COME_FIRST_SERVED &&
+                                            ENV['BANNER_INVITE_TO_APPLY_FEEDBACK'] == 'true'
   end
 
   def soql_listing_service
