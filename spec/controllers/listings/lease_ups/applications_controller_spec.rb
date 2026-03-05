@@ -22,6 +22,22 @@ RSpec.describe Listings::LeaseUps::ApplicationsController, type: :controller do
         expect(response.body).to include('Sending emails from DAHLIA is new ')
         expect(response).to have_http_status(:success)
       end
+
+      it 'should not show i2a banner for First Come, First Served IH-RENTAL listings' do
+        # Mock the listing to be IH-RENTAL but FCFS
+        fcfs_listing = double('Listing',
+                              program_type: 'IH-RENTAL',
+                              listing_type: 'First Come, First Served')
+
+        allow_any_instance_of(Listings::LeaseUps::ApplicationsController)
+          .to receive(:soql_listing_service)
+          .and_return(double(listing: fcfs_listing))
+
+        get :index, params: { lease_up_id: 'test-fcfs-id' }
+
+        expect(assigns(:show_invite_to_apply_feedback_banner)).to be false
+        expect(response).to have_http_status(:success)
+      end
     end
 
     context 'when BANNER_INVITE_TO_APPLY_FEEDBACK is false' do
