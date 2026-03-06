@@ -240,20 +240,12 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     ).length
   }
 
-  const uncheckSelectedApps = () => {
-    const selectedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked')
-    selectedCheckboxes.forEach((checkbox) => {
-      if (checkbox.id.includes('bulk-action-checkbox')) {
-        checkbox.checked = false
-      }
-    })
-  }
-
   useEffect(() => {
     // uncheck any selected checkboxes when loading is finished to reset the page state after sending invites
     if (props.pageState.loading === false) {
-      uncheckSelectedApps()
+      props.onClearSelectedApplications()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.pageState.loading])
 
   const sendInviteToApply = async (submittedValues) => {

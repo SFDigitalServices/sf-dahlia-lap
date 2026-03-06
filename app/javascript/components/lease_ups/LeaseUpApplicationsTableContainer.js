@@ -171,6 +171,7 @@ const LeaseUpTableContainer = ({
         pageState={pageState}
         setPageState={setPageState}
         applications={applications}
+        onClearSelectedApplications={onClearSelectedApplications}
       />
     </>
   )
