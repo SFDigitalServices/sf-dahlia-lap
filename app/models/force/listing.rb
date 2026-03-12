@@ -89,6 +89,7 @@ module Force
     ].freeze
 
     LISTING_TYPE_FIRST_COME_FIRST_SERVED = 'First Come, First Served'
+    PROGRAM_TYPE_INCLUSIONARY_RENTAL = 'IH-RENTAL'
 
     def map_list_to_domain(domain_fields, list_domain_field_name, force_class)
       return unless domain_fields[list_domain_field_name]
