@@ -1,11 +1,10 @@
+import { PROGRAM_TYPE_INCLUSIONARY_RENTAL, LISTING_TYPE_FIRST_COME_FIRST_SERVED } from './consts'
 import {
   LEASE_UP_SUBSTATUS_OPTIONS,
   LEASE_UP_SUBSTATUSES,
   LEASE_UP_STATUS_OPTIONS,
   LEASE_UP_STATUSES
 } from './statusUtils'
-
-const INCLUSIONARY_RENTAL = 'IH-RENTAL'
 
 export const I2A_FEATURE_FLAG = 'partners.inviteToApply'
 
@@ -18,7 +17,12 @@ export const INVITE_APPLY_EMAIL_OPTIONS = [
 ]
 
 export const IsInviteToApplyEnabledForListing = (listing, i2aFlag) => {
-  return i2aFlag && listing && listing.program_type === INCLUSIONARY_RENTAL
+  return (
+    i2aFlag &&
+    listing &&
+    listing.program_type === PROGRAM_TYPE_INCLUSIONARY_RENTAL &&
+    listing.listing_type !== LISTING_TYPE_FIRST_COME_FIRST_SERVED
+  )
 }
 
 export const getLeaseUpSubstatusOptions = (isInviteApplyEnabled) => {
