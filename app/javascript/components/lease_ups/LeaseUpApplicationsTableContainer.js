@@ -93,6 +93,7 @@ const LeaseUpTableContainer = ({
     rowsPerPage,
     statusModal,
     listing,
+    pageState,
     setPageState,
     statusOptions,
     substatusOptions,
@@ -167,8 +168,10 @@ const LeaseUpTableContainer = ({
         bulkCheckboxesState={bulkCheckboxesState}
         listingId={listingId}
         listing={listing}
+        pageState={pageState}
         setPageState={setPageState}
         applications={applications}
+        onClearSelectedApplications={onClearSelectedApplications}
       />
     </>
   )
