@@ -251,7 +251,10 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
   const sendInviteToApply = async (submittedValues) => {
     const appIds = getSelectedApplicationIds()
     const deadline = rsvpModalValues[INVITE_APPLY_DEADLINE_KEY]
-    const dateObj = moment(`${deadline.year}-${deadline.month}-${deadline.day}`).endOf('day')
+    const dateObj = moment(
+      `${deadline.year}-${deadline.month}-${deadline.day}`,
+      'YYYY-MM-DD'
+    ).endOf('day')
     const exampleEmail = submittedValues[INVITE_APPLY_EXAMPLE_EMAIL]
 
     // show spinner
