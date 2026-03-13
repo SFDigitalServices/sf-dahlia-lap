@@ -940,6 +940,8 @@ describe('LeaseUpApplicationsPage', () => {
             // two apps were selected
             expect(mockUpdateApplication.mock.calls).toHaveLength(2)
             expect(mockSendInviteToApply.mock.calls).toHaveLength(1)
+            expect(getRowBulkCheckboxInputs()[0]).not.toBeChecked()
+            expect(getRowBulkCheckboxInputs()[1]).not.toBeChecked()
           })
 
           act(() => {

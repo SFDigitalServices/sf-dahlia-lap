@@ -403,6 +403,7 @@ const LeaseUpApplicationsPage = () => {
     rowsPerPage: ROWS_PER_PAGE,
     statusModal: statusModalState,
     listing,
+    pageState: state,
     setPageState: setState,
     hasFilters: Object.keys(applicationsListData.appliedFilters).length > 0,
     statusOptions,
