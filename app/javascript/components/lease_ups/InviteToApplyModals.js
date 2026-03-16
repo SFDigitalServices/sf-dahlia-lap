@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle } from 'react'
+import React, { forwardRef, useEffect, useImperativeHandle } from 'react'
 
 import arrayMutators from 'final-form-arrays'
 import { map } from 'lodash'
@@ -240,10 +240,21 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     ).length
   }
 
+  useEffect(() => {
+    // uncheck any selected checkboxes when loading is finished to reset the page state after sending invites
+    if (props.pageState.loading === false) {
+      props.onClearSelectedApplications()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.pageState.loading])
+
   const sendInviteToApply = async (submittedValues) => {
     const appIds = getSelectedApplicationIds()
     const deadline = rsvpModalValues[INVITE_APPLY_DEADLINE_KEY]
-    const dateObj = moment(`${deadline.year}-${deadline.month}-${deadline.day}`).endOf('day')
+    const dateObj = moment(
+      `${deadline.year}-${deadline.month}-${deadline.day}`,
+      'YYYY-MM-DD'
+    ).endOf('day')
     const exampleEmail = submittedValues[INVITE_APPLY_EXAMPLE_EMAIL]
 
     // show spinner
