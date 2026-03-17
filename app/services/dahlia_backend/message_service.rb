@@ -49,7 +49,7 @@ module DahliaBackend
         "buildingState": listing[:building_state],
         "buildingZip": listing[:building_zip_code],
         "listingNeighborhood": listing[:neighborhood],
-        "units": prepare_units(listing[:id]),
+        "units": prepare_units(listing[:id], listing),
         "applicants": contacts,
         "deadlineDate": deadline_date.strftime('%Y-%m-%d'),
         "lotteryDate": lottery_date.strftime('%Y-%m-%d'),
@@ -98,40 +98,22 @@ module DahliaBackend
       nil
     end
 
-    def prepare_units(listing_id)
-      get_unit_summaries(listing_id)
+    def prepare_units(listing_id, listing)
+      get_unit_summaries(listing_id, listing)
     end
 
-    def get_unit_summaries(listing_id)
-      listing_details = rest_listing_service.get_details(listing_id)
-
-      units = listing_details[:units]
-      Rails.logger.info("[DahliaBackend::MessageService:get_unit_summaries] Retrieved #{units} units for listing #{listing_id}")
+    def get_unit_summaries(listing_id, _listing)
+      units = soql_listing_service.units(listing_id)
 
       available_units = units.select do |unit|
-        status = unit[:Status]
-        status.to_s.casecmp('Available').zero?
+        unit[:status].to_s.casecmp('Available').zero?
       end
 
-      Rails.logger.info("[DahliaBackend::MessageService:get_unit_summaries] Found #{available_units.size} available units for listing #{listing_id}")
-
-      grouped = available_units.group_by { |unit| unit[:Unit_Type] }
-
-      Rails.logger.info("[DahliaBackend::MessageService:get_unit_summaries] Grouped units by type: #{grouped.keys}")
+      grouped = available_units.group_by { |unit| unit[:unit_type] }
 
       grouped.map do |unit_type, type_units|
-        rents = type_units.map do |unit|
-          rent_obj = unit[:BMR_Rent_Monthly]
-          next nil if rent_obj.nil?
-
-          if rent_obj.is_a?(Hash)
-            rent_obj[:parsedValue] || rent_obj[:source]
-          else
-            rent_obj
-          end
-        end.compact.map(&:to_i)
-
-        next if rents.empty?
+        rents = type_units.map { |unit| unit[:bmr_rent_monthly] }.compact.map(&:to_i)
+        next if unit_type.blank? || rents.empty?
 
         {
           unitType: unit_type,
@@ -178,6 +160,10 @@ module DahliaBackend
 
     def rest_listing_service
       Force::Rest::ListingService.new(@current_user)
+    end
+
+    def soql_listing_service
+      Force::Soql::ListingService.new(@current_user)
     end
 
     def log_info(message)
