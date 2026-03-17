@@ -104,8 +104,8 @@ module DahliaBackend
 
     def get_unit_summaries(listing_id)
       listing_details = rest_listing_service.get_details(listing_id)
-      Rails.logger.info("[DahliaBackend::MessageService:get_unit_summaries] Retrieved listing details for listing #{listing_id}: #{listing_details}")
-      units = listing_details[0][:units]
+      Rails.logger.info("[DahliaBackend::MessageService:get_unit_summaries] Retrieved listing details for listing #{listing_id}: #{listing_details.keys}")
+      units = listing_details[:units]
       Rails.logger.info("[DahliaBackend::MessageService:get_unit_summaries] Retrieved #{units} units for listing #{listing_id}")
 
       available_units = units.select do |unit|
