@@ -116,10 +116,13 @@ RSpec.describe DahliaBackend::MessageService do
     ]
   end
   let(:listing_service) { instance_double(Force::Rest::ListingService) }
+  let(:soql_listing_service) { instance_double(Force::Soql::ListingService) }
 
   before do
     allow(Force::Rest::ListingService).to receive(:new).and_return(listing_service)
     allow(listing_service).to receive(:get_details).with(listing_id).and_return(listing_details)
+    allow(Force::Soql::ListingService).to receive(:new).with(user).and_return(soql_listing_service)
+    allow(soql_listing_service).to receive(:units).with(listing_id).and_return(units)
   end
 
   describe '.send_invite_to_apply' do
@@ -158,14 +161,14 @@ RSpec.describe DahliaBackend::MessageService do
       end
     end
 
-    context 'when listing detail fetch fails' do
+    context 'when units fetch fails' do
       it 'returns nil' do
-        allow(listing_service).to receive(:get_details).with(listing_id).and_return(nil)
+        allow(soql_listing_service).to receive(:units).with(listing_id).and_return(nil)
         expect(subject.send_invite_to_apply(user, invite_to_apply_params, contacts)).to be_nil
       end
 
-      it 'handles exceptions when fetching listing' do
-        allow(listing_service).to receive(:get_details).and_raise(StandardError.new('API error'))
+      it 'handles exceptions when fetching units' do
+        allow(soql_listing_service).to receive(:units).and_raise(StandardError.new('API error'))
         expect(Rails.logger).to receive(:error).with(
           '[DahliaBackend::MessageService:log_error] Error sending Invite to Apply: StandardError API error',
         )
@@ -200,11 +203,9 @@ RSpec.describe DahliaBackend::MessageService do
   describe '#get_unit_summaries' do
     subject(:service) { described_class.new(client) }
 
-    let(:soql_listing_service) { instance_double(Force::Soql::ListingService) }
-
     before do
       service.instance_variable_set(:@current_user, user)
-      allow(Force::Soql::ListingService).to receive(:new).and_return(soql_listing_service)
+      allow(Force::Soql::ListingService).to receive(:new).with(user).and_return(soql_listing_service)
     end
 
     context 'when units are empty' do
