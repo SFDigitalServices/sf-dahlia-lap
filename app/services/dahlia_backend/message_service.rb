@@ -99,12 +99,51 @@ module DahliaBackend
     end
 
     def prepare_units(listing_id, listing)
-      get_unit_summaries(listing_id, listing)
+      get_unit_summaries_from_soql(listing_id) || get_unit_summaries_from_listing(listing) || get_unit_summaries_from_rest_service(listing_id)
     end
 
-    def get_unit_summaries(listing_id, _listing)
+    def get_unit_summaries_from_soql(listing_id)
       units = soql_listing_service.units(listing_id)
 
+      available_units = units.select do |unit|
+        unit[:status].to_s.casecmp('Available').zero?
+      end
+
+      grouped = available_units.group_by { |unit| unit[:unit_type] }
+
+      grouped.map do |unit_type, type_units|
+        rents = type_units.map { |unit| unit[:bmr_rent_monthly] }.compact.map(&:to_i)
+        next if unit_type.blank? || rents.empty?
+
+        {
+          unitType: unit_type,
+          minRent: rents.min,
+          maxRent: rents.max,
+          availableUnits: type_units.size,
+        }
+      end.compact
+    end
+
+    def get_unit_summaries_from_rest_service(listing_id)
+      listing_details = rest_listing_service.get_details(listing_id)
+      all_summaries = listing_details[0][:unitSummaries]
+      return [] if all_summaries.nil?
+
+      unit_summaries = all_summaries[:general].present? ? all_summaries[:general] : all_summaries[:reserved]
+      units = []
+      unit_summaries.each do |summary|
+        units << {
+          unitType: summary[:unitType],
+          minRent: summary[:minMonthlyRent],
+          maxRent: summary[:maxMonthlyRent],
+          availableUnits: summary[:availability],
+        }
+      end
+      units
+    end
+
+    def get_unit_summaries_from_listing(_listing)
+      units = _listing[:units] || []
       available_units = units.select do |unit|
         unit[:status].to_s.casecmp('Available').zero?
       end
