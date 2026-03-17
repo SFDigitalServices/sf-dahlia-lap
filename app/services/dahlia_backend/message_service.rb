@@ -99,21 +99,46 @@ module DahliaBackend
     end
 
     def prepare_units(listing_id)
-      listing_details = rest_listing_service.get_details(listing_id)
-      all_summaries = listing_details[0][:unitSummaries]
-      return [] if all_summaries.nil?
+      get_unit_summaries(listing_id)
+    end
 
-      unit_summaries = all_summaries[:general].present? ? all_summaries[:general] : all_summaries[:reserved]
-      units = []
-      unit_summaries.each do |summary|
-        units << {
-          unitType: summary[:unitType],
-          minRent: summary[:minMonthlyRent],
-          maxRent: summary[:maxMonthlyRent],
-          availableUnits: summary[:availability],
-        }
+    def get_unit_summaries(listing_id)
+      listing_details = rest_listing_service.get_details(listing_id)
+      units = listing_details[0][:units]
+      return [] if units.nil?
+
+      available_units = units.select do |unit|
+        status = unit[:Status]
+        status.to_s.casecmp('Available').zero?
       end
-      units
+
+      Rails.logger.info("[DahliaBackend::MessageService:get_unit_summaries] Found #{available_units.size} available units for listing #{listing_id}")
+
+      grouped = available_units.group_by { |unit| unit[:Unit_Type] }
+
+      Rails.logger.info("[DahliaBackend::MessageService:get_unit_summaries] Grouped units by type: #{grouped.keys}")
+
+      grouped.map do |unit_type, type_units|
+        rents = type_units.map do |unit|
+          rent_obj = unit[:BMR_Rent_Monthly]
+          next nil if rent_obj.nil?
+
+          if rent_obj.is_a?(Hash)
+            rent_obj[:parsedValue] || rent_obj[:source]
+          else
+            rent_obj
+          end
+        end.compact.map(&:to_i)
+
+        next if rents.empty?
+
+        {
+          unitType: unit_type,
+          minRent: rents.min,
+          maxRent: rents.max,
+          availableUnits: type_units.size,
+        }
+      end.compact
     end
 
     def determine_email(default_email)

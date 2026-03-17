@@ -36,6 +36,30 @@ RSpec.describe DahliaBackend::MessageService do
           availability: 26.0,
         }],
       },
+      units: [
+        {
+          "Unit_Type": 'Studio',
+          "BMR_Rent_Monthly": 1409.0,
+          "BMR_Rental_Minimum_Monthly_Income_Needed": 2800,
+          "Status": 'Available',
+          "Property_Type": 'Apartment',
+          "isReservedCommunity": false,
+          "AMI_chart_type": 'MOHCD',
+          "AMI_chart_year": 2025,
+          "Max_AMI_for_Qualifying_Unit": 65,
+        },
+        {
+          "Unit_Type": 'Studio',
+          "BMR_Rent_Monthly": 2000.0,
+          "BMR_Rental_Minimum_Monthly_Income_Needed": 2800,
+          "Status": 'Available',
+          "Property_Type": 'Apartment',
+          "isReservedCommunity": false,
+          "AMI_chart_type": 'MOHCD',
+          "AMI_chart_year": 2025,
+          "Max_AMI_for_Qualifying_Unit": 65,
+        },
+      ],
     }]
   end
   let(:user) do
@@ -145,6 +169,74 @@ RSpec.describe DahliaBackend::MessageService do
         )
         expect(subject.send_invite_to_apply(user, invite_to_apply_params, contacts)).to be_nil
       end
+    end
+  end
+
+describe '#get_unit_summaries' do
+  subject(:service) { described_class.new(client) }
+
+  before do
+    service.instance_variable_set(:@current_user, user)
+    allow(Force::Rest::ListingService).to receive(:new).and_return(listing_service)
+  end
+
+  context 'when units are nil' do
+    it 'returns an empty array' do
+      allow(listing_service).to receive(:get_details).with(listing_id).and_return([{ units: nil }])
+
+      result = service.send(:get_unit_summaries, listing_id)
+
+      expect(result).to eq([])
+    end
+  end
+
+  context 'when units exist' do
+    let(:units_payload) do
+      [{
+        units: [
+          {
+            Status: 'Available',
+            Unit_Type: '1 BR',
+            BMR_Rent_Monthly: 1800,
+          },
+          {
+            Status: 'Available',
+            Unit_Type: '1 BR',
+            BMR_Rent_Monthly: 2200,
+          },
+          {
+            Status: 'Occupied',
+            Unit_Type: '1 BR',
+            BMR_Rent_Monthly: 9999,
+          },
+          {
+            Status: 'Available',
+            Unit_Type: '2 BR',
+            BMR_Rent_Monthly: 2600,
+          },
+        ],
+      }]
+    end
+
+    it 'derives min/max BMR and available count per unit type from available units only' do
+      allow(listing_service).to receive(:get_details).with(listing_id).and_return(units_payload)
+
+      result = service.send(:get_unit_summaries, listing_id)
+
+      expect(result).to contain_exactly(
+        {
+          unitType: '1 BR',
+          minRent: 1800,
+          maxRent: 2200,
+          availableUnits: 2,
+        },
+        {
+          unitType: '2 BR',
+          minRent: 2600,
+          maxRent: 2600,
+          availableUnits: 1,
+        },
+      )
     end
   end
 end
