@@ -184,6 +184,68 @@ RSpec.describe DahliaBackend::MessageService do
         expect(subject.send_invite_to_apply(user, invite_to_apply_params, contacts)).to eq('ok')
       end
 
+      it 'uses listing unit summaries when SOQL returns no available units' do
+        params_with_listing_units = invite_to_apply_params.deep_dup
+        params_with_listing_units[:listing] = listing.merge(
+          units: [{
+            status: 'Available',
+            unit_type: '2 BR',
+            bmr_rent_monthly: 2500,
+          }],
+        )
+        allow(soql_listing_service).to receive(:units).with(listing_id).and_return([])
+        expect(client).to receive(:post).with('/messages/invite-to-apply',
+                                              hash_including(
+                                                units: [{
+                                                  unitType: '2 BR',
+                                                  minRent: 2500,
+                                                  maxRent: 2500,
+                                                  availableUnits: 1,
+                                                }],
+                                              )).and_return('ok')
+
+        expect(subject.send_invite_to_apply(user, params_with_listing_units, contacts)).to eq('ok')
+      end
+
+      it 'uses REST unit summaries when SOQL and listing units are empty' do
+        allow(soql_listing_service).to receive(:units).with(listing_id).and_return([])
+        allow(listing_service).to receive(:get_details).with(listing_id).and_return([
+                                                                                      {
+                                                                                        unitSummaries: {
+                                                                                          general: [{
+                                                                                            unitType: 'Studio',
+                                                                                            minMonthlyRent: 1500,
+                                                                                            maxMonthlyRent: 1600,
+                                                                                            availability: 2,
+                                                                                          }],
+                                                                                          reserved: nil,
+                                                                                        },
+                                                                                      },
+                                                                                    ])
+        expect(client).to receive(:post).with('/messages/invite-to-apply',
+                                              hash_including(
+                                                units: [{
+                                                  unitType: 'Studio',
+                                                  minRent: 1500,
+                                                  maxRent: 1600,
+                                                  availableUnits: 2,
+                                                }],
+                                              )).and_return('ok')
+
+        expect(subject.send_invite_to_apply(user, invite_to_apply_params, contacts)).to eq('ok')
+      end
+
+      it 'returns nil when no unit summaries are available from any source' do
+        allow(soql_listing_service).to receive(:units).with(listing_id).and_return([])
+        allow(listing_service).to receive(:get_details).with(listing_id).and_return([{ unitSummaries: nil }])
+        expect(client).not_to receive(:post)
+        expect(Rails.logger).to receive(:error).with(
+          '[DahliaBackend::MessageService:log_error] Error sending Invite to Apply: RuntimeError No units found',
+        )
+
+        expect(subject.send_invite_to_apply(user, invite_to_apply_params, contacts)).to be_nil
+      end
+
       it 'returns nil and logs error if client.post fails' do
         expect(client).to receive(:post).and_return(nil)
         expect(Rails.logger).to receive(:error).with(/Failed to send message/)
@@ -200,7 +262,7 @@ RSpec.describe DahliaBackend::MessageService do
     end
   end
 
-  describe '#get_unit_summaries' do
+  describe '#get_unit_summaries_from_soql' do
     subject(:service) { described_class.new(client) }
 
     before do
@@ -212,7 +274,7 @@ RSpec.describe DahliaBackend::MessageService do
       it 'returns an empty array' do
         allow(soql_listing_service).to receive(:units).with(listing_id).and_return([])
 
-        result = service.send(:get_unit_summaries, listing_id, listing)
+        result = service.send(:get_unit_summaries_from_soql, listing_id)
 
         expect(result).to eq([])
       end
@@ -247,7 +309,7 @@ RSpec.describe DahliaBackend::MessageService do
       it 'derives min/max BMR and available count per unit type from available units only' do
         allow(soql_listing_service).to receive(:units).with(listing_id).and_return(units_payload)
 
-        result = service.send(:get_unit_summaries, listing_id, listing)
+        result = service.send(:get_unit_summaries_from_soql, listing_id)
 
         expect(result).to contain_exactly(
           {

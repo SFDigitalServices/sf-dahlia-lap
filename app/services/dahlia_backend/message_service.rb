@@ -37,6 +37,9 @@ module DahliaBackend
       raise 'No contacts found' if contacts.empty?
 
       listing = params[:listing]
+      units = prepare_units(listing[:id], listing)
+      raise 'No units found' if units.blank?
+
       lottery_date = DateTime.parse(listing[:lottery_date])
       deadline_date = DateTime.parse(params[:invite_to_apply_deadline])
       {
@@ -49,7 +52,7 @@ module DahliaBackend
         "buildingState": listing[:building_state],
         "buildingZip": listing[:building_zip_code],
         "listingNeighborhood": listing[:neighborhood],
-        "units": prepare_units(listing[:id], listing),
+        "units": units,
         "applicants": contacts,
         "deadlineDate": deadline_date.strftime('%Y-%m-%d'),
         "lotteryDate": lottery_date.strftime('%Y-%m-%d'),
@@ -99,11 +102,20 @@ module DahliaBackend
     end
 
     def prepare_units(listing_id, listing)
-      get_unit_summaries_from_soql(listing_id) || get_unit_summaries_from_listing(listing) || get_unit_summaries_from_rest_service(listing_id)
+      soql_units = get_unit_summaries_from_soql(listing_id)
+      return soql_units if soql_units.present?
+
+      listing_units = get_unit_summaries_from_listing(listing)
+      return listing_units if listing_units.present?
+
+      rest_units = get_unit_summaries_from_rest_service(listing_id)
+      return rest_units if rest_units.present?
+
+      nil
     end
 
     def get_unit_summaries_from_soql(listing_id)
-      units = soql_listing_service.units(listing_id)
+      units = soql_listing_service.units(listing_id) || []
 
       available_units = units.select do |unit|
         unit[:status].to_s.casecmp('Available').zero?
