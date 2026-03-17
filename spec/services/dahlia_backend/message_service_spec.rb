@@ -90,6 +90,31 @@ RSpec.describe DahliaBackend::MessageService do
       }],
     }
   end
+
+  let(:units) do
+    [
+      {
+        unit_type: 'Studio',
+        bmr_rent_monthly: 1409.0,
+        bmr_rental_minimum_monthly_income_needed: 2800,
+        status: 'Available',
+        property_type: 'Apartment',
+        ami_chart_type: 'MOHCD',
+        ami_chart_year: 2025,
+        max_ami_for_qualifying_unit: 65,
+      },
+      {
+        unit_type: 'Studio',
+        bmr_rent_monthly: 2000.0,
+        bmr_rental_minimum_monthly_income_needed: 2800,
+        status: 'Available',
+        property_type: 'Apartment',
+        ami_chart_type: 'MOHCD',
+        ami_chart_year: 2025,
+        max_ami_for_qualifying_unit: 65,
+      },
+    ]
+  end
   let(:listing_service) { instance_double(Force::Rest::ListingService) }
 
   before do
@@ -175,16 +200,18 @@ RSpec.describe DahliaBackend::MessageService do
   describe '#get_unit_summaries' do
     subject(:service) { described_class.new(client) }
 
+    let(:soql_listing_service) { instance_double(Force::Soql::ListingService) }
+
     before do
       service.instance_variable_set(:@current_user, user)
-      allow(Force::Rest::ListingService).to receive(:new).and_return(listing_service)
+      allow(Force::Soql::ListingService).to receive(:new).and_return(soql_listing_service)
     end
 
-    context 'when units are nil' do
+    context 'when units are empty' do
       it 'returns an empty array' do
-        allow(listing_service).to receive(:get_details).with(listing_id).and_return([{ units: nil }])
+        allow(soql_listing_service).to receive(:units).with(listing_id).and_return([])
 
-        result = service.send(:get_unit_summaries, listing_id)
+        result = service.send(:get_unit_summaries, listing_id, listing)
 
         expect(result).to eq([])
       end
@@ -192,36 +219,34 @@ RSpec.describe DahliaBackend::MessageService do
 
     context 'when units exist' do
       let(:units_payload) do
-        [{
-          units: [
-            {
-              Status: 'Available',
-              Unit_Type: '1 BR',
-              BMR_Rent_Monthly: 1800,
-            },
-            {
-              Status: 'Available',
-              Unit_Type: '1 BR',
-              BMR_Rent_Monthly: 2200,
-            },
-            {
-              Status: 'Occupied',
-              Unit_Type: '1 BR',
-              BMR_Rent_Monthly: 9999,
-            },
-            {
-              Status: 'Available',
-              Unit_Type: '2 BR',
-              BMR_Rent_Monthly: 2600,
-            },
-          ],
-        }]
+        [
+          {
+            status: 'Available',
+            unit_type: '1 BR',
+            bmr_rent_monthly: 1800,
+          },
+          {
+            status: 'Available',
+            unit_type: '1 BR',
+            bmr_rent_monthly: 2200,
+          },
+          {
+            status: 'Occupied',
+            unit_type: '1 BR',
+            bmr_rent_monthly: 9999,
+          },
+          {
+            status: 'Available',
+            unit_type: '2 BR',
+            bmr_rent_monthly: 2600,
+          },
+        ]
       end
 
       it 'derives min/max BMR and available count per unit type from available units only' do
-        allow(listing_service).to receive(:get_details).with(listing_id).and_return(units_payload)
+        allow(soql_listing_service).to receive(:units).with(listing_id).and_return(units_payload)
 
-        result = service.send(:get_unit_summaries, listing_id)
+        result = service.send(:get_unit_summaries, listing_id, listing)
 
         expect(result).to contain_exactly(
           {
