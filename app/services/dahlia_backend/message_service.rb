@@ -102,9 +102,6 @@ module DahliaBackend
     end
 
     def prepare_units(listing_id, listing)
-      soql_units = get_unit_summaries_from_soql(listing_id)
-      return soql_units if soql_units.present?
-
       listing_units = get_unit_summaries_from_listing(listing)
       return listing_units if listing_units.present?
 
