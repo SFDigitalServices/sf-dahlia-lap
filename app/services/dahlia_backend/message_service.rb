@@ -37,6 +37,9 @@ module DahliaBackend
       raise 'No contacts found' if contacts.empty?
 
       listing = params[:listing]
+      units = prepare_units(listing[:id], listing)
+      raise 'No units found' if units.blank?
+
       lottery_date = DateTime.parse(listing[:lottery_date])
       deadline_date = DateTime.parse(params[:invite_to_apply_deadline])
       {
@@ -49,7 +52,7 @@ module DahliaBackend
         "buildingState": listing[:building_state],
         "buildingZip": listing[:building_zip_code],
         "listingNeighborhood": listing[:neighborhood],
-        "units": prepare_units(listing[:id]),
+        "units": units,
         "applicants": contacts,
         "deadlineDate": deadline_date.strftime('%Y-%m-%d'),
         "lotteryDate": lottery_date.strftime('%Y-%m-%d'),
@@ -98,7 +101,17 @@ module DahliaBackend
       nil
     end
 
-    def prepare_units(listing_id)
+    def prepare_units(listing_id, listing)
+      listing_units = get_unit_summaries_from_listing(listing)
+      return listing_units if listing_units.present?
+
+      rest_units = get_unit_summaries_from_rest_service(listing_id)
+      return rest_units if rest_units.present?
+
+      nil
+    end
+
+    def get_unit_summaries_from_rest_service(listing_id)
       listing_details = rest_listing_service.get_details(listing_id)
       all_summaries = listing_details[0][:unitSummaries]
       return [] if all_summaries.nil?
@@ -114,6 +127,27 @@ module DahliaBackend
         }
       end
       units
+    end
+
+    def get_unit_summaries_from_listing(_listing)
+      units = _listing[:units] || []
+      available_units = units.select do |unit|
+        unit[:status].to_s.casecmp('Available').zero?
+      end
+
+      grouped = available_units.group_by { |unit| unit[:unit_type] }
+
+      grouped.map do |unit_type, type_units|
+        rents = type_units.map { |unit| unit[:bmr_rent_monthly] }.compact.map(&:to_i)
+        next if unit_type.blank? || rents.empty?
+
+        {
+          unitType: unit_type,
+          minRent: rents.min,
+          maxRent: rents.max,
+          availableUnits: type_units.size,
+        }
+      end.compact
     end
 
     def determine_email(default_email)
