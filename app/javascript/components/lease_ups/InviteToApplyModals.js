@@ -32,8 +32,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     setDeadline: false,
     review: false,
     example: false,
-    current: '',
-    inviteType: 'i2a'
+    current: ''
   })
 
   // eslint-disable-next-line dot-notation
