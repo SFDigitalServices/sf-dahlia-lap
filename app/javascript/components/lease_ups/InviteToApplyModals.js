@@ -386,8 +386,9 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
             {rsvpStrings?.url?.urlPerApp && (
               <p>
                 <a
-                  onClick={() => {
+                  onClick={(evt) => {
                     setUrlPerApplcation(true)
+                    evt.preventDefault()
                   }}
                 >
                   Or, add a unique URL for each application
@@ -414,8 +415,9 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
           <>
             <p>
               <a
-                onClick={() => {
+                onClick={(evt) => {
                   setUrlPerApplcation(false)
+                  evt.preventDefault()
                 }}
               >
                 Or, use a single URL for all applicants
