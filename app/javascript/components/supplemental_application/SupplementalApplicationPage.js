@@ -25,7 +25,7 @@ import {
   getLeaseUpSubstatusOptions,
   IsInviteToApplyEnabledForListing,
   I2A_FEATURE_FLAG
-} from 'utils/inviteApplyEmail'
+} from 'utils/inviteEmail'
 
 import labelMapperFields from '../applications/application_details/applicationDetailsFieldsDesc'
 

@@ -675,7 +675,7 @@ describe('LeaseUpApplicationsPage', () => {
             fireEvent.change(
               within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
               {
-                target: { value: 'Set up Invitation to Apply' }
+                target: { value: 'i2a' }
               }
             )
           })
@@ -819,7 +819,7 @@ describe('LeaseUpApplicationsPage', () => {
             fireEvent.change(
               within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
               {
-                target: { value: 'Set up Invitation to Apply' }
+                target: { value: 'i2a' }
               }
             )
           })
@@ -920,7 +920,7 @@ describe('LeaseUpApplicationsPage', () => {
             fireEvent.change(
               within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
               {
-                target: { value: 'Set up Invitation to Apply' }
+                target: { value: 'i2a' }
               }
             )
           })
@@ -948,7 +948,7 @@ describe('LeaseUpApplicationsPage', () => {
             fireEvent.change(
               within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
               {
-                target: { value: 'Set up Invitation to Apply' }
+                target: { value: 'i2a' }
               }
             )
             // switch back to single url for all applicants

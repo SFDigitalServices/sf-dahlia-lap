@@ -97,7 +97,7 @@ const LeaseUpTableContainer = ({
     setPageState,
     statusOptions,
     substatusOptions,
-    isInviteApplyEnabled
+    invitesEnabled
   }
 }) => {
   const inviteToApplyModalsRef = useRef(null)
@@ -125,10 +125,10 @@ const LeaseUpTableContainer = ({
         onBulkLeaseUpCommentChange={(val) => onLeaseUpStatusChange(null, null, true)}
         onRsvpSendEmailChange={(val) => {
           if (inviteToApplyModalsRef.current) {
-            inviteToApplyModalsRef.current.setUpInvitationToApply()
+            inviteToApplyModalsRef.current.setUpInvitationToApply(val)
           }
         }}
-        isInviteApplyEnabled={isInviteApplyEnabled}
+        invitesEnabled={invitesEnabled}
       />
       {!loading && (
         <LeaseUpApplicationsTable
