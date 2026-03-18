@@ -46,7 +46,7 @@ RSpec.describe DahliaBackend::MessageService do
   end
   let(:listing_details) do
     [{
-      unit_summaries: {
+      unitSummaries: {
         reserved: nil,
         general: [{
           unitType: 'Studio',
