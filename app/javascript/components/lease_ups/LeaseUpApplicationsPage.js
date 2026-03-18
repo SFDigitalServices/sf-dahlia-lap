@@ -143,13 +143,14 @@ const LeaseUpApplicationsPage = () => {
   })
 
   useEffect(() => {
-    const invitesEnabled = {}
+    const invitesEnabled = {
+      any: false
+    }
     for (const option of INVITE_EMAIL_OPTIONS) {
       const enabled = option.enabled(listing, inviteApplyFlag)
       invitesEnabled[option.value] = enabled
       if (enabled) {
-        // eslint-disable-next-line dot-notation
-        invitesEnabled['any'] = true
+        invitesEnabled.any = true
       }
     }
     setInvitesEnabled(invitesEnabled)
