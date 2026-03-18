@@ -188,10 +188,6 @@ module DahliaBackend
       Force::Rest::ListingService.new(@current_user)
     end
 
-    def soql_listing_service
-      Force::Soql::ListingService.new(@current_user)
-    end
-
     def log_info(message)
       Rails.logger.info("[DahliaBackend::MessageService:log_info] #{message}")
     end
