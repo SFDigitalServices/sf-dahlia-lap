@@ -235,15 +235,19 @@ const LeaseUpApplicationsFilterContainer = ({
 }
 
 LeaseUpApplicationsFilterContainer.propTypes = {
+  listingType: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onBulkLeaseUpStatusChange: PropTypes.func.isRequired,
   onBulkLeaseUpCommentChange: PropTypes.func.isRequired,
+  onRsvpSendEmailChange: PropTypes.func.isRequired,
   onClearSelectedApplications: PropTypes.func,
   onSelectAllApplications: PropTypes.func,
   preferences: PropTypes.array,
   loading: PropTypes.bool,
+  bulkCheckboxesState: PropTypes.array,
   bulkActionApplications: PropTypes.object,
-  statusOptions: PropTypes.array
+  statusOptions: PropTypes.array,
+  invitesEnabled: PropTypes.object
 }
 
 export default LeaseUpApplicationsFilterContainer
