@@ -391,7 +391,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
                     evt.preventDefault()
                   }}
                 >
-                  Or, add a unique URL for each application
+                  {rsvpStrings.url.urlPerApp}
                 </a>
               </p>
             )}
