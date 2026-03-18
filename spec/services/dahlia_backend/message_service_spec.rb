@@ -299,8 +299,25 @@ RSpec.describe DahliaBackend::MessageService do
         ]
       end
 
+      let(:provided_scenario_units_payload) do
+        [
+          { unit_type: 'Studio', bmr_rent_monthly: 1409, status: 'Occupied' },
+          { unit_type: '1 BR', bmr_rent_monthly: 2366, status: 'Occupied' },
+          { unit_type: '1 BR', bmr_rent_monthly: 2987, status: 'Occupied' },
+          { unit_type: '1 BR', bmr_rent_monthly: 1742, status: 'Available' },
+          { unit_type: '2 BR', bmr_rent_monthly: 3343, status: 'Occupied' },
+          { unit_type: '2 BR', bmr_rent_monthly: 3343, status: 'Available' },
+          { unit_type: '2 BR', bmr_rent_monthly: 3754, status: 'Occupied' },
+          { unit_type: '2 BR', bmr_rent_monthly: 2642, status: 'Occupied' },
+        ]
+      end
+
       let(:listing_with_units_payload) do
         listing.merge(units: units_payload)
+      end
+
+      let(:listing_with_provided_scenario_units_payload) do
+        listing.merge(units: provided_scenario_units_payload)
       end
 
       let(:summary) do
@@ -332,6 +349,25 @@ RSpec.describe DahliaBackend::MessageService do
              unitType: '2 BR',
              minRent: 2600,
              maxRent: 2600,
+             availableUnits: 1,
+           }],
+        )
+      end
+
+      it 'calculates summaries correctly for a mostly-occupied listing with sparse availability' do
+        result = service.send(:get_unit_summaries_from_listing, listing_with_provided_scenario_units_payload)
+
+        expect(result).to eq(
+          [{
+            unitType: '1 BR',
+            minRent: 1742,
+            maxRent: 1742,
+            availableUnits: 1,
+          },
+           {
+             unitType: '2 BR',
+             minRent: 3343,
+             maxRent: 3343,
              availableUnits: 1,
            }],
         )
