@@ -143,17 +143,17 @@ const LeaseUpApplicationsPage = () => {
   })
 
   useEffect(() => {
-    const invitesEnabled = {
+    const determinedInvitesEnabled = {
       any: false
     }
     for (const option of INVITE_EMAIL_OPTIONS) {
       const enabled = option.enabled(listing, inviteApplyFlag)
-      invitesEnabled[option.value] = enabled
+      determinedInvitesEnabled[option.value] = enabled
       if (enabled) {
-        invitesEnabled.any = true
+        determinedInvitesEnabled.any = true
       }
     }
-    setInvitesEnabled(invitesEnabled)
+    setInvitesEnabled(determinedInvitesEnabled)
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [listing, inviteApplyFlag])
