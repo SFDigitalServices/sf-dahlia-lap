@@ -386,6 +386,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
             {rsvpStrings?.url?.urlPerApp && (
               <p>
                 <a
+                  href='#'
                   onClick={(evt) => {
                     setUrlPerApplcation(true)
                     evt.preventDefault()
@@ -415,6 +416,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
           <>
             <p>
               <a
+                href='#'
                 onClick={(evt) => {
                   setUrlPerApplcation(false)
                   evt.preventDefault()
