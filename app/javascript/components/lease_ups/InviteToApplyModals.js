@@ -35,8 +35,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     current: ''
   })
 
-  // eslint-disable-next-line dot-notation
-  const [rsvpStrings, setRsvpStrings] = useStateObject(INVITE_EMAILS['i2a'])
+  const [rsvpStrings, setRsvpStrings] = useStateObject(INVITE_EMAILS.i2a)
 
   const [exampleSuccessAlertState, setExampleSuccessAlertState] = useStateObject({
     show: false,
