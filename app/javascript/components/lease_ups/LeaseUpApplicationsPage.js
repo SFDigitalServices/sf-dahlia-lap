@@ -1,6 +1,6 @@
 /* global SALESFORCE_BASE_URL */
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 import { find, map, isEqual } from 'lodash'
 import moment from 'moment'
@@ -26,9 +26,9 @@ import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import {
   getLeaseUpStatusOptions,
   getLeaseUpSubstatusOptions,
-  IsInviteToApplyEnabledForListing,
-  I2A_FEATURE_FLAG
-} from 'utils/inviteApplyEmail'
+  I2A_FEATURE_FLAG,
+  INVITE_EMAIL_OPTIONS
+} from 'utils/inviteEmail'
 import { getSubStatusLabel } from 'utils/statusUtils'
 import { SALESFORCE_DATE_FORMAT } from 'utils/utils'
 
@@ -125,9 +125,9 @@ const LeaseUpApplicationsPage = () => {
   const [{ reportId, listingPreferences, listingType, listing }, setListingState] = useStateObject(
     {}
   )
-  const [i2aListingEnabled, setInviteListingEnabled] = useState(false)
-  const statusOptions = getLeaseUpStatusOptions(i2aListingEnabled)
-  const substatusOptions = getLeaseUpSubstatusOptions(i2aListingEnabled)
+  const [invitesEnabled, setInvitesEnabled] = useStateObject({})
+  const statusOptions = getLeaseUpStatusOptions(invitesEnabled.any === true)
+  const substatusOptions = getLeaseUpSubstatusOptions(invitesEnabled.any === true)
 
   useAsyncOnMount(() => getListing(listingId), {
     onSuccess: (listing) => {
@@ -143,8 +143,17 @@ const LeaseUpApplicationsPage = () => {
   })
 
   useEffect(() => {
-    const isEnabled = IsInviteToApplyEnabledForListing(listing, inviteApplyFlag)
-    setInviteListingEnabled(isEnabled)
+    const determinedInvitesEnabled = {
+      any: false
+    }
+    for (const option of INVITE_EMAIL_OPTIONS) {
+      const enabled = option.enabled(listing, inviteApplyFlag)
+      determinedInvitesEnabled[option.value] = enabled
+      if (enabled) {
+        determinedInvitesEnabled.any = true
+      }
+    }
+    setInvitesEnabled(determinedInvitesEnabled)
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [listing, inviteApplyFlag])
@@ -408,7 +417,7 @@ const LeaseUpApplicationsPage = () => {
     hasFilters: Object.keys(applicationsListData.appliedFilters).length > 0,
     statusOptions,
     substatusOptions,
-    isInviteApplyEnabled: i2aListingEnabled
+    invitesEnabled
   }
 
   const closePageAlert = () => {

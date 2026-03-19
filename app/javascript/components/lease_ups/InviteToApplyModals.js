@@ -14,6 +14,7 @@ import { useStateObject } from 'utils/customHooks'
 import { InputField, HelpText } from 'utils/form/final_form/Field'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import validate from 'utils/form/validations'
+import { INVITE_EMAILS } from 'utils/inviteEmail'
 
 import InviteToApplyUploadUrlTable, { UPLOAD_URL_INPUT_PREFIX } from './InviteToApplyUploadUrlTable'
 import { buildRowData } from './LeaseUpApplicationsTableContainer'
@@ -34,6 +35,8 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     current: ''
   })
 
+  const [rsvpStrings, setRsvpStrings] = useStateObject(INVITE_EMAILS.i2a)
+
   const [exampleSuccessAlertState, setExampleSuccessAlertState] = useStateObject({
     show: false,
     email: ''
@@ -49,7 +52,9 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     [INVITE_APPLY_PER_APP_UPLOAD_KEY]: {}
   })
 
-  const handleSetUpInvitationApply = () => {
+  const handleSetUpInvitationApply = (inviteType) => {
+    const strings = INVITE_EMAILS[inviteType]
+    setRsvpStrings(strings)
     setExampleSuccessAlertState({ show: false, email: '' })
     const defaultUploadUrls = getDefaultUploadUrls()
     setRsvpModalValues({ [INVITE_APPLY_PER_APP_UPLOAD_KEY]: defaultUploadUrls })
@@ -343,8 +348,8 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     <>
       <FormModal
         isOpen={rsvpModalState.uploadUrl}
-        title='Add document upload URL'
-        subtitle='Enter the link applicants will use to upload their documents.'
+        title={rsvpStrings?.url?.title || ''}
+        subtitle={rsvpStrings?.url?.subtitle || ''}
         onSubmit={uploadUrlModalSubmit}
         handleClose={handleCloseRsvpModal}
         primary='next'
@@ -357,7 +362,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
             <FormGrid.Row>
               <FormGrid.Item width='100%'>
                 <InputField
-                  label={'Document upload URL'}
+                  label={rsvpStrings?.url?.label || ''}
                   labelId='doc-upload-url-label'
                   fieldName={INVITE_APPLY_UPLOAD_KEY}
                   id={INVITE_APPLY_UPLOAD_KEY}
@@ -373,19 +378,23 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
               <FormGrid.Item width='100%'>
                 <HelpText
                   id='invite-to-apply-file-upload-url-help'
-                  note='Example: https://www.dropbox.com/scl/fo/oi0q'
+                  note={rsvpStrings?.url?.helpText || ''}
                 />
               </FormGrid.Item>
             </FormGrid.Row>
-            <p>
-              <a
-                onClick={() => {
-                  setUrlPerApplcation(true)
-                }}
-              >
-                Or, add a unique URL for each application
-              </a>
-            </p>
+            {rsvpStrings?.url?.urlPerApp && (
+              <p>
+                <a
+                  href='#'
+                  onClick={(evt) => {
+                    setUrlPerApplcation(true)
+                    evt.preventDefault()
+                  }}
+                >
+                  {rsvpStrings.url.urlPerApp}
+                </a>
+              </p>
+            )}
           </div>
         )}
       </FormModal>
@@ -406,8 +415,10 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
           <>
             <p>
               <a
-                onClick={() => {
+                href='#'
+                onClick={(evt) => {
                   setUrlPerApplcation(false)
+                  evt.preventDefault()
                 }}
               >
                 Or, use a single URL for all applicants
