@@ -41,7 +41,7 @@ const LeaseUpApplicationsFilterContainer = ({
   onSubmit,
   preferences = [],
   loading = false,
-  bulkCheckboxesState = [],
+  bulkCheckboxesState = {},
   onBulkLeaseUpStatusChange,
   onBulkLeaseUpCommentChange,
   onRsvpSendEmailChange,
@@ -244,7 +244,7 @@ LeaseUpApplicationsFilterContainer.propTypes = {
   onSelectAllApplications: PropTypes.func,
   preferences: PropTypes.array,
   loading: PropTypes.bool,
-  bulkCheckboxesState: PropTypes.array,
+  bulkCheckboxesState: PropTypes.object,
   bulkActionApplications: PropTypes.object,
   statusOptions: PropTypes.array,
   invitesEnabled: PropTypes.object
