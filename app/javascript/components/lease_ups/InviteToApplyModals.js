@@ -14,7 +14,7 @@ import { useStateObject } from 'utils/customHooks'
 import { InputField, HelpText } from 'utils/form/final_form/Field'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import validate from 'utils/form/validations'
-import { INVITE_EMAILS } from 'utils/inviteEmail'
+import { INVITE_EMAILS_STRINGS } from 'utils/inviteEmail'
 
 import InviteToApplyUploadUrlTable, { UPLOAD_URL_INPUT_PREFIX } from './InviteToApplyUploadUrlTable'
 import { buildRowData } from './LeaseUpApplicationsTableContainer'
@@ -35,7 +35,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     current: ''
   })
 
-  const [inviteStrings, setInviteStrings] = useStateObject(INVITE_EMAILS.i2a)
+  const [inviteStrings, setInviteStrings] = useStateObject(INVITE_EMAILS_STRINGS.i2a)
 
   const [exampleSuccessAlertState, setExampleSuccessAlertState] = useStateObject({
     show: false,
@@ -53,7 +53,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
   })
 
   const handleSetUpInvitationApply = (inviteType) => {
-    const strings = INVITE_EMAILS[inviteType]
+    const strings = INVITE_EMAILS_STRINGS[inviteType]
     setInviteStrings(strings)
     setExampleSuccessAlertState({ show: false, email: '' })
     const defaultUploadUrls = getDefaultUploadUrls()

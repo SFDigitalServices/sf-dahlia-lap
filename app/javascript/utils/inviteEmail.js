@@ -42,7 +42,7 @@ export const getLeaseUpStatusOptions = (isInviteApplyEnabled) => {
   return isInviteApplyEnabled ? LEASE_UP_STATUSES : LEASE_UP_STATUS_OPTIONS
 }
 
-export const INVITE_EMAILS = {
+export const INVITE_EMAILS_STRINGS = {
   // key corresponds to the value in INVITE_EMAIL_OPTIONS
   i2a: {
     url: {
