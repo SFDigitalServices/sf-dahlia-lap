@@ -192,7 +192,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                   data-testid="select"
                 >
                   <option
-                    value="Set up Invitation to Apply"
+                    value="i2a"
                   >
                     Set up Invitation to Apply
                   </option>

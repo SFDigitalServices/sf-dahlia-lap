@@ -675,7 +675,7 @@ describe('LeaseUpApplicationsPage', () => {
             fireEvent.change(
               within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
               {
-                target: { value: 'Set up Invitation to Apply' }
+                target: { value: 'i2a' }
               }
             )
           })
@@ -803,6 +803,16 @@ describe('LeaseUpApplicationsPage', () => {
           expect(screen.queryByText('See an example')).not.toBeInTheDocument()
           expect(screen.getByText('Review and send')).toBeInTheDocument()
 
+          // go back to deadline modal
+          act(() => {
+            fireEvent.click(screen.getByTestId('edit-deadline-link'))
+          })
+          expect(screen.getByText('Set document submission deadline')).toBeInTheDocument()
+          act(() => {
+            fireEvent.click(screen.getByText('save'))
+          })
+          expect(screen.getByText('Review and send')).toBeInTheDocument()
+
           // send email
           act(() => {
             fireEvent.click(screen.getByText('send now'))
@@ -819,7 +829,7 @@ describe('LeaseUpApplicationsPage', () => {
             fireEvent.change(
               within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
               {
-                target: { value: 'Set up Invitation to Apply' }
+                target: { value: 'i2a' }
               }
             )
           })
@@ -920,7 +930,7 @@ describe('LeaseUpApplicationsPage', () => {
             fireEvent.change(
               within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
               {
-                target: { value: 'Set up Invitation to Apply' }
+                target: { value: 'i2a' }
               }
             )
           })
@@ -948,7 +958,7 @@ describe('LeaseUpApplicationsPage', () => {
             fireEvent.change(
               within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
               {
-                target: { value: 'Set up Invitation to Apply' }
+                target: { value: 'i2a' }
               }
             )
             // switch back to single url for all applicants

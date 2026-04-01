@@ -15,7 +15,7 @@ import ShowHideFiltersButton from 'components/molecules/ShowHideFiltersButton'
 import { useAppContext } from 'utils/customHooks'
 import SearchField from 'utils/form/final_form/SearchField'
 import formUtils from 'utils/formUtils'
-import { INVITE_APPLY_EMAIL_OPTIONS } from 'utils/inviteApplyEmail'
+import { INVITE_EMAIL_OPTIONS } from 'utils/inviteEmail'
 
 const styles = {
   marginBottomZero: {
@@ -41,14 +41,14 @@ const LeaseUpApplicationsFilterContainer = ({
   onSubmit,
   preferences = [],
   loading = false,
-  bulkCheckboxesState = [],
+  bulkCheckboxesState = {},
   onBulkLeaseUpStatusChange,
   onBulkLeaseUpCommentChange,
   onRsvpSendEmailChange,
   onClearSelectedApplications = () => {},
   onSelectAllApplications = () => {},
   statusOptions = [],
-  isInviteApplyEnabled
+  invitesEnabled = {}
 }) => {
   const [isShowingFilters, setIsShowingFilters] = useState(false)
   const [hasChangedFilters, setHasChangedFilters] = useState(false)
@@ -106,6 +106,7 @@ const LeaseUpApplicationsFilterContainer = ({
   const applicationIds = Object.entries(bulkCheckboxesState)
   const numChecked = applicationIds.filter(([_, checked]) => checked).length
   const allChecked = applicationIds.length > 0 && applicationIds.length === numChecked
+  const enabledInviteOptions = INVITE_EMAIL_OPTIONS.filter((option) => invitesEnabled[option.value])
 
   const handleCheckboxClicked = () => {
     if (numChecked > 0) {
@@ -167,7 +168,7 @@ const LeaseUpApplicationsFilterContainer = ({
                       noBottomMargin
                     />
                   </div>
-                  {isInviteApplyEnabled && (
+                  {invitesEnabled.any && (
                     <div className='padding-right--half d-inline-block'>
                       <ButtonDropdown
                         classes={{ tertiary: numChecked === 0 }}
@@ -178,7 +179,7 @@ const LeaseUpApplicationsFilterContainer = ({
                         dataTestId={'bulk-email-dropdown'}
                         forceDisplayPlaceholderText
                         tertiary={numChecked === 0}
-                        options={INVITE_APPLY_EMAIL_OPTIONS}
+                        options={enabledInviteOptions}
                         classNamePrefix={'rsvp-dropdown'}
                       />
                     </div>
@@ -234,15 +235,19 @@ const LeaseUpApplicationsFilterContainer = ({
 }
 
 LeaseUpApplicationsFilterContainer.propTypes = {
+  listingType: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onBulkLeaseUpStatusChange: PropTypes.func.isRequired,
   onBulkLeaseUpCommentChange: PropTypes.func.isRequired,
+  onRsvpSendEmailChange: PropTypes.func.isRequired,
   onClearSelectedApplications: PropTypes.func,
   onSelectAllApplications: PropTypes.func,
   preferences: PropTypes.array,
   loading: PropTypes.bool,
+  bulkCheckboxesState: PropTypes.object,
   bulkActionApplications: PropTypes.object,
-  statusOptions: PropTypes.array
+  statusOptions: PropTypes.array,
+  invitesEnabled: PropTypes.object
 }
 
 export default LeaseUpApplicationsFilterContainer

@@ -1,4 +1,4 @@
-import { IsInviteToApplyEnabledForListing } from 'utils/inviteApplyEmail'
+import { IsInviteToApplyEnabledForListing } from 'utils/inviteEmail'
 
 describe('IsInviteToApplyEnabledForListing', () => {
   const mockListing = {

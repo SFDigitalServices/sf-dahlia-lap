@@ -14,6 +14,7 @@ import { useStateObject } from 'utils/customHooks'
 import { InputField, HelpText } from 'utils/form/final_form/Field'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import validate from 'utils/form/validations'
+import { INVITE_EMAILS_STRINGS } from 'utils/inviteEmail'
 
 import InviteToApplyUploadUrlTable, { UPLOAD_URL_INPUT_PREFIX } from './InviteToApplyUploadUrlTable'
 import { buildRowData } from './LeaseUpApplicationsTableContainer'
@@ -24,7 +25,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
   const INVITE_APPLY_DEADLINE_KEY = 'invite-to-apply-deadline'
   const INVITE_APPLY_EXAMPLE_EMAIL = 'invite-to-apply-example-email'
 
-  const [rsvpModalState, setRsvpModalState] = useStateObject({
+  const [inviteModalState, setInviteModalState] = useStateObject({
     // modal hide/show states
     uploadUrl: false,
     urlPerApp: false,
@@ -34,12 +35,14 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     current: ''
   })
 
+  const [inviteStrings, setInviteStrings] = useStateObject(INVITE_EMAILS_STRINGS.i2a)
+
   const [exampleSuccessAlertState, setExampleSuccessAlertState] = useStateObject({
     show: false,
     email: ''
   })
 
-  const [rsvpModalValues, setRsvpModalValues] = useStateObject({
+  const [inviteModalValues, setInviteModalValues] = useStateObject({
     [INVITE_APPLY_UPLOAD_KEY]: '',
     [INVITE_APPLY_DEADLINE_KEY]: {
       month: '',
@@ -49,16 +52,18 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     [INVITE_APPLY_PER_APP_UPLOAD_KEY]: {}
   })
 
-  const handleSetUpInvitationApply = () => {
+  const handleSetUpInvitationApply = (inviteType) => {
+    const strings = INVITE_EMAILS_STRINGS[inviteType]
+    setInviteStrings(strings)
     setExampleSuccessAlertState({ show: false, email: '' })
     const defaultUploadUrls = getDefaultUploadUrls()
-    setRsvpModalValues({ [INVITE_APPLY_PER_APP_UPLOAD_KEY]: defaultUploadUrls })
+    setInviteModalValues({ [INVITE_APPLY_PER_APP_UPLOAD_KEY]: defaultUploadUrls })
     showNextModal(
       {
-        ...rsvpModalValues,
+        ...inviteModalValues,
         [INVITE_APPLY_PER_APP_UPLOAD_KEY]: defaultUploadUrls
       },
-      rsvpModalState
+      inviteModalState
     )
   }
   // expose handleSetupInvitationApply to parent
@@ -66,25 +71,25 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     setUpInvitationToApply: handleSetUpInvitationApply
   }))
 
-  const handleCloseRsvpModal = () => {
+  const handleCloseInviteModal = () => {
     const stateObj = {}
-    for (const key of Object.keys(rsvpModalState)) {
+    for (const key of Object.keys(inviteModalState)) {
       stateObj[key] = false
     }
-    setRsvpModalState(stateObj)
+    setInviteModalState(stateObj)
   }
 
   const closeExampleModal = () => {
-    showRsvpModal('review')
+    showInviteModal('review')
     setExampleSuccessAlertState({ show: false, email: '' })
   }
 
-  const showRsvpModal = (key, callback) => {
-    handleCloseRsvpModal()
+  const showInviteModal = (key, callback) => {
+    handleCloseInviteModal()
     const stateObj = {}
     stateObj[key] = true
     stateObj.current = key
-    setRsvpModalState(stateObj, callback)
+    setInviteModalState(stateObj, callback)
   }
 
   const isUrlPerAppMode = () => {
@@ -92,27 +97,27 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
   }
 
   const uploadUrlModalSubmit = (submittedValues) => {
-    setRsvpModalValues(submittedValues)
+    setInviteModalValues(submittedValues)
     showNextModal(
       {
-        ...rsvpModalValues,
+        ...inviteModalValues,
         ...submittedValues
       },
-      rsvpModalState
+      inviteModalState
     )
   }
 
   const oneUploadPerAppSubmit = (submittedValues) => {
     // update state object
-    setRsvpModalValues({ [INVITE_APPLY_PER_APP_UPLOAD_KEY]: submittedValues })
+    setInviteModalValues({ [INVITE_APPLY_PER_APP_UPLOAD_KEY]: submittedValues })
 
     // show the next modal
     showNextModal(
       {
-        ...rsvpModalValues,
+        ...inviteModalValues,
         ...submittedValues
       },
-      rsvpModalState
+      inviteModalState
     )
   }
 
@@ -120,22 +125,22 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     // determine which modals to show based on whether
     // certain variables have been set
     if (!latestModalValues[INVITE_APPLY_UPLOAD_KEY] && !isUrlPerAppMode()) {
-      showRsvpModal('uploadUrl')
+      showInviteModal('uploadUrl')
     } else if (isUrlPerAppMode() && latestModalState.current !== 'urlPerApp') {
-      showRsvpModal('urlPerApp')
+      showInviteModal('urlPerApp')
     } else if (Object.keys(validateDeadline(latestModalValues)).length !== 0) {
-      showRsvpModal('setDeadline')
+      showInviteModal('setDeadline')
     } else {
-      showRsvpModal('review')
+      showInviteModal('review')
     }
   }
 
   const setUrlPerApplcation = (isPerAppMode) => {
     localStorage.setItem('urlPerAppMode', isPerAppMode)
     if (isPerAppMode) {
-      showRsvpModal('urlPerApp')
+      showInviteModal('urlPerApp')
     } else {
-      showRsvpModal('uploadUrl')
+      showInviteModal('uploadUrl')
     }
   }
 
@@ -161,9 +166,9 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     for (const app of selectedAppData) {
       const fieldInputKey = UPLOAD_URL_INPUT_PREFIX + app.application_id
       // give priority to any changed values stored in memory
-      if (rsvpModalValues[INVITE_APPLY_PER_APP_UPLOAD_KEY][fieldInputKey]) {
+      if (inviteModalValues[INVITE_APPLY_PER_APP_UPLOAD_KEY][fieldInputKey]) {
         defaultUploadUrls[fieldInputKey] =
-          rsvpModalValues[INVITE_APPLY_PER_APP_UPLOAD_KEY][fieldInputKey]
+          inviteModalValues[INVITE_APPLY_PER_APP_UPLOAD_KEY][fieldInputKey]
       } else if (app.upload_url) {
         // fall back to url from salesforce on initial page load
         defaultUploadUrls[fieldInputKey] = app.upload_url
@@ -173,8 +178,8 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
   }
 
   const setdeadlineModalSubmit = (submittedValues) => {
-    setRsvpModalValues(submittedValues)
-    showRsvpModal('review')
+    setInviteModalValues(submittedValues)
+    showInviteModal('review')
   }
 
   const validateDeadline = (submittedValues) => {
@@ -250,7 +255,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
 
   const sendInviteToApply = async (submittedValues) => {
     const appIds = getSelectedApplicationIds()
-    const deadline = rsvpModalValues[INVITE_APPLY_DEADLINE_KEY]
+    const deadline = inviteModalValues[INVITE_APPLY_DEADLINE_KEY]
     const dateObj = moment(
       `${deadline.year}-${deadline.month}-${deadline.day}`,
       'YYYY-MM-DD'
@@ -259,7 +264,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
 
     // show spinner
     if (!exampleEmail) {
-      handleCloseRsvpModal()
+      handleCloseInviteModal()
       props.setPageState({ loading: true })
     }
 
@@ -268,7 +273,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     let counter = 0
     let appIterator, size
     if (isUrlPerAppMode()) {
-      appIterator = rsvpModalValues[INVITE_APPLY_PER_APP_UPLOAD_KEY]
+      appIterator = inviteModalValues[INVITE_APPLY_PER_APP_UPLOAD_KEY]
       size = Object.keys(appIterator).length
     } else {
       appIterator = appIds
@@ -283,7 +288,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
         url = appIterator[key]
       } else {
         appId = appIterator[key]
-        url = rsvpModalValues[INVITE_APPLY_UPLOAD_KEY]
+        url = inviteModalValues[INVITE_APPLY_UPLOAD_KEY]
       }
 
       try {
@@ -331,7 +336,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
   }
 
   const formatDeadline = () => {
-    const deadline = rsvpModalValues[INVITE_APPLY_DEADLINE_KEY]
+    const deadline = inviteModalValues[INVITE_APPLY_DEADLINE_KEY]
     const dateObj = moment(
       `${deadline.year}-${deadline.month}-${deadline.day}`,
       'YYYY-MM-DD'
@@ -342,22 +347,22 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
   return (
     <>
       <FormModal
-        isOpen={rsvpModalState.uploadUrl}
-        title='Add document upload URL'
-        subtitle='Enter the link applicants will use to upload their documents.'
+        isOpen={inviteModalState.uploadUrl}
+        title={inviteStrings?.url?.title || ''}
+        subtitle={inviteStrings?.url?.subtitle || ''}
         onSubmit={uploadUrlModalSubmit}
-        handleClose={handleCloseRsvpModal}
+        handleClose={handleCloseInviteModal}
         primary='next'
         secondary='cancel'
-        onSecondaryClick={handleCloseRsvpModal}
-        initialValues={rsvpModalValues}
+        onSecondaryClick={handleCloseInviteModal}
+        initialValues={inviteModalValues}
       >
         {() => (
           <div className={'form-group'}>
             <FormGrid.Row>
               <FormGrid.Item width='100%'>
                 <InputField
-                  label={'Document upload URL'}
+                  label={inviteStrings?.url?.label || ''}
                   labelId='doc-upload-url-label'
                   fieldName={INVITE_APPLY_UPLOAD_KEY}
                   id={INVITE_APPLY_UPLOAD_KEY}
@@ -373,41 +378,47 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
               <FormGrid.Item width='100%'>
                 <HelpText
                   id='invite-to-apply-file-upload-url-help'
-                  note='Example: https://www.dropbox.com/scl/fo/oi0q'
+                  note={inviteStrings?.url?.helpText || ''}
                 />
               </FormGrid.Item>
             </FormGrid.Row>
-            <p>
-              <a
-                onClick={() => {
-                  setUrlPerApplcation(true)
-                }}
-              >
-                Or, add a unique URL for each application
-              </a>
-            </p>
+            {inviteStrings?.url?.urlPerApp && (
+              <p>
+                <a
+                  href='#'
+                  onClick={(evt) => {
+                    setUrlPerApplcation(true)
+                    evt.preventDefault()
+                  }}
+                >
+                  {inviteStrings.url.urlPerApp}
+                </a>
+              </p>
+            )}
           </div>
         )}
       </FormModal>
       <FormModal
-        isOpen={rsvpModalState.urlPerApp}
+        isOpen={inviteModalState.urlPerApp}
         title='Add a document upload URL for each applicant'
         subtitle='Enter the unique link each applicant will use to upload their documents.'
         onSubmit={oneUploadPerAppSubmit}
-        handleClose={handleCloseRsvpModal}
+        handleClose={handleCloseInviteModal}
         primary='next'
         secondary='cancel'
-        onSecondaryClick={handleCloseRsvpModal}
+        onSecondaryClick={handleCloseInviteModal}
         validateError={validateUniqueUrls}
-        initialValues={rsvpModalValues[INVITE_APPLY_PER_APP_UPLOAD_KEY]}
+        initialValues={inviteModalValues[INVITE_APPLY_PER_APP_UPLOAD_KEY]}
         styleType='large'
       >
         {(_values, _changeFieldValue, form) => (
           <>
             <p>
               <a
-                onClick={() => {
+                href='#'
+                onClick={(evt) => {
                   setUrlPerApplcation(false)
+                  evt.preventDefault()
                 }}
               >
                 Or, use a single URL for all applicants
@@ -418,21 +429,21 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
         )}
       </FormModal>
       <FormModal
-        isOpen={rsvpModalState.setDeadline}
+        isOpen={inviteModalState.setDeadline}
         title='Set document submission deadline'
         subtitle={
           'Enter date that will show as the deadline for applicants to upload their application documents.  If this is your first time contacting the applicant, you must give them at least 5 business days.'
         }
         onSubmit={setdeadlineModalSubmit}
-        handleClose={handleCloseRsvpModal}
+        handleClose={handleCloseInviteModal}
         primary='save'
         secondary='cancel'
-        onSecondaryClick={handleCloseRsvpModal}
+        onSecondaryClick={handleCloseInviteModal}
         mutators={{
           ...arrayMutators
         }}
         validateError={validateDeadline}
-        initialValues={rsvpModalValues}
+        initialValues={inviteModalValues}
       >
         {(_values, _changeFieldValue, form) => (
           <div className={'form-group'}>
@@ -459,19 +470,19 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
         )}
       </FormModal>
       <FormModal
-        isOpen={rsvpModalState.review}
+        isOpen={inviteModalState.review}
         title='Review and send'
         primary='send now'
         secondary='cancel'
         onSubmit={sendInviteToApply}
-        handleClose={handleCloseRsvpModal}
-        onSecondaryClick={handleCloseRsvpModal}
+        handleClose={handleCloseInviteModal}
+        onSecondaryClick={handleCloseInviteModal}
       >
         {(_values, _changeFieldValue, _form) => (
           <div className={'form-group'}>
             <p>
               When you’re ready, send an email to the applicants you selected. If you want,&nbsp;
-              <a onClick={() => showRsvpModal('example')}>send yourself an example email</a> to
+              <a onClick={() => showInviteModal('example')}>send yourself an example email</a> to
               preview what applicants will see.
             </p>
             <p>
@@ -483,20 +494,21 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
                 Document upload URL&nbsp;
                 <a
                   onClick={() => {
-                    isUrlPerAppMode() ? showRsvpModal('urlPerApp') : showRsvpModal('uploadUrl')
+                    isUrlPerAppMode() ? showInviteModal('urlPerApp') : showInviteModal('uploadUrl')
                   }}
                 >
                   Edit
                 </a>
               </label>
-              {isUrlPerAppMode() ? 'Multiple URLs' : rsvpModalValues[INVITE_APPLY_UPLOAD_KEY]}
+              {isUrlPerAppMode() ? 'Multiple URLs' : inviteModalValues[INVITE_APPLY_UPLOAD_KEY]}
             </p>
             <p>
               <label className='form-label'>
                 Deadline&nbsp;
                 <a
+                  data-testid='edit-deadline-link'
                   onClick={() => {
-                    showRsvpModal('setDeadline')
+                    showInviteModal('setDeadline')
                   }}
                 >
                   Edit
@@ -529,7 +541,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
         )}
       </FormModal>
       <FormModal
-        isOpen={rsvpModalState.example}
+        isOpen={inviteModalState.example}
         onSubmit={exampleSuccessAlertState.show ? closeExampleModal : sendInviteToApply}
         handleClose={closeExampleModal}
         primary={exampleSuccessAlertState.show ? 'done' : 'send example email'}
