@@ -506,6 +506,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
               <label className='form-label'>
                 Deadline&nbsp;
                 <a
+                  data-testid='edit-deadline-link'
                   onClick={() => {
                     showInviteModal('setDeadline')
                   }}

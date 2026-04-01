@@ -803,6 +803,16 @@ describe('LeaseUpApplicationsPage', () => {
           expect(screen.queryByText('See an example')).not.toBeInTheDocument()
           expect(screen.getByText('Review and send')).toBeInTheDocument()
 
+          // go back to deadline modal
+          act(() => {
+            fireEvent.click(screen.getByTestId('edit-deadline-link'))
+          })
+          expect(screen.getByText('Set document submission deadline')).toBeInTheDocument()
+          act(() => {
+            fireEvent.click(screen.getByText('save'))
+          })
+          expect(screen.getByText('Review and send')).toBeInTheDocument()
+
           // send email
           act(() => {
             fireEvent.click(screen.getByText('send now'))
