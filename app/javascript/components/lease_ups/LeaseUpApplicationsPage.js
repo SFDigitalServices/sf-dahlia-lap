@@ -27,6 +27,7 @@ import {
   getLeaseUpStatusOptions,
   getLeaseUpSubstatusOptions,
   I2A_FEATURE_FLAG,
+  I2I_FEATURE_FLAG,
   INVITE_EMAIL_OPTIONS
 } from 'utils/inviteEmail'
 import { getSubStatusLabel } from 'utils/statusUtils'
@@ -93,7 +94,22 @@ const LeaseUpApplicationsPage = () => {
   // grab the listing id from the url: /lease-ups/listings/:listingId
   const { listingId } = useParams()
 
-  const { unleashFlag: inviteApplyFlag } = useFeatureFlag(I2A_FEATURE_FLAG, false)
+  const { unleashFlag: inviteApplyFlag, variant: i2aVariant } = useFeatureFlag(
+    I2A_FEATURE_FLAG,
+    false
+  )
+  const { unleashFlag: inviteInterviewFlag, variant: i2iVariant } = useFeatureFlag(
+    I2I_FEATURE_FLAG,
+    false
+  )
+  const [featureFlags, setFeatureFlags] = useStateObject({})
+  useEffect(() => {
+    setFeatureFlags({
+      i2a: [inviteApplyFlag, i2aVariant],
+      i2i: [inviteInterviewFlag, i2iVariant]
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inviteApplyFlag, inviteInterviewFlag])
 
   const [state, setState] = useStateObject({
     loading: false,
@@ -143,11 +159,18 @@ const LeaseUpApplicationsPage = () => {
   })
 
   useEffect(() => {
+    if (Object.keys(featureFlags).length === 0 || !listing) {
+      return
+    }
     const determinedInvitesEnabled = {
       any: false
     }
     for (const option of INVITE_EMAIL_OPTIONS) {
-      const enabled = option.enabled(listing, inviteApplyFlag)
+      const enabled = option.enabled(
+        listing,
+        featureFlags[option.value][0],
+        featureFlags[option.value][1]
+      )
       determinedInvitesEnabled[option.value] = enabled
       if (enabled) {
         determinedInvitesEnabled.any = true
@@ -156,7 +179,7 @@ const LeaseUpApplicationsPage = () => {
     setInvitesEnabled(determinedInvitesEnabled)
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [listing, inviteApplyFlag])
+  }, [listing, featureFlags])
 
   useAsync(
     () => {
