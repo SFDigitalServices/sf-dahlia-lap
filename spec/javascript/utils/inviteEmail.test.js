@@ -91,4 +91,39 @@ describe('IsI2IEnabledForListing', () => {
       expect(IsI2IEnabledForListing(mockListing, i2iFlag, variant)).toBe(false)
     })
   })
+
+  describe('when variant payload is malformed', () => {
+    const i2iFlag = true
+
+    it('returns false when payload.value is missing', () => {
+      const variant = {
+        payload: {}
+      }
+
+      expect(() => IsI2IEnabledForListing(mockListing, i2iFlag, variant)).not.toThrow()
+      expect(IsI2IEnabledForListing(mockListing, i2iFlag, variant)).toBe(false)
+    })
+
+    it('returns false when payload.value is invalid JSON', () => {
+      const variant = {
+        payload: {
+          value: '{invalid-json'
+        }
+      }
+
+      expect(() => IsI2IEnabledForListing(mockListing, i2iFlag, variant)).not.toThrow()
+      expect(IsI2IEnabledForListing(mockListing, i2iFlag, variant)).toBe(false)
+    })
+
+    it('returns false when payload JSON does not contain enabled_listings', () => {
+      const variant = {
+        payload: {
+          value: JSON.stringify({ some_other_key: [123, 456] })
+        }
+      }
+
+      expect(() => IsI2IEnabledForListing(mockListing, i2iFlag, variant)).not.toThrow()
+      expect(IsI2IEnabledForListing(mockListing, i2iFlag, variant)).toBe(false)
+    })
+  })
 })
