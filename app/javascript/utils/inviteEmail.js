@@ -7,7 +7,7 @@ import {
 } from './statusUtils'
 
 export const I2A_FEATURE_FLAG = 'partners.inviteToApply'
-export const I2I_FEATURE_FLAG = 'partners.i2i'
+export const I2I_FEATURE_FLAG = 'all.i2i'
 
 export const IsInviteToApplyEnabledForListing = (listing, i2aFlag) => {
   return (
