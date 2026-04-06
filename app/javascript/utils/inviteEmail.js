@@ -19,10 +19,17 @@ export const IsInviteToApplyEnabledForListing = (listing, i2aFlag) => {
 }
 
 export const IsI2IEnabledForListing = (listing, i2iFlag, variant) => {
-  const enabledIds =
-    !variant || variant.payload === undefined
-      ? []
-      : JSON.parse(variant.payload.value).enabled_listings
+  let enabledIds = []
+  const payloadValue = variant?.payload?.value
+
+  if (payloadValue) {
+    try {
+      const parsedPayload = JSON.parse(payloadValue)
+      enabledIds = Array.isArray(parsedPayload.enabled_listings) ? parsedPayload.enabled_listings : []
+    } catch (error) {
+      enabledIds = []
+    }
+  }
   return i2iFlag && listing && enabledIds.includes(listing.id)
 }
 
