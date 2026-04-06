@@ -108,6 +108,7 @@ const LeaseUpApplicationsPage = () => {
       i2a: [inviteApplyFlag, i2aVariant],
       i2i: [inviteInterviewFlag, i2iVariant]
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inviteApplyFlag, i2aVariant, inviteInterviewFlag, i2iVariant])
 
   const [state, setState] = useStateObject({

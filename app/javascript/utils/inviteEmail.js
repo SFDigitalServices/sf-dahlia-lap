@@ -25,7 +25,9 @@ export const IsI2IEnabledForListing = (listing, i2iFlag, variant) => {
   if (payloadValue) {
     try {
       const parsedPayload = JSON.parse(payloadValue)
-      enabledIds = Array.isArray(parsedPayload.enabled_listings) ? parsedPayload.enabled_listings : []
+      enabledIds = Array.isArray(parsedPayload.enabled_listings)
+        ? parsedPayload.enabled_listings
+        : []
     } catch (error) {
       enabledIds = []
     }
