@@ -105,8 +105,14 @@ const LeaseUpApplicationsPage = () => {
   const [featureFlags, setFeatureFlags] = useStateObject({})
   useEffect(() => {
     setFeatureFlags({
-      i2a: [inviteApplyFlag, i2aVariant],
-      i2i: [inviteInterviewFlag, i2iVariant]
+      i2a: {
+        flag: inviteApplyFlag,
+        variant: i2aVariant
+      },
+      i2i: {
+        flag: inviteInterviewFlag,
+        variant: i2iVariant
+      }
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inviteApplyFlag, i2aVariant, inviteInterviewFlag, i2iVariant])
@@ -168,8 +174,8 @@ const LeaseUpApplicationsPage = () => {
     for (const option of INVITE_EMAIL_OPTIONS) {
       const enabled = option.enabled(
         listing,
-        featureFlags[option.value][0],
-        featureFlags[option.value][1]
+        featureFlags[option.value].flag,
+        featureFlags[option.value].variant
       )
       determinedInvitesEnabled[option.value] = enabled
       if (enabled) {
