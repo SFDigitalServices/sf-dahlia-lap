@@ -7,6 +7,7 @@ import {
 } from './statusUtils'
 
 export const I2A_FEATURE_FLAG = 'partners.inviteToApply'
+export const I2I_FEATURE_FLAG = 'all.i2i'
 
 export const IsInviteToApplyEnabledForListing = (listing, i2aFlag) => {
   return (
@@ -17,12 +18,35 @@ export const IsInviteToApplyEnabledForListing = (listing, i2aFlag) => {
   )
 }
 
+export const IsI2IEnabledForListing = (listing, i2iFlag, variant) => {
+  let enabledIds = []
+  const payloadValue = variant?.payload?.value
+
+  if (payloadValue) {
+    try {
+      const parsedPayload = JSON.parse(payloadValue)
+      enabledIds = Array.isArray(parsedPayload.enabled_listings)
+        ? parsedPayload.enabled_listings
+        : []
+    } catch (error) {
+      enabledIds = []
+    }
+  }
+  return i2iFlag && listing && enabledIds.includes(listing.id)
+}
+
 export const INVITE_EMAIL_OPTIONS = [
   {
     value: 'i2a',
     label: 'Set up Invitation to Apply',
     statusClassName: 'is-set-up-invite-to-apply',
     enabled: IsInviteToApplyEnabledForListing // function that checks if option is enabled for the listing
+  },
+  {
+    value: 'i2i',
+    label: 'Set up Invitation to Interview',
+    statusClassName: 'is-set-up-invite-to-interview',
+    enabled: IsI2IEnabledForListing
   }
 ]
 
@@ -51,6 +75,14 @@ export const INVITE_EMAILS_STRINGS = {
       label: 'Document upload URL',
       urlPerApp: 'Or, add a unique URL for each application',
       helpText: 'Example: https://www.dropbox.com/scl/fo/oi0q'
+    }
+  },
+  i2i: {
+    url: {
+      title: 'Add scheduling link',
+      subtitle: 'This is the link applicants will use to find a time for their appointment.',
+      label: 'Appointment scheduling link',
+      helpText: 'Copy the URL from your online scheduling tool like Calendly or Google Calendar.'
     }
   }
 }

@@ -1,4 +1,4 @@
-import { IsInviteToApplyEnabledForListing } from 'utils/inviteEmail'
+import { IsInviteToApplyEnabledForListing, IsI2IEnabledForListing } from 'utils/inviteEmail'
 
 describe('IsInviteToApplyEnabledForListing', () => {
   const mockListing = {
@@ -45,6 +45,85 @@ describe('IsInviteToApplyEnabledForListing', () => {
 
     it('returns false for non-IH-RENTAL listings', () => {
       expect(IsInviteToApplyEnabledForListing(mockNonIhRentalListing, i2aFlag)).toBe(false)
+    })
+  })
+})
+
+describe('IsI2IEnabledForListing', () => {
+  const mockListing = {
+    id: 123
+  }
+  const otherListing = { id: 789 }
+  const variant = {
+    payload: {
+      value: JSON.stringify({ enabled_listings: [123, 456] })
+    }
+  }
+
+  describe('when feature flag is enabled and variant has enabled listings', () => {
+    const i2iFlag = true
+
+    it('returns true if listing id is in enabled listings', () => {
+      expect(IsI2IEnabledForListing(mockListing, i2iFlag, variant)).toBe(true)
+    })
+
+    it('returns false if listing id is not in enabled listings', () => {
+      expect(IsI2IEnabledForListing(otherListing, i2iFlag, variant)).toBe(false)
+    })
+  })
+
+  describe('when feature flag is disabled', () => {
+    const i2iFlag = false
+
+    it('returns false regardless of listing id', () => {
+      expect(IsI2IEnabledForListing(mockListing, i2iFlag, variant)).toBe(false)
+      expect(IsI2IEnabledForListing(otherListing, i2iFlag, variant)).toBe(false)
+    })
+  })
+
+  describe('when variant payload is undefined', () => {
+    const i2iFlag = true
+    const variant = {
+      payload: undefined
+    }
+
+    it('returns false', () => {
+      expect(IsI2IEnabledForListing(mockListing, i2iFlag, variant)).toBe(false)
+    })
+  })
+
+  describe('when variant payload is malformed', () => {
+    const i2iFlag = true
+
+    it('returns false when payload.value is missing', () => {
+      const variant = {
+        payload: {}
+      }
+
+      expect(() => IsI2IEnabledForListing(mockListing, i2iFlag, variant)).not.toThrow()
+      expect(IsI2IEnabledForListing(mockListing, i2iFlag, variant)).toBe(false)
+    })
+
+    it('returns false when payload.value is invalid JSON', () => {
+      const variant = {
+        payload: {
+          value: '{invalid-json'
+        }
+      }
+
+      expect(() => IsI2IEnabledForListing(mockListing, i2iFlag, variant)).not.toThrow()
+      expect(IsI2IEnabledForListing(mockListing, i2iFlag, variant)).toBe(false)
+    })
+
+    it('returns false when payload JSON does not contain enabled_listings', () => {
+      const variant = {
+        payload: {
+          value: JSON.stringify({ some_other_key: [123, 456] })
+        }
+      }
+
+      expect(() => IsI2IEnabledForListing(mockListing, i2iFlag, variant)).not.toThrow()
+      expect(IsI2IEnabledForListing(mockListing, i2iFlag, variant)).toBe(false)
     })
   })
 })
