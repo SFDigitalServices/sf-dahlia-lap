@@ -253,7 +253,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.pageState.loading])
 
-  const sendInviteToApply = async (submittedValues) => {
+  const sendInvite = async (submittedValues) => {
     const appIds = getSelectedApplicationIds()
     const deadline = inviteModalValues[INVITE_APPLY_DEADLINE_KEY]
     const dateObj = moment(
@@ -303,7 +303,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
             // make backend api call to send i2a after last application saved to salesforce
             if (counter === size) {
               await apiService
-                .sendInviteToApply(
+                .sendInvite(
                   props.listing,
                   appIds,
                   `${deadline.year}-${deadline.month}-${deadline.day}`,
@@ -474,7 +474,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
         title='Review and send'
         primary='send now'
         secondary='cancel'
-        onSubmit={sendInviteToApply}
+        onSubmit={sendInvite}
         handleClose={handleCloseInviteModal}
         onSecondaryClick={handleCloseInviteModal}
       >
@@ -542,7 +542,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       </FormModal>
       <FormModal
         isOpen={inviteModalState.example}
-        onSubmit={exampleSuccessAlertState.show ? closeExampleModal : sendInviteToApply}
+        onSubmit={exampleSuccessAlertState.show ? closeExampleModal : sendInvite}
         handleClose={closeExampleModal}
         primary={exampleSuccessAlertState.show ? 'done' : 'send example email'}
       >
