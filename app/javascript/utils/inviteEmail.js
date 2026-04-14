@@ -5,6 +5,7 @@ import {
   LEASE_UP_STATUS_OPTIONS,
   LEASE_UP_STATUSES
 } from './statusUtils'
+import apiService from '../apiService'
 
 export const I2A_FEATURE_FLAG = 'partners.inviteToApply'
 export const I2I_FEATURE_FLAG = 'all.i2i'
@@ -66,7 +67,7 @@ export const getLeaseUpStatusOptions = (isInviteApplyEnabled) => {
   return isInviteApplyEnabled ? LEASE_UP_STATUSES : LEASE_UP_STATUS_OPTIONS
 }
 
-export const INVITE_EMAILS_STRINGS = {
+export const INVITE_EMAILS_CONTEXT = {
   // key corresponds to the value in INVITE_EMAIL_OPTIONS
   i2a: {
     url: {
@@ -75,6 +76,13 @@ export const INVITE_EMAILS_STRINGS = {
       label: 'Document upload URL',
       urlPerApp: 'Or, add a unique URL for each application',
       helpText: 'Example: https://www.dropbox.com/scl/fo/oi0q'
+    },
+    save: async ({ appId, url, dateObj }) => {
+      apiService.updateApplication({
+        id: appId,
+        upload_url: url,
+        invite_to_apply_deadline_date: dateObj.utc().format()
+      })
     }
   },
   i2i: {

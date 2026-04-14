@@ -14,7 +14,7 @@ import { useStateObject } from 'utils/customHooks'
 import { InputField, HelpText } from 'utils/form/final_form/Field'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import validate from 'utils/form/validations'
-import { INVITE_EMAILS_STRINGS } from 'utils/inviteEmail'
+import { INVITE_EMAILS_CONTEXT } from 'utils/inviteEmail'
 
 import InviteToApplyUploadUrlTable, { UPLOAD_URL_INPUT_PREFIX } from './InviteToApplyUploadUrlTable'
 import { buildRowData } from './LeaseUpApplicationsTableContainer'
@@ -35,7 +35,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     current: ''
   })
 
-  const [inviteStrings, setInviteStrings] = useStateObject(INVITE_EMAILS_STRINGS.i2a)
+  const [inviteContext, setInviteContext] = useStateObject(INVITE_EMAILS_CONTEXT.i2a)
 
   const [exampleSuccessAlertState, setExampleSuccessAlertState] = useStateObject({
     show: false,
@@ -53,8 +53,8 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
   })
 
   const handleSetUpInvitationApply = (inviteType) => {
-    const strings = INVITE_EMAILS_STRINGS[inviteType]
-    setInviteStrings(strings)
+    const context = INVITE_EMAILS_CONTEXT[inviteType]
+    setInviteContext(context)
     setExampleSuccessAlertState({ show: false, email: '' })
     const defaultUploadUrls = getDefaultUploadUrls()
     setInviteModalValues({ [INVITE_APPLY_PER_APP_UPLOAD_KEY]: defaultUploadUrls })
@@ -292,11 +292,11 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       }
 
       try {
-        await apiService
-          .updateApplication({
-            id: appId,
-            upload_url: url,
-            invite_to_apply_deadline_date: dateObj.utc().format()
+        await inviteContext
+          .save({
+            appId,
+            url,
+            dateObj
           })
           .then(async () => {
             counter++
@@ -348,8 +348,8 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     <>
       <FormModal
         isOpen={inviteModalState.uploadUrl}
-        title={inviteStrings?.url?.title || ''}
-        subtitle={inviteStrings?.url?.subtitle || ''}
+        title={inviteContext?.url?.title || ''}
+        subtitle={inviteContext?.url?.subtitle || ''}
         onSubmit={uploadUrlModalSubmit}
         handleClose={handleCloseInviteModal}
         primary='next'
@@ -362,7 +362,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
             <FormGrid.Row>
               <FormGrid.Item width='100%'>
                 <InputField
-                  label={inviteStrings?.url?.label || ''}
+                  label={inviteContext?.url?.label || ''}
                   labelId='doc-upload-url-label'
                   fieldName={INVITE_APPLY_UPLOAD_KEY}
                   id={INVITE_APPLY_UPLOAD_KEY}
@@ -378,11 +378,11 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
               <FormGrid.Item width='100%'>
                 <HelpText
                   id='invite-to-apply-file-upload-url-help'
-                  note={inviteStrings?.url?.helpText || ''}
+                  note={inviteContext?.url?.helpText || ''}
                 />
               </FormGrid.Item>
             </FormGrid.Row>
-            {inviteStrings?.url?.urlPerApp && (
+            {inviteContext?.url?.urlPerApp && (
               <p>
                 <a
                   href='#'
@@ -391,7 +391,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
                     evt.preventDefault()
                   }}
                 >
-                  {inviteStrings.url.urlPerApp}
+                  {inviteContext.url.urlPerApp}
                 </a>
               </p>
             )}
