@@ -73,7 +73,7 @@ Rails.application.routes.draw do
         match 'submit', to: 'short_form#submit', via: %i[put post]
       end
 
-      post 'invite-to-apply' => 'invite_to_apply#email'
+      post 'message' => 'message#email'
     end
   end
 end

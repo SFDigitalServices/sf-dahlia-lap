@@ -218,7 +218,7 @@ export const deleteLease = async (applicationId, leaseId) =>
 
 const sendInvite = async (listing, appIds, deadline, testEmail = null) => {
   return request.post(
-    `/invite-to-apply`,
+    `/message`,
     {
       applicationIds: appIds,
       listing,

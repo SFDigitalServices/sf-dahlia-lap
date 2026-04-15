@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<<DAHLIA_API_URL>>/api/v1/message"
+    body:
+      encoding: UTF-8
+      string: '{"action":"INVITE","data":{"applicationIds":["a0o0P00000GZazOQAT"],"isTestEmail":false}}'
+    headers:
+      X-Api-Key:
+      - "<<DAHLIA_API_KEY>>"
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=utf-8
+      Host:
+      - sf-dahlia-ba-dah-3998-a-f6ns86.herokuapp.com
+      User-Agent:
+      - http.rb/5.3.1
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Length:
+      - '71'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 15 Apr 2026 16:36:22 GMT
+      Etag:
+      - W/"47-QuWWSKxhdLK5CSZfpXTpersccO8"
+      Nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      Report-To:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=JUy0kZEXjbwcnmuPKI6vhlzCHOl8il6xeAwjKa9EjR4%3D\u0026sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6\u0026ts=1776270980"}],"max_age":3600}'
+      Reporting-Endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=JUy0kZEXjbwcnmuPKI6vhlzCHOl8il6xeAwjKa9EjR4%3D&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&ts=1776270980"
+      Server:
+      - Heroku
+      Via:
+      - 1.1 heroku-router
+      X-Powered-By:
+      - Express
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"status":"SUCCESS","requestId":"5682d670-d3eb-b39a-f977-de2f9b377e57"}'
+  recorded_at: Wed, 15 Apr 2026 16:36:22 GMT
+recorded_with: VCR 6.4.0

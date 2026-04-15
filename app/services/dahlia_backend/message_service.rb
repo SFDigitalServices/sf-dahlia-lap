@@ -6,8 +6,8 @@ module DahliaBackend
   # Service for sending messages through the DAHLIA API
   class MessageService
     class << self
-      def send_invite_to_apply(current_user, params, application_contacts)
-        new.send_invite_to_apply(current_user, params, application_contacts)
+      def send_invite(current_user, params)
+        new.send_invite(current_user, params)
       end
     end
 
@@ -17,50 +17,28 @@ module DahliaBackend
       @client = client || DahliaBackend::ApiClient.new
     end
 
-    def send_invite_to_apply(current_user, params, application_contacts)
+    def send_invite(current_user, params)
       @current_user = current_user
-      raise 'Invalid parameters in send_invite_to_apply' unless valid_params?(params[:listing], application_contacts)
+      raise 'Invalid parameters in send_invite' unless valid_params?(params[:listing])
 
-      fields = prepare_submission_fields(params, application_contacts)
+      fields = prepare_submission_fields(params)
       return if fields.nil?
 
-      send_message('/messages/invite-to-apply', fields)
+      send_message('/api/v1/message', fields)
     rescue StandardError => e
-      log_error('Error sending Invite to Apply', e)
+      log_error('Error send_invite', e)
       nil
     end
 
     private
 
-    def prepare_submission_fields(params, application_contacts)
-      contacts = prepare_contacts(params[:applicationIds], application_contacts)
-      raise 'No contacts found' if contacts.empty?
-
-      listing = params[:listing]
-      units = prepare_units(listing[:id], listing)
-      raise 'No units found' if units.blank?
-
-      lottery_date = DateTime.parse(listing[:lottery_date])
-      deadline_date = DateTime.parse(params[:invite_to_apply_deadline])
+    def prepare_submission_fields(params)
+      raise 'No applicationIds provided' unless params[:applicationIds].present?
       {
-        "isTestEmail": params[:isTest] ? true : false,
-        "listingId": listing[:id],
-        "listingName": listing[:name],
-        "buildingName": listing[:building_name_for_process],
-        "buildingAddress": listing[:building_street_address],
-        "buildingCity": listing[:building_city],
-        "buildingState": listing[:building_state],
-        "buildingZip": listing[:building_zip_code],
-        "listingNeighborhood": listing[:neighborhood],
-        "units": units,
-        "applicants": contacts,
-        "deadlineDate": deadline_date.strftime('%Y-%m-%d'),
-        "lotteryDate": lottery_date.strftime('%Y-%m-%d'),
-        "leasingAgent": {
-          "name": listing[:leasing_agent_name],
-          "email": determine_email(listing[:leasing_agent_email]),
-          "phone": listing[:leasing_agent_phone],
-          "officeHours": listing[:office_hours],
+        "action": 'INVITE',
+        "data": {
+          "applicationIds": params[:applicationIds] ? params[:applicationIds] : [],
+          "isTestEmail": params[:isTest] ? true : false
         },
       }
     end
@@ -173,14 +151,12 @@ module DahliaBackend
       end
     end
 
-    def valid_params?(listing, application_contacts)
-      return false unless listing && application_contacts
+    def valid_params?(listing)
+      return false unless listing
       return false unless listing[:id].present? &&
                           listing[:name].present? && listing[:neighborhood].present? &&
                           listing[:building_street_address].present? &&
                           listing[:lottery_date].present?
-      return false if application_contacts[:records].empty?
-
       true
     end
 
