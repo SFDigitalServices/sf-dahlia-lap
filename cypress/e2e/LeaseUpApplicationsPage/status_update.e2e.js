@@ -48,6 +48,7 @@ describe('LeaseUpApplicationsPage status update', () => {
       cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
       cy.wait('@leaseUpListing')
       cy.wait('@leaseUpApplications')
+      cy.wait(1000) // for some unknown reason, this wait is needed when using fixtures, otherwise the dropdown will mysteriously disappear and prevent selecting of a substatus
 
       // Change status to one that is not currently selected.
       cy.getText(firstRowStatusDropdown).then((text) => {

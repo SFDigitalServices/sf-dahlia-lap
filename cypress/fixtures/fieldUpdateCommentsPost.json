@@ -4,6 +4,15 @@
       {
         "application": "a0o0P00000IvWgcQAF",
         "comment": "This is a comment.",
+        "date": "2024-03-06T21:27:44.000+0000",
+        "status": "Outreach",
+        "substatus": "Invited to continue application",
+        "created_by": "Exygy Leasing Agent",
+        "timestamp": 1709761463
+      },
+      {
+        "application": "a0o0P00000IvWgcQAF",
+        "comment": "This is a comment.",
         "date": "2024-03-06T21:27:43.000+0000",
         "status": "Processing",
         "substatus": "Written withdrawal",
