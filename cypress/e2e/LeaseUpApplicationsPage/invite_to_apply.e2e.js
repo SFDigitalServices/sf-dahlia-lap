@@ -23,7 +23,7 @@ describe('LeaseUpApplicationsPage send email', () => {
   }
 
   beforeEach(() => {
-    cy.viewport(1920, 1920)
+    cy.viewport(1920, 1920) // larger viewport fixes a flaky issue where modals will not appear on click
     if (usingFixtures()) {
       cy.intercept('api/v1/lease-ups/listings/**', { fixture: 'leaseUpListing.json' }).as(
         'leaseUpListing'
