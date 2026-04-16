@@ -23,6 +23,7 @@ describe('LeaseUpApplicationsPage send email', () => {
   }
 
   beforeEach(() => {
+    cy.viewport(1920, 1920)
     if (usingFixtures()) {
       cy.intercept('api/v1/lease-ups/listings/**', { fixture: 'leaseUpListing.json' }).as(
         'leaseUpListing'

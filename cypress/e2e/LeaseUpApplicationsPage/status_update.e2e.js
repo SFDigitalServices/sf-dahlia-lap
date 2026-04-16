@@ -21,6 +21,7 @@ describe('LeaseUpApplicationsPage status update', () => {
     // there wasn't an easy way to hide invite-to-apply substatuses behind a feature flag,
     //   so we treat the listing as invite-to-apply to be able to test all substatuses
     interceptInviteToApplyFlag(LEASE_UP_LISTING_ID)
+    cy.viewport(1920, 1920)
   })
   describe('using the individual row status dropdown', () => {
     beforeEach(() => {
