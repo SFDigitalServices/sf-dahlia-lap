@@ -77,7 +77,7 @@ export const INVITE_EMAILS_CONTEXT = {
       urlPerApp: 'Or, add a unique URL for each application',
       helpText: 'Example: https://www.dropbox.com/scl/fo/oi0q'
     },
-    save: async ({ appId, url, dateObj }) => {
+    save: async ({ appId, url, dateObj, _listing }) => {
       apiService.updateApplication({
         id: appId,
         upload_url: url,
@@ -91,6 +91,16 @@ export const INVITE_EMAILS_CONTEXT = {
       subtitle: 'This is the link applicants will use to find a time for their appointment.',
       label: 'Appointment scheduling link',
       helpText: 'Copy the URL from your online scheduling tool like Calendly or Google Calendar.'
+    },
+    save: async ({ appId, url, dateObj, listing }) => {
+      apiService.updateApplication({
+        id: appId,
+        invite_to_apply_deadline_date: dateObj.utc().format()
+      })
+      apiService.updateListing({
+        id: listing.id,
+        scheduling_url: url
+      })
     }
   }
 }

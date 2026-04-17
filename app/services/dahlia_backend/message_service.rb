@@ -19,7 +19,7 @@ module DahliaBackend
 
     def send_invite(current_user, params)
       @current_user = current_user
-      raise 'Invalid parameters in send_invite' unless valid_params?(params[:listing])
+      raise 'Invalid parameters in send_invite' unless valid_params?(params[:applicationIds])
 
       fields = prepare_submission_fields(params)
       return if fields.nil?
@@ -37,7 +37,7 @@ module DahliaBackend
       {
         "action": 'INVITE',
         "data": {
-          "applicationIds": params[:applicationIds] ? params[:applicationIds] : [],
+          "applicationIds": params[:applicationIds],
           "isTestEmail": params[:isTest] ? true : false
         },
       }
@@ -151,12 +151,8 @@ module DahliaBackend
       end
     end
 
-    def valid_params?(listing)
-      return false unless listing
-      return false unless listing[:id].present? &&
-                          listing[:name].present? && listing[:neighborhood].present? &&
-                          listing[:building_street_address].present? &&
-                          listing[:lottery_date].present?
+    def valid_params?(application_ids)
+      return false unless application_ids.present?
       true
     end
 

@@ -296,7 +296,8 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
           .save({
             appId,
             url,
-            dateObj
+            dateObj,
+            listing: props.listing
           })
           .then(async () => {
             counter++
