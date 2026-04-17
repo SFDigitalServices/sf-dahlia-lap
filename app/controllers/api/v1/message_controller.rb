@@ -18,12 +18,6 @@ module Api
 
         render json: true
       end
-
-      private
-
-      def soql_application_service
-        Force::Soql::ApplicationService.new(current_user)
-      end
     end
   end
 end
