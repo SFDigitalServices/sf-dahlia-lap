@@ -34,6 +34,7 @@ module DahliaBackend
 
     def prepare_submission_fields(params)
       raise 'No applicationIds provided' unless params[:applicationIds].present?
+
       {
         "action": 'INVITE',
         "data": {
@@ -68,6 +69,7 @@ module DahliaBackend
 
     def valid_params?(application_ids)
       return false unless application_ids.present?
+
       true
     end
 

@@ -954,6 +954,27 @@ describe('LeaseUpApplicationsPage', () => {
             expect(getRowBulkCheckboxInputs()[1]).not.toBeChecked()
           })
 
+          const updateCalls = mockUpdateApplication.mock.calls.map(([payload]) => payload)
+          expect(updateCalls).toEqual(
+            expect.arrayContaining([
+              expect.objectContaining({
+                id: '1001',
+                upload_url: 'http://www.sf.gov'
+              }),
+              expect.objectContaining({
+                id: '1002',
+                upload_url: 'http://www.sf2.gov'
+              })
+            ])
+          )
+
+          expect(mockSendInvite).toHaveBeenCalledWith(
+            mockListing,
+            ['1001', '1002'],
+            '3000-1-1',
+            null
+          )
+
           act(() => {
             fireEvent.change(
               within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],

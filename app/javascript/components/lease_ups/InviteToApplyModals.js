@@ -3,7 +3,6 @@ import React, { forwardRef, useEffect, useImperativeHandle } from 'react'
 import arrayMutators from 'final-form-arrays'
 import { map } from 'lodash'
 import moment from 'moment'
-import { RE2JS } from 're2js'
 
 import apiService from 'apiService'
 import Alerts from 'components/Alerts'
@@ -253,86 +252,75 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.pageState.loading])
 
-  const sendInvite = async (submittedValues) => {
-    const appIds = getSelectedApplicationIds()
+  const getDeadlineData = () => {
     const deadline = inviteModalValues[INVITE_APPLY_DEADLINE_KEY]
-    const dateObj = moment(
-      `${deadline.year}-${deadline.month}-${deadline.day}`,
-      'YYYY-MM-DD'
-    ).endOf('day')
-    const exampleEmail = submittedValues[INVITE_APPLY_EXAMPLE_EMAIL]
+    const deadlineStr = `${deadline.year}-${deadline.month}-${deadline.day}`
+    const dateObj = moment(deadlineStr, 'YYYY-MM-DD').endOf('day')
 
-    // show spinner
+    return { deadline, deadlineStr, dateObj }
+  }
+
+  const getInviteSavePayloads = (appIds) => {
+    if (isUrlPerAppMode()) {
+      return Object.entries(inviteModalValues[INVITE_APPLY_PER_APP_UPLOAD_KEY]).map(
+        ([inputKey, url]) => ({
+          appId: inputKey.replace(UPLOAD_URL_INPUT_PREFIX, ''),
+          url
+        })
+      )
+    }
+
+    const sharedUrl = inviteModalValues[INVITE_APPLY_UPLOAD_KEY]
+    return appIds.map((appId) => ({ appId, url: sharedUrl }))
+  }
+
+  const setSendingState = (exampleEmail) => {
     if (!exampleEmail) {
       handleCloseInviteModal()
       props.setPageState({ loading: true })
     }
+  }
 
-    // save upload url and deadline to salesforce
-    // depending if 1 url per app, iterate over array of app ids or object with appIdEmbed:url name/value pairs
-    let counter = 0
-    let appIterator, size
-    if (isUrlPerAppMode()) {
-      appIterator = inviteModalValues[INVITE_APPLY_PER_APP_UPLOAD_KEY]
-      size = Object.keys(appIterator).length
-    } else {
-      appIterator = appIds
-      size = appIds.length
+  const handleSendSuccess = (exampleEmail) => {
+    if (exampleEmail) {
+      setExampleSuccessAlertState({
+        show: true,
+        email: exampleEmail
+      })
+      return
     }
-    for (const key in appIterator) {
-      let appId, url
-      if (isUrlPerAppMode()) {
-        appId = RE2JS.compile('^' + UPLOAD_URL_INPUT_PREFIX)
-          .matcher(key)
-          .replace('')
-        url = appIterator[key]
-      } else {
-        appId = appIterator[key]
-        url = inviteModalValues[INVITE_APPLY_UPLOAD_KEY]
+
+    props.setPageState({
+      loading: false,
+      showPageInfo: true
+    })
+  }
+
+  const sendInvite = async (submittedValues) => {
+    const appIds = getSelectedApplicationIds()
+    const exampleEmail = submittedValues[INVITE_APPLY_EXAMPLE_EMAIL]
+    const { dateObj, deadlineStr } = getDeadlineData()
+    const savePayloads = getInviteSavePayloads(appIds)
+
+    setSendingState(exampleEmail)
+
+    try {
+      for (let i = 0; i < savePayloads.length; i++) {
+        const { appId, url } = savePayloads[i]
+        await inviteContext.save({
+          appId,
+          url,
+          dateObj,
+          listing: props.listing
+        })
       }
 
-      try {
-        await inviteContext
-          .save({
-            appId,
-            url,
-            dateObj,
-            listing: props.listing
-          })
-          .then(async () => {
-            counter++
-            // make backend api call to send i2a after last application saved to salesforce
-            if (counter === size) {
-              await apiService
-                .sendInvite(
-                  props.listing,
-                  appIds,
-                  `${deadline.year}-${deadline.month}-${deadline.day}`,
-                  exampleEmail || null
-                )
-                .then((res) => {
-                  if (exampleEmail) {
-                    // show example email sent feedback
-                    setExampleSuccessAlertState({
-                      show: true,
-                      email: exampleEmail
-                    })
-                  } else {
-                    // hide spinner, show sending email feedback
-                    props.setPageState({
-                      loading: false,
-                      showPageInfo: true
-                    })
-                  }
-                })
-            }
-          })
-      } catch (error) {
-        console.log(error)
-        props.setPageState({ loading: false })
-        Alerts.error()
-        break
-      }
+      await apiService.sendInvite(props.listing, appIds, deadlineStr, exampleEmail || null)
+      handleSendSuccess(exampleEmail)
+    } catch (error) {
+      console.log(error)
+      props.setPageState({ loading: false })
+      Alerts.error()
     }
   }
 
