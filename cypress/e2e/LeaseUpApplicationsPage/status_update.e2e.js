@@ -21,6 +21,7 @@ describe('LeaseUpApplicationsPage status update', () => {
     // there wasn't an easy way to hide invite-to-apply substatuses behind a feature flag,
     //   so we treat the listing as invite-to-apply to be able to test all substatuses
     interceptInviteToApplyFlag(LEASE_UP_LISTING_ID)
+    cy.viewport(1920, 1920) // larger viewport fixes a flaky issue where modals will not appear on click
   })
   describe('using the individual row status dropdown', () => {
     beforeEach(() => {
@@ -48,6 +49,10 @@ describe('LeaseUpApplicationsPage status update', () => {
       cy.visit(`/lease-ups/listings/${LEASE_UP_LISTING_ID}`)
       cy.wait('@leaseUpListing')
       cy.wait('@leaseUpApplications')
+      if (usingFixtures()) {
+        // for some unknown reason, this wait is needed when using fixtures, otherwise the dropdown will mysteriously disappear and prevent selecting of a substatus
+        cy.wait(1000)
+      }
 
       // Change status to one that is not currently selected.
       cy.getText(firstRowStatusDropdown).then((text) => {
