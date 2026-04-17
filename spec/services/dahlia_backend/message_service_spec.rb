@@ -64,7 +64,16 @@ RSpec.describe DahliaBackend::MessageService do
     }]
   end
   let(:user) do
-    double('User', id: 1, email: 'admin@example.com', provider: nil, uid: nil, salesforce_user_id: nil, oauth: nil, admin: true)
+    double(
+      'User',
+      id: 1,
+      email: 'admin@example.com',
+      provider: nil,
+      uid: nil,
+      salesforce_user_id: nil,
+      oauth: nil,
+      admin: true
+    )
   end
   let(:invite_params) do
     {
@@ -116,19 +125,27 @@ RSpec.describe DahliaBackend::MessageService do
     context 'with valid params' do
       it 'sends a message and returns response' do
         expect(client).to receive(:post).with('/api/v1/message',
-                                              hash_including(data: hash_including(applicationIds: invite_params[:applicationIds]),)).and_return('ok')
+          hash_including(data: hash_including(applicationIds: invite_params[:applicationIds]))).and_return('ok')
         expect(subject.send_invite(user, invite_params)).to eq('ok')
       end
 
       it 'returns nil and logs error if client.post fails' do
         expect(client).to receive(:post).and_return(nil)
-        expect(Rails.logger).to receive(:error).with(start_with('[DahliaBackend::MessageService:log_error] Failed to send message to /api/v1/message:'))
+        expect(Rails.logger).to receive(:error).with(
+          start_with(
+            '[DahliaBackend::MessageService:log_error] Failed to send message to /api/v1/message:'
+          )
+        )
         expect(subject.send_invite(user, invite_params)).to be_nil
       end
 
       it 'rescues and logs StandardError' do
         allow(client).to receive(:post).and_raise(StandardError.new('fail'))
-        expect(Rails.logger).to receive(:error).with(start_with('[DahliaBackend::MessageService:log_error] Error send_invite: StandardError fail'))
+        expect(Rails.logger).to receive(:error).with(
+          start_with(
+            '[DahliaBackend::MessageService:log_error] Error send_invite: StandardError fail'
+          )
+        )
         expect(subject.send_invite(user, invite_params)).to be_nil
       end
     end

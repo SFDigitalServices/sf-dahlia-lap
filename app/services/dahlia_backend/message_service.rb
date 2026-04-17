@@ -39,7 +39,7 @@ module DahliaBackend
         "action": 'INVITE',
         "data": {
           "applicationIds": params[:applicationIds],
-          "isTestEmail": params[:isTest] ? true : false
+          "isTestEmail": params[:isTest] ? true : false,
         },
       }
     end
