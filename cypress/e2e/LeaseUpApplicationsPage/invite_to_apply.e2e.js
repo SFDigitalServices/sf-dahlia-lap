@@ -8,9 +8,6 @@ const rsvpSendEmailDropdown = '.filter-row .rsvp-dropdown__control .dropdown-but
 const SETUP_INVITE_TO_APPLY = 'set-up-invite-to-apply'
 const LEASE_UP_LISTING_ID = Cypress.env('LEASE_UP_LISTING_ID')
 const SECOND_ROW_LEASE_UP_APP_ID = Cypress.env('SECOND_ROW_LEASE_UP_APP_ID')
-const THIRD_ROW_LEASE_UP_APP_ID = Cypress.env('THIRD_ROW_LEASE_UP_APP_ID')
-const UPLOAD_URL_MODAL_TITLE = 'Add document upload URL'
-const DEADLINE_MODAL_TITLE = 'Set document submission deadline'
 const REVIEW_MODAL_TITLE = 'Review and send'
 
 describe('LeaseUpApplicationsPage send email', () => {
@@ -49,7 +46,7 @@ describe('LeaseUpApplicationsPage send email', () => {
   })
 
   it('should send an invite to apply email', () => {
-    cy.intercept('POST', 'api/v1/invite-to-apply', {
+    cy.intercept('POST', 'api/v1/message', {
       statusCode: 200,
       body: 'true'
     }).as('inviteToApplyPost')
@@ -76,7 +73,7 @@ describe('LeaseUpApplicationsPage send email', () => {
   })
 
   it('should show an error when sending an invite to apply email goes wrong', () => {
-    cy.intercept('POST', 'api/v1/invite-to-apply', {
+    cy.intercept('POST', 'api/v1/message', {
       statusCode: 500,
       body: ''
     }).as('inviteToApplyErrorPost')
