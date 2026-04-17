@@ -127,8 +127,8 @@ RSpec.describe DahliaBackend::MessageService do
         expect(client).to receive(:post).with('/api/v1/message',
                                               hash_including(
                                                 data: hash_including(
-                                                  applicationIds: invite_params[:applicationIds]
-                                                )
+                                                  applicationIds: invite_params[:applicationIds],
+                                                ),
                                               )).and_return('ok')
         expect(subject.send_invite(user, invite_params)).to eq('ok')
       end
