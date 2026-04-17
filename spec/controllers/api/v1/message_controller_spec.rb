@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Api::V1::InviteToApplyController, type: :controller do
+RSpec.describe Api::V1::MessageController, type: :controller do
   login_admin
 
   describe '#email' do
@@ -20,7 +20,7 @@ RSpec.describe Api::V1::InviteToApplyController, type: :controller do
     }
 
     it 'should return status 200 if email is sent to dahlia backend successfully' do
-      VCR.use_cassette('api/v1/invite_to_apply_controller/email/success') do
+      VCR.use_cassette('api/v1/message_controller/email/success') do
         listing[:id] = lease_up_listing_id
         params = {
           applicationIds: [lease_up_application_id],
@@ -35,7 +35,7 @@ RSpec.describe Api::V1::InviteToApplyController, type: :controller do
     end
 
     it 'should send a test email successfully' do
-      VCR.use_cassette('api/v1/invite_to_apply_controller/email/test_email_success') do
+      VCR.use_cassette('api/v1/message_controller/email/test_email_success') do
         listing[:id] = lease_up_listing_id
         params = {
           applicationIds: [lease_up_application_id],
@@ -57,7 +57,7 @@ RSpec.describe Api::V1::InviteToApplyController, type: :controller do
     end
 
     it 'should return status 500 if the listing returns 0 contacts' do
-      VCR.use_cassette('api/v1/invite_to_apply_controller/email/failure_zero_contacts') do
+      VCR.use_cassette('api/v1/message_controller/email/failure_zero_contacts') do
         listing[:id] = 'a0W0P00000GbyuXXXX' # invalid id causes contacts query to return 0 records
         post :email, params: {
           applicationIds: ['a0W0P00000GbyuXXXX'],

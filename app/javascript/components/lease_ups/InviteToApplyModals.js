@@ -3,7 +3,6 @@ import React, { forwardRef, useEffect, useImperativeHandle } from 'react'
 import arrayMutators from 'final-form-arrays'
 import { map } from 'lodash'
 import moment from 'moment'
-import { RE2JS } from 're2js'
 
 import apiService from 'apiService'
 import Alerts from 'components/Alerts'
@@ -14,7 +13,7 @@ import { useStateObject } from 'utils/customHooks'
 import { InputField, HelpText } from 'utils/form/final_form/Field'
 import { MultiDateField } from 'utils/form/final_form/MultiDateField'
 import validate from 'utils/form/validations'
-import { INVITE_EMAILS_STRINGS } from 'utils/inviteEmail'
+import { INVITE_EMAILS_CONTEXT } from 'utils/inviteEmail'
 
 import InviteToApplyUploadUrlTable, { UPLOAD_URL_INPUT_PREFIX } from './InviteToApplyUploadUrlTable'
 import { buildRowData } from './LeaseUpApplicationsTableContainer'
@@ -35,7 +34,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     current: ''
   })
 
-  const [inviteStrings, setInviteStrings] = useStateObject(INVITE_EMAILS_STRINGS.i2a)
+  const [inviteContext, setInviteContext] = useStateObject(INVITE_EMAILS_CONTEXT.i2a)
 
   const [exampleSuccessAlertState, setExampleSuccessAlertState] = useStateObject({
     show: false,
@@ -53,8 +52,8 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
   })
 
   const handleSetUpInvitationApply = (inviteType) => {
-    const strings = INVITE_EMAILS_STRINGS[inviteType]
-    setInviteStrings(strings)
+    const context = INVITE_EMAILS_CONTEXT[inviteType]
+    setInviteContext(context)
     setExampleSuccessAlertState({ show: false, email: '' })
     const defaultUploadUrls = getDefaultUploadUrls()
     setInviteModalValues({ [INVITE_APPLY_PER_APP_UPLOAD_KEY]: defaultUploadUrls })
@@ -253,85 +252,75 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.pageState.loading])
 
-  const sendInviteToApply = async (submittedValues) => {
-    const appIds = getSelectedApplicationIds()
+  const getDeadlineData = () => {
     const deadline = inviteModalValues[INVITE_APPLY_DEADLINE_KEY]
-    const dateObj = moment(
-      `${deadline.year}-${deadline.month}-${deadline.day}`,
-      'YYYY-MM-DD'
-    ).endOf('day')
-    const exampleEmail = submittedValues[INVITE_APPLY_EXAMPLE_EMAIL]
+    const deadlineStr = `${deadline.year}-${deadline.month}-${deadline.day}`
+    const dateObj = moment(deadlineStr, 'YYYY-MM-DD').endOf('day')
 
-    // show spinner
+    return { deadline, deadlineStr, dateObj }
+  }
+
+  const getInviteSavePayloads = (appIds) => {
+    if (isUrlPerAppMode()) {
+      return Object.entries(inviteModalValues[INVITE_APPLY_PER_APP_UPLOAD_KEY]).map(
+        ([inputKey, url]) => ({
+          appId: inputKey.replace(UPLOAD_URL_INPUT_PREFIX, ''),
+          url
+        })
+      )
+    }
+
+    const sharedUrl = inviteModalValues[INVITE_APPLY_UPLOAD_KEY]
+    return appIds.map((appId) => ({ appId, url: sharedUrl }))
+  }
+
+  const setSendingState = (exampleEmail) => {
     if (!exampleEmail) {
       handleCloseInviteModal()
       props.setPageState({ loading: true })
     }
+  }
 
-    // save upload url and deadline to salesforce
-    // depending if 1 url per app, iterate over array of app ids or object with appIdEmbed:url name/value pairs
-    let counter = 0
-    let appIterator, size
-    if (isUrlPerAppMode()) {
-      appIterator = inviteModalValues[INVITE_APPLY_PER_APP_UPLOAD_KEY]
-      size = Object.keys(appIterator).length
-    } else {
-      appIterator = appIds
-      size = appIds.length
+  const handleSendSuccess = (exampleEmail) => {
+    if (exampleEmail) {
+      setExampleSuccessAlertState({
+        show: true,
+        email: exampleEmail
+      })
+      return
     }
-    for (const key in appIterator) {
-      let appId, url
-      if (isUrlPerAppMode()) {
-        appId = RE2JS.compile('^' + UPLOAD_URL_INPUT_PREFIX)
-          .matcher(key)
-          .replace('')
-        url = appIterator[key]
-      } else {
-        appId = appIterator[key]
-        url = inviteModalValues[INVITE_APPLY_UPLOAD_KEY]
+
+    props.setPageState({
+      loading: false,
+      showPageInfo: true
+    })
+  }
+
+  const sendInvite = async (submittedValues) => {
+    const appIds = getSelectedApplicationIds()
+    const exampleEmail = submittedValues[INVITE_APPLY_EXAMPLE_EMAIL]
+    const { dateObj, deadlineStr } = getDeadlineData()
+    const savePayloads = getInviteSavePayloads(appIds)
+
+    setSendingState(exampleEmail)
+
+    try {
+      for (let i = 0; i < savePayloads.length; i++) {
+        const { appId, url } = savePayloads[i]
+        await inviteContext.save({
+          appId,
+          url,
+          dateObj,
+          listing: props.listing
+        })
       }
 
-      try {
-        await apiService
-          .updateApplication({
-            id: appId,
-            upload_url: url,
-            invite_to_apply_deadline_date: dateObj.utc().format()
-          })
-          .then(async () => {
-            counter++
-            // make backend api call to send i2a after last application saved to salesforce
-            if (counter === size) {
-              await apiService
-                .sendInviteToApply(
-                  props.listing,
-                  appIds,
-                  `${deadline.year}-${deadline.month}-${deadline.day}`,
-                  exampleEmail || null
-                )
-                .then((res) => {
-                  if (exampleEmail) {
-                    // show example email sent feedback
-                    setExampleSuccessAlertState({
-                      show: true,
-                      email: exampleEmail
-                    })
-                  } else {
-                    // hide spinner, show sending email feedback
-                    props.setPageState({
-                      loading: false,
-                      showPageInfo: true
-                    })
-                  }
-                })
-            }
-          })
-      } catch (error) {
-        console.log(error)
-        props.setPageState({ loading: false })
-        Alerts.error()
-        break
-      }
+      await apiService.sendInvite(props.listing, appIds, deadlineStr, exampleEmail || null)
+      handleSendSuccess(exampleEmail)
+    } catch (error) {
+      console.log(error)
+      props.setPageState({ loading: false })
+      Alerts.error()
     }
   }
 
@@ -348,8 +337,8 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     <>
       <FormModal
         isOpen={inviteModalState.uploadUrl}
-        title={inviteStrings?.url?.title || ''}
-        subtitle={inviteStrings?.url?.subtitle || ''}
+        title={inviteContext?.url?.title || ''}
+        subtitle={inviteContext?.url?.subtitle || ''}
         onSubmit={uploadUrlModalSubmit}
         handleClose={handleCloseInviteModal}
         primary='next'
@@ -362,7 +351,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
             <FormGrid.Row>
               <FormGrid.Item width='100%'>
                 <InputField
-                  label={inviteStrings?.url?.label || ''}
+                  label={inviteContext?.url?.label || ''}
                   labelId='doc-upload-url-label'
                   fieldName={INVITE_APPLY_UPLOAD_KEY}
                   id={INVITE_APPLY_UPLOAD_KEY}
@@ -378,11 +367,11 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
               <FormGrid.Item width='100%'>
                 <HelpText
                   id='invite-to-apply-file-upload-url-help'
-                  note={inviteStrings?.url?.helpText || ''}
+                  note={inviteContext?.url?.helpText || ''}
                 />
               </FormGrid.Item>
             </FormGrid.Row>
-            {inviteStrings?.url?.urlPerApp && (
+            {inviteContext?.url?.urlPerApp && (
               <p>
                 <a
                   href='#'
@@ -391,7 +380,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
                     evt.preventDefault()
                   }}
                 >
-                  {inviteStrings.url.urlPerApp}
+                  {inviteContext.url.urlPerApp}
                 </a>
               </p>
             )}
@@ -474,7 +463,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
         title='Review and send'
         primary='send now'
         secondary='cancel'
-        onSubmit={sendInviteToApply}
+        onSubmit={sendInvite}
         handleClose={handleCloseInviteModal}
         onSecondaryClick={handleCloseInviteModal}
       >
@@ -542,7 +531,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       </FormModal>
       <FormModal
         isOpen={inviteModalState.example}
-        onSubmit={exampleSuccessAlertState.show ? closeExampleModal : sendInviteToApply}
+        onSubmit={exampleSuccessAlertState.show ? closeExampleModal : sendInvite}
         handleClose={closeExampleModal}
         primary={exampleSuccessAlertState.show ? 'done' : 'send example email'}
       >

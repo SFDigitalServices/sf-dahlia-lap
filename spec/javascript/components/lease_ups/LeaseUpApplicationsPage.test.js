@@ -13,7 +13,7 @@ const mockFetchLeaseUpApplicationsPagination = jest.fn()
 const mockCreateFieldUpdateComment = jest.fn()
 const mockUpdateListing = jest.fn()
 const mockUpdateApplication = jest.fn()
-const mockSendInviteToApply = jest.fn()
+const mockSendInvite = jest.fn()
 
 jest.mock('apiService', () => {
   return {
@@ -42,8 +42,8 @@ jest.mock('apiService', () => {
       mockUpdateListing(listing)
       return Promise.resolve(true)
     },
-    sendInviteToApply: async (listing, appIds, deadline, exampleEmail) => {
-      mockSendInviteToApply(listing, appIds, deadline, exampleEmail)
+    sendInvite: async (listing, appIds, deadline, exampleEmail) => {
+      mockSendInvite(listing, appIds, deadline, exampleEmail)
       if (exampleEmail && exampleEmail.includes('FAIL')) {
         return Promise.reject(new Error('rejected promise'))
       }
@@ -791,7 +791,7 @@ describe('LeaseUpApplicationsPage', () => {
             fireEvent.click(screen.getByText('send example email'))
           })
           await waitFor(() => {
-            expect(mockSendInviteToApply.mock.calls).toHaveLength(1)
+            expect(mockSendInvite.mock.calls).toHaveLength(1)
             expect(screen.queryByText('send example email')).not.toBeInTheDocument()
             expect(screen.getByText('done')).toBeInTheDocument()
           })
@@ -820,7 +820,7 @@ describe('LeaseUpApplicationsPage', () => {
           await waitFor(() => {
             // two apps were selected.  saved when sending example email and saved just now. 2*2=4
             expect(mockUpdateApplication.mock.calls).toHaveLength(4)
-            expect(mockSendInviteToApply.mock.calls).toHaveLength(2)
+            expect(mockSendInvite.mock.calls).toHaveLength(2)
           })
 
           // deadline and upload urls should be skipped since
@@ -949,10 +949,31 @@ describe('LeaseUpApplicationsPage', () => {
           await waitFor(() => {
             // two apps were selected
             expect(mockUpdateApplication.mock.calls).toHaveLength(2)
-            expect(mockSendInviteToApply.mock.calls).toHaveLength(1)
+            expect(mockSendInvite.mock.calls).toHaveLength(1)
             expect(getRowBulkCheckboxInputs()[0]).not.toBeChecked()
             expect(getRowBulkCheckboxInputs()[1]).not.toBeChecked()
           })
+
+          const updateCalls = mockUpdateApplication.mock.calls.map(([payload]) => payload)
+          expect(updateCalls).toEqual(
+            expect.arrayContaining([
+              expect.objectContaining({
+                id: '1001',
+                upload_url: 'http://www.sf.gov'
+              }),
+              expect.objectContaining({
+                id: '1002',
+                upload_url: 'http://www.sf2.gov'
+              })
+            ])
+          )
+
+          expect(mockSendInvite).toHaveBeenCalledWith(
+            mockListing,
+            ['1001', '1002'],
+            '3000-1-1',
+            null
+          )
 
           act(() => {
             fireEvent.change(
@@ -967,7 +988,7 @@ describe('LeaseUpApplicationsPage', () => {
           expect(screen.queryByText('Add document upload URL')).toBeInTheDocument()
         })
 
-        test('should alert when api call to send invite to apply fails', async () => {
+        test('should alert when api call to send invite fails', async () => {
           const alertSpy = jest.spyOn(window, 'alert').mockImplementation(() => {})
 
           act(() => {

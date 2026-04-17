@@ -6,8 +6,8 @@ module DahliaBackend
   # Service for sending messages through the DAHLIA API
   class MessageService
     class << self
-      def send_invite_to_apply(current_user, params, application_contacts)
-        new.send_invite_to_apply(current_user, params, application_contacts)
+      def send_invite(current_user, params)
+        new.send_invite(current_user, params)
       end
     end
 
@@ -17,137 +17,31 @@ module DahliaBackend
       @client = client || DahliaBackend::ApiClient.new
     end
 
-    def send_invite_to_apply(current_user, params, application_contacts)
+    def send_invite(current_user, params)
       @current_user = current_user
-      raise 'Invalid parameters in send_invite_to_apply' unless valid_params?(params[:listing], application_contacts)
+      raise 'Invalid parameters in send_invite' unless valid_params?(params[:applicationIds])
 
-      fields = prepare_submission_fields(params, application_contacts)
+      fields = prepare_submission_fields(params)
       return if fields.nil?
 
-      send_message('/messages/invite-to-apply', fields)
+      send_message('/api/v1/message', fields)
     rescue StandardError => e
-      log_error('Error sending Invite to Apply', e)
+      log_error('Error send_invite', e)
       nil
     end
 
     private
 
-    def prepare_submission_fields(params, application_contacts)
-      contacts = prepare_contacts(params[:applicationIds], application_contacts)
-      raise 'No contacts found' if contacts.empty?
+    def prepare_submission_fields(params)
+      raise 'No applicationIds provided' unless params[:applicationIds].present?
 
-      listing = params[:listing]
-      units = prepare_units(listing[:id], listing)
-      raise 'No units found' if units.blank?
-
-      lottery_date = DateTime.parse(listing[:lottery_date])
-      deadline_date = DateTime.parse(params[:invite_to_apply_deadline])
       {
-        "isTestEmail": params[:isTest] ? true : false,
-        "listingId": listing[:id],
-        "listingName": listing[:name],
-        "buildingName": listing[:building_name_for_process],
-        "buildingAddress": listing[:building_street_address],
-        "buildingCity": listing[:building_city],
-        "buildingState": listing[:building_state],
-        "buildingZip": listing[:building_zip_code],
-        "listingNeighborhood": listing[:neighborhood],
-        "units": units,
-        "applicants": contacts,
-        "deadlineDate": deadline_date.strftime('%Y-%m-%d'),
-        "lotteryDate": lottery_date.strftime('%Y-%m-%d'),
-        "leasingAgent": {
-          "name": listing[:leasing_agent_name],
-          "email": determine_email(listing[:leasing_agent_email]),
-          "phone": listing[:leasing_agent_phone],
-          "officeHours": listing[:office_hours],
+        "action": 'INVITE',
+        "data": {
+          "applicationIds": params[:applicationIds],
+          "isTestEmail": params[:isTest] ? true : false,
         },
       }
-    end
-
-    def prepare_contacts(application_ids, application_contacts)
-      contacts = []
-      application_ids.each do |app_id|
-        record = find_application_contacts(app_id, application_contacts)
-        next if record.nil?
-
-        contact = {
-          "applicationNumber": app_id,
-          "applicationLanguage": record[:Application_Language],
-          "lotteryNumber": record[:Lottery_Number],
-          "primaryContact": {
-            "email": determine_email(record[:Applicant][:Email]),
-            "firstName": record[:Applicant][:First_Name],
-            "lastName": record[:Applicant][:Last_Name],
-          },
-        }
-        if record[:Alternate_Contact].present? and record[:Alternate_Contact][:Email].present?
-          contact[:alternateContact] = {
-            "email": determine_email(record[:Alternate_Contact][:Email]),
-            "firstName": record[:Alternate_Contact][:First_Name],
-            "lastName": record[:Alternate_Contact][:Last_Name],
-          }
-        end
-        contacts << contact
-      end
-      contacts
-    end
-
-    def find_application_contacts(application_id, application_contacts)
-      application_contacts[:records].each do |record|
-        return record if record[:Id] == application_id
-      end
-
-      nil
-    end
-
-    def prepare_units(listing_id, listing)
-      listing_units = get_unit_summaries_from_listing(listing)
-      return listing_units if listing_units.present?
-
-      rest_units = get_unit_summaries_from_rest_service(listing_id)
-      return rest_units if rest_units.present?
-
-      nil
-    end
-
-    def get_unit_summaries_from_rest_service(listing_id)
-      listing_details = rest_listing_service.get_details(listing_id)
-      all_summaries = listing_details[0][:unitSummaries]
-      return [] if all_summaries.nil?
-
-      unit_summaries = all_summaries[:general].present? ? all_summaries[:general] : all_summaries[:reserved]
-      units = []
-      unit_summaries.each do |summary|
-        units << {
-          unitType: summary[:unitType],
-          minRent: summary[:minMonthlyRent],
-          maxRent: summary[:maxMonthlyRent],
-          availableUnits: summary[:availability],
-        }
-      end
-      units
-    end
-
-    def get_unit_summaries_from_listing(_listing)
-      units = _listing[:units] || []
-      available_units = units.select do |unit|
-        unit[:status].to_s.casecmp('Available').zero?
-      end
-
-      grouped = available_units.group_by { |unit| unit[:unit_type] }
-
-      grouped.map do |unit_type, type_units|
-        rents = type_units.map { |unit| unit[:bmr_rent_monthly] }.compact.map(&:to_i)
-        next if unit_type.blank? || rents.empty?
-
-        {
-          unitType: unit_type,
-          minRent: rents.min,
-          maxRent: rents.max,
-          availableUnits: type_units.size,
-        }
-      end.compact
     end
 
     def determine_email(default_email)
@@ -173,13 +67,8 @@ module DahliaBackend
       end
     end
 
-    def valid_params?(listing, application_contacts)
-      return false unless listing && application_contacts
-      return false unless listing[:id].present? &&
-                          listing[:name].present? && listing[:neighborhood].present? &&
-                          listing[:building_street_address].present? &&
-                          listing[:lottery_date].present?
-      return false if application_contacts[:records].empty?
+    def valid_params?(application_ids)
+      return false unless application_ids.present?
 
       true
     end
