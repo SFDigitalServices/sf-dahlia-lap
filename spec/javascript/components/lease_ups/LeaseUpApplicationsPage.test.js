@@ -52,9 +52,35 @@ jest.mock('apiService', () => {
   }
 })
 
-jest.mock('utils/hooks/useFeatureFlag', () => ({
-  useFeatureFlag: () => ({ flagsReady: true, unleashFlag: true, variant: null })
-}))
+jest.mock('utils/hooks/useFeatureFlag', () => {
+  const i2iFeatureFlag = 'all.i2i'
+  const i2iVariant = {
+    enabled: true,
+    featureEnabled: true,
+    feature_enabled: true,
+    name: 'enabled_listings',
+    payload: {
+      type: 'json',
+      value: '{"enabled_listings": ["listingId"]}'
+    }
+  }
+
+  const defaultResponse = {
+    flagsReady: true,
+    unleashFlag: true,
+    variant: null
+  }
+
+  const i2iResponse = {
+    flagsReady: true,
+    unleashFlag: true,
+    variant: i2iVariant
+  }
+
+  return {
+    useFeatureFlag: (flagName) => (flagName === i2iFeatureFlag ? i2iResponse : defaultResponse)
+  }
+})
 
 jest.mock('react-select', () => (props) => {
   const handleChange = (event) => {
@@ -661,7 +687,7 @@ describe('LeaseUpApplicationsPage', () => {
       })
     })
 
-    describe('when using invite to apply', () => {
+    describe('when using i2x', () => {
       beforeEach(() => {
         act(() => {
           fireEvent.click(getRowBulkCheckboxInputs()[0])
@@ -669,7 +695,7 @@ describe('LeaseUpApplicationsPage', () => {
         })
       })
 
-      describe('when setting up invite to apply', () => {
+      describe('when setting up i2a', () => {
         beforeEach(() => {
           act(() => {
             fireEvent.change(
@@ -1020,6 +1046,75 @@ describe('LeaseUpApplicationsPage', () => {
           })
           await waitFor(() => {
             expect(alertSpy).toHaveBeenCalledTimes(1)
+          })
+        })
+      })
+
+      describe('when setting up i2i', () => {
+        beforeEach(() => {
+          act(() => {
+            fireEvent.change(
+              within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
+              {
+                target: { value: 'i2i' }
+              }
+            )
+          })
+        })
+
+        test('the calendar upload url should open', () => {
+          expect(screen.getByText('Add scheduling link')).toBeInTheDocument()
+        })
+
+        test('saving the inputs', async () => {
+          const textInputs = screen.getAllByRole('textbox')
+
+          act(() => {
+            fireEvent.change(textInputs[1], {
+              target: { value: 'http://www.sf.gov' }
+            })
+            fireEvent.blur(textInputs[1])
+          })
+          expect(textInputs[1]).not.toHaveClass('error')
+
+          act(() => {
+            fireEvent.click(screen.getByText('next'))
+          })
+          expect(screen.getByText('Set document submission deadline')).toBeInTheDocument()
+
+          const documentUrlFieldMonth = screen.getByPlaceholderText('MM')
+          const documentUrlFieldDay = screen.getByPlaceholderText('DD')
+          const documentUrlFieldYear = screen.getByPlaceholderText('YYYY')
+          act(() => {
+            fireEvent.change(documentUrlFieldMonth, {
+              target: { value: '1' }
+            })
+            fireEvent.change(documentUrlFieldDay, {
+              target: { value: '1' }
+            })
+            fireEvent.change(documentUrlFieldYear, {
+              target: { value: '3000' }
+            })
+            fireEvent.blur(documentUrlFieldMonth)
+            fireEvent.blur(documentUrlFieldDay)
+            fireEvent.blur(documentUrlFieldYear)
+          })
+          expect(documentUrlFieldMonth).not.toHaveClass('error')
+          expect(documentUrlFieldDay).not.toHaveClass('error')
+          expect(documentUrlFieldYear).not.toHaveClass('error')
+
+          act(() => {
+            fireEvent.click(screen.getByText('save'))
+          })
+          expect(screen.getByText('Review and send')).toBeInTheDocument()
+
+          act(() => {
+            fireEvent.click(screen.getByText('send now'))
+          })
+          await waitFor(() => {
+            expect(mockUpdateApplication.mock.calls).toHaveLength(2)
+            expect(mockUpdateListing.mock.calls).toHaveLength(2)
+            expect(mockSendInvite.mock.calls).toHaveLength(1)
           })
         })
       })

@@ -196,6 +196,11 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                   >
                     Set up Invitation to Apply
                   </option>
+                  <option
+                    value="i2i"
+                  >
+                    Set up Invitation to Interview
+                  </option>
                 </select>
               </div>
             </div>
