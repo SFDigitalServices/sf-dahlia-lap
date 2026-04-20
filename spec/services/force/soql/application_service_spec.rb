@@ -2,9 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.describe Force::Soql::ApplicationService do
-  APPLICATION_ID = 'application-1'
+APPLICATION_ID = 'application-1'
 
+RSpec.describe Force::Soql::ApplicationService do
   let(:user) { User.create(email: 'admin@example.com', admin: false) }
   let(:client) { instance_double('Restforce::Data::Client') }
   let(:api) { instance_double(Force::Api) }
