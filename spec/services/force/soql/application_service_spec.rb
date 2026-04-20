@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Force::Soql::ApplicationService do
+  APPLICATION_ID = 'application-1'
+
   let(:user) { User.create(email: 'admin@example.com', admin: false) }
   let(:client) { instance_double('Restforce::Data::Client') }
   let(:api) { instance_double(Force::Api) }
@@ -59,7 +61,7 @@ RSpec.describe Force::Soql::ApplicationService do
           submission_type: 'Paper',
           status: 'Approved',
           preference: 'general',
-        }
+        },
       )
 
       expect(result).to eq(:results)
@@ -84,7 +86,7 @@ RSpec.describe Force::Soql::ApplicationService do
     let(:alternate_contact) { Hashie::Mash.new(id: 'alt-1') }
     let(:application_domain) do
       Hashie::Mash.new(
-        id: 'application-1',
+        id: APPLICATION_ID,
         applicant: applicant,
         alternate_contact: alternate_contact,
       )
@@ -100,7 +102,7 @@ RSpec.describe Force::Soql::ApplicationService do
 
       allow(service).to receive(:query_first).and_return('raw_app')
       allow(Force::Application).to receive(:from_salesforce).with('raw_app').and_return(converted)
-      allow(service).to receive(:application_listing).with('application-1').and_return(listing)
+      allow(service).to receive(:application_listing).with(APPLICATION_ID).and_return(listing)
       allow(service).to receive(:soql_preference_service).and_return(preference_service)
       allow(service).to receive(:soql_attachment_service).and_return(attachment_service)
       allow(service).to receive(:soql_lease_service).and_return(lease_service)
@@ -112,11 +114,11 @@ RSpec.describe Force::Soql::ApplicationService do
       allow(lease_service).to receive(:application_lease).and_return({ id: 'lease-1' })
       allow(rental_assistance_service).to receive(:application_rental_assistances).and_return([{ id: 'ra-1' }])
 
-      result = service.application('application-1')
+      result = service.application(APPLICATION_ID)
 
       expect(preference_service).to have_received(:app_preferences_for_application)
-        .with('application-1', should_order: true)
-      expect(service).to have_received(:app_household_members).with('application-1', 'applicant-1', 'alt-1')
+        .with(APPLICATION_ID, should_order: true)
+      expect(service).to have_received(:app_household_members).with(APPLICATION_ID, 'applicant-1', 'alt-1')
       expect(result['preferences']).to eq([{ 'id' => 'pref-1' }])
       expect(result['proof_files']).to eq([{ 'id' => 'proof-1' }])
       expect(result['household_members']).to eq([{ 'id' => 'hm-1' }])
@@ -132,14 +134,14 @@ RSpec.describe Force::Soql::ApplicationService do
 
       allow(service).to receive(:query_first).and_return('raw_app')
       allow(Force::Application).to receive(:from_salesforce).with('raw_app').and_return(converted)
-      allow(service).to receive(:application_listing).with('application-1').and_return(fcfs_listing)
+      allow(service).to receive(:application_listing).with(APPLICATION_ID).and_return(fcfs_listing)
       allow(service).to receive(:soql_preference_service).and_return(preference_service)
       allow(preference_service).to receive(:app_preferences_for_application)
       allow(service).to receive(:soql_attachment_service).and_return(attachment_service)
       allow(service).to receive(:app_household_members).and_return([])
       allow(attachment_service).to receive(:app_proof_files).and_return([])
 
-      result = service.application('application-1', include_lease: false, include_rental_assistances: false)
+      result = service.application(APPLICATION_ID, include_lease: false, include_rental_assistances: false)
 
       expect(preference_service).not_to have_received(:app_preferences_for_application)
       expect(result['preferences']).to be_nil
@@ -155,14 +157,14 @@ RSpec.describe Force::Soql::ApplicationService do
       allow(service).to receive(:query_first).and_return('raw_listing')
       allow(service).to receive(:massage).with('raw_listing').and_return(Hashie::Mash.new(Listing: listing))
 
-      expect(service.application_listing('application-1')).to eq(listing)
+      expect(service.application_listing(APPLICATION_ID)).to eq(listing)
     end
 
     it 'returns nil when query result is blank' do
       allow(service).to receive(:query_first).and_return(nil)
       allow(service).to receive(:massage).with(nil).and_return(nil)
 
-      expect(service.application_listing('application-1')).to be_nil
+      expect(service.application_listing(APPLICATION_ID)).to be_nil
     end
   end
 
