@@ -1,0 +1,182 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=password&client_id=<<SALESFORCE_CLIENT_ID>>&client_secret=<<SALESFORCE_CLIENT_SECRET>>&username=<<SALESFORCE_USERNAME>>&password=<<SALESFORCE_PASSWORD>><<SALESFORCE_SECURITY_TOKEN>>
+    headers:
+      User-Agent:
+      - Faraday v2.14.1
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 20 Apr 2026 17:44:17 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Robots-Tag:
+      - none
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Vary:
+      - Accept-Encoding
+      Set-Cookie:
+      - BrowserId=jbbjOTzgEfG2Zc8UamcPQg; domain=.salesforce.com; path=/; expires=Tue,
+        20-Apr-2027 17:44:17 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Tue, 20-Apr-2027 17:44:17 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Tue, 20-Apr-2027 17:44:17
+        GMT; Max-Age=31536000; secure
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - e6218f2a6d85191c533156c4ef71e84d
+      X-Request-Id:
+      - e6218f2a6d85191c533156c4ef71e84d
+      X-Sfdc-Edge-Cache:
+      - none
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1776707057462","signature":"rOQfFA0e7yshqSbZt22R0twfgt1u82skQBKVsybR/00="}'
+  recorded_at: Mon, 20 Apr 2026 17:44:17 GMT
+- request:
+    method: get
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20Id,%20Name,%20Listing__r.Name,%20Listing__r.Lottery_Date__c,%20Applicant__r.First_Name__c,%20Applicant__r.Last_Name__c,%20Applicant__r.Email__c,%20Applicant__r.Phone__c,%20Applicant__r.Residence_Address__c,%20Applicant__r.Mailing_Address__c,%20Application_Submitted_Date__c,%20Total_Household_Size__c,%20Application_Submission_Type__c,%20General_Lottery__c,%20General_Lottery_Rank__c,%20Processing_Status__c%20FROM%20Application__c%20WHERE%20(Status__c%20!=%20%27Draft%27%20AND%20Application_Submitted_Date__c%20!=%20NULL)%20AND%20(Name%20like%20%27%25a0o0P00000GZazOQAT%25%27)%20AND%20(Listing__r.Id%20=%20%27a0W4U00000SWsXLUA1%27)%20AND%20(Applicant__r.First_Name__c%20=%20%27Automated%20Test%20Lease%20Up%20Application%27)%20AND%20(Applicant__r.Last_Name__c%20=%20%27(do%20not%20modify)%27)%20AND%20(Application_Submission_Type__c%20=%20%27Paper%27)%20ORDER%20BY%20CreatedDate%20DESC%20LIMIT%20100%20OFFSET%200
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 20 Apr 2026 17:44:18 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Sforce-Limit-Info:
+      - api-usage=7306/982000
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Content-Type-Options:
+      - nosniff
+      Set-Cookie:
+      - BrowserId=jexyMTzgEfG2Zc8UamcPQg; domain=.salesforce.com; path=/; expires=Tue,
+        20-Apr-2027 17:44:17 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Tue, 20-Apr-2027 17:44:17 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Tue, 20-Apr-2027 17:44:17
+        GMT; Max-Age=31536000; secure
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Robots-Tag:
+      - none
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - 6728ffd805e55c30363da2a277ae5408
+      X-Request-Id:
+      - 6728ffd805e55c30363da2a277ae5408
+      X-Sfdc-Edge-Cache:
+      - none
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":0,"done":true,"records":[]}'
+  recorded_at: Mon, 20 Apr 2026 17:44:18 GMT
+- request:
+    method: get
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=SELECT%20count()%20FROM%20Application__c%20WHERE%20(Status__c%20!=%20%27Draft%27%20AND%20Application_Submitted_Date__c%20!=%20NULL)%20AND%20(Name%20like%20%27%25a0o0P00000GZazOQAT%25%27)%20AND%20(Listing__r.Id%20=%20%27a0W4U00000SWsXLUA1%27)%20AND%20(Applicant__r.First_Name__c%20=%20%27Automated%20Test%20Lease%20Up%20Application%27)%20AND%20(Applicant__r.Last_Name__c%20=%20%27(do%20not%20modify)%27)%20AND%20(Application_Submission_Type__c%20=%20%27Paper%27)
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.1
+      Authorization:
+      - OAuth <<ACCESS_TOKEN>>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 20 Apr 2026 17:44:18 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Robots-Tag:
+      - none
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Sforce-Limit-Info:
+      - api-usage=7306/982000
+      Set-Cookie:
+      - BrowserId=jlVGNjzgEfGEBKv38A13hQ; domain=.salesforce.com; path=/; expires=Tue,
+        20-Apr-2027 17:44:18 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Tue, 20-Apr-2027 17:44:18 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Tue, 20-Apr-2027 17:44:18
+        GMT; Max-Age=31536000; secure
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Server:
+      - sfdcedge
+      X-Sfdc-Request-Id:
+      - a2646922bc14db22c5a4c520a2b5d4a6
+      X-Request-Id:
+      - a2646922bc14db22c5a4c520a2b5d4a6
+      X-Sfdc-Edge-Cache:
+      - none
+    body:
+      encoding: ASCII-8BIT
+      string: '{"totalSize":0,"done":true,"records":[]}'
+  recorded_at: Mon, 20 Apr 2026 17:44:18 GMT
+recorded_with: VCR 6.4.0
