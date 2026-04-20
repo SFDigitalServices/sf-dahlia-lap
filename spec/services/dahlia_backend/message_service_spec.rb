@@ -83,13 +83,6 @@ RSpec.describe DahliaBackend::MessageService do
     }
   end
 
-  let(:listing_service) { instance_double(Force::Rest::ListingService) }
-
-  before do
-    allow(Force::Rest::ListingService).to receive(:new).and_return(listing_service)
-    allow(listing_service).to receive(:get_details).with(listing_id).and_return(listing_details)
-  end
-
   describe '.send_invite' do
     it 'delegates to instance method' do
       expect_any_instance_of(described_class).to receive(:send_invite)
