@@ -78,7 +78,7 @@ export const INVITE_EMAILS_CONTEXT = {
       helpText: 'Example: https://www.dropbox.com/scl/fo/oi0q'
     },
     save: async ({ appId, url, dateObj, _listing }) => {
-      apiService.updateApplication({
+      await apiService.updateApplication({
         id: appId,
         upload_url: url,
         invite_to_apply_deadline_date: dateObj.utc().format()
@@ -93,14 +93,17 @@ export const INVITE_EMAILS_CONTEXT = {
       helpText: 'Copy the URL from your online scheduling tool like Calendly or Google Calendar.'
     },
     save: async ({ appId, url, dateObj, listing }) => {
-      apiService.updateApplication({
-        id: appId,
-        invite_to_apply_deadline_date: dateObj.utc().format()
-      })
-      apiService.updateListing({
-        id: listing.id,
-        scheduling_url: url
-      })
+      await apiService
+        .updateApplication({
+          id: appId,
+          invite_to_apply_deadline_date: dateObj.utc().format()
+        })
+        .then(() => {
+          return apiService.updateListing({
+            id: listing.id,
+            scheduling_url: url
+          })
+        })
     }
   }
 }
