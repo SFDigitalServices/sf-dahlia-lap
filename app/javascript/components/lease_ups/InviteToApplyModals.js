@@ -479,11 +479,11 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
             </p>
             <p>
               <label className='form-label'>You are sending</label>
-              Invitation to Apply
+              {inviteContext?.name || ''}
             </p>
             <p>
               <label className='form-label'>
-                Document upload URL&nbsp;
+                {inviteContext?.review?.url_label || ''}&nbsp;
                 <a
                   onClick={() => {
                     isUrlPerAppMode() ? showInviteModal('urlPerApp') : showInviteModal('uploadUrl')
@@ -553,8 +553,8 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
               <h1 className='modal-title t-gamma no-margin'>See an example</h1>
             </header>
             <section className='modal-inner'>
-              Send yourself an example email to see what applicants will see when they get an
-              Invitation to Apply.
+              Send yourself an example email to see what recipients will see when they get:&nbsp;
+              <strong>{inviteContext?.name || ''}</strong>.
             </section>
             <FormGrid.Row>
               <FormGrid.Item width='100%'>
