@@ -55,6 +55,9 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     const context = INVITE_EMAILS_CONTEXT[inviteType]
     setInviteContext(context)
     setExampleSuccessAlertState({ show: false, email: '' })
+    if (!(context && context.url && context.url.urlPerApp) && typeof window !== 'undefined') {
+      window.localStorage.removeItem('urlPerAppMode')
+    }
     const defaultUploadUrls = getDefaultUploadUrls()
     setInviteModalValues({ [INVITE_APPLY_PER_APP_UPLOAD_KEY]: defaultUploadUrls })
     showNextModal(
