@@ -348,13 +348,13 @@ RSpec.describe DahliaBackend::MessageService do
         result = service.send(:get_unit_summaries_from_listing, listing_with_units)
 
         expect(result).to eq([
-          {
-            unitType: 'Studio',
-            minRent: 1409,
-            maxRent: 2000,
-            availableUnits: 2,
-          },
-        ])
+                               {
+                                 unitType: 'Studio',
+                                 minRent: 1409,
+                                 maxRent: 2000,
+                                 availableUnits: 2,
+                               },
+                             ])
       end
 
       it 'returns an empty array when listing has no units' do
@@ -385,27 +385,29 @@ RSpec.describe DahliaBackend::MessageService do
         allow(listing_service).to receive(:get_details).with(listing_id).and_return(reserved_details)
 
         expect(service.send(:get_unit_summaries_from_rest_service, listing_id)).to eq([
-          {
-            unitType: '1 BR',
-            minRent: 1200,
-            maxRent: 1500,
-            availableUnits: 3,
-          },
-        ])
+                                                                                        {
+                                                                                          unitType: '1 BR',
+                                                                                          minRent: 1200,
+                                                                                          maxRent: 1500,
+                                                                                          availableUnits: 3,
+                                                                                        },
+                                                                                      ])
       end
     end
 
     describe '#determine_email' do
+      let(:default_email) { 'default@example.com' }
+
       it 'returns TEST_EMAIL when environment override is present' do
         allow(ENV).to receive(:[]).with('TEST_EMAIL').and_return('override@example.com')
 
-        expect(service.send(:determine_email, 'default@example.com')).to eq('override@example.com')
+        expect(service.send(:determine_email, default_email)).to eq('override@example.com')
       end
 
       it 'returns default email when TEST_EMAIL is not set' do
         allow(ENV).to receive(:[]).with('TEST_EMAIL').and_return(nil)
 
-        expect(service.send(:determine_email, 'default@example.com')).to eq('default@example.com')
+        expect(service.send(:determine_email, default_email)).to eq(default_email)
       end
     end
   end
