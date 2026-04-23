@@ -210,7 +210,6 @@ RSpec.describe DahliaBackend::MessageService do
     context 'when i2i feature is disabled' do
       before do
         allow(Rails.configuration.unleash).to receive(:is_enabled?).with(i2iFlag).and_return(false)
-        allow(subject).to receive(:soql_application_service).and_return(application_service)
       end
 
       context 'when units fetch fails' do
@@ -273,6 +272,50 @@ RSpec.describe DahliaBackend::MessageService do
           ).and_return('ok')
 
           expect(subject.send_invite(user, invite_params)).to eq('ok')
+        end
+
+        context 'when sending test email' do
+          let(:test_email) { 'test@example.com' }
+          let(:test_params) do
+            invite_params.merge(isTest: true, testEmail: test_email)
+          end
+
+          before do
+            allow(subject).to receive(:get_unit_summaries_from_listing).with(listing).and_return(prepared_units)
+          end
+
+          it 'does not call soql_application_service' do
+            expect(application_service).not_to receive(:application_contacts)
+            allow(client).to receive(:post).and_return('ok')
+
+            subject.send_invite(user, test_params)
+          end
+
+          it 'sends payload with isTestEmail true and test contact details' do
+            expect(client).to receive(:post).with(
+              '/api/v1/message',
+              hash_including(
+                data: hash_including(
+                  isTestEmail: true,
+                  payload: hash_including(
+                    applicants: [
+                      hash_including(
+                        applicationNumber: application_id,
+                        applicationLanguage: 'English',
+                        lotteryNumber: '12345',
+                        primaryContact: hash_including(
+                          firstName: 'FirstName',
+                          lastName: 'LastName',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ).and_return('ok')
+
+            expect(subject.send_invite(user, test_params)).to eq('ok')
+          end
         end
       end
     end
