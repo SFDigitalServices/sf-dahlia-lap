@@ -62,12 +62,18 @@ module DahliaBackend
 
       prepared_contacts = prepare_i2a_contacts(params)
       units = prepare_i2a_units(listing)
+      payload_context = {
+        listing: listing,
+        prepared_contacts: prepared_contacts,
+        units: units,
+        invite_deadline: params[:invite_to_apply_deadline],
+      }
 
       {
         "action": 'INVITE',
         "data": {
           "isTestEmail": params[:isTest] ? true : false,
-          "payload": i2a_payload(listing, prepared_contacts, units, params[:invite_to_apply_deadline]),
+          "payload": i2a_payload(payload_context),
         },
       }
     end
@@ -109,7 +115,12 @@ module DahliaBackend
       units
     end
 
-    def i2a_payload(listing, prepared_contacts, units, invite_deadline)
+    def i2a_payload(payload_context)
+      listing = payload_context[:listing]
+      prepared_contacts = payload_context[:prepared_contacts]
+      units = payload_context[:units]
+      invite_deadline = payload_context[:invite_deadline]
+
       lottery_date = DateTime.parse(listing[:lottery_date])
       deadline_date = DateTime.parse(invite_deadline)
 

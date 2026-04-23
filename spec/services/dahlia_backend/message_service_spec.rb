@@ -127,6 +127,7 @@ RSpec.describe DahliaBackend::MessageService do
     ]
   end
   let(:i2iFlag) { 'all.i2i' }
+  let(:endpoint) { '/api/v1/message' }
   let(:listing_service) { instance_double(Force::Rest::ListingService) }
   let(:application_service) { instance_double(Force::Soql::ApplicationService) }
 
@@ -177,7 +178,7 @@ RSpec.describe DahliaBackend::MessageService do
       end
 
       it 'sends a message and returns response' do
-        expect(client).to receive(:post).with('/api/v1/message',
+        expect(client).to receive(:post).with(endpoint,
                                               hash_including(
                                                 data: hash_including(
                                                   applicationIds: invite_params[:applicationIds],
@@ -189,8 +190,8 @@ RSpec.describe DahliaBackend::MessageService do
       it 'returns nil and logs error if client.post fails' do
         expect(client).to receive(:post).and_return(nil)
         expect(Rails.logger).to receive(:error).with(
-          start_with(
-            '[DahliaBackend::MessageService:log_error] Failed to send message to /api/v1/message:',
+          a_string_including(
+            "Failed to send message to #{endpoint}:",
           ),
         )
         expect(subject.send_invite(user, invite_params)).to be_nil
@@ -199,8 +200,8 @@ RSpec.describe DahliaBackend::MessageService do
       it 'rescues and logs StandardError' do
         allow(client).to receive(:post).and_raise(StandardError.new('fail'))
         expect(Rails.logger).to receive(:error).with(
-          start_with(
-            '[DahliaBackend::MessageService:log_error] Error send_invite: StandardError fail',
+          a_string_including(
+            'Error send_invite: StandardError fail',
           ),
         )
         expect(subject.send_invite(user, invite_params)).to be_nil
@@ -210,6 +211,7 @@ RSpec.describe DahliaBackend::MessageService do
     context 'when i2i feature is disabled' do
       before do
         allow(Rails.configuration.unleash).to receive(:is_enabled?).with(i2iFlag).and_return(false)
+        allow(subject).to receive(:soql_application_service).and_return(application_service)
       end
 
       context 'when units fetch fails' do
@@ -228,7 +230,7 @@ RSpec.describe DahliaBackend::MessageService do
                                                                           .and_raise(StandardError.new('API error'))
 
           expect(Rails.logger).to receive(:error).with(
-            start_with('[DahliaBackend::MessageService:log_error] Error send_invite: StandardError API error'),
+            a_string_including('Error send_invite: StandardError API error'),
           )
 
           expect(subject.send_invite(user, invite_params)).to be_nil
@@ -252,7 +254,7 @@ RSpec.describe DahliaBackend::MessageService do
 
         it 'sends payload with listing and applicant details' do
           expect(client).to receive(:post).with(
-            '/api/v1/message',
+            endpoint,
             hash_including(
               data: hash_including(
                 isTestEmail: false,
@@ -293,7 +295,7 @@ RSpec.describe DahliaBackend::MessageService do
 
           it 'sends payload with isTestEmail true and test contact details' do
             expect(client).to receive(:post).with(
-              '/api/v1/message',
+              endpoint,
               hash_including(
                 data: hash_including(
                   isTestEmail: true,
