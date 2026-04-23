@@ -172,7 +172,6 @@ RSpec.describe Force::Preference do
     describe 'from custom api' do
       let(:mock_custom_api_pref) do
         {
-          'listingPreferenceID' => 'a0l0P00001Lx8XeQAJ',
           'recordTypeDevName' => 'L_W',
           'address' => '123 Fake Street',
           'appMemberID' => 'fakeappmemberid1',

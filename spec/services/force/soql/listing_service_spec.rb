@@ -5,8 +5,6 @@ require 'rails_helper'
 RSpec.describe Force::Soql::ListingService do
   let(:user) { User.create(email: 'admin@example.com', admin: false) }
   subject { Force::Soql::ListingService.new(user) }
-  LEASE_UP_LISTING_ID = 'a0W0P00000GbyuQUAR' # Yellow Acres test listing
-  NON_LEASE_UP_LISTING_ID = 'a0W0P00000F8YG4UAN' # Automated test listing
   APPLICANT_LIST_LISTING_ID = 'a0W0t000001788TEAQ' # Sample listing with use applicant list for lease up
 
   describe '#lease_up_listings' do
@@ -26,8 +24,8 @@ RSpec.describe Force::Soql::ListingService do
         listings = subject.lease_up_listings
         ids = listings.map { |listing| listing[:id] }
 
-        expect(ids).to include(LEASE_UP_LISTING_ID)
-        expect(ids).not_to include(NON_LEASE_UP_LISTING_ID)
+        expect(ids).to include(YELLOW_ACRES_LISTING_ID)
+        expect(ids).not_to include(NOT_YET_RUN_LISTING_ID)
         expect(ids).not_to include(APPLICANT_LIST_LISTING_ID)
       end
     end
@@ -39,8 +37,8 @@ RSpec.describe Force::Soql::ListingService do
         listings = subject.listings
         ids = listings.map { |listing| listing[:id] }
 
-        expect(ids).to include(LEASE_UP_LISTING_ID)
-        expect(ids).to include(NON_LEASE_UP_LISTING_ID)
+        expect(ids).to include(YELLOW_ACRES_LISTING_ID)
+        expect(ids).to include(NOT_YET_RUN_LISTING_ID)
       end
     end
   end
