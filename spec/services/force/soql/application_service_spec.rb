@@ -167,6 +167,42 @@ RSpec.describe Force::Soql::ApplicationService do
     end
   end
 
+  describe '#application_contacts' do
+    let(:query_scope) { instance_double(Force::SoqlQueryBuilder) }
+    let(:massaged_results) { [{ id: 'app-1' }] }
+
+    before do
+      allow(service).to receive(:builder).and_return(query_scope)
+      allow(query_scope).to receive(:from).with(:Application__c).and_return(query_scope)
+      allow(query_scope).to receive(:select).with(service.send(:query_fields, :show_contacts)).and_return(query_scope)
+      allow(query_scope).to receive(:where)
+        .with("Status__c != '#{described_class::DRAFT}' AND Application_Submitted_Date__c != NULL")
+        .and_return(query_scope)
+      allow(query_scope).to receive(:paginate).and_return(query_scope)
+      allow(query_scope).to receive(:transform_results).and_return(query_scope)
+      allow(query_scope).to receive(:order_by).with('CreatedDate DESC').and_return(query_scope)
+      allow(query_scope).to receive(:query).and_return(massaged_results)
+      allow(query_scope).to receive(:where_in).and_return(query_scope)
+      allow(service).to receive(:massage).and_return(massaged_results)
+    end
+
+    it 'applies where_in when applicationIds are provided' do
+      options = { applicationIds: ['a1', 'a2'], page: 0 }
+
+      expect(query_scope).to receive(:where_in).with('Id', ['a1', 'a2'])
+      expect(query_scope).to receive(:query)
+
+      expect(service.application_contacts(options)).to eq(massaged_results)
+    end
+
+    it 'does not apply where_in when applicationIds are not provided' do
+      expect(query_scope).not_to receive(:where_in)
+      expect(query_scope).to receive(:query)
+
+      expect(service.application_contacts({ page: 0 })).to eq(massaged_results)
+    end
+  end
+
   describe '#application_defaults' do
     it 'returns expected default attributes' do
       defaults = service.send(:application_defaults)
