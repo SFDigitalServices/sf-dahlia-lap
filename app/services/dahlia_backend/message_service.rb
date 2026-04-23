@@ -32,75 +32,108 @@ module DahliaBackend
     private
 
     def prepare_submission_fields(params)
+      validate_application_ids!(params)
+      return submission_fields(params) if i2i_enabled?
+
+      old_submission_fields(params)
+    end
+
+    def validate_application_ids!(params)
       raise 'No applicationIds provided' unless params[:applicationIds].present?
+    end
 
-      if Rails.configuration.unleash.is_enabled? 'all.i2i'
-        {
-          "action": 'INVITE',
-          "data": {
-            "applicationIds": params[:applicationIds],
-            "isTestEmail": params[:isTest] ? true : false,
+    def i2i_enabled?
+      Rails.configuration.unleash.is_enabled? 'all.i2i'
+    end
+
+    def submission_fields(params)
+      {
+        "action": 'INVITE',
+        "data": {
+          "applicationIds": params[:applicationIds],
+          "isTestEmail": params[:isTest] ? true : false,
+        },
+      }
+    end
+
+    def old_submission_fields(params)
+      listing = params[:listing]
+      raise 'No listing provided' unless listing.present?
+
+      prepared_contacts = prepare_i2a_contacts(params)
+      units = prepare_i2a_units(listing)
+
+      {
+        "action": 'INVITE',
+        "data": {
+          "isTestEmail": params[:isTest] ? true : false,
+          "payload": i2a_payload(listing, prepared_contacts, units, params[:invite_to_apply_deadline]),
+        },
+      }
+    end
+
+    def prepare_i2a_contacts(params)
+      contacts = fetch_contacts(params)
+      prepared_contacts = prepare_contacts(params[:applicationIds], contacts)
+      raise 'No contacts found' if prepared_contacts.empty?
+
+      prepared_contacts
+    end
+
+    def fetch_contacts(params)
+      return test_contacts(params) if params[:isTest].to_s == 'true'
+
+      soql_application_service.application_contacts(params)
+    end
+
+    def test_contacts(params)
+      # For test email, use first selected application and substitute applicant email.
+      {
+        records: [{
+          Id: params[:applicationIds][0],
+          Application_Language: 'English',
+          Applicant: {
+            Email: params[:testEmail],
+            First_Name: 'FirstName',
+            Last_Name: 'LastName',
           },
-        }
-      else
-        raise 'No listing provided' unless params[:listing].present?
+          Lottery_Number: '12345',
+        }],
+      }
+    end
 
-        if params[:isTest].to_s == 'true'
-          # for test email, use first selected application, substitute
-          # the applicant email with test email
-          contacts = {
-            'records': [{
-              'Id': params[:applicationIds][0],
-              'Application_Language': 'English',
-              'Applicant': {
-                'Email': params[:testEmail],
-                'First_Name': 'FirstName',
-                'Last_Name': 'LastName',
-              },
-              'Lottery_Number': '12345',
-            }],
-          }
-        else
-          contacts = soql_application_service.application_contacts(params)
-        end
+    def prepare_i2a_units(listing)
+      units = prepare_units(listing[:id], listing)
+      raise 'No units found' if units.blank?
 
-        prepared_contacts = prepare_contacts(params[:applicationIds], contacts)
-        raise 'No contacts found' if prepared_contacts.empty?
+      units
+    end
 
-        listing = params[:listing]
-        units = prepare_units(listing[:id], listing)
-        raise 'No units found' if units.blank?
+    def i2a_payload(listing, prepared_contacts, units, invite_deadline)
+      lottery_date = DateTime.parse(listing[:lottery_date])
+      deadline_date = DateTime.parse(invite_deadline)
 
-        lottery_date = DateTime.parse(listing[:lottery_date])
-        deadline_date = DateTime.parse(params[:invite_to_apply_deadline])
-        {
-          "action": 'INVITE',
-          "data": {
-            "isTestEmail": params[:isTest] ? true : false,
-            "payload": {
-              "listingId": listing[:id],
-              "listingName": listing[:name],
-              "buildingName": listing[:building_name_for_process],
-              "buildingAddress": listing[:building_street_address],
-              "buildingCity": listing[:building_city],
-              "buildingState": listing[:building_state],
-              "buildingZip": listing[:building_zip_code],
-              "listingNeighborhood": listing[:neighborhood],
-              "units": units,
-              "applicants": prepared_contacts,
-              "deadlineDate": deadline_date.strftime('%Y-%m-%d'),
-              "lotteryDate": lottery_date.strftime('%Y-%m-%d'),
-              "leasingAgent": {
-                "name": listing[:leasing_agent_name],
-                "email": determine_email(listing[:leasing_agent_email]),
-                "phone": listing[:leasing_agent_phone],
-                "officeHours": listing[:office_hours],
-              },
-              "listingLeaseupOutreach": "Submit all info online",
-            },
-          },
-        }
-      end
+      {
+        "listingId": listing[:id],
+        "listingName": listing[:name],
+        "buildingName": listing[:building_name_for_process],
+        "buildingAddress": listing[:building_street_address],
+        "buildingCity": listing[:building_city],
+        "buildingState": listing[:building_state],
+        "buildingZip": listing[:building_zip_code],
+        "listingNeighborhood": listing[:neighborhood],
+        "units": units,
+        "applicants": prepared_contacts,
+        "deadlineDate": deadline_date.strftime('%Y-%m-%d'),
+        "lotteryDate": lottery_date.strftime('%Y-%m-%d'),
+        "leasingAgent": {
+          "name": listing[:leasing_agent_name],
+          "email": determine_email(listing[:leasing_agent_email]),
+          "phone": listing[:leasing_agent_phone],
+          "officeHours": listing[:office_hours],
+        },
+        "listingLeaseupOutreach": 'Submit all info online',
+      }
     end
 
     def prepare_contacts(application_ids, application_contacts)
@@ -119,7 +152,7 @@ module DahliaBackend
             "lastName": record[:Applicant][:Last_Name],
           },
         }
-        if record[:Alternate_Contact].present? and record[:Alternate_Contact][:Email].present?
+        if record[:Alternate_Contact].present? && record[:Alternate_Contact][:Email].present?
           contact[:alternateContact] = {
             "email": determine_email(record[:Alternate_Contact][:Email]),
             "firstName": record[:Alternate_Contact][:First_Name],
@@ -209,14 +242,6 @@ module DahliaBackend
         log_error("Failed to send message to #{endpoint}: #{fields.to_json}", nil)
         nil
       end
-    end
-
-    private
-
-    def valid_params?(application_ids)
-      return false unless application_ids.present?
-
-      true
     end
 
     def rest_listing_service
