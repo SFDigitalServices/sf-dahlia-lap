@@ -225,7 +225,7 @@ RSpec.describe DahliaBackend::MessageService do
           allow(application_service).to receive(:application_contacts).with(invite_params).and_return(contacts)
           allow(subject).to receive(:get_unit_summaries_from_listing).with(listing).and_return(nil)
           allow(subject).to receive(:get_unit_summaries_from_rest_service).with(listing_id)
-            .and_raise(StandardError.new('API error'))
+                                                                          .and_raise(StandardError.new('API error'))
 
           expect(Rails.logger).to receive(:error).with(
             start_with('[DahliaBackend::MessageService:log_error] Error send_invite: StandardError API error'),

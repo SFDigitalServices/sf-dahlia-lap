@@ -212,6 +212,7 @@ module DahliaBackend
     end
 
     private
+
     def valid_params?(application_ids)
       return false unless application_ids.present?
 

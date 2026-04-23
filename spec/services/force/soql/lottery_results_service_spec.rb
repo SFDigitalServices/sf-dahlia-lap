@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Force::Soql::LotteryResultsService do
-
   let(:user) { User.create(email: 'admin@example.com', admin: true) }
   subject { Force::Soql::LotteryResultsService.new(user) }
 

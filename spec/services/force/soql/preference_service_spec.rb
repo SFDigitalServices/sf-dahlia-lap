@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Force::Soql::PreferenceService do
-
   let(:user) { User.create(email: 'admin@example.com', admin: false) }
   subject { Force::Soql::PreferenceService.new(user) }
 
@@ -19,7 +18,7 @@ RSpec.describe Force::Soql::PreferenceService do
     it 'should create the correct accessibility string Vision/Hearing' do
       VCR.use_cassette('services/soql/preference_service') do
         filters = subject.buildAppPreferencesFilters({ listing_id: valid_listing_id, accessibility: ['Vision impairments',
-                                                                                                        'Hearing impairments'] })
+                                                                                                     'Hearing impairments'] })
 
         expect(filters).to include("INCLUDES ('Vision impairments', 'Hearing impairments')")
       end
@@ -88,7 +87,7 @@ RSpec.describe Force::Soql::PreferenceService do
           "Application__r.Applicant__r.Last_Name__c like '%searchString%'",
           ")"
         ].join('')
-        expect(filters). to eq(expected_filters)
+        expect(filters).to eq(expected_filters)
       end
     end
     it 'creates the expected query string for multiple search terms' do
@@ -105,7 +104,7 @@ RSpec.describe Force::Soql::PreferenceService do
           "Application__r.Applicant__r.Last_Name__c like '%string2%'",
           ")"
         ].join('')
-        expect(filters). to eq(expected_filters)
+        expect(filters).to eq(expected_filters)
       end
     end
     it 'sanitizes search terms' do
@@ -118,7 +117,7 @@ RSpec.describe Force::Soql::PreferenceService do
           "Application__r.Applicant__r.Last_Name__c like '%\\%\"\\_something%'",
           ")"
         ].join('')
-        expect(filters). to eq(expected_filters)
+        expect(filters).to eq(expected_filters)
       end
     end
   end

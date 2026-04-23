@@ -80,9 +80,9 @@ RSpec.describe Force::Preference do
           "state" => nil,
           "address" => nil,
           "zip" => nil,
-          "listingPreferenceID"=> "a0l0P00001Lx8XZQAZ",
-          "postLotteryValidation"=> "Unconfirmed",
-          "naturalKey"=> "Andrea,Egan,1990-01-01"
+          "listingPreferenceID" => "a0l0P00001Lx8XZQAZ",
+          "postLotteryValidation" => "Unconfirmed",
+          "naturalKey" => "Andrea,Egan,1990-01-01"
         }
         expect(api_pref).to eq(expected_pref)
       end
