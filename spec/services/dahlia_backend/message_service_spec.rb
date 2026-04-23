@@ -329,4 +329,84 @@ RSpec.describe DahliaBackend::MessageService do
       end
     end
   end
+
+  describe 'private helpers' do
+    subject(:service) { described_class.new(client) }
+
+    describe '#get_unit_summaries_from_listing' do
+      it 'returns grouped available units with min/max rent by unit type' do
+        listing_with_units = {
+          units: [
+            { unit_type: 'Studio', status: 'Available', bmr_rent_monthly: '1409' },
+            { unit_type: 'Studio', status: 'available', bmr_rent_monthly: '2000' },
+            { unit_type: '1 BR', status: 'Leased', bmr_rent_monthly: '1800' },
+            { unit_type: nil, status: 'Available', bmr_rent_monthly: '999' },
+            { unit_type: '2 BR', status: 'Available', bmr_rent_monthly: nil },
+          ],
+        }
+
+        result = service.send(:get_unit_summaries_from_listing, listing_with_units)
+
+        expect(result).to eq([
+          {
+            unitType: 'Studio',
+            minRent: 1409,
+            maxRent: 2000,
+            availableUnits: 2,
+          },
+        ])
+      end
+
+      it 'returns an empty array when listing has no units' do
+        expect(service.send(:get_unit_summaries_from_listing, {})).to eq([])
+      end
+    end
+
+    describe '#get_unit_summaries_from_rest_service' do
+      it 'returns empty array when unitSummaries is nil' do
+        allow(listing_service).to receive(:get_details).with(listing_id).and_return([{ unitSummaries: nil }])
+
+        expect(service.send(:get_unit_summaries_from_rest_service, listing_id)).to eq([])
+      end
+
+      it 'uses reserved summaries when general summaries are not present' do
+        reserved_details = [{
+          unitSummaries: {
+            general: nil,
+            reserved: [{
+              unitType: '1 BR',
+              minMonthlyRent: 1200,
+              maxMonthlyRent: 1500,
+              availability: 3,
+            }],
+          },
+        }]
+
+        allow(listing_service).to receive(:get_details).with(listing_id).and_return(reserved_details)
+
+        expect(service.send(:get_unit_summaries_from_rest_service, listing_id)).to eq([
+          {
+            unitType: '1 BR',
+            minRent: 1200,
+            maxRent: 1500,
+            availableUnits: 3,
+          },
+        ])
+      end
+    end
+
+    describe '#determine_email' do
+      it 'returns TEST_EMAIL when environment override is present' do
+        allow(ENV).to receive(:[]).with('TEST_EMAIL').and_return('override@example.com')
+
+        expect(service.send(:determine_email, 'default@example.com')).to eq('override@example.com')
+      end
+
+      it 'returns default email when TEST_EMAIL is not set' do
+        allow(ENV).to receive(:[]).with('TEST_EMAIL').and_return(nil)
+
+        expect(service.send(:determine_email, 'default@example.com')).to eq('default@example.com')
+      end
+    end
+  end
 end
