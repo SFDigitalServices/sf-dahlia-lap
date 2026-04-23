@@ -112,4 +112,4 @@ gem 'oj'
 
 gem 'http', '~> 5.3'
 
-gem "unleash", "~> 6.6"
+gem 'unleash', '~> 6.6'
