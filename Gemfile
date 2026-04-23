@@ -111,3 +111,5 @@ gem 'scout_apm'
 gem 'oj'
 
 gem 'http', '~> 5.3'
+
+gem "unleash", "~> 6.6"

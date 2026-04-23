@@ -82,6 +82,57 @@ RSpec.describe DahliaBackend::MessageService do
       invite_to_apply_deadline: '2024-07-01',
     }
   end
+  let(:contacts) do
+    {
+      records: [{
+        Id: application_id,
+        Application_Language: 'English',
+        Lottery_Number: '12345',
+        Applicant: {
+          First_Name: 'John',
+          Last_Name: 'Doe',
+          Email: 'test@example.com',
+        },
+        Alternate_Contact: {
+          First_Name: 'Jane',
+          Last_Name: 'Doe',
+          Email: 'test@example.com',
+        },
+      }],
+    }
+  end
+
+  let(:units) do
+    [
+      {
+        unit_type: 'Studio',
+        bmr_rent_monthly: 1409.0,
+        bmr_rental_minimum_monthly_income_needed: 2800,
+        status: 'Available',
+        property_type: 'Apartment',
+        ami_chart_type: 'MOHCD',
+        ami_chart_year: 2025,
+        max_ami_for_qualifying_unit: 65,
+      },
+      {
+        unit_type: 'Studio',
+        bmr_rent_monthly: 2000.0,
+        bmr_rental_minimum_monthly_income_needed: 2800,
+        status: 'Available',
+        property_type: 'Apartment',
+        ami_chart_type: 'MOHCD',
+        ami_chart_year: 2025,
+        max_ami_for_qualifying_unit: 65,
+      },
+    ]
+  end
+  let(:listing_service) { instance_double(Force::Rest::ListingService) }
+  let(:application_service) { instance_double(Force::Soql::ApplicationService) }
+
+  before do
+    allow(Force::Rest::ListingService).to receive(:new).and_return(listing_service)
+    allow(listing_service).to receive(:get_details).with(listing_id).and_return(listing_details)
+  end
 
   describe '.send_invite' do
     it 'delegates to instance method' do
@@ -107,6 +158,10 @@ RSpec.describe DahliaBackend::MessageService do
   describe '#send_invite' do
     subject { described_class.new(client) }
 
+    before do
+      allow(Rails.configuration.unleash).to receive(:is_enabled?).with('all.i2i').and_return(true)
+    end
+
     context 'with invalid params' do
       it 'returns nil if applicationIds are missing' do
         params_copy = invite_params.dup
@@ -115,7 +170,11 @@ RSpec.describe DahliaBackend::MessageService do
       end
     end
 
-    context 'with valid params' do
+    context 'with valid params when i2i feature is enabled' do
+      before do
+        allow(Rails.configuration.unleash).to receive(:is_enabled?).with('all.i2i').and_return(true)
+      end
+
       it 'sends a message and returns response' do
         expect(client).to receive(:post).with('/api/v1/message',
                                               hash_including(
@@ -144,6 +203,76 @@ RSpec.describe DahliaBackend::MessageService do
           ),
         )
         expect(subject.send_invite(user, invite_params)).to be_nil
+      end
+    end
+
+    context 'when i2i feature is disabled' do
+      before do
+        allow(Rails.configuration.unleash).to receive(:is_enabled?).with('all.i2i').and_return(false)
+        allow(subject).to receive(:soql_application_service).and_return(application_service)
+      end
+
+      context 'when units fetch fails' do
+        it 'returns nil' do
+          allow(application_service).to receive(:application_contacts).with(invite_params).and_return(contacts)
+          allow(subject).to receive(:get_unit_summaries_from_listing).with(listing).and_return(nil)
+          allow(subject).to receive(:get_unit_summaries_from_rest_service).with(listing_id).and_return(nil)
+
+          expect(subject.send_invite(user, invite_params)).to be_nil
+        end
+
+        it 'handles exceptions when fetching units' do
+          allow(application_service).to receive(:application_contacts).with(invite_params).and_return(contacts)
+          allow(subject).to receive(:get_unit_summaries_from_listing).with(listing).and_return(nil)
+          allow(subject).to receive(:get_unit_summaries_from_rest_service).with(listing_id)
+            .and_raise(StandardError.new('API error'))
+
+          expect(Rails.logger).to receive(:error).with(
+            start_with('[DahliaBackend::MessageService:log_error] Error send_invite: StandardError API error'),
+          )
+
+          expect(subject.send_invite(user, invite_params)).to be_nil
+        end
+      end
+
+      context 'with valid params' do
+        let(:prepared_units) do
+          [{
+            unitType: 'Studio',
+            minRent: 1409,
+            maxRent: 2000,
+            availableUnits: 2,
+          }]
+        end
+
+        before do
+          allow(application_service).to receive(:application_contacts).with(invite_params).and_return(contacts)
+          allow(subject).to receive(:get_unit_summaries_from_listing).with(listing).and_return(prepared_units)
+        end
+
+        it 'sends payload with listing and applicant details' do
+          expect(client).to receive(:post).with(
+            '/api/v1/message',
+            hash_including(
+              data: hash_including(
+                isTestEmail: false,
+                payload: hash_including(
+                  listingId: listing_id,
+                  units: prepared_units,
+                  applicants: [
+                    hash_including(
+                      applicationNumber: application_id,
+                      applicationLanguage: 'English',
+                      lotteryNumber: '12345',
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ).and_return('ok')
+
+          expect(subject.send_invite(user, invite_params)).to eq('ok')
+        end
       end
     end
   end

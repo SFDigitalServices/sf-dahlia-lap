@@ -8,6 +8,10 @@ module Force
         listing = Force::Listing.from_domain(domain_attrs)
         @client.update!('Listing__c', listing.to_salesforce)
       end
+
+      def get_details(id)
+        api_get("/ListingDetails/#{id}")
+      end
     end
   end
 end

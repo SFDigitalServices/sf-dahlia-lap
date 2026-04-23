@@ -19,7 +19,6 @@ module DahliaBackend
 
     def send_invite(current_user, params)
       @current_user = current_user
-      raise 'Invalid parameters in send_invite' unless valid_params?(params[:applicationIds])
 
       fields = prepare_submission_fields(params)
       return if fields.nil?
@@ -35,13 +34,158 @@ module DahliaBackend
     def prepare_submission_fields(params)
       raise 'No applicationIds provided' unless params[:applicationIds].present?
 
-      {
-        "action": 'INVITE',
-        "data": {
-          "applicationIds": params[:applicationIds],
-          "isTestEmail": params[:isTest] ? true : false,
-        },
-      }
+      if Rails.configuration.unleash.is_enabled? 'all.i2i'
+        {
+          "action": 'INVITE',
+          "data": {
+            "applicationIds": params[:applicationIds],
+            "isTestEmail": params[:isTest] ? true : false,
+          },
+        }
+      else
+        raise 'No listing provided' unless params[:listing].present?
+
+        if params[:isTest].to_s == 'true'
+          # for test email, use first selected application, substitute
+          # the applicant email with test email
+          contacts = {
+            'records': [{
+              'Id': params[:applicationIds][0],
+              'Application_Language': 'English',
+              'Applicant': {
+                'Email': params[:testEmail],
+                'First_Name': 'FirstName',
+                'Last_Name': 'LastName',
+              },
+              'Lottery_Number': '12345',
+            }],
+          }
+        else
+          contacts = soql_application_service.application_contacts(params)
+        end
+
+        prepared_contacts = prepare_contacts(params[:applicationIds], contacts)
+        raise 'No contacts found' if prepared_contacts.empty?
+
+        listing = params[:listing]
+        units = prepare_units(listing[:id], listing)
+        raise 'No units found' if units.blank?
+
+        lottery_date = DateTime.parse(listing[:lottery_date])
+        deadline_date = DateTime.parse(params[:invite_to_apply_deadline])
+        {
+          "action": 'INVITE',
+          "data": {
+            "isTestEmail": params[:isTest] ? true : false,
+            "payload": {
+              "listingId": listing[:id],
+              "listingName": listing[:name],
+              "buildingName": listing[:building_name_for_process],
+              "buildingAddress": listing[:building_street_address],
+              "buildingCity": listing[:building_city],
+              "buildingState": listing[:building_state],
+              "buildingZip": listing[:building_zip_code],
+              "listingNeighborhood": listing[:neighborhood],
+              "units": units,
+              "applicants": prepared_contacts,
+              "deadlineDate": deadline_date.strftime('%Y-%m-%d'),
+              "lotteryDate": lottery_date.strftime('%Y-%m-%d'),
+              "leasingAgent": {
+                "name": listing[:leasing_agent_name],
+                "email": determine_email(listing[:leasing_agent_email]),
+                "phone": listing[:leasing_agent_phone],
+                "officeHours": listing[:office_hours],
+              },
+              "listingLeaseupOutreach": "Submit all info online",
+            },
+          },
+        }
+      end
+    end
+
+    def prepare_contacts(application_ids, application_contacts)
+      contacts = []
+      application_ids.each do |app_id|
+        record = find_application_contacts(app_id, application_contacts)
+        next if record.nil?
+
+        contact = {
+          "applicationNumber": app_id,
+          "applicationLanguage": record[:Application_Language],
+          "lotteryNumber": record[:Lottery_Number],
+          "primaryContact": {
+            "email": determine_email(record[:Applicant][:Email]),
+            "firstName": record[:Applicant][:First_Name],
+            "lastName": record[:Applicant][:Last_Name],
+          },
+        }
+        if record[:Alternate_Contact].present? and record[:Alternate_Contact][:Email].present?
+          contact[:alternateContact] = {
+            "email": determine_email(record[:Alternate_Contact][:Email]),
+            "firstName": record[:Alternate_Contact][:First_Name],
+            "lastName": record[:Alternate_Contact][:Last_Name],
+          }
+        end
+        contacts << contact
+      end
+      contacts
+    end
+
+    def find_application_contacts(application_id, application_contacts)
+      application_contacts[:records].each do |record|
+        return record if record[:Id] == application_id
+      end
+
+      nil
+    end
+
+    def prepare_units(listing_id, listing)
+      listing_units = get_unit_summaries_from_listing(listing)
+      return listing_units if listing_units.present?
+
+      rest_units = get_unit_summaries_from_rest_service(listing_id)
+      return rest_units if rest_units.present?
+
+      nil
+    end
+
+    def get_unit_summaries_from_rest_service(listing_id)
+      listing_details = rest_listing_service.get_details(listing_id)
+      all_summaries = listing_details[0][:unitSummaries]
+      return [] if all_summaries.nil?
+
+      unit_summaries = all_summaries[:general].present? ? all_summaries[:general] : all_summaries[:reserved]
+      units = []
+      unit_summaries.each do |summary|
+        units << {
+          unitType: summary[:unitType],
+          minRent: summary[:minMonthlyRent],
+          maxRent: summary[:maxMonthlyRent],
+          availableUnits: summary[:availability],
+        }
+      end
+      units
+    end
+
+    def get_unit_summaries_from_listing(_listing)
+      units = _listing[:units] || []
+      available_units = units.select do |unit|
+        unit[:status].to_s.casecmp('Available').zero?
+      end
+
+      grouped = available_units.group_by { |unit| unit[:unit_type] }
+
+      grouped.map do |unit_type, type_units|
+        rents = type_units.map { |unit| unit[:bmr_rent_monthly] }.compact.map(&:to_i)
+        next if unit_type.blank? || rents.empty?
+
+        {
+          unitType: unit_type,
+          minRent: rents.min,
+          maxRent: rents.max,
+          availableUnits: type_units.size,
+        }
+      end.compact
     end
 
     def determine_email(default_email)
@@ -67,6 +211,7 @@ module DahliaBackend
       end
     end
 
+    private
     def valid_params?(application_ids)
       return false unless application_ids.present?
 
@@ -75,6 +220,10 @@ module DahliaBackend
 
     def rest_listing_service
       Force::Rest::ListingService.new(@current_user)
+    end
+
+    def soql_application_service
+      Force::Soql::ApplicationService.new(@current_user)
     end
 
     def log_info(message)
