@@ -45,7 +45,7 @@ RSpec.describe Force::SoqlQueryBuilder do
 
       soql = builder.from(:Application__c)
                     .select('Id')
-                    .where_in('Id', ['a0o1', 'a0o2'])
+                    .where_in('Id', %w[a0o1 a0o2])
                     .to_soql
 
       expect(soql).to eq("SELECT Id FROM Application__c WHERE (Id IN ('a0o1','a0o2'))")
@@ -57,7 +57,7 @@ RSpec.describe Force::SoqlQueryBuilder do
       soql = builder.from(:Application__c)
                     .select('Id')
                     .where("Status__c != 'DRAFT'")
-                    .where_in('Id', ['a0o1', 'a0o2'])
+                    .where_in('Id', %w[a0o1 a0o2])
                     .to_soql
 
       expect(soql).to eq("SELECT Id FROM Application__c WHERE (Status__c != 'DRAFT') AND (Id IN ('a0o1','a0o2'))")

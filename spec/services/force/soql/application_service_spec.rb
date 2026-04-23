@@ -8,6 +8,7 @@ RSpec.describe Force::Soql::ApplicationService do
   let(:api) { instance_double(Force::Api) }
   let(:client_factory) { instance_double(Force::ClientFactory, build: client) }
   let(:application_id) { 'application-1' }
+  let(:created_date_descending) { 'CreatedDate DESC' }
   subject(:service) { described_class.new(user) }
 
   before do
@@ -23,7 +24,7 @@ RSpec.describe Force::Soql::ApplicationService do
       allow(query_scope).to receive(:order_by).and_return(query_scope)
       allow(query_scope).to receive(:query).and_return(:results)
 
-      expect(query_scope).to receive(:order_by).with('CreatedDate DESC')
+      expect(query_scope).to receive(:order_by).with(created_date_descending)
       expect(query_scope).to receive(:query)
 
       expect(service.applications({})).to eq(:results)
@@ -39,7 +40,7 @@ RSpec.describe Force::Soql::ApplicationService do
       allow(query_scope).to receive(:where).and_return(query_scope)
       allow(query_scope).to receive(:query).and_return(:results)
 
-      expect(query_scope).to receive(:order_by).with('CreatedDate DESC')
+      expect(query_scope).to receive(:order_by).with(created_date_descending)
       expect(query_scope).to receive(:where_contains).with(:Name, 'APP-1')
       expect(query_scope).to receive(:where_eq).with('Listing__r.Id', "'listing-1'")
       expect(query_scope).to receive(:where_eq).with('Applicant__r.First_Name__c', "'Alice'")
@@ -180,16 +181,16 @@ RSpec.describe Force::Soql::ApplicationService do
         .and_return(query_scope)
       allow(query_scope).to receive(:paginate).and_return(query_scope)
       allow(query_scope).to receive(:transform_results).and_return(query_scope)
-      allow(query_scope).to receive(:order_by).with('CreatedDate DESC').and_return(query_scope)
+      allow(query_scope).to receive(:order_by).with(created_date_descending).and_return(query_scope)
       allow(query_scope).to receive(:query).and_return(massaged_results)
       allow(query_scope).to receive(:where_in).and_return(query_scope)
       allow(service).to receive(:massage).and_return(massaged_results)
     end
 
     it 'applies where_in when applicationIds are provided' do
-      options = { applicationIds: ['a1', 'a2'], page: 0 }
+      options = { applicationIds: %w[a1 a2], page: 0 }
 
-      expect(query_scope).to receive(:where_in).with('Id', ['a1', 'a2'])
+      expect(query_scope).to receive(:where_in).with('Id', %w[a1 a2])
       expect(query_scope).to receive(:query)
 
       expect(service.application_contacts(options)).to eq(massaged_results)
