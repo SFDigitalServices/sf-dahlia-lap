@@ -24,8 +24,8 @@ RSpec.describe Force::Soql::ListingService do
         listings = subject.lease_up_listings
         ids = listings.map { |listing| listing[:id] }
 
-        expect(ids).to include(YELLOW_ACRES_LISTING_ID)
-        expect(ids).not_to include(NOT_YET_RUN_LISTING_ID)
+        expect(ids).to include(valid_listing_id)
+        expect(ids).not_to include(not_yet_run_listing_id)
         expect(ids).not_to include(APPLICANT_LIST_LISTING_ID)
       end
     end
@@ -37,8 +37,8 @@ RSpec.describe Force::Soql::ListingService do
         listings = subject.listings
         ids = listings.map { |listing| listing[:id] }
 
-        expect(ids).to include(YELLOW_ACRES_LISTING_ID)
-        expect(ids).to include(NOT_YET_RUN_LISTING_ID)
+        expect(ids).to include(valid_listing_id)
+        expect(ids).to include(not_yet_run_listing_id)
       end
     end
   end

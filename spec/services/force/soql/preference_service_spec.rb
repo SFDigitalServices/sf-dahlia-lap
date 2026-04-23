@@ -10,7 +10,7 @@ RSpec.describe Force::Soql::PreferenceService do
   describe 'buildAppPreferencesFilters' do
     it 'should create the correct accessibility string for Mobility' do
       VCR.use_cassette('services/soql/preference_service') do
-        filters = subject.buildAppPreferencesFilters({ listing_id: YELLOW_ACRES_LISTING_ID, accessibility: ['Mobility impairments'] })
+        filters = subject.buildAppPreferencesFilters({ listing_id: valid_listing_id, accessibility: ['Mobility impairments'] })
 
         expect(filters).to include("INCLUDES ('Mobility impairments')")
       end
@@ -18,7 +18,7 @@ RSpec.describe Force::Soql::PreferenceService do
 
     it 'should create the correct accessibility string Vision/Hearing' do
       VCR.use_cassette('services/soql/preference_service') do
-        filters = subject.buildAppPreferencesFilters({ listing_id: YELLOW_ACRES_LISTING_ID, accessibility: ['Vision impairments',
+        filters = subject.buildAppPreferencesFilters({ listing_id: valid_listing_id, accessibility: ['Vision impairments',
                                                                                                         'Hearing impairments'] })
 
         expect(filters).to include("INCLUDES ('Vision impairments', 'Hearing impairments')")

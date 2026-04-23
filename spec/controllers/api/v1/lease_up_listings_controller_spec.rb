@@ -24,7 +24,7 @@ RSpec.describe Api::V1::LeaseUpListingsController, type: :controller do
   describe '#show' do
     it 'returns the lease up listing' do
       VCR.use_cassette('/api/v1/lease-ups/listing') do
-        get :show, params: { id: YELLOW_ACRES_LISTING_ID }
+        get :show, params: { id: valid_listing_id }
       end
       expect(response).to have_http_status(:success)
       json = JSON.parse(response.body)

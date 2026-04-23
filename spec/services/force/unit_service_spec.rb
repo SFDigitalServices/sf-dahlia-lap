@@ -26,7 +26,7 @@ RSpec.describe Force::UnitsService do
 
     it 'should return lease fields when there is a lease on the unit' do
       VCR.use_cassette('services/force/unit_service/with_lease') do
-        units = subject.units_and_leases_for_listing(YELLOW_ACRES_LISTING_ID)
+        units = subject.units_and_leases_for_listing(valid_listing_id)
 
         (expected_unit_keys).each do |key|
           expect(units.first).to have_key(key)
@@ -39,7 +39,7 @@ RSpec.describe Force::UnitsService do
 
     it 'should not include lease fields if not present' do
       VCR.use_cassette('services/force/unit_service/without_lease') do
-        units = subject.units_and_leases_for_listing(NOT_YET_RUN_LISTING_ID)
+        units = subject.units_and_leases_for_listing(not_yet_run_listing_id)
 
         expected_lease_keys.each do |key|
           expect(units.first).not_to have_key(key)
