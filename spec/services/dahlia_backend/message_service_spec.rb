@@ -211,7 +211,7 @@ RSpec.describe DahliaBackend::MessageService do
     context 'when i2i feature is disabled' do
       before do
         allow(Rails.configuration.unleash).to receive(:is_enabled?).with(i2iFlag).and_return(false)
-        allow(subject).to receive(:soql_application_service).and_return(application_service)
+        allow(Force::Soql::ApplicationService).to receive(:new).with(user).and_return(application_service)
       end
 
       context 'when units fetch fails' do
@@ -250,6 +250,13 @@ RSpec.describe DahliaBackend::MessageService do
         before do
           allow(application_service).to receive(:application_contacts).with(invite_params).and_return(contacts)
           allow(subject).to receive(:get_unit_summaries_from_listing).with(listing).and_return(prepared_units)
+        end
+
+        it 'instantiates soql application service with current user' do
+          expect(Force::Soql::ApplicationService).to receive(:new).with(user).and_return(application_service)
+          allow(client).to receive(:post).and_return('ok')
+
+          subject.send_invite(user, invite_params)
         end
 
         it 'sends payload with listing and applicant details' do
