@@ -153,7 +153,8 @@ const mockListing = {
   name: 'listingName',
   building_street_address: 'buildingAddress',
   report_id: 'REPORT_ID',
-  program_type: 'IH-RENTAL'
+  program_type: 'IH-RENTAL',
+  leaseup_outreach: 'Submit all info online'
 }
 
 const mockApplications = [
