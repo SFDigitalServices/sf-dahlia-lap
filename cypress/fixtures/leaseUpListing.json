@@ -277,6 +277,7 @@
     ],
     "is_sale": false,
     "is_rental": true,
-    "program_type": "IH-RENTAL"
+    "program_type": "IH-RENTAL",
+    "leaseup_outreach": "Submit all info online"
   }
 }
