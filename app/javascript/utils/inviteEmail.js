@@ -28,7 +28,7 @@ export const INVITE_EMAIL_OPTIONS = [
   },
   {
     value: 'i2i',
-    label: 'Set up Invitation to Interview',
+    label: 'Set up Invitation to Apply',
     statusClassName: 'is-set-up-invite-to-interview',
     enabled: IsI2IEnabledForListing
   }
