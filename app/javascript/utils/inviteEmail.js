@@ -15,7 +15,7 @@ export const IsInviteToApplyEnabledForListing = (listing, i2aFlag) => {
   return i2aFlag && listing && listing.leaseup_outreach === I2A_OUTREACH_VALUE
 }
 
-export const IsI2IEnabledForListing = (listing, i2iFlag, _variant) => {
+export const IsI2IEnabledForListing = (listing, i2iFlag) => {
   return i2iFlag && listing && listing.leaseup_outreach === I2I_OUTREACH_VALUE
 }
 
