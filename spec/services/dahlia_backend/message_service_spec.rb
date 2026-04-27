@@ -126,7 +126,6 @@ RSpec.describe DahliaBackend::MessageService do
       },
     ]
   end
-  let(:i2iFlag) { 'all.i2i' }
   let(:endpoint) { '/api/v1/message' }
   let(:listing_service) { instance_double(Force::Rest::ListingService) }
   let(:application_service) { instance_double(Force::Soql::ApplicationService) }
@@ -161,7 +160,7 @@ RSpec.describe DahliaBackend::MessageService do
     subject { described_class.new(client) }
 
     before do
-      allow(Rails.configuration.unleash).to receive(:is_enabled?).with(i2iFlag).and_return(true)
+      allow(Rails.configuration.unleash).to receive(:is_enabled?).with(I2I_FEATURE_FLAG).and_return(true)
     end
 
     context 'with invalid params' do
@@ -174,7 +173,7 @@ RSpec.describe DahliaBackend::MessageService do
 
     context 'with valid params when i2i feature is enabled' do
       before do
-        allow(Rails.configuration.unleash).to receive(:is_enabled?).with(i2iFlag).and_return(true)
+        allow(Rails.configuration.unleash).to receive(:is_enabled?).with(I2I_FEATURE_FLAG).and_return(true)
       end
 
       it 'sends a message and returns response' do
@@ -210,7 +209,7 @@ RSpec.describe DahliaBackend::MessageService do
 
     context 'when i2i feature is disabled' do
       before do
-        allow(Rails.configuration.unleash).to receive(:is_enabled?).with(i2iFlag).and_return(false)
+        allow(Rails.configuration.unleash).to receive(:is_enabled?).with(I2I_FEATURE_FLAG).and_return(false)
         allow(Force::Soql::ApplicationService).to receive(:new).with(user).and_return(application_service)
       end
 

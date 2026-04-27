@@ -43,7 +43,7 @@ module DahliaBackend
     end
 
     def i2i_enabled?
-      Rails.configuration.unleash.is_enabled? 'all.i2i'
+      Rails.configuration.unleash.is_enabled? I2I_FEATURE_FLAG
     end
 
     def submission_fields(params)
