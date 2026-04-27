@@ -5,6 +5,8 @@ require 'date'
 module DahliaBackend
   # Service for sending messages through the DAHLIA API
   class MessageService
+    INVITE_ACTION = 'INVITE'
+
     class << self
       def send_invite(current_user, params)
         new.send_invite(current_user, params)
@@ -48,7 +50,7 @@ module DahliaBackend
 
     def submission_fields(params)
       {
-        "action": 'INVITE',
+        "action": INVITE_ACTION,
         "data": {
           "applicationIds": params[:applicationIds],
           "isTestEmail": params[:isTest] ? true : false,
@@ -70,7 +72,7 @@ module DahliaBackend
       }
 
       {
-        "action": 'INVITE',
+        "action": INVITE_ACTION,
         "data": {
           "isTestEmail": params[:isTest] ? true : false,
           "payload": i2a_payload(payload_context),
