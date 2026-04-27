@@ -59,8 +59,12 @@ end
 
 on_worker_boot do
   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
+  Rails.configuration.unleash = Unleash::Client.new
 end
 
+on_worker_shutdown do
+  Rails.configuration.unleash.shutdown
+end
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart

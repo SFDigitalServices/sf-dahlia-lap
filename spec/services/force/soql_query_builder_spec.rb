@@ -39,5 +39,28 @@ RSpec.describe Force::SoqlQueryBuilder do
                     .to_soql
       expect(soql).to eq('SELECT Id FROM Application__c')
     end
+
+    it 'should allow where_in filters' do
+      builder = Force::SoqlQueryBuilder.new(client)
+
+      soql = builder.from(:Application__c)
+                    .select('Id')
+                    .where_in('Id', %w[a0o1 a0o2])
+                    .to_soql
+
+      expect(soql).to eq("SELECT Id FROM Application__c WHERE (Id IN ('a0o1','a0o2'))")
+    end
+
+    it 'should combine where_in with other where clauses' do
+      builder = Force::SoqlQueryBuilder.new(client)
+
+      soql = builder.from(:Application__c)
+                    .select('Id')
+                    .where("Status__c != 'DRAFT'")
+                    .where_in('Id', %w[a0o1 a0o2])
+                    .to_soql
+
+      expect(soql).to eq("SELECT Id FROM Application__c WHERE (Status__c != 'DRAFT') AND (Id IN ('a0o1','a0o2'))")
+    end
   end
 end

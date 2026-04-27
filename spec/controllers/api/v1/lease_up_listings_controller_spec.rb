@@ -6,8 +6,6 @@ RSpec.describe Api::V1::LeaseUpListingsController, type: :controller do
   render_views
   login_admin
 
-  LEASE_UP_LISTING_ID = 'a0W0P00000GbyuQUAR' # Yellow Acres test listing
-
   describe '#index' do
     it 'returns all lease up listings' do
       VCR.use_cassette('/api/v1/lease-ups/listings') do
@@ -26,7 +24,7 @@ RSpec.describe Api::V1::LeaseUpListingsController, type: :controller do
   describe '#show' do
     it 'returns the lease up listing' do
       VCR.use_cassette('/api/v1/lease-ups/listing') do
-        get :show, params: { id: LEASE_UP_LISTING_ID }
+        get :show, params: { id: valid_listing_id }
       end
       expect(response).to have_http_status(:success)
       json = JSON.parse(response.body)
