@@ -94,6 +94,7 @@ listings:
     File_Upload_URL__c:
     Program_Type__c:
     Leaseup_Outreach__c:
+    Leaseup_Appointment_Scheduling_URL__c:
   lease_up_listing_fields:
     Id:
     Name:

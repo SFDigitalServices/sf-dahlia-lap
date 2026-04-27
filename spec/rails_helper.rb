@@ -59,6 +59,9 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+  config.define_derived_metadata(file_path: %r{/spec/services/}) do |metadata|
+    metadata[:type] = :service
+  end
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
@@ -68,5 +71,6 @@ RSpec.configure do |config|
   config.extend ControllerMacros, type: :controller
   config.include ReactHelpers, type: :controller
   config.include ForceHelpers, type: :controller
+  config.include ForceHelpers, type: :service
   config.include FixturesHelper
 end

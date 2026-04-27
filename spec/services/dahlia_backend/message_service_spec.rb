@@ -64,9 +64,18 @@ RSpec.describe DahliaBackend::MessageService do
     }]
   end
   let(:user) do
-    double('User', id: 1, email: 'admin@example.com', provider: nil, uid: nil, salesforce_user_id: nil, oauth: nil, admin: true)
+    double(
+      'User',
+      id: 1,
+      email: 'admin@example.com',
+      provider: nil,
+      uid: nil,
+      salesforce_user_id: nil,
+      oauth: nil,
+      admin: true,
+    )
   end
-  let(:invite_to_apply_params) do
+  let(:invite_params) do
     {
       applicationIds: [application_id],
       listing: listing,
@@ -77,7 +86,8 @@ RSpec.describe DahliaBackend::MessageService do
     {
       records: [{
         Id: application_id,
-        applicationLanguage: 'English',
+        Application_Language: 'English',
+        Lottery_Number: '12345',
         Applicant: {
           First_Name: 'John',
           Last_Name: 'Doe',
@@ -116,18 +126,20 @@ RSpec.describe DahliaBackend::MessageService do
       },
     ]
   end
+  let(:endpoint) { '/api/v1/message' }
   let(:listing_service) { instance_double(Force::Rest::ListingService) }
+  let(:application_service) { instance_double(Force::Soql::ApplicationService) }
 
   before do
     allow(Force::Rest::ListingService).to receive(:new).and_return(listing_service)
     allow(listing_service).to receive(:get_details).with(listing_id).and_return(listing_details)
   end
 
-  describe '.send_invite_to_apply' do
+  describe '.send_invite' do
     it 'delegates to instance method' do
-      expect_any_instance_of(described_class).to receive(:send_invite_to_apply)
-        .with(user, invite_to_apply_params, contacts)
-      described_class.send_invite_to_apply(user, invite_to_apply_params, contacts)
+      expect_any_instance_of(described_class).to receive(:send_invite)
+        .with(user, invite_params)
+      described_class.send_invite(user, invite_params)
     end
   end
 
@@ -144,381 +156,258 @@ RSpec.describe DahliaBackend::MessageService do
     end
   end
 
-  describe '#send_invite_to_apply' do
+  describe '#send_invite' do
     subject { described_class.new(client) }
+
+    before do
+      allow(Rails.configuration.unleash).to receive(:is_enabled?).with(I2I_FEATURE_FLAG).and_return(true)
+    end
 
     context 'with invalid params' do
       it 'returns nil if applicationIds are missing' do
-        params_copy = invite_to_apply_params.dup
+        params_copy = invite_params.dup
         params_copy.delete :applicationIds
-        expect(subject.send_invite_to_apply(user, params_copy, contacts)).to be_nil
-      end
-
-      it 'returns nil if contacts are missing' do
-        expect(subject.send_invite_to_apply(user, invite_to_apply_params, [])).to be_nil
+        expect(subject.send_invite(user, params_copy)).to be_nil
       end
     end
 
-    context 'when units fetch fails' do
-      it 'returns nil' do
-        allow(subject).to receive(:get_unit_summaries_from_listing).with(listing).and_return(nil)
-        allow(subject).to receive(:get_unit_summaries_from_rest_service).with(listing_id).and_return(nil)
-        expect(subject.send_invite_to_apply(user, invite_to_apply_params, contacts)).to be_nil
-      end
-
-      it 'handles exceptions when fetching units' do
-        allow(subject).to receive(:get_unit_summaries_from_rest_service).and_raise(StandardError.new('API error'))
-        expect(Rails.logger).to receive(:error).with(
-          '[DahliaBackend::MessageService:log_error] Error sending Invite to Apply: StandardError API error',
-        )
-        expect(subject.send_invite_to_apply(user, invite_to_apply_params, contacts)).to be_nil
-      end
-    end
-
-    context 'with valid params' do
+    context 'with valid params when i2i feature is enabled' do
       before do
-        allow(subject).to receive(:get_unit_summaries_from_listing).with(listing).and_return(
-          [{
-            unitType: 'Studio',
-            minRent: 1409.0,
-            maxRent: 2000.0,
-            availableUnits: 2,
-          }],
-        )
-        allow(subject).to receive(:get_unit_summaries_from_rest_service).with(listing_id).and_return(
-          [{
-            unitType: 'Studio',
-            minRent: 1500,
-            maxRent: 1600,
-            availableUnits: 2,
-          }],
-        )
+        allow(Rails.configuration.unleash).to receive(:is_enabled?).with(I2I_FEATURE_FLAG).and_return(true)
       end
+
       it 'sends a message and returns response' do
-        expect(client).to receive(:post).with('/messages/invite-to-apply',
-                                              hash_including(applicants:
-                                                contain_exactly(hash_including(:primaryContact)))).and_return('ok')
-        expect(subject.send_invite_to_apply(user, invite_to_apply_params, contacts)).to eq('ok')
-      end
-
-      it 'uses REST unit summaries when listing units are empty' do
-        allow(subject).to receive(:get_unit_summaries_from_listing).with(listing).and_return(nil)
-        allow(subject).to receive(:get_unit_summaries_from_rest_service).with(listing_id).and_return(
-          [{
-            unitType: 'Studio',
-            minRent: 1500,
-            maxRent: 1600,
-            availableUnits: 2,
-          }],
-        )
-
-        expect(client).to receive(:post).with('/messages/invite-to-apply',
+        expect(client).to receive(:post).with(endpoint,
                                               hash_including(
-                                                units: [{
-                                                  unitType: 'Studio',
-                                                  minRent: 1500,
-                                                  maxRent: 1600,
-                                                  availableUnits: 2,
-                                                }],
+                                                data: hash_including(
+                                                  applicationIds: invite_params[:applicationIds],
+                                                ),
                                               )).and_return('ok')
-
-        expect(subject.send_invite_to_apply(user, invite_to_apply_params, contacts)).to eq('ok')
-      end
-
-      it 'returns nil when no unit summaries are available from any source' do
-        allow(subject).to receive(:get_unit_summaries_from_listing).with(listing).and_return(nil)
-        allow(subject).to receive(:get_unit_summaries_from_rest_service).with(listing_id).and_return(nil)
-        expect(client).not_to receive(:post)
-        expect(Rails.logger).to receive(:error).with(
-          '[DahliaBackend::MessageService:log_error] Error sending Invite to Apply: RuntimeError No units found',
-        )
-
-        expect(subject.send_invite_to_apply(user, invite_to_apply_params, contacts)).to be_nil
+        expect(subject.send_invite(user, invite_params)).to eq('ok')
       end
 
       it 'returns nil and logs error if client.post fails' do
         expect(client).to receive(:post).and_return(nil)
-        allow(subject).to receive(:get_unit_summaries_from_listing).with(listing).and_return(units)
-        allow(subject).to receive(:get_unit_summaries_from_rest_service).with(listing_id).and_return(units)
-        expect(Rails.logger).to receive(:error).with(start_with('[DahliaBackend::MessageService:log_error] Failed to send message to /messages/invite-to-apply:'))
-        expect(subject.send_invite_to_apply(user, invite_to_apply_params, contacts)).to be_nil
+        expect(Rails.logger).to receive(:error).with(
+          a_string_including(
+            "Failed to send message to #{endpoint}:",
+          ),
+        )
+        expect(subject.send_invite(user, invite_params)).to be_nil
       end
 
       it 'rescues and logs StandardError' do
         allow(client).to receive(:post).and_raise(StandardError.new('fail'))
-        allow(subject).to receive(:get_unit_summaries_from_listing).with(listing).and_return(units)
-        allow(subject).to receive(:get_unit_summaries_from_rest_service).with(listing_id).and_return(units)
-        expect(Rails.logger).to receive(:error).with(start_with('[DahliaBackend::MessageService:log_error] Error sending Invite to Apply: StandardError fail'))
-        expect(subject.send_invite_to_apply(user, invite_to_apply_params, contacts)).to be_nil
-      end
-    end
-  end
-
-  describe '#get_unit_summaries_from_listing' do
-    subject(:service) { described_class.new(client) }
-
-    before do
-      service.instance_variable_set(:@current_user, user)
-    end
-
-    context 'when units are empty' do
-      let(:listing_missing_units) do
-        listing.except(:units)
-      end
-
-      it 'returns an empty array' do
-        result = service.send(:get_unit_summaries_from_listing, listing_missing_units)
-
-        expect(result).to eq([])
+        expect(Rails.logger).to receive(:error).with(
+          a_string_including(
+            'Error send_invite: StandardError fail',
+          ),
+        )
+        expect(subject.send_invite(user, invite_params)).to be_nil
       end
     end
 
-    context 'when units exist' do
-      let(:units_payload) do
-        [
-          {
-            status: 'Available',
-            unit_type: '1 BR',
-            bmr_rent_monthly: 1800,
-          },
-          {
-            status: 'Available',
-            unit_type: '1 BR',
-            bmr_rent_monthly: 2200,
-          },
-          {
-            status: 'Occupied',
-            unit_type: '1 BR',
-            bmr_rent_monthly: 9999,
-          },
-          {
-            status: 'Available',
-            unit_type: '2 BR',
-            bmr_rent_monthly: 2600,
-          },
-        ]
+    context 'when i2i feature is disabled' do
+      before do
+        allow(Rails.configuration.unleash).to receive(:is_enabled?).with(I2I_FEATURE_FLAG).and_return(false)
+        allow(Force::Soql::ApplicationService).to receive(:new).with(user).and_return(application_service)
       end
 
-      let(:provided_scenario_units_payload) do
-        [
-          { unit_type: 'Studio', bmr_rent_monthly: 1409, status: 'Occupied' },
-          { unit_type: '1 BR', bmr_rent_monthly: 2366, status: 'Occupied' },
-          { unit_type: '1 BR', bmr_rent_monthly: 2987, status: 'Occupied' },
-          { unit_type: '1 BR', bmr_rent_monthly: 1742, status: 'Available' },
-          { unit_type: '2 BR', bmr_rent_monthly: 3343, status: 'Occupied' },
-          { unit_type: '2 BR', bmr_rent_monthly: 3343, status: 'Available' },
-          { unit_type: '2 BR', bmr_rent_monthly: 3754, status: 'Occupied' },
-          { unit_type: '2 BR', bmr_rent_monthly: 2642, status: 'Occupied' },
-        ]
+      context 'when units fetch fails' do
+        it 'returns nil' do
+          allow(application_service).to receive(:application_contacts).with(invite_params).and_return(contacts)
+          allow(subject).to receive(:get_unit_summaries_from_listing).with(listing).and_return(nil)
+          allow(subject).to receive(:get_unit_summaries_from_rest_service).with(listing_id).and_return(nil)
+
+          expect(subject.send_invite(user, invite_params)).to be_nil
+        end
+
+        it 'handles exceptions when fetching units' do
+          allow(application_service).to receive(:application_contacts).with(invite_params).and_return(contacts)
+          allow(subject).to receive(:get_unit_summaries_from_listing).with(listing).and_return(nil)
+          allow(subject).to receive(:get_unit_summaries_from_rest_service).with(listing_id)
+                                                                          .and_raise(StandardError.new('API error'))
+
+          expect(Rails.logger).to receive(:error).with(
+            a_string_including('Error send_invite: StandardError API error'),
+          )
+
+          expect(subject.send_invite(user, invite_params)).to be_nil
+        end
       end
 
-      let(:listing_with_units_payload) do
-        listing.merge(units: units_payload)
-      end
-
-      let(:listing_with_provided_scenario_units_payload) do
-        listing.merge(units: provided_scenario_units_payload)
-      end
-
-      let(:summary) do
-        [{
-          unitType: '1 BR',
-          minRent: 1800,
-          maxRent: 2200,
-          availableUnits: 2,
-        },
-         {
-           unitType: '2 BR',
-           minRent: 2600,
-           maxRent: 2600,
-           availableUnits: 1,
-         }]
-      end
-
-      it 'derives min/max BMR and available count per unit type from available units only' do
-        result = service.send(:get_unit_summaries_from_listing, listing_with_units_payload)
-
-        expect(result).to eq(
+      context 'with valid params' do
+        let(:prepared_units) do
           [{
-            unitType: '1 BR',
-            minRent: 1800,
-            maxRent: 2200,
+            unitType: 'Studio',
+            minRent: 1409,
+            maxRent: 2000,
             availableUnits: 2,
-          },
-           {
-             unitType: '2 BR',
-             minRent: 2600,
-             maxRent: 2600,
-             availableUnits: 1,
-           }],
-        )
-      end
+          }]
+        end
 
-      it 'calculates summaries correctly for a mostly-occupied listing with sparse availability' do
-        result = service.send(:get_unit_summaries_from_listing, listing_with_provided_scenario_units_payload)
+        before do
+          allow(application_service).to receive(:application_contacts).with(invite_params).and_return(contacts)
+          allow(subject).to receive(:get_unit_summaries_from_listing).with(listing).and_return(prepared_units)
+        end
 
-        expect(result).to eq(
-          [{
-            unitType: '1 BR',
-            minRent: 1742,
-            maxRent: 1742,
-            availableUnits: 1,
-          },
-           {
-             unitType: '2 BR',
-             minRent: 3343,
-             maxRent: 3343,
-             availableUnits: 1,
-           }],
-        )
-      end
+        it 'instantiates soql application service with current user' do
+          expect(Force::Soql::ApplicationService).to receive(:new).with(user).and_return(application_service)
+          allow(client).to receive(:post).and_return('ok')
 
-      it 'returns empty summaries when units use string keys' do
-        result = service.send(:get_unit_summaries_from_listing, listing)
+          subject.send_invite(user, invite_params)
+        end
 
-        expect(result).to eq([])
+        it 'sends payload with listing and applicant details' do
+          expect(client).to receive(:post).with(
+            endpoint,
+            hash_including(
+              data: hash_including(
+                isTestEmail: false,
+                payload: hash_including(
+                  listingId: listing_id,
+                  units: prepared_units,
+                  applicants: [
+                    hash_including(
+                      applicationNumber: application_id,
+                      applicationLanguage: 'English',
+                      lotteryNumber: '12345',
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ).and_return('ok')
+
+          expect(subject.send_invite(user, invite_params)).to eq('ok')
+        end
+
+        context 'when sending test email' do
+          let(:test_email) { 'test@example.com' }
+          let(:test_params) do
+            invite_params.merge(isTest: true, testEmail: test_email)
+          end
+
+          before do
+            allow(subject).to receive(:get_unit_summaries_from_listing).with(listing).and_return(prepared_units)
+          end
+
+          it 'does not call soql_application_service' do
+            expect(application_service).not_to receive(:application_contacts)
+            allow(client).to receive(:post).and_return('ok')
+
+            subject.send_invite(user, test_params)
+          end
+
+          it 'sends payload with isTestEmail true and test contact details' do
+            expect(client).to receive(:post).with(
+              endpoint,
+              hash_including(
+                data: hash_including(
+                  isTestEmail: true,
+                  payload: hash_including(
+                    applicants: [
+                      hash_including(
+                        applicationNumber: application_id,
+                        applicationLanguage: 'English',
+                        lotteryNumber: '12345',
+                        primaryContact: hash_including(
+                          firstName: 'FirstName',
+                          lastName: 'LastName',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ).and_return('ok')
+
+            expect(subject.send_invite(user, test_params)).to eq('ok')
+          end
+        end
       end
     end
   end
 
-  describe '#prepare_units' do
+  describe 'private helpers' do
     subject(:service) { described_class.new(client) }
 
-    before do
-      service.instance_variable_set(:@current_user, user)
+    describe '#get_unit_summaries_from_listing' do
+      it 'returns grouped available units with min/max rent by unit type' do
+        listing_with_units = {
+          units: [
+            { unit_type: 'Studio', status: 'Available', bmr_rent_monthly: '1409' },
+            { unit_type: 'Studio', status: 'available', bmr_rent_monthly: '2000' },
+            { unit_type: '1 BR', status: 'Leased', bmr_rent_monthly: '1800' },
+            { unit_type: nil, status: 'Available', bmr_rent_monthly: '999' },
+            { unit_type: '2 BR', status: 'Available', bmr_rent_monthly: nil },
+          ],
+        }
+
+        result = service.send(:get_unit_summaries_from_listing, listing_with_units)
+
+        expect(result).to eq([
+                               {
+                                 unitType: 'Studio',
+                                 minRent: 1409,
+                                 maxRent: 2000,
+                                 availableUnits: 2,
+                               },
+                             ])
+      end
+
+      it 'returns an empty array when listing has no units' do
+        expect(service.send(:get_unit_summaries_from_listing, {})).to eq([])
+      end
     end
 
-    it 'pulls unit summaries from REST when listing units are empty' do
-      allow(service).to receive(:get_unit_summaries_from_listing).with(listing).and_return([])
-      allow(service).to receive(:get_unit_summaries_from_rest_service).with(listing_id).and_return(
-        [{
-          unitType: 'Studio',
-          minRent: 1375.0,
-          maxRent: 2224.0,
-          availableUnits: 16.0,
-        }, {
-          unitType: '1 BR',
-          minRent: 1553.0,
-          maxRent: 2736.0,
-          availableUnits: 26.0,
-        }],
-      )
+    describe '#get_unit_summaries_from_rest_service' do
+      it 'returns empty array when unitSummaries is nil' do
+        allow(listing_service).to receive(:get_details).with(listing_id).and_return([{ unitSummaries: nil }])
 
-      result = service.send(:prepare_units, listing_id, listing)
+        expect(service.send(:get_unit_summaries_from_rest_service, listing_id)).to eq([])
+      end
 
-      expect(result).to eq(
-        [{
-          unitType: 'Studio',
-          minRent: 1375.0,
-          maxRent: 2224.0,
-          availableUnits: 16.0,
-        }, {
-          unitType: '1 BR',
-          minRent: 1553.0,
-          maxRent: 2736.0,
-          availableUnits: 26.0,
-        }],
-      )
-    end
-
-    it 'uses listing summaries first and skips REST lookup when listing summaries are present' do
-      allow(service).to receive(:get_unit_summaries_from_listing).with(listing).and_return(
-        [{
-          unitType: 'Studio',
-          minRent: 1409.0,
-          maxRent: 2000.0,
-          availableUnits: 2,
-        }],
-      )
-      expect(service).not_to receive(:get_unit_summaries_from_rest_service)
-
-      result = service.send(:prepare_units, listing_id, listing)
-
-      expect(result).to eq(
-        [{
-          unitType: 'Studio',
-          minRent: 1409.0,
-          maxRent: 2000.0,
-          availableUnits: 2,
-        }],
-      )
-    end
-  end
-
-  describe '#get_unit_summaries_from_rest_service' do
-    subject(:service) { described_class.new(client) }
-
-    before do
-      service.instance_variable_set(:@current_user, user)
-    end
-
-    it 'maps general unit summaries from REST payload' do
-      allow(listing_service).to receive(:get_details).with(listing_id).and_return(
-        [{
+      it 'uses reserved summaries when general summaries are not present' do
+        reserved_details = [{
           unitSummaries: {
-            general: [{
-              unitType: 'Studio',
-              minMonthlyRent: 1375.0,
-              maxMonthlyRent: 2224.0,
-              availability: 16.0,
-            }],
+            general: nil,
             reserved: [{
               unitType: '1 BR',
-              minMonthlyRent: 1553.0,
-              maxMonthlyRent: 2736.0,
-              availability: 26.0,
+              minMonthlyRent: 1200,
+              maxMonthlyRent: 1500,
+              availability: 3,
             }],
           },
-        }],
-      )
+        }]
 
-      result = service.send(:get_unit_summaries_from_rest_service, listing_id)
+        allow(listing_service).to receive(:get_details).with(listing_id).and_return(reserved_details)
 
-      expect(result).to eq(
-        [{
-          unitType: 'Studio',
-          minRent: 1375.0,
-          maxRent: 2224.0,
-          availableUnits: 16.0,
-        }],
-      )
+        expect(service.send(:get_unit_summaries_from_rest_service, listing_id)).to eq([
+                                                                                        {
+                                                                                          unitType: '1 BR',
+                                                                                          minRent: 1200,
+                                                                                          maxRent: 1500,
+                                                                                          availableUnits: 3,
+                                                                                        },
+                                                                                      ])
+      end
     end
 
-    it 'falls back to reserved summaries when general summaries are blank' do
-      allow(listing_service).to receive(:get_details).with(listing_id).and_return(
-        [{
-          unitSummaries: {
-            general: [],
-            reserved: [{
-              unitType: '1 BR',
-              minMonthlyRent: 1553.0,
-              maxMonthlyRent: 2736.0,
-              availability: 26.0,
-            }],
-          },
-        }],
-      )
+    describe '#determine_email' do
+      let(:default_email) { 'default@example.com' }
 
-      result = service.send(:get_unit_summaries_from_rest_service, listing_id)
+      it 'returns TEST_EMAIL when environment override is present' do
+        allow(ENV).to receive(:[]).with('TEST_EMAIL').and_return('override@example.com')
 
-      expect(result).to eq(
-        [{
-          unitType: '1 BR',
-          minRent: 1553.0,
-          maxRent: 2736.0,
-          availableUnits: 26.0,
-        }],
-      )
-    end
+        expect(service.send(:determine_email, default_email)).to eq('override@example.com')
+      end
 
-    it 'returns an empty array when REST unit summaries are missing' do
-      allow(listing_service).to receive(:get_details).with(listing_id).and_return(
-        [{ unitSummaries: nil }],
-      )
+      it 'returns default email when TEST_EMAIL is not set' do
+        allow(ENV).to receive(:[]).with('TEST_EMAIL').and_return(nil)
 
-      result = service.send(:get_unit_summaries_from_rest_service, listing_id)
-
-      expect(result).to eq([])
+        expect(service.send(:determine_email, default_email)).to eq(default_email)
+      end
     end
   end
 end

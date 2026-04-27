@@ -5,9 +5,11 @@ require 'date'
 module DahliaBackend
   # Service for sending messages through the DAHLIA API
   class MessageService
+    INVITE_ACTION = 'INVITE'
+
     class << self
-      def send_invite_to_apply(current_user, params, application_contacts)
-        new.send_invite_to_apply(current_user, params, application_contacts)
+      def send_invite(current_user, params)
+        new.send_invite(current_user, params)
       end
     end
 
@@ -17,33 +19,114 @@ module DahliaBackend
       @client = client || DahliaBackend::ApiClient.new
     end
 
-    def send_invite_to_apply(current_user, params, application_contacts)
+    def send_invite(current_user, params)
       @current_user = current_user
-      raise 'Invalid parameters in send_invite_to_apply' unless valid_params?(params[:listing], application_contacts)
 
-      fields = prepare_submission_fields(params, application_contacts)
+      fields = prepare_submission_fields(params)
       return if fields.nil?
 
-      send_message('/messages/invite-to-apply', fields)
+      send_message('/api/v1/message', fields)
     rescue StandardError => e
-      log_error('Error sending Invite to Apply', e)
+      log_error('Error send_invite', e)
       nil
     end
 
     private
 
-    def prepare_submission_fields(params, application_contacts)
-      contacts = prepare_contacts(params[:applicationIds], application_contacts)
-      raise 'No contacts found' if contacts.empty?
+    def prepare_submission_fields(params)
+      validate_application_ids!(params)
+      return submission_fields(params) if i2i_enabled?
 
+      old_submission_fields(params)
+    end
+
+    def validate_application_ids!(params)
+      raise 'No applicationIds provided' unless params[:applicationIds].present?
+    end
+
+    def i2i_enabled?
+      Rails.configuration.unleash.is_enabled? I2I_FEATURE_FLAG
+    end
+
+    def submission_fields(params)
+      {
+        "action": INVITE_ACTION,
+        "data": {
+          "applicationIds": params[:applicationIds],
+          "isTestEmail": params[:isTest] ? true : false,
+        },
+      }
+    end
+
+    def old_submission_fields(params)
       listing = params[:listing]
+      raise 'No listing provided' unless listing.present?
+
+      prepared_contacts = prepare_i2a_contacts(params)
+      units = prepare_i2a_units(listing)
+      payload_context = {
+        listing: listing,
+        prepared_contacts: prepared_contacts,
+        units: units,
+        invite_deadline: params[:invite_to_apply_deadline],
+      }
+
+      {
+        "action": INVITE_ACTION,
+        "data": {
+          "isTestEmail": params[:isTest] ? true : false,
+          "payload": i2a_payload(payload_context),
+        },
+      }
+    end
+
+    def prepare_i2a_contacts(params)
+      contacts = fetch_contacts(params)
+      prepared_contacts = prepare_contacts(params[:applicationIds], contacts)
+      raise 'No contacts found' if prepared_contacts.empty?
+
+      prepared_contacts
+    end
+
+    def fetch_contacts(params)
+      return test_contacts(params) if params[:isTest].to_s == 'true'
+
+      soql_application_service.application_contacts(params)
+    end
+
+    def test_contacts(params)
+      # For test email, use first selected application and substitute applicant email.
+      {
+        records: [{
+          Id: params[:applicationIds][0],
+          Application_Language: 'English',
+          Applicant: {
+            Email: params[:testEmail],
+            First_Name: 'FirstName',
+            Last_Name: 'LastName',
+          },
+          Lottery_Number: '12345',
+        }],
+      }
+    end
+
+    def prepare_i2a_units(listing)
       units = prepare_units(listing[:id], listing)
       raise 'No units found' if units.blank?
 
+      units
+    end
+
+    def i2a_payload(payload_context)
+      listing = payload_context[:listing]
+      prepared_contacts = payload_context[:prepared_contacts]
+      units = payload_context[:units]
+      invite_deadline = payload_context[:invite_deadline]
+
       lottery_date = DateTime.parse(listing[:lottery_date])
-      deadline_date = DateTime.parse(params[:invite_to_apply_deadline])
+      deadline_date = DateTime.parse(invite_deadline)
+
       {
-        "isTestEmail": params[:isTest] ? true : false,
         "listingId": listing[:id],
         "listingName": listing[:name],
         "buildingName": listing[:building_name_for_process],
@@ -53,7 +136,7 @@ module DahliaBackend
         "buildingZip": listing[:building_zip_code],
         "listingNeighborhood": listing[:neighborhood],
         "units": units,
-        "applicants": contacts,
+        "applicants": prepared_contacts,
         "deadlineDate": deadline_date.strftime('%Y-%m-%d'),
         "lotteryDate": lottery_date.strftime('%Y-%m-%d'),
         "leasingAgent": {
@@ -62,6 +145,7 @@ module DahliaBackend
           "phone": listing[:leasing_agent_phone],
           "officeHours": listing[:office_hours],
         },
+        "listingLeaseupOutreach": 'Submit all info online',
       }
     end
 
@@ -81,7 +165,7 @@ module DahliaBackend
             "lastName": record[:Applicant][:Last_Name],
           },
         }
-        if record[:Alternate_Contact].present? and record[:Alternate_Contact][:Email].present?
+        if record[:Alternate_Contact].present? && record[:Alternate_Contact][:Email].present?
           contact[:alternateContact] = {
             "email": determine_email(record[:Alternate_Contact][:Email]),
             "firstName": record[:Alternate_Contact][:First_Name],
@@ -173,19 +257,12 @@ module DahliaBackend
       end
     end
 
-    def valid_params?(listing, application_contacts)
-      return false unless listing && application_contacts
-      return false unless listing[:id].present? &&
-                          listing[:name].present? && listing[:neighborhood].present? &&
-                          listing[:building_street_address].present? &&
-                          listing[:lottery_date].present?
-      return false if application_contacts[:records].empty?
-
-      true
-    end
-
     def rest_listing_service
       Force::Rest::ListingService.new(@current_user)
+    end
+
+    def soql_application_service
+      Force::Soql::ApplicationService.new(@current_user)
     end
 
     def log_info(message)

@@ -55,7 +55,7 @@ describe('LeaseUpApplicationsPage send email', () => {
   })
 
   it('should send an invite to apply email', () => {
-    cy.intercept('POST', '**/api/v1/invite-to-apply**', {
+    cy.intercept('POST', '**/api/v1/message**', {
       statusCode: 200,
       body: 'true'
     }).as('inviteToApplyPost')
@@ -82,7 +82,7 @@ describe('LeaseUpApplicationsPage send email', () => {
   })
 
   it('should show an error when sending an invite to apply email goes wrong', () => {
-    cy.intercept('POST', '**/api/v1/invite-to-apply**', {
+    cy.intercept('POST', '**/api/v1/message**', {
       statusCode: 500,
       body: ''
     }).as('inviteToApplyErrorPost')

@@ -5,8 +5,6 @@ require 'rails_helper'
 RSpec.describe Force::UnitsService do
   let(:user) { User.create(email: 'admin@example.com', admin: false) }
   subject { Force::UnitsService.new(user) }
-  LEASE_UP_LISTING_ID = 'a0W0P00000GbyuQUAR' # Yellow Acres test listing
-  NON_LEASE_UP_LISTING_ID = 'a0W0P00000F8YG4UAN' # Automated test listing
 
   describe '#units_and_leases_for_listing' do
     expected_lease_keys = %i[
@@ -28,7 +26,7 @@ RSpec.describe Force::UnitsService do
 
     it 'should return lease fields when there is a lease on the unit' do
       VCR.use_cassette('services/force/unit_service/with_lease') do
-        units = subject.units_and_leases_for_listing(LEASE_UP_LISTING_ID)
+        units = subject.units_and_leases_for_listing(valid_listing_id)
 
         (expected_unit_keys).each do |key|
           expect(units.first).to have_key(key)
@@ -41,7 +39,7 @@ RSpec.describe Force::UnitsService do
 
     it 'should not include lease fields if not present' do
       VCR.use_cassette('services/force/unit_service/without_lease') do
-        units = subject.units_and_leases_for_listing(NON_LEASE_UP_LISTING_ID)
+        units = subject.units_and_leases_for_listing(not_yet_run_listing_id)
 
         expected_lease_keys.each do |key|
           expect(units.first).not_to have_key(key)

@@ -41,11 +41,6 @@ module Force
       self
     end
 
-    def where_not_in(field, list)
-      where("#{field} NOT IN (#{list.join(',')})")
-      self
-    end
-
     def where_in(field, list)
       quoted_list = list.map { |item| "'#{item}'" }
 
