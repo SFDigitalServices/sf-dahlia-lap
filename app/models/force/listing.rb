@@ -86,6 +86,7 @@ module Force
       { domain: 'custom_listing_type', salesforce: 'Custom_Listing_Type' },
       { domain: 'file_upload_url', salesforce: 'File_Upload_URL' },
       { domain: 'program_type', salesforce: 'Program_Type' },
+      { domain: 'leaseup_outreach', salesforce: 'Leaseup_Outreach' },
       { domain: 'scheduling_url', salesforce: 'Leaseup_Appointment_Scheduling_URL' },
     ].freeze
 

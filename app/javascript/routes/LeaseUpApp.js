@@ -9,7 +9,7 @@ import GoogleAnalyticsTracker from 'routes/GoogleAnalyticsTracker'
 import LeaseUpRoutes from './LeaseUpRoutes'
 
 const config = {
-  url: `${process.env.UNLEASH_URL}frontend`,
+  url: new URL('frontend', process.env.UNLEASH_URL),
   clientKey: process.env.UNLEASH_TOKEN,
   refreshInterval: 0,
   appName: 'partners'

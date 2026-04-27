@@ -163,22 +163,29 @@ Cypress.Commands.add('fillOutAndSubmitStatusModal', (isCommentModal = false) => 
 
 Cypress.Commands.add('selectSubstatusIfRequired', (selectedStatus) => {
   if (selectedStatus.toLowerCase() !== 'lease signed') {
-    // If status has a subStatus value wait for that dropdown to be available and select one
-    cy.get('.form-modal_form_wrapper .substatus-dropdown__control').click()
+    // Some statuses do not render a substatus dropdown.
+    cy.get('body').then(($body) => {
+      const substatusSelector = '.form-modal_form_wrapper .substatus-dropdown__control'
+      if ($body.find(substatusSelector).length === 0) {
+        return
+      }
 
-    cy.get('.form-modal_form_wrapper .substatus-dropdown__control button')
-      .invoke('text')
-      .should('contain', 'Select one...')
+      cy.get(substatusSelector).click()
 
-    cy.get('.form-modal_form_wrapper .substatus-dropdown__menu li a').first().click()
+      cy.get('.form-modal_form_wrapper .substatus-dropdown__control button')
+        .invoke('text')
+        .should('contain', 'Select one...')
 
-    let selectedSubStatus
-    cy.getStatusInModal().then((status) => {
-      selectedSubStatus = status
-      cy.wrap(selectedSubStatus.toLowerCase()).should('not.include', 'select one...')
+      cy.get('.form-modal_form_wrapper .substatus-dropdown__menu li a').first().click()
+
+      let selectedSubStatus
+      cy.getStatusInModal().then((status) => {
+        selectedSubStatus = status
+        cy.wrap(selectedSubStatus.toLowerCase()).should('not.include', 'select one...')
+      })
+
+      return selectedSubStatus
     })
-
-    return selectedSubStatus
   }
 })
 

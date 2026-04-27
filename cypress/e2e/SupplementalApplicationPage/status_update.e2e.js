@@ -41,6 +41,7 @@ describe('SupplementalApplicationPage statuses', () => {
     cy.visit('http://localhost:3000/')
     cy.login()
     cy.visit(`/lease-ups/applications/${LEASE_UP_LISTING_APPLICATION_ID}`)
+    cy.wait('@inviteToApplyFeatureFlag')
     cy.wait('@shortForm')
     cy.wait('@fieldUpdateCommentsGet')
     cy.wait('@leases')
@@ -59,7 +60,7 @@ describe('SupplementalApplicationPage statuses', () => {
     } else {
       cy.intercept('POST', 'api/v1/applications/**/field_update_comments').as('fieldUpdateComments')
     }
-    cy.testStatusModalUpdate()
+    cy.fillOutAndSubmitStatusModal(true)
     cy.wait('@fieldUpdateComments')
   })
 

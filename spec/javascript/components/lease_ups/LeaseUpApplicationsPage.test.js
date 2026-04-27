@@ -179,7 +179,8 @@ const mockListing = {
   name: 'listingName',
   building_street_address: 'buildingAddress',
   report_id: 'REPORT_ID',
-  program_type: 'IH-RENTAL'
+  program_type: 'IH-RENTAL',
+  leaseup_outreach: 'Submit all info online'
 }
 
 const mockApplications = [
@@ -1051,15 +1052,26 @@ describe('LeaseUpApplicationsPage', () => {
       })
 
       describe('when setting up i2i', () => {
-        beforeEach(() => {
-          act(() => {
-            fireEvent.change(
-              within(leaseUpApplicationsFilterContainer).getAllByRole('combobox')[1],
-              {
-                target: { value: 'i2i' }
-              }
-            )
+        beforeEach(async () => {
+          // i2i requires 'Appointments required' outreach; re-render with that listing.
+          cleanup()
+          mockListing.leaseup_outreach = 'Appointments required'
+          await act(async () => {
+            rtlWrapper = renderAppWithUrl(`/lease-ups/listings/${mockListing.id}`)
           })
+          act(() => {
+            fireEvent.click(getRowBulkCheckboxInputs()[0])
+            fireEvent.click(getRowBulkCheckboxInputs()[1])
+          })
+          act(() => {
+            fireEvent.change(screen.getAllByRole('combobox')[1], {
+              target: { value: 'i2i' }
+            })
+          })
+        })
+
+        afterEach(() => {
+          mockListing.leaseup_outreach = 'Submit all info online'
         })
 
         test('the calendar upload url should open', () => {

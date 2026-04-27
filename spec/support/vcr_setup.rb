@@ -31,6 +31,9 @@ VCR.configure do |config|
     DAHLIA_API_URL
     DAHLIA_API_KEY
     TEST_EMAIL
+    UNLEASH_URL
+    UNLEASH_TOKEN_RAILS
+    UNLEASH_TOKEN
   ].each do |val|
     config.filter_sensitive_data("<<#{val}>>") do
       ENV[val]
