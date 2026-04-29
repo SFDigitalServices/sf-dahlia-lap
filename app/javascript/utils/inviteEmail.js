@@ -54,7 +54,6 @@ export const getLeaseUpStatusOptions = (isInviteApplyEnabled) => {
 export const INVITE_EMAILS_CONTEXT = {
   // key corresponds to the value in INVITE_EMAIL_OPTIONS
   i2a: {
-    name: 'Invitation to Apply',
     url: {
       title: 'Add document upload URL',
       subtitle: 'Enter the link applicants will use to upload their documents.',
@@ -74,7 +73,6 @@ export const INVITE_EMAILS_CONTEXT = {
     }
   },
   i2i: {
-    name: 'Invitation to Interview',
     url: {
       title: 'Add scheduling link',
       subtitle: 'This is the link applicants will use to find a time for their appointment.',
