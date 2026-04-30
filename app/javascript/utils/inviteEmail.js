@@ -88,12 +88,12 @@ export const INVITE_EMAILS_CONTEXT = {
       await apiService
         .updateApplication({
           id: appId,
+          scheduling_url: url,
           invite_to_apply_deadline_date: dateObj.utc().format()
         })
         .then(() => {
           return apiService.updateListing({
-            id: listing.id,
-            scheduling_url: url
+            id: listing.id
           })
         })
     }

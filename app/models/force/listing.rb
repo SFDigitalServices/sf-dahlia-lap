@@ -87,7 +87,6 @@ module Force
       { domain: 'file_upload_url', salesforce: 'File_Upload_URL' },
       { domain: 'program_type', salesforce: 'Program_Type' },
       { domain: 'leaseup_outreach', salesforce: 'Leaseup_Outreach' },
-      { domain: 'scheduling_url', salesforce: 'Leaseup_Appointment_Scheduling_URL' },
     ].freeze
 
     LISTING_TYPE_FIRST_COME_FIRST_SERVED = 'First Come, First Served'
