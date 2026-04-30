@@ -54,6 +54,7 @@ module DahliaBackend
         "data": {
           "applicationIds": params[:applicationIds],
           "isTestEmail": params[:isTest] ? true : false,
+          "testEmailAddress": params[:testEmail],
         },
       }
     end
@@ -89,7 +90,7 @@ module DahliaBackend
     end
 
     def fetch_contacts(params)
-      return test_contacts(params) if params[:isTest].to_s == 'true'
+      return test_contacts(params) if params[:isTest]
 
       soql_application_service.application_contacts(params)
     end
