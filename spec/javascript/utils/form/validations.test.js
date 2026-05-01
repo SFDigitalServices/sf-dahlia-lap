@@ -27,6 +27,11 @@ describe('validate', () => {
       test('is invalid url', () => {
         expect(validate.isValidUrl(VALIDATION_MSG)('foo')).toEqual(VALIDATION_MSG)
       })
+      test('is url containing spaces', () => {
+        expect(validate.isValidUrl(VALIDATION_MSG)('https://www.sf.gov/some path')).toEqual(
+          VALIDATION_MSG
+        )
+      })
     })
   })
   describe('isOldEnough', () => {

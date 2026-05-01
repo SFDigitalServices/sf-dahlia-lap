@@ -121,6 +121,7 @@ const isPresent = (value) => {
 
 const isValidUrl = (value) => {
   try {
+    if (/\s/.test(value)) return false // URLs cannot contain spaces
     // eslint-disable-next-line no-new
     new URL(value)
     return true
