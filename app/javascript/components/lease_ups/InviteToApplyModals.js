@@ -422,9 +422,9 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
       </FormModal>
       <FormModal
         isOpen={inviteModalState.setDeadline}
-        title='Set document submission deadline'
+        title='Set response deadline'
         subtitle={
-          'Enter date that will show as the deadline for applicants to upload their application documents.  If this is your first time contacting the applicant, you must give them at least 5 business days.'
+          'Enter date that will show as the deadline for applicants to answer by.  If this is your first time contacting the applicant, you must give them at least 5 business days.'
         }
         onSubmit={setdeadlineModalSubmit}
         handleClose={handleCloseInviteModal}
@@ -446,7 +446,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
                   formName={INVITE_APPLY_DEADLINE_KEY}
                   fieldName={INVITE_APPLY_DEADLINE_KEY}
                   id={INVITE_APPLY_DEADLINE_KEY}
-                  label='Document submission deadline'
+                  label='Response deadline'
                 />
               </FormGrid.Item>
             </FormGrid.Row>
@@ -479,7 +479,7 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
             </p>
             <p>
               <label className='form-label'>You are sending</label>
-              {inviteContext?.name || ''}
+              Invitation to Apply
             </p>
             <p>
               <label className='form-label'>
@@ -550,11 +550,11 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
               />
             )}
             <header className='modal-inner margin-top'>
-              <h1 className='modal-title t-gamma no-margin'>See an example</h1>
+              <h1 className='modal-title t-gamma no-margin'>See an example email</h1>
             </header>
             <section className='modal-inner'>
-              Send yourself an example email to see what recipients will see when they get:&nbsp;
-              <strong>{inviteContext?.name || ''}</strong>.
+              Send yourself an example email to see what recipients will see when they get your
+              email.
             </section>
             <FormGrid.Row>
               <FormGrid.Item width='100%'>

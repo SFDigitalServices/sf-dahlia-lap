@@ -743,7 +743,7 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(screen.getByText('next'))
           })
-          expect(screen.getByText('Set document submission deadline')).toBeInTheDocument()
+          expect(screen.getByText('Set response deadline')).toBeInTheDocument()
 
           // invalid submission deadline date
           const documentUrlFieldMonth = screen.getByPlaceholderText('MM')
@@ -790,7 +790,7 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(screen.getByText('send yourself an example email'))
           })
-          expect(screen.getByText('See an example')).toBeInTheDocument()
+          expect(screen.getByText('See an example email')).toBeInTheDocument()
 
           // invalid email
           const emailField = screen.getByLabelText('Email address')
@@ -827,14 +827,14 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(screen.getByText('done'))
           })
-          expect(screen.queryByText('See an example')).not.toBeInTheDocument()
+          expect(screen.queryByText('See an example email')).not.toBeInTheDocument()
           expect(screen.getByText('Review and send')).toBeInTheDocument()
 
           // go back to deadline modal
           act(() => {
             fireEvent.click(screen.getByTestId('edit-deadline-link'))
           })
-          expect(screen.getByText('Set document submission deadline')).toBeInTheDocument()
+          expect(screen.getByText('Set response deadline')).toBeInTheDocument()
           act(() => {
             fireEvent.click(screen.getByText('save'))
           })
@@ -861,7 +861,7 @@ describe('LeaseUpApplicationsPage', () => {
             )
           })
           expect(screen.queryByText('Please enter a valid URL')).not.toBeInTheDocument()
-          expect(screen.queryByText('Set document submission deadline')).not.toBeInTheDocument()
+          expect(screen.queryByText('Set response deadline')).not.toBeInTheDocument()
           expect(screen.getByText('Review and send')).toBeInTheDocument()
         })
 
@@ -1092,7 +1092,7 @@ describe('LeaseUpApplicationsPage', () => {
           act(() => {
             fireEvent.click(screen.getByText('next'))
           })
-          expect(screen.getByText('Set document submission deadline')).toBeInTheDocument()
+          expect(screen.getByText('Set response deadline')).toBeInTheDocument()
 
           const documentUrlFieldMonth = screen.getByPlaceholderText('MM')
           const documentUrlFieldDay = screen.getByPlaceholderText('DD')
