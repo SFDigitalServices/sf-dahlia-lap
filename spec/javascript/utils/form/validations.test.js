@@ -22,10 +22,24 @@ describe('validate', () => {
       test('is valid url', () => {
         expect(validate.isValidUrl(VALIDATION_MSG)('https://www.sf.gov')).toBeUndefined()
       })
+      test('is valid url with http protocol', () => {
+        expect(validate.isValidUrl(VALIDATION_MSG)('http://www.sf.gov')).toBeUndefined()
+      })
     })
     describe('fails validation', () => {
       test('is invalid url', () => {
         expect(validate.isValidUrl(VALIDATION_MSG)('foo')).toEqual(VALIDATION_MSG)
+      })
+      test('is url without protocol', () => {
+        expect(validate.isValidUrl(VALIDATION_MSG)('www.sf.gov')).toEqual(VALIDATION_MSG)
+      })
+      test('is url with wrong protocol', () => {
+        expect(validate.isValidUrl(VALIDATION_MSG)('ftp://www.sf.gov')).toEqual(VALIDATION_MSG)
+      })
+      test('is url containing spaces', () => {
+        expect(validate.isValidUrl(VALIDATION_MSG)('https://www.sf.gov/some path')).toEqual(
+          VALIDATION_MSG
+        )
       })
     })
   })

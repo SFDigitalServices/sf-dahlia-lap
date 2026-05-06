@@ -20,7 +20,6 @@ module Api
         params.require(:listing).permit(
           :id,
           :file_upload_url,
-          :scheduling_url,
         )
       end
 

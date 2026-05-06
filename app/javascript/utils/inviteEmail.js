@@ -64,7 +64,7 @@ export const INVITE_EMAILS_CONTEXT = {
     review: {
       url_label: 'Document upload URL'
     },
-    save: async ({ appId, url, dateObj, _listing }) => {
+    save: async ({ appId, url, dateObj }) => {
       await apiService.updateApplication({
         id: appId,
         upload_url: url,
@@ -82,18 +82,12 @@ export const INVITE_EMAILS_CONTEXT = {
     review: {
       url_label: 'Scheduling link'
     },
-    save: async ({ appId, url, dateObj, listing }) => {
-      await apiService
-        .updateApplication({
-          id: appId,
-          invite_to_apply_deadline_date: dateObj.utc().format()
-        })
-        .then(() => {
-          return apiService.updateListing({
-            id: listing.id,
-            scheduling_url: url
-          })
-        })
+    save: async ({ appId, url, dateObj }) => {
+      await apiService.updateApplication({
+        id: appId,
+        scheduling_url: url,
+        invite_to_apply_deadline_date: dateObj.utc().format()
+      })
     }
   }
 }

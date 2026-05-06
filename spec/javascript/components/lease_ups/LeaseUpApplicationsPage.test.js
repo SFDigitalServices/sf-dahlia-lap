@@ -1125,7 +1125,7 @@ describe('LeaseUpApplicationsPage', () => {
           })
           await waitFor(() => {
             expect(mockUpdateApplication.mock.calls).toHaveLength(2)
-            expect(mockUpdateListing.mock.calls).toHaveLength(2)
+            expect(mockUpdateListing.mock.calls).toHaveLength(0)
             expect(mockSendInvite.mock.calls).toHaveLength(1)
           })
         })
