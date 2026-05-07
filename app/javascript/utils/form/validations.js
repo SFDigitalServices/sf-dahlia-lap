@@ -121,8 +121,9 @@ const isPresent = (value) => {
 
 const isValidUrl = (value) => {
   try {
-    if (/\s/.test(value)) return false // URLs cannot contain spaces
-    const url = new URL(value)
+    const urlValue = value.trim()
+    if (/\s/.test(urlValue)) return false // URLs cannot contain spaces
+    const url = new URL(urlValue)
     return url.protocol === 'http:' || url.protocol === 'https:'
   } catch (err) {
     return false

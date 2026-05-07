@@ -98,26 +98,37 @@ export const InviteToApplyModals = forwardRef((props, ref) => {
     return localStorage.getItem('urlPerAppMode') === 'true'
   }
 
+  const trimDictionaryStringValues = (dict) => {
+    return Object.fromEntries(
+      Object.entries(dict).map(([key, value]) => [
+        key,
+        typeof value === 'string' ? value.trim() : value
+      ])
+    )
+  }
+
   const uploadUrlModalSubmit = (submittedValues) => {
-    setInviteModalValues(submittedValues)
+    const trimmedValues = trimDictionaryStringValues(submittedValues)
+    setInviteModalValues(trimmedValues)
     showNextModal(
       {
         ...inviteModalValues,
-        ...submittedValues
+        ...trimmedValues
       },
       inviteModalState
     )
   }
 
   const oneUploadPerAppSubmit = (submittedValues) => {
+    const trimmedValues = trimDictionaryStringValues(submittedValues)
     // update state object
-    setInviteModalValues({ [INVITE_APPLY_PER_APP_UPLOAD_KEY]: submittedValues })
+    setInviteModalValues({ [INVITE_APPLY_PER_APP_UPLOAD_KEY]: trimmedValues })
 
     // show the next modal
     showNextModal(
       {
         ...inviteModalValues,
-        ...submittedValues
+        ...trimmedValues
       },
       inviteModalState
     )

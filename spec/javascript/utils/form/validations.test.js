@@ -25,6 +25,9 @@ describe('validate', () => {
       test('is valid url with http protocol', () => {
         expect(validate.isValidUrl(VALIDATION_MSG)('http://www.sf.gov')).toBeUndefined()
       })
+      test('is valid url with leading and trailing spaces', () => {
+        expect(validate.isValidUrl(VALIDATION_MSG)('  https://www.sf.gov  ')).toBeUndefined()
+      })
     })
     describe('fails validation', () => {
       test('is invalid url', () => {
