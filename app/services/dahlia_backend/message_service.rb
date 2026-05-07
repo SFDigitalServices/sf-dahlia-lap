@@ -49,12 +49,15 @@ module DahliaBackend
     end
 
     def submission_fields(params)
+      data = {
+        "applicationIds": params[:applicationIds],
+        "isTestEmail": params[:isTest] ? true : false,
+      }
+      data[:testEmailAddress] = params[:testEmail] if params[:isTest]
+
       {
         "action": INVITE_ACTION,
-        "data": {
-          "applicationIds": params[:applicationIds],
-          "isTestEmail": params[:isTest] ? true : false,
-        },
+        "data": data,
       }
     end
 

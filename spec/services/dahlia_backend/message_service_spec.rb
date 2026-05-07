@@ -78,6 +78,7 @@ RSpec.describe DahliaBackend::MessageService do
   let(:invite_params) do
     {
       applicationIds: [application_id],
+      isTest: false,
       listing: listing,
       invite_to_apply_deadline: '2024-07-01',
     }
@@ -290,6 +291,7 @@ RSpec.describe DahliaBackend::MessageService do
 
           before do
             allow(subject).to receive(:get_unit_summaries_from_listing).with(listing).and_return(prepared_units)
+            allow(ENV).to receive(:[]).with('TEST_EMAIL').and_return(nil)
           end
 
           it 'does not call soql_application_service' do
@@ -314,6 +316,7 @@ RSpec.describe DahliaBackend::MessageService do
                         primaryContact: hash_including(
                           firstName: 'FirstName',
                           lastName: 'LastName',
+                          email: test_email,
                         ),
                       ),
                     ],
@@ -391,6 +394,76 @@ RSpec.describe DahliaBackend::MessageService do
                                                                                           availableUnits: 3,
                                                                                         },
                                                                                       ])
+      end
+    end
+
+    describe '#prepare_i2a_contacts' do
+      let(:test_email) { 'test@example.com' }
+      let(:test_params) do
+        {
+          applicationIds: [application_id],
+          isTest: true,
+          testEmail: test_email,
+        }
+      end
+
+      context 'when params[:isTest] == true' do
+        before do
+          allow(ENV).to receive(:[]).with('TEST_EMAIL').and_return(nil)
+        end
+
+        it 'returns prepared applicants using the first applicationId and testEmail' do
+          result = service.send(:prepare_i2a_contacts, test_params)
+
+          expect(result).to eq([
+                                 {
+                                   applicationNumber: application_id,
+                                   applicationLanguage: 'English',
+                                   lotteryNumber: '12345',
+                                   primaryContact: {
+                                     email: test_email,
+                                     firstName: 'FirstName',
+                                     lastName: 'LastName',
+                                   },
+                                 },
+                               ])
+        end
+
+        it 'does not call soql_application_service' do
+          expect(service).not_to receive(:soql_application_service)
+          service.send(:prepare_i2a_contacts, test_params)
+        end
+      end
+
+      context 'when params[:isTest] == false' do
+        before do
+          allow(ENV).to receive(:[]).with('TEST_EMAIL').and_return(nil)
+        end
+
+        it 'fetches contacts from soql service and prepares applicants' do
+          allow(service).to receive(:soql_application_service).and_return(application_service)
+          allow(application_service).to receive(:application_contacts).with(invite_params).and_return(contacts)
+
+          result = service.send(:prepare_i2a_contacts, invite_params)
+
+          expect(result).to eq([
+                                 {
+                                   applicationNumber: application_id,
+                                   applicationLanguage: 'English',
+                                   lotteryNumber: '12345',
+                                   primaryContact: {
+                                     email: 'test@example.com',
+                                     firstName: 'John',
+                                     lastName: 'Doe',
+                                   },
+                                   alternateContact: {
+                                     email: 'test@example.com',
+                                     firstName: 'Jane',
+                                     lastName: 'Doe',
+                                   },
+                                 },
+                               ])
+        end
       end
     end
 
