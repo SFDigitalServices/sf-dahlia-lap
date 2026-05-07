@@ -92,7 +92,7 @@ module DahliaBackend
     end
 
     def fetch_contacts(params)
-      return test_contacts(params) if params[:isTest]
+      return test_contacts(params) if params[:isTest].to_s == 'true'
 
       soql_application_service.application_contacts(params)
     end
