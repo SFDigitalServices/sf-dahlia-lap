@@ -36,8 +36,9 @@ class ApplicationController < ActionController::Base
     return unless lease_up_page
 
     @listing = soql_listing_service.listing(params[:lease_up_id])
-    @show_invite_to_apply_feedback_banner = (@listing.leaseup_outreach != nil &&
-                                            ENV['BANNER_INVITE_TO_APPLY_FEEDBACK'] == 'true')
+    @show_invite_to_apply_feedback_banner = (@listing.leaseup_outreach == 'Appointments required' || 
+                                            @listing.leaseup_outreach == 'Submit all info online') &&
+                                            ENV['BANNER_INVITE_TO_APPLY_FEEDBACK'] == 'true'
   end
 
   def soql_listing_service
