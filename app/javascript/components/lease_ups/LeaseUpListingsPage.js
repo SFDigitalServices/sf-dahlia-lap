@@ -5,7 +5,6 @@ import { listingsPageMounted, listingRowClicked } from 'components/lease_ups/act
 import Loading from 'components/molecules/Loading'
 import appPaths from 'utils/appPaths'
 import { useAppContext, useAsyncOnMount } from 'utils/customHooks'
-import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 
 import LeaseUpListingsTable from './LeaseUpListingsTable'
 import { getLeaseUpListings } from './utils/leaseUpRequestUtils'
@@ -32,8 +31,6 @@ const LeaseUpListingsPage = () => {
     title: 'Lease Ups'
   }
 
-  const { unleashFlag: testFlag } = useFeatureFlag('test-partners', false)
-
   const onCellClick = ({ original: listing }) => {
     listingRowClicked(dispatch, listing)
     window.location.assign(appPaths.toLeaseUpApplications(listing.id))
@@ -41,7 +38,6 @@ const LeaseUpListingsPage = () => {
 
   return (
     <ErrorBoundary>
-      {testFlag && <div style={{ display: 'none' }}>Test Unleash flag is enabled</div>}
       <TableLayout pageHeader={pageHeader}>
         {loading ? (
           <Loading isLoading />
