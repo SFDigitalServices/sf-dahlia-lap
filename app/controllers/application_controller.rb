@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+
 # Root controller from which all our Rails controllers inherit.
 class ApplicationController < ActionController::Base
   before_action :load_listing_on_lease_up_page
@@ -35,8 +36,8 @@ class ApplicationController < ActionController::Base
     return unless lease_up_page
 
     @listing = soql_listing_service.listing(params[:lease_up_id])
-    @show_invite_to_apply_feedback_banner = @listing.program_type == Force::Listing::PROGRAM_TYPE_INCLUSIONARY_RENTAL &&
-                                            @listing.listing_type != Force::Listing::LISTING_TYPE_FIRST_COME_FIRST_SERVED &&
+    @show_invite_to_apply_feedback_banner = (@listing.leaseup_outreach == 'Appointments required' || 
+                                            @listing.leaseup_outreach == 'Submit all info online') &&
                                             ENV['BANNER_INVITE_TO_APPLY_FEEDBACK'] == 'true'
   end
 
