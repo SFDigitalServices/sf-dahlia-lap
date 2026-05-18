@@ -45,14 +45,6 @@ export const interceptInviteToApplyFlag = (listingId) => {
               value: listingId
             }
           }
-        },
-        {
-          name: 'temp.partners.inviteToApply.statuses',
-          enabled: true,
-          variant: {
-            name: 'enabled_listing',
-            enabled: true
-          }
         }
       ]
     }
