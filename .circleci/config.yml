@@ -6,7 +6,6 @@ orbs:
 defaults: &defaults
   working_directory: ~/tmp
   docker:
-    - image: cimg/node:22.13.0
     - image: cimg/ruby:3.4.1-browsers
       environment:
         RAILS_ENV: development
@@ -52,10 +51,12 @@ commands:
       - *attach_workspace
       - *restore_pnpm_cache
       - *restore_bundler_cache
+      - node/install:
+          node-version: '22.13.0'
       - run:
           name: Install pnpm
           command: |
-            sudo npm install -g pnpm
+            sudo npm install -g pnpm@11.5.0
 
   run-e2e:
     description: 'Run e2e tests'
