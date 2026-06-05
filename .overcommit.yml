@@ -47,11 +47,11 @@ PreCommit:
   Eslint:
     enabled: true
     description: 'Linting JavaScript'
-    command: ['pnpm', 'lint']
+    command: [pnpm, lint]
 
   ScanForEnvVars:
     enabled: true
-    description: 'Scanning for env var values'
+    description: Scanning for env var values
 
   CustomScript:
     enabled: true

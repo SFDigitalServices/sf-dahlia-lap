@@ -53,7 +53,7 @@ commands:
       - *restore_pnpm_cache
       - *restore_bundler_cache
       - node/install:
-          node-version: '22.13.0'
+          node-version: 22.13.0
       - run:
           name: Install pnpm
           command: |
