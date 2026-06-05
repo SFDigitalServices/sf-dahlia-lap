@@ -30,14 +30,14 @@ aliases:
   - &attach_workspace
     attach_workspace:
       at: ~/tmp
-  - &restore_yarn_cache
+  - &restore_pnpm_cache
     restore_cache:
-      name: Restore Yarn Cache
+      name: Restore pnpm Cache
       keys:
-        - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
-        - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}
-        - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-main
-        - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-
+        - partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-{{ .Branch }}-{{ checksum "pnpm-lock.yaml" }}
+        - partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-{{ .Branch }}
+        - partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-main
+        - partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-
   - &restore_bundler_cache
     restore_cache:
       name: Restore Bundler Cache
@@ -49,14 +49,14 @@ commands:
     description: 'Attach workspace and restore cache'
     steps:
       - *attach_workspace
-      - *restore_yarn_cache
+      - *restore_pnpm_cache
       - *restore_bundler_cache
   run-e2e:
     description: 'Run e2e tests'
     steps:
       - checkout
       - prepare_workspace
-      - run: yarn cypress install
+      - run: pnpm cypress install
       - run: bundle --path vendor/bundle
       - run:
           name: Run rails server in background
@@ -73,7 +73,7 @@ commands:
           name: Run Cypress tests
           command: |
             TESTFILES=$(circleci tests glob "cypress/e2e/**/*.e2e.js" | circleci tests split --split-by=timings | paste -sd ',')
-            yarn cypress run --spec $TESTFILES
+            pnpm cypress run --spec $TESTFILES
       - store_artifacts:
           path: cypress/screenshots
 
@@ -92,11 +92,11 @@ jobs:
           paths:
             - ./vendor/bundle/
       - run:
-          name: install yarn dependencies
-          command: yarn install --check-files
+          name: install pnpm dependencies
+          command: pnpm install --frozen-lockfile
       - save_cache:
-          name: Save Yarn Package Cache
-          key: partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          name: Save pnpm Package Cache
+          key: partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-{{ .Branch }}-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - node_modules/
       - run: bundle exec rake db:setup
@@ -125,8 +125,8 @@ jobs:
     steps:
       - checkout
       - prepare_workspace
-      - run: yarn lint
-      - run: yarn unit
+      - run: pnpm lint
+      - run: pnpm unit
       - run: ls .
       - store_artifacts:
           path: coverage

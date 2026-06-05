@@ -1,0 +1,4 @@
+allowBuilds:
+  core-js-pure: true
+  cypress: true
+  es5-ext: true
