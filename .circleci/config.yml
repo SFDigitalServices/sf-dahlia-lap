@@ -53,12 +53,9 @@ commands:
       - *restore_pnpm_cache
       - *restore_bundler_cache
       - run:
-          name: Enable Corepack & pnpm
+          name: Install pnpm
           command: |
-            echo "export COREPACK_ENABLE_STRICT=0" >> $BASH_ENV
-            corepack enable --install-directory ~/.local/bin
-            corepack prepare pnpm@11.5.2 --activate
-            echo "export COREPACK_ENABLE_STRICT=1" >> $BASH_ENV
+            sudo npm install -g pnpm
 
   run-e2e:
     description: 'Run e2e tests'
