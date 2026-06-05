@@ -6,6 +6,7 @@ orbs:
 defaults: &defaults
   working_directory: ~/tmp
   docker:
+    - image: cimg/node:22.13.0
     - image: cimg/ruby:3.4.1-browsers
       environment:
         RAILS_ENV: development
@@ -13,7 +14,6 @@ defaults: &defaults
         PGUSER: root
         NODE_OPTIONS: --max_old_space_size=4096
     - image: 'cypress/base:14.15.0'
-    - image: cimg/node:22.13.0
   executor: ruby/default
 non_production_jobs: &non_production_jobs
   filters:
