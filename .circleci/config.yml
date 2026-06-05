@@ -13,6 +13,7 @@ defaults: &defaults
         PGUSER: root
         NODE_OPTIONS: --max_old_space_size=4096
     - image: 'cypress/base:14.15.0'
+    - image: cimg/node:22.13.0
   executor: ruby/default
 non_production_jobs: &non_production_jobs
   filters:
@@ -51,6 +52,12 @@ commands:
       - *attach_workspace
       - *restore_pnpm_cache
       - *restore_bundler_cache
+      - run:
+          name: Enable Corepack & pnpm
+          command: |
+            corepack enable
+            corepack prepare pnpm@latest-11 --activate
+
   run-e2e:
     description: 'Run e2e tests'
     steps:
