@@ -55,7 +55,6 @@ commands:
       - run:
           name: Enable Corepack & pnpm
           command: |
-            npm install -g corepack@latest
             corepack enable --install-directory ~/.local/bin
             corepack prepare pnpm@latest-11 --activate
 
