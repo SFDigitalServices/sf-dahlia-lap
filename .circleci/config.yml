@@ -55,6 +55,7 @@ commands:
       - run:
           name: Enable Corepack & pnpm
           command: |
+            corepack cache clean
             corepack enable --install-directory ~/.local/bin
             corepack prepare pnpm@11.5.2 --activate
 
