@@ -56,7 +56,7 @@ commands:
           name: Enable Corepack & pnpm
           command: |
             corepack enable --install-directory ~/.local/bin
-            corepack prepare pnpm@latest-11 --activate
+            corepack prepare pnpm@11.5.2 --activate
 
   run-e2e:
     description: 'Run e2e tests'
