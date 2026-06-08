@@ -35,10 +35,10 @@ aliases:
     restore_cache:
       name: Restore pnpm Cache
       keys:
-        - partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-{{ .Branch }}-{{ checksum "pnpm-lock.yaml" }}
-        - partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-{{ .Branch }}
-        - partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-main
-        - partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-
+        - partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-v1-{{ .Branch }}-{{ checksum "pnpm-lock.yaml" }}
+        - partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-v1-{{ .Branch }}
+        - partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-v1-main
+        - partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-v1-
   - &restore_bundler_cache
     restore_cache:
       name: Restore Bundler Cache
@@ -104,7 +104,7 @@ jobs:
           command: pnpm install --frozen-lockfile
       - save_cache:
           name: Save pnpm Package Cache
-          key: partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-{{ .Branch }}-{{ checksum "pnpm-lock.yaml" }}
+          key: partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-v1-{{ .Branch }}-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - node_modules/
       - run: bundle exec rake db:setup
