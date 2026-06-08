@@ -3,7 +3,7 @@
   "private": true,
   "engines": {
     "node": "22.13.x",
-    "pnpm": "11.5.x"
+    "pnpm": "11.5.2"
   },
   "packageManager": "pnpm@11.5.2",
   "dependencies": {
