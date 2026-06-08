@@ -5,7 +5,10 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
+  ajv@<6.12.3: ^6.12.3
+  ajv@<6.14.0: ^6.14.0
   serialize-javascript: 7.0.5
+  shelljs@<0.8.5: ^0.8.5
   uuid: 11.1.1
 
 importers:
@@ -2117,15 +2120,12 @@ packages:
   ajv-keywords@1.5.1:
     resolution: {integrity: sha512-vuBv+fm2s6cqUyey2A7qYcvsik+GMDJsw8BARP2sDE76cqmaZVarsvHf7Vx6VJ0Xk8gLl+u3MoAPf6gKzJefeA==}
     peerDependencies:
-      ajv: '>=4.10.0'
+      ajv: ^6.14.0
 
   ajv-keywords@5.1.0:
     resolution: {integrity: sha512-YCS/JNFAUyr5vAuhk1DWm1CBxRHW9LbJ2ozWeemrIqpbsqKjHVxYPyi5GC0rjZIT5JxJ3virVTS8wk4i/Z+krw==}
     peerDependencies:
       ajv: ^8.8.2
-
-  ajv@4.11.8:
-    resolution: {integrity: sha512-I/bSHSNEcFFqXLf91nchoNB9D1Kie3QKcWdchYUaoIg1+1bdWDkdfdlvdIOJbi9U8xR0y+MWc5D+won9v95WlQ==}
 
   ajv@6.15.0:
     resolution: {integrity: sha512-fgFx7Hfoq60ytK2c7DhnF8jIvzYgOMxfugjLOSMHjLIPgenqa7S7oaagATUq99mV6IYvN2tRmC0wnTYX6iPbMw==}
@@ -6249,9 +6249,9 @@ packages:
     resolution: {integrity: sha512-VsC6n6vz1ihYYyZZwX7YZSF5l5x36ca17OC+a69h94YqB7X6XLwf+5MOgynYir2SLFUbl8gIYvBo8K8RoNQ6bQ==}
     engines: {node: '>= 0.4'}
 
-  shelljs@0.7.8:
-    resolution: {integrity: sha512-/YF5Uk8hcwi7ima04ppkbA4RaRMdPMBfwAvAf8sufYOxsJRtbdoBsT8vGvlb+799BrlGdYrd+oczIA2eN2JdWA==}
-    engines: {node: '>=0.11.0'}
+  shelljs@0.8.5:
+    resolution: {integrity: sha512-TiwcRcrkhHvbrZbnRcFYMLl30Dfov3HKqzp5tO5b4pt6G/SezKcYhmDg15zXVBswHmctSAQKznqNW2LO5tTDow==}
+    engines: {node: '>=4'}
     hasBin: true
 
   side-channel-list@1.0.1:
@@ -9363,19 +9363,14 @@ snapshots:
     optionalDependencies:
       ajv: 8.20.0
 
-  ajv-keywords@1.5.1(ajv@4.11.8):
+  ajv-keywords@1.5.1(ajv@6.15.0):
     dependencies:
-      ajv: 4.11.8
+      ajv: 6.15.0
 
   ajv-keywords@5.1.0(ajv@8.20.0):
     dependencies:
       ajv: 8.20.0
       fast-deep-equal: 3.1.3
-
-  ajv@4.11.8:
-    dependencies:
-      co: 4.6.0
-      json-stable-stringify: 1.3.0
 
   ajv@6.15.0:
     dependencies:
@@ -10904,7 +10899,7 @@ snapshots:
       pluralize: 1.2.1
       progress: 1.1.8
       require-uncached: 1.0.3
-      shelljs: 0.7.8
+      shelljs: 0.8.5
       strip-bom: 3.0.0
       strip-json-comments: 2.0.1
       table: 3.8.3
@@ -14137,7 +14132,7 @@ snapshots:
 
   shell-quote@1.8.4: {}
 
-  shelljs@0.7.8:
+  shelljs@0.8.5:
     dependencies:
       glob: 7.2.3
       interpret: 1.4.0
@@ -14497,8 +14492,8 @@ snapshots:
 
   table@3.8.3:
     dependencies:
-      ajv: 4.11.8
-      ajv-keywords: 1.5.1(ajv@4.11.8)
+      ajv: 6.15.0
+      ajv-keywords: 1.5.1(ajv@6.15.0)
       chalk: 1.1.3
       lodash: 4.18.1
       slice-ansi: 0.0.4
