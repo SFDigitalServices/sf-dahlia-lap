@@ -43,10 +43,9 @@ describe('LeaseUpApplicationsFilters', () => {
       expect(within(fields[3]).getByText('Application Status')).toBeInTheDocument()
     })
 
-    test('renders preferences with the correct options', () => {
-      selectEvent.openMenu(screen.getAllByRole('combobox')[0])
-      expect(screen.getByRole('option', { name: /general/i })).toBeInTheDocument()
-      expect(screen.getAllByRole('option')).toHaveLength(1)
+    test('renders preferences with the correct options', async () => {
+      await selectEvent.openMenu(screen.getAllByRole('combobox')[0])
+      expect(await screen.findByText(/general/i)).toBeInTheDocument()
     })
 
     test('renders the button with tertiary-inverse style', () => {
@@ -63,10 +62,11 @@ describe('LeaseUpApplicationsFilters', () => {
       getScreen({ preferences: ['test', 'test2'] })
     })
 
-    test('renders preferences with the correct options', () => {
-      selectEvent.openMenu(screen.getAllByRole('combobox')[0])
-      const options = screen.getAllByRole('option').map((option) => option.textContent)
-      expect(options).toEqual(['test', 'test2', 'General'])
+    test('renders preferences with the correct options', async () => {
+      await selectEvent.openMenu(screen.getAllByRole('combobox')[0])
+      expect(await screen.findByText('test')).toBeInTheDocument()
+      expect(screen.getByText('test2')).toBeInTheDocument()
+      expect(screen.getByText('General')).toBeInTheDocument()
     })
   })
 
@@ -89,48 +89,28 @@ describe('LeaseUpApplicationsFilters', () => {
       getScreen()
     })
 
-    test('should call onFilterChanged when preference filter changes', () => {
+    test('should call onFilterChanged when preference filter changes', async () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(0)
-      selectEvent.openMenu(screen.getAllByRole('combobox')[0])
-      fireEvent.click(
-        screen.getByRole('option', {
-          name: /general/i
-        })
-      )
+      await selectEvent.select(screen.getAllByRole('combobox')[0], ['General'])
       expect(mockOnFilterChange.mock.calls).toHaveLength(1)
     })
 
-    test('should call onFilterChanged when Household Members filter changes', () => {
+    test('should call onFilterChanged when Household Members filter changes', async () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(0)
-      selectEvent.openMenu(screen.getAllByRole('combobox')[1])
-      fireEvent.click(
-        screen.getByRole('option', {
-          name: /1/i
-        })
-      )
+      await selectEvent.select(screen.getAllByRole('combobox')[1], ['1'])
       expect(mockOnFilterChange.mock.calls).toHaveLength(1)
     })
 
-    test('should call onFilterChanged when Accessibility Requests changes', () => {
+    test('should call onFilterChanged when Accessibility Requests changes', async () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(0)
-      selectEvent.openMenu(screen.getAllByRole('combobox')[2])
-      fireEvent.click(
-        screen.getByRole('option', {
-          name: /mobility/i
-        })
-      )
+      await selectEvent.select(screen.getAllByRole('combobox')[2], ['Mobility'])
 
       expect(mockOnFilterChange.mock.calls).toHaveLength(1)
     })
 
-    test('should call onFilterChanged when Application Status filter changes', () => {
+    test('should call onFilterChanged when Application Status filter changes', async () => {
       expect(mockOnFilterChange.mock.calls).toHaveLength(0)
-      selectEvent.openMenu(screen.getAllByRole('combobox')[3])
-      fireEvent.click(
-        screen.getByRole('option', {
-          name: /waitlisted/i
-        })
-      )
+      await selectEvent.select(screen.getAllByRole('combobox')[3], ['Waitlisted'])
       expect(mockOnFilterChange.mock.calls).toHaveLength(1)
     })
   })

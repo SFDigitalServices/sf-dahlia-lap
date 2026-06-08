@@ -20,7 +20,7 @@ exports[`StatusCell renders with the correct styling 1`] = `
         role="log"
       />
       <div
-        class="status-dropdown__control css-uuqjpg-Control"
+        class="status-dropdown__control css-10ganm4"
       >
         <button
           class="button dropdown-button is-waitlisted tight-padding tiny margin-bottom-none"
@@ -39,7 +39,7 @@ exports[`StatusCell renders with the correct styling 1`] = `
               style="width: 0px; height: 0px;"
             >
               <div
-                class="status-dropdown__value-container status-dropdown__value-container--has-value css-1fdsijx-ValueContainer"
+                class="status-dropdown__value-container status-dropdown__value-container--has-value css-hlgwow"
               >
                 <input
                   aria-activedescendant=""
@@ -47,7 +47,7 @@ exports[`StatusCell renders with the correct styling 1`] = `
                   aria-expanded="false"
                   aria-haspopup="true"
                   aria-readonly="true"
-                  class="css-mohuvp-dummyInput-DummyInput"
+                  class="css-1s80ejz-dummyInput-DummyInput"
                   id="react-select-3-input"
                   inputmode="none"
                   role="combobox"

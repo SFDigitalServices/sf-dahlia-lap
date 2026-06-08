@@ -194,6 +194,14 @@ const getWrapper = async (id = getMockApplication().id) => {
   return await act(async () => renderAppWithUrl(getWindowUrl(id)))
 }
 
+const getAssignedUnitCombobox = () => {
+  return within(
+    screen.getByRole('button', {
+      name: /assigned unit number/i
+    })
+  ).getByRole('combobox')
+}
+
 describe('SupplementalApplicationPage', () => {
   const originalLocation = window.location
   beforeEach(() => {
@@ -482,18 +490,10 @@ describe('SupplementalApplicationPage', () => {
       // Fill out lease fields
       // Assigned Unit number
 
-      selectEvent.openMenu(
-        within(
-          screen.getByRole('button', {
-            name: /assigned unit number/i
-          })
-        ).getByRole('combobox')
-      )
+      await selectEvent.select(getAssignedUnitCombobox(), ['unit without priority'])
 
       // Lease start date
       await act(() => {
-        fireEvent.click(screen.getByText(/unit without priority/i))
-
         fireEvent.change(monthInput, {
           target: { value: '1' }
         })
@@ -614,17 +614,7 @@ describe('SupplementalApplicationPage', () => {
 
         fireEvent.click(screen.getByRole('button', { name: /edit lease/i }))
 
-        selectEvent.openMenu(
-          within(
-            screen.getByRole('button', {
-              name: /assigned unit number/i
-            })
-          ).getByRole('combobox')
-        )
-
-        act(() => {
-          fireEvent.click(screen.getByText(/unit without priority/i))
-        })
+        await selectEvent.select(getAssignedUnitCombobox(), ['unit without priority'])
       })
 
       test('it decreases the number of available units', () => {
@@ -659,17 +649,7 @@ describe('SupplementalApplicationPage', () => {
 
         fireEvent.click(screen.getByRole('button', { name: /edit lease/i }))
 
-        selectEvent.openMenu(
-          within(
-            screen.getByRole('button', {
-              name: /assigned unit number/i
-            })
-          ).getByRole('combobox')
-        )
-
-        await act(async () => {
-          await fireEvent.click(screen.getByText(/unit with priority/i))
-        })
+        await selectEvent.select(getAssignedUnitCombobox(), ['unit with priority'])
       })
 
       test('it decreases the number of accessibility units', () => {
