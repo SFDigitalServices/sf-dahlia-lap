@@ -120,7 +120,7 @@
   },
   "scripts": {
     "build": "pnpm exec webpack --mode production",
-    "heroku-postbuild": "pnpm add -g webpack-cli && pnpm run build",
+    "heroku-postbuild": "pnpm run build",
     "unit": "TZ='UTC' jest --testPathPattern=.*.test.js$ --coverage --maxWorkers=2",
     "e2e": "cypress run --browser chrome",
     "e2e:open": "cypress open --browser chrome",
