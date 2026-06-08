@@ -59,7 +59,7 @@
     "shakapacker": "^9.7.0",
     "style-loader": "^3.3.4",
     "unleash-proxy-client": "^3.8.0",
-    "webpack-assets-manifest": "^5.2.1",
+    "webpack-assets-manifest": "6.3.0",
     "webpack-merge": "^5.10.0"
   },
   "devDependencies": {
@@ -76,7 +76,7 @@
     "babel-loader": "^9.2.1",
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "caniuse-lite": "^1.0.30001797",
-    "cypress": "^13.17.0",
+    "cypress": "15.15.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.2",
     "eslint-config-standard": "^17.1.0",
