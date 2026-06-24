@@ -119,6 +119,8 @@ spec/vcr/listings/applications_controller/index.yml
 
 Then re-run your test. **Be aware that now that request in your test will actually be run.** A new cassette will be automatically generated recording that new run of the request, and then subsequent runs of the test will use that recorded cassette for the request.
 
+**Notice:** You should update cassettes against full. The data in QA is not up to date and tests will fail.
+
 ## React/Javascript tests
 
 ### Running unit tests
@@ -178,6 +180,7 @@ RTL encourages you to interact with your components in the same way a user would
 1. Interact with your components like a user: Use RTL's fireEvent (or userEvent) functions to simulate user interactions like clicking buttons, typing into inputs, and submitting forms. Avoid interacting with your components in ways a user couldn't, like by setting props or state directly.
 
 2. Query by specific accessible roles and labels: Use RTL's getByRole, getByLabelText, and other similar functions to select elements in your tests. These functions select elements based on their accessible roles and labels, which is how users find and interact with elements. Avoid selecting elements by their tag name, class name, or other implementation details.
+
    - When trying to query for something, try to be as specific as possible. A button, for example can be queried with `screen.getByRole('button)`, but you could also be more specific and say `screen.getByRole('button, {name: 'click me'})`
    - `getBy*` and `queryBy*` operate slightly differently, the former will throw an error is nothing is found, while the latter will simply return undefined if no elements are found. If you are querying for something that you know isn't there, then use `expect(screen.queryBy*(element)).not.toBeInTheDocument()`
    - `[get|query]AllBy*` and `[get|query]By*` are also different, with the former returning an array and the other returning only one (and throwing an error if it finds otherwise).
