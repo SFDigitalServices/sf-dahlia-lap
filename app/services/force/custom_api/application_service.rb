@@ -16,6 +16,8 @@ module Force
 
         application = add_application_members(application, custom_api_application_fields)
 
+        application = add_contact_info(application, custom_api_application_fields)
+
         if opts[:snapshot]
           # Although we could get a wider range of preference fields via SOQL,
           # we must use the snapshotted preferences here, and those are only
@@ -109,6 +111,18 @@ module Force
 
         application.preferences = preferences
         application
+      end
+
+      def add_contact_info(application, custom_api_application_fields)
+        # Add contact info to the application
+        contact_fields = rest_person_service.get_details(application.applicant.contact_id)
+        contact = Force::Contact.from_custom_api(contact_fields).to_domain
+        application.contact_info = contact
+        application
+      end
+
+      def rest_person_service
+        Force::Rest::PersonService.new(@user)
       end
 
       def soql_preference_service
