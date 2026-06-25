@@ -51,7 +51,7 @@ Necessary configs are defined in [.vscode/settings.json](.vscode/settings.json).
 
 ## Icons
 
-The icons are from sf-dahlia-pattern-library](<https://github.com/SFDigitalServices/sf-dahlia-pattern-library>).
+The icons are from [sf-dahlia-pattern-library](https://github.com/SFDigitalServices/sf-dahlia-pattern-library).
 Instructions for how to add icons is documented there. It is copied/pasted below for convenience.
 
 We use icons from icomoon.io. To add new icons:
