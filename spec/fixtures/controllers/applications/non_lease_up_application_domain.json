@@ -13,7 +13,7 @@
       "veteran_type_of_proof": null,
       "opt_out": false,
       "lottery_status": "None",
-      "preference_lottery_rank": 188,
+      "preference_lottery_rank": 188.0,
       "listing_preference_id": "a0l0P00001Lx8XZQAZ",
       "receives_preference": true,
       "application_member": {
@@ -31,7 +31,7 @@
       },
       "individual_preference": "Assisted Housing",
       "certificate_number": null,
-      "preference_order": 2,
+      "preference_order": 2.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -58,7 +58,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 1,
+      "preference_order": 1.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -84,7 +84,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 3,
+      "preference_order": 3.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -110,7 +110,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 4,
+      "preference_order": 4.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -136,7 +136,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 5,
+      "preference_order": 5.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -162,7 +162,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 6,
+      "preference_order": 6.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -202,6 +202,7 @@
       "month": "01",
       "day": "01"
     },
+    "contact_id": "003bb00000OvVOqAAN",
     "city": "North Jennaton",
     "id": "a0n0P00000BEAUVQA5",
     "second_phone_type": null,
@@ -254,6 +255,7 @@
         "month": "01",
         "day": "01"
       },
+      "contact_id": null,
       "city": null,
       "id": "a0n0P00000BEAUUQA5",
       "second_phone_type": null,
@@ -294,6 +296,18 @@
     "gender": "Genderqueer/Gender Non-binary",
     "ethnicity": "Not Hispanic/Latino"
   },
+  "contact_info": {
+    "phone_type_last_modified": null,
+    "phone_type": null,
+    "phone_last_modified": null,
+    "phone": null,
+    "email_last_modified": null,
+    "email": "wileyshelby8055@example.com",
+    "second_phone_type_last_modified": null,
+    "second_phone_type": null,
+    "second_phone_last_modified": null,
+    "second_phone": null
+  },
   "is_snapshot": false,
   "listing": {
     "id": "a0W0P00000F8YG4UAN",
@@ -307,21 +321,21 @@
       "flagged_record": {
         "id": "a0r0P000024EwFdQAK",
         "rule_name": "Residence Address",
-        "total_number_of_pending_review": 22
+        "total_number_of_pending_review": 22.0
       }
     },
     {
       "flagged_record": {
         "id": "a0r0P00002X4r08QAB",
         "rule_name": "Name + DOB",
-        "total_number_of_pending_review": 23
+        "total_number_of_pending_review": 23.0
       }
     },
     {
       "flagged_record": {
         "id": "a0r0P00002X4r0NQAR",
         "rule_name": "Name + DOB",
-        "total_number_of_pending_review": 110
+        "total_number_of_pending_review": 110.0
       }
     }
   ],

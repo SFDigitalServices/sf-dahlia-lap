@@ -19,7 +19,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 1,
+      "preference_order": 1.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -27,6 +27,7 @@
       "zip_code": null,
       "post_lottery_validation": null,
       "total_household_rent": "0.0",
+      "custom_preference_type": "COP",
       "recordtype_developername": "COP"
     },
     {
@@ -44,7 +45,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 2,
+      "preference_order": 2.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -52,6 +53,7 @@
       "zip_code": null,
       "post_lottery_validation": null,
       "total_household_rent": "0.0",
+      "custom_preference_type": "DTHP",
       "recordtype_developername": "DTHP"
     },
     {
@@ -69,7 +71,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 3,
+      "preference_order": 3.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -77,6 +79,7 @@
       "zip_code": null,
       "post_lottery_validation": null,
       "total_household_rent": "0.0",
+      "custom_preference_type": "L_W",
       "recordtype_developername": "L_W"
     }
   ],
@@ -97,17 +100,18 @@
     "mailing_state": null,
     "mailing_city": null,
     "mailing_street": null,
-    "last_name": "Sullivan",
+    "last_name": "Mays",
     "gender_other": null,
     "gender": null,
-    "first_name": "David",
+    "first_name": "Tiffany",
     "ethnicity": null,
     "email": null,
     "date_of_birth": {
-      "year": "1993",
-      "month": "05",
-      "day": "20"
+      "year": "2000",
+      "month": "01",
+      "day": "01"
     },
+    "contact_id": "003bb00000OujGSAAZ",
     "city": null,
     "id": "a0n0P00000DXQcMQAX",
     "second_phone_type": null,
@@ -116,7 +120,7 @@
     "alternate_contact_type": null,
     "agency_name": null,
     "street": null,
-    "name": "David Sullivan",
+    "name": "Tiffany Mays",
     "residence_address": "",
     "mailing_address": ""
   },
@@ -128,7 +132,7 @@
   "lottery_number_manual": null,
   "lottery_number": "00370977",
   "listing_id": "a0W0P00000GlKfBUAV",
-  "lending_agent": "0030P00002LBbKWQA1",
+  "lending_agent": "003bb00000OwVZUAA3",
   "is_first_time_homebuyer": true,
   "imputed_income_from_assets": null,
   "id": "a0o0P00000IWVdaQAH",
@@ -161,6 +165,18 @@
     "gender": null,
     "ethnicity": null
   },
+  "contact_info": {
+    "phone_type_last_modified": null,
+    "phone_type": null,
+    "phone_last_modified": null,
+    "phone": null,
+    "email_last_modified": null,
+    "email": null,
+    "second_phone_type_last_modified": null,
+    "second_phone_type": null,
+    "second_phone_last_modified": null,
+    "second_phone": null
+  },
   "is_snapshot": false,
   "listing": {
     "id": "a0W0P00000GlKfBUAV",
@@ -176,7 +192,7 @@
       "flagged_record": {
         "id": "a0r0P00002WUNWsQAP",
         "rule_name": "Name + DOB",
-        "total_number_of_pending_review": 117
+        "total_number_of_pending_review": 117.0
       }
     }
   ],
