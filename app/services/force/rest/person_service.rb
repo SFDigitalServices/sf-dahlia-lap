@@ -6,6 +6,7 @@ module Force
     class PersonService < Force::Base
       def get_details(id)
         begin
+          return nil if id.blank?
           api_get("/Person/#{id}")
         rescue StandardError => e
           Rails.logger.error("Error fetching person details: #{e.message}")

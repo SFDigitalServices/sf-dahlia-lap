@@ -115,8 +115,6 @@ module Force
 
       def add_contact_info(application)
         contact_id = application&.applicant&.contact_id
-        return application.tap { |a| a.contact_info = {} } if contact_id.blank?
-
         contact_fields = rest_person_service.get_details(contact_id)
         application.contact_info = contact_fields.present? ? Force::Contact.from_custom_api(contact_fields).to_domain : {}
         application
