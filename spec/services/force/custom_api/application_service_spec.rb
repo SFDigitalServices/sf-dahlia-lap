@@ -17,8 +17,9 @@ RSpec.describe Force::CustomApi::ApplicationService do
 
   describe '#application' do
     let(:application_id) { 'app-1' }
+    let(:contact_id) { 'contact-1' }
     let(:custom_api_application_fields) { Hashie::Mash.new('id' => application_id) }
-    let(:application) { Hashie::Mash.new(applicant: Hashie::Mash.new(contact_id: 'contact-1')) }
+    let(:application) { Hashie::Mash.new(applicant: Hashie::Mash.new(contact_id: contact_id)) }
     let(:converted_application) { instance_double('ConvertedApplication', to_domain: application) }
     let(:contact_fields) { { 'email' => 'primary@example.com' } }
     let(:contact_domain) { Hashie::Mash.new(email: 'primary@example.com') }
@@ -28,7 +29,7 @@ RSpec.describe Force::CustomApi::ApplicationService do
 
     before do
       allow(service).to receive(:api_get)
-        .with('/shortForm/app-1')
+        .with("/shortForm/#{application_id}")
         .and_return(custom_api_application_fields)
       allow(Force::Application).to receive(:from_custom_api)
         .with(custom_api_application_fields)
@@ -37,23 +38,23 @@ RSpec.describe Force::CustomApi::ApplicationService do
         .with(application, custom_api_application_fields)
         .and_return(application)
       allow(service).to receive(:rest_person_service).and_return(rest_person_service)
-      allow(rest_person_service).to receive(:get_details).with('contact-1').and_return(contact_fields)
+      allow(rest_person_service).to receive(:get_details).with(contact_id).and_return(contact_fields)
       allow(Force::Contact).to receive(:from_custom_api).with(contact_fields).and_return(contact_model)
       allow(service).to receive(:soql_preference_service).and_return(preference_service)
-      allow(preference_service).to receive(:app_preferences_for_application).with('app-1').and_return([])
+      allow(preference_service).to receive(:app_preferences_for_application).with(application_id).and_return([])
     end
 
     it 'adds contact_info from Rest person details' do
       result = service.application(application_id)
 
-      expect(rest_person_service).to have_received(:get_details).with('contact-1')
+      expect(rest_person_service).to have_received(:get_details).with(contact_id)
       expect(Force::Contact).to have_received(:from_custom_api).with(contact_fields)
       expect(result.contact_info).to eq(contact_domain)
     end
 
     it 'returns nil when custom API application is not found' do
       allow(service).to receive(:api_get)
-        .with('/shortForm/app-1')
+        .with("/shortForm/#{application_id}")
         .and_raise(Faraday::ResourceNotFound.new('not found'))
 
       expect(service.application(application_id)).to be_nil
@@ -61,22 +62,24 @@ RSpec.describe Force::CustomApi::ApplicationService do
   end
 
   describe '#add_contact_info' do
-    let(:application) { Hashie::Mash.new(applicant: Hashie::Mash.new(contact_id: 'contact-2')) }
-    let(:contact_fields) { { 'phone' => '4155551212' } }
-    let(:contact_domain) { Hashie::Mash.new(phone: '4155551212') }
+    let(:contact_id) { 'contact-2' }
+    let(:phone) { '4155551212' }
+    let(:application) { Hashie::Mash.new(applicant: Hashie::Mash.new(contact_id: contact_id)) }
+    let(:contact_fields) { { 'phone' => phone } }
+    let(:contact_domain) { Hashie::Mash.new(phone: phone) }
     let(:contact_model) { instance_double(Force::Contact, to_domain: contact_domain) }
     let(:rest_person_service) { instance_double(Force::Rest::PersonService) }
 
     before do
       allow(service).to receive(:rest_person_service).and_return(rest_person_service)
-      allow(rest_person_service).to receive(:get_details).with('contact-2').and_return(contact_fields)
+      allow(rest_person_service).to receive(:get_details).with(contact_id).and_return(contact_fields)
       allow(Force::Contact).to receive(:from_custom_api).with(contact_fields).and_return(contact_model)
     end
 
     it 'hydrates and assigns contact_info on the application' do
-      result = service.send(:add_contact_info, application, Hashie::Mash.new)
+      result = service.send(:add_contact_info, application)
 
-      expect(rest_person_service).to have_received(:get_details).with('contact-2')
+      expect(rest_person_service).to have_received(:get_details).with(contact_id)
       expect(Force::Contact).to have_received(:from_custom_api).with(contact_fields)
       expect(result.contact_info).to eq(contact_domain)
     end

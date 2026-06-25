@@ -16,7 +16,7 @@ module Force
 
         application = add_application_members(application, custom_api_application_fields)
 
-        application = add_contact_info(application, custom_api_application_fields)
+        application = add_contact_info(application)
 
         if opts[:snapshot]
           # Although we could get a wider range of preference fields via SOQL,
@@ -113,7 +113,7 @@ module Force
         application
       end
 
-      def add_contact_info(application, custom_api_application_fields)
+      def add_contact_info(application)
         # Add contact info to the application
         contact_fields = rest_person_service.get_details(application.applicant.contact_id)
         contact = Force::Contact.from_custom_api(contact_fields).to_domain

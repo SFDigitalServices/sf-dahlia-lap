@@ -22,9 +22,9 @@ Cross-browser testing done with <a href="https://www.browserstack.com/"><img src
   - see [here](https://stackoverflow.com/a/19850273/260495) if you have issues installing `pg` gem with Postgres.app, you may need to use: `gem install pg -v 0.21.0 -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/latest/bin/pg_config`
   - if you need to run this command make sure you run `bundle install` again following the success of the postgres installation to install the remaining gems
 
-* Run `overcommit --install`
-* Create a `.env` file in the root directory and ask a team member for access to the local development secrets
-* Setup your local database by running `bin/rails db:migrate RAILS_ENV=development`
+- Run `overcommit --install`
+- Create a `.env` file in the root directory and ask a team member for access to the local development secrets
+- Setup your local database by running `bin/rails db:migrate RAILS_ENV=development`
 
 ### VSCode setup
 
@@ -51,12 +51,12 @@ Necessary configs are defined in [.vscode/settings.json](.vscode/settings.json).
 
 ## Icons
 
-The icons are from sf-dahlia-pattern-library](https://github.com/SFDigitalServices/sf-dahlia-pattern-library).
+The icons are from sf-dahlia-pattern-library](<https://github.com/SFDigitalServices/sf-dahlia-pattern-library>).
 Instructions for how to add icons is documented there. It is copied/pasted below for convenience.
 
 We use icons from icomoon.io. To add new icons:
 
-1. Go to https://icomoon.io/app/
+1. Go to <https://icomoon.io/app/>
 1. Click "import icons" and upload the current [selections.json](https://github.com/SFDigitalServices/sf-dahlia-pattern-library/blob/main/public/toolkit/icons/icomoon/selection.json)
 1. Select any new icons you want to add
 1. Click "Generate SVG and more" on the bottom bar, then click download using the default settings
