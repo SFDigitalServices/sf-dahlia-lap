@@ -21,46 +21,46 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:38 GMT
+      - Thu, 25 Jun 2026 16:58:56 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Set-Cookie:
-      - BrowserId=mH2J9nApEfGqs7PxN_7cgQ; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:37 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:37 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:37
-        GMT; Max-Age=31536000; secure
-      X-Readonlymode:
-      - 'false'
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Robots-Tag:
-      - none
       Vary:
       - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Readonlymode:
+      - 'false'
       X-Content-Type-Options:
       - nosniff
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Robots-Tag:
+      - none
+      Set-Cookie:
+      - BrowserId=J2RaRHC3EfGQYBNJVbmK0w; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:58:56 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:56 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:56
+        GMT; Max-Age=31536000; secure
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 39d8ada86c4aaea6c539542fb1fb2e46
+      - ded3b2d946c98657dbd3e9cce8d624ac
       X-Request-Id:
-      - 39d8ada86c4aaea6c539542fb1fb2e46
+      - ded3b2d946c98657dbd3e9cce8d624ac
       X-Sfdc-Edge-Cache:
       - none
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782345938053","signature":"7m2MKAxef1tpLyEJuIkxquEu/AnDz048eAniEjiWKQo="}'
-  recorded_at: Thu, 25 Jun 2026 00:05:38 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782406736901","signature":"8kXWA9u/2rIzqILiDYfvDKwJ1NvZrcPsaaN0gGvoaFw="}'
+  recorded_at: Thu, 25 Jun 2026 16:58:56 GMT
 - request:
     method: put
     uri: https://<<SALESFORCE_HOST>>/services/apexrest/LeasingAgentPortal/shortForm
@@ -84,34 +84,34 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:39 GMT
+      - Thu, 25 Jun 2026 16:58:58 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      X-Robots-Tag:
-      - none
-      X-Content-Type-Options:
-      - nosniff
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Content-Type-Options:
+      - nosniff
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
+      X-Robots-Tag:
+      - none
       Set-Cookie:
-      - BrowserId=mLIGuHApEfG9c5fIxMYw4A; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:38 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:38 GMT; Max-Age=31536000;
+      - BrowserId=J6JNAXC3EfGN9puyNKlOWg; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:58:57 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:57 GMT; Max-Age=31536000;
         secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:38
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:57
         GMT; Max-Age=31536000; secure
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - d46b197cf8ce19bb3b4f370f22e7b47c
+      - 6c0d0bbf2f6975c79afce93a25359d67
       X-Request-Id:
-      - d46b197cf8ce19bb3b4f370f22e7b47c
+      - 6c0d0bbf2f6975c79afce93a25359d67
       X-Sfdc-Edge-Cache:
       - none
     body:
@@ -128,10 +128,10 @@ http_interactions:
         Contact","appMemberId":"a0n0P00000D1HWGQA3","applicationId":"a0o0P00000Iv7H4QAJ","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":"Social
         Worker or Housing Counselor","agency":null,"address":null},"agreeToTerms":true,"adaPrioritiesSelected":"Vision
         impairments"}'
-  recorded_at: Thu, 25 Jun 2026 00:05:39 GMT
+  recorded_at: Thu, 25 Jun 2026 16:58:58 GMT
 - request:
     method: get
-    uri: https://<<SALESFORCE_HOST>>/services/apexrest/LeasingAgentPortal/shortForm/a0o0P00000Iv7H4QAJ
+    uri: https://<<SALESFORCE_HOST>>/services/apexrest/shortForm/a0o0P00000Iv7H4QAJ
     body:
       encoding: US-ASCII
       string: ''
@@ -150,53 +150,53 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:39 GMT
+      - Thu, 25 Jun 2026 16:58:58 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Robots-Tag:
+      - none
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       X-Content-Type-Options:
       - nosniff
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
-      X-Robots-Tag:
-      - none
       Set-Cookie:
-      - BrowserId=mW7uOHApEfG5geWEBj-hUA; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:39 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:39 GMT; Max-Age=31536000;
+      - BrowserId=KGoJ33C3EfGoIvXzo7z0_A; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:58:58 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:58 GMT; Max-Age=31536000;
         secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:39
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:58
         GMT; Max-Age=31536000; secure
-      Vary:
-      - Accept-Encoding
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 2ab1518699e68bd04b5a4b067acab00d
+      - c0231823caeb6db2f720c73d9eaf4605
       X-Request-Id:
-      - 2ab1518699e68bd04b5a4b067acab00d
+      - c0231823caeb6db2f720c73d9eaf4605
       X-Sfdc-Edge-Cache:
       - none
     body:
       encoding: ASCII-8BIT
-      string: '{"uploadURL":null,"totalMonthlyRent":null,"suppAppSignedDate":null,"subStatus":null,"status":"Submitted","snapshotId":null,"shortFormPreferences":[{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0w0P00000P9PqTQAV","requiresProof":false,"recordTypeDevName":"NRHP","preferenceProof":"Paystub","postLotteryValidation":"Unconfirmed","optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001QRQGzQAP","individualPreference":null,"customPreferenceType":"NRHP","city":null,"certificateNumber":null,"appMemberID":"a0n0P00000D1HWEQA3","applicationID":"a0o0P00000Iv7H4QAJ","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0w0P00000P9PqUQAV","requiresProof":false,"recordTypeDevName":"COP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1vxUQAR","individualPreference":null,"customPreferenceType":"COP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000Iv7H4QAJ","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0w0P00000P9PqVQAV","requiresProof":false,"recordTypeDevName":"DTHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1vxyQAB","individualPreference":null,"customPreferenceType":"DTHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000Iv7H4QAJ","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0w0P00000P9PqWQAV","requiresProof":false,"recordTypeDevName":"RB_AHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1w0mQAB","individualPreference":null,"customPreferenceType":"RB_AHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000Iv7H4QAJ","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0w0P00000P9PqXQAV","requiresProof":false,"recordTypeDevName":"L_W","preferenceProof":null,"postLotteryValidation":"Unconfirmed","optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1w1BQAR","individualPreference":null,"customPreferenceType":"L_W","city":null,"certificateNumber":null,"appMemberID":"a0n0P00000D1HWHQA3","applicationID":"a0o0P00000Iv7H4QAJ","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0w0P00000P9PqYQAV","requiresProof":false,"recordTypeDevName":"AG","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001QRPiaQAH","individualPreference":null,"customPreferenceType":"AG","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000Iv7H4QAJ","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0w0P00000PD9oWQAT","requiresProof":false,"recordTypeDevName":"ADHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001RbKCJQA3","individualPreference":null,"customPreferenceType":"ADHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000Iv7H4QAJ","address":null}],"referral":null,"processingStatus":"Appealed","primaryApplicant":{"zip":"82712","yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":"Wy","sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":null,"primaryLanguage":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":"Work","phone":"+1-773-007-2112","pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":null,"menaOther":null,"maritalStatus":"Single","mailingZip":"62381","mailingState":"Ma","mailingCity":"Mariechester","mailingAddress":"4781
-        Edward Track Suite 558","lendingAgentStatus":null,"latinoOther":null,"lastName":"Cherry","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":null,"indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"Jillian","ethnicity":null,"email":"hjames9392@example.net","DOB":"2000-01-01","contactId":null,"city":"Monicahaven","candidateScore":null,"blackOther":null,"asianOther":null,"appMemberType":"Primary
-        Applicant","appMemberId":"a0n0P00000D1HWHQA3","applicationId":"a0o0P00000Iv7H4QAJ","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":"278
-        Ponce Square"},"otherHousingCounselingAgency":null,"numberOfSeniors":2,"numberOfMinors":null,"numberOfDependents":2,"name":"APP-00299776","monthlyIncome":4166.67,"lotteryNumberManual":null,"lotteryNumber":"00299776","listingID":"a0W0P00000GbyuQUAR","lendingAgent":null,"leaseupAppointmentSchedulingURL":null,"jobClassification":null,"isVeteranInHousehold":false,"isSFUSDEmployee":null,"isPrimaryApplicantVeteran":null,"isNonPrimaryMemberVeteran":null,"isFirstTimeHomebuyer":false,"interviewScheduledDate":null,"imputedIncomeFromAssets":1000.00,"id":"a0o0P00000Iv7H4QAJ","housingCounselingAgency":null,"householdVouchersSubsidies":"true","householdMembers":[{"zip":"51896","yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":"Wy","sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":null,"primaryLanguage":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":null,"phone":null,"pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":null,"menaOther":null,"maritalStatus":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lendingAgentStatus":null,"latinoOther":null,"lastName":"Cervantes","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":null,"indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"Sonia","ethnicity":null,"email":null,"DOB":"2000-01-01","contactId":null,"city":"Monicahaven","candidateScore":null,"blackOther":null,"asianOther":null,"appMemberType":"Household
-        Member","appMemberId":"a0n0P00000D1HWEQA3","applicationId":"a0o0P00000Iv7H4QAJ","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":"9509
-        Fuentes Walk"},{"zip":"82712","yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":"Wy","sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":null,"primaryLanguage":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":null,"phone":null,"pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":null,"menaOther":null,"maritalStatus":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lendingAgentStatus":null,"latinoOther":null,"lastName":"Chase","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":null,"indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"Zoe","ethnicity":null,"email":null,"DOB":"2000-01-01","contactId":null,"city":"Monicahaven","candidateScore":null,"blackOther":null,"asianOther":null,"appMemberType":"Household
-        Member","appMemberId":"a0n0P00000D1HWFQA3","applicationId":"a0o0P00000Iv7H4QAJ","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":"278
-        Ponce Square"}],"householdAssets":null,"HHTotalIncomeWithAssets":51000.00,"hasSenior":"Yes","hasPublicHousing":null,"hasMinimumCreditScore":false,"hasMilitaryService":"Yes","hasLoanPreapproval":false,"hasDisability":null,"hasDevelopmentalDisability":"No","hasCompletedHomebuyerEducation":false,"formMetadata":null,"externalSessionId":"","didApplicantUseHousingCounselingAgency":"No","confirmedHouseholdAnnualIncome":123.00,"appRTType":"Rental_Short_Form","applicationSubmittedDate":"2019-03-12","applicationSubmissionType":"Electronic","applicationLanguage":"Spanish","answeredCommunityScreening":null,"annualIncome":50000.00,"amiPercentage":null,"amiChartYear":null,"amiChartType":null,"alternateContact":{"zip":null,"yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":null,"sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":null,"primaryLanguage":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":"Work","phone":"001-301-987-8796x843","pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":null,"menaOther":null,"maritalStatus":null,"mailingZip":"62381","mailingState":"Ma","mailingCity":"Mariechester","mailingAddress":"19818
-        Allison Inlet Apt. 584","lendingAgentStatus":null,"latinoOther":null,"lastName":"Cruz","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":null,"indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"Tammy","ethnicity":null,"email":"wsimon5189@example.net","DOB":null,"contactId":null,"city":null,"candidateScore":null,"blackOther":null,"asianOther":null,"appMemberType":"Alternate
-        Contact","appMemberId":"a0n0P00000D1HWGQA3","applicationId":"a0o0P00000Iv7H4QAJ","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":"Social
-        Worker or Housing Counselor","agency":null,"address":null},"agreeToTerms":true,"adaPrioritiesSelected":"Vision
+      string: '{"uploadURL":null,"totalMonthlyRent":null,"subStatus":null,"status":"Submitted","shortFormPreferences":[{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0w0P00000P9PqTQAV","requiresProof":false,"recordTypeDevName":"NRHP","preferenceProof":"Paystub","postLotteryValidation":"Unconfirmed","optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001QRQGzQAP","individualPreference":null,"customPreferenceType":"NRHP","city":null,"certificateNumber":null,"appMemberID":"a0n0P00000D1HWEQA3","applicationID":"a0o0P00000Iv7H4QAJ","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0w0P00000P9PqUQAV","requiresProof":false,"recordTypeDevName":"COP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1vxUQAR","individualPreference":null,"customPreferenceType":"COP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000Iv7H4QAJ","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0w0P00000P9PqVQAV","requiresProof":false,"recordTypeDevName":"DTHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1vxyQAB","individualPreference":null,"customPreferenceType":"DTHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000Iv7H4QAJ","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0w0P00000P9PqWQAV","requiresProof":false,"recordTypeDevName":"RB_AHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1w0mQAB","individualPreference":null,"customPreferenceType":"RB_AHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000Iv7H4QAJ","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0w0P00000P9PqXQAV","requiresProof":false,"recordTypeDevName":"L_W","preferenceProof":null,"postLotteryValidation":"Unconfirmed","optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Q1w1BQAR","individualPreference":null,"customPreferenceType":"L_W","city":null,"certificateNumber":null,"appMemberID":"a0n0P00000D1HWHQA3","applicationID":"a0o0P00000Iv7H4QAJ","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0w0P00000P9PqYQAV","requiresProof":false,"recordTypeDevName":"AG","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001QRPiaQAH","individualPreference":null,"customPreferenceType":"AG","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000Iv7H4QAJ","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0w0P00000PD9oWQAT","requiresProof":false,"recordTypeDevName":"ADHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001RbKCJQA3","individualPreference":null,"customPreferenceType":"ADHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0o0P00000Iv7H4QAJ","address":null}],"referral":null,"processingStatus":"Appealed","processingComment":"test","primaryApplicant":{"zip":"82712","yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":"Wy","sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":null,"primaryLanguage":null,"preferenceAddressMatch":null,"phoneTypeLastModified":null,"phoneType":"Work","phoneLastModified":null,"phone":"+1-773-007-2112","pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"MLSId":null,"middleName":null,"menaOther":null,"MCCCertified":null,"mailingZip":"62381","mailingState":"Ma","mailingCity":"Mariechester","mailingAddress":"4781
+        Edward Track Suite 558","lendingAgentStatus":null,"latinoOther":null,"lastName":"Cherry","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":null,"indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"Jillian","ethnicity":null,"emailLastModified":null,"email":"hjames9392@example.net","DOB":"2000-01-01","DALPCertified":null,"contactId":null,"city":"Monicahaven","candidateScore":null,"BMRCertified":null,"blackOther":null,"asianOther":null,"appMemberType":"Primary
+        Applicant","appMemberId":"a0n0P00000D1HWHQA3","alternatePhoneTypeLastModified":null,"alternatePhoneType":null,"alternatePhoneLastModified":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":"278
+        Ponce Square","accountId":null,"acceptingNewMOHCDClients":null},"otherHousingCounselingAgency":null,"name":"APP-00299776","monthlyIncome":null,"lotteryNumberManual":null,"lotteryNumber":"00299776","listingID":"a0W0P00000GbyuQUAR","lendingAgent":null,"leaseupAppointmentSchedulingURL":null,"jobClassification":null,"isVeteranInHousehold":false,"isSFUSDEmployee":null,"isPrimaryApplicantVeteran":null,"isNonPrimaryMemberVeteran":null,"isFirstTimeHomebuyer":false,"inviteToApplyDeadlineDate":null,"id":"a0o0P00000Iv7H4QAJ","housingCounselingAgency":null,"householdVouchersSubsidies":"true","householdMembers":[{"zip":"51896","yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":"Wy","sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":null,"primaryLanguage":null,"preferenceAddressMatch":null,"phoneTypeLastModified":null,"phoneType":null,"phoneLastModified":null,"phone":null,"pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"MLSId":null,"middleName":null,"menaOther":null,"MCCCertified":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lendingAgentStatus":null,"latinoOther":null,"lastName":"Cervantes","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":null,"indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"Sonia","ethnicity":null,"emailLastModified":null,"email":null,"DOB":"2000-01-01","DALPCertified":null,"contactId":null,"city":"Monicahaven","candidateScore":null,"BMRCertified":null,"blackOther":null,"asianOther":null,"appMemberType":"Household
+        Member","appMemberId":"a0n0P00000D1HWEQA3","alternatePhoneTypeLastModified":null,"alternatePhoneType":null,"alternatePhoneLastModified":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":"9509
+        Fuentes Walk","accountId":null,"acceptingNewMOHCDClients":null},{"zip":"82712","yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":"Wy","sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":null,"primaryLanguage":null,"preferenceAddressMatch":null,"phoneTypeLastModified":null,"phoneType":null,"phoneLastModified":null,"phone":null,"pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"MLSId":null,"middleName":null,"menaOther":null,"MCCCertified":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lendingAgentStatus":null,"latinoOther":null,"lastName":"Chase","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":null,"indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"Zoe","ethnicity":null,"emailLastModified":null,"email":null,"DOB":"2000-01-01","DALPCertified":null,"contactId":null,"city":"Monicahaven","candidateScore":null,"BMRCertified":null,"blackOther":null,"asianOther":null,"appMemberType":"Household
+        Member","appMemberId":"a0n0P00000D1HWFQA3","alternatePhoneTypeLastModified":null,"alternatePhoneType":null,"alternatePhoneLastModified":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":"278
+        Ponce Square","accountId":null,"acceptingNewMOHCDClients":null}],"homebuyerEducationAgency":null,"hasSenior":"Yes","hasPublicHousing":null,"hasMinimumCreditScore":false,"hasMilitaryService":"Yes","hasLoanPreapproval":false,"hasDisability":null,"hasDevelopmentalDisability":"No","hasCompletedHomebuyerEducation":false,"formMetadata":null,"externalSessionId":"","didApplicantUseHousingCounselingAgency":"No","appRTType":"Rental_Short_Form","applicationSubmittedDate":"2019-03-12","applicationSubmissionType":"Electronic","applicationLanguage":"Spanish","answeredCommunityScreening":null,"annualIncome":50000.00,"alternateContact":{"zip":null,"yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":null,"sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":null,"primaryLanguage":null,"preferenceAddressMatch":null,"phoneTypeLastModified":null,"phoneType":"Work","phoneLastModified":null,"phone":"001-301-987-8796x843","pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"MLSId":null,"middleName":null,"menaOther":null,"MCCCertified":null,"mailingZip":"62381","mailingState":"Ma","mailingCity":"Mariechester","mailingAddress":"19818
+        Allison Inlet Apt. 584","lendingAgentStatus":null,"latinoOther":null,"lastName":"Cruz","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":null,"indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"Tammy","ethnicity":null,"emailLastModified":null,"email":"wsimon5189@example.net","DOB":null,"DALPCertified":null,"contactId":null,"city":null,"candidateScore":null,"BMRCertified":null,"blackOther":null,"asianOther":null,"appMemberType":"Alternate
+        Contact","appMemberId":"a0n0P00000D1HWGQA3","alternatePhoneTypeLastModified":null,"alternatePhoneType":null,"alternatePhoneLastModified":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":"Social
+        Worker or Housing Counselor","agency":null,"address":null,"accountId":null,"acceptingNewMOHCDClients":null},"agreeToTerms":true,"adaPrioritiesSelected":"Vision
         impairments"}'
-  recorded_at: Thu, 25 Jun 2026 00:05:39 GMT
+  recorded_at: Thu, 25 Jun 2026 16:58:58 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -218,100 +218,46 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:40 GMT
+      - Thu, 25 Jun 2026 16:58:59 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
+      Set-Cookie:
+      - BrowserId=KM2G_HC3EfG6Hattc-8RUw; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:58:59 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:59 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:59
+        GMT; Max-Age=31536000; secure
+      X-Robots-Tag:
+      - none
+      Vary:
+      - Accept-Encoding
       X-Content-Type-Options:
       - nosniff
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Robots-Tag:
-      - none
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
       X-Readonlymode:
       - 'false'
-      Set-Cookie:
-      - BrowserId=mc1iTnApEfGy4TECXRPgkA; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:40 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:40 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:40
-        GMT; Max-Age=31536000; secure
-      Vary:
-      - Accept-Encoding
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - b86852a812e366b788c8121ed6fcbeda
+      - 3bc2c3d6d3ace2661f977b7e6a69aa18
       X-Request-Id:
-      - b86852a812e366b788c8121ed6fcbeda
+      - 3bc2c3d6d3ace2661f977b7e6a69aa18
       X-Sfdc-Edge-Cache:
       - none
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782345940248","signature":"tVzVWQYAgyCpBdcAG6jL4WZpnbzPocrJwYzSeDB1FWI="}'
-  recorded_at: Thu, 25 Jun 2026 00:05:40 GMT
-- request:
-    method: get
-    uri: "<<UNLEASH_URL>>client/features"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - UnleashClientRuby/6.6.0 ruby/3.4.1 [arm64-darwin24]
-      Unleash-Instanceid:
-      - 6293e664-5739-4f98-8152-d9d795d768ad
-      Unleash-Appname:
-      - webapp
-      Unleash-Client-Spec:
-      - 6.0.1
-      Unleash-Sdk:
-      - unleash-ruby-sdk:6.6.0
-      Authorization:
-      - "<<ACCESS_TOKEN>>"
-      Unleash-Connection-Id:
-      - dca0dfc3-7359-41ae-bc80-8356f8e77eae
-      Unleash-Interval:
-      - '15'
-      Content-Type:
-      - application/json
-      If-None-Match:
-      - '"537b2ba0:1607"'
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 304
-      message: Not Modified
-    headers:
-      Date:
-      - Thu, 25 Jun 2026 00:05:40 GMT
-      Etag:
-      - '"537b2ba0:1607"'
-      Nel:
-      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
-      Report-To:
-      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=Cn%2BQF2FhBJDYELHdO3JBwfgL0V4pY7B6JTWNNJymfhA%3D\u0026sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6\u0026ts=1782345940"}],"max_age":3600}'
-      Reporting-Endpoints:
-      - heroku-nel="https://nel.heroku.com/reports?s=Cn%2BQF2FhBJDYELHdO3JBwfgL0V4pY7B6JTWNNJymfhA%3D&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&ts=1782345940"
-      Server:
-      - Heroku
-      Via:
-      - 1.1 heroku-router
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Thu, 25 Jun 2026 00:05:40 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782406739269","signature":"N/dk8IUv/STjDHdpBeR3Ww1VGQuoyfBgChioaCC0Y4o="}'
+  recorded_at: Thu, 25 Jun 2026 16:58:59 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/apexrest/Person/
@@ -333,40 +279,40 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:40 GMT
+      - Thu, 25 Jun 2026 16:58:59 GMT
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      X-Content-Type-Options:
-      - nosniff
-      Set-Cookie:
-      - BrowserId=mhzh7nApEfGN9puyNKlOWg; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:40 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:40 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:40
-        GMT; Max-Age=31536000; secure
       Content-Security-Policy:
       - upgrade-insecure-requests
-      Vary:
-      - Accept-Encoding
       X-Robots-Tag:
       - none
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
+      Set-Cookie:
+      - BrowserId=KRofwHC3EfGK3O--uL1_bw; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:58:59 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:59 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:59
+        GMT; Max-Age=31536000; secure
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 22a5d7e683014c880d87b2ee709cfec8
+      - 75b040d2f8de54c58a1c5f08b158a5ea
       X-Request-Id:
-      - 22a5d7e683014c880d87b2ee709cfec8
+      - 75b040d2f8de54c58a1c5f08b158a5ea
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Thu, 25 Jun 2026 00:05:40 GMT
+  recorded_at: Thu, 25 Jun 2026 16:58:59 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -388,46 +334,46 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:41 GMT
+      - Thu, 25 Jun 2026 16:59:00 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Robots-Tag:
-      - none
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      Set-Cookie:
-      - BrowserId=mm74-nApEfGbfDfV_nmCeg; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:41 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:41 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:41
-        GMT; Max-Age=31536000; secure
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
-      Vary:
-      - Accept-Encoding
       X-Readonlymode:
       - 'false'
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Set-Cookie:
+      - BrowserId=KWfyGnC3EfGDg9slHklfdg; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:59:00 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:00 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:00
+        GMT; Max-Age=31536000; secure
       X-Content-Type-Options:
       - nosniff
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Robots-Tag:
+      - none
+      Vary:
+      - Accept-Encoding
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 98b68ee59656944878c373e04dcdb941
+      - 2319d5ba934a9cf86d0c1a0de8453079
       X-Request-Id:
-      - 98b68ee59656944878c373e04dcdb941
+      - 2319d5ba934a9cf86d0c1a0de8453079
       X-Sfdc-Edge-Cache:
       - none
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782345941351","signature":"7FmhHsH0tZIDjDc/UrE8fk2q8qEs3jtiqoVJv1vpajE="}'
-  recorded_at: Thu, 25 Jun 2026 00:05:41 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782406740264","signature":"oQd1VK+wa5ARWJGmH+LBkJJTvXcv2+FdBpLTHfT92iQ="}'
+  recorded_at: Thu, 25 Jun 2026 16:59:00 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Preference_Name__c,%20Person_who_claimed_Name__c,%20Type_of_proof__c,%20Veteran_Type_of_Proof__c,%20Opt_Out__c,%20Lottery_Status__c,%20Preference_Lottery_Rank__c,%20Listing_Preference_ID__c,%20Receives_Preference__c,%20Application_Member__c,%20Application_Member__r.First_Name__c,%20Application_Member__r.Last_Name__c,%20Application_Member__r.Date_of_Birth__c,%20Application_Member__r.Id,%20Individual_preference__c,%20Certificate_Number__c,%20Preference_Order__c,%20RecordType.DeveloperName,%20LW_Type_of_Proof__c,%20City__c,%20State__c,%20Street__c,%20Zip_Code__c,%20Post_Lottery_Validation__c,%20Total_Household_Rent__c,%20Custom_Preference_Type__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o0P00000Iv7H4QAJ%27%0A%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20
@@ -449,7 +395,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:41 GMT
+      - Thu, 25 Jun 2026 16:59:00 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -457,30 +403,30 @@ http_interactions:
       Connection:
       - keep-alive
       Sforce-Limit-Info:
-      - api-usage=15886/982000
-      X-Content-Type-Options:
-      - nosniff
+      - api-usage=15780/982000
+      X-Robots-Tag:
+      - none
       Set-Cookie:
-      - BrowserId=mrkhP3ApEfGiS3vxMXJSog; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:41 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:41 GMT; Max-Age=31536000;
+      - BrowserId=KbJoOnC3EfGQYBNJVbmK0w; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:59:00 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:00 GMT; Max-Age=31536000;
         secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:41
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:00
         GMT; Max-Age=31536000; secure
       Vary:
       - Accept-Encoding
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      X-Robots-Tag:
-      - none
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Content-Type-Options:
+      - nosniff
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 919cd42267b2132adfc587ea1c8a6969
+      - ca5b95e29e80b1e8055c6ae41ee2f142
       X-Request-Id:
-      - 919cd42267b2132adfc587ea1c8a6969
+      - ca5b95e29e80b1e8055c6ae41ee2f142
       X-Sfdc-Edge-Cache:
       - none
     body:
@@ -494,7 +440,7 @@ http_interactions:
         Cherry","Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":13.0,"Listing_Preference_ID__c":"a0l0P00001Q1w1BQAR","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000D1HWHQA3","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1HWHQA3"},"First_Name__c":"Jillian","Last_Name__c":"Cherry","Date_of_Birth__c":"2000-01-01","Id":"a0n0P00000D1HWHQA3"},"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":4.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"},"DeveloperName":"L_W"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Unconfirmed","Total_Household_Rent__c":0.0,"Custom_Preference_Type__c":"L_W"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000P9PqYQAV"},"Id":"a0w0P00000P9PqYQAV","Name":"AP-0000986873","Preference_Name__c":"Alice
         Griffith Housing Development Resident","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001QRPiaQAH","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":5.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000NHVqQAO"},"DeveloperName":"AG"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0,"Custom_Preference_Type__c":"AG"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PD9oWQAT"},"Id":"a0w0P00000PD9oWQAT","Name":"AP-0001019138","Preference_Name__c":"Anti-Displacement
         Housing Preference (ADHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001RbKCJQA3","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":8.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BGQA0"},"DeveloperName":"ADHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0,"Custom_Preference_Type__c":"ADHP"}]}'
-  recorded_at: Thu, 25 Jun 2026 00:05:41 GMT
+  recorded_at: Thu, 25 Jun 2026 16:59:00 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -516,7 +462,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:42 GMT
+      - Thu, 25 Jun 2026 16:59:01 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -525,37 +471,37 @@ http_interactions:
       - keep-alive
       X-Readonlymode:
       - 'false'
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      Vary:
-      - Accept-Encoding
       Set-Cookie:
-      - BrowserId=muboAXApEfGiS3vxMXJSog; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:41 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:41 GMT; Max-Age=31536000;
+      - BrowserId=KeX7UXC3EfGcfpMsrHNJxQ; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:59:00 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:00 GMT; Max-Age=31536000;
         secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:41
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:00
         GMT; Max-Age=31536000; secure
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Robots-Tag:
-      - none
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Robots-Tag:
+      - none
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - eea0bfd55a67b50bf04abff7c5314926
+      - 177f6d89edd45a7c4b5601208420e27e
       X-Request-Id:
-      - eea0bfd55a67b50bf04abff7c5314926
+      - 177f6d89edd45a7c4b5601208420e27e
       X-Sfdc-Edge-Cache:
       - none
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782345942764","signature":"TFKDKW+ZxRlDu166zgXk2fvj8PEEN5pDAwKLokaCVb4="}'
-  recorded_at: Thu, 25 Jun 2026 00:05:42 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782406741100","signature":"AE7CytUK+Fo7npewR2fmz2EOeSV4fnHHDEVXQlfC85s="}'
+  recorded_at: Thu, 25 Jun 2026 16:59:01 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Applicant__c,%20Primary_Applicant__c,%20Alternate_Contact__c,%20Listing__c,%20Listing__r.Name,%20Listing__r.Id,%20Listing__r.Custom_Listing_Type__c,%20Status__c,%20Listing__r.Reserved_community_type__c,%20Total_Household_Size__c,%20Application_Submission_Type__c,%20Application_Submitted_Date__c,%20CreatedDate,%20CreatedBy.Name,%20Annual_Income__c,%20Confirmed_Household_Annual_Income__c,%20Household_Assets__c,%20HH_Total_Income_with_Assets_Annual__c,%20Imputed_Income_from_Assets__c,%20Monthly_Income__c,%20Housing_Voucher_or_Subsidy__c,%20Referral_Source__c,%20Application_Language__c,%20Lottery_Number_Manual__c,%20Lottery_Number__c,%20Total_Monthly_Rent__c,%20General_Lottery__c,%20General_Lottery_Rank__c,%20Answered_Community_Screening__c,%20Has_Military_Service__c,%20Reserved_Senior__c,%20Has_DevelopmentalDisability__c,%20Has_ADA_Priorities_Selected__c,%20Terms_Acknowledged__c,%20Applicant__r.Id,%20Applicant__r.First_Name__c,%20Applicant__r.Last_Name__c,%20Applicant__r.Middle_Name__c,%20Applicant__r.Name__c,%20Applicant__r.Date_of_Birth__c,%20Applicant__r.Phone_Type__c,%20Applicant__r.Phone__c,%20Applicant__r.Second_Phone_Type__c,%20Applicant__r.Second_Phone__c,%20Applicant__r.Email__c,%20Applicant__r.Primary_Language__c,%20Applicant__r.Residence_Address__c,%20Applicant__r.Street__c,%20Applicant__r.City__c,%20Applicant__r.State__c,%20Applicant__r.Zip_Code__c,%20Applicant__r.Mailing_Address__c,%20Applicant__r.Mailing_Street__c,%20Applicant__r.Mailing_City__c,%20Applicant__r.Mailing_State__c,%20Applicant__r.Mailing_Zip_Code__c,%20Applicant__r.Marital_Status__c,%20Applicant__r.Ethnicity__c,%20Applicant__r.Race__c,%20Applicant__r.Gender__c,%20Applicant__r.Gender_Other__c,%20Applicant__r.Sexual_Orientation__c,%20Applicant__r.Sexual_Orientation_Other__c,%20Alternate_Contact__r.Id,%20Alternate_Contact__r.First_Name__c,%20Alternate_Contact__r.Middle_Name__c,%20Alternate_Contact__r.Last_Name__c,%20Alternate_Contact__r.Phone_Type__c,%20Alternate_Contact__r.Phone__c,%20Alternate_Contact__r.Email__c,%20Alternate_Contact__r.Agency_Name__c,%20Alternate_Contact__r.Alternate_Contact_Type__c,%20Alternate_Contact__r.Alternate_Contact_Type_Other__c,%20Number_of_Dependents__c,%20Number_of_Seniors__c,%20Number_of_Minors__c,%20Alternate_Contact__r.Residence_Address__c,%20Alternate_Contact__r.Street__c,%20Alternate_Contact__r.City__c,%20Alternate_Contact__r.State__c,%20Alternate_Contact__r.Zip_Code__c,%20Alternate_Contact__r.Mailing_Address__c,%20Alternate_Contact__r.Mailing_Street__c,%20Alternate_Contact__r.Mailing_City__c,%20Alternate_Contact__r.Mailing_State__c,%20Alternate_Contact__r.Mailing_Zip_Code__c,%20Alternate_Contact__r.Marital_Status__c,%20Processing_Status__c,%20Is_First_Time_Homebuyer__c,%20Has_Completed_Homebuyer_Education__c,%20Has_Loan_Pre_approval__c,%20Lending_Agent__c,%20AMI_Percentage__c,%20AMI_Chart_Type__c,%20AMI_Chart_Year__c,%20Supp_App_Signed_Date__c,%20Invite_To_Apply_Deadline_Date__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id%20=%20%27a0o0P00000Iv7H4QAJ%27%0A%20%20%20%20%20%20%20%20%20%20AND%20Status__c%20!=%20%27Draft%27%0A%20%20%20%20%20%20%20%20%20%20LIMIT%201%0A%20%20%20%20%20%20%20%20
@@ -577,38 +523,38 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:43 GMT
+      - Thu, 25 Jun 2026 16:59:01 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      X-Robots-Tag:
-      - none
+      Vary:
+      - Accept-Encoding
       Sforce-Limit-Info:
-      - api-usage=15887/982000
+      - api-usage=15784/982000
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Set-Cookie:
-      - BrowserId=m4AbG3ApEfGWBU8iOvgeCw; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:43 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:43 GMT; Max-Age=31536000;
+      - BrowserId=KibVZ3C3EfGDg9slHklfdg; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:59:01 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:01 GMT; Max-Age=31536000;
         secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:43
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:01
         GMT; Max-Age=31536000; secure
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
+      X-Robots-Tag:
+      - none
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - d332c3c8f33b8b1f99999a023f7ae91e
+      - 46b2e29a850441016debce096ee082f2
       X-Request-Id:
-      - d332c3c8f33b8b1f99999a023f7ae91e
+      - 46b2e29a850441016debce096ee082f2
       X-Sfdc-Edge-Cache:
       - none
     body:
@@ -624,7 +570,7 @@ http_interactions:
         Worker or Housing Counselor","Alternate_Contact_Type_Other__c":null,"Residence_Address__c":null,"Street__c":null,"City__c":null,"State__c":null,"Zip_Code__c":null,"Mailing_Address__c":"19818
         Allison Inlet Apt. 584, Mariechester, Ma, 62381","Mailing_Street__c":"19818
         Allison Inlet Apt. 584","Mailing_City__c":"Mariechester","Mailing_State__c":"Ma","Mailing_Zip_Code__c":"62381","Marital_Status__c":null},"Number_of_Dependents__c":2.0,"Number_of_Seniors__c":2.0,"Number_of_Minors__c":null,"Processing_Status__c":"Appealed","Is_First_Time_Homebuyer__c":false,"Has_Completed_Homebuyer_Education__c":false,"Has_Loan_Pre_approval__c":false,"Lending_Agent__c":null,"AMI_Percentage__c":null,"AMI_Chart_Type__c":null,"AMI_Chart_Year__c":null,"Supp_App_Signed_Date__c":null,"Invite_To_Apply_Deadline_Date__c":null}]}'
-  recorded_at: Thu, 25 Jun 2026 00:05:43 GMT
+  recorded_at: Thu, 25 Jun 2026 16:59:01 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Listing__r.Id,%20Listing__r.Name,%20Listing__r.Status__c,%20Listing__r.Tenure__c,%20Listing__r.Lottery_Status__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Id%20=%20%27a0o0P00000Iv7H4QAJ%27%0A%20%20%20%20%20%20%20%20
@@ -646,38 +592,38 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:43 GMT
+      - Thu, 25 Jun 2026 16:59:01 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      X-Content-Type-Options:
-      - nosniff
-      Set-Cookie:
-      - BrowserId=m7a75HApEfGDg9slHklfdg; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:43 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:43 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:43
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Robots-Tag:
-      - none
-      Sforce-Limit-Info:
-      - api-usage=15885/982000
-      Vary:
-      - Accept-Encoding
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Robots-Tag:
+      - none
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Vary:
+      - Accept-Encoding
+      Sforce-Limit-Info:
+      - api-usage=15786/982000
+      Set-Cookie:
+      - BrowserId=KlwWYHC3EfG6Hattc-8RUw; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:59:01 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:01 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:01
+        GMT; Max-Age=31536000; secure
+      X-Content-Type-Options:
+      - nosniff
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - db275ad1d4f619ba3dfd9b1feb0a4f6b
+      - 312c5e638ce76abd67ad207fabdbe91d
       X-Request-Id:
-      - db275ad1d4f619ba3dfd9b1feb0a4f6b
+      - 312c5e638ce76abd67ad207fabdbe91d
       X-Sfdc-Edge-Cache:
       - none
     body:
@@ -685,7 +631,7 @@ http_interactions:
       string: '{"totalSize":1,"done":true,"records":[{"attributes":{"type":"Application__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application__c/a0o0P00000Iv7H4QAJ"},"Listing__r":{"attributes":{"type":"Listing__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Listing__c/a0W0P00000GbyuQUAR"},"Id":"a0W0P00000GbyuQUAR","Name":"TEST
         Partners Listing (do not modify) - Yellow Acres","Status__c":"Lease Up","Tenure__c":"New
         rental","Lottery_Status__c":"Lottery Complete"}}]}'
-  recorded_at: Thu, 25 Jun 2026 00:05:43 GMT
+  recorded_at: Thu, 25 Jun 2026 16:59:01 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -707,7 +653,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:43 GMT
+      - Thu, 25 Jun 2026 16:59:02 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
@@ -716,37 +662,37 @@ http_interactions:
       - keep-alive
       X-Content-Type-Options:
       - nosniff
-      Vary:
-      - Accept-Encoding
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Set-Cookie:
+      - BrowserId=KomOb3C3EfGQYBNJVbmK0w; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:59:02 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:02 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:02
+        GMT; Max-Age=31536000; secure
       X-Robots-Tag:
       - none
       X-Readonlymode:
       - 'false'
+      Vary:
+      - Accept-Encoding
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Set-Cookie:
-      - BrowserId=m_SHknApEfGqs7PxN_7cgQ; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:43 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:43 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:43
-        GMT; Max-Age=31536000; secure
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 637f868a336f59a289bf0474e0c848ea
+      - 794e6719c56912e3cbdcfae3e8c3bd82
       X-Request-Id:
-      - 637f868a336f59a289bf0474e0c848ea
+      - 794e6719c56912e3cbdcfae3e8c3bd82
       X-Sfdc-Edge-Cache:
       - none
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782345943857","signature":"Oj7a5SQPlydBlS98fIS+SlTb3ZojTeWI6fqmLL0+/10="}'
-  recorded_at: Thu, 25 Jun 2026 00:05:43 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782406742116","signature":"3Nrj9nAsAS5Vq9Ype4SlzZuUnCWnGm804oGCo51eje8="}'
+  recorded_at: Thu, 25 Jun 2026 16:59:02 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Preference_Name__c,%20Person_who_claimed_Name__c,%20Type_of_proof__c,%20Veteran_Type_of_Proof__c,%20Opt_Out__c,%20Lottery_Status__c,%20Preference_Lottery_Rank__c,%20Listing_Preference_ID__c,%20Receives_Preference__c,%20Application_Member__c,%20Application_Member__r.First_Name__c,%20Application_Member__r.Last_Name__c,%20Application_Member__r.Date_of_Birth__c,%20Application_Member__r.Id,%20Individual_preference__c,%20Certificate_Number__c,%20Preference_Order__c,%20RecordType.DeveloperName,%20LW_Type_of_Proof__c,%20City__c,%20State__c,%20Street__c,%20Zip_Code__c,%20Post_Lottery_Validation__c,%20Total_Household_Rent__c,%20Custom_Preference_Type__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o0P00000Iv7H4QAJ%27%0A%20%20%20%20%20%20%20%20%20%20ORDER%20BY%20Preference_Order__c%20ASC%0A%20%20%20%20%20%20%20%20
@@ -768,38 +714,38 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:44 GMT
+      - Thu, 25 Jun 2026 16:59:02 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      X-Robots-Tag:
-      - none
       Sforce-Limit-Info:
-      - api-usage=15885/982000
-      Vary:
-      - Accept-Encoding
+      - api-usage=15783/982000
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
-      X-Content-Type-Options:
-      - nosniff
+      Vary:
+      - Accept-Encoding
+      Set-Cookie:
+      - BrowserId=Kr-S0XC3EfGoIvXzo7z0_A; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:59:02 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:02 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:02
+        GMT; Max-Age=31536000; secure
+      X-Robots-Tag:
+      - none
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
-      Set-Cookie:
-      - BrowserId=nCgaonApEfGUspGSBzhtKQ; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:44 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:44 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:44
-        GMT; Max-Age=31536000; secure
+      X-Content-Type-Options:
+      - nosniff
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - f34198733462ddc21944ab60aef50a66
+      - 209e422bc5a34adfa4903a67b354cc04
       X-Request-Id:
-      - f34198733462ddc21944ab60aef50a66
+      - 209e422bc5a34adfa4903a67b354cc04
       X-Sfdc-Edge-Cache:
       - none
     body:
@@ -813,7 +759,61 @@ http_interactions:
         Griffith Housing Development Resident","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001QRPiaQAH","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":5.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000NHVqQAO"},"DeveloperName":"AG"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0,"Custom_Preference_Type__c":"AG"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000P9PqTQAV"},"Id":"a0w0P00000P9PqTQAV","Name":"AP-0000986868","Preference_Name__c":"Neighborhood
         Resident Housing Preference (NRHP)","Person_who_claimed_Name__c":"Sonia Cervantes","Type_of_proof__c":"Paystub","Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":2.0,"Listing_Preference_ID__c":"a0l0P00001QRQGzQAP","Receives_Preference__c":true,"Application_Member__c":"a0n0P00000D1HWEQA3","Application_Member__r":{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1HWEQA3"},"First_Name__c":"Sonia","Last_Name__c":"Cervantes","Date_of_Birth__c":"2000-01-01","Id":"a0n0P00000D1HWEQA3"},"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":6.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BLQA0"},"DeveloperName":"NRHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":"Unconfirmed","Total_Household_Rent__c":0.0,"Custom_Preference_Type__c":"NRHP"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0w0P00000PD9oWQAT"},"Id":"a0w0P00000PD9oWQAT","Name":"AP-0001019138","Preference_Name__c":"Anti-Displacement
         Housing Preference (ADHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001RbKCJQA3","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":8.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BGQA0"},"DeveloperName":"ADHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0,"Custom_Preference_Type__c":"ADHP"}]}'
-  recorded_at: Thu, 25 Jun 2026 00:05:44 GMT
+  recorded_at: Thu, 25 Jun 2026 16:59:02 GMT
+- request:
+    method: get
+    uri: "<<UNLEASH_URL>>client/features"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - UnleashClientRuby/6.6.0 ruby/3.4.1 [arm64-darwin24]
+      Unleash-Instanceid:
+      - 71fa14a8-8d7f-4c58-becf-5379ce7b7ec3
+      Unleash-Appname:
+      - webapp
+      Unleash-Client-Spec:
+      - 6.0.1
+      Unleash-Sdk:
+      - unleash-ruby-sdk:6.6.0
+      Authorization:
+      - "<<ACCESS_TOKEN>>"
+      Unleash-Connection-Id:
+      - '0982e49f-21a3-4bba-afed-6befaa1a775f'
+      Unleash-Interval:
+      - '15'
+      Content-Type:
+      - application/json
+      If-None-Match:
+      - '"537b2ba0:1607"'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 304
+      message: Not Modified
+    headers:
+      Date:
+      - Thu, 25 Jun 2026 16:59:02 GMT
+      Etag:
+      - '"537b2ba0:1607"'
+      Nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      Report-To:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=t91oyVz2T2Q6Ln5hzsQlKkJRn%2Blf6Bhw1Iqiw19nsn4%3D\u0026sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6\u0026ts=1782406742"}],"max_age":3600}'
+      Reporting-Endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=t91oyVz2T2Q6Ln5hzsQlKkJRn%2Blf6Bhw1Iqiw19nsn4%3D&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&ts=1782406742"
+      Server:
+      - Heroku
+      Via:
+      - 1.1 heroku-router
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Thu, 25 Jun 2026 16:59:02 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -835,46 +835,46 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:44 GMT
+      - Thu, 25 Jun 2026 16:59:02 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Robots-Tag:
-      - none
       X-Content-Type-Options:
       - nosniff
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
       X-Readonlymode:
       - 'false'
-      Vary:
-      - Accept-Encoding
+      Set-Cookie:
+      - BrowserId=KvvYjnC3EfGN9puyNKlOWg; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:59:02 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:02 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:02
+        GMT; Max-Age=31536000; secure
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
-      Set-Cookie:
-      - BrowserId=nFrDZnApEfGUspGSBzhtKQ; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:44 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:44 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:44
-        GMT; Max-Age=31536000; secure
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Robots-Tag:
+      - none
+      Vary:
+      - Accept-Encoding
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 120cf3af3165bce845af5bec69f75de2
+      - d0d90bf51f9f19b75ae9630f0ccfb684
       X-Request-Id:
-      - 120cf3af3165bce845af5bec69f75de2
+      - d0d90bf51f9f19b75ae9630f0ccfb684
       X-Sfdc-Edge-Cache:
       - none
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782345944525","signature":"jCOE425NPcGSg0PnG812omMWbrSuBtohzvl8D6iBGXA="}'
-  recorded_at: Thu, 25 Jun 2026 00:05:44 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782406742867","signature":"CoGtd+1oSEe7uvXbPHE9gXNcc3xcUSSk5/M9lO9nkag="}'
+  recorded_at: Thu, 25 Jun 2026 16:59:02 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Document_Type__c,%20Related_Application__c,%20Related_Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Attachment__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Related_Application__c%20=%20%27a0o0P00000Iv7H4QAJ%27%0A%20%20%20%20%20%20%20%20
@@ -896,44 +896,44 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:45 GMT
+      - Thu, 25 Jun 2026 16:59:03 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
+      Set-Cookie:
+      - BrowserId=KzoaGnC3EfGN9puyNKlOWg; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:59:03 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:03 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:03
+        GMT; Max-Age=31536000; secure
+      Vary:
+      - Accept-Encoding
+      Sforce-Limit-Info:
+      - api-usage=15781/982000
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Content-Type-Options:
+      - nosniff
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
       X-Robots-Tag:
       - none
-      X-Content-Type-Options:
-      - nosniff
-      Sforce-Limit-Info:
-      - api-usage=15887/982000
-      Set-Cookie:
-      - BrowserId=nL5A_3ApEfGy4TECXRPgkA; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:45 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:45 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:45
-        GMT; Max-Age=31536000; secure
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Vary:
-      - Accept-Encoding
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 060ecd0368dfd115b1ff136da66ca8cb
+      - e622d54cc09e962b5330d84d72c21928
       X-Request-Id:
-      - 060ecd0368dfd115b1ff136da66ca8cb
+      - e622d54cc09e962b5330d84d72c21928
       X-Sfdc-Edge-Cache:
       - none
     body:
       encoding: ASCII-8BIT
       string: '{"totalSize":0,"done":true,"records":[]}'
-  recorded_at: Thu, 25 Jun 2026 00:05:45 GMT
+  recorded_at: Thu, 25 Jun 2026 16:59:03 GMT
 - request:
     method: get
     uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name__c,%20First_Name__c,%20Last_Name__c,%20Middle_Name__c,%20Relationship_to_Applicant__c,%20Date_of_Birth__c,%20Street__c,%20City__c,%20State__c,%20Zip_Code__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Member__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0o0P00000Iv7H4QAJ%27%0A%20%20%20%20%20%20%20%20%20%20AND%20Id%20!=%20%27a0n0P00000D1HWHQA3%27%0A%20%20%20%20%20%20%20%20%20%20AND%20Id%20!=%20%27a0n0P00000D1HWGQA3%27%0A%20%20%20%20%20%20%20%20
@@ -955,38 +955,38 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:45 GMT
+      - Thu, 25 Jun 2026 16:59:03 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Set-Cookie:
-      - BrowserId=nOwHUHApEfGWBU8iOvgeCw; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:45 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:45 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:45
-        GMT; Max-Age=31536000; secure
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
       X-Robots-Tag:
       - none
       Sforce-Limit-Info:
-      - api-usage=15888/982000
+      - api-usage=15779/982000
       X-Content-Type-Options:
       - nosniff
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Set-Cookie:
+      - BrowserId=K2Vv3HC3EfGbfDfV_nmCeg; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:59:03 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:03 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:59:03
+        GMT; Max-Age=31536000; secure
       Vary:
       - Accept-Encoding
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 8ff4a0cb2dc5d88958fe47fcc336bc35
+      - 8928409e9612a1a346011226937cb7a0
       X-Request-Id:
-      - 8ff4a0cb2dc5d88958fe47fcc336bc35
+      - 8928409e9612a1a346011226937cb7a0
       X-Sfdc-Edge-Cache:
       - none
     body:
@@ -996,5 +996,5 @@ http_interactions:
         Fuentes Walk","City__c":"Monicahaven","State__c":"Wy","Zip_Code__c":"51896"},{"attributes":{"type":"Application_Member__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Member__c/a0n0P00000D1HWFQA3"},"Id":"a0n0P00000D1HWFQA3","Name__c":"Zoe
         Chase","First_Name__c":"Zoe","Last_Name__c":"Chase","Middle_Name__c":null,"Relationship_to_Applicant__c":null,"Date_of_Birth__c":"2000-01-01","Street__c":"278
         Ponce Square","City__c":"Monicahaven","State__c":"Wy","Zip_Code__c":"82712"}]}'
-  recorded_at: Thu, 25 Jun 2026 00:05:45 GMT
+  recorded_at: Thu, 25 Jun 2026 16:59:03 GMT
 recorded_with: VCR 6.4.0

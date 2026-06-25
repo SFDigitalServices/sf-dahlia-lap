@@ -28,7 +28,7 @@ RSpec.describe Force::CustomApi::ApplicationService do
 
     before do
       allow(service).to receive(:api_get)
-        .with('/LeasingAgentPortal/shortForm/app-1')
+        .with('/shortForm/app-1')
         .and_return(custom_api_application_fields)
       allow(Force::Application).to receive(:from_custom_api)
         .with(custom_api_application_fields)
@@ -53,7 +53,7 @@ RSpec.describe Force::CustomApi::ApplicationService do
 
     it 'returns nil when custom API application is not found' do
       allow(service).to receive(:api_get)
-        .with('/LeasingAgentPortal/shortForm/app-1')
+        .with('/shortForm/app-1')
         .and_raise(Faraday::ResourceNotFound.new('not found'))
 
       expect(service.application(application_id)).to be_nil

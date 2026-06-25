@@ -7,7 +7,7 @@ module Force
       def application(id, opts = {})
         # Fetch data from the custom API
         begin
-          custom_api_application_fields = api_get("/LeasingAgentPortal/shortForm/#{id}")
+          custom_api_application_fields = api_get("/shortForm/#{id}")
         rescue Faraday::ResourceNotFound
           return nil
         end

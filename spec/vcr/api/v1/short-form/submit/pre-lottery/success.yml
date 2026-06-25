@@ -21,100 +21,46 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:23 GMT
+      - Thu, 25 Jun 2026 16:58:40 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
+      Vary:
+      - Accept-Encoding
       Set-Cookie:
-      - BrowserId=j_FtrHApEfGN9puyNKlOWg; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:23 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:23 GMT; Max-Age=31536000;
+      - BrowserId=HbFwZnC3EfGetlUNQGVUPg; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:58:40 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:40 GMT; Max-Age=31536000;
         secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:23
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:40
         GMT; Max-Age=31536000; secure
       X-Readonlymode:
       - 'false'
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Robots-Tag:
       - none
-      Vary:
-      - Accept-Encoding
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 175a29ae3a8f58a8a0b800182b79dac3
+      - fac7fa09775e29f2f724af4c0db19616
       X-Request-Id:
-      - 175a29ae3a8f58a8a0b800182b79dac3
+      - fac7fa09775e29f2f724af4c0db19616
       X-Sfdc-Edge-Cache:
       - none
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782345923702","signature":"1DTwQqtf0OphXh3RWILCipEjcfxCSBAniMMNdvztR8Q="}'
-  recorded_at: Thu, 25 Jun 2026 00:05:23 GMT
-- request:
-    method: get
-    uri: "<<UNLEASH_URL>>client/features"
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - UnleashClientRuby/6.6.0 ruby/3.4.1 [arm64-darwin24]
-      Unleash-Instanceid:
-      - 6293e664-5739-4f98-8152-d9d795d768ad
-      Unleash-Appname:
-      - webapp
-      Unleash-Client-Spec:
-      - 6.0.1
-      Unleash-Sdk:
-      - unleash-ruby-sdk:6.6.0
-      Authorization:
-      - "<<ACCESS_TOKEN>>"
-      Unleash-Connection-Id:
-      - dca0dfc3-7359-41ae-bc80-8356f8e77eae
-      Unleash-Interval:
-      - '15'
-      Content-Type:
-      - application/json
-      If-None-Match:
-      - '"537b2ba0:1607"'
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 304
-      message: Not Modified
-    headers:
-      Date:
-      - Thu, 25 Jun 2026 00:05:25 GMT
-      Etag:
-      - '"537b2ba0:1607"'
-      Nel:
-      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
-      Report-To:
-      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=kNZReOCZBbmKseAPUV66M2JcO%2FJoKsV8mEC%2BNqLjem0%3D\u0026sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6\u0026ts=1782345925"}],"max_age":3600}'
-      Reporting-Endpoints:
-      - heroku-nel="https://nel.heroku.com/reports?s=kNZReOCZBbmKseAPUV66M2JcO%2FJoKsV8mEC%2BNqLjem0%3D&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&ts=1782345925"
-      Server:
-      - Heroku
-      Via:
-      - 1.1 heroku-router
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Thu, 25 Jun 2026 00:05:25 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782406720588","signature":"eURmpEDrxADVdvCb4PocCUFLa+0pmK+PNc6jq+n+F/c="}'
+  recorded_at: Thu, 25 Jun 2026 16:58:40 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/apexrest/LeasingAgentPortal/shortForm
@@ -140,49 +86,49 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:27 GMT
+      - Thu, 25 Jun 2026 16:58:45 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
+      X-Robots-Tag:
+      - none
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Vary:
+      - Accept-Encoding
       Set-Cookie:
-      - BrowserId=kCQVzXApEfGQYBNJVbmK0w; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:23 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:23 GMT; Max-Age=31536000;
+      - BrowserId=HfXzd3C3EfGDg9slHklfdg; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:58:40 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:40 GMT; Max-Age=31536000;
         secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:23
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:40
         GMT; Max-Age=31536000; secure
       X-Content-Type-Options:
       - nosniff
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Vary:
-      - Accept-Encoding
-      X-Robots-Tag:
-      - none
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - '08a9b55c8044a70f6372933f518965c8'
+      - cce1aba8ed421797836699b8c09e543d
       X-Request-Id:
-      - '08a9b55c8044a70f6372933f518965c8'
+      - cce1aba8ed421797836699b8c09e543d
       X-Sfdc-Edge-Cache:
       - none
     body:
       encoding: ASCII-8BIT
-      string: '{"uploadURL":null,"totalMonthlyRent":null,"suppAppSignedDate":null,"subStatus":null,"status":"Submitted","snapshotId":null,"shortFormPreferences":[{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000ByWOTAA3","requiresProof":false,"recordTypeDevName":"COP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XKQAZ","individualPreference":null,"customPreferenceType":"COP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GYxRAAW","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000ByWOUAA3","requiresProof":false,"recordTypeDevName":"DTHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XPQAZ","individualPreference":null,"customPreferenceType":"DTHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GYxRAAW","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000ByWOVAA3","requiresProof":false,"recordTypeDevName":"NRHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XUQAZ","individualPreference":null,"customPreferenceType":"NRHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GYxRAAW","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000ByWOWAA3","requiresProof":false,"recordTypeDevName":"RB_AHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XZQAZ","individualPreference":null,"customPreferenceType":"RB_AHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GYxRAAW","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000ByWOXAA3","requiresProof":false,"recordTypeDevName":"L_W","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XeQAJ","individualPreference":null,"customPreferenceType":"L_W","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GYxRAAW","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000ByWOYAA3","requiresProof":false,"recordTypeDevName":"AG","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001PsqDoQAJ","individualPreference":null,"customPreferenceType":"AG","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GYxRAAW","address":null}],"referral":null,"processingStatus":null,"primaryApplicant":{"zip":"94105-1804","yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":"CA","sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":null,"primaryLanguage":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":null,"phone":null,"pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":null,"menaOther":null,"maritalStatus":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lendingAgentStatus":null,"latinoOther":null,"lastName":"Supp
-        app test","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":"No","indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"Test","ethnicity":null,"email":"eee@eeee.com","DOB":"1950-01-01","contactId":"003bb000019r4FvAAI","city":"SAN
+      string: '{"uploadURL":null,"totalMonthlyRent":null,"suppAppSignedDate":null,"subStatus":null,"status":"Submitted","snapshotId":null,"shortFormPreferences":[{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000Bz3M4AAJ","requiresProof":false,"recordTypeDevName":"COP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XKQAZ","individualPreference":null,"customPreferenceType":"COP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GkiTAAS","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000Bz3M5AAJ","requiresProof":false,"recordTypeDevName":"DTHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XPQAZ","individualPreference":null,"customPreferenceType":"DTHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GkiTAAS","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000Bz3M6AAJ","requiresProof":false,"recordTypeDevName":"NRHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XUQAZ","individualPreference":null,"customPreferenceType":"NRHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GkiTAAS","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000Bz3M7AAJ","requiresProof":false,"recordTypeDevName":"RB_AHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XZQAZ","individualPreference":null,"customPreferenceType":"RB_AHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GkiTAAS","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000Bz3M8AAJ","requiresProof":false,"recordTypeDevName":"L_W","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XeQAJ","individualPreference":null,"customPreferenceType":"L_W","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GkiTAAS","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000Bz3M9AAJ","requiresProof":false,"recordTypeDevName":"AG","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001PsqDoQAJ","individualPreference":null,"customPreferenceType":"AG","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GkiTAAS","address":null}],"referral":null,"processingStatus":null,"primaryApplicant":{"zip":"94105-1804","yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":"CA","sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":null,"primaryLanguage":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":null,"phone":null,"pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":null,"menaOther":null,"maritalStatus":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lendingAgentStatus":null,"latinoOther":null,"lastName":"Supp
+        app test","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":"No","indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"Test","ethnicity":null,"email":"eee@eeee.com","DOB":"1950-01-01","contactId":"003bb000019wDQeAAM","city":"SAN
         FRANCISCO","candidateScore":null,"blackOther":null,"asianOther":null,"appMemberType":"Primary
-        Applicant","appMemberId":"a0nbb000001YKesAAG","applicationId":"a0obb000002GYxRAAW","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":null},"otherHousingCounselingAgency":null,"numberOfSeniors":null,"numberOfMinors":null,"numberOfDependents":null,"name":"APP-02394856","monthlyIncome":9166.67,"lotteryNumberManual":null,"lotteryNumber":"02394856","listingID":"a0W0P00000F8YG4UAN","lendingAgent":null,"leaseupAppointmentSchedulingURL":null,"jobClassification":null,"isVeteranInHousehold":false,"isSFUSDEmployee":"No","isPrimaryApplicantVeteran":null,"isNonPrimaryMemberVeteran":null,"isFirstTimeHomebuyer":false,"interviewScheduledDate":null,"imputedIncomeFromAssets":null,"id":"a0obb000002GYxRAAW","housingCounselingAgency":null,"householdVouchersSubsidies":null,"householdMembers":[{"zip":null,"yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":null,"sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":null,"primaryLanguage":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":null,"phone":null,"pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":null,"menaOther":null,"maritalStatus":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lendingAgentStatus":null,"latinoOther":null,"lastName":"test","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":"No","indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"member","ethnicity":null,"email":null,"DOB":"1976-06-11","contactId":null,"city":null,"candidateScore":null,"blackOther":null,"asianOther":null,"appMemberType":"Household
-        Member","appMemberId":"a0nbb000001YKerAAG","applicationId":"a0obb000002GYxRAAW","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":null}],"householdAssets":null,"HHTotalIncomeWithAssets":null,"hasSenior":null,"hasPublicHousing":null,"hasMinimumCreditScore":false,"hasMilitaryService":null,"hasLoanPreapproval":false,"hasDisability":null,"hasDevelopmentalDisability":null,"hasCompletedHomebuyerEducation":false,"formMetadata":null,"externalSessionId":"","didApplicantUseHousingCounselingAgency":null,"confirmedHouseholdAnnualIncome":null,"appRTType":"Rental_Short_Form","applicationSubmittedDate":"2019-03-12","applicationSubmissionType":"Paper","applicationLanguage":"English","answeredCommunityScreening":null,"annualIncome":110000.00,"amiPercentage":null,"amiChartYear":null,"amiChartType":null,"alternateContact":null,"agreeToTerms":false,"adaPrioritiesSelected":null}'
-  recorded_at: Thu, 25 Jun 2026 00:05:27 GMT
+        Applicant","appMemberId":"a0nbb000001YjN8AAK","applicationId":"a0obb000002GkiTAAS","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":null},"otherHousingCounselingAgency":null,"numberOfSeniors":null,"numberOfMinors":null,"numberOfDependents":null,"name":"APP-02394863","monthlyIncome":9166.67,"lotteryNumberManual":null,"lotteryNumber":"02394863","listingID":"a0W0P00000F8YG4UAN","lendingAgent":null,"leaseupAppointmentSchedulingURL":null,"jobClassification":null,"isVeteranInHousehold":false,"isSFUSDEmployee":"No","isPrimaryApplicantVeteran":null,"isNonPrimaryMemberVeteran":null,"isFirstTimeHomebuyer":false,"interviewScheduledDate":null,"imputedIncomeFromAssets":null,"id":"a0obb000002GkiTAAS","housingCounselingAgency":null,"householdVouchersSubsidies":null,"householdMembers":[{"zip":null,"yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":null,"sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":null,"primaryLanguage":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":null,"phone":null,"pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":null,"menaOther":null,"maritalStatus":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lendingAgentStatus":null,"latinoOther":null,"lastName":"test","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":"No","indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"member","ethnicity":null,"email":null,"DOB":"1976-06-11","contactId":null,"city":null,"candidateScore":null,"blackOther":null,"asianOther":null,"appMemberType":"Household
+        Member","appMemberId":"a0nbb000001YjN7AAK","applicationId":"a0obb000002GkiTAAS","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":null}],"householdAssets":null,"HHTotalIncomeWithAssets":null,"hasSenior":null,"hasPublicHousing":null,"hasMinimumCreditScore":false,"hasMilitaryService":null,"hasLoanPreapproval":false,"hasDisability":null,"hasDevelopmentalDisability":null,"hasCompletedHomebuyerEducation":false,"formMetadata":null,"externalSessionId":"","didApplicantUseHousingCounselingAgency":null,"confirmedHouseholdAnnualIncome":null,"appRTType":"Rental_Short_Form","applicationSubmittedDate":"2019-03-12","applicationSubmissionType":"Paper","applicationLanguage":"English","answeredCommunityScreening":null,"annualIncome":110000.00,"amiPercentage":null,"amiChartYear":null,"amiChartType":null,"alternateContact":null,"agreeToTerms":false,"adaPrioritiesSelected":null}'
+  recorded_at: Thu, 25 Jun 2026 16:58:45 GMT
 - request:
     method: get
-    uri: https://<<SALESFORCE_HOST>>/services/apexrest/LeasingAgentPortal/shortForm/a0obb000002GYxRAAW
+    uri: https://<<SALESFORCE_HOST>>/services/apexrest/shortForm/a0obb000002GkiTAAS
     body:
       encoding: US-ASCII
       string: ''
@@ -201,46 +147,46 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:27 GMT
+      - Thu, 25 Jun 2026 16:58:45 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
       Vary:
       - Accept-Encoding
       X-Content-Type-Options:
       - nosniff
       Set-Cookie:
-      - BrowserId=kl_VaHApEfG9c5fIxMYw4A; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:27 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:27 GMT; Max-Age=31536000;
+      - BrowserId=IJqGhHC3EfGQYBNJVbmK0w; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:58:45 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:45 GMT; Max-Age=31536000;
         secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:27
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:45
         GMT; Max-Age=31536000; secure
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       X-Robots-Tag:
       - none
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 52c9dc6dc5295b8e7d8fdfd42001fc82
+      - 862a63d3543234f54c910f5b4e4b4087
       X-Request-Id:
-      - 52c9dc6dc5295b8e7d8fdfd42001fc82
+      - 862a63d3543234f54c910f5b4e4b4087
       X-Sfdc-Edge-Cache:
       - none
     body:
       encoding: ASCII-8BIT
-      string: '{"uploadURL":null,"totalMonthlyRent":null,"suppAppSignedDate":null,"subStatus":null,"status":"Submitted","snapshotId":null,"shortFormPreferences":[{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000ByWOTAA3","requiresProof":false,"recordTypeDevName":"COP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XKQAZ","individualPreference":null,"customPreferenceType":"COP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GYxRAAW","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000ByWOUAA3","requiresProof":false,"recordTypeDevName":"DTHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XPQAZ","individualPreference":null,"customPreferenceType":"DTHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GYxRAAW","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000ByWOVAA3","requiresProof":false,"recordTypeDevName":"NRHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XUQAZ","individualPreference":null,"customPreferenceType":"NRHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GYxRAAW","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000ByWOWAA3","requiresProof":false,"recordTypeDevName":"RB_AHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XZQAZ","individualPreference":null,"customPreferenceType":"RB_AHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GYxRAAW","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000ByWOXAA3","requiresProof":false,"recordTypeDevName":"L_W","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XeQAJ","individualPreference":null,"customPreferenceType":"L_W","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GYxRAAW","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000ByWOYAA3","requiresProof":false,"recordTypeDevName":"AG","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001PsqDoQAJ","individualPreference":null,"customPreferenceType":"AG","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GYxRAAW","address":null}],"referral":null,"processingStatus":null,"primaryApplicant":{"zip":"94105-1804","yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":"CA","sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":null,"primaryLanguage":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":null,"phone":null,"pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":null,"menaOther":null,"maritalStatus":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lendingAgentStatus":null,"latinoOther":null,"lastName":"Supp
-        app test","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":"No","indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"Test","ethnicity":null,"email":"eee@eeee.com","DOB":"1950-01-01","contactId":"003bb000019r4FvAAI","city":"SAN
-        FRANCISCO","candidateScore":null,"blackOther":null,"asianOther":null,"appMemberType":"Primary
-        Applicant","appMemberId":"a0nbb000001YKesAAG","applicationId":"a0obb000002GYxRAAW","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":null},"otherHousingCounselingAgency":null,"numberOfSeniors":null,"numberOfMinors":null,"numberOfDependents":null,"name":"APP-02394856","monthlyIncome":9166.67,"lotteryNumberManual":null,"lotteryNumber":"02394856","listingID":"a0W0P00000F8YG4UAN","lendingAgent":null,"leaseupAppointmentSchedulingURL":null,"jobClassification":null,"isVeteranInHousehold":false,"isSFUSDEmployee":"No","isPrimaryApplicantVeteran":null,"isNonPrimaryMemberVeteran":null,"isFirstTimeHomebuyer":false,"interviewScheduledDate":null,"imputedIncomeFromAssets":null,"id":"a0obb000002GYxRAAW","housingCounselingAgency":null,"householdVouchersSubsidies":null,"householdMembers":[{"zip":null,"yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":null,"sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":null,"primaryLanguage":null,"preferenceStatus":null,"preferenceAddressMatch":null,"phoneType":null,"phone":null,"pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"nickname":null,"middleName":null,"menaOther":null,"maritalStatus":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lendingAgentStatus":null,"latinoOther":null,"lastName":"test","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":"No","indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"member","ethnicity":null,"email":null,"DOB":"1976-06-11","contactId":null,"city":null,"candidateScore":null,"blackOther":null,"asianOther":null,"appMemberType":"Household
-        Member","appMemberId":"a0nbb000001YKerAAG","applicationId":"a0obb000002GYxRAAW","alternatePhoneType":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":null}],"householdAssets":null,"HHTotalIncomeWithAssets":null,"hasSenior":null,"hasPublicHousing":null,"hasMinimumCreditScore":false,"hasMilitaryService":null,"hasLoanPreapproval":false,"hasDisability":null,"hasDevelopmentalDisability":null,"hasCompletedHomebuyerEducation":false,"formMetadata":null,"externalSessionId":"","didApplicantUseHousingCounselingAgency":null,"confirmedHouseholdAnnualIncome":null,"appRTType":"Rental_Short_Form","applicationSubmittedDate":"2019-03-12","applicationSubmissionType":"Paper","applicationLanguage":"English","answeredCommunityScreening":null,"annualIncome":110000.00,"amiPercentage":null,"amiChartYear":null,"amiChartType":null,"alternateContact":null,"agreeToTerms":false,"adaPrioritiesSelected":null}'
-  recorded_at: Thu, 25 Jun 2026 00:05:27 GMT
+      string: '{"uploadURL":null,"totalMonthlyRent":null,"subStatus":null,"status":"Submitted","shortFormPreferences":[{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000Bz3M4AAJ","requiresProof":false,"recordTypeDevName":"COP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XKQAZ","individualPreference":null,"customPreferenceType":"COP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GkiTAAS","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000Bz3M5AAJ","requiresProof":false,"recordTypeDevName":"DTHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XPQAZ","individualPreference":null,"customPreferenceType":"DTHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GkiTAAS","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000Bz3M6AAJ","requiresProof":false,"recordTypeDevName":"NRHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XUQAZ","individualPreference":null,"customPreferenceType":"NRHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GkiTAAS","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000Bz3M7AAJ","requiresProof":false,"recordTypeDevName":"RB_AHP","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XZQAZ","individualPreference":null,"customPreferenceType":"RB_AHP","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GkiTAAS","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000Bz3M8AAJ","requiresProof":false,"recordTypeDevName":"L_W","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001Lx8XeQAJ","individualPreference":null,"customPreferenceType":"L_W","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GkiTAAS","address":null},{"zip":null,"vetStatus":null,"vetPreferenceProof":null,"state":null,"shortformPreferenceID":"a0wbb00000Bz3M9AAJ","requiresProof":false,"recordTypeDevName":"AG","preferenceProof":null,"postLotteryValidation":null,"optOut":false,"naturalKey":null,"lwPreferenceProof":null,"listingPreferenceID":"a0l0P00001PsqDoQAJ","individualPreference":null,"customPreferenceType":"AG","city":null,"certificateNumber":null,"appMemberID":null,"applicationID":"a0obb000002GkiTAAS","address":null}],"referral":null,"processingStatus":null,"processingComment":null,"primaryApplicant":{"zip":"94105-1804","yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":"CA","sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":null,"primaryLanguage":null,"preferenceAddressMatch":null,"phoneTypeLastModified":null,"phoneType":null,"phoneLastModified":null,"phone":null,"pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"MLSId":null,"middleName":null,"menaOther":null,"MCCCertified":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lendingAgentStatus":null,"latinoOther":null,"lastName":"Supp
+        app test","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":"No","indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"Test","ethnicity":null,"emailLastModified":null,"email":"eee@eeee.com","DOB":"1950-01-01","DALPCertified":null,"contactId":"003bb000019wDQeAAM","city":"SAN
+        FRANCISCO","candidateScore":null,"BMRCertified":null,"blackOther":null,"asianOther":null,"appMemberType":"Primary
+        Applicant","appMemberId":"a0nbb000001YjN8AAK","alternatePhoneTypeLastModified":null,"alternatePhoneType":null,"alternatePhoneLastModified":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":null,"accountId":null,"acceptingNewMOHCDClients":null},"otherHousingCounselingAgency":null,"name":"APP-02394863","monthlyIncome":null,"lotteryNumberManual":null,"lotteryNumber":"02394863","listingID":"a0W0P00000F8YG4UAN","lendingAgent":null,"leaseupAppointmentSchedulingURL":null,"jobClassification":null,"isVeteranInHousehold":false,"isSFUSDEmployee":"No","isPrimaryApplicantVeteran":null,"isNonPrimaryMemberVeteran":null,"isFirstTimeHomebuyer":false,"inviteToApplyDeadlineDate":null,"id":"a0obb000002GkiTAAS","housingCounselingAgency":null,"householdVouchersSubsidies":null,"householdMembers":[{"zip":null,"yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":null,"sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":null,"primaryLanguage":null,"preferenceAddressMatch":null,"phoneTypeLastModified":null,"phoneType":null,"phoneLastModified":null,"phone":null,"pacificIslanderOther":null,"otherLanguage":null,"noPhone":false,"noEmail":false,"noAddress":false,"MLSId":null,"middleName":null,"menaOther":null,"MCCCertified":null,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lendingAgentStatus":null,"latinoOther":null,"lastName":"test","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":"No","indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":false,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":false,"genderOther":null,"gender":null,"firstName":"member","ethnicity":null,"emailLastModified":null,"email":null,"DOB":"1976-06-11","DALPCertified":null,"contactId":null,"city":null,"candidateScore":null,"BMRCertified":null,"blackOther":null,"asianOther":null,"appMemberType":"Household
+        Member","appMemberId":"a0nbb000001YjN7AAK","alternatePhoneTypeLastModified":null,"alternatePhoneType":null,"alternatePhoneLastModified":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":null,"accountId":null,"acceptingNewMOHCDClients":null}],"homebuyerEducationAgency":null,"hasSenior":null,"hasPublicHousing":null,"hasMinimumCreditScore":false,"hasMilitaryService":null,"hasLoanPreapproval":false,"hasDisability":null,"hasDevelopmentalDisability":null,"hasCompletedHomebuyerEducation":false,"formMetadata":null,"externalSessionId":"","didApplicantUseHousingCounselingAgency":null,"appRTType":"Rental_Short_Form","applicationSubmittedDate":"2019-03-12","applicationSubmissionType":"Paper","applicationLanguage":"English","answeredCommunityScreening":null,"annualIncome":110000.00,"alternateContact":null,"agreeToTerms":false,"adaPrioritiesSelected":null}'
+  recorded_at: Thu, 25 Jun 2026 16:58:45 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -262,49 +208,49 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:28 GMT
+      - Thu, 25 Jun 2026 16:58:46 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Set-Cookie:
-      - BrowserId=kqvSWXApEfGQYBNJVbmK0w; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:28 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:28 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:28
-        GMT; Max-Age=31536000; secure
-      Cache-Control:
-      - no-cache,must-revalidate,max-age=0,no-store,private
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Readonlymode:
-      - 'false'
       X-Robots-Tag:
       - none
       Vary:
       - Accept-Encoding
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
       X-Content-Type-Options:
       - nosniff
+      Cache-Control:
+      - no-cache,must-revalidate,max-age=0,no-store,private
+      X-Readonlymode:
+      - 'false'
+      Set-Cookie:
+      - BrowserId=IQCb1HC3EfGbfDfV_nmCeg; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:58:46 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:46 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:46
+        GMT; Max-Age=31536000; secure
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 44c78c172544fca6d0c810ddc7653200
+      - 29756da41a4c5874f8340111a321c795
       X-Request-Id:
-      - 44c78c172544fca6d0c810ddc7653200
+      - 29756da41a4c5874f8340111a321c795
       X-Sfdc-Edge-Cache:
       - none
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782345928292","signature":"am3rcaGf3ab0/asYkehv0dTJ7zwkjNR0grOc5mR4XJE="}'
-  recorded_at: Thu, 25 Jun 2026 00:05:28 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782406726273","signature":"puavcYKZSZmQKd84KmlvIcLW2M7/kJeu3tSse0G7FZM="}'
+  recorded_at: Thu, 25 Jun 2026 16:58:46 GMT
 - request:
     method: get
-    uri: https://<<SALESFORCE_HOST>>/services/apexrest/Person/003bb000019r4FvAAI
+    uri: https://<<SALESFORCE_HOST>>/services/apexrest/Person/003bb000019wDQeAAM
     body:
       encoding: US-ASCII
       string: ''
@@ -323,44 +269,44 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:28 GMT
+      - Thu, 25 Jun 2026 16:58:46 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
+      Set-Cookie:
+      - BrowserId=IVpU9XC3EfG6Hattc-8RUw; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:58:46 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:46 GMT; Max-Age=31536000;
+        secure
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:46
+        GMT; Max-Age=31536000; secure
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
       Vary:
       - Accept-Encoding
       X-Content-Type-Options:
       - nosniff
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Robots-Tag:
-      - none
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
-      Set-Cookie:
-      - BrowserId=kug_V3ApEfG9c5fIxMYw4A; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:28 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:28 GMT; Max-Age=31536000;
-        secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:28
-        GMT; Max-Age=31536000; secure
+      X-Robots-Tag:
+      - none
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 7821af8b03422343f75f9aeaa479326f
+      - 27ac2ef2a3afca079284fea0f41f8e4e
       X-Request-Id:
-      - 7821af8b03422343f75f9aeaa479326f
+      - 27ac2ef2a3afca079284fea0f41f8e4e
       X-Sfdc-Edge-Cache:
       - none
     body:
       encoding: ASCII-8BIT
       string: '{"zip":null,"yCoordinate":null,"xCoordinate":null,"workInSf":null,"whiteOther":null,"whichComponentOfLocatorWasUsed":null,"webAppID":null,"state":null,"sexualOrientationOther":null,"sexualOrientation":null,"sexAtBirth":null,"relationship":null,"raceEthnicity":null,"race":null,"primaryLanguage":null,"preferenceAddressMatch":null,"phoneTypeLastModified":null,"phoneType":null,"phoneLastModified":null,"phone":null,"pacificIslanderOther":null,"otherLanguage":null,"noPhone":null,"noEmail":null,"noAddress":null,"MLSId":null,"middleName":null,"menaOther":null,"MCCCertified":false,"mailingZip":null,"mailingState":null,"mailingCity":null,"mailingAddress":null,"lendingAgentStatus":null,"latinoOther":null,"lastName":"Supp
-        app test","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":null,"indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":null,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":null,"genderOther":null,"gender":null,"firstName":"Test","ethnicity":null,"emailLastModified":"2026-06-25T00:05:24.000Z","email":"eee@eeee.com","DOB":"1950-01-01","DALPCertified":false,"contactId":"003bb000019r4FvAAI","city":null,"candidateScore":null,"BMRCertified":false,"blackOther":null,"asianOther":null,"appMemberType":"Primary
-        Applicant","appMemberId":null,"alternatePhoneTypeLastModified":null,"alternatePhoneType":null,"alternatePhoneLastModified":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":null,"accountId":"001bb00001FyaQrAAJ","acceptingNewMOHCDClients":false}'
-  recorded_at: Thu, 25 Jun 2026 00:05:28 GMT
+        app test","jobClassification":null,"isVeteran":null,"isSFUSDEmployee":null,"indigenousOther":null,"indigenousNativeAmericanGroup":null,"indigenousCentralSouthAmericaGroup":null,"hiv":null,"hasSameAddressAsApplicant":null,"hasDisability":null,"hasAltMailingAddress":null,"genderOther":null,"gender":null,"firstName":"Test","ethnicity":null,"emailLastModified":"2026-06-25T16:58:41.000Z","email":"eee@eeee.com","DOB":"1950-01-01","DALPCertified":false,"contactId":"003bb000019wDQeAAM","city":null,"candidateScore":null,"BMRCertified":false,"blackOther":null,"asianOther":null,"appMemberType":"Primary
+        Applicant","appMemberId":null,"alternatePhoneTypeLastModified":null,"alternatePhoneType":null,"alternatePhoneLastModified":null,"alternatePhone":null,"alternateContactTypeOther":null,"alternateContactType":null,"agency":null,"address":null,"accountId":"001bb00001G1OI2AAN","acceptingNewMOHCDClients":false}'
+  recorded_at: Thu, 25 Jun 2026 16:58:46 GMT
 - request:
     method: post
     uri: https://<<SALESFORCE_HOST>>/services/oauth2/token
@@ -382,49 +328,103 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:29 GMT
+      - Thu, 25 Jun 2026 16:58:47 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding
       X-Robots-Tag:
       - none
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
       X-Readonlymode:
       - 'false'
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
       Set-Cookie:
-      - BrowserId=kzmTAXApEfGy4TECXRPgkA; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:29 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:29 GMT; Max-Age=31536000;
+      - BrowserId=IakQqnC3EfG5geWEBj-hUA; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:58:47 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:47 GMT; Max-Age=31536000;
         secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:29
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:47
         GMT; Max-Age=31536000; secure
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - 50c391637478c8c24ed723d83cb9cc67
+      - a070eef316595bde6b38cbb449c4bab5
       X-Request-Id:
-      - 50c391637478c8c24ed723d83cb9cc67
+      - a070eef316595bde6b38cbb449c4bab5
       X-Sfdc-Edge-Cache:
       - none
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782345929220","signature":"NJnF0STasTpUZ2iwjEfGJGA7pBEy4eOcbNDNeDP9QE8="}'
-  recorded_at: Thu, 25 Jun 2026 00:05:29 GMT
+      string: '{"access_token":"<<ACCESS_TOKEN>>","instance_url":"https://<<SALESFORCE_HOST>>","id":"https://test.salesforce.com/id/00Dbb000002NqmLEAS/005U00000066jl9IAA","token_type":"Bearer","issued_at":"1782406727219","signature":"JNyF1DCW0g5wAxL5Z/S1L/9iTfnrzmqBzcADgHA/CD0="}'
+  recorded_at: Thu, 25 Jun 2026 16:58:47 GMT
 - request:
     method: get
-    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Preference_Name__c,%20Person_who_claimed_Name__c,%20Type_of_proof__c,%20Veteran_Type_of_Proof__c,%20Opt_Out__c,%20Lottery_Status__c,%20Preference_Lottery_Rank__c,%20Listing_Preference_ID__c,%20Receives_Preference__c,%20Application_Member__c,%20Application_Member__r.First_Name__c,%20Application_Member__r.Last_Name__c,%20Application_Member__r.Date_of_Birth__c,%20Application_Member__r.Id,%20Individual_preference__c,%20Certificate_Number__c,%20Preference_Order__c,%20RecordType.DeveloperName,%20LW_Type_of_Proof__c,%20City__c,%20State__c,%20Street__c,%20Zip_Code__c,%20Post_Lottery_Validation__c,%20Total_Household_Rent__c,%20Custom_Preference_Type__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0obb000002GYxRAAW%27%0A%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20
+    uri: "<<UNLEASH_URL>>client/features"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - UnleashClientRuby/6.6.0 ruby/3.4.1 [arm64-darwin24]
+      Unleash-Instanceid:
+      - 71fa14a8-8d7f-4c58-becf-5379ce7b7ec3
+      Unleash-Appname:
+      - webapp
+      Unleash-Client-Spec:
+      - 6.0.1
+      Unleash-Sdk:
+      - unleash-ruby-sdk:6.6.0
+      Authorization:
+      - "<<ACCESS_TOKEN>>"
+      Unleash-Connection-Id:
+      - '0982e49f-21a3-4bba-afed-6befaa1a775f'
+      Unleash-Interval:
+      - '15'
+      Content-Type:
+      - application/json
+      If-None-Match:
+      - '"537b2ba0:1607"'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 304
+      message: Not Modified
+    headers:
+      Date:
+      - Thu, 25 Jun 2026 16:58:47 GMT
+      Etag:
+      - '"537b2ba0:1607"'
+      Nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      Report-To:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=kxYG0xZ8%2BGLLneu%2FI%2BMwRRN%2BlyJ0qLVe1vAF4qiV1%2BY%3D\u0026sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6\u0026ts=1782406727"}],"max_age":3600}'
+      Reporting-Endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=kxYG0xZ8%2BGLLneu%2FI%2BMwRRN%2BlyJ0qLVe1vAF4qiV1%2BY%3D&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&ts=1782406727"
+      Server:
+      - Heroku
+      Via:
+      - 1.1 heroku-router
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Thu, 25 Jun 2026 16:58:47 GMT
+- request:
+    method: get
+    uri: https://<<SALESFORCE_HOST>>/services/data/v<<SALESFORCE_API_VERSION>>/query?q=%0A%20%20%20%20%20%20%20%20%20%20SELECT%20Id,%20Name,%20Preference_Name__c,%20Person_who_claimed_Name__c,%20Type_of_proof__c,%20Veteran_Type_of_Proof__c,%20Opt_Out__c,%20Lottery_Status__c,%20Preference_Lottery_Rank__c,%20Listing_Preference_ID__c,%20Receives_Preference__c,%20Application_Member__c,%20Application_Member__r.First_Name__c,%20Application_Member__r.Last_Name__c,%20Application_Member__r.Date_of_Birth__c,%20Application_Member__r.Id,%20Individual_preference__c,%20Certificate_Number__c,%20Preference_Order__c,%20RecordType.DeveloperName,%20LW_Type_of_Proof__c,%20City__c,%20State__c,%20Street__c,%20Zip_Code__c,%20Post_Lottery_Validation__c,%20Total_Household_Rent__c,%20Custom_Preference_Type__c%0A%20%20%20%20%20%20%20%20%20%20FROM%20Application_Preference__c%0A%20%20%20%20%20%20%20%20%20%20WHERE%20Application__c%20=%20%27a0obb000002GkiTAAS%27%0A%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20
     body:
       encoding: US-ASCII
       string: ''
@@ -443,48 +443,48 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Jun 2026 00:05:29 GMT
+      - Thu, 25 Jun 2026 16:58:47 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
       Set-Cookie:
-      - BrowserId=k3k0cHApEfGiS3vxMXJSog; domain=.salesforce.com; path=/; expires=Fri,
-        25-Jun-2027 00:05:29 GMT; Max-Age=31536000; secure; SameSite=None
-      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:29 GMT; Max-Age=31536000;
+      - BrowserId=IelOm3C3EfG6Hattc-8RUw; domain=.salesforce.com; path=/; expires=Fri,
+        25-Jun-2027 16:58:47 GMT; Max-Age=31536000; secure; SameSite=None
+      - CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:47 GMT; Max-Age=31536000;
         secure
-      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 00:05:29
+      - LSKey-c$CookieConsentPolicy=0:1; path=/; expires=Fri, 25-Jun-2027 16:58:47
         GMT; Max-Age=31536000; secure
       Cache-Control:
       - no-cache,must-revalidate,max-age=0,no-store,private
       Sforce-Limit-Info:
-      - api-usage=15884/982000
-      Strict-Transport-Security:
-      - max-age=63072000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
+      - api-usage=15782/982000
       X-Robots-Tag:
       - none
-      Vary:
-      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
       Server:
       - sfdcedge
       X-Sfdc-Request-Id:
-      - f6d6cc3a5dc2c7deb7579382d4abecb8
+      - 8783a4ae8ff4f78188ab285cb7f30f22
       X-Request-Id:
-      - f6d6cc3a5dc2c7deb7579382d4abecb8
+      - 8783a4ae8ff4f78188ab285cb7f30f22
       X-Sfdc-Edge-Cache:
       - none
     body:
       encoding: ASCII-8BIT
-      string: '{"totalSize":6,"done":true,"records":[{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0wbb00000ByWOTAA3"},"Id":"a0wbb00000ByWOTAA3","Name":"AP-0008802674","Preference_Name__c":"Certificate
-        of Preference (COP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XKQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":1.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BHQA0"},"DeveloperName":"COP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0,"Custom_Preference_Type__c":"COP"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0wbb00000ByWOUAA3"},"Id":"a0wbb00000ByWOUAA3","Name":"AP-0008802675","Preference_Name__c":"Displaced
-        Tenant Housing Preference (DTHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XPQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":3.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BJQA0"},"DeveloperName":"DTHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0,"Custom_Preference_Type__c":"DTHP"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0wbb00000ByWOVAA3"},"Id":"a0wbb00000ByWOVAA3","Name":"AP-0008802676","Preference_Name__c":"Neighborhood
-        Resident Housing Preference (NRHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XUQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":4.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BLQA0"},"DeveloperName":"NRHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0,"Custom_Preference_Type__c":"NRHP"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0wbb00000ByWOWAA3"},"Id":"a0wbb00000ByWOWAA3","Name":"AP-0008802677","Preference_Name__c":"Rent
-        Burdened / Assisted Housing Preference","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XZQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":2.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BMQA0"},"DeveloperName":"RB_AHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0,"Custom_Preference_Type__c":"RB_AHP"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0wbb00000ByWOXAA3"},"Id":"a0wbb00000ByWOXAA3","Name":"AP-0008802678","Preference_Name__c":"Live
-        or Work in San Francisco Preference","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XeQAJ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":5.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"},"DeveloperName":"L_W"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0,"Custom_Preference_Type__c":"L_W"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0wbb00000ByWOYAA3"},"Id":"a0wbb00000ByWOYAA3","Name":"AP-0008802679","Preference_Name__c":"Alice
+      string: '{"totalSize":6,"done":true,"records":[{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0wbb00000Bz3M4AAJ"},"Id":"a0wbb00000Bz3M4AAJ","Name":"AP-0008802714","Preference_Name__c":"Certificate
+        of Preference (COP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XKQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":1.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BHQA0"},"DeveloperName":"COP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0,"Custom_Preference_Type__c":"COP"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0wbb00000Bz3M5AAJ"},"Id":"a0wbb00000Bz3M5AAJ","Name":"AP-0008802715","Preference_Name__c":"Displaced
+        Tenant Housing Preference (DTHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"Unconfirmed","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XPQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":3.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BJQA0"},"DeveloperName":"DTHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0,"Custom_Preference_Type__c":"DTHP"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0wbb00000Bz3M6AAJ"},"Id":"a0wbb00000Bz3M6AAJ","Name":"AP-0008802716","Preference_Name__c":"Neighborhood
+        Resident Housing Preference (NRHP)","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XUQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":4.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BLQA0"},"DeveloperName":"NRHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0,"Custom_Preference_Type__c":"NRHP"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0wbb00000Bz3M7AAJ"},"Id":"a0wbb00000Bz3M7AAJ","Name":"AP-0008802717","Preference_Name__c":"Rent
+        Burdened / Assisted Housing Preference","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":null,"Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XZQAZ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":2.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BMQA0"},"DeveloperName":"RB_AHP"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0,"Custom_Preference_Type__c":"RB_AHP"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0wbb00000Bz3M8AAJ"},"Id":"a0wbb00000Bz3M8AAJ","Name":"AP-0008802718","Preference_Name__c":"Live
+        or Work in San Francisco Preference","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001Lx8XeQAJ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":5.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000R7BKQA0"},"DeveloperName":"L_W"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0,"Custom_Preference_Type__c":"L_W"},{"attributes":{"type":"Application_Preference__c","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/Application_Preference__c/a0wbb00000Bz3M9AAJ"},"Id":"a0wbb00000Bz3M9AAJ","Name":"AP-0008802719","Preference_Name__c":"Alice
         Griffith Housing Development Resident","Person_who_claimed_Name__c":null,"Type_of_proof__c":null,"Veteran_Type_of_Proof__c":null,"Opt_Out__c":false,"Lottery_Status__c":"None","Preference_Lottery_Rank__c":null,"Listing_Preference_ID__c":"a0l0P00001PsqDoQAJ","Receives_Preference__c":false,"Application_Member__c":null,"Application_Member__r":null,"Individual_preference__c":null,"Certificate_Number__c":null,"Preference_Order__c":6.0,"RecordType":{"attributes":{"type":"RecordType","url":"/services/data/v<<SALESFORCE_API_VERSION>>/sobjects/RecordType/0120P000000NHVqQAO"},"DeveloperName":"AG"},"LW_Type_of_Proof__c":null,"City__c":null,"State__c":null,"Street__c":null,"Zip_Code__c":null,"Post_Lottery_Validation__c":null,"Total_Household_Rent__c":0.0,"Custom_Preference_Type__c":"AG"}]}'
-  recorded_at: Thu, 25 Jun 2026 00:05:29 GMT
+  recorded_at: Thu, 25 Jun 2026 16:58:47 GMT
 recorded_with: VCR 6.4.0
