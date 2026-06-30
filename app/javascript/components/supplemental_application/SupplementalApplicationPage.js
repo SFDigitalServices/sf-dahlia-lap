@@ -62,6 +62,19 @@ const SupplementalApplicationPage = () => {
     loadSupplementalPageData(dispatch, applicationId, breadcrumbData?.listingId?.id)
   )
 
+  const isContactUpdated = (shortForm) => {
+    // Implement the logic to check if the contact information has been updated
+    const applicant = shortForm?.application?.applicant
+    const contactInfo = shortForm?.application?.contact_info
+    const fieldsToCheck = ['email', 'phone', 'phone_type', 'second_phone', 'second_phone_type']
+    for (const field of fieldsToCheck) {
+      if (applicant?.[field] !== contactInfo?.[field]) {
+        return true
+      }
+    }
+    return false
+  }
+
   const tabItems = [
     {
       title: 'Supplemental Information',
@@ -73,7 +86,9 @@ const SupplementalApplicationPage = () => {
       title: 'Short Form Application',
       active: selectedTabKey === SHORTFORM_TAB_KEY,
       onClick: () => setSelectedTabKey(SHORTFORM_TAB_KEY),
-      renderAsRouterLink: true
+      renderAsRouterLink: true,
+      isUpdated: isContactUpdated(shortform),
+      className: 'application-updated-button'
     }
   ]
 
