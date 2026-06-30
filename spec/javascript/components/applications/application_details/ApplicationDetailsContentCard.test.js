@@ -3,7 +3,9 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import moment from 'moment'
 
-import ApplicationDetailsContentCard from 'components/applications/application_details/ApplicationDetailsContentCard'
+import ApplicationDetailsContentCard, {
+  GMTToPacificTime
+} from 'components/applications/application_details/ApplicationDetailsContentCard'
 
 describe('ApplicationDetailsContentCard', () => {
   beforeEach(() => {
@@ -16,6 +18,10 @@ describe('ApplicationDetailsContentCard', () => {
 
   afterEach(() => {
     jest.restoreAllMocks()
+  })
+
+  test('returns null when GMTToPacificTime receives undefined', () => {
+    expect(GMTToPacificTime(undefined)).toBeNull()
   })
 
   test('renders updated row and badge when latest data differs', () => {

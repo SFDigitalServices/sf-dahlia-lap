@@ -8,7 +8,7 @@ import { buildFields } from 'utils/fieldSpecs'
 
 const PACIFIC_TIMEZONE = 'America/Los_Angeles'
 
-const GMTToPacificTime = (gmtTime) => {
+export const GMTToPacificTime = (gmtTime) => {
   if (!gmtTime) {
     return null
   }

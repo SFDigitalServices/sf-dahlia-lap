@@ -32,6 +32,20 @@ import labelMapperFields from '../applications/application_details/applicationDe
 const SUPP_TAB_KEY = 'supplemental_tab'
 const SHORTFORM_TAB_KEY = 'shortform_tab'
 
+export const isContactUpdated = (shortForm) => {
+  const applicant = shortForm?.application?.applicant
+  const contactInfo = shortForm?.application?.contact_info
+  const fieldsToCheck = ['email', 'phone', 'phone_type', 'second_phone', 'second_phone_type']
+
+  for (const field of fieldsToCheck) {
+    if (applicant?.[field] !== contactInfo?.[field]) {
+      return true
+    }
+  }
+
+  return false
+}
+
 /**
  * Supplemental application page with both supplemental and shortform tabs
  */
@@ -61,19 +75,6 @@ const SupplementalApplicationPage = () => {
   useAsyncOnMount(() =>
     loadSupplementalPageData(dispatch, applicationId, breadcrumbData?.listingId?.id)
   )
-
-  const isContactUpdated = (shortForm) => {
-    // Implement the logic to check if the contact information has been updated
-    const applicant = shortForm?.application?.applicant
-    const contactInfo = shortForm?.application?.contact_info
-    const fieldsToCheck = ['email', 'phone', 'phone_type', 'second_phone', 'second_phone_type']
-    for (const field of fieldsToCheck) {
-      if (applicant?.[field] !== contactInfo?.[field]) {
-        return true
-      }
-    }
-    return false
-  }
 
   const tabItems = [
     {
