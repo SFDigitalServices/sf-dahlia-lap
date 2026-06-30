@@ -39,9 +39,7 @@ const generateContent = (dataCollection, latestDataCollection, entry, i) => {
         <p className='previous-value'>
           <span className='strike-through'>{value}</span>&nbsp;(previous)
         </p>
-        <p className='updated-value'>
-          Updated {GMTToPacificTime(latestDataCollection[key + '_last_modified']).format('lll')}
-        </p>
+          Updated {GMTToPacificTime(latestDataCollection[key + '_last_modified'])?.format('lll')}
       </div>
     )
   } else {
