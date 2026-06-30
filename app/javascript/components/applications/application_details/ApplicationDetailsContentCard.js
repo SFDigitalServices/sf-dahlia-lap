@@ -1,8 +1,7 @@
 import React from 'react'
 
 import { map, isBoolean } from 'lodash'
-import moment from 'moment'
-
+import moment from 'moment-timezone'
 import arrayUtils from 'utils/arrayUtils'
 import { buildFields } from 'utils/fieldSpecs'
 
