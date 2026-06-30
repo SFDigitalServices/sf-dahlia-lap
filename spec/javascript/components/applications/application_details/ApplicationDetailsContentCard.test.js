@@ -1,8 +1,7 @@
 import React from 'react'
 
 import { render, screen } from '@testing-library/react'
-import moment from 'moment'
-
+import moment from 'moment-timezone'
 import ApplicationDetailsContentCard, {
   GMTToPacificTime
 } from 'components/applications/application_details/ApplicationDetailsContentCard'
