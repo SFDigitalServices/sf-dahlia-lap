@@ -24,10 +24,11 @@ const generateContent = (dataCollection, latestDataCollection, entry, i) => {
   if (isBoolean(value)) {
     value = value ? 'Yes' : 'No'
   }
-
-  if (latestDataCollection && latestDataCollection[key] && latestDataCollection[key] !== value) {
-    // contact_info value for this entry is different than the application.applicant value
-    const latest_value = latestDataCollection[key]
+  if (
+    latestDataCollection &&
+    latestDataCollection[key] !== undefined &&
+    latestDataCollection[key] !== value
+  ) {
     return (
       <div className='margin-bottom--half' key={i}>
         <div className='application-updated-row'>
