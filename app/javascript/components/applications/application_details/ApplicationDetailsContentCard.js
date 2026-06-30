@@ -2,6 +2,7 @@ import React from 'react'
 
 import { map, isBoolean } from 'lodash'
 import moment from 'moment-timezone'
+
 import arrayUtils from 'utils/arrayUtils'
 import { buildFields } from 'utils/fieldSpecs'
 
@@ -35,11 +36,11 @@ const generateContent = (dataCollection, latestDataCollection, entry, i) => {
           <h4 className='t-sans t-small t-bold no-margin inline'>{label}</h4>
           <span className='application-updated-alert'>updated</span>
         </div>
-        <p className='latest-value'>{latest_value}</p>
+        <p className='latest-value'>{latestDataCollection[key]}</p>
         <p className='previous-value'>
           <span className='strike-through'>{value}</span>&nbsp;(previous)
         </p>
-          Updated {GMTToPacificTime(latestDataCollection[key + '_last_modified'])?.format('lll')}
+        Updated {GMTToPacificTime(latestDataCollection[key + '_last_modified'])?.format('lll')}
       </div>
     )
   } else {
