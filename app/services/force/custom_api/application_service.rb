@@ -7,7 +7,7 @@ module Force
       def application(id, opts = {})
         # Fetch data from the custom API
         begin
-          custom_api_application_fields = api_get("/LeasingAgentPortal/shortForm/#{id}")
+          custom_api_application_fields = api_get("/shortForm/#{id}")
         rescue Faraday::ResourceNotFound
           return nil
         end
@@ -15,6 +15,8 @@ module Force
         application = Force::Application.from_custom_api(custom_api_application_fields).to_domain
 
         application = add_application_members(application, custom_api_application_fields)
+
+        application = add_contact_info(application)
 
         if opts[:snapshot]
           # Although we could get a wider range of preference fields via SOQL,
@@ -109,6 +111,17 @@ module Force
 
         application.preferences = preferences
         application
+      end
+
+      def add_contact_info(application)
+        contact_id = application&.applicant&.contact_id
+        contact_fields = rest_person_service.get_details(contact_id)
+        application.contact_info = contact_fields.present? ? Force::Contact.from_custom_api(contact_fields).to_domain : {}
+        application
+      end
+
+      def rest_person_service
+        Force::Rest::PersonService.new(@user)
       end
 
       def soql_preference_service

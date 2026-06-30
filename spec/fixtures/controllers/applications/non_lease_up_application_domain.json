@@ -1,6 +1,5 @@
 {
   "total_monthly_rent": 600,
-  "supp_app_signed_date": null,
   "sub_status": null,
   "status": "Submitted",
   "preferences": [
@@ -13,7 +12,7 @@
       "veteran_type_of_proof": null,
       "opt_out": false,
       "lottery_status": "None",
-      "preference_lottery_rank": 188,
+      "preference_lottery_rank": 188.0,
       "listing_preference_id": "a0l0P00001Lx8XZQAZ",
       "receives_preference": true,
       "application_member": {
@@ -31,7 +30,7 @@
       },
       "individual_preference": "Assisted Housing",
       "certificate_number": null,
-      "preference_order": 2,
+      "preference_order": 2.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -58,7 +57,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 1,
+      "preference_order": 1.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -84,7 +83,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 3,
+      "preference_order": 3.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -110,7 +109,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 4,
+      "preference_order": 4.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -136,7 +135,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 5,
+      "preference_order": 5.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -162,7 +161,7 @@
       "application_member": null,
       "individual_preference": null,
       "certificate_number": null,
-      "preference_order": 6,
+      "preference_order": 6.0,
       "lw_type_of_proof": null,
       "city": null,
       "state": null,
@@ -186,7 +185,6 @@
     "phone_type": "Home",
     "phone": "358.736.9441x895",
     "middle_name": null,
-    "marital_status": null,
     "mailing_zip_code": "30226",
     "mailing_state": "Ma",
     "mailing_city": "West Aprilside",
@@ -202,6 +200,7 @@
       "month": "01",
       "day": "01"
     },
+    "contact_id": "003bb00000OvVOqAAN",
     "city": "North Jennaton",
     "id": "a0n0P00000BEAUVQA5",
     "second_phone_type": null,
@@ -214,9 +213,6 @@
     "residence_address": "2749 Stephen Road Apt. 128, North Jennaton, Wy, 58433",
     "mailing_address": "701 House Station Suite 611, West Aprilside, Ma, 30226"
   },
-  "number_of_seniors": null,
-  "number_of_minors": null,
-  "number_of_dependents": null,
   "name": "APP-00190718",
   "monthly_income": null,
   "lottery_number_manual": null,
@@ -224,7 +220,7 @@
   "listing_id": "a0W0P00000F8YG4UAN",
   "lending_agent": null,
   "is_first_time_homebuyer": false,
-  "imputed_income_from_assets": null,
+  "invite_to_apply_deadline_date": null,
   "id": "a0o0P00000Fv02dQAB",
   "housing_voucher_or_subsidy": null,
   "household_members": [
@@ -238,7 +234,6 @@
       "phone_type": null,
       "phone": null,
       "middle_name": null,
-      "marital_status": null,
       "mailing_zip_code": null,
       "mailing_state": null,
       "mailing_city": null,
@@ -254,6 +249,7 @@
         "month": "01",
         "day": "01"
       },
+      "contact_id": null,
       "city": null,
       "id": "a0n0P00000BEAUUQA5",
       "second_phone_type": null,
@@ -267,22 +263,16 @@
       "mailing_address": ""
     }
   ],
-  "household_assets": null,
-  "hh_total_income_with_assets_annual": null,
   "reserved_senior": null,
   "has_military_service": null,
   "has_loan_preapproval": false,
   "has_developmental_disability": null,
   "has_completed_homebuyer_education": false,
-  "confirmed_household_annual_income": null,
   "application_submitted_date": "2019-03-29",
   "application_submission_type": "Electronic",
   "application_language": "English",
   "answered_community_screening": null,
   "annual_income": null,
-  "ami_percentage": null,
-  "ami_chart_year": null,
-  "ami_chart_type": null,
   "alternate_contact": null,
   "terms_acknowledged": false,
   "has_ada_priorities_selected": null,
@@ -293,6 +283,18 @@
     "gender_other": "otehr gender",
     "gender": "Genderqueer/Gender Non-binary",
     "ethnicity": "Not Hispanic/Latino"
+  },
+  "contact_info": {
+    "phone_type_last_modified": null,
+    "phone_type": null,
+    "phone_last_modified": null,
+    "phone": null,
+    "email_last_modified": null,
+    "email": "wileyshelby8055@example.com",
+    "second_phone_type_last_modified": null,
+    "second_phone_type": null,
+    "second_phone_last_modified": null,
+    "second_phone": null
   },
   "is_snapshot": false,
   "listing": {
@@ -307,21 +309,21 @@
       "flagged_record": {
         "id": "a0r0P000024EwFdQAK",
         "rule_name": "Residence Address",
-        "total_number_of_pending_review": 22
+        "total_number_of_pending_review": 22.0
       }
     },
     {
       "flagged_record": {
         "id": "a0r0P00002X4r08QAB",
         "rule_name": "Name + DOB",
-        "total_number_of_pending_review": 23
+        "total_number_of_pending_review": 23.0
       }
     },
     {
       "flagged_record": {
         "id": "a0r0P00002X4r0NQAR",
         "rule_name": "Name + DOB",
-        "total_number_of_pending_review": 110
+        "total_number_of_pending_review": 110.0
       }
     }
   ],
