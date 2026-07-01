@@ -57,7 +57,7 @@ commands:
       - run:
           name: Install pnpm
           command: |
-            sudo npm install -g pnpm@11.5.0
+            sudo npm install -g pnpm@11.5.2
 
   run-e2e:
     description: 'Run e2e tests'
