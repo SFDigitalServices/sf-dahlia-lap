@@ -59,7 +59,9 @@
     "shakapacker": "^9.7.0",
     "style-loader": "^3.3.4",
     "unleash-proxy-client": "^3.8.0",
+    "webpack": "^5.107.2",
     "webpack-assets-manifest": "6.3.0",
+    "webpack-cli": "^5.1.4",
     "webpack-merge": "^5.10.0"
   },
   "devDependencies": {
@@ -114,8 +116,6 @@
     "standard": "^17.1.2",
     "ts-jest": "^29.4.11",
     "typescript": "^6.0.3",
-    "webpack": "^5.107.2",
-    "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.2.4"
   },
   "scripts": {
