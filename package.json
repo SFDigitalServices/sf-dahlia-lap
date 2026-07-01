@@ -2,8 +2,7 @@
   "name": "sf-dahlia-lap",
   "private": true,
   "engines": {
-    "node": "22.13.x",
-    "pnpm": "11.5.2"
+    "node": "22.13.x"
   },
   "packageManager": "pnpm@11.5.2",
   "dependencies": {
