@@ -157,6 +157,11 @@ Qlty provides a cli to run checks locally.
 - Install the CLI: `curl https://qlty.sh | sh`
 - [CLI Quickstart](https://docs.qlty.sh/cli/quickstart)
 
+### Dependency vulnerabilities
+
+- Run `pnpm audit` to scan the project's dependencies for known security vulnerabilities.
+- `pnpm audit --fix=override` will attempt to resolve security issues by automatically applying overrides in the workspace or updating packages in the lockfile.
+
 ### Writing unit tests with React Testing Library
 
 #### General best practices
