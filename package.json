@@ -165,7 +165,7 @@
       "app/javascript"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!((\\.pnpm|flat/)))"
+      "/node_modules/(?!flat)"
     ],
     "testEnvironment": "jsdom"
   },
