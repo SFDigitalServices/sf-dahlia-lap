@@ -212,7 +212,7 @@ GEM
     mutex_m (0.3.0)
     net-http (0.9.1)
       uri (>= 0.11.1)
-    net-imap (0.6.4)
+    net-imap (0.6.4.1)
       date
       net-protocol
     net-pop (0.1.2)
@@ -286,7 +286,7 @@ GEM
       pry (>= 0.13.0)
     psych (3.3.4)
     public_suffix (7.0.5)
-    puma (6.4.3)
+    puma (7.2.1)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (2.2.23)
@@ -555,7 +555,7 @@ DEPENDENCIES
   pry-byebug (>= 3.9.0)
   pry-rails
   psych (< 4)
-  puma (~> 6.4.3)
+  puma (~> 7.2.1)
   rack (>= 2.2.3)
   rails (= 8.0.1)
   rails-controller-testing
