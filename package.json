@@ -119,7 +119,7 @@
     "webpack-dev-server": "^5.2.4"
   },
   "scripts": {
-    "build": "pnpm shakapacker",
+    "build": "pnpm exec shakapacker",
     "unit": "TZ='UTC' jest --testPathPattern=.*.test.js$ --coverage --maxWorkers=2",
     "e2e": "cypress run --browser chrome",
     "e2e:open": "cypress open --browser chrome",
