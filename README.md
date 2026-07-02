@@ -149,8 +149,6 @@ _Note: The app should also be running (using `pnpm start`) in another terminal w
 
 `pnpm e2e`
 
-### Running all or individual tests
-
 ### Qlty
 
 [Qlty](https://qlty.sh) was spun out of Code Climate to focus on code quality checks.
