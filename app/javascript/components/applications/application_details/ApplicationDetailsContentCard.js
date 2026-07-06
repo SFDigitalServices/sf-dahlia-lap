@@ -16,6 +16,7 @@ export const GMTToPacificTime = (gmtTime) => {
 }
 
 const generateContent = (dataCollection, latestDataCollection, entry, i) => {
+  const updated = 'updated'
   if (dataCollection == null) {
     return
   }
@@ -28,19 +29,21 @@ const generateContent = (dataCollection, latestDataCollection, entry, i) => {
   if (
     latestDataCollection &&
     latestDataCollection[key] !== undefined &&
+    latestDataCollection[key] !== null &&
     latestDataCollection[key] !== value
   ) {
     return (
       <div className='margin-bottom--half' key={i}>
         <div className='application-updated-row'>
           <h4 className='t-sans t-small t-bold no-margin inline'>{label}</h4>
-          <span className='application-updated-alert'>updated</span>
+          <span className='application-updated-alert'>{updated}</span>
         </div>
         <p className='latest-value'>{latestDataCollection[key]}</p>
         <p className='previous-value'>
           <span className='strike-through'>{value}</span>&nbsp;(previous)
         </p>
-        Updated {GMTToPacificTime(latestDataCollection[key + '_last_modified'])?.format('lll')}
+        {updated.charAt(0).toUpperCase() + updated.slice(1)}{' '}
+        {GMTToPacificTime(latestDataCollection[key + '_last_modified'])?.format('lll')}
       </div>
     )
   } else {
