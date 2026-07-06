@@ -14,6 +14,7 @@ export const Tab = ({ tabItem, onKeyDown, onFocus, linkRefs }) => {
     'tab-title': true,
     active
   })
+  const contact_updated = 'Contact updated'
 
   const tabControlProps = {
     className: 'button-unstyled',
@@ -43,7 +44,7 @@ export const Tab = ({ tabItem, onKeyDown, onFocus, linkRefs }) => {
     <li className={liClassName} role='none'>
       <TabControl {...tabControlProps}>
         {title}
-        {isUpdated && <span className='application-contact-updated-alert'>Contact updated</span>}
+        {isUpdated && <span className='application-contact-updated-alert'>{contact_updated}</span>}
       </TabControl>
     </li>
   )
