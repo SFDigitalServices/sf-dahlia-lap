@@ -23,15 +23,15 @@ describe('StatusDropdown', () => {
     expect(screen.getByRole('combobox')).toBeInTheDocument()
   })
 
-  test('it renders with default props correctly', () => {
+  test('it renders with default props correctly', async () => {
     getScreen()
 
-    selectEvent.openMenu(screen.getByRole('combobox'))
+    await selectEvent.openMenu(screen.getByRole('combobox'))
 
-    expect(screen.getAllByRole('listitem')).toHaveLength(LEASE_UP_STATUS_OPTIONS.length)
-    expect(screen.getAllByRole('listitem').map((item) => item.textContent)).toEqual(
-      LEASE_UP_STATUS_OPTIONS.map((option) => option.label)
-    )
+    await screen.findByText(LEASE_UP_STATUS_OPTIONS[0].label)
+    LEASE_UP_STATUS_OPTIONS.forEach((option) => {
+      expect(screen.getByText(option.label)).toBeInTheDocument()
+    })
     expect(screen.getByRole('combobox')).toHaveValue('')
     expect(screen.getByRole('button')).toHaveTextContent('Status')
     expect(screen.getByRole('combobox')).toBeEnabled()

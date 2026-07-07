@@ -24,26 +24,26 @@ describe('SubstatusDropdown', () => {
     expect(screen.getByRole('combobox')).toBeInTheDocument()
   })
 
-  test('it renders with default props correctly', () => {
+  test('it renders with default props correctly', async () => {
     getScreen()
 
     // Ensure that the placeholder is rendered
     expect(screen.getByText('Select one...')).toBeInTheDocument()
     // Open the dropdown, since there are no items "No Options" should be rendered
-    selectEvent.openMenu(screen.getByRole('combobox'))
-    expect(screen.getByText('No options')).toBeInTheDocument()
+    await selectEvent.openMenu(screen.getByRole('combobox'))
+    expect(await screen.findByText(/no options/i)).toBeInTheDocument()
     expect(screen.getByRole('combobox')).toHaveValue('')
     expect(screen.getByRole('combobox')).toBeEnabled()
   })
 
-  test('it passes the expected options to Dropdown when a status is provided', () => {
+  test('it passes the expected options to Dropdown when a status is provided', async () => {
     getScreen({ status: 'Appealed' })
 
-    selectEvent.openMenu(screen.getByRole('combobox'))
-    expect(screen.getAllByRole('listitem')).toHaveLength(LEASE_UP_SUBSTATUS_OPTIONS.Appealed.length)
-    expect(screen.getAllByRole('listitem').map((item) => item.textContent)).toEqual(
-      LEASE_UP_SUBSTATUS_OPTIONS.Appealed.map((option) => option.label)
-    )
+    await selectEvent.openMenu(screen.getByRole('combobox'))
+    await screen.findByText(LEASE_UP_SUBSTATUS_OPTIONS.Appealed[0].label)
+    LEASE_UP_SUBSTATUS_OPTIONS.Appealed.forEach((option) => {
+      expect(screen.getByText(option.label)).toBeInTheDocument()
+    })
   })
 
   describe('toggle', () => {

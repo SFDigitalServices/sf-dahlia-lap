@@ -33,8 +33,8 @@ describe('StatusCell', () => {
     expect(rtlWrapper.asFragment()).toMatchSnapshot()
   })
 
-  test('onClick is trigged when the input changes', () => {
-    selectEvent.openMenu(screen.getByRole('combobox'))
+  test('onClick is trigged when the input changes', async () => {
+    await selectEvent.openMenu(screen.getByRole('combobox'))
     expect(mockOnChange.mock.calls).toHaveLength(0)
     act(() => fireEvent.click(screen.getByText(/disqualified/i)))
     expect(mockOnChange.mock.calls).toHaveLength(1)

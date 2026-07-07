@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, within } from '@testing-library/react'
 import { useFlag as useFlagUnleash, useFlagsStatus, useVariant } from '@unleash/proxy-client-react'
 import { act } from 'react-dom/test-utils'
 import { BrowserRouter } from 'react-router-dom'
@@ -272,10 +272,13 @@ describe('LeaseUpApplicationsFilterContainer', () => {
 
         describe('when a filter is changed', () => {
           beforeEach(async () => {
-            selectEvent.openMenu(screen.getAllByRole('combobox').pop())
-            await act(async () => {
-              fireEvent.click(screen.getByText(/processing/i))
-            })
+            const applicationStatusFilter = screen
+              .getByText('Application Status')
+              .closest('[data-testid="multiSelectField"]')
+
+            await selectEvent.select(within(applicationStatusFilter).getByRole('combobox'), [
+              'Processing'
+            ])
           })
 
           test('should should set hasChangedFilters = true', () => {

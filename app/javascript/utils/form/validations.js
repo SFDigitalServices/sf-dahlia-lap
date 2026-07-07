@@ -4,6 +4,8 @@ import moment from 'moment'
 
 import { API_DATE_FORMAT } from 'utils/utils'
 
+const DATE_INPUT_FORMATS = ['YYYY-M-D', API_DATE_FORMAT]
+
 const run = (rules, values, ifRules) => {
   return mapValues(rules, (valFn, key) => {
     if (ifRules && ifRules[key]) {
@@ -30,7 +32,7 @@ const decorateValidator = (fn) => (message) => validates(fn, message)
 
 const isOldEnough = (dateOfBirth) => {
   if (dateOfBirth && isDate(dateOfBirth)) {
-    const years = moment().diff(moment(dateOfBirth.join('-'), API_DATE_FORMAT), 'years')
+    const years = moment().diff(moment(dateOfBirth.join('-'), DATE_INPUT_FORMATS, true), 'years')
     return years >= 18
   } else {
     return false
@@ -43,7 +45,7 @@ const isDate = (date) => {
     if (date[0] < 1900) return false
     // Check that the date is valid
     const dateString = date.join('-')
-    return moment(dateString, 'YYYY-M-D', true).isValid()
+    return moment(dateString, DATE_INPUT_FORMATS, true).isValid()
   } else {
     return true
   }
@@ -52,7 +54,7 @@ const isDate = (date) => {
 const isFutureDate = (date) => {
   // date is not today and not in the past
   if (isDate(date)) {
-    const d = moment(date.join('-'), 'YYYY-M-D', true).endOf('day')
+    const d = moment(date.join('-'), DATE_INPUT_FORMATS, true).endOf('day')
     return d.isAfter(moment().endOf('day'))
   } else {
     return false

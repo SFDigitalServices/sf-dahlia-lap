@@ -15,16 +15,21 @@ Cross-browser testing done with <a href="https://www.browserstack.com/"><img src
 
 - Use Ruby 3.4.1 (Set the version using [RVM](https://rvm.io/rvm/install) or [rbenv](https://github.com/rbenv/rbenv))
 - Install [Bundler](https://github.com/bundler/bundler) `gem install bundler`
-- Use Node v22.12.x (npm v10.9.0)
-- Install Yarn (if you have Homebrew you can run `brew install yarn`)
-- Run `yarn install`
+- Use Node v22.13.x (npm v10.9.2)
+- Install pnpm (if you have Homebrew you can run `brew install pnpm`)
+- Run `pnpm install`
 - Run `bundle install`
+
   - see [here](https://stackoverflow.com/a/19850273/260495) if you have issues installing `pg` gem with Postgres.app, you may need to use: `gem install pg -v 0.21.0 -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/latest/bin/pg_config`
   - if you need to run this command make sure you run `bundle install` again following the success of the postgres installation to install the remaining gems
 
 - Run `overcommit --install`
 - Create a `.env` file in the root directory and ask a team member for access to the local development secrets
 - Setup your local database by running `bin/rails db:migrate RAILS_ENV=development`
+
+### Migrating from Yarn to pnpm
+
+When migrating from yarn to pnpm for the first time, remove the node_modules directory `rm -rf node_modules` and then run `pnpm install`
 
 ### VSCode setup
 
@@ -40,7 +45,7 @@ Necessary configs are defined in [.vscode/settings.json](.vscode/settings.json).
 
 ## To run server and client concurrently
 
-- `yarn start`
+- `pnpm start`
 - Access the app at [http://localhost:3000/](http://localhost:3000/)
 
 ## To update CSS from Pattern Library
@@ -69,9 +74,9 @@ To use the new icons in Partners, replace the [layouts/\_icons.html](https://git
 
 To lint Ruby code run: `rubocop`
 
-To lint the React code run: `yarn lint`
+To lint the React code run: `pnpm lint`
 
-To fix any auto-fixable linting errors run: `yarn lint:fix`
+To fix any auto-fixable linting errors run: `pnpm lint:fix`
 
 ## Visual Studio setup
 
@@ -125,41 +130,31 @@ Then re-run your test. **Be aware that now that request in your test will actual
 
 ### Running unit tests
 
-`yarn unit`
+`pnpm unit`
 
 **Updating snapshots**
 
 If you made a legitimate change in the view and a snapshot fails then you have to tell Jest to update the snapshots. Run:
 
-`yarn unit -u`
+`pnpm unit -u`
 
 _Note: Snapshots should be pushed to the repo_
 
 ### Running e2e tests
 
-To run the E2E tests in a headless state, run `yarn e2e`
+To run the E2E tests in a headless state, run `pnpm e2e`
 
-If you want to use the Cypress UI to view the tests, you can run `yarn e2e:open`
+If you want to use the Cypress UI to view the tests, you can run `pnpm e2e:open`
 
-_Note: The app should also be running (using `yarn start`) in another terminal when you run the e2e tests_
+_Note: The app should also be running (using `pnpm start`) in another terminal when you run the e2e tests_
 
 #### Run server and client concurrently (in a terminal window)
 
-`yarn start`
+`pnpm start`
 
 #### Run tests (in another terminal window)
 
-`yarn e2e`
-
-### Running all or individual tests
-
-To run all tests (unit and e2e):
-
-`yarn test:all`
-
-To run an individual test:
-
-`yarn test:all path/to/test`
+`pnpm e2e`
 
 ### Qlty
 
@@ -168,6 +163,11 @@ Qlty provides a cli to run checks locally.
 
 - Install the CLI: `curl https://qlty.sh | sh`
 - [CLI Quickstart](https://docs.qlty.sh/cli/quickstart)
+
+### Dependency vulnerabilities
+
+- Run `pnpm audit` to scan the project's dependencies for known security vulnerabilities.
+- `pnpm audit --fix=override` will attempt to resolve security issues by automatically applying overrides in the workspace or updating packages in the lockfile.
 
 ### Writing unit tests with React Testing Library
 
@@ -213,7 +213,7 @@ More documentation for how these scripts are used during a release in the [partn
 
 #### 1. create_release_branch
 
-Command: `yarn create_release_branch`
+Command: `pnpm create_release_branch`
 
 This script will:
 
@@ -223,9 +223,9 @@ This script will:
 
 #### 2. print_release_info
 
-Command: `yarn print_release_info -u <github-username> -t <github-access-token>`
+Command: `pnpm print_release_info -u <github-username> -t <github-access-token>`
 
-Instructions for how to get your github access token are printed by running `yarn print_release_info -h`
+Instructions for how to get your github access token are printed by running `pnpm print_release_info -h`
 
 This script will:
 

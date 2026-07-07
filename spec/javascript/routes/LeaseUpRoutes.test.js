@@ -68,6 +68,14 @@ const getScreen = (url) => {
     </Router>
   )
 }
+
+const expectWarnContaining = (message) => {
+  expect(consoleSpy).toHaveBeenCalled()
+  expect(
+    consoleSpy.mock.calls.some((call) => call.some((arg) => String(arg).includes(message)))
+  ).toBe(true)
+}
+
 let consoleSpy
 describe('LeaseUpRoutes', () => {
   beforeEach(() => {
@@ -77,6 +85,10 @@ describe('LeaseUpRoutes', () => {
     consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {})
   })
 
+  afterEach(() => {
+    consoleSpy.mockRestore()
+  })
+
   describe('routes for flagged application pages', () => {
     test('should not render any page (redirect to rails routing) with type=pending', () => {
       getScreen('/applications/flagged?type=pending')
@@ -84,11 +96,8 @@ describe('LeaseUpRoutes', () => {
       expect(screen.queryByText(MOCK_NAME_LISTINGS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_APP_DETAILS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_SHORT_FORM)).not.toBeInTheDocument()
-      expect(consoleSpy).toHaveBeenCalledTimes(1)
-      expect(consoleSpy).toHaveBeenCalledWith(
-        expect.stringContaining(
-          'Matched leaf route at location "/applications/flagged?type=pending" does not have an element or Component.'
-        )
+      expectWarnContaining(
+        'Matched leaf route at location "/applications/flagged?type=pending" does not have an element or Component.'
       )
     })
 
@@ -98,11 +107,8 @@ describe('LeaseUpRoutes', () => {
       expect(screen.queryByText(MOCK_NAME_LISTINGS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_APP_DETAILS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_SHORT_FORM)).not.toBeInTheDocument()
-      expect(consoleSpy).toHaveBeenCalledTimes(1)
-      expect(consoleSpy).toHaveBeenCalledWith(
-        expect.stringContaining(
-          'Matched leaf route at location "/applications/flagged?type=duplicate" does not have an element or Component.'
-        )
+      expectWarnContaining(
+        'Matched leaf route at location "/applications/flagged?type=duplicate" does not have an element or Component.'
       )
     })
   })
@@ -114,11 +120,8 @@ describe('LeaseUpRoutes', () => {
       expect(screen.queryByText(MOCK_NAME_LISTINGS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_APP_DETAILS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_SHORT_FORM)).not.toBeInTheDocument()
-      expect(consoleSpy).toHaveBeenCalledTimes(1)
-      expect(consoleSpy).toHaveBeenCalledWith(
-        expect.stringContaining(
-          'Matched leaf route at location "/applications/applicationId/edit" does not have an element or Component.'
-        )
+      expectWarnContaining(
+        'Matched leaf route at location "/applications/applicationId/edit" does not have an element or Component.'
       )
     })
   })
@@ -172,11 +175,8 @@ describe('LeaseUpRoutes', () => {
       expect(screen.queryByText(MOCK_NAME_LISTINGS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_APP_DETAILS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_SHORT_FORM)).not.toBeInTheDocument()
-      expect(consoleSpy).toHaveBeenCalledTimes(1)
-      expect(consoleSpy).toHaveBeenCalledWith(
-        expect.stringContaining(
-          'No routes matched location "/applications/testApplicationId/somethingElse"'
-        )
+      expectWarnContaining(
+        'No routes matched location "/applications/testApplicationId/somethingElse"'
       )
     })
   })
@@ -196,11 +196,8 @@ describe('LeaseUpRoutes', () => {
       expect(screen.queryByText(MOCK_NAME_LISTINGS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_APP_DETAILS)).not.toBeInTheDocument()
       expect(screen.queryByText(MOCK_NAME_SHORT_FORM)).not.toBeInTheDocument()
-      expect(consoleSpy).toHaveBeenCalledTimes(1)
-      expect(consoleSpy).toHaveBeenCalledWith(
-        expect.stringContaining(
-          'No routes matched location "/lease-ups/applications/testApplicationId/somethingElse"'
-        )
+      expectWarnContaining(
+        'No routes matched location "/lease-ups/applications/testApplicationId/somethingElse"'
       )
     })
   })

@@ -10,7 +10,6 @@ CommitMsg:
 
 # Custom options for DAHLIA LAP repository
 PreCommit:
-
   BundleCheck:
     enabled: true
 
@@ -48,11 +47,11 @@ PreCommit:
   Eslint:
     enabled: true
     description: 'Linting JavaScript'
-    command: ['yarn', 'lint']
+    command: [pnpm, lint]
 
   ScanForEnvVars:
     enabled: true
-    description: "Scanning for env var values"
+    description: Scanning for env var values
 
   CustomScript:
     enabled: true
