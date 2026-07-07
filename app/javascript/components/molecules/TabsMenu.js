@@ -9,62 +9,43 @@ import keyboard from 'utils/keyboard'
 
 // visible for testing
 export const Tab = ({ tabItem, onKeyDown, onFocus, linkRefs }) => {
-  const { active, url, title, onClick, renderAsRouterLink } = tabItem
+  const { active, url, title, onClick, renderAsRouterLink, isUpdated, className } = tabItem
   const liClassName = classNames({
     'tab-title': true,
     active
   })
+  const contact_updated = 'Contact updated'
 
-  let tabContent
+  const tabControlProps = {
+    className: 'button-unstyled',
+    role: 'menuitem',
+    ref: linkRefs,
+    onFocus,
+    onKeyDown,
+    tabIndex: active ? '-1' : '0',
+    'aria-selected': active
+  }
+
+  let TabControl
   if (onClick) {
-    tabContent = (
-      <button
-        type='button'
-        className='button-unstyled'
-        onClick={onClick}
-        role='menuitem'
-        ref={linkRefs}
-        onFocus={onFocus}
-        onKeyDown={onKeyDown}
-        tabIndex={active ? '-1' : '0'}
-        aria-selected={active}
-      >
-        {title}
-      </button>
-    )
+    TabControl = 'button'
+    tabControlProps.type = 'button'
+    tabControlProps.onClick = onClick
+    tabControlProps.className = classNames(tabControlProps.className, className)
+  } else if (renderAsRouterLink) {
+    TabControl = Link
+    tabControlProps.to = url
   } else {
-    tabContent = renderAsRouterLink ? (
-      <Link
-        to={url}
-        className='button-unstyled'
-        role='menuitem'
-        ref={linkRefs}
-        onFocus={onFocus}
-        onKeyDown={onKeyDown}
-        tabIndex={active ? '-1' : '0'}
-        aria-selected={active}
-      >
-        {title}
-      </Link>
-    ) : (
-      <a
-        href={url}
-        className='button-unstyled'
-        role='menuitem'
-        ref={linkRefs}
-        onFocus={onFocus}
-        onKeyDown={onKeyDown}
-        tabIndex={active ? '-1' : '0'}
-        aria-selected={active}
-      >
-        {title}
-      </a>
-    )
+    TabControl = 'a'
+    tabControlProps.href = url
   }
 
   return (
     <li className={liClassName} role='none'>
-      {tabContent}
+      <TabControl {...tabControlProps}>
+        {title}
+        {isUpdated && <span className='application-contact-updated-alert'>{contact_updated}</span>}
+      </TabControl>
     </li>
   )
 }
@@ -109,7 +90,9 @@ const tabItemShape = PropTypes.shape({
   url: PropTypes.string,
   active: PropTypes.bool,
   renderAsRouterLink: PropTypes.bool,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  isUpdated: PropTypes.bool,
+  className: PropTypes.string
 })
 
 Tab.propTypes = {

@@ -66,7 +66,8 @@ const formatLabel = (label) => {
 }
 
 export const buildFieldEntry = (item, spec, options = {}) => {
-  let value = get(item, spec.field)
+  const key = spec.field
+  let value = get(item, key)
 
   if (spec.value) {
     value = spec.value(value)
@@ -81,7 +82,7 @@ export const buildFieldEntry = (item, spec, options = {}) => {
     value = options.defaultValue
   }
 
-  return { label, value, renderType }
+  return { label, value, renderType, key }
 }
 
 export const buildFieldSpecs = (entry) => {

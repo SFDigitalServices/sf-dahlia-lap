@@ -3,6 +3,8 @@ import { useFlag as useFlagUnleash, useFlagsStatus, useVariant } from '@unleash/
 import { cloneDeep } from 'lodash'
 import selectEvent from 'react-select-event'
 
+import { isContactUpdated } from 'components/supplemental_application/SupplementalApplicationPage'
+
 import supplementalApplication from '../../fixtures/supplemental_application'
 import { leaseUpAppWithUrl, renderAppWithUrl } from '../../testUtils/wrapperUtil'
 
@@ -193,6 +195,58 @@ jest.mock('apiService', () => {
 const getWrapper = async (id = getMockApplication().id) => {
   return await act(async () => renderAppWithUrl(getWindowUrl(id)))
 }
+
+describe('isContactUpdated', () => {
+  test('returns false when applicant and contact info match', () => {
+    const shortForm = {
+      application: {
+        applicant: {
+          email: 'test@example.com',
+          phone: '415-111-1111',
+          phone_type: 'Cell',
+          second_phone: '415-222-2222',
+          second_phone_type: 'Home'
+        },
+        contact_info: {
+          email: 'test@example.com',
+          phone: '415-111-1111',
+          phone_type: 'Cell',
+          second_phone: '415-222-2222',
+          second_phone_type: 'Home'
+        }
+      }
+    }
+
+    expect(isContactUpdated(shortForm)).toBe(false)
+  })
+
+  test('returns true when any tracked field differs', () => {
+    const shortForm = {
+      application: {
+        applicant: {
+          email: 'test@example.com',
+          phone: '415-111-1111',
+          phone_type: 'Cell',
+          second_phone: '415-222-2222',
+          second_phone_type: 'Home'
+        },
+        contact_info: {
+          email: 'updated@example.com',
+          phone: '415-111-1111',
+          phone_type: 'Cell',
+          second_phone: '415-222-2222',
+          second_phone_type: 'Home'
+        }
+      }
+    }
+
+    expect(isContactUpdated(shortForm)).toBe(true)
+  })
+
+  test('returns false when shortForm is missing', () => {
+    expect(isContactUpdated(undefined)).toBe(false)
+  })
+})
 
 describe('SupplementalApplicationPage', () => {
   const originalLocation = window.location
