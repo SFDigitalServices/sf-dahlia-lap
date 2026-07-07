@@ -46,6 +46,7 @@ const ApplicationDetails = ({ application, fields, fileBaseUrl }) => {
         dataCollection={application.applicant}
         title='Primary Applicant'
         fields={primaryApplicantFields}
+        latestDataCollection={application.contact_info}
       />
       {application.listing.is_sale && (
         <ApplicationDetailsContentCard
