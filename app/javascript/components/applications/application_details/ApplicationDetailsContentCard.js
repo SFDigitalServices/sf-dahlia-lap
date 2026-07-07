@@ -1,32 +1,75 @@
 import React from 'react'
 
 import { map, isBoolean } from 'lodash'
+import moment from 'moment-timezone'
 
 import arrayUtils from 'utils/arrayUtils'
 import { buildFields } from 'utils/fieldSpecs'
 
-const generateContent = (dataCollection, entry, i) => {
+const PACIFIC_TIMEZONE = 'America/Los_Angeles'
+
+export const GMTToPacificTime = (gmtTime) => {
+  if (!gmtTime) {
+    return null
+  }
+  return moment.utc(gmtTime).tz(PACIFIC_TIMEZONE)
+}
+
+const generateContent = (dataCollection, latestDataCollection, entry, i) => {
+  const updated = 'updated'
   if (dataCollection == null) {
     return
   }
 
-  const { label } = entry
+  const { label, key } = entry
   let { value } = entry
   if (isBoolean(value)) {
     value = value ? 'Yes' : 'No'
   }
-  return (
-    <div className='margin-bottom--half' key={i}>
-      <h4 className='t-sans t-small t-bold no-margin'>{label}</h4>
-      <p>{value}</p>
-    </div>
-  )
+  if (
+    latestDataCollection &&
+    latestDataCollection[key] !== undefined &&
+    latestDataCollection[key] !== null &&
+    latestDataCollection[key] !== value
+  ) {
+    return (
+      <div className='margin-bottom--half' key={i}>
+        <div className='application-updated-row'>
+          <h4 className='t-sans t-small t-bold no-margin inline'>{label}</h4>
+          <span className='application-updated-alert'>{updated}</span>
+        </div>
+        <p className='latest-value'>{latestDataCollection[key]}</p>
+        <p className='previous-value'>
+          <span className='strike-through'>{value}</span>&nbsp;(previous)
+        </p>
+        {updated.charAt(0).toUpperCase() + updated.slice(1)}{' '}
+        {GMTToPacificTime(latestDataCollection[key + '_last_modified'])?.format('lll')}
+      </div>
+    )
+  } else {
+    return (
+      <div className='margin-bottom--half' key={i}>
+        <h4 className='t-sans t-small t-bold no-margin'>{label}</h4>
+        <p>{value}</p>
+      </div>
+    )
+  }
 }
 
-const ApplicationDetailsContentCard = ({ dataCollection, title, fields, labelMapper, splitOn }) => {
+const ApplicationDetailsContentCard = ({
+  dataCollection,
+  title,
+  fields,
+  labelMapper,
+  splitOn,
+  latestDataCollection
+}) => {
   const entries = buildFields(dataCollection, fields, { defaultValue: 'None' })
-  const contents = map(entries, (entry, idx) => generateContent(dataCollection, entry, idx))
+  const contents = map(entries, (entry, idx) =>
+    generateContent(dataCollection, latestDataCollection, entry, idx)
+  )
   const { firstHalf, secondHalf } = arrayUtils.split(contents, splitOn)
+
   return (
     <div className='content-card padding-bottom-none margin-bottom--half bg-trans'>
       <h4 className='content-card_title t-serif'>{title}</h4>

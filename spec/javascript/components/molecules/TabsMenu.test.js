@@ -5,12 +5,22 @@ import { BrowserRouter } from 'react-router-dom'
 
 import TabsMenu, { Tab } from 'components/molecules/TabsMenu'
 
-const mockTabItem = ({ title, url, active, onClick, renderAsRouterLink }) => ({
+const mockTabItem = ({
+  title,
+  url,
+  active,
+  onClick,
+  renderAsRouterLink,
+  isUpdated,
+  className
+}) => ({
   title,
   url,
   active,
   renderAsRouterLink,
-  onClick
+  onClick,
+  isUpdated,
+  className
 })
 
 const mockOnClick = jest.fn()
@@ -25,6 +35,12 @@ const ITEM_ROUTED = mockTabItem({
 const ITEM_ONCLICK = mockTabItem({
   title: 'itemOnClick',
   onClick: mockOnClick
+})
+const ITEM_ONCLICK_UPDATED = mockTabItem({
+  title: 'itemOnClickUpdated',
+  onClick: mockOnClick,
+  isUpdated: true,
+  className: 'application-updated-button'
 })
 
 describe('TabsMenu', () => {
@@ -121,6 +137,15 @@ describe('Tab', () => {
     test('triggers onClick properly', () => {
       fireEvent.click(screen.getByRole('menuitem'))
       expect(mockOnClick.mock.calls).toHaveLength(1)
+    })
+
+    test('renders updated badge with class when tab is updated', () => {
+      render(<Tab tabItem={ITEM_ONCLICK_UPDATED} />)
+      const button = screen.getByRole('menuitem', { name: /itemOnClickUpdated/i })
+
+      expect(screen.getByText('Contact updated')).toBeInTheDocument()
+      expect(screen.getByText('Contact updated')).toHaveClass('application-contact-updated-alert')
+      expect(button).toHaveClass('application-updated-button')
     })
   })
 

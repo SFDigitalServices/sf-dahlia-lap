@@ -89,7 +89,7 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
       >
         <button
           aria-selected="false"
-          class="button-unstyled"
+          class="button-unstyled application-updated-button"
           role="menuitem"
           tabindex="0"
           type="button"
