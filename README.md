@@ -19,12 +19,17 @@ Cross-browser testing done with <a href="https://www.browserstack.com/"><img src
 - Install pnpm (if you have Homebrew you can run `brew install pnpm`)
 - Run `pnpm install`
 - Run `bundle install`
+
   - see [here](https://stackoverflow.com/a/19850273/260495) if you have issues installing `pg` gem with Postgres.app, you may need to use: `gem install pg -v 0.21.0 -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/latest/bin/pg_config`
   - if you need to run this command make sure you run `bundle install` again following the success of the postgres installation to install the remaining gems
 
 - Run `overcommit --install`
 - Create a `.env` file in the root directory and ask a team member for access to the local development secrets
 - Setup your local database by running `bin/rails db:migrate RAILS_ENV=development`
+
+### Migrating from Yarn to pnpm
+
+When migrating from yarn to pnpm for the first time, remove the node_modules directory `rm -rf node_modules` and then run `pnpm install`
 
 ### VSCode setup
 
