@@ -68,7 +68,12 @@ const SupplementalApplicationPage = () => {
   ] = useAppContext()
 
   const [loadingShortform, setLoadingShortform] = useState(true)
-  const contactUpdated = contactInfoUpdatedBadgesFlag && isContactUpdated(shortform)
+  const contactInfo = shortform?.application?.contact_info
+  const contactUpdated =
+    contactInfoUpdatedBadgesFlag &&
+    contactInfo &&
+    Object.keys(contactInfo).length > 0 &&
+    isContactUpdated(shortform)
 
   useAsyncOnMount(() => getShortFormApplication(applicationId), {
     onSuccess: ({ application, fileBaseUrl }) => {
