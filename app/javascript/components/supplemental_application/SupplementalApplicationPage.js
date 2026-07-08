@@ -46,11 +46,17 @@ export const isContactUpdated = (shortForm) => {
   return false
 }
 
+export const CONTACT_INFO_UPDATED_BADGES_FLAG = 'temp.partners.contact_info'
+
 /**
  * Supplemental application page with both supplemental and shortform tabs
  */
 const SupplementalApplicationPage = () => {
   const { unleashFlag: inviteApplyFlag } = useFeatureFlag(I2A_FEATURE_FLAG, false)
+  const { unleashFlag: contactInfoUpdatedBadgesFlag } = useFeatureFlag(
+    CONTACT_INFO_UPDATED_BADGES_FLAG,
+    false
+  )
   const { applicationId } = useParams()
   const [selectedTabKey, setSelectedTabKey] = useState(SUPP_TAB_KEY)
   const [
@@ -62,7 +68,7 @@ const SupplementalApplicationPage = () => {
   ] = useAppContext()
 
   const [loadingShortform, setLoadingShortform] = useState(true)
-  const contactUpdated = isContactUpdated(shortform)
+  const contactUpdated = contactInfoUpdatedBadgesFlag && isContactUpdated(shortform)
 
   useAsyncOnMount(() => getShortFormApplication(applicationId), {
     onSuccess: ({ application, fileBaseUrl }) => {

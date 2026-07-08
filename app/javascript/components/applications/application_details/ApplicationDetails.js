@@ -58,7 +58,7 @@ const ApplicationDetails = ({ application, fields, fileBaseUrl, isContactUpdated
           dataCollection={application.applicant}
           title='Primary Applicant'
           fields={primaryApplicantFields}
-          latestDataCollection={application.contact_info}
+          latestDataCollection={isContactUpdated ? application.contact_info : null}
         />
         {application.listing.is_sale && (
           <ApplicationDetailsContentCard

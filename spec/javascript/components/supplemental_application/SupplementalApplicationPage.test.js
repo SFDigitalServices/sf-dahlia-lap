@@ -1,9 +1,12 @@
-import { render, screen, fireEvent, within, act } from '@testing-library/react'
+import { render, screen, fireEvent, within, act, waitFor } from '@testing-library/react'
 import { useFlag as useFlagUnleash, useFlagsStatus, useVariant } from '@unleash/proxy-client-react'
 import { cloneDeep } from 'lodash'
 import selectEvent from 'react-select-event'
 
-import { isContactUpdated } from 'components/supplemental_application/SupplementalApplicationPage'
+import {
+  isContactUpdated,
+  CONTACT_INFO_UPDATED_BADGES_FLAG
+} from 'components/supplemental_application/SupplementalApplicationPage'
 
 import supplementalApplication from '../../fixtures/supplemental_application'
 import { leaseUpAppWithUrl, renderAppWithUrl } from '../../testUtils/wrapperUtil'
@@ -15,6 +18,7 @@ const mockUpdatePreference = jest.fn()
 const mockCreateLease = jest.fn()
 const mockUpdateLease = jest.fn()
 const mockGetRentalAssistances = jest.fn()
+const mockGetShortFormApplication = jest.fn()
 window.scrollTo = jest.fn()
 
 const getMockApplication = () => cloneDeep(supplementalApplication)
@@ -26,6 +30,7 @@ const ID_WITH_TOTAL_MONTHLY_RENT = 'idwithtotalmonthlyrent'
 
 const LISTING_ID_WITH_LEASE_MATCHING_APPLICANT = 'listingidwithleasematchingapplicant'
 const APPLICATION_ID_WITH_LEASE_MATCHING_APPLICANT = 'applicationidwithleasematchingapplicant'
+const APPLICATION_ID_WITH_CONTACT_INFO_UPDATE = 'applicationidwithcontactinfoupdate'
 
 jest.mock('@unleash/proxy-client-react')
 
@@ -54,6 +59,27 @@ jest.mock('apiService', () => {
   const _ID_WITH_SELECTED_UNIT = 'idwithselectedunit'
 
   return {
+    getShortFormApplication: async (applicationId) => {
+      mockGetShortFormApplication(applicationId)
+
+      const shortFormApplication = _cloneDeep(mockedApplication)
+      const applicant = shortFormApplication.applicant
+      shortFormApplication.contact_info = {
+        email:
+          applicationId === APPLICATION_ID_WITH_CONTACT_INFO_UPDATE
+            ? 'updated@email.com'
+            : applicant.email,
+        phone: applicant.phone,
+        phone_type: applicant.phone_type,
+        second_phone: applicant.second_phone,
+        second_phone_type: applicant.second_phone_type
+      }
+
+      return {
+        application: shortFormApplication,
+        fileBaseUrl: 'fileBaseUrl'
+      }
+    },
     getSupplementalApplication: async (applicationId) => {
       mockInitialLoad(applicationId)
 
@@ -277,6 +303,36 @@ describe('SupplementalApplicationPage', () => {
     expect(asFragment()).toMatchSnapshot()
 
     jest.useRealTimers()
+  })
+
+  describe('contact updated badge feature flag', () => {
+    afterEach(() => {
+      useFlagUnleash.mockImplementation(() => true)
+    })
+
+    test('shows short form updated badge when contact info flag is enabled', async () => {
+      useFlagUnleash.mockImplementation(() => true)
+
+      await getWrapper(APPLICATION_ID_WITH_CONTACT_INFO_UPDATE)
+
+      await waitFor(() => {
+        expect(mockGetShortFormApplication).toHaveBeenCalledTimes(1)
+      })
+
+      expect(screen.getByText('Contact updated')).toBeInTheDocument()
+    })
+
+    test('hides short form updated badge when contact info flag is disabled', async () => {
+      useFlagUnleash.mockImplementation((flagName) => flagName !== CONTACT_INFO_UPDATED_BADGES_FLAG)
+
+      await getWrapper(APPLICATION_ID_WITH_CONTACT_INFO_UPDATE)
+
+      await waitFor(() => {
+        expect(mockGetShortFormApplication).toHaveBeenCalledTimes(1)
+      })
+
+      expect(screen.queryByText('Contact updated')).not.toBeInTheDocument()
+    })
   })
 
   test('it only performs initial load request if nothing is changed', async () => {
