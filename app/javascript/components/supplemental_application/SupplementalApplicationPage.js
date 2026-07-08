@@ -62,6 +62,7 @@ const SupplementalApplicationPage = () => {
   ] = useAppContext()
 
   const [loadingShortform, setLoadingShortform] = useState(true)
+  const contactUpdated = isContactUpdated(shortform)
 
   useAsyncOnMount(() => getShortFormApplication(applicationId), {
     onSuccess: ({ application, fileBaseUrl }) => {
@@ -88,7 +89,7 @@ const SupplementalApplicationPage = () => {
       active: selectedTabKey === SHORTFORM_TAB_KEY,
       onClick: () => setSelectedTabKey(SHORTFORM_TAB_KEY),
       renderAsRouterLink: true,
-      isUpdated: isContactUpdated(shortform),
+      isUpdated: contactUpdated,
       className: 'application-updated-button'
     }
   ]
@@ -131,6 +132,7 @@ const SupplementalApplicationPage = () => {
         application={shortform.application}
         fileBaseUrl={shortform.fileBaseUrl}
         fields={labelMapperFields}
+        isContactUpdated={contactUpdated}
       />
     )
   }
