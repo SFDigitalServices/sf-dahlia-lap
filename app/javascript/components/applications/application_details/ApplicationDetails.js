@@ -4,6 +4,7 @@ import { map, isEmpty } from 'lodash'
 
 import InfoAlert from 'components/molecules/InfoAlert'
 import appPaths from 'utils/appPaths'
+import { CONTACT_INFO_UPDATED } from 'utils/consts'
 
 import ApplicationDetailsContentCard from './ApplicationDetailsContentCard'
 import ApplicationDetailsContentTable from './ApplicationDetailsContentTable'
@@ -35,14 +36,12 @@ const ApplicationDetails = ({ application, fields, fileBaseUrl, isContactUpdated
     <ApplicationDetailsContentCard dataCollection={application} {...props} />
   )
   const Table = (props) => <ApplicationDetailsContentTable data={application} {...props} />
-  const contactInfoUpdatedMsg =
-    'Applicant changed their contact info. Use updated details for future outreach.'
 
   return (
     <>
       {isContactUpdated && (
         <InfoAlert
-          message={contactInfoUpdatedMsg}
+          message={CONTACT_INFO_UPDATED}
           icon='i-inverted-clock'
           closeType='none'
           classes={['contact-updated']}

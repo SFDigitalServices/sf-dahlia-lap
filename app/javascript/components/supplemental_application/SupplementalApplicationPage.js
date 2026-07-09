@@ -17,6 +17,7 @@ import {
 } from 'components/supplemental_application/actions/supplementalApplicationActionCreators'
 import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
 import SupplementalApplicationContainer from 'components/supplemental_application/SupplementalApplicationContainer'
+import { CONTACT_INFO_UPDATED_BADGES_FLAG } from 'utils/consts'
 import { useAppContext, useAsyncOnMount } from 'utils/customHooks'
 import validate, { convertPercentAndCurrency } from 'utils/form/validations'
 import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
@@ -45,8 +46,6 @@ export const isContactUpdated = (shortForm) => {
 
   return false
 }
-
-export const CONTACT_INFO_UPDATED_BADGES_FLAG = 'temp.webapp.newAccountLayout'
 
 /**
  * Supplemental application page with both supplemental and shortform tabs

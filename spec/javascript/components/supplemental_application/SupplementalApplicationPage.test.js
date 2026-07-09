@@ -3,10 +3,8 @@ import { useFlag as useFlagUnleash, useFlagsStatus, useVariant } from '@unleash/
 import { cloneDeep } from 'lodash'
 import selectEvent from 'react-select-event'
 
-import {
-  isContactUpdated,
-  CONTACT_INFO_UPDATED_BADGES_FLAG
-} from 'components/supplemental_application/SupplementalApplicationPage'
+import { isContactUpdated } from 'components/supplemental_application/SupplementalApplicationPage'
+import { CONTACT_INFO_UPDATED_BADGES_FLAG } from 'utils/consts'
 
 import supplementalApplication from '../../fixtures/supplemental_application'
 import { leaseUpAppWithUrl, renderAppWithUrl } from '../../testUtils/wrapperUtil'
