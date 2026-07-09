@@ -29,7 +29,7 @@ Cross-browser testing done with <a href="https://www.browserstack.com/"><img src
 
 ### Migrating from Yarn to pnpm
 
-When migrating from yarn to pnpm for the first time, remove the node_modules directory `rm -rf node_modules` and then run `pnpm install`
+When migrating from yarn to pnpm for the first time, remove the node_modules directory `rm -rf package-lock.json node_modules` and then run `pnpm install`
 
 ### VSCode setup
 
