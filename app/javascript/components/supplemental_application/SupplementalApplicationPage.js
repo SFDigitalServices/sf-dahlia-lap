@@ -46,7 +46,7 @@ export const isContactUpdated = (shortForm) => {
   return false
 }
 
-export const CONTACT_INFO_UPDATED_BADGES_FLAG = 'temp.partners.contact_info'
+export const CONTACT_INFO_UPDATED_BADGES_FLAG = 'temp.webapp.newAccountLayout'
 
 /**
  * Supplemental application page with both supplemental and shortform tabs
