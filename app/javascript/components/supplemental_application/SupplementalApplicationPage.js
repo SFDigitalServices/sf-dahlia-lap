@@ -17,6 +17,7 @@ import {
 } from 'components/supplemental_application/actions/supplementalApplicationActionCreators'
 import { getPageHeaderData } from 'components/supplemental_application/leaseUpApplicationBreadcrumbs'
 import SupplementalApplicationContainer from 'components/supplemental_application/SupplementalApplicationContainer'
+import { CONTACT_INFO_UPDATED_BADGES_FLAG } from 'utils/consts'
 import { useAppContext, useAsyncOnMount } from 'utils/customHooks'
 import validate, { convertPercentAndCurrency } from 'utils/form/validations'
 import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
@@ -51,6 +52,10 @@ export const isContactUpdated = (shortForm) => {
  */
 const SupplementalApplicationPage = () => {
   const { unleashFlag: inviteApplyFlag } = useFeatureFlag(I2A_FEATURE_FLAG, false)
+  const { unleashFlag: contactInfoUpdatedBadgesFlag } = useFeatureFlag(
+    CONTACT_INFO_UPDATED_BADGES_FLAG,
+    false
+  )
   const { applicationId } = useParams()
   const [selectedTabKey, setSelectedTabKey] = useState(SUPP_TAB_KEY)
   const [
@@ -62,6 +67,12 @@ const SupplementalApplicationPage = () => {
   ] = useAppContext()
 
   const [loadingShortform, setLoadingShortform] = useState(true)
+  const contactInfo = shortform?.application?.contact_info
+  const contactUpdated =
+    contactInfoUpdatedBadgesFlag &&
+    contactInfo &&
+    Object.keys(contactInfo).length > 0 &&
+    isContactUpdated(shortform)
 
   useAsyncOnMount(() => getShortFormApplication(applicationId), {
     onSuccess: ({ application, fileBaseUrl }) => {
@@ -88,7 +99,7 @@ const SupplementalApplicationPage = () => {
       active: selectedTabKey === SHORTFORM_TAB_KEY,
       onClick: () => setSelectedTabKey(SHORTFORM_TAB_KEY),
       renderAsRouterLink: true,
-      isUpdated: isContactUpdated(shortform),
+      isUpdated: contactUpdated,
       className: 'application-updated-button'
     }
   ]
@@ -131,6 +142,7 @@ const SupplementalApplicationPage = () => {
         application={shortform.application}
         fileBaseUrl={shortform.fileBaseUrl}
         fields={labelMapperFields}
+        isContactUpdated={contactUpdated}
       />
     )
   }
