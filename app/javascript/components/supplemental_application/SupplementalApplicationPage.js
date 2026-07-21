@@ -39,7 +39,7 @@ export const isContactUpdated = (shortForm) => {
   const fieldsToCheck = ['email', 'phone', 'phone_type', 'second_phone', 'second_phone_type']
 
   for (const field of fieldsToCheck) {
-    if (contactInfo?.[field] && applicant?.[field] !== contactInfo[field]) {
+    if (contactInfo?.[field] != null && applicant?.[field] !== contactInfo?.[field]) {
       return true
     }
   }
