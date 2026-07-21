@@ -270,6 +270,29 @@ describe('isContactUpdated', () => {
   test('returns false when shortForm is missing', () => {
     expect(isContactUpdated(undefined)).toBe(false)
   })
+
+  test('returns false when a contactInfo value is null', () => {
+    const shortForm = {
+      application: {
+        applicant: {
+          email: 'test@example.com',
+          phone: '415-111-1111',
+          phone_type: 'Cell',
+          second_phone: '415-222-2222',
+          second_phone_type: 'Home'
+        },
+        contact_info: {
+          email: null,
+          phone: null,
+          phone_type: null,
+          second_phone: null,
+          second_phone_type: null
+        }
+      }
+    }
+
+    expect(isContactUpdated(shortForm)).toBe(false)
+  })
 })
 
 describe('SupplementalApplicationPage', () => {
