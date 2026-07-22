@@ -9,10 +9,20 @@ const getLeaseUpListing = async (listingId) =>
   request.get(`/lease-ups/listings/${listingId}`, null, true).then((r) => r.listing)
 
 const getShortFormApplication = async (applicationId) =>
-  request.get(`/short-form/${applicationId}`, null, true).then((response) => ({
-    application: response.application,
-    fileBaseUrl: response.file_base_url
-  }))
+  request.get(`/short-form/${applicationId}`, null, true).then((response) => {
+    const returnObj = {
+      application: response.application,
+      fileBaseUrl: response.file_base_url
+    }
+
+    if (response.application?.annual_income != null) {
+      returnObj.application.monthly_income = response.application.annual_income / 12
+    } else {
+      returnObj.application.annual_income = response.application.monthly_income * 12
+    }
+
+    return returnObj
+  })
 
 const getSupplementalApplication = async (applicationId) =>
   request

@@ -444,6 +444,78 @@ describe('apiService', () => {
     })
   })
 
+  describe('getShortFormApplication', () => {
+    describe('when annual_income is present', () => {
+      let result
+      beforeEach(async () => {
+        request.get = jest.fn(() =>
+          Promise.resolve({
+            application: { id: 'app1', annual_income: 120000, monthly_income: null },
+            file_base_url: 'http://files.example.com'
+          })
+        )
+        result = await apiService.getShortFormApplication('app1')
+      })
+
+      test('calls request.get with the correct path', () => {
+        expect(request.get.mock.calls[0]).toEqual(['/short-form/app1', null, true])
+      })
+
+      test('computes monthly_income from annual_income', () => {
+        expect(result.application.monthly_income).toBe(10000)
+      })
+
+      test('returns fileBaseUrl from the response', () => {
+        expect(result.fileBaseUrl).toBe('http://files.example.com')
+      })
+    })
+
+    describe('when annual_income is null', () => {
+      let result
+      beforeEach(async () => {
+        request.get = jest.fn(() =>
+          Promise.resolve({
+            application: { id: 'app2', annual_income: null, monthly_income: 5000 },
+            file_base_url: 'http://files.example.com'
+          })
+        )
+        result = await apiService.getShortFormApplication('app2')
+      })
+
+      test('computes annual_income from monthly_income', () => {
+        expect(result.application.annual_income).toBe(60000)
+      })
+    })
+
+    describe('when annual_income is undefined', () => {
+      let result
+      beforeEach(async () => {
+        request.get = jest.fn(() =>
+          Promise.resolve({
+            application: { id: 'app3', monthly_income: 2000 },
+            file_base_url: 'http://files.example.com'
+          })
+        )
+        result = await apiService.getShortFormApplication('app3')
+      })
+
+      test('computes annual_income from monthly_income', () => {
+        expect(result.application.annual_income).toBe(24000)
+      })
+    })
+
+    describe('when the request fails', () => {
+      test('propagates the error', async () => {
+        request.get = mockFailedRequest
+        let errorCaught = false
+        await apiService.getShortFormApplication('app1').catch(() => {
+          errorCaught = true
+        })
+        expect(errorCaught).toBeTruthy()
+      })
+    })
+  })
+
   describe('updateListing', () => {
     beforeAll(() => {
       request.put = mockPutRequest
