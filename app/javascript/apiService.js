@@ -18,8 +18,11 @@ const getShortFormApplication = async (applicationId) =>
 
     if (response.application?.annual_income != null) {
       returnObj.application.monthly_income = formatCurrency(response.application.annual_income / 12)
-    } else {
+    } else if (response.application?.monthly_income != null) {
       returnObj.application.annual_income = formatCurrency(response.application.monthly_income * 12)
+    } else {
+      returnObj.application.monthly_income = 'None'
+      returnObj.application.annual_income = 'None'
     }
 
     return returnObj

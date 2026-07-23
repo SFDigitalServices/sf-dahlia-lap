@@ -504,6 +504,24 @@ describe('apiService', () => {
       })
     })
 
+    describe('when annual_income and monthly_income are both null', () => {
+      let result
+      beforeEach(async () => {
+        request.get = jest.fn(() =>
+          Promise.resolve({
+            application: { id: 'app-null', annual_income: null, monthly_income: null },
+            file_base_url: 'http://files.example.com'
+          })
+        )
+        result = await apiService.getShortFormApplication('app-null')
+      })
+
+      test('sets monthly_income and annual_income to None', () => {
+        expect(result.application.monthly_income).toBe('None')
+        expect(result.application.annual_income).toBe('None')
+      })
+    })
+
     describe('when annual_income produces a repeating decimal when divided by 12', () => {
       let result
       beforeEach(async () => {
