@@ -1,6 +1,7 @@
 import { request } from 'api/request'
 
 import { isLeaseAlreadyCreated } from './components/supplemental_application/utils/supplementalApplicationUtils'
+import { formatCurrency } from './utils/utils'
 
 const getLeaseUpListings = async () =>
   request.get('/lease-ups/listings', null, true).then((r) => r.listings)
@@ -9,10 +10,23 @@ const getLeaseUpListing = async (listingId) =>
   request.get(`/lease-ups/listings/${listingId}`, null, true).then((r) => r.listing)
 
 const getShortFormApplication = async (applicationId) =>
-  request.get(`/short-form/${applicationId}`, null, true).then((response) => ({
-    application: response.application,
-    fileBaseUrl: response.file_base_url
-  }))
+  request.get(`/short-form/${applicationId}`, null, true).then((response) => {
+    const returnObj = {
+      application: response.application,
+      fileBaseUrl: response.file_base_url
+    }
+
+    if (response.application?.annual_income != null) {
+      returnObj.application.monthly_income = formatCurrency(response.application.annual_income / 12)
+    } else if (response.application?.monthly_income != null) {
+      returnObj.application.annual_income = formatCurrency(response.application.monthly_income * 12)
+    } else {
+      returnObj.application.monthly_income = 'None'
+      returnObj.application.annual_income = 'None'
+    }
+
+    return returnObj
+  })
 
 const getSupplementalApplication = async (applicationId) =>
   request
