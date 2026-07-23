@@ -462,7 +462,7 @@ describe('apiService', () => {
       })
 
       test('computes monthly_income from annual_income', () => {
-        expect(result.application.monthly_income).toBe(10000)
+        expect(result.application.monthly_income).toBe('$10,000.00')
       })
 
       test('returns fileBaseUrl from the response', () => {
@@ -483,7 +483,7 @@ describe('apiService', () => {
       })
 
       test('computes annual_income from monthly_income', () => {
-        expect(result.application.annual_income).toBe(60000)
+        expect(result.application.annual_income).toBe('$60,000.00')
       })
     })
 
@@ -500,7 +500,7 @@ describe('apiService', () => {
       })
 
       test('computes annual_income from monthly_income', () => {
-        expect(result.application.annual_income).toBe(24000)
+        expect(result.application.annual_income).toBe('$24,000.00')
       })
     })
 
