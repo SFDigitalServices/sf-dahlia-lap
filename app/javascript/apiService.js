@@ -1,6 +1,7 @@
 import { request } from 'api/request'
 
 import { isLeaseAlreadyCreated } from './components/supplemental_application/utils/supplementalApplicationUtils'
+import { formatCurrency } from './utils/utils'
 
 const getLeaseUpListings = async () =>
   request.get('/lease-ups/listings', null, true).then((r) => r.listings)
@@ -16,9 +17,9 @@ const getShortFormApplication = async (applicationId) =>
     }
 
     if (response.application?.annual_income != null) {
-      returnObj.application.monthly_income = response.application.annual_income / 12
+      returnObj.application.monthly_income = formatCurrency(response.application.annual_income / 12)
     } else {
-      returnObj.application.annual_income = response.application.monthly_income * 12
+      returnObj.application.annual_income = formatCurrency(response.application.monthly_income * 12)
     }
 
     return returnObj

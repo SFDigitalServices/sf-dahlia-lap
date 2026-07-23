@@ -504,6 +504,42 @@ describe('apiService', () => {
       })
     })
 
+    describe('when annual_income produces a repeating decimal when divided by 12', () => {
+      let result
+      beforeEach(async () => {
+        request.get = jest.fn(() =>
+          Promise.resolve({
+            application: { id: 'app4', annual_income: 100, monthly_income: null },
+            file_base_url: 'http://files.example.com'
+          })
+        )
+        result = await apiService.getShortFormApplication('app4')
+      })
+
+      test('monthly_income does not extend past two decimal places', () => {
+        // 100 / 12 = 8.3333..., formatCurrency should limit to 2 decimal places
+        expect(result.application.monthly_income).toMatch(/^\$[\d,]+(\.\d{1,2})?$/)
+      })
+    })
+
+    describe('when monthly_income produces more than two decimal places when multiplied by 12', () => {
+      let result
+      beforeEach(async () => {
+        request.get = jest.fn(() =>
+          Promise.resolve({
+            application: { id: 'app5', annual_income: null, monthly_income: 100 / 3 },
+            file_base_url: 'http://files.example.com'
+          })
+        )
+        result = await apiService.getShortFormApplication('app5')
+      })
+
+      test('annual_income does not extend past two decimal places', () => {
+        // (100 / 3) * 12 = 400, but fractional monthly values can yield decimals
+        expect(result.application.annual_income).toMatch(/^\$[\d,]+(\.\d{1,2})?$/)
+      })
+    })
+
     describe('when the request fails', () => {
       test('propagates the error', async () => {
         request.get = mockFailedRequest
