@@ -116,7 +116,7 @@
     "standard": "^17.1.2",
     "ts-jest": "^29.4.11",
     "typescript": "^6.0.3",
-    "webpack-dev-server": "^5.2.5"
+    "webpack-dev-server": "6.0.0"
   },
   "scripts": {
     "unit": "TZ='UTC' jest --testPathPattern=.*.test.js$ --coverage --maxWorkers=2",
