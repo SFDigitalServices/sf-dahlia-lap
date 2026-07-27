@@ -232,6 +232,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIYp1QAH"
               >
                 APP-00824414
@@ -449,6 +450,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIKuwQAH"
               >
                 APP-00821953
@@ -666,6 +668,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIYpGQAX"
               >
                 APP-00824415
@@ -883,6 +886,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIK4SQAX"
               >
                 APP-00821618
@@ -1100,6 +1104,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIJxEQAX"
               >
                 APP-00821575
@@ -1317,6 +1322,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIchuQAD"
               >
                 APP-00824919
@@ -1534,6 +1540,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIKRaQAP"
               >
                 APP-00821780
@@ -1751,6 +1758,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIXY4QAP"
               >
                 APP-00824151
@@ -1968,6 +1976,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIYrNQAX"
               >
                 APP-00824426
@@ -2185,6 +2194,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIJmNQAX"
               >
                 APP-00821445
@@ -2402,6 +2412,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIKfnQAH"
               >
                 APP-00821876
@@ -2619,6 +2630,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIKD8QAP"
               >
                 APP-00821674
@@ -2836,6 +2848,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIXj7QAH"
               >
                 APP-00824182
@@ -3053,6 +3066,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIJoTQAX"
               >
                 APP-00821475
@@ -3270,6 +3284,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIKfEQAX"
               >
                 APP-00821870
@@ -3487,6 +3502,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIK3jQAH"
               >
                 APP-00821609
@@ -3704,6 +3720,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIXTuQAP"
               >
                 APP-00824135
@@ -3921,6 +3938,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIL49QAH"
               >
                 APP-00821997
@@ -4138,6 +4156,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIPTJQA5"
               >
                 APP-00822926
@@ -4355,6 +4374,7 @@ exports[`LeaseUpApplicationsTable should render succesfully when not loading 1`]
               style="flex: 112 0 auto; width: 112px; max-width: 112px;"
             >
               <a
+                data-discover="true"
                 href="/lease-ups/applications/a0o4U00000KIUAsQAP"
               >
                 APP-00823612

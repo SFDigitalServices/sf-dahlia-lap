@@ -22,6 +22,7 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
             >
               <a
                 class=""
+                data-discover="true"
                 href="/lease-ups/listings"
               >
                 Lease Ups
@@ -32,6 +33,7 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
             >
               <a
                 class=""
+                data-discover="true"
                 href="/lease-ups/listings/a0W0P00000F8YG4UAN"
               >
                 Automated Test Listing (do not modify)
