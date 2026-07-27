@@ -1,5 +1,10 @@
 import '@testing-library/jest-dom'
+import { TextEncoder, TextDecoder } from 'util'
+
 import failOnConsole from 'jest-fail-on-console'
+
+global.TextEncoder = TextEncoder
+global.TextDecoder = TextDecoder
 
 // Make vars from the .env file available in process.env
 const dotenv = require('dotenv')

@@ -111,6 +111,7 @@ module.exports = {
       node: {
         moduleDirectory: ['node_modules', 'app/javascript']
       }
-    }
+    },
+    'import/ignore': ['react-router-dom']
   }
 }

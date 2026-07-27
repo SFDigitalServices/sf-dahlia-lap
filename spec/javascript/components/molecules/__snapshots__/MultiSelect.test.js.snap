@@ -6,7 +6,7 @@ exports[`MultiSelect when disabled renders as disabled 1`] = `
     class="input-custom-height"
   >
     <div
-      class=" css-3iigni-container"
+      class="css-3iigni-container"
     >
       <span
         class="css-1f43avz-a11yText-A11yText"
@@ -21,19 +21,19 @@ exports[`MultiSelect when disabled renders as disabled 1`] = `
       />
       <div
         aria-disabled="true"
-        class=" css-14pefp6-control"
+        class="css-14pefp6-control"
       >
         <div
-          class=" css-1fdsijx-ValueContainer"
+          class="css-hlgwow"
         >
           <div
-            class=" css-1jqq78o-placeholder"
+            class="css-1jqq78o-placeholder"
             id="react-select-6-placeholder"
           >
             Select...
           </div>
           <div
-            class=" css-1h01tm3-Input"
+            class="css-1mkvw8y"
             data-value=""
           >
             <input
@@ -58,14 +58,14 @@ exports[`MultiSelect when disabled renders as disabled 1`] = `
           </div>
         </div>
         <div
-          class=" css-1hb7zxy-IndicatorsContainer"
+          class="css-1wy0on6"
         >
           <span
-            class=" css-894a34-indicatorSeparator"
+            class="css-894a34-indicatorSeparator"
           />
           <div
             aria-hidden="true"
-            class=" css-1xc3v61-indicatorContainer"
+            class="css-1xc3v61-indicatorContainer"
           >
             <svg
               aria-hidden="true"
@@ -93,7 +93,7 @@ exports[`MultiSelect with default height sets height to 45px 1`] = `
     class="input-custom-height"
   >
     <div
-      class=" css-b62m3t-container"
+      class="css-b62m3t-container"
     >
       <span
         class="css-1f43avz-a11yText-A11yText"
@@ -107,19 +107,19 @@ exports[`MultiSelect with default height sets height to 45px 1`] = `
         role="log"
       />
       <div
-        class=" css-1vyczjh-control"
+        class="css-1vyczjh-control"
       >
         <div
-          class=" css-1fdsijx-ValueContainer"
+          class="css-hlgwow"
         >
           <div
-            class=" css-1jqq78o-placeholder"
+            class="css-1jqq78o-placeholder"
             id="react-select-8-placeholder"
           >
             Select...
           </div>
           <div
-            class=" css-qbdosj-Input"
+            class="css-19bb58m"
             data-value=""
           >
             <input
@@ -143,14 +143,14 @@ exports[`MultiSelect with default height sets height to 45px 1`] = `
           </div>
         </div>
         <div
-          class=" css-1hb7zxy-IndicatorsContainer"
+          class="css-1wy0on6"
         >
           <span
-            class=" css-1u9des2-indicatorSeparator"
+            class="css-1u9des2-indicatorSeparator"
           />
           <div
             aria-hidden="true"
-            class=" css-1xc3v61-indicatorContainer"
+            class="css-1xc3v61-indicatorContainer"
           >
             <svg
               aria-hidden="true"

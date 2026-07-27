@@ -18,12 +18,12 @@ exports[`Dropdown it passes the passes provided props to the Select component 1`
     />
     <div
       aria-disabled="true"
-      class="classNamePrefix__control classNamePrefix__control--is-disabled css-uuqjpg-Control"
+      class="classNamePrefix__control classNamePrefix__control--is-disabled css-10ganm4"
     >
       <button>
         label2
         <div
-          class="classNamePrefix__value-container classNamePrefix__value-container--has-value css-1fdsijx-ValueContainer"
+          class="classNamePrefix__value-container classNamePrefix__value-container--has-value css-hlgwow"
         >
           <input
             aria-activedescendant=""
@@ -31,7 +31,7 @@ exports[`Dropdown it passes the passes provided props to the Select component 1`
             aria-expanded="false"
             aria-haspopup="true"
             aria-readonly="true"
-            class="css-mohuvp-dummyInput-DummyInput"
+            class="css-1s80ejz-dummyInput-DummyInput"
             disabled=""
             id="react-select-4-input"
             inputmode="none"
@@ -63,15 +63,15 @@ exports[`Dropdown it renders with default props correctly 1`] = `
       role="log"
     />
     <div
-      class=" css-uuqjpg-Control"
+      class="css-10ganm4"
     >
       <button>
         placeholder
         <div
-          class=" css-1fdsijx-ValueContainer"
+          class="css-hlgwow"
         >
           <div
-            class=" css-1jqq78o-placeholder"
+            class="css-1jqq78o-placeholder"
             id="react-select-3-placeholder"
           />
           <input
@@ -81,7 +81,7 @@ exports[`Dropdown it renders with default props correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="true"
             aria-readonly="true"
-            class="css-mohuvp-dummyInput-DummyInput"
+            class="css-1s80ejz-dummyInput-DummyInput"
             id="react-select-3-input"
             inputmode="none"
             role="combobox"

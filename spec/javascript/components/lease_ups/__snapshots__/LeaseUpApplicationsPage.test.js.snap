@@ -23,6 +23,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
               <a
                 aria-current="page"
                 class="active"
+                data-discover="true"
                 href="/lease-ups/listings"
               >
                 Lease Ups
@@ -34,6 +35,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
               <a
                 aria-current="page"
                 class="active"
+                data-discover="true"
                 href="/lease-ups/listings/listingId"
               >
                 listingName
@@ -495,6 +497,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                 style="flex: 112 0 auto; width: 112px; max-width: 112px;"
               >
                 <a
+                  data-discover="true"
                   href="/lease-ups/applications/1001"
                 >
                   Application Name 1001
@@ -681,6 +684,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                 style="flex: 112 0 auto; width: 112px; max-width: 112px;"
               >
                 <a
+                  data-discover="true"
                   href="/lease-ups/applications/1002"
                 >
                   Application Name 1002
@@ -867,6 +871,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                 style="flex: 112 0 auto; width: 112px; max-width: 112px;"
               >
                 <a
+                  data-discover="true"
                   href="/lease-ups/applications/1003"
                 >
                   Application Name 1003
@@ -1053,6 +1058,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                 style="flex: 112 0 auto; width: 112px; max-width: 112px;"
               >
                 <a
+                  data-discover="true"
                   href="/lease-ups/applications/1004"
                 >
                   Application Name 1004
@@ -1239,6 +1245,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                 style="flex: 112 0 auto; width: 112px; max-width: 112px;"
               >
                 <a
+                  data-discover="true"
                   href="/lease-ups/applications/1005"
                 >
                   Application Name 1005
@@ -1425,6 +1432,7 @@ exports[`LeaseUpApplicationsPage should match the snapshot 1`] = `
                 style="flex: 112 0 auto; width: 112px; max-width: 112px;"
               >
                 <a
+                  data-discover="true"
                   href="/lease-ups/applications/1005"
                 >
                   Application Name 1005
