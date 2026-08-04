@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { render, act, waitFor, screen } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 
 import ListingApplicationsPage from 'components/listings/ListingApplicationsPage'
 
@@ -24,7 +25,11 @@ describe('ListingApplicationsPage', () => {
   test('should render successfully', async () => {
     let renderResponse
     await act(async () => {
-      renderResponse = render(<ListingApplicationsPage listing={listing} user_is_admin />)
+      renderResponse = render(
+        <MemoryRouter>
+          <ListingApplicationsPage listing={listing} user_is_admin />
+        </MemoryRouter>
+      )
     })
 
     waitFor(() => screen.getByText('Listing Details'))
@@ -32,7 +37,11 @@ describe('ListingApplicationsPage', () => {
   })
 
   test('hides lottery results tab for non-admin users', () => {
-    render(<ListingApplicationsPage listing={listing} user_is_admin={false} />)
+    render(
+      <MemoryRouter>
+        <ListingApplicationsPage listing={listing} user_is_admin={false} />
+      </MemoryRouter>
+    )
 
     expect(screen.queryByText('Lottery Results')).not.toBeInTheDocument()
   })

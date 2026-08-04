@@ -116,7 +116,7 @@
     "yarn-deduplicate": "^6.0.2"
   },
   "scripts": {
-    "unit": "TZ='UTC' jest --testPathPattern=.*.test.js$ --coverage --maxWorkers=2",
+    "unit": "npx -y cross-env TZ='UTC' jest --testPathPattern=.*.test.js$ --coverage --maxWorkers=2",
     "e2e": "cypress run --browser chrome",
     "e2e:open": "cypress open --browser chrome",
     "lint": "eslint --ext .js,.jsx app/ spec/",

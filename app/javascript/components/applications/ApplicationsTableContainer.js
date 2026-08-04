@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react'
+
+import { useSearchParams, useLocation } from 'react-router-dom'
 
 import { EagerPagination, SERVER_PAGE_SIZE } from 'utils/EagerPagination'
 
@@ -7,59 +9,97 @@ import ApplicationsTable from './ApplicationsTable'
 
 const ROWS_PER_PAGE = 20
 
-class ApplicationsTableContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    this.eagerPagination = new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE)
-    this.state = {
-      filters: props.filters,
-      loading: false,
-      applications: [],
-      pages: 0
-    }
-  }
+const ApplicationsTableContainer = ({ onFetchData, listings, filters: initialFilters = {} }) => {
+  const [searchParams, setSearchParams] = useSearchParams()
+  const location = useLocation()
+  const eagerPaginationRef = useRef(new EagerPagination(ROWS_PER_PAGE, SERVER_PAGE_SIZE))
 
-  loadPage = (page, filters) => {
-    const { onFetchData } = this.props
+  const [state, setState] = useState({
+    filters: initialFilters,
+    loading: false,
+    applications: [],
+    pages: 0,
+    atMaxPages: false
+  })
+
+  const loadPage = (page, filters) => {
     const fetcher = (p) => onFetchData(p, { filters })
-    this.setState({ loading: true, page })
-    this.eagerPagination.getPage(page, fetcher).then(({ records, pages }) => {
-      this.setState({ applications: records, loading: false, pages, atMaxPages: false })
+    setState((prev) => ({ ...prev, loading: true, page }))
+    eagerPaginationRef.current.getPage(page, fetcher).then(({ records, pages }) => {
+      setState((prev) => ({
+        ...prev,
+        applications: records,
+        loading: false,
+        pages,
+        atMaxPages: false
+      }))
     })
   }
 
-  handleOnFetchData = (state, instance) => {
-    const { filters } = this.state
-    if (this.eagerPagination.isOverLimit(state.page)) {
-      this.setState({ applications: [], loading: false, atMaxPages: true })
+  const handleOnFetchData = (tableState) => {
+    if (eagerPaginationRef.current.isOverLimit(tableState.page)) {
+      setState((prev) => ({ ...prev, applications: [], loading: false, atMaxPages: true }))
     } else {
-      this.loadPage(state.page, filters)
+      handlePageChange(tableState.page)
     }
   }
 
-  handleOnFilter = (filters) => {
-    this.setState({ filters })
-    this.eagerPagination.reset()
-    this.loadPage(0, filters)
+  const handleOnFilter = (filters) => {
+    setState((prev) => ({ ...prev, filters }))
+    eagerPaginationRef.current.reset()
+
+    // Reset to page 1 when filters change
+    const newParams = new URLSearchParams(searchParams)
+    newParams.set('page', '1')
+
+    // Update filter parameters in URL
+    Object.keys(filters).forEach((key) => {
+      if (filters[key]) {
+        newParams.set(key, filters[key])
+      } else {
+        newParams.delete(key)
+      }
+    })
+
+    setSearchParams(newParams)
   }
 
-  render() {
-    const { listings } = this.props
-    const { loading, applications, pages, atMaxPages } = this.state
-    return (
-      <>
-        <ApplicationsFilter onSubmit={this.handleOnFilter} listings={listings} loading={loading} />
-        <ApplicationsTable
-          applications={applications}
-          onFetchData={this.handleOnFetchData}
-          pages={pages}
-          loading={loading}
-          rowsPerPage={ROWS_PER_PAGE}
-          atMaxPages={atMaxPages}
-        />
-      </>
-    )
+  // Read page from URL (1-indexed) and convert to 0-indexed
+  const urlPage = parseInt(searchParams.get('page') || '1', 10)
+  const currentPage = isNaN(urlPage) ? 0 : Math.max(0, urlPage - 1)
+
+  const handlePageChange = (newPage) => {
+    const newParams = new URLSearchParams(searchParams)
+    newParams.set('page', (newPage + 1).toString())
+    setSearchParams(newParams)
   }
+
+  // Load data when component mounts or URL page changes
+  useEffect(() => {
+    const { filters } = state
+    if (eagerPaginationRef.current.isOverLimit(currentPage)) {
+      setState((prev) => ({ ...prev, applications: [], loading: false, atMaxPages: true }))
+      return
+    }
+    loadPage(currentPage, filters)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location, currentPage])
+
+  const { loading, applications, pages, atMaxPages } = state
+
+  return (
+    <>
+      <ApplicationsFilter onSubmit={handleOnFilter} listings={listings} loading={loading} />
+      <ApplicationsTable
+        applications={applications}
+        onFetchData={handleOnFetchData}
+        pages={pages}
+        loading={loading}
+        rowsPerPage={ROWS_PER_PAGE}
+        atMaxPages={atMaxPages}
+      />
+    </>
+  )
 }
 
 export default ApplicationsTableContainer

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { render, screen, act } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import moment from 'moment'
 
 import ApplicationsPage from 'components/applications/ApplicationsPage'
@@ -20,14 +21,26 @@ describe('ApplicationsPage', () => {
   test('should render successfully', async () => {
     const { asFragment } = await act(async () => {
       return new Promise((resolve) => {
-        resolve(render(<ApplicationsPage />))
+        resolve(
+          render(
+            <MemoryRouter>
+              <ApplicationsPage />
+            </MemoryRouter>
+          )
+        )
       })
     })
 
     expect(asFragment()).toMatchSnapshot()
   })
   test('should display data correctly', async () => {
-    await act(() => render(<ApplicationsPage listings={listings} />))
+    await act(() =>
+      render(
+        <MemoryRouter>
+          <ApplicationsPage listings={listings} />
+        </MemoryRouter>
+      )
+    )
 
     expect(screen.queryAllByText(/200 buchanan \(alchemy by alta\)/i)).toBeTruthy()
     expect(
