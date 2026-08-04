@@ -32,6 +32,13 @@ export const formatPercent = (value) => {
   return (value * 100).toFixed(0) + '%'
 }
 
+export const formatCurrency = (value) => {
+  return value.toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD'
+  })
+}
+
 export const isChanged = (prev, current) => {
   return !isEqual(prev, current)
 }
