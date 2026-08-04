@@ -3,6 +3,7 @@ version: 2.1
 orbs:
   ruby: circleci/ruby@2.1.0
   qlty: qltysh/qlty-orb@0.0.6
+  node: circleci/node@7.2.1
 defaults: &defaults
   working_directory: ~/tmp
   docker:
@@ -30,14 +31,14 @@ aliases:
   - &attach_workspace
     attach_workspace:
       at: ~/tmp
-  - &restore_yarn_cache
+  - &restore_pnpm_cache
     restore_cache:
-      name: Restore Yarn Cache
+      name: Restore pnpm Cache
       keys:
-        - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
-        - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}
-        - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-main
-        - partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-
+        - partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-v1-{{ .Branch }}-{{ checksum "pnpm-lock.yaml" }}
+        - partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-v1-{{ .Branch }}
+        - partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-v1-main
+        - partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-v1-
   - &restore_bundler_cache
     restore_cache:
       name: Restore Bundler Cache
@@ -49,14 +50,21 @@ commands:
     description: 'Attach workspace and restore cache'
     steps:
       - *attach_workspace
-      - *restore_yarn_cache
+      - *restore_pnpm_cache
       - *restore_bundler_cache
+      - node/install:
+          node-version: 22.13.0
+      - run:
+          name: Install pnpm
+          command: |
+            sudo npm install -g pnpm@11.5.2
+
   run-e2e:
     description: 'Run e2e tests'
     steps:
       - checkout
       - prepare_workspace
-      - run: yarn cypress install
+      - run: pnpm cypress install
       - run: bundle --path vendor/bundle
       - run:
           name: Run rails server in background
@@ -73,7 +81,7 @@ commands:
           name: Run Cypress tests
           command: |
             TESTFILES=$(circleci tests glob "cypress/e2e/**/*.e2e.js" | circleci tests split --split-by=timings | paste -sd ',')
-            yarn cypress run --spec $TESTFILES
+            pnpm cypress run --spec $TESTFILES
       - store_artifacts:
           path: cypress/screenshots
 
@@ -92,11 +100,11 @@ jobs:
           paths:
             - ./vendor/bundle/
       - run:
-          name: install yarn dependencies
-          command: yarn install --check-files
+          name: install pnpm dependencies
+          command: pnpm install --frozen-lockfile
       - save_cache:
-          name: Save Yarn Package Cache
-          key: partners-{{ .Environment.CACHE_VERSION }}-yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          name: Save pnpm Package Cache
+          key: partners-{{ .Environment.CACHE_VERSION }}-pnpm-packages-v1-{{ .Branch }}-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - node_modules/
       - run: bundle exec rake db:setup
@@ -125,8 +133,8 @@ jobs:
     steps:
       - checkout
       - prepare_workspace
-      - run: yarn lint
-      - run: yarn unit
+      - run: pnpm lint
+      - run: pnpm unit
       - run: ls .
       - store_artifacts:
           path: coverage

@@ -112,18 +112,20 @@ describe('StatusModalWrapper', () => {
     expect(screen.getByText('Appealed')).toBeInTheDocument()
   })
 
-  test('should display correct substatus options if substatuses are available', () => {
+  test('should display correct substatus options if substatuses are available', async () => {
     getScreen({ status: 'Appealed', isOpen: true })
-    selectEvent.openMenu(
+    await selectEvent.openMenu(
       within(
         screen.getByRole('button', {
           name: /select one\.\.\./i
         })
       ).getByRole('combobox')
     )
-    expect(screen.getAllByRole('listitem').map((item) => item.textContent)).toEqual(
-      LEASE_UP_SUBSTATUS_OPTIONS.Appealed.map((option) => option.label)
-    )
+
+    await screen.findByText(LEASE_UP_SUBSTATUS_OPTIONS.Appealed[0].label)
+    LEASE_UP_SUBSTATUS_OPTIONS.Appealed.forEach((option) => {
+      expect(screen.getByText(option.label)).toBeInTheDocument()
+    })
   })
 
   test('should not require comment if status does not require comment', () => {
@@ -160,7 +162,7 @@ describe('StatusModalWrapper', () => {
       expect(ON_SUBMIT).not.toHaveBeenCalled()
     })
 
-    test('should stop showing error state and allow submission when required fields are filled out', () => {
+    test('should stop showing error state and allow submission when required fields are filled out', async () => {
       getScreen({ status: 'Appealed', isOpen: true })
       fireEvent.click(
         screen.getByRole('button', {
@@ -171,14 +173,21 @@ describe('StatusModalWrapper', () => {
       // Verify there are errors initially
       expect(screen.getAllByTestId('field-error')).toHaveLength(2)
       expect(ON_SUBMIT).not.toHaveBeenCalled()
-      selectEvent.openMenu(
+      await selectEvent.openMenu(
         within(
           screen.getByRole('button', {
             name: /select one\.\.\./i
           })
         ).getByRole('combobox')
       )
-      fireEvent.click(screen.getByText(/pending documentation from applicant to support request/i))
+      await selectEvent.select(
+        within(
+          screen.getByRole('button', {
+            name: /select one\.\.\./i
+          })
+        ).getByRole('combobox'),
+        ['Pending documentation from applicant to support request']
+      )
 
       // Fill out the fields and verify that the errors go away
       expect(screen.queryByText(/please provide status details\./i)).not.toBeInTheDocument()

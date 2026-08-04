@@ -6,9 +6,9 @@ export const doesApplicationHaveLease = (application) => isLeaseAlreadyCreated(a
 
 export const totalSetAsidesForPref = (listing, prefName) =>
   listing.listing_lottery_preferences
-    ? listing.listing_lottery_preferences.find((pref) =>
+    ? (listing.listing_lottery_preferences.find((pref) =>
         pref.lottery_preference.name.includes(prefName)
-      )?.available_units ?? 0
+      )?.available_units ?? 0)
     : 0
 
 export const getApplicationMembers = (application) => [
