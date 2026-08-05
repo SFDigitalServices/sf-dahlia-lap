@@ -42,13 +42,22 @@ const LotteryBucketResult = ({ id, preferenceResults }) => {
 }
 
 export const LotteryBuckets = ({ buckets = [] }) => {
-  const maxWidth = `${buckets.length * ColumnMaxWidth}ch`
   const titleCells = []
   const subtitleCells = []
   const resultCells = []
 
   buckets.forEach((bucket) => {
-    const { id, subtitle, shortName } = Preferences[bucket.shortCode]
+    const preference = Preferences[bucket.shortCode]
+
+    // an unmapped short code used to throw here and blank the entire page, so
+    // skip just the offending column instead
+    if (!preference) {
+      console.warn(`Unknown preference: ${bucket.shortCode}`)
+
+      return
+    }
+
+    const { id, subtitle, shortName } = preference
 
     titleCells.push(<LotteryBucketTitle key={id} shortName={shortName} />)
 
@@ -59,7 +68,9 @@ export const LotteryBuckets = ({ buckets = [] }) => {
 
   // to allow the table to expand, up to a point, when there's more room, we
   // have to put it inside a section that has a max-width set on it, based on
-  // the number of columns.  we can't calculate that in CSS, unfortunately.
+  // the number of columns actually rendered.  we can't calculate that in CSS,
+  // unfortunately.
+  const maxWidth = `${titleCells.length * ColumnMaxWidth}ch`
   return (
     <div style={{ maxWidth }} id='lottery-results-section'>
       <table id='lottery-results-table'>

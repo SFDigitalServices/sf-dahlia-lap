@@ -1,200 +1,174 @@
-export const Preferences = {
-  DFR: {
+// Canonical lottery preference definitions.
+//
+// `id` MUST match the Salesforce `Custom_Preference_Type__c` /
+// `Record_Type_For_App_Preferences__c` value, since that's what the lottery
+// results records are bucketed by.  Keep this list in sync with
+// `Force::Preference::PREFERENCE_TYPES` in app/models/force/preference.rb.
+//
+// Salesforce is inconsistent about whether a preference name includes its
+// abbreviation in parens (e.g. both "Certificate of Preference (COP)" and
+// "Certificate of Preference" appear on real records), so each preference is
+// registered under its id, its full name, AND its name with the parenthetical
+// stripped.  Missing one of those aliases silently drops applicants from the
+// results, which is what this indexing is guarding against.
+
+const Units100Pct = 'Up to 100% of units'
+const Units20Pct = 'Up to 20% of units'
+const Units40Pct = 'Up to 40% of units'
+const Units100PctRemaining = 'Up to 100% of remaining units'
+const UnitsRemaining = 'Remaining units'
+
+// TODO: confirm the official subtitle copy for ADHP / RB_AHP / AG / Custom with
+// the housing team.  These render into the printed PDF and are editable in the
+// UI, so an empty default is safe but not ideal.
+const SubtitleTBD = ''
+
+export const GENERAL_LOTTERY_ID = 'General List'
+export const UNFILTERED_ID = 'Unfiltered Rank'
+
+// Preferences that always get a column in the results, even when empty, to
+// preserve the historical shape of the printed PDF.
+export const AlwaysVisiblePreferenceIDs = ['COP', 'DTHP', 'NRHP', 'L_W']
+
+const PreferenceDefinitions = [
+  {
+    id: 'V-COP',
+    name: 'Veteran with Certificate of Preference (V-COP)',
+    subtitle: Units100Pct
+  },
+  {
+    id: 'COP',
+    name: 'Certificate of Preference (COP)',
+    subtitle: Units100Pct
+  },
+  {
+    id: 'V-DTHP',
+    name: 'Veteran with Displaced Tenant Housing Preference (V-DTHP)',
+    subtitle: Units20Pct
+  },
+  {
+    id: 'DTHP',
+    name: 'Displaced Tenant Housing Preference (DTHP)',
+    subtitle: Units20Pct
+  },
+  {
+    id: 'V-NRHP',
+    name: 'Veteran with Neighborhood Resident Housing Preference (V-NRHP)',
+    subtitle: Units40Pct
+  },
+  {
+    id: 'NRHP',
+    name: 'Neighborhood Resident Housing Preference (NRHP)',
+    subtitle: Units40Pct
+  },
+  {
+    id: 'V-L_W',
+    name: 'Veteran with Live or Work in San Francisco Preference (V-L_W)',
+    subtitle: Units100PctRemaining
+  },
+  {
+    id: 'L_W',
+    name: 'Live or Work in San Francisco Preference',
+    shortName: 'Live/Work',
+    subtitle: Units100PctRemaining
+  },
+  {
+    id: 'V-ADHP',
+    name: 'Veteran with Anti-Displacement Housing Preference (V-ADHP)',
+    subtitle: SubtitleTBD
+  },
+  {
+    id: 'ADHP',
+    name: 'Anti-Displacement Housing Preference (ADHP)',
+    subtitle: SubtitleTBD
+  },
+  {
+    id: 'V-RB_AHP',
+    name: 'Veteran with Rent Burdened / Assisted Housing Preference (V-RB_AHP)',
+    shortName: 'V-RB/AHP',
+    subtitle: SubtitleTBD
+  },
+  {
+    id: 'RB_AHP',
+    name: 'Rent Burdened / Assisted Housing Preference',
+    shortName: 'RB/AHP',
+    subtitle: SubtitleTBD
+  },
+  {
+    id: 'V-AG',
+    name: 'Veteran with Alice Griffith Housing Development Resident (V-AG)',
+    shortName: 'V-Alice Griffith',
+    subtitle: SubtitleTBD
+  },
+  {
+    id: 'AG',
+    name: 'Alice Griffith Housing Development Resident',
+    shortName: 'Alice Griffith',
+    subtitle: SubtitleTBD
+  },
+  {
     id: 'DFR',
     name: 'DALP First Responders',
-    subtitle: 'subtitle',
     shortName: 'First Responders',
-    index: 0,
-    isVeteran: false,
-    relatedPrefID: ''
+    subtitle: SubtitleTBD
   },
-  DSE: {
+  {
     id: 'DSE',
     name: 'DALP Educators',
-    subtitle: 'subtitle',
     shortName: 'Educator',
-    index: 0,
-    isVeteran: false,
-    relatedPrefID: ''
+    subtitle: SubtitleTBD
   },
-  'V-COP': {
-    id: 'V-COP',
-    name: 'Veteran with Certificate of Preference',
-    subtitle: 'Up to 100% of units',
-    shortName: 'V-COP',
-    index: 0,
-    isVeteran: true,
-    relatedPrefID: 'COP'
+  {
+    id: 'Custom',
+    name: 'Custom',
+    subtitle: SubtitleTBD
   },
-  'Veteran with Certificate of Preference': {
-    id: 'V-COP',
-    name: 'Veteran with Certificate of Preference',
-    subtitle: 'Up to 100% of units',
-    shortName: 'V-COP',
-    index: 0,
-    isVeteran: true,
-    relatedPrefID: 'COP'
-  },
-  COP: {
-    id: 'COP',
-    name: 'Certificate of Preference (COP)',
-    subtitle: 'Up to 100% of units',
-    shortName: 'COP',
-    index: 1,
-    isVeteran: false,
-    relatedPrefID: ''
-  },
-  'Certificate of Preference (COP)': {
-    id: 'COP',
-    name: 'Certificate of Preference (COP)',
-    subtitle: 'Up to 100% of units',
-    shortName: 'COP',
-    index: 1,
-    isVeteran: false,
-    relatedPrefID: ''
-  },
-  'V-DTHP': {
-    id: 'V-DTHP',
-    name: 'Veteran with Displaced Tenant Housing Preference',
-    subtitle: 'Up to 20% of units',
-    shortName: 'V-DTHP',
-    index: 2,
-    isVeteran: true,
-    relatedPrefID: 'DTHP'
-  },
-  'Veteran with Displaced Tenant Housing Preference': {
-    id: 'V-DTHP',
-    name: 'Veteran with Displaced Tenant Housing Preference',
-    subtitle: 'Up to 20% of units',
-    shortName: 'V-DTHP',
-    index: 2,
-    isVeteran: true,
-    relatedPrefID: 'DTHP'
-  },
-  DTHP: {
-    id: 'DTHP',
-    name: 'Displaced Tenant Housing Preference',
-    subtitle: 'Up to 20% of units',
-    shortName: 'DTHP',
-    index: 3,
-    isVeteran: false,
-    relatedPrefID: ''
-  },
-  'Displaced Tenant Housing Preference': {
-    id: 'DTHP',
-    name: 'Displaced Tenant Housing Preference',
-    subtitle: 'Up to 20% of units',
-    shortName: 'DTHP',
-    index: 3,
-    isVeteran: false,
-    relatedPrefID: ''
-  },
-  'V-NRHP': {
-    id: 'V-NRHP',
-    name: 'Veteran with Neighborhood Resident Housing Preference',
-    subtitle: 'Up to 40% of units',
-    shortName: 'V-NRHP',
-    index: 4,
-    isVeteran: true,
-    relatedPrefID: 'NRHP'
-  },
-  'Veteran with Neighborhood Resident Housing Preference': {
-    id: 'V-NRHP',
-    name: 'Veteran with Neighborhood Resident Housing Preference',
-    subtitle: 'Up to 40% of units',
-    shortName: 'V-NRHP',
-    index: 4,
-    isVeteran: true,
-    relatedPrefID: 'NRHP'
-  },
-  NRHP: {
-    id: 'NRHP',
-    name: 'Neighborhood Resident Housing Preference',
-    subtitle: 'Up to 40% of units',
-    shortName: 'NRHP',
-    index: 5,
-    isVeteran: false,
-    relatedPrefID: ''
-  },
-  'Neighborhood Resident Housing Preference': {
-    id: 'NRHP',
-    name: 'Neighborhood Resident Housing Preference',
-    subtitle: 'Up to 40% of units',
-    shortName: 'NRHP',
-    index: 5,
-    isVeteran: false,
-    relatedPrefID: ''
-  },
-  'V-L_W': {
-    id: 'V-L_W',
-    name: 'Veteran with Live or Work in San Francisco Preference',
-    subtitle: 'Up to 100% of remaining units',
-    shortName: 'V-L_W',
-    index: 6,
-    isVeteran: true,
-    relatedPrefID: 'L_W'
-  },
-  'Veteran with Live or Work in San Francisco Preference': {
-    id: 'V-L_W',
-    name: 'Veteran with Live or Work in San Francisco Preference',
-    subtitle: 'Up to 100% of remaining units',
-    shortName: 'V-L_W',
-    index: 6,
-    isVeteran: true,
-    relatedPrefID: 'L_W'
-  },
-  L_W: {
-    id: 'L_W',
-    name: 'Live or Work in San Francisco Preference',
-    subtitle: 'Up to 100% of remaining units',
-    shortName: 'Live/Work',
-    index: 7,
-    isVeteran: false,
-    relatedPrefID: ''
-  },
-  'Live or Work in San Francisco Preference': {
-    id: 'L_W',
-    name: 'Live or Work in San Francisco Preference',
-    subtitle: 'Up to 100% of remaining units',
-    shortName: 'Live/Work',
-    index: 7,
-    isVeteran: false,
-    relatedPrefID: ''
-  },
-  'General List': {
-    id: 'General List',
+  {
+    id: GENERAL_LOTTERY_ID,
     name: 'generalLottery',
-    subtitle: 'Remaining units',
-    shortName: 'General List',
-    index: 8,
-    isVeteran: false,
-    relatedPrefID: ''
+    subtitle: UnitsRemaining
   },
-  generalLottery: {
-    id: 'General List',
-    name: 'generalLottery',
-    subtitle: 'Remaining units',
-    shortName: 'General List',
-    index: 8,
-    isVeteran: false,
-    relatedPrefID: ''
-  },
-  'Unfiltered Rank': {
-    id: 'Unfiltered Rank',
+  {
+    id: UNFILTERED_ID,
     name: 'Unfiltered',
-    subtitle: 'Ticket #',
-    shortName: 'Unfiltered Rank',
-    index: 9,
-    isVeteran: false,
-    relatedPrefID: ''
-  },
-  Unfiltered: {
-    id: 'Unfiltered Rank',
-    name: 'Unfiltered',
-    subtitle: 'Ticket #',
-    shortName: 'Unfiltered Rank',
-    index: 9,
-    isVeteran: false,
-    relatedPrefID: ''
+    subtitle: 'Ticket #'
   }
-}
+]
+
+// strip a trailing parenthetical abbreviation, e.g.
+// "Certificate of Preference (COP)" -> "Certificate of Preference"
+const nameWithoutID = (name) => name.replace(/ \(.+$/, '')
+
+export const Preferences = PreferenceDefinitions.reduce(
+  (result, { id, name, subtitle, shortName = id }, index) => {
+    const isVeteran = id.startsWith('V-')
+    const preference = {
+      id,
+      name,
+      subtitle,
+      shortName,
+      index,
+      isVeteran,
+      relatedPrefID: isVeteran ? id.slice(2) : ''
+    }
+
+    // make the preference reachable by id, full name, and name sans abbreviation
+    result[id] = preference
+    result[name] = preference
+    result[nameWithoutID(name)] = preference
+
+    return result
+  },
+  {}
+)
+
+// ids of the actual lottery preferences, in display order, excluding the
+// synthetic General List / Unfiltered Rank columns
+export const LotteryPreferenceIDs = PreferenceDefinitions.map(({ id }) => id).filter(
+  (id) => id !== GENERAL_LOTTERY_ID && id !== UNFILTERED_ID
+)
+
+// ids of the non-veteran lottery preferences, in display order
+export const NonVeteranPreferenceIDs = LotteryPreferenceIDs.filter(
+  (id) => !Preferences[id].isVeteran
+)
