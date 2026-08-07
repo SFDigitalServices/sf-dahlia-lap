@@ -199,10 +199,18 @@ export const massageLotteryBuckets = (buckets) => {
   const unknownShortCodes = new Set()
   const unknownResults = []
   const resultsByShortCode = {}
+  const orderByShortCode = {}
 
   buckets.forEach((bucket) => {
     // the general lottery bucket comes back without a short code
     const shortCode = bucket.preferenceShortCode || GENERAL_LOTTERY_KEY
+
+    // the listing's own preference order, which is what the columns should
+    // follow.  it is not part of the preference-record query, so that path
+    // still falls back to the order the preferences are defined in.
+    if (bucket.preferenceOrder != null) {
+      orderByShortCode[shortCode] = bucket.preferenceOrder
+    }
     const results = (bucket.preferenceResults || []).map((result) => ({
       lottery_number: result.lotteryNumber,
       unsorted_lottery_rank: result.lotteryRank
@@ -226,13 +234,26 @@ export const massageLotteryBuckets = (buckets) => {
 
   const combinedBuckets = combineVeteranBuckets(Object.entries(resultsByShortCode))
 
+  // a folded column takes its base preference's position, or the veteran
+  // bucket's if that is all the listing has.  anything the API sent without an
+  // order keeps its relative position after the ordered columns.
+  const columnOrder = (shortCode) =>
+    orderByShortCode[shortCode] ?? orderByShortCode[`V-${shortCode}`] ?? Number.MAX_SAFE_INTEGER
+
+  const orderedBuckets = Object.fromEntries(
+    Object.entries(combinedBuckets).sort(
+      ([aShortCode], [bShortCode]) => columnOrder(aShortCode) - columnOrder(bShortCode)
+    )
+  )
+
+  // the general lottery always comes last, after the preference columns
   if (resultsByShortCode[GENERAL_LOTTERY_KEY]) {
-    combinedBuckets[GENERAL_LOTTERY_KEY] = {
+    orderedBuckets[GENERAL_LOTTERY_KEY] = {
       shortCode: GENERAL_LOTTERY_KEY,
       preferenceName: 'General List',
       preferenceResults: resultsByShortCode[GENERAL_LOTTERY_KEY]
     }
   }
 
-  return processUnfilteredBucket(combinedBuckets, unknownResults)
+  return processUnfilteredBucket(orderedBuckets, unknownResults)
 }

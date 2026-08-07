@@ -167,6 +167,53 @@ describe('Process Lottery Buckets', () => {
       expect(buckets.find((bucket) => bucket.shortCode === 'COP').preferenceResults).toEqual([])
     })
 
+    test("it should order columns by the listing's preference order", () => {
+      const bucket = (preferenceShortCode, preferenceOrder) => ({
+        preferenceShortCode,
+        preferenceOrder,
+        preferenceResults: [{ lotteryNumber: preferenceShortCode, lotteryRank: preferenceOrder }]
+      })
+
+      // the order Salesforce reports, which does not match the order the
+      // preferences happen to be defined in
+      const buckets = massageLotteryBuckets([
+        bucket('RTR-H', 1),
+        bucket('V-COP', 2),
+        bucket('COP', 3),
+        bucket('RB_AHP', 4),
+        bucket('V-DTHP', 5),
+        bucket('DTHP', 6),
+        { preferenceShortCode: null, preferenceResults: [{ lotteryNumber: 'g', lotteryRank: 7 }] }
+      ])
+
+      // unfiltered first, general lottery last, preference columns in between
+      expect(buckets.map((b) => b.shortCode)).toEqual([
+        'Unfiltered',
+        'RTR-H',
+        'COP',
+        'RB_AHP',
+        'DTHP',
+        'generalLottery'
+      ])
+    })
+
+    test('it should position a folded column by its veteran bucket when that is all there is', () => {
+      const buckets = massageLotteryBuckets([
+        {
+          preferenceShortCode: 'V-DTHP',
+          preferenceOrder: 1,
+          preferenceResults: [{ lotteryNumber: 'vet', lotteryRank: 1 }]
+        },
+        {
+          preferenceShortCode: 'COP',
+          preferenceOrder: 2,
+          preferenceResults: [{ lotteryNumber: 'cop', lotteryRank: 2 }]
+        }
+      ])
+
+      expect(buckets.map((b) => b.shortCode)).toEqual(['Unfiltered', 'DTHP', 'COP'])
+    })
+
     test('it should give Right to Return its own column', () => {
       const [, ...buckets] = massageLotteryBuckets([
         {
