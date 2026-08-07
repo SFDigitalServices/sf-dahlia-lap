@@ -345,3 +345,28 @@ kbd + kbd {
     padding-right: 0;
   }
 }
+
+#lottery-results-warnings {
+  margin: 1rem 2rem 0 2rem;
+  padding: 0.75rem 1rem;
+}
+
+#lottery-results-warnings ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+#lottery-results-warnings li {
+  margin-bottom: 0.25rem;
+}
+
+@media print {
+  /* the warnings are for whoever is reading the page, not for the printed
+     results: they can be expected for a given listing and known to be safe to
+     ignore.  react-to-print already renders only the results component, this
+     covers printing the page directly from the browser. */
+  #lottery-results-warnings {
+    display: none;
+  }
+}

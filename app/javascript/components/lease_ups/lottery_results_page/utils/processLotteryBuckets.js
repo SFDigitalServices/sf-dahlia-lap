@@ -10,6 +10,26 @@ const GENERAL_LOTTERY_KEY = 'generalLottery'
 // that they still show up in the Unfiltered Rank column rather than vanishing
 const UNKNOWN_KEY = '__unknown'
 
+// Problems worth telling the user about, rather than only the console: a
+// preference we can't map to a column, or veteran data that doesn't line up
+// with its base preference.  Callers pass an array to collect them, and the
+// page shows them above the results.  They're warnings, not errors: the
+// results still render, and for a given listing the housing team may already
+// know a message can be ignored.
+const warn = (warnings, message) => {
+  console.warn(message)
+  warnings.push(message)
+}
+
+const applicantCount = (count) => `${count} ${count === 1 ? 'application' : 'applications'}`
+
+// a preference type in Salesforce that isn't in preferences.js gets no column
+// of its own.  it needs to be added there, with a name and subtitle, before it
+// can be displayed as its own set of results.
+const unknownPreferenceWarning = (preferenceType, count) =>
+  `“${preferenceType}” isn't a preference this page can display, so its ${applicantCount(count)} ` +
+  `${count === 1 ? 'appears' : 'appear'} only in the Unfiltered Rank column.`
+
 // build a fresh set of empty buckets on every call.  these used to be
 // module-level literals that were mutated in place, which leaked results
 // between invocations.
@@ -23,8 +43,8 @@ const buildEmptyBuckets = () => {
   return buckets
 }
 
-export const groupBuckets = (applicationPreferences) => {
-  const unknownTypes = new Set()
+export const groupBuckets = (applicationPreferences, warnings = []) => {
+  const unknownTypes = {}
 
   const buckets = Object.values(applicationPreferences).reduce((acc, appPref) => {
     const cleanApp = {
@@ -41,7 +61,9 @@ export const groupBuckets = (applicationPreferences) => {
       if (acc[preferenceType]) {
         acc[preferenceType].push(cleanApp)
       } else {
-        unknownTypes.add(String(preferenceType))
+        const type = String(preferenceType)
+
+        unknownTypes[type] = (unknownTypes[type] || 0) + 1
         acc[UNKNOWN_KEY].push(cleanApp)
       }
     }
@@ -49,15 +71,9 @@ export const groupBuckets = (applicationPreferences) => {
     return acc
   }, buildEmptyBuckets())
 
-  if (unknownTypes.size) {
-    // a new preference type in Salesforce that isn't in preferences.js will end
-    // up here.  it needs to be added there to get its own results column.
-    console.warn(
-      `Unknown lottery preference type(s), omitted from preference columns: ${[
-        ...unknownTypes
-      ].join(', ')}`
-    )
-  }
+  Object.entries(unknownTypes).forEach(([type, count]) => {
+    warn(warnings, unknownPreferenceWarning(type, count))
+  })
 
   return buckets
 }
@@ -100,11 +116,16 @@ export const processUnfilteredBucket = (combinedBuckets, extraResults = []) => {
 }
 
 // fold a V-<pref> bucket into its base <pref> bucket: veterans are flagged (the
-// UI marks them with a *) and listed first.  the two sources overlap in the
-// preference-record data, where a veteran holds both a V-COP and a COP record,
-// but the LotteryResult API is not guaranteed to repeat them, so any veteran
-// missing from the base bucket is appended rather than dropped.
-const processVeteranBucket = (bucketApplications, relatedVeteranApplications) => {
+// UI marks them with a *) and listed first.  every veteran application should
+// also hold the base preference, so a veteran missing from the base bucket is a
+// data problem: it's surfaced as a warning and the applicant is kept rather
+// than dropped.
+const processVeteranBucket = (
+  bucketApplications,
+  relatedVeteranApplications,
+  bucketKey,
+  warnings = []
+) => {
   const veteranLotteryNumbers = new Set(
     relatedVeteranApplications.map(({ lottery_number: lotteryNumber }) => lotteryNumber)
   )
@@ -122,18 +143,33 @@ const processVeteranBucket = (bucketApplications, relatedVeteranApplications) =>
     }
   }
 
+  let missingFromBase = 0
+
   for (const application of relatedVeteranApplications) {
     if (!seenVeterans.has(application.lottery_number)) {
       application.isVeteran = true
       veteranApplications.push(application)
       seenVeterans.add(application.lottery_number)
+      missingFromBase += 1
     }
+  }
+
+  if (missingFromBase) {
+    const { name, shortName } = Preferences[bucketKey]
+
+    warn(
+      warnings,
+      `${applicantCount(missingFromBase)} ${missingFromBase === 1 ? 'has' : 'have'} the veteran ` +
+        `version of ${name} but not the preference itself, which shouldn't happen. ` +
+        `${missingFromBase === 1 ? "It's" : "They're"} included in the ${shortName} column, but ` +
+        'the application data may need to be checked.'
+    )
   }
 
   return [...veteranApplications, ...nonVeteranApplications]
 }
 
-export const combineVeteranBuckets = (buckets) => {
+export const combineVeteranBuckets = (buckets, warnings = []) => {
   const bucketsByKey = Object.fromEntries(buckets)
   const combinedBuckets = {}
 
@@ -163,7 +199,7 @@ export const combineVeteranBuckets = (buckets) => {
       shortCode: bucketKey,
       preferenceName: Preferences[bucketKey].shortName,
       preferenceResults: relatedVeteranApplications
-        ? processVeteranBucket(bucketApplications, relatedVeteranApplications)
+        ? processVeteranBucket(bucketApplications, relatedVeteranApplications, bucketKey, warnings)
         : bucketApplications
     }
   })
@@ -171,12 +207,12 @@ export const combineVeteranBuckets = (buckets) => {
   return combinedBuckets
 }
 
-export const processLotteryBuckets = (applicationPreferences) => {
+export const processLotteryBuckets = (applicationPreferences, warnings = []) => {
   // group application preferences into buckets by preference type
-  const buckets = groupBuckets(Object.values(applicationPreferences))
+  const buckets = groupBuckets(Object.values(applicationPreferences), warnings)
 
   // combine non-veteran and their related veteran bucket
-  const combinedBuckets = combineVeteranBuckets(Object.entries(buckets))
+  const combinedBuckets = combineVeteranBuckets(Object.entries(buckets), warnings)
 
   // add general lottery bucket
   if (buckets[GENERAL_LOTTERY_KEY]) {
@@ -195,8 +231,8 @@ export const processLotteryBuckets = (applicationPreferences) => {
 // variants kept separate.  reshape its records into the same form the
 // preference-record path produces, then run them through the same combining,
 // so both paths render identical columns.
-export const massageLotteryBuckets = (buckets) => {
-  const unknownShortCodes = new Set()
+export const massageLotteryBuckets = (buckets, warnings = []) => {
+  const unknownShortCodes = {}
   const unknownResults = []
   const resultsByShortCode = {}
   const orderByShortCode = {}
@@ -223,16 +259,18 @@ export const massageLotteryBuckets = (buckets) => {
     } else {
       // an unmapped preference gets no column of its own, but its applicants
       // still belong in the unfiltered rank
-      unknownShortCodes.add(String(shortCode))
+      const code = String(shortCode)
+
+      unknownShortCodes[code] = (unknownShortCodes[code] || 0) + results.length
       unknownResults.push(...results)
     }
   })
 
-  if (unknownShortCodes.size) {
-    console.warn(`Unknown lottery preference short code(s): ${[...unknownShortCodes].join(', ')}`)
-  }
+  Object.entries(unknownShortCodes).forEach(([shortCode, count]) => {
+    warn(warnings, unknownPreferenceWarning(shortCode, count))
+  })
 
-  const combinedBuckets = combineVeteranBuckets(Object.entries(resultsByShortCode))
+  const combinedBuckets = combineVeteranBuckets(Object.entries(resultsByShortCode), warnings)
 
   // a folded column takes its base preference's position, or the veteran
   // bucket's if that is all the listing has.  anything the API sent without an

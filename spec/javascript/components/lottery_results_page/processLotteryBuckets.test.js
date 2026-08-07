@@ -226,16 +226,91 @@ describe('Process Lottery Buckets', () => {
     })
 
     test('it should keep applicants from an unmapped preference in the unfiltered rank', () => {
-      const [unfiltered, ...buckets] = massageLotteryBuckets([
-        {
-          preferenceShortCode: 'NOT_A_REAL_PREFERENCE',
-          preferenceResults: [{ lotteryNumber: 'orphan', lotteryRank: 1 }]
-        }
-      ])
+      const warnings = []
+      const [unfiltered, ...buckets] = massageLotteryBuckets(
+        [
+          {
+            preferenceShortCode: 'NOT_A_REAL_PREFERENCE',
+            preferenceResults: [
+              { lotteryNumber: 'orphan', lotteryRank: 1 },
+              { lotteryNumber: 'orphan-two', lotteryRank: 2 }
+            ]
+          }
+        ],
+        warnings
+      )
 
       expect(buckets).toEqual([])
-      expect(unfiltered.preferenceResults).toEqual([
-        { lottery_number: 'orphan', unsorted_lottery_rank: 1 }
+      expect(unfiltered.preferenceResults).toHaveLength(2)
+      expect(warnings).toEqual([
+        "“NOT_A_REAL_PREFERENCE” isn't a preference this page can display, so its 2 applications " +
+          'appear only in the Unfiltered Rank column.'
+      ])
+    })
+  })
+
+  describe('warnings', () => {
+    // every warning also goes to the console, which would otherwise be noise
+    let consoleWarn
+
+    beforeEach(() => {
+      consoleWarn = jest.spyOn(console, 'warn').mockImplementation(() => {})
+    })
+
+    afterEach(() => consoleWarn.mockRestore())
+
+    const veteranBuckets = (baseResults) => [
+      {
+        preferenceShortCode: 'V-DTHP',
+        preferenceResults: [{ lotteryNumber: 'vet', lotteryRank: 1 }]
+      },
+      { preferenceShortCode: 'DTHP', preferenceResults: baseResults }
+    ]
+
+    test('it should warn when a veteran has no matching base preference', () => {
+      const warnings = []
+
+      massageLotteryBuckets(
+        veteranBuckets([{ lotteryNumber: 'someone-else', lotteryRank: 2 }]),
+        warnings
+      )
+
+      expect(warnings).toEqual([
+        '1 application has the veteran version of Displaced Tenant Housing Preference (DTHP) but ' +
+          "not the preference itself, which shouldn't happen. It's included in the DTHP column, " +
+          'but the application data may need to be checked.'
+      ])
+    })
+
+    test('it should not warn when the veteran data lines up', () => {
+      const warnings = []
+
+      massageLotteryBuckets(veteranBuckets([{ lotteryNumber: 'vet', lotteryRank: 1 }]), warnings)
+
+      expect(warnings).toEqual([])
+    })
+
+    test('it should collect warnings from the preference-record path too', () => {
+      const warnings = []
+
+      processLotteryBuckets(
+        [
+          {
+            application: {
+              general_lottery: false,
+              lottery_number: 'orphan',
+              lottery_number_manual: null,
+              unsorted_lottery_rank: 1
+            },
+            custom_preference_type: 'NOT_A_REAL_PREFERENCE'
+          }
+        ],
+        warnings
+      )
+
+      expect(warnings).toEqual([
+        "“NOT_A_REAL_PREFERENCE” isn't a preference this page can display, so its 1 application " +
+          'appears only in the Unfiltered Rank column.'
       ])
     })
   })
