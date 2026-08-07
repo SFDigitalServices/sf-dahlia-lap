@@ -259,20 +259,30 @@ label > input {
 #lottery-results-pdf-th-h4,
 #lottery-results-pdf-column h5 {
   margin: 0.5rem 0 0.5rem 2rem;
-  flex-wrap: wrap;
-  display: flex;
+  /* grid rather than flex so that a title or subtitle wrapping to an extra
+     line grows its cell instead of overflowing a fixed height into the results
+     below.  the heights stay even across columns because each of these rows is
+     a single table row, which sizes to its tallest cell. */
+  display: grid;
   font-family: Verdana, sans-serif;
 }
 
 #lottery-results-pdf-th-h4 {
-  height: 2em;
-  align-content: flex-end;
+  min-height: 2em;
+  align-content: end;
+}
+
+/* sit the titles on the bottom of the header row, so that the last line of a
+   title that wrapped lines up with a title that didn't */
+#lottery-results-pdf-th {
+  vertical-align: bottom;
 }
 
 #lottery-results-pdf-column h5 {
   font-size: 0.75rem;
   font-weight: normal;
-  height: 2.5em;
+  min-height: 2.5em;
+  align-content: start;
 }
 
 #lottery-results-pdf-row ol {

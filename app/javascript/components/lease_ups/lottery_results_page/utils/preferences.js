@@ -18,10 +18,10 @@ const Units40Pct = 'Up to 40% of units'
 const Units100PctRemaining = 'Up to 100% of remaining units'
 const UnitsRemaining = 'Remaining units'
 
-// TODO: confirm the official subtitle copy for ADHP / RB_AHP / AG / Custom with
-// the housing team.  These render into the printed PDF and are editable in the
-// UI, so an empty default is safe but not ideal.
-const SubtitleTBD = ''
+// preferences with no unit set-aside of their own are open to all the units.
+// the subtitle is editable in the UI, so a listing that does set one aside can
+// still be corrected by hand before printing.
+const NoSetAside = Units100Pct
 
 export const GENERAL_LOTTERY_ID = 'General List'
 export const UNFILTERED_ID = 'Unfiltered Rank'
@@ -41,7 +41,7 @@ const PreferenceDefinitions = [
     id: 'RTR-H',
     name: 'Right to Return - Hunters View',
     shortName: 'RTR',
-    subtitle: SubtitleTBD
+    subtitle: NoSetAside
   },
   {
     id: 'V-COP',
@@ -87,53 +87,53 @@ const PreferenceDefinitions = [
   {
     id: 'V-ADHP',
     name: 'Veteran with Anti-Displacement Housing Preference (V-ADHP)',
-    subtitle: SubtitleTBD
+    subtitle: NoSetAside
   },
   {
     id: 'ADHP',
     name: 'Anti-Displacement Housing Preference (ADHP)',
-    subtitle: SubtitleTBD
+    subtitle: NoSetAside
   },
   {
     id: 'V-RB_AHP',
     name: 'Veteran with Rent Burdened / Assisted Housing Preference (V-RB_AHP)',
     shortName: 'V-RB/AHP',
-    subtitle: SubtitleTBD
+    subtitle: NoSetAside
   },
   {
     id: 'RB_AHP',
     name: 'Rent Burdened / Assisted Housing Preference',
     shortName: 'RB/AHP',
-    subtitle: SubtitleTBD
+    subtitle: NoSetAside
   },
   {
     id: 'V-AG',
     name: 'Veteran with Alice Griffith Housing Development Resident (V-AG)',
     shortName: 'V-Alice Griffith',
-    subtitle: SubtitleTBD
+    subtitle: NoSetAside
   },
   {
     id: 'AG',
     name: 'Alice Griffith Housing Development Resident',
     shortName: 'Alice Griffith',
-    subtitle: SubtitleTBD
+    subtitle: NoSetAside
   },
   {
     id: 'DFR',
     name: 'DALP First Responders',
     shortName: 'First Responders',
-    subtitle: SubtitleTBD
+    subtitle: NoSetAside
   },
   {
     id: 'DSE',
     name: 'DALP Educators',
     shortName: 'Educator',
-    subtitle: SubtitleTBD
+    subtitle: NoSetAside
   },
   {
     id: 'Custom',
     name: 'Custom',
-    subtitle: SubtitleTBD
+    subtitle: NoSetAside
   },
   {
     id: GENERAL_LOTTERY_ID,
