@@ -11,6 +11,74 @@ describe('Process Lottery Buckets', () => {
     test('it should return the correct data when combineGroups is true', () => {
       expect(processLotteryBuckets(testBuckets)).toEqual(testBucketResults)
     })
+
+    const preferenceRecord = ({
+      type,
+      lotteryNumber,
+      rank,
+      generalLottery = false,
+      manual = null
+    }) => ({
+      application: {
+        general_lottery: generalLottery,
+        general_lottery_rank: generalLottery ? rank : null,
+        lottery_number: lotteryNumber,
+        lottery_number_manual: manual,
+        unsorted_lottery_rank: rank
+      },
+      custom_preference_type: type,
+      record_type_for_app_preferences: type
+    })
+
+    test('it should put general lottery applicants in their own bucket', () => {
+      const buckets = processLotteryBuckets([
+        preferenceRecord({ type: 'COP', lotteryNumber: 'pref', rank: 1 }),
+        preferenceRecord({ type: 'L_W', lotteryNumber: 'general', rank: 2, generalLottery: true })
+      ])
+      const general = buckets.find((bucket) => bucket.shortCode === 'generalLottery')
+
+      expect(general.preferenceResults).toEqual([
+        { lottery_number: 'general', unsorted_lottery_rank: 2 }
+      ])
+      // the general lottery applicant belongs to no preference column
+      expect(buckets.find((bucket) => bucket.shortCode === 'COP').preferenceResults).toEqual([
+        { lottery_number: 'pref', unsorted_lottery_rank: 1 }
+      ])
+    })
+
+    test('it should prefer a manually assigned lottery number', () => {
+      const buckets = processLotteryBuckets([
+        preferenceRecord({ type: 'COP', lotteryNumber: 'auto', rank: 1, manual: 'manual' })
+      ])
+
+      expect(buckets.find((bucket) => bucket.shortCode === 'COP').preferenceResults).toEqual([
+        { lottery_number: 'manual', unsorted_lottery_rank: 1 }
+      ])
+    })
+
+    test('it should keep applicants from an unmapped preference in the unfiltered rank', () => {
+      const warn = jest.spyOn(console, 'warn').mockImplementation(() => {})
+
+      const [unfiltered, ...buckets] = processLotteryBuckets([
+        preferenceRecord({ type: 'NOT_A_REAL_PREFERENCE', lotteryNumber: 'orphan', rank: 1 })
+      ])
+
+      // no column of its own, but the applicant is not lost
+      expect(buckets.map((bucket) => bucket.shortCode)).toEqual([
+        'COP',
+        'DTHP',
+        'NRHP',
+        'L_W',
+        'generalLottery'
+      ])
+      expect(buckets.every((bucket) => !bucket.preferenceResults.length)).toBe(true)
+      expect(unfiltered.preferenceResults).toEqual([
+        { lottery_number: 'orphan', unsorted_lottery_rank: 1 }
+      ])
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining('NOT_A_REAL_PREFERENCE'))
+
+      warn.mockRestore()
+    })
   })
 
   describe('massageLotteryBuckets', () => {
@@ -89,10 +157,14 @@ describe('Process Lottery Buckets', () => {
         {
           preferenceShortCode: 'DTHP',
           preferenceResults: [{ lotteryNumber: 'one', lotteryRank: 1 }]
-        }
+        },
+        // an always-visible preference still gets its empty column, even if the
+        // API sends the bucket without any results array at all
+        { preferenceShortCode: 'COP' }
       ])
 
-      expect(buckets.map((bucket) => bucket.shortCode)).toEqual(['DTHP'])
+      expect(buckets.map((bucket) => bucket.shortCode)).toEqual(['COP', 'DTHP'])
+      expect(buckets.find((bucket) => bucket.shortCode === 'COP').preferenceResults).toEqual([])
     })
 
     test('it should give Right to Return its own column', () => {
