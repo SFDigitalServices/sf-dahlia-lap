@@ -95,6 +95,17 @@ describe('Process Lottery Buckets', () => {
       expect(buckets.map((bucket) => bucket.shortCode)).toEqual(['DTHP'])
     })
 
+    test('it should give Right to Return its own column', () => {
+      const [, ...buckets] = massageLotteryBuckets([
+        {
+          preferenceShortCode: 'RTR-H',
+          preferenceResults: [{ lotteryNumber: 'one', lotteryRank: 1 }]
+        }
+      ])
+
+      expect(buckets.map((bucket) => bucket.shortCode)).toEqual(['RTR-H'])
+    })
+
     test('it should keep applicants from an unmapped preference in the unfiltered rank', () => {
       const [unfiltered, ...buckets] = massageLotteryBuckets([
         {

@@ -31,6 +31,18 @@ export const UNFILTERED_ID = 'Unfiltered Rank'
 export const AlwaysVisiblePreferenceIDs = ['COP', 'DTHP', 'NRHP', 'L_W']
 
 const PreferenceDefinitions = [
+  // Right to Return is per-development, so each one is its own record type.
+  // Only the Hunters View code has been observed in lottery results data; other
+  // developments (Sunnydale, Potrero) presumably follow the same RTR-<letter>
+  // pattern but their codes are unconfirmed, and an unconfirmed guess here
+  // would silently mislabel a column.  An unlisted code still reaches the
+  // unfiltered rank and logs a warning, which is how this one was found.
+  {
+    id: 'RTR-H',
+    name: 'Right to Return - Hunters View',
+    shortName: 'RTR',
+    subtitle: SubtitleTBD
+  },
   {
     id: 'V-COP',
     name: 'Veteran with Certificate of Preference (V-COP)',
