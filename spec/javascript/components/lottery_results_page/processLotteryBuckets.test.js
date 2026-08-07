@@ -67,6 +67,34 @@ describe('Process Lottery Buckets', () => {
       ])
     })
 
+    test('it should keep veterans when the API omits the base preference bucket', () => {
+      const [unfiltered, ...buckets] = massageLotteryBuckets([
+        {
+          preferenceShortCode: 'V-COP',
+          preferenceResults: [{ lotteryNumber: 'veteran', lotteryRank: 1 }]
+        }
+      ])
+
+      expect(buckets.map((bucket) => bucket.shortCode)).toEqual(['COP'])
+      expect(buckets[0].preferenceResults).toEqual([
+        { lottery_number: 'veteran', unsorted_lottery_rank: 1, isVeteran: true }
+      ])
+      expect(unfiltered.preferenceResults).toEqual([
+        { lottery_number: 'veteran', unsorted_lottery_rank: 1, isVeteran: true }
+      ])
+    })
+
+    test('it should not add a column for a preference the listing does not have', () => {
+      const [, ...buckets] = massageLotteryBuckets([
+        {
+          preferenceShortCode: 'DTHP',
+          preferenceResults: [{ lotteryNumber: 'one', lotteryRank: 1 }]
+        }
+      ])
+
+      expect(buckets.map((bucket) => bucket.shortCode)).toEqual(['DTHP'])
+    })
+
     test('it should keep applicants from an unmapped preference in the unfiltered rank', () => {
       const [unfiltered, ...buckets] = massageLotteryBuckets([
         {

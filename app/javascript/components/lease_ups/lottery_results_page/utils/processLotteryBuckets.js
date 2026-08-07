@@ -138,7 +138,12 @@ export const combineVeteranBuckets = (buckets) => {
   const combinedBuckets = {}
 
   NonVeteranPreferenceIDs.forEach((bucketKey) => {
-    const bucketApplications = bucketsByKey[bucketKey]
+    const relatedVeteranApplications = bucketsByKey[`V-${bucketKey}`]
+    // the preference-record path seeds every known preference, but the
+    // LotteryResult API returns only the buckets a listing actually has, so a
+    // veteran bucket can arrive without its base bucket.  fall back to an empty
+    // base rather than dropping those applicants from the page entirely
+    const bucketApplications = bucketsByKey[bucketKey] || (relatedVeteranApplications ? [] : null)
 
     if (!bucketApplications) {
       return
@@ -146,11 +151,13 @@ export const combineVeteranBuckets = (buckets) => {
 
     // only ever-present preferences keep an empty column, so that adding a new
     // preference type doesn't add blank columns to every listing's PDF
-    if (!bucketApplications.length && !AlwaysVisiblePreferenceIDs.includes(bucketKey)) {
+    if (
+      !bucketApplications.length &&
+      !relatedVeteranApplications?.length &&
+      !AlwaysVisiblePreferenceIDs.includes(bucketKey)
+    ) {
       return
     }
-
-    const relatedVeteranApplications = bucketsByKey[`V-${bucketKey}`]
 
     combinedBuckets[bucketKey] = {
       shortCode: bucketKey,
