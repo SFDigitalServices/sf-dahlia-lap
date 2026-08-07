@@ -99,19 +99,34 @@ export const processUnfilteredBucket = (combinedBuckets, extraResults = []) => {
   return [unfilteredBucket, ...Object.values(combinedBuckets)]
 }
 
+// fold a V-<pref> bucket into its base <pref> bucket: veterans are flagged (the
+// UI marks them with a *) and listed first.  the two sources overlap in the
+// preference-record data, where a veteran holds both a V-COP and a COP record,
+// but the LotteryResult API is not guaranteed to repeat them, so any veteran
+// missing from the base bucket is appended rather than dropped.
 const processVeteranBucket = (bucketApplications, relatedVeteranApplications) => {
   const veteranLotteryNumbers = new Set(
     relatedVeteranApplications.map(({ lottery_number: lotteryNumber }) => lotteryNumber)
   )
   const nonVeteranApplications = []
   const veteranApplications = []
+  const seenVeterans = new Set()
 
   for (const application of bucketApplications) {
     if (veteranLotteryNumbers.has(application.lottery_number)) {
       application.isVeteran = true
       veteranApplications.push(application)
+      seenVeterans.add(application.lottery_number)
     } else {
       nonVeteranApplications.push(application)
+    }
+  }
+
+  for (const application of relatedVeteranApplications) {
+    if (!seenVeterans.has(application.lottery_number)) {
+      application.isVeteran = true
+      veteranApplications.push(application)
+      seenVeterans.add(application.lottery_number)
     }
   }
 
@@ -169,43 +184,48 @@ export const processLotteryBuckets = (applicationPreferences) => {
   return processUnfilteredBucket(combinedBuckets, buckets[UNKNOWN_KEY])
 }
 
+// the LotteryResult API returns one bucket per preference, with the veteran
+// variants kept separate.  reshape its records into the same form the
+// preference-record path produces, then run them through the same combining,
+// so both paths render identical columns.
 export const massageLotteryBuckets = (buckets) => {
-  const massagedBuckets = []
-  const unfilteredResults = []
   const unknownShortCodes = new Set()
+  const unknownResults = []
+  const resultsByShortCode = {}
 
   buckets.forEach((bucket) => {
+    // the general lottery bucket comes back without a short code
     const shortCode = bucket.preferenceShortCode || GENERAL_LOTTERY_KEY
-    const massagedBucket = {
-      shortCode,
-      preferenceResults: []
-    }
+    const results = (bucket.preferenceResults || []).map((result) => ({
+      lottery_number: result.lotteryNumber,
+      unsorted_lottery_rank: result.lotteryRank
+    }))
 
-    if (!Preferences[shortCode]) {
+    if (Preferences[shortCode]) {
+      // a short code can appear more than once if the API ever splits a
+      // preference across buckets, so accumulate rather than overwrite
+      resultsByShortCode[shortCode] = (resultsByShortCode[shortCode] || []).concat(results)
+    } else {
+      // an unmapped preference gets no column of its own, but its applicants
+      // still belong in the unfiltered rank
       unknownShortCodes.add(String(shortCode))
+      unknownResults.push(...results)
     }
-
-    bucket.preferenceResults.forEach((result) => {
-      unfilteredResults.push({
-        lottery_number: result.lotteryNumber,
-        unsorted_lottery_rank: result.lotteryRank
-      })
-      massagedBucket.preferenceResults.push({ lottery_number: result.lotteryNumber })
-    })
-
-    massagedBuckets.push(massagedBucket)
   })
 
   if (unknownShortCodes.size) {
     console.warn(`Unknown lottery preference short code(s): ${[...unknownShortCodes].join(', ')}`)
   }
 
-  return [
-    {
-      preferenceName: 'Unfiltered Rank',
-      preferenceResults: uniqueLotteryNumbers(sortUnfilteredBuckets(unfilteredResults)),
-      shortCode: 'Unfiltered'
-    },
-    ...massagedBuckets
-  ]
+  const combinedBuckets = combineVeteranBuckets(Object.entries(resultsByShortCode))
+
+  if (resultsByShortCode[GENERAL_LOTTERY_KEY]) {
+    combinedBuckets[GENERAL_LOTTERY_KEY] = {
+      shortCode: GENERAL_LOTTERY_KEY,
+      preferenceName: 'General List',
+      preferenceResults: resultsByShortCode[GENERAL_LOTTERY_KEY]
+    }
+  }
+
+  return processUnfilteredBucket(combinedBuckets, unknownResults)
 }
