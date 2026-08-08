@@ -56,4 +56,11 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Serve static JSON fixtures instead of calling Salesforce, so the UI can be
+  # worked on without Salesforce credentials. See script/fixtures/README.md.
+  if ENV['SF_FIXTURES'].present?
+    require Rails.root.join('lib/fixture_proxy')
+    config.middleware.insert_before 0, FixtureProxy
+  end
 end

@@ -1,0 +1,69 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Explodes a bundle downloaded by script/fixtures/capture-console.js into the
+# individual files FixtureProxy serves.
+#
+#   bin/unpack-fixtures ~/Downloads/lap-fixtures-a0W7y00000HayVJEAZ.json
+#
+# Also re-runs a PII check over the bundle, so a bundle captured with an older
+# or edited console script can't quietly land unredacted fixtures on disk.
+
+require 'json'
+require 'fileutils'
+require 'pathname'
+
+ROOT = Pathname.new(File.expand_path('../tmp/fixtures', __dir__))
+
+DENY_KEY = /email|phone|\bdob\b|date_of_birth|ssn|social_security|first_name|last_name|middle_name/i
+DENY_VALUE = [
+  [/[\w.+-]+@[\w-]+\.[\w.]+/, 'email address'],
+  [/\b\d{3}-\d{2}-\d{4}\b/, 'SSN-shaped value'],
+].freeze
+
+def scan(node, path, findings)
+  case node
+  when Array
+    node.each_with_index { |item, index| scan(item, "#{path}[#{index}]", findings) }
+  when Hash
+    node.each do |key, value|
+      key_path = path.empty? ? key.to_s : "#{path}.#{key}"
+      findings << "suspicious key: #{key_path}" if DENY_KEY.match?(key.to_s)
+      scan(value, key_path, findings)
+    end
+  when String
+    DENY_VALUE.each do |pattern, label|
+      findings << "#{label} at #{path}" if pattern.match?(node)
+    end
+  end
+  findings
+end
+
+bundle_path = ARGV[0]
+abort "usage: bin/unpack-fixtures <bundle.json>" if bundle_path.nil?
+abort "not found: #{bundle_path}" unless File.file?(bundle_path)
+
+bundle = JSON.parse(File.read(bundle_path))
+abort 'bundle must be a JSON object of {fixture_name => payload}' unless bundle.is_a?(Hash)
+
+findings = scan(bundle, '', [])
+unless findings.empty?
+  warn "Refusing to unpack — the bundle still looks like it contains PII:\n"
+  findings.first(20).each { |finding| warn "  #{finding}" }
+  warn "  ...and #{findings.size - 20} more" if findings.size > 20
+  warn "\nRe-capture with script/fixtures/capture-console.js, or pass --force if these are false positives."
+  exit 1 unless ARGV.include?('--force')
+  warn "\n--force given; continuing anyway.\n\n"
+end
+
+bundle.each do |name, payload|
+  # Defend against a hand-edited bundle escaping tmp/fixtures via ../
+  target = (ROOT + "#{name}.json").cleanpath
+  abort "refusing to write outside tmp/fixtures: #{name}" unless target.to_s.start_with?("#{ROOT}/")
+
+  FileUtils.mkdir_p(target.dirname)
+  target.write(JSON.pretty_generate(payload))
+  puts "wrote tmp/fixtures/#{name}.json"
+end
+
+puts "\nRun the app with: SF_FIXTURES=1 bin/rails server"

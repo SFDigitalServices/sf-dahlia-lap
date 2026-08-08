@@ -6,6 +6,14 @@ class ApplicationController < ActionController::Base
   before_action :load_listing_on_lease_up_page
   protect_from_forgery with: :exception
 
+  # Fixture mode has no Salesforce connection, so Salesforce OAuth can't be
+  # completed locally. Sign in a throwaway user instead. Double-guarded: the
+  # constant is only defined in development, and the filter re-checks at
+  # request time. See script/fixtures/README.md.
+  if Rails.env.development? && ENV['SF_FIXTURES'].present?
+    before_action :sign_in_fixture_user!
+  end
+
   rescue_from Restforce::UnauthorizedError,
               Restforce::AuthenticationError do
     sign_out current_user
@@ -23,6 +31,22 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def sign_in_fixture_user!
+    raise 'fixture user is development-only' unless Rails.env.development? && ENV['SF_FIXTURES'].present?
+    return if user_signed_in?
+
+    user = User.find_or_initialize_by(provider: 'fixtures', uid: 'fixtures')
+    user.assign_attributes(
+      email: 'fixtures@example.com',
+      admin: true,
+      oauth_token: 'fixture-mode-no-salesforce-connection',
+      salesforce_user_id: 'fixture-user',
+      salesforce_account_id: 'fixture-account',
+    )
+    user.save!
+    sign_in(user)
+  end
 
   def file_base_url
     current_user.admin ? ENV['SALESFORCE_INSTANCE_URL'] : ENV['COMMUNITY_LOGIN_URL']
