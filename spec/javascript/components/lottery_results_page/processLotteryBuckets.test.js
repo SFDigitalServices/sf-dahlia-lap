@@ -269,8 +269,8 @@ describe('Process Lottery Buckets', () => {
       expect(buckets).toEqual([])
       expect(unfiltered.preferenceResults).toHaveLength(2)
       expect(warnings).toEqual([
-        "“NOT_A_REAL_PREFERENCE” isn't a preference this page can display, so its 2 applications " +
-          'appear only in the Unfiltered Rank column.'
+        "“NOT_A_REAL_PREFERENCE” isn't a preference this page can display, so it has no column " +
+          'of its own and its 2 applications appear only in the Unfiltered Rank column.'
       ])
     })
   })
@@ -316,14 +316,17 @@ describe('Process Lottery Buckets', () => {
       expect(warnings).toEqual([])
     })
 
-    test('it should not warn about an unmapped preference with no applicants', () => {
+    test('it should warn about an unmapped preference nobody was eligible for', () => {
       const warnings = []
 
       massageLotteryBuckets([{ preferenceShortCode: 'NOT_A_REAL_PREFERENCE' }], warnings)
 
-      // nothing is missing from the results, so this is for the console only
-      expect(warnings).toEqual([])
-      expect(consoleWarn).toHaveBeenCalledWith(expect.stringContaining('no applicants'))
+      // the listing offered it, so its absence from the results is worth
+      // saying even though no applicant is affected
+      expect(warnings).toEqual([
+        "“NOT_A_REAL_PREFERENCE” isn't a preference this page can display, so it has no column, " +
+          "and no applications received it, so it doesn't appear in these results at all."
+      ])
     })
 
     test('it should collect warnings from the preference-record path too', () => {
@@ -345,8 +348,8 @@ describe('Process Lottery Buckets', () => {
       )
 
       expect(warnings).toEqual([
-        "“NOT_A_REAL_PREFERENCE” isn't a preference this page can display, so its 1 application " +
-          'appears only in the Unfiltered Rank column.'
+        "“NOT_A_REAL_PREFERENCE” isn't a preference this page can display, so it has no column " +
+          'of its own and its 1 application appears only in the Unfiltered Rank column.'
       ])
     })
   })

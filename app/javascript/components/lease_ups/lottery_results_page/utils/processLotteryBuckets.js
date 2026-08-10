@@ -23,25 +23,26 @@ const warn = (warnings, message) => {
 
 const applicantCount = (count) => `${count} ${count === 1 ? 'application' : 'applications'}`
 
-// A preference type in Salesforce that isn't in preferences.js gets no column
-// of its own.  it needs to be added there, with a name and subtitle, before it
-// can be displayed as its own set of results.
+// "Unmapped" only ever means the short code isn't in preferences.js: it's a
+// lookup failure here, not anything about the listing.  The LotteryResult API
+// returns a bucket precisely because the listing offers that preference, so an
+// unmapped one always means a preference the listing offered has no column.
 //
-// With no applicants there's nothing missing from the results, so that stays a
-// console message for whoever is working on the page rather than something the
-// housing team is asked to act on.
+// A preference nobody was eligible for still belongs in the results, and with
+// no applicants it leaves no trace anywhere else on the page — not even in the
+// Unfiltered Rank — so it's worth saying even more clearly than the rest.
+// Adding the short code to preferences.js, with a name and subtitle, is what
+// gives it a column.
 const warnUnknownPreference = (warnings, preferenceType, count) => {
-  if (!count) {
-    console.warn(`“${preferenceType}” isn't a preference this page can display (no applicants).`)
-
-    return
-  }
+  const preamble = `“${preferenceType}” isn't a preference this page can display, so it has no `
 
   warn(
     warnings,
-    `“${preferenceType}” isn't a preference this page can display, so its ` +
-      `${applicantCount(count)} ${count === 1 ? 'appears' : 'appear'} only in the Unfiltered ` +
-      'Rank column.'
+    count
+      ? `${preamble}column of its own and its ${applicantCount(count)} ` +
+          `${count === 1 ? 'appears' : 'appear'} only in the Unfiltered Rank column.`
+      : `${preamble}column, and no applications received it, so it doesn't appear in these ` +
+          'results at all.'
   )
 }
 
