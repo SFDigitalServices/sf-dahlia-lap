@@ -23,12 +23,27 @@ const warn = (warnings, message) => {
 
 const applicantCount = (count) => `${count} ${count === 1 ? 'application' : 'applications'}`
 
-// a preference type in Salesforce that isn't in preferences.js gets no column
+// A preference type in Salesforce that isn't in preferences.js gets no column
 // of its own.  it needs to be added there, with a name and subtitle, before it
 // can be displayed as its own set of results.
-const unknownPreferenceWarning = (preferenceType, count) =>
-  `“${preferenceType}” isn't a preference this page can display, so its ${applicantCount(count)} ` +
-  `${count === 1 ? 'appears' : 'appear'} only in the Unfiltered Rank column.`
+//
+// With no applicants there's nothing missing from the results, so that stays a
+// console message for whoever is working on the page rather than something the
+// housing team is asked to act on.
+const warnUnknownPreference = (warnings, preferenceType, count) => {
+  if (!count) {
+    console.warn(`“${preferenceType}” isn't a preference this page can display (no applicants).`)
+
+    return
+  }
+
+  warn(
+    warnings,
+    `“${preferenceType}” isn't a preference this page can display, so its ` +
+      `${applicantCount(count)} ${count === 1 ? 'appears' : 'appear'} only in the Unfiltered ` +
+      'Rank column.'
+  )
+}
 
 // build a fresh set of empty buckets on every call.  these used to be
 // module-level literals that were mutated in place, which leaked results
@@ -72,7 +87,7 @@ export const groupBuckets = (applicationPreferences, warnings = []) => {
   }, buildEmptyBuckets())
 
   Object.entries(unknownTypes).forEach(([type, count]) => {
-    warn(warnings, unknownPreferenceWarning(type, count))
+    warnUnknownPreference(warnings, type, count)
   })
 
   return buckets
@@ -100,10 +115,14 @@ const uniqueLotteryNumbers = (results) => {
 }
 
 export const processUnfilteredBucket = (combinedBuckets, extraResults = []) => {
-  const combinedPrefResults = Object.values(combinedBuckets).reduce(
-    (prefResults, bucket) => [...prefResults, ...bucket.preferenceResults],
-    [...extraResults]
-  )
+  // the extras go last because deduping keeps the first copy of a lottery
+  // number, and only the copies that went through bucket processing carry the
+  // veteran flag.  an applicant holding both an unmapped preference and a
+  // veteran one would otherwise lose their * in the unfiltered column.  the
+  // final sort is by lottery rank, so this doesn't affect the order.
+  const combinedPrefResults = Object.values(combinedBuckets)
+    .reduce((prefResults, bucket) => [...prefResults, ...bucket.preferenceResults], [])
+    .concat(extraResults)
 
   const unfilteredBucket = {
     preferenceName: 'Unfiltered Rank',
@@ -267,7 +286,7 @@ export const massageLotteryBuckets = (buckets, warnings = []) => {
   })
 
   Object.entries(unknownShortCodes).forEach(([shortCode, count]) => {
-    warn(warnings, unknownPreferenceWarning(shortCode, count))
+    warnUnknownPreference(warnings, shortCode, count)
   })
 
   const combinedBuckets = combineVeteranBuckets(Object.entries(resultsByShortCode), warnings)

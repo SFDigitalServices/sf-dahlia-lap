@@ -214,6 +214,32 @@ describe('Process Lottery Buckets', () => {
       expect(buckets.map((b) => b.shortCode)).toEqual(['Unfiltered', 'DTHP', 'COP'])
     })
 
+    test('it should keep the veteran flag for someone also in an unmapped preference', () => {
+      const warn = jest.spyOn(console, 'warn').mockImplementation(() => {})
+      const [unfiltered] = massageLotteryBuckets([
+        {
+          preferenceShortCode: 'NOT_A_REAL_PREFERENCE',
+          preferenceResults: [{ lotteryNumber: 'vet', lotteryRank: 1 }]
+        },
+        {
+          preferenceShortCode: 'V-COP',
+          preferenceResults: [{ lotteryNumber: 'vet', lotteryRank: 1 }]
+        },
+        {
+          preferenceShortCode: 'COP',
+          preferenceResults: [{ lotteryNumber: 'vet', lotteryRank: 1 }]
+        }
+      ])
+
+      // the unmapped copy of an applicant carries no veteran flag, so it must
+      // not be the copy that survives deduping
+      expect(unfiltered.preferenceResults).toEqual([
+        { lottery_number: 'vet', unsorted_lottery_rank: 1, isVeteran: true }
+      ])
+
+      warn.mockRestore()
+    })
+
     test('it should give Right to Return its own column', () => {
       const [, ...buckets] = massageLotteryBuckets([
         {
@@ -288,6 +314,16 @@ describe('Process Lottery Buckets', () => {
       massageLotteryBuckets(veteranBuckets([{ lotteryNumber: 'vet', lotteryRank: 1 }]), warnings)
 
       expect(warnings).toEqual([])
+    })
+
+    test('it should not warn about an unmapped preference with no applicants', () => {
+      const warnings = []
+
+      massageLotteryBuckets([{ preferenceShortCode: 'NOT_A_REAL_PREFERENCE' }], warnings)
+
+      // nothing is missing from the results, so this is for the console only
+      expect(warnings).toEqual([])
+      expect(consoleWarn).toHaveBeenCalledWith(expect.stringContaining('no applicants'))
     })
 
     test('it should collect warnings from the preference-record path too', () => {
