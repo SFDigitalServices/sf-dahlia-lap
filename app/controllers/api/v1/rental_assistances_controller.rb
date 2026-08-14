@@ -4,7 +4,7 @@ module Api
   module V1
     # RESTful JSON API for rental assistance actions
     class RentalAssistancesController < ApiController
-      before_action :find_or_create_application_lease, except: :destroy
+      before_action :find_or_create_application_lease, except: [:destroy, :index]
 
       def index
         rental_assistances = soql_rental_assistance_service.application_rental_assistances(params[:application_id])
