@@ -11,7 +11,7 @@ RSpec.describe Api::V1::RentalAssistancesController, type: :controller do
 
     it 'does not create or query leases when loading rental assistances for an application view' do
       allow(controller).to receive(:soql_rental_assistance_service).and_return(rental_assistance_service)
-      allow(rental_assistance_service).to receive(:application_rental_assistances).with(application_id).and_return([])
+      expect(rental_assistance_service).to receive(:application_rental_assistances).with(application_id).and_return([])
 
       expect(controller).not_to receive(:find_or_create_application_lease)
       expect(controller).not_to receive(:soql_lease_service)
