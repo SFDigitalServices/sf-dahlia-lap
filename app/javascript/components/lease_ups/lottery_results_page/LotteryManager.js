@@ -15,18 +15,36 @@ const LotteryManager = ({ applications, listing, withLotteryResultApi }) => {
     removeAfterPrint: true
   })
 
-  // process applications into buckets
+  // process applications into buckets, collecting anything the housing team
+  // should look at before sharing the results
+  const warnings = []
   let processedBuckets = null
   if (withLotteryResultApi && applications) {
-    processedBuckets = massageLotteryBuckets(applications)
+    processedBuckets = massageLotteryBuckets(applications, warnings)
   } else if (applications) {
-    processedBuckets = processLotteryBuckets(applications)
+    processedBuckets = processLotteryBuckets(applications, warnings)
   }
 
   return (
     <>
       {processedBuckets ? (
         <>
+          {warnings.length > 0 && (
+            // deliberately outside the printed component: these may be known
+            // and ignorable for a given listing, and shouldn't reach the PDF
+            <div id='lottery-results-warnings' className='alert-notice alert'>
+              <p className='t-tiny c-alert margin-bottom'>
+                Check these lottery results before sharing them
+              </p>
+              <ul>
+                {warnings.map((warning) => (
+                  <li key={warning} className='t-tiny c-steel'>
+                    {warning}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           <div id='save-lottery-results-button-container'>
             <button
               onClick={() => {
