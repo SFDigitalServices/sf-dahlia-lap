@@ -27,8 +27,11 @@ const LotteryResultsPdfGenerator = (props) => {
   const [applications, setApplications] = useState()
   const [listing, setListing] = useState()
 
-  const withLotteryResultApi = () =>
-    new URLSearchParams(window.location.search).has('withLotteryResultApi')
+  // the LotteryResult API is the source of truth: the older preference-record
+  // query only returns applications that receive a preference, so it omits the
+  // general lottery entirely on most listings.  ?legacy is a temporary escape
+  // hatch back to that query while the two are compared.
+  const withLotteryResultApi = () => !new URLSearchParams(window.location.search).has('legacy')
 
   useEffect(() => {
     if (withLotteryResultApi()) {
