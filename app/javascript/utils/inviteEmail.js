@@ -35,6 +35,15 @@ export const INVITE_EMAIL_OPTIONS = [
   }
 ]
 
+/**
+ * Returns true if any of the invite email options (i2a, i2i) is enabled for the listing.
+ *
+ * @param listing the full listing object, which must include leaseup_outreach
+ * @param flagsByOption map of INVITE_EMAIL_OPTIONS value -> feature flag boolean
+ */
+export const isAnyInviteEmailOptionEnabled = (listing, flagsByOption = {}) =>
+  INVITE_EMAIL_OPTIONS.some((option) => !!option.enabled(listing, flagsByOption[option.value]))
+
 export const getLeaseUpSubstatusOptions = (isInviteApplyEnabled) => {
   // I2A enabled
   if (isInviteApplyEnabled) {
