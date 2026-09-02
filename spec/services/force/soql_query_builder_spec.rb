@@ -62,5 +62,17 @@ RSpec.describe Force::SoqlQueryBuilder do
 
       expect(soql).to eq("SELECT Id FROM Application__c WHERE (Status__c != 'DRAFT') AND (Id IN ('a0o1','a0o2'))")
     end
+
+    it 'filters out units with Reserved_Type__c equal to Plus Housing DAHLIA' do
+      builder = Force::SoqlQueryBuilder.new(client)
+
+      soql = builder.from(:Unit__c)
+                    .select('Id, Priority_Type__c, AMI_chart_type__c, Max_AMI_for_Qualifying_Unit__c, Unit_Number__c, Unit_Type__c, AMI_chart_year__c, Status__c')
+                    .where_eq('Listing__c', 'listing-1', :string)
+                    .where_not_eq('Reserved_Type__c', 'Plus Housing DAHLIA', :string)
+                    .to_soql
+
+      expect(soql).to include("(Reserved_Type__c != 'Plus Housing DAHLIA')")
+    end
   end
 end
