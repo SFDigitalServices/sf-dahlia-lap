@@ -19,7 +19,7 @@ module Force
       result = builder.from(:Unit__c)
              .select("Id, Priority_Type__c, AMI_chart_type__c, Max_AMI_for_Qualifying_Unit__c, Unit_Number__c, Unit_Type__c, AMI_chart_year__c, Status__c, (#{lease_query})")
              .where_eq('Listing__c', listing_id, :string)
-             .where_not_eq('Reserved_Type__c', PLUS_HOUSING, :string)
+             .where_not_eq_or_null('Reserved_Type__c', PLUS_HOUSING, :string)
              .transform_results { |results| massage(results) }
              .query
              .records

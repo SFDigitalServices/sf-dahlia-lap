@@ -41,8 +41,8 @@ module Force
       self
     end
 
-    def where_not_eq(field, value, type = nil)
-      where("#{field} != #{_format_value(type, value)}")
+    def where_not_eq_or_null(field, value, type = nil)
+      where("#{field} != #{_format_value(type, value)} OR #{field} = NULL")
       self
     end
 

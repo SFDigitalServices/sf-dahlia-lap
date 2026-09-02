@@ -69,10 +69,10 @@ RSpec.describe Force::SoqlQueryBuilder do
       soql = builder.from(:Unit__c)
                     .select('Id, Priority_Type__c, AMI_chart_type__c, Max_AMI_for_Qualifying_Unit__c, Unit_Number__c, Unit_Type__c, AMI_chart_year__c, Status__c')
                     .where_eq('Listing__c', 'listing-1', :string)
-                    .where_not_eq('Reserved_Type__c', 'Plus Housing DAHLIA', :string)
+                    .where_not_eq_or_null('Reserved_Type__c', 'Plus Housing DAHLIA', :string)
                     .to_soql
 
-      expect(soql).to include("(Reserved_Type__c != 'Plus Housing DAHLIA')")
+      expect(soql).to include("(Reserved_Type__c != 'Plus Housing DAHLIA' OR Reserved_Type__c = NULL)")
     end
   end
 end
