@@ -6,7 +6,7 @@ module Force
     DRAFT = 'Draft'
     FIELD_NAME = :units
     FIELDS = load_fields(FIELD_NAME).freeze
-    PLUS_HOUSING = 'Plus Housing DAHLIA'
+    PLUS_HOUSING = 'Plus Housing'
 
     # Returns units and relevant lease information for specified listing.
     # Units contain info about unit number + eligibility. We join
