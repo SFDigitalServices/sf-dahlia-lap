@@ -24,8 +24,9 @@ import { useFeatureFlag } from 'utils/hooks/useFeatureFlag'
 import {
   getLeaseUpStatusOptions,
   getLeaseUpSubstatusOptions,
-  IsInviteToApplyEnabledForListing,
-  I2A_FEATURE_FLAG
+  isAnyInviteEmailOptionEnabled,
+  I2A_FEATURE_FLAG,
+  I2I_FEATURE_FLAG
 } from 'utils/inviteEmail'
 
 import labelMapperFields from '../applications/application_details/applicationDetailsFieldsDesc'
@@ -52,6 +53,7 @@ export const isContactUpdated = (shortForm) => {
  */
 const SupplementalApplicationPage = () => {
   const { unleashFlag: inviteApplyFlag } = useFeatureFlag(I2A_FEATURE_FLAG, false)
+  const { unleashFlag: inviteInterviewFlag } = useFeatureFlag(I2I_FEATURE_FLAG, false)
   const { unleashFlag: contactInfoUpdatedBadgesFlag } = useFeatureFlag(
     CONTACT_INFO_UPDATED_BADGES_FLAG,
     false
@@ -120,12 +122,15 @@ const SupplementalApplicationPage = () => {
 
   const listingId = shortform?.application?.listing_id
 
-  const statusOptions = getLeaseUpStatusOptions(
-    IsInviteToApplyEnabledForListing(breadcrumbData.listing, inviteApplyFlag)
-  )
-  const substatusOptions = getLeaseUpSubstatusOptions(
-    IsInviteToApplyEnabledForListing(breadcrumbData.listing, inviteApplyFlag)
-  )
+  // Gate on the full listing loaded by loadSupplementalPageData rather than
+  // breadcrumbData.listing, which is a summary that does not carry leaseup_outreach.
+  const invitesEnabled = isAnyInviteEmailOptionEnabled(supplemental.listing, {
+    i2a: inviteApplyFlag,
+    i2i: inviteInterviewFlag
+  })
+
+  const statusOptions = getLeaseUpStatusOptions(invitesEnabled)
+  const substatusOptions = getLeaseUpSubstatusOptions(invitesEnabled)
 
   const performingInitialLoadForTab =
     selectedTabKey === SUPP_TAB_KEY ? !supplemental.application : loadingShortform

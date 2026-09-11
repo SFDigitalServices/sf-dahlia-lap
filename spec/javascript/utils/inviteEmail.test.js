@@ -1,6 +1,7 @@
 import {
   IsInviteToApplyEnabledForListing,
   IsI2IEnabledForListing,
+  isAnyInviteEmailOptionEnabled,
   I2A_OUTREACH_VALUE,
   I2I_OUTREACH_VALUE
 } from 'utils/inviteEmail'
@@ -119,5 +120,41 @@ describe('IsI2IEnabledForListing', () => {
       expect(() => IsI2IEnabledForListing(mockI2IListing, i2iFlag, variant)).not.toThrow()
       expect(IsI2IEnabledForListing(mockI2IListing, i2iFlag, variant)).toBe(true)
     })
+  })
+})
+
+describe('isAnyInviteEmailOptionEnabled', () => {
+  const bothFlagsOn = { i2a: true, i2i: true }
+
+  it('returns true for an i2a listing', () => {
+    expect(isAnyInviteEmailOptionEnabled(mockI2AListing, bothFlagsOn)).toBe(true)
+  })
+
+  it('returns true for an i2i listing', () => {
+    expect(isAnyInviteEmailOptionEnabled(mockI2IListing, bothFlagsOn)).toBe(true)
+  })
+
+  it('returns true for an i2i listing when only the i2i flag is on', () => {
+    expect(isAnyInviteEmailOptionEnabled(mockI2IListing, { i2a: false, i2i: true })).toBe(true)
+  })
+
+  it('returns false for an i2i listing when only the i2a flag is on', () => {
+    expect(isAnyInviteEmailOptionEnabled(mockI2IListing, { i2a: true, i2i: false })).toBe(false)
+  })
+
+  it('returns false when both flags are off', () => {
+    expect(isAnyInviteEmailOptionEnabled(mockI2AListing, { i2a: false, i2i: false })).toBe(false)
+  })
+
+  it('returns false for a listing without an outreach value', () => {
+    expect(isAnyInviteEmailOptionEnabled({ id: 1 }, bothFlagsOn)).toBe(false)
+  })
+
+  it('returns false for a missing listing', () => {
+    expect(isAnyInviteEmailOptionEnabled(null, bothFlagsOn)).toBe(false)
+  })
+
+  it('returns false when no flags are provided', () => {
+    expect(isAnyInviteEmailOptionEnabled(mockI2AListing)).toBe(false)
   })
 })
