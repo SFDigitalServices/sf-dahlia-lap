@@ -43,6 +43,13 @@ const PreferenceDefinitions = [
     shortName: 'RTR',
     subtitle: NoSetAside
   },
+  // no veteran variant of TIR has been observed in lottery results data, so
+  // none is defined; a V-TIR bucket would surface as an unmapped warning
+  {
+    id: 'TIR',
+    name: 'Treasure Island Resident (TIR) Preference',
+    subtitle: NoSetAside
+  },
   {
     id: 'V-COP',
     name: 'Veteran with Certificate of Preference (V-COP)',
