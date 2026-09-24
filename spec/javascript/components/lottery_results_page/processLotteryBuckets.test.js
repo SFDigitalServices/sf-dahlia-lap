@@ -275,6 +275,37 @@ describe('Process Lottery Buckets', () => {
       expect(buckets[0].preferenceResults.map((r) => r.lottery_number)).toEqual(['tir'])
     })
 
+    test('it should fold veteran TIR applicants into the TIR column, listed first', () => {
+      const warnings = []
+      const [, ...buckets] = massageLotteryBuckets(
+        [
+          {
+            preferenceShortCode: 'TIR',
+            preferenceOrder: 1,
+            preferenceResults: [
+              { lotteryNumber: 'tir', lotteryRank: 1 },
+              { lotteryNumber: 'vet', lotteryRank: 2 }
+            ]
+          },
+          {
+            preferenceShortCode: 'V-TIR',
+            preferenceOrder: 2,
+            preferenceResults: [{ lotteryNumber: 'vet', lotteryRank: 2 }]
+          }
+        ],
+        warnings
+      )
+
+      expect(warnings).toEqual([])
+      expect(buckets.map((bucket) => bucket.shortCode)).toEqual(['TIR'])
+      expect(
+        buckets[0].preferenceResults.map((r) => [r.lottery_number, Boolean(r.isVeteran)])
+      ).toEqual([
+        ['vet', true],
+        ['tir', false]
+      ])
+    })
+
     test('it should keep applicants from an unmapped preference in the unfiltered rank', () => {
       const warnings = []
       const [unfiltered, ...buckets] = massageLotteryBuckets(
