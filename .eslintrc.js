@@ -104,8 +104,7 @@ module.exports = {
   },
   settings: {
     react: {
-      // Must be updated when package.json react version is bumped
-      version: '18.2.0'
+      version: 'detect'
     },
     'import/resolver': {
       node: {
