@@ -11,8 +11,8 @@ const LotteryManager = ({ applications, listing, withLotteryResultApi }) => {
   // set up print component
   const componentToPrint = useRef(null)
   const handlePrint = useReactToPrint({
-    documentTitle: 'Lottery Results',
-    removeAfterPrint: true
+    contentRef: componentToPrint,
+    documentTitle: 'Lottery Results'
   })
 
   // process applications into buckets, collecting anything the housing team
@@ -46,13 +46,7 @@ const LotteryManager = ({ applications, listing, withLotteryResultApi }) => {
             </div>
           )}
           <div id='save-lottery-results-button-container'>
-            <button
-              onClick={() => {
-                handlePrint(null, () => componentToPrint.current)
-              }}
-            >
-              Save Lottery Results
-            </button>
+            <button onClick={() => handlePrint()}>Save Lottery Results</button>
           </div>
           <LotteryResults
             ref={componentToPrint}

@@ -1,4 +1,4 @@
-const { devServer, inliningCss } = require('shakapacker')
+const { inliningCss } = require('shakapacker')
 
 const webpackConfig = require('./envSpecific')
 
@@ -7,14 +7,10 @@ const developmentEnvOnly = (clientWebpackConfig) => {
   if (inliningCss) {
     // Note, when this is run, we're building the server and client bundles in separate processes.
     // Thus, this plugin is not applied.
+    // The error overlay uses webpack-dev-server's own socket settings
+    // (config/shakapacker.yml dev_server), so no sock* options are needed.
     const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
-    clientWebpackConfig.plugins.push(
-      new ReactRefreshWebpackPlugin({
-        overlay: {
-          sockPort: devServer.port
-        }
-      })
-    )
+    clientWebpackConfig.plugins.push(new ReactRefreshWebpackPlugin())
   }
 }
 module.exports = webpackConfig(developmentEnvOnly)

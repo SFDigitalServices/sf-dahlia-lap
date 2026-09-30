@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 const FormGrid = {}
 
-FormGrid.Row = ({ children, paddingBottom, expand }) => {
+FormGrid.Row = ({ children, paddingBottom, expand = true }) => {
   const divClassNames = classNames('form-grid', 'row', {
     expand,
     // Override left and right margin if expand is false.
@@ -15,10 +15,6 @@ FormGrid.Row = ({ children, paddingBottom, expand }) => {
     'padding-bottom': paddingBottom
   })
   return <div className={divClassNames}>{children}</div>
-}
-
-FormGrid.Row.defaultProps = {
-  expand: true
 }
 
 // Wrapper for each form field.

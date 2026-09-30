@@ -1,5 +1,6 @@
+import { act } from 'react'
+
 import { screen } from '@testing-library/react'
-import { act } from 'react-dom/test-utils'
 
 import application from '../../fixtures/application'
 import saleApplication from '../../fixtures/sale_application'

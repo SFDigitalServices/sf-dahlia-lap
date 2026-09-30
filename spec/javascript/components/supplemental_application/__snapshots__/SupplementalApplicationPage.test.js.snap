@@ -1252,6 +1252,7 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                             value="No"
                           />
                           <input
+                            checked=""
                             id="form-ctrl-reserved_senior"
                             type="checkbox"
                           />
@@ -1274,6 +1275,7 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                             value="No"
                           />
                           <input
+                            checked=""
                             id="form-ctrl-has_military_service"
                             type="checkbox"
                           />
@@ -1296,6 +1298,7 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                             value="No"
                           />
                           <input
+                            checked=""
                             id="form-ctrl-has_developmental_disability"
                             type="checkbox"
                           />

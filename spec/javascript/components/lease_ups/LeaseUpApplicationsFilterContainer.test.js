@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { act } from 'react'
 
 import { render, screen, fireEvent, within } from '@testing-library/react'
 import { useFlag as useFlagUnleash, useFlagsStatus, useVariant } from '@unleash/proxy-client-react'
-import { act } from 'react-dom/test-utils'
 import { BrowserRouter } from 'react-router-dom'
 import selectEvent from 'react-select-event'
 

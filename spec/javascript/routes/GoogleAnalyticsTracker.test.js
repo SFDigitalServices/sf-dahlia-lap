@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { act } from 'react'
 
 import { render, screen, fireEvent } from '@testing-library/react'
-import { act } from 'react-dom/test-utils'
 import { MemoryRouter as Router, Route, Routes, Link } from 'react-router-dom'
 
 import GoogleAnalyticsTracker from 'routes/GoogleAnalyticsTracker'
