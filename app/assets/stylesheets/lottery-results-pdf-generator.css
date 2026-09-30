@@ -128,22 +128,42 @@ label > input {
   width: fit-content;
 }
 
-#lottery-results-header .easy-edit-wrapper {
+/* EditableText base styles, carried over from the stylesheet react-easy-edit
+   used to inject */
+.editable-text:hover {
+  cursor: pointer;
+  font-style: italic;
+}
+
+.editable-text-input-wrapper {
+  display: inline-grid;
+}
+
+.editable-text-button {
+  border: none;
+  display: inline-block;
+  margin: 0 2px;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+}
+
+#lottery-results-header .editable-text {
   display: inline-block;
 }
 
-#lottery-results-header .easy-edit-hover-on {
+#lottery-results-header .editable-text:hover {
   font-style: normal;
   color: darkblue;
   background: #eef;
 }
 
-.easy-edit-component-wrapper input {
+.editable-text-input-wrapper input {
   padding: 0.25rem;
   border: 1px solid #aaa;
 }
 
-.easy-edit-button-wrapper {
+.editable-text-buttons {
   margin-left: 0.35rem;
   gap: 0.25rem;
   align-items: center;

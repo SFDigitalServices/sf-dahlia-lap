@@ -133,9 +133,6 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
-      react-easy-edit:
-        specifier: ^1.17.2
-        version: 1.17.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-final-form:
         specifier: 7.0.1
         version: 7.0.1(final-form@5.0.1)(react@18.3.1)
@@ -9239,15 +9236,6 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
-  react-easy-edit@1.17.2:
-    resolution:
-      {
-        integrity: sha512-UdYch/aJGw2U6FmbhNDGqKq2JqBlgxymTALjBv92BTgjLBVrYbMjVZ5xqjhm22dmJtzAQIPot1eBR6VTZq0t5Q==
-      }
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-
   react-fast-compare@3.2.2:
     resolution:
       {
@@ -17745,11 +17733,6 @@ snapshots:
       loose-envify: 1.4.0
       react: 18.3.1
       scheduler: 0.23.2
-
-  react-easy-edit@1.17.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
 
   react-fast-compare@3.2.2: {}
 

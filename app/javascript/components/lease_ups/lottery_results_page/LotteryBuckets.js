@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import EasyEdit from 'react-easy-edit'
+import EditableText from 'components/atoms/EditableText'
 
 import { Preferences } from './utils/preferences'
 
@@ -14,12 +14,16 @@ const LotteryBucketTitle = ({ id, shortName }) => {
   )
 }
 
-const LotteryBucketSubtitle = ({ id, subtitle }) => {
+const LotteryBucketSubtitle = ({ id, shortName, subtitle }) => {
   const [editableSubtitle, setEditableSubtitle] = useState(subtitle)
   return (
     <td id='lottery-results-pdf-column' key={id}>
       <h5>
-        <EasyEdit type='text' value={editableSubtitle} onSave={setEditableSubtitle} />
+        <EditableText
+          label={`${shortName} subtitle`}
+          value={editableSubtitle}
+          onSave={setEditableSubtitle}
+        />
       </h5>
     </td>
   )
@@ -61,7 +65,7 @@ export const LotteryBuckets = ({ buckets = [] }) => {
 
     titleCells.push(<LotteryBucketTitle key={id} shortName={shortName} />)
 
-    subtitleCells.push(<LotteryBucketSubtitle key={id} subtitle={subtitle} />)
+    subtitleCells.push(<LotteryBucketSubtitle key={id} shortName={shortName} subtitle={subtitle} />)
 
     resultCells.push(<LotteryBucketResult key={id} preferenceResults={bucket.preferenceResults} />)
   })
