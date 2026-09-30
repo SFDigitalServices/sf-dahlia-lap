@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import EasyEdit from 'react-easy-edit'
+import EditableText from 'components/atoms/EditableText'
 
 import LotteryBuckets from './LotteryBuckets'
 
@@ -22,13 +22,14 @@ export const LotteryResults = React.forwardRef(({ name, address, buckets }, ref)
           />
         </h1>
         <h2>
-          <EasyEdit type='text' value={currentName} onSave={setCurrentName} />
+          <EditableText label='listing name' value={currentName} onSave={setCurrentName} />
         </h2>
         <h3>
-          <EasyEdit type='text' value={currentAddress} onSave={setCurrentAddress} />
+          <EditableText label='listing address' value={currentAddress} onSave={setCurrentAddress} />
         </h3>
         <h3>
-          Lottery date: <EasyEdit type='text' value={currentDate} onSave={setCurrentDate} />
+          Lottery date:{' '}
+          <EditableText label='lottery date' value={currentDate} onSave={setCurrentDate} />
         </h3>
         <blockquote>
           <h4>

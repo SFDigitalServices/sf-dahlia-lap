@@ -106,7 +106,10 @@ export const InputField = ({
             blockNote={blockNote}
           />
           <Input
-            input={input}
+            // react-final-form 7 runs format() after coercing null to '', so formatters like
+            // formatPrice can hand null back to the input. Coerce at display time only; the
+            // form state (and the null submitted to Salesforce) is left untouched.
+            input={{ ...input, value: input.value ?? '' }}
             meta={meta}
             id={id || `form-${fieldName}`}
             type={type || 'text'}

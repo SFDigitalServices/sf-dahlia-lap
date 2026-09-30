@@ -93,6 +93,9 @@ module.exports = {
       }
     ],
     'import/extensions': 'error',
+    // react-to-print 3.x only declares package.json "exports" (no "main"),
+    // which eslint-plugin-import's node resolver can't follow.
+    'import/no-unresolved': ['error', { ignore: ['^react-to-print$'] }],
     'react/prop-types': 'off',
     'react/display-name': 'off',
     'react/state-in-constructor': 0,
@@ -104,8 +107,7 @@ module.exports = {
   },
   settings: {
     react: {
-      // Must be updated when package.json react version is bumped
-      version: '18.2.0'
+      version: 'detect'
     },
     'import/resolver': {
       node: {

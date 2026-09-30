@@ -19,14 +19,14 @@ export const renderSubstatusOption = ({ value, label }, { selectValue }) => {
 }
 
 const SubstatusDropdown = ({
-  status,
-  subStatus,
+  status = null,
+  subStatus = null,
   onChange,
-  disabled,
-  placeholder,
-  expand,
-  hasError,
-  substatusOptions
+  disabled = false,
+  placeholder = 'Select one...',
+  expand = false,
+  hasError = false,
+  substatusOptions = {}
 }) => {
   const buttonClasses = [
     'button',
@@ -76,16 +76,6 @@ SubstatusDropdown.propTypes = {
   status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES),
   subStatus: PropTypes.oneOf(LEASE_UP_SUBSTATUS_VALUES),
   substatusOptions: PropTypes.object
-}
-
-SubstatusDropdown.defaultProps = {
-  expand: false,
-  disabled: false,
-  hasError: false,
-  placeholder: 'Select one...',
-  status: null,
-  subStatus: null,
-  substatusOptions: {}
 }
 
 export default SubstatusDropdown

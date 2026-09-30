@@ -39,3 +39,9 @@ overrides:
   svgo@>=3.0.0 <3.3.4: ^3.3.4
   uuid: 11.1.1
   webpack-dev-server@<5.2.5: ^5.2.5
+peerDependencyRules:
+  allowedVersions:
+    react-table>react: '19'
+    react-table>react-dom: '19'
+    react-popper>react: '19'
+    react-popper>react-dom: '19'

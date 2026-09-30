@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { act } from 'react'
 
 import { waitFor, fireEvent, render, screen } from '@testing-library/react'
 import { clone } from 'lodash'
-import { act } from 'react-dom/test-utils'
 
 import PaperApplicationForm from 'components/applications/application_form/PaperApplicationForm'
 

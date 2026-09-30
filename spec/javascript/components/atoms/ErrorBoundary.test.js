@@ -44,10 +44,11 @@ describe('ErrorBoundary', () => {
       </ErrorBoundary>
     )
 
-    expect(consoleSpy).toHaveBeenCalledTimes(3)
-    expect(consoleSpy.mock.calls[0][0].toString()).toBe(
-      'Error: Uncaught [Error: This is an error to test ErrorBoundary]'
-    )
+    // React 19 reports errors caught by a boundary with a single console.error call
+    // (onCaughtError default) that includes the original error as an argument.
+    expect(consoleSpy).toHaveBeenCalledTimes(1)
+    expect(consoleSpy.mock.calls[0][1]).toBeInstanceOf(Error)
+    expect(consoleSpy.mock.calls[0][1].message).toBe(errorMsg)
     expect(getByText('An error occurred. Check back later.')).toBeInTheDocument()
   })
 })
