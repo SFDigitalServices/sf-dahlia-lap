@@ -46,6 +46,7 @@ exports[`RentBurdenedPanel should render successfully 1`] = `
               name="total_monthly_rent"
               placeholder="Enter Amount"
               type="text"
+              value=""
             />
           </div>
         </div>
