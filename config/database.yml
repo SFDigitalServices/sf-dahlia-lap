@@ -6,8 +6,11 @@
 #
 default: &default
   adapter: sqlite3
-  # Total concurrent connections = workers * threads
-  pool: <%= (ENV.fetch("PUMA_WORKERS", 2).to_i) * (ENV.fetch("PUMA_THREADS", 3).to_i) %>
+  # Total concurrent connections = processes * threads.
+  # PUMA_WORKERS=0 means Puma runs in single mode (one process), not zero
+  # processes, so treat 0 the same as 1 here (e.g. on Windows, which doesn't
+  # support Puma's clustered/forked worker mode).
+  pool: <%= [ENV.fetch("PUMA_WORKERS", 2).to_i, 1].max * (ENV.fetch("PUMA_THREADS", 3).to_i) %>
   timeout: 5000
 
 development:

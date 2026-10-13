@@ -44,6 +44,13 @@ development:
     headers:
       'Access-Control-Allow-Origin': '*'
     static:
+      # Windows workaround: shakapacker's webpackDevServerConfig.js sets
+      # static.publicPath to the absolute filesystem output path (contentBase)
+      # instead of a URL path. On Windows the backslashes in that path break
+      # path-to-regexp when webpack-dev-server registers it as an Express route
+      # (see D:\...\public\packs -> "Missing parameter name at index 2").
+      # Overriding it here with the correct URL path avoids that crash.
+      publicPath: '/packs/'
       watch:
         ignored: '**/node_modules/**'
 
