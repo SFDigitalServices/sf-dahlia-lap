@@ -14,6 +14,12 @@ const TIMESTAMP_AUGUST_25_2020 = 1756130400
 const TIMESTAMP_AUGUST_26_2020 = 1756191600
 
 describe('StatusItems', () => {
+  test('renders an empty list when status items are omitted', () => {
+    render(<StatusItems />)
+
+    expect(screen.queryByTestId('status-item')).not.toBeInTheDocument()
+  })
+
   describe('snapshot tests', () => {
     test('should render empty status items correctly', () => {
       const { asFragment } = getScreen([])

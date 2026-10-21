@@ -9,7 +9,7 @@ import {
   getStatusPillLabel
 } from '../../utils/statusUtils'
 
-const StatusPill = ({ status }) => (
+const StatusPill = ({ status = null }) => (
   <div className={classNames('status-pill', getStatusPillClass(status))}>
     {getStatusPillLabel(status)}
   </div>
@@ -17,10 +17,6 @@ const StatusPill = ({ status }) => (
 
 StatusPill.propTypes = {
   status: PropTypes.oneOf(LEASE_UP_STATUS_VALUES)
-}
-
-StatusPill.defaultProps = {
-  status: null
 }
 
 export default StatusPill
