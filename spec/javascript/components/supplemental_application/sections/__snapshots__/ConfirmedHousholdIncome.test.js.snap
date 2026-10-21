@@ -89,7 +89,6 @@ exports[`ConfirmedHouseholdIncome it matches snapshot when all values are empty 
               name="imputed_income_from_assets"
               placeholder="Enter Amount"
               type="text"
-              value=""
             />
           </div>
         </div>
@@ -116,7 +115,6 @@ exports[`ConfirmedHouseholdIncome it matches snapshot when all values are empty 
               name="household_assets"
               placeholder="Enter Amount"
               type="text"
-              value=""
             />
           </div>
         </div>
@@ -143,7 +141,6 @@ exports[`ConfirmedHouseholdIncome it matches snapshot when all values are empty 
               name="confirmed_household_annual_income"
               placeholder="Enter Amount"
               type="text"
-              value=""
             />
             <span
               class="form-note shift-up"
@@ -176,7 +173,6 @@ exports[`ConfirmedHouseholdIncome it matches snapshot when all values are empty 
               name="hh_total_income_with_assets_annual"
               placeholder="Enter Amount"
               type="text"
-              value=""
             />
             <span
               class="form-note shift-up"
@@ -219,7 +215,6 @@ exports[`ConfirmedHouseholdIncome it matches snapshot when all values are empty 
               name="ami_percentage"
               placeholder="Enter Percentage"
               type="text"
-              value=""
             />
           </div>
         </div>
