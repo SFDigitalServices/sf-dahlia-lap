@@ -6,11 +6,11 @@ import { LEASE_UP_STATUS_VALUES } from '../../../utils/statusUtils'
 import StatusDropdown from '../StatusDropdown'
 
 const LeaseUpStatusButtons = ({
-  status,
-  isLoading,
-  onChangeStatus,
-  onAddCommentClicked,
-  statusOptions
+  status = null,
+  isLoading = false,
+  onChangeStatus = null,
+  onAddCommentClicked = null,
+  statusOptions = []
 }) => (
   <div className='status-history-buttons' data-testid='lease-up-status-buttons'>
     <StatusDropdown
@@ -39,14 +39,6 @@ LeaseUpStatusButtons.propTypes = {
   onChangeStatus: PropTypes.func,
   onAddCommentClicked: PropTypes.func,
   statusOptions: PropTypes.array
-}
-
-LeaseUpStatusButtons.defaultProps = {
-  status: null,
-  isLoading: false,
-  onChangeStatus: null,
-  onAddCommentClicked: null,
-  statusOptions: []
 }
 
 export default LeaseUpStatusButtons

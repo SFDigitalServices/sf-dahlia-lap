@@ -11,12 +11,12 @@ const getMostRecentStatus = (statusHistory) =>
   statusHistory && statusHistory[0] ? statusHistory[0].status : null
 
 const LeaseUpSidebar = ({
-  isLoading,
-  statusItems,
-  onSaveClicked,
-  onChangeStatus,
-  onAddCommentClicked,
-  statusOptions
+  isLoading = false,
+  statusItems = [],
+  onSaveClicked = null,
+  onChangeStatus = null,
+  onAddCommentClicked = null,
+  statusOptions = []
 }) => {
   const currentStatus = getMostRecentStatus(statusItems)
 
@@ -64,15 +64,6 @@ LeaseUpSidebar.propTypes = {
   onChangeStatus: PropTypes.func,
   onAddCommentClicked: PropTypes.func,
   statusOptions: PropTypes.array
-}
-
-LeaseUpSidebar.defaultProps = {
-  isLoading: false,
-  statusItems: [],
-  onSaveClicked: null,
-  onChangeStatus: null,
-  onAddCommentClicked: null,
-  statusOptions: []
 }
 
 export default LeaseUpSidebar

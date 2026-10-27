@@ -13,7 +13,7 @@ import StatusItemShape from '../../../utils/shapes/StatusItemShape'
  * Note that the statusItems prop won't be sorted by this component,
  * the items should be sorted before they're passed in for performance reasons.
  */
-const StatusItems = ({ statusItems, limit, height }) => {
+const StatusItems = ({ statusItems = [], limit = Number.MAX_VALUE, height = null }) => {
   const limitedItems = statusItems.slice(0, limit)
 
   const itemBoxStyles = height ? { height, overflow: 'scroll' } : {}
@@ -31,12 +31,6 @@ StatusItems.propTypes = {
   limit: PropTypes.number,
   statusItems: PropTypes.arrayOf(PropTypes.shape(StatusItemShape)),
   height: PropTypes.string
-}
-
-StatusItems.defaultProps = {
-  limit: Number.MAX_VALUE,
-  statusItems: [],
-  height: null
 }
 
 export default StatusItems

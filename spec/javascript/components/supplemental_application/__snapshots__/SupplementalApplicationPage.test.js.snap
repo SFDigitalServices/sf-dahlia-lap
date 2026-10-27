@@ -1177,7 +1177,6 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                             id="form-has_ada_priorities_selected.mobility_impairments"
                             name="has_ada_priorities_selected.mobility_impairments"
                             type="checkbox"
-                            value=""
                           />
                           <label
                             class="form-label"
@@ -1195,7 +1194,6 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                             id="form-has_ada_priorities_selected.vision_impairments"
                             name="has_ada_priorities_selected.vision_impairments"
                             type="checkbox"
-                            value=""
                           />
                           <label
                             class="form-label"
@@ -1213,7 +1211,6 @@ exports[`SupplementalApplicationPage it should render as expected 1`] = `
                             id="form-has_ada_priorities_selected.hearing_impairments"
                             name="has_ada_priorities_selected.hearing_impairments"
                             type="checkbox"
-                            value=""
                           />
                           <label
                             class="form-label"
