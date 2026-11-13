@@ -25,6 +25,28 @@ describe('formatPrice', () => {
   })
 })
 
+describe('formatPhone', () => {
+  test('should add hyphens to an unformatted 10 digit number', () => {
+    expect(formUtils.formatPhone('4155551234')).toBe('415-555-1234')
+  })
+  test('should not change an already formatted number', () => {
+    expect(formUtils.formatPhone('415-555-1234')).toBe('415-555-1234')
+  })
+  test('should normalize other common formats', () => {
+    expect(formUtils.formatPhone('(415) 555-1234')).toBe('415-555-1234')
+    expect(formUtils.formatPhone('1 415 555 1234')).toBe('415-555-1234')
+  })
+  test('should return values that are not 10 digit phone numbers unchanged', () => {
+    expect(formUtils.formatPhone('555-1234')).toBe('555-1234')
+    expect(formUtils.formatPhone('+44 20 7946 0958')).toBe('+44 20 7946 0958')
+  })
+  test('should return empty values unchanged', () => {
+    expect(formUtils.formatPhone(null)).toBeNull()
+    expect(formUtils.formatPhone(undefined)).toBeUndefined()
+    expect(formUtils.formatPhone('')).toBe('')
+  })
+})
+
 describe('formatPercent', () => {
   test('should format numbers correctly', async () => {
     expect(formUtils.formatPercent('10')).toBe('10%')
