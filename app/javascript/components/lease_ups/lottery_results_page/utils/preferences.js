@@ -43,6 +43,19 @@ const PreferenceDefinitions = [
     shortName: 'RTR',
     subtitle: NoSetAside
   },
+  // V-TIR hasn't been observed in lottery results data yet, but it follows the
+  // same V-<code> pattern as every other veteran preference.  if the real code
+  // differs, its bucket still reaches the unfiltered rank with a warning.
+  {
+    id: 'V-TIR',
+    name: 'Veteran with Treasure Island Resident Preference (V-TIR)',
+    subtitle: NoSetAside
+  },
+  {
+    id: 'TIR',
+    name: 'Treasure Island Resident (TIR) Preference',
+    subtitle: NoSetAside
+  },
   {
     id: 'V-COP',
     name: 'Veteran with Certificate of Preference (V-COP)',
