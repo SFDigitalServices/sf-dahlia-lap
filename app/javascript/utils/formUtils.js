@@ -67,6 +67,17 @@ const scrubEmptyValues = (obj, scrubEmptyStrings = false) => {
   return filterValues(obj, valueIsNonEmpty)
 }
 
+// Formats a US phone number as XXX-XXX-XXXX, matching the format Salesforce
+// returns from the /Person API. Values that aren't 10 digits (or 11 with a
+// leading 1) are returned unchanged.
+const formatPhone = (value) => {
+  if (value === null || value === undefined || value === '') return value
+  let digits = value.toString().replace(/\D/g, '')
+  if (digits.length === 11 && digits.startsWith('1')) digits = digits.slice(1)
+  if (digits.length !== 10) return value
+  return `${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}`
+}
+
 const formatNumber = (value) => {
   if (value === '' || value === null || value === undefined) return null
 
@@ -107,5 +118,6 @@ export default {
   toOptions,
   formatPrice,
   formatPercent,
+  formatPhone,
   scrubEmptyValues
 }

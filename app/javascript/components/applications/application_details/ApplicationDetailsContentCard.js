@@ -4,7 +4,7 @@ import { map, isBoolean } from 'lodash'
 import moment from 'moment-timezone'
 
 import arrayUtils from 'utils/arrayUtils'
-import { buildFields } from 'utils/fieldSpecs'
+import { buildFields, formatValue, getFormatType } from 'utils/fieldSpecs'
 
 const PACIFIC_TIMEZONE = 'America/Los_Angeles'
 
@@ -26,19 +26,19 @@ const generateContent = (dataCollection, latestDataCollection, entry, i) => {
   if (isBoolean(value)) {
     value = value ? 'Yes' : 'No'
   }
-  if (
-    latestDataCollection &&
-    latestDataCollection[key] !== undefined &&
-    latestDataCollection[key] !== null &&
-    latestDataCollection[key] !== value
-  ) {
+  // Format the latest value the same way as the original so values that only
+  // differ in formatting (e.g. phone numbers) are not flagged as updated.
+  const rawLatestValue = latestDataCollection?.[key]
+  const latestValue =
+    rawLatestValue == null ? rawLatestValue : formatValue(rawLatestValue, getFormatType(key))
+  if (latestValue != null && latestValue !== value) {
     return (
       <div className='margin-bottom--half' key={i}>
         <div className='application-updated-row'>
           <h4 className='t-sans t-small t-bold no-margin inline'>{label}</h4>
           <span className='application-updated-alert'>{updated}</span>
         </div>
-        <p className='latest-value'>{latestDataCollection[key]}</p>
+        <p className='latest-value'>{latestValue}</p>
         <p className='previous-value'>
           <span className='strike-through'>{value}</span>&nbsp;(previous)
         </p>
