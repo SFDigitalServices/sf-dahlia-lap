@@ -44,6 +44,12 @@ const PreferenceDefinitions = [
     subtitle: NoSetAside
   },
   {
+    id: 'RTR-S',
+    name: 'Right to Return - Sunnydale',
+    shortName: 'RTR-S',
+    subtitle: NoSetAside
+  },
+  {
     id: 'V-COP',
     name: 'Veteran with Certificate of Preference (V-COP)',
     subtitle: Units100Pct
