@@ -304,6 +304,8 @@ describe('Process Lottery Buckets', () => {
         ['vet', true],
         ['tir', false]
       ])
+    })
+
     test('it should give Right to Return - Sunnydale its own column', () => {
       const [, ...buckets] = massageLotteryBuckets([
         {
