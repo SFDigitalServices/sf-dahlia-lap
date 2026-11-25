@@ -42,7 +42,14 @@ export const renderUnitOption = (
   )
 }
 
-const UnitDropdown = ({ unit, availableUnits, onChange, disabled, placeholder, id }) => {
+const UnitDropdown = ({
+  unit = null,
+  availableUnits = [],
+  onChange,
+  disabled = false,
+  placeholder = 'Select One...',
+  id = 'form-lease_unit'
+}) => {
   const buttonClasses = [
     'dropdown-button',
     'dropdown-select',
@@ -95,14 +102,6 @@ UnitDropdown.propTypes = {
   placeholder: PropTypes.string,
   unit: PropTypes.string,
   id: PropTypes.string
-}
-
-UnitDropdown.defaultProps = {
-  availableUnits: [],
-  disabled: false,
-  placeholder: 'Select One...',
-  unit: null,
-  id: 'form-lease_unit'
 }
 
 export default UnitDropdown

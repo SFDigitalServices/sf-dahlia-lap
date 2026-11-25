@@ -33,12 +33,28 @@ const units = [
 ]
 
 const getScreen = (propOverrides = {}) =>
-  render(<UnitDropdown onChange={ON_CHANGE} availableUnits={[]} {...propOverrides} />)
+  render(<UnitDropdown onChange={ON_CHANGE} {...propOverrides} />)
 
 describe('UnitDropdown', () => {
   test('it renders a select', () => {
     getScreen()
     expect(screen.getByRole('combobox')).toBeInTheDocument()
+  })
+
+  test('defaults to no available units and the lease unit ID', () => {
+    getScreen()
+
+    const button = screen.getByRole('button')
+    expect(button).toHaveTextContent('No Units Available')
+    expect(button).toHaveAttribute('id', 'form-lease_unit')
+    expect(button).toBeEnabled()
+  })
+
+  test('preserves an explicit placeholder and ID', () => {
+    getScreen({ availableUnits: units, placeholder: 'Choose a unit', id: 'custom-unit' })
+
+    expect(screen.getByRole('button')).toHaveTextContent('Choose a unit')
+    expect(screen.getByRole('button')).toHaveAttribute('id', 'custom-unit')
   })
 
   describe('toggle', () => {

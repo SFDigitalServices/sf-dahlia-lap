@@ -1090,7 +1090,6 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                 id="form-has_ada_priorities_selected.mobility_impairments"
                                 name="has_ada_priorities_selected.mobility_impairments"
                                 type="checkbox"
-                                value=""
                               />
                               <label
                                 class="form-label"
@@ -1116,7 +1115,6 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                 id="form-has_ada_priorities_selected.vision_impairments"
                                 name="has_ada_priorities_selected.vision_impairments"
                                 type="checkbox"
-                                value=""
                               />
                               <label
                                 class="form-label"
@@ -1142,7 +1140,6 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                                 id="form-has_ada_priorities_selected.hearing_impairments"
                                 name="has_ada_priorities_selected.hearing_impairments"
                                 type="checkbox"
-                                value=""
                               />
                               <label
                                 class="form-label"
@@ -1604,7 +1601,6 @@ exports[`ApplicationNewPage should render succesfully 1`] = `
                         id="agreeToTerms"
                         name="terms_acknowledged"
                         type="checkbox"
-                        value=""
                       />
                       <label
                         class="form-label"

@@ -42,6 +42,19 @@ jest.mock('react-select', () => (props) => {
 })
 
 describe('LeaseUpSidebar', () => {
+  test('renders enabled controls and no history when props are omitted', () => {
+    render(<LeaseUpSidebar />)
+
+    expect(screen.queryByText('Status History')).not.toBeInTheDocument()
+    expect(screen.getAllByTestId('lease-up-status-buttons')).toHaveLength(2)
+    screen.getAllByRole('button', { name: 'Save' }).forEach((button) => {
+      expect(button).toBeEnabled()
+    })
+    screen.getAllByRole('button', { name: 'Add a comment' }).forEach((button) => {
+      expect(button).toBeEnabled()
+    })
+  })
+
   describe('when not loading', () => {
     test('should render with empty status items correctly', () => {
       getScreen([])

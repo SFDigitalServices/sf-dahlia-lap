@@ -30,7 +30,7 @@ export const Actions = ({ actions }) => {
   }
 }
 
-const PageHeader = ({ title, content, action, breadcrumbs, background }) => {
+const PageHeader = ({ title, content, action, breadcrumbs = [], background = 'vapor' }) => {
   const hasBreadcrumbs = breadcrumbs.length > 0
   return (
     <header
@@ -54,11 +54,6 @@ const PageHeader = ({ title, content, action, breadcrumbs, background }) => {
       </div>
     </header>
   )
-}
-
-PageHeader.defaultProps = {
-  background: 'vapor',
-  breadcrumbs: []
 }
 
 PageHeader.propTypes = {

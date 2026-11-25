@@ -15,6 +15,21 @@ const CONTENT = 'content1'
 const ACTION = { link: '/export', title: 'Export' }
 
 describe('PageHeader', () => {
+  test('renders with default breadcrumbs and background when props are omitted', () => {
+    render(<PageHeader title={TITLE} />)
+
+    expect(screen.getByRole('banner')).toHaveClass('bg-vapor')
+    expect(screen.getByRole('banner')).not.toHaveClass('has-breadcrumbs')
+    expect(screen.queryByLabelText('breadcrumb')).not.toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(TITLE)
+  })
+
+  test('preserves an explicit background', () => {
+    render(<PageHeader title={TITLE} background='snow' />)
+
+    expect(screen.getByRole('banner')).toHaveClass('bg-snow')
+  })
+
   const getScreen = (breadcrumbs, { action = ACTION, title = TITLE, content = CONTENT } = {}) => {
     return render(
       <PageHeader title={title} content={content} action={action} breadcrumbs={breadcrumbs} />

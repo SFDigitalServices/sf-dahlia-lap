@@ -19,6 +19,13 @@ const getScreen = (propOverrides = {}) =>
   )
 
 describe('SubstatusDropdown', () => {
+  test('renders without substatus options', () => {
+    render(<SubstatusDropdown onChange={ON_CHANGE} status='Appealed' />)
+
+    expect(screen.getByRole('button')).toHaveTextContent('Select one...')
+    expect(screen.getByRole('button')).toBeEnabled()
+  })
+
   test('it renders a select', () => {
     getScreen()
     expect(screen.getByRole('combobox')).toBeInTheDocument()

@@ -240,7 +240,7 @@ describe('Process Lottery Buckets', () => {
       warn.mockRestore()
     })
 
-    test('it should give Right to Return its own column', () => {
+    test('it should give Right to Return - Hunters View its own column', () => {
       const [, ...buckets] = massageLotteryBuckets([
         {
           preferenceShortCode: 'RTR-H',
@@ -304,6 +304,15 @@ describe('Process Lottery Buckets', () => {
         ['vet', true],
         ['tir', false]
       ])
+    test('it should give Right to Return - Sunnydale its own column', () => {
+      const [, ...buckets] = massageLotteryBuckets([
+        {
+          preferenceShortCode: 'RTR-S',
+          preferenceResults: [{ lotteryNumber: 'one', lotteryRank: 1 }]
+        }
+      ])
+
+      expect(buckets.map((bucket) => bucket.shortCode)).toEqual(['RTR-S'])
     })
 
     test('it should keep applicants from an unmapped preference in the unfiltered rank', () => {

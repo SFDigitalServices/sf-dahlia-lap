@@ -7,13 +7,13 @@ import Select from 'react-select'
 import { COLORS } from 'components/atoms/colors'
 
 const Dropdown = ({
-  items,
-  value,
-  disabled,
+  items = [],
+  value = null,
+  disabled = false,
   onChange,
   renderToggle,
   renderOption,
-  classNamePrefix
+  classNamePrefix = null
 }) => {
   const selectedItem = find(items, { value })
 
@@ -58,10 +58,4 @@ Dropdown.propTypes = {
   value: PropTypes.string
 }
 
-Dropdown.defaultProps = {
-  classNamePrefix: null,
-  disabled: false,
-  items: [],
-  value: null
-}
 export default Dropdown
