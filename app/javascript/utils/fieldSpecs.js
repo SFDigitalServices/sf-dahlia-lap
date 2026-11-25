@@ -4,9 +4,15 @@ import moment from 'moment'
 import formUtils from 'utils/formUtils'
 import utils from 'utils/utils'
 
+const PHONE_FIELDS = new Set(['phone', 'second_phone'])
+
 export const getFormatType = (field) => {
-  if (includes(toLower(field), 'date')) {
+  const lowerField = toLower(field)
+  if (includes(lowerField, 'date')) {
     return 'date'
+  }
+  if (PHONE_FIELDS.has(lowerField)) {
+    return 'phone'
   }
   return null
 }
@@ -32,6 +38,8 @@ export const formatValue = (value, type) => {
     return moment(value).format('L')
   } else if (type === 'currency') {
     return formUtils.formatPrice(value)
+  } else if (type === 'phone') {
+    return formUtils.formatPhone(value)
   } else {
     return value
   }

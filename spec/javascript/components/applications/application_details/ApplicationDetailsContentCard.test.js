@@ -76,6 +76,75 @@ describe('ApplicationDetailsContentCard', () => {
     expect(screen.queryByText('updated')).not.toBeInTheDocument()
   })
 
+  test('formats unformatted phone numbers with hyphens', () => {
+    render(
+      <ApplicationDetailsContentCard
+        dataCollection={{ phone: '4151112222' }}
+        title='Primary Applicant'
+        fields={['phone']}
+      />
+    )
+
+    expect(screen.getByText('415-111-2222')).toBeInTheDocument()
+  })
+
+  test('does not render updated badge when phone numbers only differ in formatting', () => {
+    render(
+      <ApplicationDetailsContentCard
+        dataCollection={{ phone: '4151112222' }}
+        title='Primary Applicant'
+        fields={[{ field: 'phone', label: 'Phone' }]}
+        latestDataCollection={{
+          phone: '415-111-2222',
+          phone_last_modified: '2026-02-26T17:00:00Z'
+        }}
+      />
+    )
+
+    expect(screen.queryByText('updated')).not.toBeInTheDocument()
+    expect(screen.getByText('415-111-2222')).toBeInTheDocument()
+  })
+
+  test('does not render updated badge on an unchanged unformatted phone when another field changes', () => {
+    render(
+      <ApplicationDetailsContentCard
+        dataCollection={{ email: 'old@example.com', phone: '4155551234' }}
+        title='Primary Applicant'
+        fields={[
+          { field: 'email', label: 'Email' },
+          { field: 'phone', label: 'Phone' }
+        ]}
+        latestDataCollection={{
+          email: 'new@example.com',
+          email_last_modified: '2026-02-26T17:00:00Z',
+          phone: '4155551234'
+        }}
+      />
+    )
+
+    expect(screen.getAllByText('updated')).toHaveLength(1)
+    expect(screen.getByText('new@example.com')).toBeInTheDocument()
+    expect(screen.getByText('415-555-1234')).toBeInTheDocument()
+  })
+
+  test('formats both values when an updated phone number is unformatted', () => {
+    render(
+      <ApplicationDetailsContentCard
+        dataCollection={{ phone: '4151112222' }}
+        title='Primary Applicant'
+        fields={[{ field: 'phone', label: 'Phone' }]}
+        latestDataCollection={{
+          phone: '4159999999',
+          phone_last_modified: '2026-02-26T17:00:00Z'
+        }}
+      />
+    )
+
+    expect(screen.getByText('updated')).toBeInTheDocument()
+    expect(screen.getByText('415-999-9999')).toBeInTheDocument()
+    expect(screen.getByText('415-111-2222')).toBeInTheDocument()
+  })
+
   test('formats true booleans and keeps false as default None', () => {
     const fields = [
       { field: 'flag_true', label: 'Flag True' },
